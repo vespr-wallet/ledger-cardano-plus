@@ -1,5 +1,5 @@
-name: ledger_algorand
-description: A Ledger App Plugin for the Algorand blockchain
+name: ledger_cardano
+description: A Ledger App Plugin for the Cardano blockchain
 version: 1.0.0-pre.1
 homepage: https://github.com/RootSoft/ledger-algorand
 repository: https://github.com/RootSoft/ledger-algorand

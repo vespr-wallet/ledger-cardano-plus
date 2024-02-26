@@ -2,8 +2,8 @@ import 'dart:typed_data';
 
 import 'package:ledger_flutter/ledger_flutter.dart';
 
-class AlgorandTransformer extends LedgerTransformer {
-  const AlgorandTransformer();
+class CardanoTransformer extends LedgerTransformer {
+  const CardanoTransformer();
 
   @override
   Future<Uint8List> onTransform(List<Uint8List> transform) async {

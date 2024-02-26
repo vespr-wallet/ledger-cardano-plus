@@ -3,43 +3,54 @@ import 'dart:typed_data';
 import 'package:ledger_algorand/ledger_algorand.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
-/// A [LedgerApp] used to perform BLE operations on a ledger [Algorand]
+/// A [LedgerApp] used to perform BLE operations on a ledger [Cardano]
 /// application.
 ///
-/// https://github.com/LedgerHQ/app-algorand/blob/develop/docs/APDUSPEC.md
-class AlgorandLedgerApp extends LedgerApp {
-  static const errorExecution = 0x6400;
-  static const errorEmptyBuffer = 0x6982;
-  static const errorOutputBufferTooSmall = 0x6983;
-  static const errorCommandNotAllowed = 0x6986;
-  static const errorInsNotSupported = 0x6D00;
-  static const errorClaNotSupported = 0x6E00;
-  static const errorUnknown = 0x6F00;
-  static const success = 0x8000;
+/// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
+class CardanoLedgerApp extends LedgerApp {
+  static const success = 0x9000;
+  static const errMalformedRequestHeader = 0x6E01;
+  static const errBadCla = 0x6E02;
+  static const errUnknownIns = 0x6E03;
+  static const errStillInCall = 0x6E04;
+  static const errInvalidRequestParameters = 0x6E05;
+  static const errInvalidState = 0x6E06;
+  static const errInvalidData = 0x6E07;
+  static const errInvalidBip44Path = 0x6E08;
+  static const errRejectedByUser = 0x6E09;
+  static const errRejectedByPolicy = 0x6E10;
+  static const errDeviceLocked = 0x6E11;
 
   int accountIndex;
   LedgerTransformer? transformer;
 
-  AlgorandLedgerApp(
+  CardanoLedgerApp(
     super.ledger, {
     this.accountIndex = 0,
-    this.transformer = const AlgorandTransformer(),
+    this.transformer = const CardanoTransformer(),
   });
 
   @override
-  Future<AlgorandVersion> getVersion(LedgerDevice device) {
-    return ledger.sendOperation<AlgorandVersion>(
+  Future<CardanoVersion> getVersion(LedgerDevice device) {
+    return ledger.sendOperation<CardanoVersion>(
       device,
-      AlgorandVersionOperation(),
+      CardanoVersionOperation(),
       transformer: transformer,
     );
   }
 
-  @override
+    @override
   Future<List<String>> getAccounts(LedgerDevice device) async {
+   
+    final List<int> bip32Path = [
+      0x8000002C, 
+      0x80000717, 
+      0x80000000 + accountIndex, 
+    ];
+
     return ledger.sendOperation<List<String>>(
       device,
-      AlgorandPublicKeyOperation(accountIndex: accountIndex),
+      CardanoGetPublicKeyOperation(bip32Path: bip32Path),
       transformer: transformer,
     );
   }

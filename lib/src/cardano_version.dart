@@ -1,11 +1,11 @@
-class AlgorandVersion {
+class CardanoVersion {
   final bool testMode;
   final int versionMajor;
   final int versionMinor;
   final int versionPatch;
   final bool locked;
 
-  AlgorandVersion({
+  CardanoVersion({
     required this.testMode,
     required this.versionMajor,
     required this.versionMinor,
@@ -23,7 +23,7 @@ class AlgorandVersion {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is AlgorandVersion &&
+      other is CardanoVersion &&
           runtimeType == other.runtimeType &&
           versionMajor == other.versionMajor &&
           versionMinor == other.versionMinor &&

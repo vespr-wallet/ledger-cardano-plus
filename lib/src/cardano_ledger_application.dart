@@ -12,6 +12,8 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 ///
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 class CardanoLedgerApp extends LedgerApp {
+  static const harden = 0x80000000;
+
   static const success = 0x9000;
   static const errMalformedRequestHeader = 0x6E01;
   static const errBadCla = 0x6E02;
@@ -43,13 +45,13 @@ class CardanoLedgerApp extends LedgerApp {
     );
   }
 
-    @override
+  @override
   Future<List<String>> getAccounts(LedgerDevice device) async {
-   
+    // derivation path for shelley accounts
     final List<int> bip32Path = [
-      0x8000002C, 
-      0x80000717, 
-      0x80000000 + accountIndex, 
+      harden + 1852,
+      harden + 1815,
+      harden + accountIndex,
     ];
 
     return ledger.sendOperation<List<String>>(

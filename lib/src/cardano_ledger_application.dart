@@ -1,6 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:ledger_algorand/ledger_algorand.dart';
+import 'package:ledger_cardano/src/cardano_transformer.dart';
+import 'package:ledger_cardano/src/cardano_version.dart';
+import 'package:ledger_cardano/src/operations/algorand_sign_msgpack_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// A [LedgerApp] used to perform BLE operations on a ledger [Cardano]

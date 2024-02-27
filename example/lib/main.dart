@@ -18,41 +18,47 @@ class _MyAppState extends State<MyApp> {
     options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)),
   );
   late final CardanoLedgerApp cardanoApp = CardanoLedgerApp(ledger);
-  List<LedgerDevice> devices = []; 
+  List<LedgerDevice> devices = [];
   List<String> accounts = [];
   String versionInfo = '';
+  String accountsInfo = '';
 
   void _scanForDevices() async {
-    devices.clear(); // Clear existing devices before scanning
+    devices.clear();
     await for (final device in ledger.scan()) {
       setState(() {
-        devices.add(device); // Add scanned devices to the list
+        devices.add(device);
       });
     }
   }
 
-  void _fetchAccounts(LedgerDevice device) async {
+  Future<void> _fetchAccounts(LedgerDevice device) async {
     try {
       final fetchedAccounts = await cardanoApp.getAccounts(device);
       setState(() {
         accounts = fetchedAccounts;
+        accountsInfo = 'Fetched Accounts:\n${fetchedAccounts.join('\n')}';
       });
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
 
-  void _fetchVersion(LedgerDevice device) async {
+  Future<void> _fetchVersion(LedgerDevice device) async {
     try {
       final version = await cardanoApp.getVersion(device);
       setState(() {
-        versionInfo = 'Device: ${device.name}\nApp Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}';
+        versionInfo = 'Device: ${device.name}\n'
+            'App Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\n'
+            'Development Version: ${version.testMode ? "Yes" : "No"}';
       });
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+        versionInfo =
+            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
@@ -65,26 +71,46 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Cardano Ledger Test'),
         ),
         body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: _scanForDevices,
-                child: const Text('Scan for Devices'),
-              ),
-              const SizedBox(height: 20), // Add some spacing
-              const Text('Available Devices:'),
-              ...devices.map((device) => ElevatedButton(
-                    onPressed: () {
-                      _fetchAccounts(device);
-                      _fetchVersion(device);
-                    },
-                    child: Text(device.name),
-                  )),
-              if (accounts.isNotEmpty) const Text('Fetched Accounts:'),
-              ...accounts.map((account) => Text(account)),
-              if (versionInfo.isNotEmpty) Text(versionInfo),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: _scanForDevices,
+                  child: const Text('Scan for Devices'),
+                ),
+                const SizedBox(height: 20),
+                const Text('Available Devices:'),
+                ...devices.map((device) => ListTile(
+                      title: Text(device.name),
+                      onTap: () async {
+                        setState(() {
+                          versionInfo = 'Connecting...';
+                          accountsInfo = '';
+                        });
+                        await ledger.connect(device);
+                        await _fetchVersion(device);
+                        await _fetchAccounts(device);
+                        // _fetchVersion(device);
+                      },
+                    )),
+                const SizedBox(height: 20),
+                if (accounts.isNotEmpty) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(accountsInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (versionInfo.isNotEmpty) ...[
+                  const Text('Device Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(versionInfo),
+                  ),
+                ],
+              ],
+            ),
           ),
         ),
       ),

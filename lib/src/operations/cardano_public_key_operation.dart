@@ -9,7 +9,21 @@ class CardanoGetPublicKeyOperation extends LedgerOperation<List<String>> {
 
   CardanoGetPublicKeyOperation({
     required this.bip32Path,
-  });
+  }) {
+    // Validate BIP32 path according to the specifications
+    if (bip32Path.length < 3 || bip32Path.length > 10) {
+      throw Exception('BIP32 path length must be between 3 and 10');
+    }
+    if (bip32Path[0] != 0x8000002C) { // 44' in hex
+      throw Exception("First index must be 44'");
+    }
+    if (bip32Path[1] != 0x80000717) { // 1815' in hex
+      throw Exception("Second index must be 1815'");
+    }
+    if ((bip32Path[2] & 0x80000000) == 0) { // Check if third index is hardened
+      throw Exception("Third index must be hardened");
+    }
+  }
 
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) async {
@@ -29,11 +43,16 @@ class CardanoGetPublicKeyOperation extends LedgerOperation<List<String>> {
 
   @override
   Future<List<String>> read(ByteDataReader reader) async {
+    if (reader.remainingLength < 64) { // Public key + chain code is expected to be 64 bytes
+      throw Exception('Not enough bytes to read for the public key and chain code');
+    }
     final publicKey = reader.read(32); // Read the public key
     final chainCode = reader.read(32); // Read the chain code
 
-    // Process the public key and chain code as needed
-    // This example simply returns the public key as a hex string; adjust as necessary
-    return [publicKey.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join('')];
+    // Concatenate the public key and chain code, then convert to hex string
+    final extendedPublicKey = publicKey + chainCode;
+    final extendedPublicKeyHex = extendedPublicKey.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join('');
+
+    return [extendedPublicKeyHex];
   }
 }

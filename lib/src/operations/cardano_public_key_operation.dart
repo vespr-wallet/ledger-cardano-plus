@@ -32,8 +32,8 @@ class CardanoGetPublicKeyOperation extends LedgerOperation<List<String>> {
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) async {
     writer.writeUint8(0xD7); // CLA
-    writer.writeUint8(0x10); // INS for Get Extended Public Key
-    writer.writeUint8(0x00); // P1 unused
+    writer.writeUint8(0x11); // INS for Get Extended Public Key
+    writer.writeUint8(0x01); // P1 unused
     writer.writeUint8(0x00); // P2 unused
     writer.writeUint8(bip32Path.length * 4 +
         1); // Lc: 1 byte for path length + 4 bytes for each path element
@@ -48,17 +48,18 @@ class CardanoGetPublicKeyOperation extends LedgerOperation<List<String>> {
 
   @override
   Future<List<String>> read(ByteDataReader reader) async {
-    if (reader.remainingLength < 64) {
-      // Public key + chain code is expected to be 64 bytes
-      throw Exception(
-          'Not enough bytes to read for the public key and chain code');
-    }
-    final publicKey = reader.read(32); // Read the public key
-    final chainCode = reader.read(32); // Read the chain code
+    // if (reader.remainingLength < 64) {
+    //   // Public key + chain code is expected to be 64 bytes
+    //   throw Exception(
+    //       'Not enough bytes to read for the public key and chain code');
+    // }
+    // final publicKey = reader.read(32); // Read the public key
+    // final chainCode = reader.read(32); // Read the chain code
 
-    // Concatenate the public key and chain code, then convert to hex string
-    final extendedPublicKey = publicKey + chainCode;
-    final extendedPublicKeyHex = extendedPublicKey
+    // // Concatenate the public key and chain code, then convert to hex string
+    // final extendedPublicKey = publicKey + chainCode;
+    final extendedPublicKeyHex = reader
+        .read(reader.remainingLength)
         .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
         .join('');
 

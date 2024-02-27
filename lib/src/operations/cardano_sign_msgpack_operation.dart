@@ -4,7 +4,7 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// APDU Protocol
 /// https://github.com/LedgerHQ/app-algorand/blob/develop/docs/APDUSPEC.md
-class AlgorandSignMsgPackOperation extends LedgerOperation<Uint8List> {
+class CardanoSignMsgPackOperation extends LedgerOperation<Uint8List> {
   static const headerSize = 5;
   static const chunkSize = 0xFF;
 
@@ -16,7 +16,7 @@ class AlgorandSignMsgPackOperation extends LedgerOperation<Uint8List> {
   final int accountIndex;
   final Uint8List transaction;
 
-  AlgorandSignMsgPackOperation({
+  CardanoSignMsgPackOperation({
     required this.transaction,
     this.accountIndex = 0,
   });

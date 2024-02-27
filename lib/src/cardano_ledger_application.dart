@@ -2,7 +2,7 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
-import 'package:ledger_cardano/src/operations/algorand_sign_msgpack_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -66,7 +66,7 @@ class CardanoLedgerApp extends LedgerApp {
   ) {
     return ledger.sendOperation<Uint8List>(
       device,
-      AlgorandSignMsgPackOperation(
+      CardanoSignMsgPackOperation(
         accountIndex: accountIndex,
         transaction: transaction,
       ),

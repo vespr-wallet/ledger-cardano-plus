@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:algorand_dart/algorand_dart.dart'; // Ensure this import is correct for Cardano operations
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// APDU Protocol for Cardano

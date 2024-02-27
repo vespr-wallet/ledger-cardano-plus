@@ -31,19 +31,28 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  void _fetchAccountsAndVersion(LedgerDevice device) async {
+  void _fetchAccounts(LedgerDevice device) async {
     try {
-      // Fetch accounts
       final fetchedAccounts = await cardanoApp.getAccounts(device);
-      // Fetch version info
-      final version = await cardanoApp.getVersion(device);
       setState(() {
         accounts = fetchedAccounts;
+      });
+    } on LedgerException catch (e) {
+      setState(() {
+        versionInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+      });
+    }
+  }
+
+  void _fetchVersion(LedgerDevice device) async {
+    try {
+      final version = await cardanoApp.getVersion(device);
+      setState(() {
         versionInfo = 'Device: ${device.name}\nApp Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}';
       });
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo = 'Error: ${e.message}, Code: ${e.errorCode}';
+        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
@@ -66,7 +75,10 @@ class _MyAppState extends State<MyApp> {
               const SizedBox(height: 20), // Add some spacing
               const Text('Available Devices:'),
               ...devices.map((device) => ElevatedButton(
-                    onPressed: () => _fetchAccountsAndVersion(device),
+                    onPressed: () {
+                      _fetchAccounts(device);
+                      _fetchVersion(device);
+                    },
                     child: Text(device.name),
                   )),
               if (accounts.isNotEmpty) const Text('Fetched Accounts:'),

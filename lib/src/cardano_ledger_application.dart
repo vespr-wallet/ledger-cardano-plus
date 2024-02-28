@@ -7,6 +7,7 @@ import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dar
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// A [LedgerApp] used to perform BLE operations on a ledger [Cardano]
@@ -14,8 +15,6 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 ///
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 class CardanoLedgerApp extends LedgerApp {
-  static const harden = 0x80000000;
-
   static const success = 0x9000;
   static const errMalformedRequestHeader = 0x6E01;
   static const errBadCla = 0x6E02;
@@ -100,22 +99,19 @@ class CardanoLedgerApp extends LedgerApp {
       0,
     ];
 
-    // Determine P1 based on whether the address should be displayed on the device
-    final int p1 = displayOnDevice ? 0x02 : 0x01;
+    final int p1 = displayOnDevice ? p1DisplayOnDevice : p1ReturnAddressToHost;
 
     final addressResult = await ledger.sendOperation<String>(
       device,
       CardanoDeriveAddressOperation(
         network: CardanoNetwork.testnet,
         bip32SpendingPath:
-            bip32PaymentPath, // Correctly pass the bip32Path parameter
+            bip32PaymentPath, 
         bip32StakingPath: bip32StakePath,
         p1: p1,
       ),
       transformer: transformer,
     );
-
-    print("Receiving getAddress $addressResult");
 
     return addressResult;
   }

@@ -16,6 +16,8 @@ dependencies:
   ledger_flutter: ^1.0.0
 
   algorand_dart: ^2.0.0-dev.4
+  
+  hex: ^0.2.0
 
 dev_dependencies:
   flutter_test:

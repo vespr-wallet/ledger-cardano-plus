@@ -6,6 +6,7 @@ import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.d
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// A [LedgerApp] used to perform BLE operations on a ledger [Cardano]
@@ -28,8 +29,8 @@ class CardanoLedgerApp extends LedgerApp {
   static const errRejectedByPolicy = 0x6E10;
   static const errDeviceLocked = 0x6E11;
 
-  int accountIndex;
-  LedgerTransformer? transformer;
+  final int accountIndex;
+  final LedgerTransformer? transformer;
 
   CardanoLedgerApp(
     super.ledger, {
@@ -77,52 +78,47 @@ class CardanoLedgerApp extends LedgerApp {
       transformer: transformer,
     );
 
-    return [...paymentPart,...stakePart];
+    return [...paymentPart, ...stakePart];
   }
 
- Future<List<String>> deriveAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
-  // Derivation path for shelley accounts
-  final List<int> bip32PaymentPath = [
-    harden + 1852,
-    harden + 1815,
-    harden + accountIndex,
-    0,
-    0,
-  ];
+  Future<String> deriveAddress(LedgerDevice device,
+      {bool displayOnDevice = false}) async {
+    // Derivation path for shelley accounts
+    final List<int> bip32PaymentPath = [
+      harden + 1852,
+      harden + 1815,
+      harden + accountIndex,
+      0,
+      0,
+    ];
 
-  final List<int> bip32StakePath = [
-    harden + 1852,
-    harden + 1815,
-    harden + accountIndex,
-    2,
-    0,
-  ];
+    final List<int> bip32StakePath = [
+      harden + 1852,
+      harden + 1815,
+      harden + accountIndex,
+      2,
+      0,
+    ];
 
-  // Determine P1 based on whether the address should be displayed on the device
-  final int p1 = displayOnDevice ? 0x02 : 0x01;
+    // Determine P1 based on whether the address should be displayed on the device
+    final int p1 = displayOnDevice ? 0x02 : 0x01;
 
-  // Assuming you need to handle both paths, call the operation for each path separately
-  final paymentAddressResult = await ledger.sendOperation<List<String>>(
-    device,
-    CardanoDeriveAddressOperation(
-      bip32Path: bip32PaymentPath, // Correctly pass the bip32Path parameter
-      p1: p1,
-    ),
-    transformer: transformer,
-  );
+    final addressResult = await ledger.sendOperation<String>(
+      device,
+      CardanoDeriveAddressOperation(
+        network: CardanoNetwork.testnet,
+        bip32SpendingPath:
+            bip32PaymentPath, // Correctly pass the bip32Path parameter
+        bip32StakingPath: bip32StakePath,
+        p1: p1,
+      ),
+      transformer: transformer,
+    );
 
-  final stakeAddressResult = await ledger.sendOperation<List<String>>(
-    device,
-    CardanoDeriveAddressOperation(
-      bip32Path: bip32StakePath, // Correctly pass the bip32Path parameter
-      p1: p1,
-    ),
-    transformer: transformer,
-  );
+    print("Receiving getAddress $addressResult");
 
-  // Combine or handle the results as needed
-  return [...paymentAddressResult, ...stakeAddressResult];
-}
+    return addressResult;
+  }
 
   @override
   Future<Uint8List> signTransaction(

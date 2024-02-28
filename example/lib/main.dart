@@ -34,13 +34,13 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _fetchAccounts(LedgerDevice device) async {
     try {
-                  print('hello');
+      print('hello');
       final fetchedAccounts = await cardanoApp.deriveAddress(device);
-                        print('hello2');
+      print('hello2');
 
       setState(() {
-        accounts = fetchedAccounts;
-        accountsInfo = 'Fetched Accounts:\n${fetchedAccounts.join('\n')}';
+        accounts = [fetchedAccounts];
+        accountsInfo = 'Fetched Accounts:\n${[fetchedAccounts].join('\n')}';
         print(accountsInfo);
       });
     } on LedgerException catch (e) {
@@ -48,10 +48,12 @@ class _MyAppState extends State<MyApp> {
         accountsInfo =
             'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
+      print(accountsInfo);
     } catch (e) {
       setState(() {
         accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
       });
+      print(accountsInfo);
     }
   }
 
@@ -97,13 +99,13 @@ class _MyAppState extends State<MyApp> {
                           accountsInfo = '';
                         });
                         await ledger.connect(device);
-                        // await _fetchVersion(device);
+                        await _fetchVersion(device);
                         await _fetchAccounts(device);
                         // _fetchVersion(device);
                       },
                     )),
                 const SizedBox(height: 20),
-                if (accounts.isNotEmpty) ...[
+                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(accountsInfo),

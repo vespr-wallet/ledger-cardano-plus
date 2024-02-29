@@ -55,11 +55,9 @@ enum ReturnType {
 }
 
 enum InstructionType {
-  // GET_VERSION = 0x00,
   // GET_SERIAL = 0x01,
 
   // GET_EXT_PUBLIC_KEY = 0x10,
-  // DERIVE_ADDRESS = 0x11,
   // DERIVE_NATIVE_SCRIPT_HASH = 0x12,
 
   // SIGN_TX = 0x21,
@@ -69,7 +67,9 @@ enum InstructionType {
   // RUN_TESTS = 0xf0,
 
   deriveAddress(insValue: 0x11),
-  getVersion(insValue: 0x00);
+  getVersion(insValue: 0x00),
+  getExtendedPublicKey(insValue: 0x10);
+  
 
   final int insValue;
 

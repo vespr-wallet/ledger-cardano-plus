@@ -52,6 +52,26 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> _fetchAccount(LedgerDevice device) async {
+    try {
+      final fetchedAccounts = await cardanoApp.getAccounts(device);
+
+      setState(() {
+        accounts = fetchedAccounts;
+        accountsInfo = 'Fetched Accounts:\n${fetchedAccounts.join('\n')}';
+      });
+    } on LedgerException catch (e) {
+      setState(() {
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+      });
+    } catch (e) {
+      setState(() {
+        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+      });
+    }
+  }
+
   Future<void> _fetchVersion(LedgerDevice device) async {
     try {
       final version = await cardanoApp.getVersion(device);
@@ -94,8 +114,9 @@ class _MyAppState extends State<MyApp> {
                           accountsInfo = '';
                         });
                         await ledger.connect(device);
-                        await _fetchVersion(device);
-                        await _fetchAccounts(device);
+                        // await _fetchVersion(device);
+                        // await _fetchAccounts(device);
+                        await _fetchAccount(device);
                         // _fetchVersion(device);
                       },
                     )),

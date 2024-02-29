@@ -99,16 +99,12 @@ class CardanoLedgerApp extends LedgerApp {
       0,
     ];
 
-    final int p1 = displayOnDevice ? p1DisplayOnDevice : p1ReturnAddressToHost;
-
     final addressResult = await ledger.sendOperation<String>(
       device,
       CardanoDeriveAddressOperation(
         network: CardanoNetwork.testnet,
-        bip32SpendingPath:
-            bip32PaymentPath, 
+        bip32SpendingPath: bip32PaymentPath,
         bip32StakingPath: bip32StakePath,
-        p1: p1,
       ),
       transformer: transformer,
     );

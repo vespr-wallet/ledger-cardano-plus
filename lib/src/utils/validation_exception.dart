@@ -7,6 +7,14 @@ class ValidationException implements Exception {
   @override
   String toString() => message;
 
+  static Future<T> runSafely<T>(Future<T> Function() operation) async {
+    try {
+      return await operation();
+    } catch (e) {
+      throw ValidationException(e.toString());
+    }
+  }
+
   static void validateBip32Path(
       List<int> bipPath, String pathType, List<int> validFourthIndices) {
     if (bipPath.length != 5) {

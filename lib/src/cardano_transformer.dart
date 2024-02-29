@@ -7,7 +7,6 @@ class CardanoTransformer extends LedgerTransformer {
 
   @override
   Future<Uint8List> onTransform(List<Uint8List> transform) async {
-    print("onTransform called");
     if (transform.isEmpty) {
       throw LedgerException(message: 'No response data from Ledger.');
     }

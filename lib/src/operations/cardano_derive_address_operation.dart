@@ -1,50 +1,29 @@
 import 'dart:typed_data';
+import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:hex/hex.dart';
 
-class CardanoDeriveAddressOperation extends LedgerOperation<String> {
+class CardanoDeriveAddressOperation extends CardanoLedgerOperation<String> {
   final List<int> bip32SpendingPath;
   final List<int> bip32StakingPath;
   static const int harden = 0x80000000;
-  final int p1; // P1 parameter to indicate the request type
   final CardanoNetwork network; // Network parameter
 
   CardanoDeriveAddressOperation({
     required this.bip32SpendingPath,
     required this.bip32StakingPath,
     required this.network,
-    this.p1 = p1ReturnAddressToHost, // Default to P1_RETURN for returning address to host
-  }) {
+  }) : super(
+          ins: InstructionType.deriveAddress,
+          p1: ReturnType.returnData,
+          p2: 0x00,
+        ) {
     // Validate BIP44 path according to the specifications
     ValidationException.validateBip32Path(
         bip32SpendingPath, "Spending", [0, 1]);
     ValidationException.validateBip32Path(bip32StakingPath, "Staking", [2]);
-  }
-
-  @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) async {
-    try {
-      writer.writeUint8(claCardano); // CLA
-      writer.writeUint8(insDeriveAddress); // INS for Derive Address
-      writer.writeUint8(p1ReturnAddressToHost); // P1: request type
-      writer.writeUint8(p2Unused); // P2: unused
-
-      final otherWriter = ByteDataWriter();
-      // ADDRESS TYPE: AddressType.BASE_PAYMENT_KEY_STAKE_KEY
-      otherWriter.writeUint8(0);
-      otherWriter.writeUint8(network.networkId);
-      appendSpendingDataSource(otherWriter, bip32SpendingPath);
-      appendStakingDataSource(otherWriter, bip32StakingPath);
-
-      writer.writeUint8(otherWriter.toBytes().length);
-      writer.write(otherWriter.toBytes());
-      return [writer.toBytes()];
-    } catch (err) {
-      return Future.error(err);
-    }
   }
 
   static void appendSpendingDataSource(
@@ -66,8 +45,17 @@ class CardanoDeriveAddressOperation extends LedgerOperation<String> {
   }
 
   @override
-  Future<String> read(ByteDataReader reader) async {
+  Future<String> readData(ByteDataReader reader) async {
     final addressBytes = reader.read(reader.remainingLength);
     return HEX.encode(addressBytes);
+  }
+
+  @override
+  Future<Uint8List> writeData(ByteDataWriter writer) async {
+    writer.writeUint8(0);
+    writer.writeUint8(network.networkId);
+    appendSpendingDataSource(writer, bip32SpendingPath);
+    appendStakingDataSource(writer, bip32StakingPath);
+    return writer.toBytes();
   }
 }

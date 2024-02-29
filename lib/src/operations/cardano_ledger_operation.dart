@@ -23,17 +23,20 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
         writer.writeUint8(ins.insValue); // INS for Derive Address
         writer.writeUint8(p1.p1Value); // P1: request type
         writer.writeUint8(p2); // P2: unused
-        final otherWriter = ByteDataWriter();
-        final data = await writeData(otherWriter);
-        if (data.isNotEmpty) {
-          if (data.length > 255) {
-            throw ValidationException(
-              'Data length must be less than or equal to 255',
-            );
-          }
-          writer.writeUint8(data.length);
-          writer.write(data);
+          final otherWriter = ByteDataWriter();
+          final data = await writeData(otherWriter);
+          if (data.isNotEmpty) {
+            if (data.length > 255) {
+              throw ValidationException(
+                'Data length must be less than or equal to 255',
+              );
+            }
+            if (ins == InstructionType.deriveAddress) {
+              writer.writeUint8(data.length);
+            }
+            writer.write(data);
         }
+
         return [writer.toBytes()];
       });
 
@@ -65,7 +68,8 @@ enum InstructionType {
 
   // RUN_TESTS = 0xf0,
 
-  deriveAddress(insValue: 0x11);
+  deriveAddress(insValue: 0x11),
+  getVersion(insValue: 0x00);
 
   final int insValue;
 

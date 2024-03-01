@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -42,6 +43,14 @@ class CardanoLedgerApp extends LedgerApp {
     return ledger.sendOperation<CardanoVersion>(
       device,
       CardanoVersionOperation(),
+      transformer: transformer,
+    );
+  }
+
+  getSerialNumber(LedgerDevice device) {
+    return ledger.sendOperation<String>(
+      device,
+      CardanoGetSerialOperation(),
       transformer: transformer,
     );
   }

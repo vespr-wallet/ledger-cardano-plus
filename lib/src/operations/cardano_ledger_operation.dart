@@ -23,18 +23,18 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
         writer.writeUint8(ins.insValue); // INS for Derive Address
         writer.writeUint8(p1.p1Value); // P1: request type
         writer.writeUint8(p2); // P2: unused
-          final otherWriter = ByteDataWriter();
-          final data = await writeData(otherWriter);
-          if (data.isNotEmpty) {
-            if (data.length > 255) {
-              throw ValidationException(
-                'Data length must be less than or equal to 255',
-              );
-            }
-            if (ins == InstructionType.deriveAddress) {
-              writer.writeUint8(data.length);
-            }
-            writer.write(data);
+        final otherWriter = ByteDataWriter();
+        final data = await writeData(otherWriter);
+        if (data.isNotEmpty) {
+          if (data.length > 255) {
+            throw ValidationException(
+              'Data length must be less than or equal to 255',
+            );
+          }
+          if (ins == InstructionType.deriveAddress) {
+            writer.writeUint8(data.length);
+          }
+          writer.write(data);
         }
 
         return [writer.toBytes()];
@@ -57,7 +57,6 @@ enum ReturnType {
 enum InstructionType {
   // GET_SERIAL = 0x01,
 
-  // GET_EXT_PUBLIC_KEY = 0x10,
   // DERIVE_NATIVE_SCRIPT_HASH = 0x12,
 
   // SIGN_TX = 0x21,
@@ -68,8 +67,9 @@ enum InstructionType {
 
   deriveAddress(insValue: 0x11),
   getVersion(insValue: 0x00),
-  getExtendedPublicKey(insValue: 0x10);
-  
+  getExtendedPublicKey(insValue: 0x10),
+  getSerial(insValue: 0x01);
+  // deriveNativeScriptHash(insValue: 0x12),
 
   final int insValue;
 

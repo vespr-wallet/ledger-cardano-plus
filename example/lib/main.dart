@@ -72,6 +72,23 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> _fetchSerial(LedgerDevice device) async {
+    try {
+      final serial = await cardanoApp.getSerialNumber(device);
+      setState(() {
+        versionInfo = 'Device: ${device.name}\n'
+            'Serial: $serial\n';
+      });
+
+      print('Serial: $serial');
+    } on LedgerException catch (e) {
+      setState(() {
+        versionInfo =
+            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+      });
+    }
+  }
+
   Future<void> _fetchVersion(LedgerDevice device) async {
     try {
       final version = await cardanoApp.getVersion(device);
@@ -116,7 +133,8 @@ class _MyAppState extends State<MyApp> {
                         await ledger.connect(device);
                         // await _fetchVersion(device);
                         // await _fetchAccounts(device);
-                        await _fetchAccount(device);
+                        // await _fetchAccount(device);
+                        await _fetchSerial(device);
                         // _fetchVersion(device);
                       },
                     )),

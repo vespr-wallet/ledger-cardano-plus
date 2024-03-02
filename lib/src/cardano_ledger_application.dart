@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
+import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
@@ -15,7 +16,8 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 /// application.
 ///
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
-class CardanoLedgerApp extends LedgerApp {
+/// https://github.com/cardano-foundation/ledgerjs-hw-app-cardano
+class CardanoLedgerApp {
   static const success = 0x9000;
   static const errMalformedRequestHeader = 0x6E01;
   static const errBadCla = 0x6E02;
@@ -29,16 +31,16 @@ class CardanoLedgerApp extends LedgerApp {
   static const errRejectedByPolicy = 0x6E10;
   static const errDeviceLocked = 0x6E11;
 
+  final Ledger ledger;
   final int accountIndex;
   final LedgerTransformer? transformer;
 
   CardanoLedgerApp(
-    super.ledger, {
+    this.ledger, {
     this.accountIndex = 0,
     this.transformer = const CardanoTransformer(),
   });
 
-  @override
   Future<CardanoVersion> getVersion(LedgerDevice device) {
     return ledger.sendOperation<CardanoVersion>(
       device,
@@ -55,38 +57,21 @@ class CardanoLedgerApp extends LedgerApp {
     );
   }
 
-  @override
-  Future<List<String>> getAccounts(LedgerDevice device) async {
+  Future<ExtendedPublicKey> getExtendedPublicKey(LedgerDevice device) async {
     // derivation path for shelley accounts
-    final List<int> bip32PaymentPath = [
+    final List<int> bip32ExtendedPublicKeyPath = [
       harden + 1852,
       harden + 1815,
-      harden + accountIndex,
-      0,
-      0,
+      harden + accountIndex
     ];
 
-    final List<int> bip32StakePath = [
-      harden + 1852,
-      harden + 1815,
-      harden + accountIndex,
-      2,
-      0,
-    ];
-
-    final paymentPart = await ledger.sendOperation<List<String>>(
+    final xPubKey = await ledger.sendOperation<ExtendedPublicKey>(
       device,
-      CardanoGetPublicKeyOperation(bip32Path: bip32PaymentPath),
+      GetExtendedPublicKeyOperation(bip32Path: bip32ExtendedPublicKeyPath),
       transformer: transformer,
     );
 
-    final stakePart = await ledger.sendOperation<List<String>>(
-      device,
-      CardanoGetPublicKeyOperation(bip32Path: bip32StakePath),
-      transformer: transformer,
-    );
-
-    return [...paymentPart, ...stakePart];
+    return xPubKey;
   }
 
   Future<String> deriveAddress(LedgerDevice device,
@@ -121,7 +106,6 @@ class CardanoLedgerApp extends LedgerApp {
     return addressResult;
   }
 
-  @override
   Future<Uint8List> signTransaction(
     LedgerDevice device,
     Uint8List transaction,
@@ -136,7 +120,6 @@ class CardanoLedgerApp extends LedgerApp {
     );
   }
 
-  @override
   Future<List<Uint8List>> signTransactions(
     LedgerDevice device,
     List<Uint8List> transactions,

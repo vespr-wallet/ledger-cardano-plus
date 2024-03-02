@@ -31,7 +31,7 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
               'Data length must be less than or equal to 255',
             );
           }
-          if (ins == InstructionType.deriveAddress) {
+          if (ins.prependDataLength) {
             writer.writeUint8(data.length);
           }
           writer.write(data);
@@ -55,8 +55,6 @@ enum ReturnType {
 }
 
 enum InstructionType {
-  // GET_SERIAL = 0x01,
-
   // DERIVE_NATIVE_SCRIPT_HASH = 0x12,
 
   // SIGN_TX = 0x21,
@@ -65,13 +63,15 @@ enum InstructionType {
 
   // RUN_TESTS = 0xf0,
 
-  deriveAddress(insValue: 0x11),
-  getVersion(insValue: 0x00),
-  getExtendedPublicKey(insValue: 0x10),
-  getSerial(insValue: 0x01);
+  deriveAddress(insValue: 0x11, prependDataLength: true),
+  getVersion(insValue: 0x00, prependDataLength: false),
+  getExtendedPublicKey(insValue: 0x10, prependDataLength: false),
+  getSerial(insValue: 0x01, prependDataLength: false);
   // deriveNativeScriptHash(insValue: 0x12),
 
   final int insValue;
+  final bool prependDataLength;
 
-  const InstructionType({required this.insValue});
+  const InstructionType(
+      {required this.insValue, required this.prependDataLength});
 }

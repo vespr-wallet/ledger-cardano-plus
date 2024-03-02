@@ -54,11 +54,12 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _fetchAccount(LedgerDevice device) async {
     try {
-      final fetchedAccounts = await cardanoApp.getAccounts(device);
+      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(device);
 
       setState(() {
-        accounts = fetchedAccounts;
-        accountsInfo = 'Fetched Accounts:\n${fetchedAccounts.join('\n')}';
+        accounts = [fetchedAccounts.publicKeyHex];
+        accountsInfo =
+            'Fetched Accounts:\n${[fetchedAccounts.publicKeyHex].join('\n')}';
       });
     } on LedgerException catch (e) {
       setState(() {

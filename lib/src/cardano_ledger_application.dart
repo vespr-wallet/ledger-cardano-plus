@@ -10,6 +10,7 @@ import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart'
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 /// A [LedgerApp] used to perform BLE operations on a ledger [Cardano]
@@ -35,7 +36,7 @@ class CardanoLedgerApp {
   final int accountIndex;
   final LedgerTransformer? transformer;
 
-  CardanoLedgerApp(
+  const CardanoLedgerApp(
     this.ledger, {
     this.accountIndex = 0,
     this.transformer = const CardanoTransformer(),
@@ -49,7 +50,7 @@ class CardanoLedgerApp {
     );
   }
 
-  getSerialNumber(LedgerDevice device) {
+  Future<String> getSerialNumber(LedgerDevice device) {
     return ledger.sendOperation<String>(
       device,
       CardanoGetSerialOperation(),
@@ -57,21 +58,75 @@ class CardanoLedgerApp {
     );
   }
 
-  Future<ExtendedPublicKey> getExtendedPublicKey(LedgerDevice device) async {
-    // derivation path for shelley accounts
-    final List<int> bip32ExtendedPublicKeyPath = [
-      harden + 1852,
-      harden + 1815,
-      harden + accountIndex
-    ];
+  Future<ExtendedPublicKey> getExtendedPublicKey(
+    LedgerDevice device, {
+    required ExtendedPublicKeyRequest request,
+  }) async =>
+      (await getExtendedPublicKeys(device, requests: [request]))[0];
 
-    final xPubKey = await ledger.sendOperation<ExtendedPublicKey>(
-      device,
-      GetExtendedPublicKeyOperation(bip32Path: bip32ExtendedPublicKeyPath),
-      transformer: transformer,
-    );
+  Future<List<ExtendedPublicKey>> getExtendedPublicKeys(
+    LedgerDevice device, {
+    required List<ExtendedPublicKeyRequest> requests,
+  }) async {
+    final List<List<int>> derivationPaths = requests
+        .map(
+          (request) => switch (request) {
+            ExtendedPublicKeyRequest_Shelley() => [
+                harden + 1852,
+                harden + 1815,
+                harden + request.accountIndex,
+              ],
+            ExtendedPublicKeyRequest_Byron() => [
+                harden + 44,
+                harden + 1815,
+                harden + accountIndex,
+                //TODO: For Alex: Check if this is the only valid Byron derivation path
+              ],
+            ExtendedPublicKeyRequest_Custom() => request.customPath,
+          },
+        )
+        .toList();
 
-    return xPubKey;
+    final List<ExtendedPublicKey> xPubKeys = [];
+    for (final request in requests) {
+      String accountType = "Unknown"; 
+      List<int> derPath = [];
+      if (request is ExtendedPublicKeyRequest_Shelley) {
+        accountType = "Shelley";
+        derPath = [
+          harden + 1852,
+          harden + 1815,
+          harden + request.accountIndex,
+        ];
+      } else if (request is ExtendedPublicKeyRequest_Byron) {
+        accountType = "Byron";
+        derPath = [
+          harden + 44,
+          harden + 1815,
+          harden + accountIndex,
+        ];
+      } else if (request is ExtendedPublicKeyRequest_Custom) {
+        accountType = "Custom";
+        derPath = request.customPath;
+      }
+      final operation = GetExtendedPublicKeyOperation(bip32Path: derPath);
+      operation.accountType = accountType; 
+      xPubKeys.add(
+        await ledger.sendOperation<ExtendedPublicKey>(
+          device,
+          operation,
+          transformer: transformer,
+        ),
+      );
+    }
+
+    if (derivationPaths.length != xPubKeys.length) {
+      throw ValidationException(
+        "getExtendedPublicKey returned ${xPubKeys.length} xPub keys ; ${derivationPaths.length} xPubs expected",
+      );
+    }
+
+    return xPubKeys;
   }
 
   Future<String> deriveAddress(LedgerDevice device,

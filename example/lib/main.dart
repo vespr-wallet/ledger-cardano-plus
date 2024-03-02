@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_cardano/src/models/extended_public_key.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -32,48 +34,32 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  Future<void> _fetchAccounts(LedgerDevice device) async {
-    try {
-      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(device);
-
-      setState(() {
-        accounts = [fetchedAccounts.publicKeyHex];
-        accountsInfo =
-            'Fetched Account:\n${[fetchedAccounts.publicKeyHex].join('\n')}';
-      });
-    } on LedgerException catch (e) {
-      setState(() {
-        accountsInfo =
-            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
-      });
-    } catch (e) {
-      setState(() {
-        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
-      });
-    }
-  }
-
   Future<void> _fetchAccount(LedgerDevice device) async {
     try {
-      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(device);
-
+      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
+        device,
+        request: const ExtendedPublicKeyRequest_Byron(),
+      );
+  
       setState(() {
         accounts = [
+          'Account Type: ${fetchedAccounts.accountType}',
           'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
           'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
         ];
-        accountsInfo =
-            'Fetched Accounts:\n${accounts.join('\n')}';
+        accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
       });
+      print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo =
-            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
+      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
       setState(() {
         accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
       });
+      print('Generic Error fetching accounts: ${e.toString()}');
     }
   }
 
@@ -136,11 +122,8 @@ class _MyAppState extends State<MyApp> {
                           accountsInfo = '';
                         });
                         await ledger.connect(device);
-                        // await _fetchVersion(device);
                         await _fetchAccount(device);
-                        // await _fetchAccount(device);
                         await _fetchSerial(device);
-                        // _fetchVersion(device);
                       },
                     )),
                 const SizedBox(height: 20),

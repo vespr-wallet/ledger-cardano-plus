@@ -9,8 +9,11 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
   final ReturnType p1;
   final int p2;
 
-  CardanoLedgerOperation(
-      {required this.ins, required this.p1, required this.p2});
+  CardanoLedgerOperation({
+    required this.ins,
+    required this.p1,
+    required this.p2,
+  });
 
   @override
   Future<T> read(ByteDataReader reader) =>
@@ -66,8 +69,8 @@ enum InstructionType {
   deriveAddress(insValue: 0x11, prependDataLength: true),
   getVersion(insValue: 0x00, prependDataLength: false),
   getExtendedPublicKey(insValue: 0x10, prependDataLength: false),
-  getSerial(insValue: 0x01, prependDataLength: false);
-  // deriveNativeScriptHash(insValue: 0x12),
+  getSerial(insValue: 0x01, prependDataLength: false),
+  deriveNativeScriptHash(insValue: 0x12, prependDataLength: false);
 
   final int insValue;
   final bool prependDataLength;

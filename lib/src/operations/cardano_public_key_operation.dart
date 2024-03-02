@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
+import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'cardano_ledger_operation.dart';
 
@@ -12,22 +13,22 @@ class GetExtendedPublicKeyOperation
   GetExtendedPublicKeyOperation({
     required this.bip32Path,
   }) : super(
-          ins: InstructionType
-              .getExtendedPublicKey, // Use the appropriate InstructionType
+          ins: InstructionType.getExtendedPublicKey,
           p1: ReturnType.unused,
           p2: 0,
         );
 
   @override
   Future<ExtendedPublicKey> readData(ByteDataReader reader) async {
-    final extendedPublicKeyHex = reader
-        .read(reader.remainingLength)
-        .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
-        .join('');
+    final publicKeyBytes = reader.read(32);
+    final chainCodeBytes = reader.read(32);
+
+    final publicKeyHex = hex.encode(publicKeyBytes);
+    final chainCodeHex = hex.encode(chainCodeBytes);
 
     return ExtendedPublicKey(
-      publicKeyHex: extendedPublicKeyHex,
-      chainCodeHex: "??", // TODO fix this
+      publicKeyHex: publicKeyHex,
+      chainCodeHex: chainCodeHex,
     );
   }
 

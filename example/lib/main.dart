@@ -34,11 +34,12 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _fetchAccounts(LedgerDevice device) async {
     try {
-      final fetchedAccounts = await cardanoApp.deriveAddress(device);
+      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(device);
 
       setState(() {
-        accounts = [fetchedAccounts];
-        accountsInfo = 'Fetched Accounts:\n${[fetchedAccounts].join('\n')}';
+        accounts = [fetchedAccounts.publicKeyHex];
+        accountsInfo =
+            'Fetched Account:\n${[fetchedAccounts.publicKeyHex].join('\n')}';
       });
     } on LedgerException catch (e) {
       setState(() {
@@ -57,9 +58,12 @@ class _MyAppState extends State<MyApp> {
       final fetchedAccounts = await cardanoApp.getExtendedPublicKey(device);
 
       setState(() {
-        accounts = [fetchedAccounts.publicKeyHex];
+        accounts = [
+          'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
+          'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
+        ];
         accountsInfo =
-            'Fetched Accounts:\n${[fetchedAccounts.publicKeyHex].join('\n')}';
+            'Fetched Accounts:\n${accounts.join('\n')}';
       });
     } on LedgerException catch (e) {
       setState(() {
@@ -133,7 +137,7 @@ class _MyAppState extends State<MyApp> {
                         });
                         await ledger.connect(device);
                         // await _fetchVersion(device);
-                        // await _fetchAccounts(device);
+                        await _fetchAccount(device);
                         // await _fetchAccount(device);
                         await _fetchSerial(device);
                         // _fetchVersion(device);

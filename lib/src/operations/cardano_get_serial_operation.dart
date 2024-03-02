@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoGetSerialOperation extends CardanoLedgerOperation<String> {
@@ -13,11 +14,7 @@ class CardanoGetSerialOperation extends CardanoLedgerOperation<String> {
   @override
   Future<String> readData(ByteDataReader reader) async {
     final response = reader.read(reader.remainingLength);
-    return bufToHex(response);
-  }
-
-  String bufToHex(Uint8List buffer) {
-    return buffer.map((e) => e.toRadixString(16).padLeft(2, '0')).join('');
+    return hex.encode(response);
   }
 
   @override

@@ -1,9 +1,9 @@
 import 'dart:typed_data';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
+import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
-import 'package:hex/hex.dart';
 
 class CardanoDeriveAddressOperation extends CardanoLedgerOperation<String> {
   final List<int> bip32SpendingPath;
@@ -47,7 +47,7 @@ class CardanoDeriveAddressOperation extends CardanoLedgerOperation<String> {
   @override
   Future<String> readData(ByteDataReader reader) async {
     final addressBytes = reader.read(reader.remainingLength);
-    return HEX.encode(addressBytes);
+    return hex.encode(addressBytes);
   }
 
   @override

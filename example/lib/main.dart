@@ -38,7 +38,7 @@ class _MyAppState extends State<MyApp> {
     try {
       final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
         device,
-        request: const ExtendedPublicKeyRequest_Byron(),
+        request: const ExtendedPublicKeyRequest_Shelley(accountIndex: 0),
       );
   
       setState(() {

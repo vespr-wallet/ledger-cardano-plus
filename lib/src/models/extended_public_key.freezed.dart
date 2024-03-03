@@ -330,6 +330,170 @@ abstract class ExtendedPublicKeyRequest_Byron extends ExtendedPublicKeyRequest {
 }
 
 /// @nodoc
+abstract class _$$ExtendedPublicKeyRequest_StakeImplCopyWith<$Res> {
+  factory _$$ExtendedPublicKeyRequest_StakeImplCopyWith(
+          _$ExtendedPublicKeyRequest_StakeImpl value,
+          $Res Function(_$ExtendedPublicKeyRequest_StakeImpl) then) =
+      __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int accountIndex});
+}
+
+/// @nodoc
+class __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<$Res>
+    extends _$ExtendedPublicKeyRequestCopyWithImpl<$Res,
+        _$ExtendedPublicKeyRequest_StakeImpl>
+    implements _$$ExtendedPublicKeyRequest_StakeImplCopyWith<$Res> {
+  __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl(
+      _$ExtendedPublicKeyRequest_StakeImpl _value,
+      $Res Function(_$ExtendedPublicKeyRequest_StakeImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? accountIndex = null,
+  }) {
+    return _then(_$ExtendedPublicKeyRequest_StakeImpl(
+      accountIndex: null == accountIndex
+          ? _value.accountIndex
+          : accountIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ExtendedPublicKeyRequest_StakeImpl
+    extends ExtendedPublicKeyRequest_Stake {
+  const _$ExtendedPublicKeyRequest_StakeImpl({required this.accountIndex})
+      : super._();
+
+  @override
+  final int accountIndex;
+
+  @override
+  String toString() {
+    return 'ExtendedPublicKeyRequest.stake(accountIndex: $accountIndex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ExtendedPublicKeyRequest_StakeImpl &&
+            (identical(other.accountIndex, accountIndex) ||
+                other.accountIndex == accountIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, accountIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ExtendedPublicKeyRequest_StakeImplCopyWith<
+          _$ExtendedPublicKeyRequest_StakeImpl>
+      get copyWith => __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<
+          _$ExtendedPublicKeyRequest_StakeImpl>(this, _$identity);
+}
+
+abstract class ExtendedPublicKeyRequest_Stake extends ExtendedPublicKeyRequest {
+  const factory ExtendedPublicKeyRequest_Stake(
+      {required final int accountIndex}) = _$ExtendedPublicKeyRequest_StakeImpl;
+  const ExtendedPublicKeyRequest_Stake._() : super._();
+
+  int get accountIndex;
+  @JsonKey(ignore: true)
+  _$$ExtendedPublicKeyRequest_StakeImplCopyWith<
+          _$ExtendedPublicKeyRequest_StakeImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<$Res> {
+  factory _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith(
+          _$ExtendedPublicKeyRequest_CIP36Impl value,
+          $Res Function(_$ExtendedPublicKeyRequest_CIP36Impl) then) =
+      __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int accountIndex});
+}
+
+/// @nodoc
+class __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<$Res>
+    extends _$ExtendedPublicKeyRequestCopyWithImpl<$Res,
+        _$ExtendedPublicKeyRequest_CIP36Impl>
+    implements _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<$Res> {
+  __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl(
+      _$ExtendedPublicKeyRequest_CIP36Impl _value,
+      $Res Function(_$ExtendedPublicKeyRequest_CIP36Impl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? accountIndex = null,
+  }) {
+    return _then(_$ExtendedPublicKeyRequest_CIP36Impl(
+      accountIndex: null == accountIndex
+          ? _value.accountIndex
+          : accountIndex // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ExtendedPublicKeyRequest_CIP36Impl
+    extends ExtendedPublicKeyRequest_CIP36 {
+  const _$ExtendedPublicKeyRequest_CIP36Impl({required this.accountIndex})
+      : super._();
+
+  @override
+  final int accountIndex;
+
+  @override
+  String toString() {
+    return 'ExtendedPublicKeyRequest.cip36(accountIndex: $accountIndex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ExtendedPublicKeyRequest_CIP36Impl &&
+            (identical(other.accountIndex, accountIndex) ||
+                other.accountIndex == accountIndex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, accountIndex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<
+          _$ExtendedPublicKeyRequest_CIP36Impl>
+      get copyWith => __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<
+          _$ExtendedPublicKeyRequest_CIP36Impl>(this, _$identity);
+}
+
+abstract class ExtendedPublicKeyRequest_CIP36 extends ExtendedPublicKeyRequest {
+  const factory ExtendedPublicKeyRequest_CIP36(
+      {required final int accountIndex}) = _$ExtendedPublicKeyRequest_CIP36Impl;
+  const ExtendedPublicKeyRequest_CIP36._() : super._();
+
+  int get accountIndex;
+  @JsonKey(ignore: true)
+  _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<
+          _$ExtendedPublicKeyRequest_CIP36Impl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$$ExtendedPublicKeyRequest_CustomImplCopyWith<$Res> {
   factory _$$ExtendedPublicKeyRequest_CustomImplCopyWith(
           _$ExtendedPublicKeyRequest_CustomImpl value,

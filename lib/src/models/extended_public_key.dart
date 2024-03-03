@@ -25,6 +25,14 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
       // TODO: is there anything that's needed?
       ) = ExtendedPublicKeyRequest_Byron;
 
+  const factory ExtendedPublicKeyRequest.stake({
+    required int accountIndex,
+  }) = ExtendedPublicKeyRequest_Stake;
+
+  const factory ExtendedPublicKeyRequest.cip36({
+    required int accountIndex,
+  }) = ExtendedPublicKeyRequest_CIP36;
+
   // TODO Stake - Cold Keys
 
   // TODO Voting

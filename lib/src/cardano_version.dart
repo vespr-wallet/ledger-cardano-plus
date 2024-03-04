@@ -1,17 +1,19 @@
-class CardanoVersion {
-  final bool testMode;
-  final int versionMajor;
-  final int versionMinor;
-  final int versionPatch;
-  final bool locked;
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-  CardanoVersion({
-    required this.testMode,
-    required this.versionMajor,
-    required this.versionMinor,
-    required this.versionPatch,
-    required this.locked,
-  });
+part 'cardano_version.freezed.dart';
+
+@freezed
+class CardanoVersion with _$CardanoVersion {
+  const CardanoVersion._();
+
+  const factory CardanoVersion({
+    required bool testMode,
+    required int versionMajor,
+    required int versionMinor,
+    required int versionPatch,
+    required bool locked,
+  }) = _CardanoVersion;
 
   /// Get the version code.
   int get versionCode =>
@@ -19,17 +21,4 @@ class CardanoVersion {
 
   /// Get the version name.
   String get versionName => '$versionMajor.$versionMinor.$versionPatch';
-
-  @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is CardanoVersion &&
-          runtimeType == other.runtimeType &&
-          versionMajor == other.versionMajor &&
-          versionMinor == other.versionMinor &&
-          versionPatch == other.versionPatch;
-
-  @override
-  int get hashCode =>
-      versionMajor.hashCode ^ versionMinor.hashCode ^ versionPatch.hashCode;
 }

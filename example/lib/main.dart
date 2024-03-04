@@ -3,7 +3,6 @@ import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -38,21 +37,22 @@ class _MyAppState extends State<MyApp> {
     try {
       final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
         device,
-        request: const ExtendedPublicKeyRequest_Shelley(accountIndex: 0),
+        request: ExtendedPublicKeyRequest_Shelley(accountIndex: 0),
       );
-  
+
       setState(() {
         accounts = [
           'Account Type: ${fetchedAccounts.accountType}',
           'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
-          'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
+              'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
         ];
         accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
       });
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
       print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
@@ -122,8 +122,9 @@ class _MyAppState extends State<MyApp> {
                           accountsInfo = '';
                         });
                         await ledger.connect(device);
-                        await _fetchAccount(device);
-                        await _fetchSerial(device);
+                        // await _fetchAccount(device);
+                        // await _fetchSerial(device);
+                        await _fetchVersion(device);
                       },
                     )),
                 const SizedBox(height: 20),

@@ -8,12 +8,11 @@ import 'cardano_ledger_operation.dart';
 class GetExtendedPublicKeyOperation
     extends CardanoLedgerOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
-  String accountType = "Unknown"; 
-  static const harden = 0x80000000;
+  final String accountType;
 
   GetExtendedPublicKeyOperation({
     required this.bip32Path,
-    this.accountType = "Unknown", 
+    required this.accountType,
   }) : super(
           ins: InstructionType.getExtendedPublicKey,
           p1: ReturnType.unused,

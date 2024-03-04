@@ -68,83 +68,21 @@ class CardanoLedgerApp {
     LedgerDevice device, {
     required List<ExtendedPublicKeyRequest> requests,
   }) async {
-    final List<List<int>> derivationPaths = requests
-        .map(
-          (request) => switch (request) {
-            ExtendedPublicKeyRequest_Shelley() => [
-                harden + 1852,
-                harden + 1815,
-                harden + request.accountIndex,
-              ],
-            ExtendedPublicKeyRequest_Byron() => [
-                harden + 44,
-                harden + 1815,
-                harden + accountIndex,
-                //TODO: For Alex: Check if this is the only valid Byron derivation path
-              ],
-            ExtendedPublicKeyRequest_Custom() => request.customPath,
-            // TODO: Handle this case.
-            ExtendedPublicKeyRequest_Stake() => [
-                harden + 1852,
-                harden + 1815,
-                harden + request.accountIndex,
-                2,
-                0,
-              ],
-            // TODO: Handle this case.
-            ExtendedPublicKeyRequest_CIP36() => [
-                harden + 1694,
-                harden + 1815,
-                harden + accountIndex,
-                0,
-                0,
-              ],
-          },
-        )
-        .toList();
+    // TODO Add in coding guide the following:
+    // * (almost) NEVER user setters ;
+    //     rely on passing to the constructors the correct final value straight from the beginning
+    // * All variables should be defined as "final" and should not change content
+    // * All class fields passed as constructor argument should be "final"
 
     final List<ExtendedPublicKey> xPubKeys = [];
     for (final request in requests) {
-      String accountType = "Unknown";
-      List<int> derPath = [];
-      if (request is ExtendedPublicKeyRequest_Shelley) {
-        accountType = "Shelley";
-        derPath = [
-          harden + 1852,
-          harden + 1815,
-          harden + request.accountIndex,
-        ];
-      } else if (request is ExtendedPublicKeyRequest_Byron) {
-        accountType = "Byron";
-        derPath = [
-          harden + 44,
-          harden + 1815,
-          harden + accountIndex,
-        ];
-      } else if (request is ExtendedPublicKeyRequest_Stake) {
-        accountType = "Stake";
-        derPath = [
-          harden + 1852,
-          harden + 1815,
-          harden + request.accountIndex,
-          2,
-          0,
-        ];
-      } else if (request is ExtendedPublicKeyRequest_CIP36) {
-        accountType = "CIP36";
-        derPath = [
-          harden + 1694,
-          harden + 1815,
-          harden + request.accountIndex,
-          0,
-          0,
-        ];
-      } else if (request is ExtendedPublicKeyRequest_Custom) {
-        accountType = "Custom";
-        derPath = request.customPath;
-      }
-      final operation = GetExtendedPublicKeyOperation(bip32Path: derPath);
-      operation.accountType = accountType;
+      final String accountType = request.accountType;
+      final List<int> derivationPaths = request.derivationPath;
+
+      final operation = GetExtendedPublicKeyOperation(
+        bip32Path: derivationPaths,
+        accountType: accountType,
+      );
       xPubKeys.add(
         await ledger.sendOperation<ExtendedPublicKey>(
           device,
@@ -154,9 +92,9 @@ class CardanoLedgerApp {
       );
     }
 
-    if (derivationPaths.length != xPubKeys.length) {
+    if (requests.length != xPubKeys.length) {
       throw ValidationException(
-        "getExtendedPublicKey returned ${xPubKeys.length} xPub keys ; ${derivationPaths.length} xPubs expected",
+        "getExtendedPublicKey returned ${xPubKeys.length} xPub keys ; ${requests.length} xPubs expected",
       );
     }
 

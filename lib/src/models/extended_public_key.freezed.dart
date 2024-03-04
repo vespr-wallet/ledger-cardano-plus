@@ -236,7 +236,7 @@ class __$$ExtendedPublicKeyRequest_ShelleyImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyRequest_ShelleyImpl
     extends ExtendedPublicKeyRequest_Shelley {
-  const _$ExtendedPublicKeyRequest_ShelleyImpl({required this.accountIndex})
+  _$ExtendedPublicKeyRequest_ShelleyImpl({required this.accountIndex})
       : super._();
 
   @override
@@ -270,10 +270,9 @@ class _$ExtendedPublicKeyRequest_ShelleyImpl
 
 abstract class ExtendedPublicKeyRequest_Shelley
     extends ExtendedPublicKeyRequest {
-  const factory ExtendedPublicKeyRequest_Shelley(
-          {required final int accountIndex}) =
+  factory ExtendedPublicKeyRequest_Shelley({required final int accountIndex}) =
       _$ExtendedPublicKeyRequest_ShelleyImpl;
-  const ExtendedPublicKeyRequest_Shelley._() : super._();
+  ExtendedPublicKeyRequest_Shelley._() : super._();
 
   int get accountIndex;
   @JsonKey(ignore: true)
@@ -305,7 +304,7 @@ class __$$ExtendedPublicKeyRequest_ByronImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyRequest_ByronImpl
     extends ExtendedPublicKeyRequest_Byron {
-  const _$ExtendedPublicKeyRequest_ByronImpl() : super._();
+  _$ExtendedPublicKeyRequest_ByronImpl() : super._();
 
   @override
   String toString() {
@@ -324,9 +323,9 @@ class _$ExtendedPublicKeyRequest_ByronImpl
 }
 
 abstract class ExtendedPublicKeyRequest_Byron extends ExtendedPublicKeyRequest {
-  const factory ExtendedPublicKeyRequest_Byron() =
+  factory ExtendedPublicKeyRequest_Byron() =
       _$ExtendedPublicKeyRequest_ByronImpl;
-  const ExtendedPublicKeyRequest_Byron._() : super._();
+  ExtendedPublicKeyRequest_Byron._() : super._();
 }
 
 /// @nodoc
@@ -367,7 +366,7 @@ class __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyRequest_StakeImpl
     extends ExtendedPublicKeyRequest_Stake {
-  const _$ExtendedPublicKeyRequest_StakeImpl({required this.accountIndex})
+  _$ExtendedPublicKeyRequest_StakeImpl({required this.accountIndex})
       : super._();
 
   @override
@@ -400,9 +399,9 @@ class _$ExtendedPublicKeyRequest_StakeImpl
 }
 
 abstract class ExtendedPublicKeyRequest_Stake extends ExtendedPublicKeyRequest {
-  const factory ExtendedPublicKeyRequest_Stake(
-      {required final int accountIndex}) = _$ExtendedPublicKeyRequest_StakeImpl;
-  const ExtendedPublicKeyRequest_Stake._() : super._();
+  factory ExtendedPublicKeyRequest_Stake({required final int accountIndex}) =
+      _$ExtendedPublicKeyRequest_StakeImpl;
+  ExtendedPublicKeyRequest_Stake._() : super._();
 
   int get accountIndex;
   @JsonKey(ignore: true)
@@ -449,7 +448,7 @@ class __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyRequest_CIP36Impl
     extends ExtendedPublicKeyRequest_CIP36 {
-  const _$ExtendedPublicKeyRequest_CIP36Impl({required this.accountIndex})
+  _$ExtendedPublicKeyRequest_CIP36Impl({required this.accountIndex})
       : super._();
 
   @override
@@ -482,9 +481,9 @@ class _$ExtendedPublicKeyRequest_CIP36Impl
 }
 
 abstract class ExtendedPublicKeyRequest_CIP36 extends ExtendedPublicKeyRequest {
-  const factory ExtendedPublicKeyRequest_CIP36(
-      {required final int accountIndex}) = _$ExtendedPublicKeyRequest_CIP36Impl;
-  const ExtendedPublicKeyRequest_CIP36._() : super._();
+  factory ExtendedPublicKeyRequest_CIP36({required final int accountIndex}) =
+      _$ExtendedPublicKeyRequest_CIP36Impl;
+  ExtendedPublicKeyRequest_CIP36._() : super._();
 
   int get accountIndex;
   @JsonKey(ignore: true)
@@ -531,8 +530,7 @@ class __$$ExtendedPublicKeyRequest_CustomImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyRequest_CustomImpl
     extends ExtendedPublicKeyRequest_Custom {
-  const _$ExtendedPublicKeyRequest_CustomImpl(
-      {required final List<int> customPath})
+  _$ExtendedPublicKeyRequest_CustomImpl({required final List<int> customPath})
       : _customPath = customPath,
         super._();
 
@@ -573,10 +571,10 @@ class _$ExtendedPublicKeyRequest_CustomImpl
 
 abstract class ExtendedPublicKeyRequest_Custom
     extends ExtendedPublicKeyRequest {
-  const factory ExtendedPublicKeyRequest_Custom(
+  factory ExtendedPublicKeyRequest_Custom(
           {required final List<int> customPath}) =
       _$ExtendedPublicKeyRequest_CustomImpl;
-  const ExtendedPublicKeyRequest_Custom._() : super._();
+  ExtendedPublicKeyRequest_Custom._() : super._();
 
   List<int> get customPath;
   @JsonKey(ignore: true)

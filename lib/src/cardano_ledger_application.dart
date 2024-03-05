@@ -4,6 +4,7 @@ import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
+import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
@@ -66,6 +67,20 @@ class CardanoLedgerApp {
     ParsedNativeScript script,
     NativeScriptHashDisplayFormat displayFormat,
   ) async {
+    // Ensure the device's Cardano app version supports the requested operation
+    final CardanoVersion deviceVersion = await getVersion(device);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
+
+    if (!compatibility.isCompatible ||
+        !compatibility.supportsNativeScriptHashDerivation) {
+      throw ValidationException(
+        "Deriving native script hash not supported by the device's Cardano app version. "
+        "Required minimum version: ${compatibility.recommendedVersion}, "
+        "Device version: ${deviceVersion.versionName}",
+      );
+    }
+
     final operation = CardanoDeriveNativeScriptHashOperation(
       script: script,
       displayFormat: displayFormat,

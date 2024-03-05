@@ -3,8 +3,11 @@ import 'dart:typed_data';
 import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
+import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -56,6 +59,25 @@ class CardanoLedgerApp {
       CardanoGetSerialOperation(),
       transformer: transformer,
     );
+  }
+
+  Future<String> deriveNativeScriptHash(
+    LedgerDevice device,
+    ParsedNativeScript script,
+    NativeScriptHashDisplayFormat displayFormat,
+  ) async {
+    final operation = CardanoDeriveNativeScriptHashOperation(
+      script: script,
+      displayFormat: displayFormat,
+    );
+
+    final String scriptHash = await ledger.sendOperation<String>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    return scriptHash;
   }
 
   Future<ExtendedPublicKey> getExtendedPublicKey(

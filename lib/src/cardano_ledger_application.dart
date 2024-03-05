@@ -78,6 +78,17 @@ class CardanoLedgerApp {
     for (final request in requests) {
       final String accountType = request.accountType;
       final List<int> derivationPaths = request.derivationPath;
+      final int minSupportedVersionCode = request.minSupportedVersionCode;
+
+      // Ensure the device's Cardano app version supports the requested operation
+      final CardanoVersion deviceVersion = await getVersion(device);
+      if (deviceVersion.versionCode < minSupportedVersionCode) {
+        throw ValidationException(
+          "Operation not supported by the device's Cardano app version. "
+          "Required minimum version: ${CardanoVersion.fromVersionCode(minSupportedVersionCode).versionName}, "
+          "Device version: ${deviceVersion.versionName}",
+        );
+      }
 
       final operation = GetExtendedPublicKeyOperation(
         bip32Path: derivationPaths,

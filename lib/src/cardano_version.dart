@@ -21,4 +21,14 @@ class CardanoVersion with _$CardanoVersion {
 
   /// Get the version name.
   String get versionName => '$versionMajor.$versionMinor.$versionPatch';
+
+  static CardanoVersion fromVersionCode(int versionCode) {
+    return CardanoVersion(
+      testMode: false,
+      versionMajor: versionCode ~/ 10000,
+      versionMinor: (versionCode % 10000) ~/ 100,
+      versionPatch: versionCode % 100,
+      locked: false,
+    );
+  }
 }

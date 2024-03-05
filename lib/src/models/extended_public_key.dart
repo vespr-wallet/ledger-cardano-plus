@@ -22,9 +22,7 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     required int accountIndex,
   }) = ExtendedPublicKeyRequest_Shelley;
 
-  factory ExtendedPublicKeyRequest.byron(
-      // TODO: is there anything that's needed?
-      ) = ExtendedPublicKeyRequest_Byron;
+  factory ExtendedPublicKeyRequest.byron() = ExtendedPublicKeyRequest_Byron;
 
   factory ExtendedPublicKeyRequest.stake({
     required int accountIndex,
@@ -33,10 +31,6 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
   factory ExtendedPublicKeyRequest.cip36({
     required int accountIndex,
   }) = ExtendedPublicKeyRequest_CIP36;
-
-  // TODO Stake - Cold Keys
-
-  // TODO Voting
 
   factory ExtendedPublicKeyRequest.custom({
     required List<int> customPath,
@@ -81,11 +75,11 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
 
   // TODO use this to check if the cardano app version on ledger supports operation
   // TODO add the correct min version for each request type
-  late final int minSupportedVersionCode = switch (this) {
-    ExtendedPublicKeyRequest_Shelley() => 1,
-    ExtendedPublicKeyRequest_Byron() => 2,
-    ExtendedPublicKeyRequest_Custom() => 3,
-    ExtendedPublicKeyRequest_Stake() => 4,
-    ExtendedPublicKeyRequest_CIP36() => 5,
+    late final int minSupportedVersionCode = switch (this) {
+    ExtendedPublicKeyRequest_Shelley() => 20002, // Version 2.2.0
+    ExtendedPublicKeyRequest_Byron() => 20002, // Version 2.2.0, supportsByronAddressDerivation
+    ExtendedPublicKeyRequest_Custom() => 70000, // Version 7.0.0, assuming highest compatibility required
+    ExtendedPublicKeyRequest_Stake() => 20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
+    ExtendedPublicKeyRequest_CIP36() => 60000, // Version 6.0.0, supportsCIP36
   };
 }

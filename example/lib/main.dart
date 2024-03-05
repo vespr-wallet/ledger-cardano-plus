@@ -122,9 +122,9 @@ class _MyAppState extends State<MyApp> {
                           accountsInfo = '';
                         });
                         await ledger.connect(device);
-                        // await _fetchAccount(device);
+                        await _fetchAccount(device);
                         // await _fetchSerial(device);
-                        await _fetchVersion(device);
+                        // await _fetchVersion(device);
                       },
                     )),
                 const SizedBox(height: 20),

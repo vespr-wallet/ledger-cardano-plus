@@ -1,3 +1,4 @@
+
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 abstract class ComplexLedgerOperation<T> {

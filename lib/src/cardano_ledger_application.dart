@@ -6,6 +6,7 @@ import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_derive_address_operation_v2.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';

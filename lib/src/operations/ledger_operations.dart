@@ -1,27 +1,21 @@
 import 'dart:typed_data';
-import 'package:buffer/buffer.dart';
+
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
-
-abstract class LedgerOperation<T> {
-  const LedgerOperation();
-
-  Future<List<Uint8List>> write(ByteDataWriter writer);
-  Future<T> read(ByteDataReader reader);
-}
+import 'package:ledger_flutter/ledger_flutter.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {
   final int ins;
   final int p1;
   final int p2;
   final Uint8List data;
-  final int? expectedResponseLength;
+  final bool expectResponseLength;
 
   SendOperation({
     required this.ins,
     required this.p1,
     required this.p2,
     required this.data,
-    this.expectedResponseLength = 0,
+    this.expectResponseLength = false,
   });
 
   @override
@@ -30,9 +24,13 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
     writer.writeUint8(ins); // INS for Derive Address
     writer.writeUint8(p1); // P1: request type
     writer.writeUint8(p2); // P2: unused
+    if (expectResponseLength) {
+      writer.writeUint8(data.length);
+    }
     if (data.isNotEmpty) {
       writer.write(data);
     }
+
     return [writer.toBytes()];
   }
 

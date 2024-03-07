@@ -5,7 +5,9 @@ import 'parsed_simple_native_script.dart';
 part 'parsed_native_script.freezed.dart';
 
 @freezed
-class ParsedNativeScript with _$ParsedNativeScript {
-  const factory ParsedNativeScript.complex(ParsedComplexNativeScript script) = _Complex;
-  const factory ParsedNativeScript.simple(ParsedSimpleNativeScript script) = _Simple;
+sealed class ParsedNativeScript with _$ParsedNativeScript {
+  const factory ParsedNativeScript.complex(ParsedComplexNativeScript script) =
+      ParsedNativeScript_Complex;
+  const factory ParsedNativeScript.simple(ParsedSimpleNativeScript script) =
+      ParsedNativeScript_Simple;
 }

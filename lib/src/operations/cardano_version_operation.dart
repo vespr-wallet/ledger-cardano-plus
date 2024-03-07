@@ -7,7 +7,7 @@ class CardanoVersionOperation extends CardanoLedgerOperation<CardanoVersion> {
   CardanoVersionOperation()
       : super(
           ins: InstructionType.getVersion,
-          p1: ReturnType.unused,
+          p1: ReturnType.unused.p1Value,
           p2: 0x00,
         );
 
@@ -18,7 +18,8 @@ class CardanoVersionOperation extends CardanoLedgerOperation<CardanoVersion> {
     final versionPatch = reader.readUint8(); // Adjusted to read 1 byte
     final flags = reader.readUint8(); // Read flags
 
-    final testMode = (flags & 0x01) == 0x01; // Check if devel version flag is set
+    final testMode =
+        (flags & 0x01) == 0x01; // Check if devel version flag is set
 
     return CardanoVersion(
       testMode: testMode,
@@ -29,9 +30,10 @@ class CardanoVersionOperation extends CardanoLedgerOperation<CardanoVersion> {
     );
   }
 
-@override
-Future<Uint8List> writeData(ByteDataWriter writer) async {
-  writer.writeUint8(0x00); // ACCOUNT_INDEX_DATA_SIZE, indicating no additional data
-  return writer.toBytes(); 
-}
+  @override
+  Future<Uint8List> writeData(ByteDataWriter writer) async {
+    writer.writeUint8(
+        0x00); // ACCOUNT_INDEX_DATA_SIZE, indicating no additional data
+    return writer.toBytes();
+  }
 }

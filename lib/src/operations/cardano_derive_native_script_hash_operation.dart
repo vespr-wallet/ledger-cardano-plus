@@ -15,7 +15,10 @@ class CardanoDeriveNativeScriptHashOperation
     required this.displayFormat,
   }) : super(
           ins: InstructionType.deriveNativeScriptHash,
-          p1: ReturnType.unused,
+          p1: switch (script) {
+            ParsedNativeScript_Complex() => 0x01,
+            ParsedNativeScript_Simple() => 0x02,
+          },
           p2: 0x00,
         );
 
@@ -27,7 +30,6 @@ class CardanoDeriveNativeScriptHashOperation
 
   @override
   Future<Uint8List> writeData(ByteDataWriter writer) async {
-    // TODO: Implement serialization based on the script type and stages.
     serializeScript(writer, script);
     return writer.toBytes();
   }
@@ -64,11 +66,11 @@ class CardanoDeriveNativeScriptHashOperation
         simpleScript.when(
           pubKeyDeviceOwned: (path) {
             writer.writeUint8(0x04);
-            SerializationUtils.serializePath(writer, path);
+            SerializationUtils.writerSerializedPath(writer, path);
           },
           pubKeyThirdParty: (keyHashHex) {
             writer.writeUint8(0x05);
-            SerializationUtils.serializeHex(writer, keyHashHex);
+            SerializationUtils.writeSerializedHex(writer, keyHashHex);
           },
           invalidBefore: (slot) {
             writer.writeUint8(0x06);

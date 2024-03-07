@@ -4,9 +4,9 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
-  static const cls = 0xD7;
+  static const cla = 0xD7;
   final InstructionType ins;
-  final ReturnType p1;
+  final int p1;
   final int p2;
 
   CardanoLedgerOperation({
@@ -22,9 +22,9 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) =>
       ValidationException.runSafely(() async {
-        writer.writeUint8(cls); // CLA
+        writer.writeUint8(cla); // CLA
         writer.writeUint8(ins.insValue); // INS for Derive Address
-        writer.writeUint8(p1.p1Value); // P1: request type
+        writer.writeUint8(p1); // P1: request type
         writer.writeUint8(p2); // P2: unused
         final otherWriter = ByteDataWriter();
         final data = await writeData(otherWriter);
@@ -80,6 +80,9 @@ enum InstructionType {
 }
 
 enum NativeScriptHashDisplayFormat {
-  bech32,
-  policyId,
+  bech32('bech32'),
+  policyId('policyId');
+
+  final String value;
+  const NativeScriptHashDisplayFormat(this.value);
 }

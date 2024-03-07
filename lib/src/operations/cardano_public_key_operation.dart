@@ -15,7 +15,7 @@ class GetExtendedPublicKeyOperation
     required this.accountType,
   }) : super(
           ins: InstructionType.getExtendedPublicKey,
-          p1: ReturnType.unused,
+          p1: ReturnType.unused.p1Value,
           p2: 0,
         );
 

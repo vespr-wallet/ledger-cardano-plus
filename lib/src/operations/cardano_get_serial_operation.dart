@@ -7,7 +7,7 @@ class CardanoGetSerialOperation extends CardanoLedgerOperation<String> {
   CardanoGetSerialOperation()
       : super(
           ins: InstructionType.getSerial,
-          p1: ReturnType.unused, // P1_UNUSED
+          p1: ReturnType.unused.p1Value, // P1_UNUSED
           p2: 0, // P2_UNUSED
         );
 

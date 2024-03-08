@@ -6,13 +6,11 @@ import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
-import 'package:ledger_cardano/src/operations/cardano_derive_address_operation_v2.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
-import 'package:ledger_cardano/src/operations/cardano_public_key_operation_v2.dart';
-import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
@@ -108,12 +106,6 @@ class CardanoLedgerApp {
     LedgerDevice device, {
     required List<ExtendedPublicKeyRequest> requests,
   }) async {
-    // TODO Add in coding guide the following:
-    // * (almost) NEVER user setters ;
-    //     rely on passing to the constructors the correct final value straight from the beginning
-    // * All variables should be defined as "final" and should not change content
-    // * All class fields passed as constructor argument should be "final"
-
     final List<ExtendedPublicKey> xPubKeys = [];
     for (final request in requests) {
       final String accountType = request.accountType;
@@ -135,54 +127,6 @@ class CardanoLedgerApp {
         accountType: accountType,
       );
       xPubKeys.add(
-        await ledger.sendOperation<ExtendedPublicKey>(
-          device,
-          operation,
-          transformer: transformer,
-        ),
-      );
-    }
-
-    if (requests.length != xPubKeys.length) {
-      throw ValidationException(
-        "getExtendedPublicKey returned ${xPubKeys.length} xPub keys ; ${requests.length} xPubs expected",
-      );
-    }
-
-    return xPubKeys;
-  }
-
-  Future<ExtendedPublicKey> getExtendedPublicKeyV2(
-    LedgerDevice device, {
-    required ExtendedPublicKeyRequest request,
-  }) async =>
-      (await getExtendedPublicKeysV2(device, requests: [request]))[0];
-
-  Future<List<ExtendedPublicKey>> getExtendedPublicKeysV2(
-    LedgerDevice device, {
-    required List<ExtendedPublicKeyRequest> requests,
-  }) async {
-    final List<ExtendedPublicKey> xPubKeys = [];
-    for (final request in requests) {
-      final String accountType = request.accountType;
-      final List<int> derivationPaths = request.derivationPath;
-      final int minSupportedVersionCode = request.minSupportedVersionCode;
-
-      // Ensure the device's Cardano app version supports the requested operation
-      final CardanoVersion deviceVersion = await getVersion(device);
-      if (deviceVersion.versionCode < minSupportedVersionCode) {
-        throw ValidationException(
-          "Operation not supported by the device's Cardano app version. "
-          "Required minimum version: ${CardanoVersion.fromVersionCode(minSupportedVersionCode).versionName}, "
-          "Device version: ${deviceVersion.versionName}",
-        );
-      }
-
-      final operation = GetExtendedPublicKeyOperationV2(
-        bip32Path: derivationPaths,
-        accountType: accountType,
-      );
-      xPubKeys.add(
         await ledger.sendComplexOperation<ExtendedPublicKey>(
           device,
           operation,
@@ -200,41 +144,7 @@ class CardanoLedgerApp {
     return xPubKeys;
   }
 
-  Future<String> deriveAddress(
-    LedgerDevice device, {
-    bool displayOnDevice = false,
-  }) async {
-    // Derivation path for shelley accounts
-    final List<int> bip32PaymentPath = [
-      harden + 1852,
-      harden + 1815,
-      harden + accountIndex,
-      0,
-      0,
-    ];
-
-    final List<int> bip32StakePath = [
-      harden + 1852,
-      harden + 1815,
-      harden + accountIndex,
-      2,
-      0,
-    ];
-
-    final addressResult = await ledger.sendOperation<String>(
-      device,
-      CardanoDeriveAddressOperation(
-        network: CardanoNetwork.testnet,
-        bip32SpendingPath: bip32PaymentPath,
-        bip32StakingPath: bip32StakePath,
-      ),
-      transformer: transformer,
-    );
-
-    return addressResult;
-  }
-
-  Future<String> deriveAddressV2(LedgerDevice device,
+  Future<String> deriveAddress(LedgerDevice device,
       {bool displayOnDevice = false}) async {
     // Derivation path for shelley accounts
     final List<int> bip32PaymentPath = [
@@ -255,7 +165,7 @@ class CardanoLedgerApp {
 
     final addressResult = await ledger.sendComplexOperation<String>(
       device,
-      CardanoDeriveAddressOperationV2(
+      CardanoDeriveAddressOperation(
         network: CardanoNetwork.testnet,
         bip32SpendingPath: bip32PaymentPath,
         bip32StakingPath: bip32StakePath,

@@ -185,7 +185,9 @@ class _MyAppState extends State<MyApp> {
                         });
                         await ledger.connect(device);
 
-                        await _fetchSerial(device);
+                        // await _fetchSerial(device);
+
+                        await _fetchVersion(device);
 
                         // await _fetchAccountV2(device);
                         // await _fetchPublicKey(device);

@@ -48,7 +48,7 @@ class CardanoLedgerApp {
   });
 
   Future<CardanoVersion> getVersion(LedgerDevice device) {
-    return ledger.sendOperation<CardanoVersion>(
+    return ledger.sendComplexOperation<CardanoVersion>(
       device,
       CardanoVersionOperation(),
       transformer: transformer,

@@ -1,39 +1,39 @@
 import 'dart:typed_data';
-import 'package:ledger_cardano/src/cardano_version.dart';
+import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano/src/cardano_version.dart';
 
-class CardanoVersionOperation extends CardanoLedgerOperation<CardanoVersion> {
-  CardanoVersionOperation()
-      : super(
-          ins: InstructionType.getVersion,
-          p1: ReturnType.unused.p1Value,
-          p2: 0x00,
-        );
+class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
+  CardanoVersionOperation() : super();
 
   @override
-  Future<CardanoVersion> readData(ByteDataReader reader) async {
-    final versionMajor = reader.readUint8(); // Adjusted to read 1 byte
-    final versionMinor = reader.readUint8(); // Adjusted to read 1 byte
-    final versionPatch = reader.readUint8(); // Adjusted to read 1 byte
-    final flags = reader.readUint8(); // Read flags
+  Future<CardanoVersion> invoke(LedgerSendFct send) async {
+    final Uint8List data = useBinaryWriter((ByteDataWriter writer) {
+      writer.writeUint8(0x00);
+      return writer.toBytes();
+    });
 
-    final testMode =
-        (flags & 0x01) == 0x01; // Check if devel version flag is set
+    final SendOperation operation = SendOperation(
+      ins: InstructionType.getVersion.insValue,
+      p1: ReturnType.unused.p1Value,
+      p2: 0,
+      data: data,
+    );
+
+    final reader = await send(operation);
+    final versionMajor = reader.readUint8();
+    final versionMinor = reader.readUint8();
+    final versionPatch = reader.readUint8();
 
     return CardanoVersion(
-      testMode: testMode,
+      testMode: false,
       versionMajor: versionMajor,
       versionMinor: versionMinor,
       versionPatch: versionPatch,
       locked: false,
     );
-  }
-
-  @override
-  Future<Uint8List> writeData(ByteDataWriter writer) async {
-    writer.writeUint8(
-        0x00); // ACCOUNT_INDEX_DATA_SIZE, indicating no additional data
-    return writer.toBytes();
   }
 }

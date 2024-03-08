@@ -56,7 +56,7 @@ class CardanoLedgerApp {
   }
 
   Future<String> getSerialNumber(LedgerDevice device) {
-    return ledger.sendOperation<String>(
+    return ledger.sendComplexOperation<String>(
       device,
       CardanoGetSerialOperation(),
       transformer: transformer,

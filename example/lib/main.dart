@@ -71,8 +71,6 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  
-
   Future<void> _fetchPublicKey(LedgerDevice device) async {
     try {
       final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
@@ -187,8 +185,10 @@ class _MyAppState extends State<MyApp> {
                         });
                         await ledger.connect(device);
 
+                        await _fetchSerial(device);
+
                         // await _fetchAccountV2(device);
-                        await _fetchPublicKey(device);
+                        // await _fetchPublicKey(device);
 
                         // await _testDeriveNativeScriptHash(device);
                       },
@@ -198,6 +198,14 @@ class _MyAppState extends State<MyApp> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(accountsInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (versionInfo.isNotEmpty) ...[
+                  const Text('Version Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(versionInfo),
                   ),
                 ],
                 const SizedBox(height: 20),

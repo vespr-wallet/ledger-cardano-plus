@@ -101,6 +101,36 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> _fetchPublicKeyV2(LedgerDevice device) async {
+    try {
+      final fetchedAccounts = await cardanoApp.getExtendedPublicKeyV2(
+        device,
+        request: ExtendedPublicKeyRequest_Byron(),
+      );
+
+      setState(() {
+        accounts = [
+          'Account Type: ${fetchedAccounts.accountType}',
+          'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
+              'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
+        ];
+        accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
+      });
+      print('Fetched Accounts: ${accounts.join('\n')}');
+    } on LedgerException catch (e) {
+      setState(() {
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+      });
+      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
+    } catch (e) {
+      setState(() {
+        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+      });
+      print('Generic Error fetching accounts: ${e.toString()}');
+    }
+  }
+
   Future<void> _fetchAccountV2(LedgerDevice device) async {
     try {
       final derivedAddress = await cardanoApp.deriveAddressV2(device);
@@ -185,7 +215,8 @@ class _MyAppState extends State<MyApp> {
                         });
                         await ledger.connect(device);
 
-                        await _fetchAccountV2(device);
+                        // await _fetchAccountV2(device);
+                        await _fetchPublicKeyV2(device);
 
                         // await _testDeriveNativeScriptHash(device);
                       },

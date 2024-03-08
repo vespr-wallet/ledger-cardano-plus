@@ -1,4 +1,3 @@
-import 'dart:typed_data';
 
 import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';

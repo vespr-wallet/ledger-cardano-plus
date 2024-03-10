@@ -8,7 +8,6 @@ import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -64,37 +63,35 @@ class CardanoLedgerApp {
   }
 
   Future<String> deriveNativeScriptHash(
-    LedgerDevice device,
-    ParsedNativeScript script,
-    NativeScriptHashDisplayFormat displayFormat,
-  ) async {
-    // Ensure the device's Cardano app version supports the requested operation
-    final CardanoVersion deviceVersion = await getVersion(device);
-    final VersionCompatibility compatibility =
-        VersionCompatibility.checkVersionCompatibility(deviceVersion);
+  LedgerDevice device,
+  ParsedNativeScript script,
+  NativeScriptHashDisplayFormat displayFormat,
+) async {
+  // Ensure the device's Cardano app version supports the requested operation
+  final CardanoVersion deviceVersion = await getVersion(device);
+  final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
-    if (!compatibility.isCompatible ||
-        !compatibility.supportsNativeScriptHashDerivation) {
-      throw ValidationException(
-        "Deriving native script hash not supported by the device's Cardano app version. "
-        "Required minimum version: ${compatibility.recommendedVersion}, "
-        "Device version: ${deviceVersion.versionName}",
-      );
-    }
-
-    final operation = CardanoDeriveNativeScriptHashOperation(
-      script: script,
-      displayFormat: displayFormat,
+  if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
+    throw ValidationException(
+      "Deriving native script hash not supported by the device's Cardano app version. "
+      "Required minimum version: ${compatibility.recommendedVersion}, "
+      "Device version: ${deviceVersion.versionName}",
     );
-
-    final String scriptHash = await ledger.sendOperation<String>(
-      device,
-      operation,
-      transformer: transformer,
-    );
-
-    return scriptHash;
   }
+
+  final operation = CardanoDeriveNativeScriptHashOperation(
+    script: script,
+    displayFormat: displayFormat,
+  );
+
+  final String scriptHash = await ledger.sendComplexOperation<String>(
+    device,
+    operation,
+    transformer: transformer,
+  );
+
+  return scriptHash;
+}
 
   Future<ExtendedPublicKey> getExtendedPublicKey(
     LedgerDevice device, {

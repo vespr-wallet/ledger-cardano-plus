@@ -79,10 +79,10 @@ enum InstructionType {
       {required this.insValue, required this.prependDataLength});
 }
 
-enum NativeScriptHashDisplayFormat {
-  bech32('bech32'),
-  policyId('policyId');
+// enum NativeScriptHashDisplayFormat {
+//   bech32('bech32'),
+//   policyId('policyId');
 
-  final String value;
-  const NativeScriptHashDisplayFormat(this.value);
-}
+//   final String value;
+//   const NativeScriptHashDisplayFormat(this.value);
+// }

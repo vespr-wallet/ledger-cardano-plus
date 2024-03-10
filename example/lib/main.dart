@@ -4,7 +4,8 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -186,7 +187,9 @@ class _MyAppState extends State<MyApp> {
 
                         // await _fetchSerial(device);
 
-                        await _fetchVersion(device);
+                        // await _fetchVersion(device);
+
+                        await _testDeriveNativeScriptHash(device);
 
                         // await _fetchAccountV2(device);
                         // await _fetchPublicKey(device);

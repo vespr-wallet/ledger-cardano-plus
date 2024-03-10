@@ -1,88 +1,134 @@
 import 'dart:typed_data';
+
+import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
+import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
-import 'package:ledger_cardano/src/utils/serialization_utils.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoDeriveNativeScriptHashOperation
-    extends CardanoLedgerOperation<String> {
+    extends ComplexLedgerOperation<String> {
   final ParsedNativeScript script;
   final NativeScriptHashDisplayFormat displayFormat;
 
   CardanoDeriveNativeScriptHashOperation({
     required this.script,
     required this.displayFormat,
-  }) : super(
-          ins: InstructionType.deriveNativeScriptHash,
-          p1: switch (script) {
-            ParsedNativeScript_Complex() => 0x01,
-            ParsedNativeScript_Simple() => 0x02,
-          },
-          p2: p2Unused,
-        );
+  });
 
   @override
-  Future<String> readData(ByteDataReader reader) async {
-    final scriptHashBytes = reader.read(reader.remainingLength);
-    return hex.encode(scriptHashBytes);
+  Future<String> invoke(LedgerSendFct send) async {
+    await _deriveNativeScriptHashAddScript(send, script);
+    final scriptHashHex = await _deriveNativeScriptHashFinishWholeNativeScript(
+        send, displayFormat);
+    return scriptHashHex;
   }
 
-  @override
-  Future<Uint8List> writeData(ByteDataWriter writer) async {
-    serializeScript(writer, script);
+  Future<void> _deriveNativeScriptHashAddScript(
+      LedgerSendFct send, ParsedNativeScript script) async {
+    if (script is ParsedNativeScript_Complex) {
+      final complexScript = script.script;
+      await send(SendOperation(
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: 0x01,
+        p2: 0x00,
+        data: serializeComplexNativeScriptStart(complexScript),
+      ));
+      for (final subscript in complexScript.scripts) {
+        await _deriveNativeScriptHashAddScript(send, subscript);
+      }
+    } else if (script is ParsedNativeScript_Simple) {
+      final simpleScript = script.script;
+      await send(SendOperation(
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: 0x02,
+        p2: 0x00,
+        data: serializeSimpleNativeScript(simpleScript),
+        expectResponseLength: true,
+      ));
+    }
+  }
+
+  Future<String> _deriveNativeScriptHashFinishWholeNativeScript(
+      LedgerSendFct send, NativeScriptHashDisplayFormat displayFormat) async {
+    final response = await send(SendOperation(
+      ins: InstructionType.deriveNativeScriptHash.insValue,
+      p1: 0x03,
+      p2: 0x00,
+      data: serializeWholeNativeScriptFinish(displayFormat),
+      expectResponseLength: true,
+    ));
+    return hex.encode(response.read(NATIVE_SCRIPT_HASH_LENGTH));
+  }
+
+  Uint8List serializeComplexNativeScriptStart(
+      ParsedComplexNativeScript script) {
+    final writer = ByteDataWriter();
+    script.when(
+      all: (scripts) {
+        writer.writeUint8(NativeScriptType.all.index);
+        writer.writeUint32(scripts.length);
+      },
+      any: (scripts) {
+        writer.writeUint8(NativeScriptType.any.index);
+        writer.writeUint32(scripts.length);
+      },
+      nOfK: (requiredCount, scripts) {
+        writer.writeUint8(NativeScriptType.nOfK.index);
+        writer.writeUint32(scripts.length);
+        writer.writeUint32(requiredCount);
+      },
+    );
     return writer.toBytes();
   }
 
-  void serializeScript(ByteDataWriter writer, ParsedNativeScript script) {
+  Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) {
+    final writer = ByteDataWriter();
     script.when(
-      complex: (complexScript) {
-        complexScript.when(
-          all: (scripts) {
-            writer.writeUint8(0x01);
-            writer.writeUint8(scripts.length);
-            for (var s in scripts) {
-              serializeScript(writer, s);
-            }
-          },
-          any: (scripts) {
-            writer.writeUint8(0x02);
-            writer.writeUint8(scripts.length);
-            for (var s in scripts) {
-              serializeScript(writer, s);
-            }
-          },
-          nOfK: (requiredCount, scripts) {
-            writer.writeUint8(0x03);
-            writer.writeUint8(requiredCount);
-            writer.writeUint8(scripts.length);
-            for (var s in scripts) {
-              serializeScript(writer, s);
-            }
-          },
-        );
+      pubKeyDeviceOwned: (List<int> path) {
+        writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
+        writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
+        writer.write(pathToBuf(path));
       },
-      simple: (simpleScript) {
-        simpleScript.when(
-          pubKeyDeviceOwned: (path) {
-            writer.writeUint8(0x04);
-            SerializationUtils.writerSerializedPath(writer, path);
-          },
-          pubKeyThirdParty: (keyHashHex) {
-            writer.writeUint8(0x05);
-            SerializationUtils.writeSerializedHex(writer, keyHashHex);
-          },
-          invalidBefore: (slot) {
-            writer.writeUint8(0x06);
-            writer.writeUint64(slot);
-          },
-          invalidHereafter: (slot) {
-            writer.writeUint8(0x07);
-            writer.writeUint64(slot);
-          },
-        );
+      pubKeyThirdParty: (String keyHashHex) {
+        writer.writeUint8(NativeScriptType.pubkeyThirdParty.index);
+        writer.writeUint8(NativeScriptType.pubkeyThirdParty.encoding);
+        writer.write(hexToBuf(keyHashHex));
+      },
+      invalidBefore: (int slot) {
+        writer.writeUint8(NativeScriptType.invalidBefore.index);
+        writer.writeUint64(slot);
+      },
+      invalidHereafter: (int slot) {
+        writer.writeUint8(NativeScriptType.invalidHereafter.index);
+        writer.writeUint64(slot);
       },
     );
+    return writer.toBytes();
+  }
+
+  Uint8List serializeWholeNativeScriptFinish(
+      NativeScriptHashDisplayFormat displayFormat) {
+    final writer = ByteDataWriter();
+    writer.write(displayFormat.value.codeUnits);
+    return writer.toBytes();
+  }
+
+  Uint8List hexToBuf(String hexString) {
+    return Uint8List.fromList(hex.decode(hexString));
+  }
+
+  Uint8List pathToBuf(List<int> path) {
+    final data = ByteData(1 + 4 * path.length);
+    data.setUint8(0, path.length);
+
+    for (int i = 0; i < path.length; i++) {
+      data.setUint32(1 + i * 4, path[i], Endian.big);
+    }
+    return data.buffer.asUint8List();
   }
 }

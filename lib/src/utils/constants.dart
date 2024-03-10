@@ -27,3 +27,26 @@ const int deriveAddressInsValue = 0x11;
 
 /// P1 value for returning data.
 const int returnDataP1Value = 0x01;
+
+const int NATIVE_SCRIPT_HASH_LENGTH = 28;
+
+enum NativeScriptType {
+  pubkeyDeviceOwned(1),
+  pubkeyThirdParty(2),
+  all(0),
+  any(0),
+  nOfK(0),
+  invalidBefore(0),
+  invalidHereafter(0);
+
+  final int encoding;
+  const NativeScriptType(this.encoding);
+}
+
+enum NativeScriptHashDisplayFormat {
+  bech32('bech32'),
+  policyId('policyId');
+
+  final String value;
+  const NativeScriptHashDisplayFormat(this.value);
+}

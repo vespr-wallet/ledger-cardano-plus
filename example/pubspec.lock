@@ -264,12 +264,13 @@ packages:
     source: path
     version: "1.0.0-pre.1"
   ledger_flutter:
-    dependency: "direct main"
+    dependency: transitive
     description:
-      name: ledger_flutter
-      sha256: f1680060ed6ff78f275837e0024ccaf667715a59ba7aa29fa7354bc7752e71c8
-      url: "https://pub.dev"
-    source: hosted
+      path: "."
+      ref: f9dfd3d4f457daa3da760a788cd4dd319096891b
+      resolved-ref: f9dfd3d4f457daa3da760a788cd4dd319096891b
+      url: "https://github.com/vespr-wallet/ledger-flutter"
+    source: git
     version: "1.0.1"
   ledger_usb:
     dependency: transitive

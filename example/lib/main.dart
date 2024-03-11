@@ -6,7 +6,6 @@ import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 
-
 void main() {
   runApp(const MyApp());
 }
@@ -60,6 +59,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         scriptHashInfo = 'Derived Script Hash: $hash';
       });
+      print('Derived Script Hash: $hash');
     } on LedgerException catch (e) {
       setState(() {
         scriptHashInfo =
@@ -69,6 +69,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         scriptHashInfo = 'Error deriving script hash: ${e.toString()}';
       });
+      print('Error deriving script hash: ${e.toString()}');
     }
   }
 

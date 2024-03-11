@@ -15,7 +15,7 @@ class CardanoDeriveNativeScriptHashOperation
   final ParsedNativeScript script;
   final NativeScriptHashDisplayFormat displayFormat;
 
-  CardanoDeriveNativeScriptHashOperation({
+  const CardanoDeriveNativeScriptHashOperation({
     required this.script,
     required this.displayFormat,
   });
@@ -30,38 +30,49 @@ class CardanoDeriveNativeScriptHashOperation
 
   Future<void> _deriveNativeScriptHashAddScript(
       LedgerSendFct send, ParsedNativeScript script) async {
+    // TODO change to switch statement (writes sendOperation into a variable)
     if (script is ParsedNativeScript_Complex) {
       final complexScript = script.script;
-      await send(SendOperation(
-        ins: InstructionType.deriveNativeScriptHash.insValue,
-        p1: 0x01,
-        p2: 0x00,
-        data: serializeComplexNativeScriptStart(complexScript),
-      ));
+      await send(
+        SendOperation(
+          ins: InstructionType.deriveNativeScriptHash.insValue,
+          p1: 0x01,
+          p2: 0x00,
+          data: serializeComplexNativeScriptStart(complexScript),
+          expectResponseLength: true,
+        ),
+      );
       for (final subscript in complexScript.scripts) {
         await _deriveNativeScriptHashAddScript(send, subscript);
       }
     } else if (script is ParsedNativeScript_Simple) {
       final simpleScript = script.script;
-      await send(SendOperation(
-        ins: InstructionType.deriveNativeScriptHash.insValue,
-        p1: 0x02,
-        p2: 0x00,
-        data: serializeSimpleNativeScript(simpleScript),
-        expectResponseLength: true,
-      ));
+      await send(
+        SendOperation(
+          ins: InstructionType.deriveNativeScriptHash.insValue,
+          p1: 0x02,
+          p2: 0x00,
+          data: serializeSimpleNativeScript(simpleScript),
+          expectResponseLength: true,
+        ),
+      );
     }
   }
 
   Future<String> _deriveNativeScriptHashFinishWholeNativeScript(
-      LedgerSendFct send, NativeScriptHashDisplayFormat displayFormat) async {
-    final response = await send(SendOperation(
-      ins: InstructionType.deriveNativeScriptHash.insValue,
-      p1: 0x03,
-      p2: 0x00,
-      data: serializeWholeNativeScriptFinish(displayFormat),
-      expectResponseLength: true,
-    ));
+    LedgerSendFct send,
+    NativeScriptHashDisplayFormat displayFormat,
+  ) async {
+    final response = await send(
+      SendOperation(
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: 0x03,
+        p2: 0x00,
+        data: serializeWholeNativeScriptFinish(displayFormat),
+        expectResponseLength: true,
+      ),
+    );
+
     return hex.encode(response.read(NATIVE_SCRIPT_HASH_LENGTH));
   }
 
@@ -87,7 +98,10 @@ class CardanoDeriveNativeScriptHashOperation
   }
 
   Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) {
+    // TODO ; use `useBinaryWriter`
     final writer = ByteDataWriter();
+
+    // TODO use switch
     script.when(
       pubKeyDeviceOwned: (List<int> path) {
         writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
@@ -114,7 +128,7 @@ class CardanoDeriveNativeScriptHashOperation
   Uint8List serializeWholeNativeScriptFinish(
       NativeScriptHashDisplayFormat displayFormat) {
     final writer = ByteDataWriter();
-    writer.write(displayFormat.value.codeUnits);
+    writer.writeUint8(displayFormat.int8Value);
     return writer.toBytes();
   }
 

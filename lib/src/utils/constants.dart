@@ -44,9 +44,27 @@ enum NativeScriptType {
 }
 
 enum NativeScriptHashDisplayFormat {
-  bech32('bech32'),
-  policyId('policyId');
+  bech32(1),
+  policyId(2);
 
-  final String value;
-  const NativeScriptHashDisplayFormat(this.value);
+  final int int8Value;
+  const NativeScriptHashDisplayFormat(this.int8Value);
+}
+
+enum CardanoResponseCode {
+  success(0x9000),
+  errMalformedRequestHeader(0x6E01),
+  errBadCla(0x6E02),
+  errUnknownIns(0x6E03),
+  errStillInCall(0x6E04),
+  errInvalidRequestParameters(0x6E05),
+  errInvalidState(0x6E06),
+  errInvalidData(0x6E07),
+  errInvalidBip44Path(0x6E08),
+  errRejectedByUser(0x6E09),
+  errRejectedByPolicy(0x6E10),
+  errDeviceLocked(0x6E11);
+
+  final int value;
+  const CardanoResponseCode(this.value);
 }

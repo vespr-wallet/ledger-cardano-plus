@@ -9,7 +9,7 @@ import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
 class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
-  CardanoGetSerialOperation() : super();
+  const CardanoGetSerialOperation() : super();
 
   @override
   Future<String> invoke(LedgerSendFct send) async {

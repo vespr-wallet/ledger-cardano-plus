@@ -13,7 +13,10 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ledger_flutter: ^1.0.0
+  ledger_flutter:
+    git:
+      url: https://github.com/vespr-wallet/ledger-flutter
+      ref: f9dfd3d4f457daa3da760a788cd4dd319096891b 
 
   algorand_dart: ^2.0.0-dev.4
 

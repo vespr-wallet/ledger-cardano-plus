@@ -23,19 +23,6 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 /// https://github.com/cardano-foundation/ledgerjs-hw-app-cardano
 class CardanoLedgerApp {
-  static const success = 0x9000;
-  static const errMalformedRequestHeader = 0x6E01;
-  static const errBadCla = 0x6E02;
-  static const errUnknownIns = 0x6E03;
-  static const errStillInCall = 0x6E04;
-  static const errInvalidRequestParameters = 0x6E05;
-  static const errInvalidState = 0x6E06;
-  static const errInvalidData = 0x6E07;
-  static const errInvalidBip44Path = 0x6E08;
-  static const errRejectedByUser = 0x6E09;
-  static const errRejectedByPolicy = 0x6E10;
-  static const errDeviceLocked = 0x6E11;
-
   final Ledger ledger;
   final int accountIndex;
   final LedgerTransformer? transformer;
@@ -49,7 +36,7 @@ class CardanoLedgerApp {
   Future<CardanoVersion> getVersion(LedgerDevice device) {
     return ledger.sendComplexOperation<CardanoVersion>(
       device,
-      CardanoVersionOperation(),
+      const CardanoVersionOperation(),
       transformer: transformer,
     );
   }
@@ -57,41 +44,43 @@ class CardanoLedgerApp {
   Future<String> getSerialNumber(LedgerDevice device) {
     return ledger.sendComplexOperation<String>(
       device,
-      CardanoGetSerialOperation(),
+      const CardanoGetSerialOperation(),
       transformer: transformer,
     );
   }
 
   Future<String> deriveNativeScriptHash(
-  LedgerDevice device,
-  ParsedNativeScript script,
-  NativeScriptHashDisplayFormat displayFormat,
-) async {
-  // Ensure the device's Cardano app version supports the requested operation
-  final CardanoVersion deviceVersion = await getVersion(device);
-  final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    LedgerDevice device,
+    ParsedNativeScript script,
+    NativeScriptHashDisplayFormat displayFormat,
+  ) async {
+    // Ensure the device's Cardano app version supports the requested operation
+    final CardanoVersion deviceVersion = await getVersion(device);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
-  if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
-    throw ValidationException(
-      "Deriving native script hash not supported by the device's Cardano app version. "
-      "Required minimum version: ${compatibility.recommendedVersion}, "
-      "Device version: ${deviceVersion.versionName}",
+    if (!compatibility.isCompatible ||
+        !compatibility.supportsNativeScriptHashDerivation) {
+      throw ValidationException(
+        "Deriving native script hash not supported by the device's Cardano app version. "
+        "Required minimum version: ${compatibility.recommendedVersion}, "
+        "Device version: ${deviceVersion.versionName}",
+      );
+    }
+
+    final operation = CardanoDeriveNativeScriptHashOperation(
+      script: script,
+      displayFormat: displayFormat,
     );
+
+    final String scriptHash = await ledger.sendComplexOperation<String>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    return scriptHash;
   }
-
-  final operation = CardanoDeriveNativeScriptHashOperation(
-    script: script,
-    displayFormat: displayFormat,
-  );
-
-  final String scriptHash = await ledger.sendComplexOperation<String>(
-    device,
-    operation,
-    transformer: transformer,
-  );
-
-  return scriptHash;
-}
 
   Future<ExtendedPublicKey> getExtendedPublicKey(
     LedgerDevice device, {

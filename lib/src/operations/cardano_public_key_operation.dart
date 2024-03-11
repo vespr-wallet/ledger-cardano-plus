@@ -11,7 +11,7 @@ class GetExtendedPublicKeyOperation
     extends ComplexLedgerOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
 
-  GetExtendedPublicKeyOperation({
+  const GetExtendedPublicKeyOperation({
     required this.bip32Path,
   });
 

@@ -37,7 +37,6 @@ dependencies:
   cupertino_icons: ^1.0.6
   ledger_cardano:
     path: ../
-  ledger_flutter: ^1.0.1
   permission_handler: ^11.1.0
 
 dev_dependencies:

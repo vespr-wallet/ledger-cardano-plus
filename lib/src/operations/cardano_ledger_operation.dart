@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
+// TODO if CardanoLedgerOperation is not used, delete this class/file
 abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
   static const cla = 0xD7;
   final InstructionType ins;
@@ -34,9 +35,6 @@ abstract class CardanoLedgerOperation<T> extends LedgerOperation<T> {
               'Data length must be less than or equal to 255',
             );
           }
-          if (ins.prependDataLength) {
-            writer.writeUint8(data.length);
-          }
           writer.write(data);
         }
 
@@ -66,17 +64,15 @@ enum InstructionType {
 
   // RUN_TESTS = 0xf0,
 
-  deriveAddress(insValue: 0x11, prependDataLength: true),
-  getVersion(insValue: 0x00, prependDataLength: false),
-  getExtendedPublicKey(insValue: 0x10, prependDataLength: false),
-  getSerial(insValue: 0x01, prependDataLength: false),
-  deriveNativeScriptHash(insValue: 0x12, prependDataLength: false);
+  deriveAddress(insValue: 0x11),
+  getVersion(insValue: 0x00),
+  getExtendedPublicKey(insValue: 0x10),
+  getSerial(insValue: 0x01),
+  deriveNativeScriptHash(insValue: 0x12);
 
   final int insValue;
-  final bool prependDataLength;
 
-  const InstructionType(
-      {required this.insValue, required this.prependDataLength});
+  const InstructionType({required this.insValue});
 }
 
 // enum NativeScriptHashDisplayFormat {

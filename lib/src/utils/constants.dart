@@ -21,16 +21,24 @@ const int p1FinishScriptHash = 0x03;
 const int nativeScriptHashLength = 28;
 
 enum NativeScriptType {
-  pubkeyDeviceOwned(1),
-  pubkeyThirdParty(2),
-  all(0),
-  any(0),
-  nOfK(0),
-  invalidBefore(0),
-  invalidHereafter(0);
+  pubkeyDeviceOwned(0),
+  pubkeyThirdParty(0),
+  all(1),
+  any(2),
+  nOfK(3),
+  invalidBefore(4),
+  invalidHereafter(5);
 
   final int encoding;
   const NativeScriptType(this.encoding);
+}
+
+enum PubkeyType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encoding;
+  const PubkeyType(this.encoding);
 }
 
 enum NativeScriptHashDisplayFormat {

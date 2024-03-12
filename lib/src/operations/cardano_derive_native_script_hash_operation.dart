@@ -78,15 +78,15 @@ class CardanoDeriveNativeScriptHashOperation
     return useBinaryWriter((writer) {
       final invoker = switch (script) {
         ParsedComplexNativeScript_All() => () {
-            writer.writeUint8(NativeScriptType.all.index);
+            writer.writeUint8(NativeScriptType.all.encoding);
             writer.writeUint32(script.scripts.length);
           },
         ParsedComplexNativeScript_Any() => () {
-            writer.writeUint8(NativeScriptType.any.index);
+            writer.writeUint8(NativeScriptType.any.encoding);
             writer.writeUint32(script.scripts.length);
           },
         ParsedComplexNativeScript_NOfK() => () {
-            writer.writeUint8(NativeScriptType.nOfK.index);
+            writer.writeUint8(NativeScriptType.nOfK.encoding);
             writer.writeUint32(script.scripts.length);
             writer.writeUint32(script.requiredCount);
           },
@@ -100,21 +100,21 @@ class CardanoDeriveNativeScriptHashOperation
     return useBinaryWriter((writer) {
       final invoker = switch (script) {
         ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
-            writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
             writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
+            writer.writeUint8(PubkeyType.deviceOwned.encoding);
             writer.write(pathToBuf(script.path));
           },
         ParsedSimpleNativeScript_PubKeyThirdParty() => () {
-            writer.writeUint8(NativeScriptType.pubkeyThirdParty.index);
             writer.writeUint8(NativeScriptType.pubkeyThirdParty.encoding);
+            writer.writeUint8(PubkeyType.thirdParty.encoding);
             writer.write(hexToBuf(script.keyHashHex));
           },
         ParsedSimpleNativeScript_InvalidBefore() => () {
-            writer.writeUint8(NativeScriptType.invalidBefore.index);
+            writer.writeUint8(NativeScriptType.invalidBefore.encoding);
             writer.writeUint64(script.slot);
           },
         ParsedSimpleNativeScript_InvalidHereafter() => () {
-            writer.writeUint8(NativeScriptType.invalidHereafter.index);
+            writer.writeUint8(NativeScriptType.invalidHereafter.encoding);
             writer.writeUint64(script.slot);
           },
       };

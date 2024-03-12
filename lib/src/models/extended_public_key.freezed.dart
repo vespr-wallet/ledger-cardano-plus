@@ -18,26 +18,19 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ExtendedPublicKey {
   String get publicKeyHex => throw _privateConstructorUsedError;
   String get chainCodeHex => throw _privateConstructorUsedError;
-  String get accountType => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            String publicKeyHex, String chainCodeHex, String accountType)
-        $default,
+    TResult Function(String publicKeyHex, String chainCodeHex) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            String publicKeyHex, String chainCodeHex, String accountType)?
-        $default,
+    TResult? Function(String publicKeyHex, String chainCodeHex)? $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String publicKeyHex, String chainCodeHex, String accountType)?
-        $default, {
+    TResult Function(String publicKeyHex, String chainCodeHex)? $default, {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -53,7 +46,7 @@ abstract class $ExtendedPublicKeyCopyWith<$Res> {
           ExtendedPublicKey value, $Res Function(ExtendedPublicKey) then) =
       _$ExtendedPublicKeyCopyWithImpl<$Res, ExtendedPublicKey>;
   @useResult
-  $Res call({String publicKeyHex, String chainCodeHex, String accountType});
+  $Res call({String publicKeyHex, String chainCodeHex});
 }
 
 /// @nodoc
@@ -71,7 +64,6 @@ class _$ExtendedPublicKeyCopyWithImpl<$Res, $Val extends ExtendedPublicKey>
   $Res call({
     Object? publicKeyHex = null,
     Object? chainCodeHex = null,
-    Object? accountType = null,
   }) {
     return _then(_value.copyWith(
       publicKeyHex: null == publicKeyHex
@@ -81,10 +73,6 @@ class _$ExtendedPublicKeyCopyWithImpl<$Res, $Val extends ExtendedPublicKey>
       chainCodeHex: null == chainCodeHex
           ? _value.chainCodeHex
           : chainCodeHex // ignore: cast_nullable_to_non_nullable
-              as String,
-      accountType: null == accountType
-          ? _value.accountType
-          : accountType // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
   }
@@ -98,7 +86,7 @@ abstract class _$$ExtendedPublicKeyImplCopyWith<$Res>
       __$$ExtendedPublicKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKeyHex, String chainCodeHex, String accountType});
+  $Res call({String publicKeyHex, String chainCodeHex});
 }
 
 /// @nodoc
@@ -114,7 +102,6 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res>
   $Res call({
     Object? publicKeyHex = null,
     Object? chainCodeHex = null,
-    Object? accountType = null,
   }) {
     return _then(_$ExtendedPublicKeyImpl(
       publicKeyHex: null == publicKeyHex
@@ -125,10 +112,6 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res>
           ? _value.chainCodeHex
           : chainCodeHex // ignore: cast_nullable_to_non_nullable
               as String,
-      accountType: null == accountType
-          ? _value.accountType
-          : accountType // ignore: cast_nullable_to_non_nullable
-              as String,
     ));
   }
 }
@@ -137,21 +120,17 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
   const _$ExtendedPublicKeyImpl(
-      {required this.publicKeyHex,
-      required this.chainCodeHex,
-      required this.accountType})
+      {required this.publicKeyHex, required this.chainCodeHex})
       : super._();
 
   @override
   final String publicKeyHex;
   @override
   final String chainCodeHex;
-  @override
-  final String accountType;
 
   @override
   String toString() {
-    return 'ExtendedPublicKey(publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex, accountType: $accountType)';
+    return 'ExtendedPublicKey(publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
   }
 
   @override
@@ -162,14 +141,11 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
             (identical(other.publicKeyHex, publicKeyHex) ||
                 other.publicKeyHex == publicKeyHex) &&
             (identical(other.chainCodeHex, chainCodeHex) ||
-                other.chainCodeHex == chainCodeHex) &&
-            (identical(other.accountType, accountType) ||
-                other.accountType == accountType));
+                other.chainCodeHex == chainCodeHex));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, publicKeyHex, chainCodeHex, accountType);
+  int get hashCode => Object.hash(runtimeType, publicKeyHex, chainCodeHex);
 
   @JsonKey(ignore: true)
   @override
@@ -181,33 +157,27 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            String publicKeyHex, String chainCodeHex, String accountType)
-        $default,
+    TResult Function(String publicKeyHex, String chainCodeHex) $default,
   ) {
-    return $default(publicKeyHex, chainCodeHex, accountType);
+    return $default(publicKeyHex, chainCodeHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            String publicKeyHex, String chainCodeHex, String accountType)?
-        $default,
+    TResult? Function(String publicKeyHex, String chainCodeHex)? $default,
   ) {
-    return $default?.call(publicKeyHex, chainCodeHex, accountType);
+    return $default?.call(publicKeyHex, chainCodeHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            String publicKeyHex, String chainCodeHex, String accountType)?
-        $default, {
+    TResult Function(String publicKeyHex, String chainCodeHex)? $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(publicKeyHex, chainCodeHex, accountType);
+      return $default(publicKeyHex, chainCodeHex);
     }
     return orElse();
   }
@@ -216,16 +186,13 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
 abstract class _ExtendedPublicKey extends ExtendedPublicKey {
   const factory _ExtendedPublicKey(
       {required final String publicKeyHex,
-      required final String chainCodeHex,
-      required final String accountType}) = _$ExtendedPublicKeyImpl;
+      required final String chainCodeHex}) = _$ExtendedPublicKeyImpl;
   const _ExtendedPublicKey._() : super._();
 
   @override
   String get publicKeyHex;
   @override
   String get chainCodeHex;
-  @override
-  String get accountType;
   @override
   @JsonKey(ignore: true)
   _$$ExtendedPublicKeyImplCopyWith<_$ExtendedPublicKeyImpl> get copyWith =>

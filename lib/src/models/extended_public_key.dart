@@ -10,7 +10,6 @@ sealed class ExtendedPublicKey with _$ExtendedPublicKey {
   const factory ExtendedPublicKey({
     required String publicKeyHex,
     required String chainCodeHex,
-    required String accountType,
   }) = _ExtendedPublicKey;
 }
 

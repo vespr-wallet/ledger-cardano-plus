@@ -33,7 +33,7 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
         p1: returnDataP1Value,
         p2: p2Unused,
         data: writer.toBytes(),
-        expectResponseLength: true,
+        prependDataLength: true,
       ),
     );
 

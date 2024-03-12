@@ -80,7 +80,6 @@ class _MyAppState extends State<MyApp> {
 
       setState(() {
         accounts = [
-          'Account Type: ${fetchedAccounts.accountType}',
           'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
               'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
         ];

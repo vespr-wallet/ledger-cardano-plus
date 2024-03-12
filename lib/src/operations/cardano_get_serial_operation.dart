@@ -4,6 +4,7 @@ import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -20,7 +21,7 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
     final SendOperation operation = SendOperation(
       ins: InstructionType.getSerial.insValue,
       p1: ReturnType.unused.p1Value,
-      p2: 0,
+      p2: p2Unused,
       data: data,
     );
 

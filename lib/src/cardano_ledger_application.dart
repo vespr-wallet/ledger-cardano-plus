@@ -108,7 +108,6 @@ class CardanoLedgerApp {
   }) async {
     final List<ExtendedPublicKey> xPubKeys = [];
     for (final request in requests) {
-      final String accountType = request.accountType;
       final List<int> derivationPaths = request.derivationPath;
       final int minSupportedVersionCode = request.minSupportedVersionCode;
 
@@ -124,7 +123,6 @@ class CardanoLedgerApp {
 
       final operation = GetExtendedPublicKeyOperation(
         bip32Path: derivationPaths,
-        accountType: accountType,
       );
       xPubKeys.add(
         await ledger.sendComplexOperation<ExtendedPublicKey>(

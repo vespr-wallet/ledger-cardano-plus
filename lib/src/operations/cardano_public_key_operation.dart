@@ -1,5 +1,6 @@
 import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'cardano_ledger_operation.dart';
@@ -9,11 +10,9 @@ import 'ledger_operations.dart';
 class GetExtendedPublicKeyOperation
     extends ComplexLedgerOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
-  final String accountType;
 
   GetExtendedPublicKeyOperation({
     required this.bip32Path,
-    required this.accountType,
   });
 
   @override
@@ -30,7 +29,7 @@ class GetExtendedPublicKeyOperation
     final sendOperation = SendOperation(
       ins: InstructionType.getExtendedPublicKey.insValue,
       p1: ReturnType.unused.p1Value,
-      p2: 0,
+      p2: p2Unused,
       data: data,
     );
 
@@ -45,7 +44,6 @@ class GetExtendedPublicKeyOperation
     return ExtendedPublicKey(
       publicKeyHex: publicKeyHex,
       chainCodeHex: chainCodeHex,
-      accountType: accountType,
     );
   }
 }

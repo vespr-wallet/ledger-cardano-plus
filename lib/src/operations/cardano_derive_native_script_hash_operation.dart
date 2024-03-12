@@ -1,6 +1,7 @@
 import 'dart:typed_data';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/serialization_utils.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -19,7 +20,7 @@ class CardanoDeriveNativeScriptHashOperation
             ParsedNativeScript_Complex() => 0x01,
             ParsedNativeScript_Simple() => 0x02,
           },
-          p2: 0x00,
+          p2: p2Unused,
         );
 
   @override

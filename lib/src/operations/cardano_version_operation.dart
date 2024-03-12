@@ -3,6 +3,7 @@ import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 
@@ -19,7 +20,7 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
     final SendOperation operation = SendOperation(
       ins: InstructionType.getVersion.insValue,
       p1: ReturnType.unused.p1Value,
-      p2: 0,
+      p2: p2Unused,
       data: data,
     );
 

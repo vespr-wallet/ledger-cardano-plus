@@ -15,7 +15,7 @@ class SerializationUtils {
     writer.write(bytes);
   }
 
-  static void serializeUint64(ByteDataWriter writer, int value) {
+  static void writeSerializedUint64(ByteDataWriter writer, int value) {
     // Dart does not natively support 64-bit integers, so we split the value into two 32-bit parts.
     writer.writeUint32(value >> 32);
     writer.writeUint32(value & 0xFFFFFFFF);

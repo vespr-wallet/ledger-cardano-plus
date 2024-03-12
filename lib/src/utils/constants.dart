@@ -16,6 +16,8 @@ const int initialWriterValue = 0x00;
 
 const int returnDataP1Value = 0x01;
 
+const int p1FinishScriptHash = 0x03;
+
 const int nativeScriptHashLength = 28;
 
 enum NativeScriptType {
@@ -58,9 +60,6 @@ enum CardanoResponseCode {
 }
 
 enum InstructionType {
-
-
-
   deriveAddress(insValue: 0x11),
   getVersion(insValue: 0x00),
   getExtendedPublicKey(insValue: 0x10),

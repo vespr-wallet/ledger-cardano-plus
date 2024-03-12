@@ -33,15 +33,15 @@ class CardanoDeriveNativeScriptHashOperation
     final sendOperation = switch (script) {
       ParsedNativeScript_Complex() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
-          p1: 0x01,
-          p2: 0x00,
+          p1: returnDataP1Value,
+          p2: p2Unused,
           data: serializeComplexNativeScriptStart(script.script),
           prependDataLength: true,
         ),
       ParsedNativeScript_Simple() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
-          p1: 0x02,
-          p2: 0x00,
+          p1: p1DisplayOnDevice,
+          p2: p2Unused,
           data: serializeSimpleNativeScript(script.script),
           prependDataLength: true,
         ),
@@ -63,8 +63,8 @@ class CardanoDeriveNativeScriptHashOperation
     final response = await send(
       SendOperation(
         ins: InstructionType.deriveNativeScriptHash.insValue,
-        p1: 0x03,
-        p2: 0x00,
+        p1: p1FinishScriptHash,
+        p2: p2Unused,
         data: serializeWholeNativeScriptFinish(displayFormat),
         prependDataLength: true,
       ),

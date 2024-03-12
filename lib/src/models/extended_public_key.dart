@@ -64,20 +64,14 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     ExtendedPublicKeyRequest_Custom(customPath: final customPath) => customPath,
   };
 
-  late final String accountType = switch (this) {
-    ExtendedPublicKeyRequest_Shelley() => "Shelley",
-    ExtendedPublicKeyRequest_Byron() => "Byron",
-    ExtendedPublicKeyRequest_Custom() => "Custom",
-    ExtendedPublicKeyRequest_Stake() => "Stake",
-    ExtendedPublicKeyRequest_CIP36() => "CIP36",
-  };
-
-
-    late final int minSupportedVersionCode = switch (this) {
+  late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20002, // Version 2.2.0
-    ExtendedPublicKeyRequest_Byron() => 20002, // Version 2.2.0, supportsByronAddressDerivation
-    ExtendedPublicKeyRequest_Custom() => 70000, // Version 7.0.0, assuming highest compatibility required
-    ExtendedPublicKeyRequest_Stake() => 20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
+    ExtendedPublicKeyRequest_Byron() =>
+      20002, // Version 2.2.0, supportsByronAddressDerivation
+    ExtendedPublicKeyRequest_Custom() =>
+      70000, // Version 7.0.0, assuming highest compatibility required
+    ExtendedPublicKeyRequest_Stake() =>
+      20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
     ExtendedPublicKeyRequest_CIP36() => 60000, // Version 6.0.0, supportsCIP36
   };
 }

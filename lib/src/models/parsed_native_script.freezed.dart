@@ -102,8 +102,8 @@ class __$$ParsedNativeScript_ComplexImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedNativeScript_ComplexImpl implements ParsedNativeScript_Complex {
-  const _$ParsedNativeScript_ComplexImpl(this.script);
+class _$ParsedNativeScript_ComplexImpl extends ParsedNativeScript_Complex {
+  const _$ParsedNativeScript_ComplexImpl(this.script) : super._();
 
   @override
   final ParsedComplexNativeScript script;
@@ -163,10 +163,11 @@ class _$ParsedNativeScript_ComplexImpl implements ParsedNativeScript_Complex {
   }
 }
 
-abstract class ParsedNativeScript_Complex implements ParsedNativeScript {
+abstract class ParsedNativeScript_Complex extends ParsedNativeScript {
   const factory ParsedNativeScript_Complex(
           final ParsedComplexNativeScript script) =
       _$ParsedNativeScript_ComplexImpl;
+  const ParsedNativeScript_Complex._() : super._();
 
   @override
   ParsedComplexNativeScript get script;
@@ -221,8 +222,8 @@ class __$$ParsedNativeScript_SimpleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedNativeScript_SimpleImpl implements ParsedNativeScript_Simple {
-  const _$ParsedNativeScript_SimpleImpl(this.script);
+class _$ParsedNativeScript_SimpleImpl extends ParsedNativeScript_Simple {
+  const _$ParsedNativeScript_SimpleImpl(this.script) : super._();
 
   @override
   final ParsedSimpleNativeScript script;
@@ -282,9 +283,10 @@ class _$ParsedNativeScript_SimpleImpl implements ParsedNativeScript_Simple {
   }
 }
 
-abstract class ParsedNativeScript_Simple implements ParsedNativeScript {
+abstract class ParsedNativeScript_Simple extends ParsedNativeScript {
   const factory ParsedNativeScript_Simple(
       final ParsedSimpleNativeScript script) = _$ParsedNativeScript_SimpleImpl;
+  const ParsedNativeScript_Simple._() : super._();
 
   @override
   ParsedSimpleNativeScript get script;

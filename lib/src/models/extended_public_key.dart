@@ -72,8 +72,7 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     ExtendedPublicKeyRequest_CIP36() => "CIP36",
   };
 
-  // TODO use this to check if the cardano app version on ledger supports operation
-  // TODO add the correct min version for each request type
+
     late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20002, // Version 2.2.0
     ExtendedPublicKeyRequest_Byron() => 20002, // Version 2.2.0, supportsByronAddressDerivation

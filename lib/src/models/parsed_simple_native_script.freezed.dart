@@ -63,21 +63,24 @@ class _$ParsedSimpleNativeScriptCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$PubKeyDeviceOwnedImplCopyWith<$Res> {
-  factory _$$PubKeyDeviceOwnedImplCopyWith(_$PubKeyDeviceOwnedImpl value,
-          $Res Function(_$PubKeyDeviceOwnedImpl) then) =
-      __$$PubKeyDeviceOwnedImplCopyWithImpl<$Res>;
+abstract class _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<$Res> {
+  factory _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith(
+          _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl value,
+          $Res Function(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl)
+              then) =
+      __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>;
   @useResult
   $Res call({List<int> path});
 }
 
 /// @nodoc
-class __$$PubKeyDeviceOwnedImplCopyWithImpl<$Res>
+class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>
     extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res,
-        _$PubKeyDeviceOwnedImpl>
-    implements _$$PubKeyDeviceOwnedImplCopyWith<$Res> {
-  __$$PubKeyDeviceOwnedImplCopyWithImpl(_$PubKeyDeviceOwnedImpl _value,
-      $Res Function(_$PubKeyDeviceOwnedImpl) _then)
+        _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>
+    implements _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<$Res> {
+  __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl(
+      _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl _value,
+      $Res Function(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +88,7 @@ class __$$PubKeyDeviceOwnedImplCopyWithImpl<$Res>
   $Res call({
     Object? path = null,
   }) {
-    return _then(_$PubKeyDeviceOwnedImpl(
+    return _then(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -96,8 +99,12 @@ class __$$PubKeyDeviceOwnedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PubKeyDeviceOwnedImpl implements _PubKeyDeviceOwned {
-  const _$PubKeyDeviceOwnedImpl({required final List<int> path}) : _path = path;
+class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
+    extends ParsedSimpleNativeScript_PubKeyDeviceOwned {
+  const _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
+      {required final List<int> path})
+      : _path = path,
+        super._();
 
   final List<int> _path;
   @override
@@ -116,7 +123,7 @@ class _$PubKeyDeviceOwnedImpl implements _PubKeyDeviceOwned {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PubKeyDeviceOwnedImpl &&
+            other is _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
@@ -127,9 +134,12 @@ class _$PubKeyDeviceOwnedImpl implements _PubKeyDeviceOwned {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PubKeyDeviceOwnedImplCopyWith<_$PubKeyDeviceOwnedImpl> get copyWith =>
-      __$$PubKeyDeviceOwnedImplCopyWithImpl<_$PubKeyDeviceOwnedImpl>(
-          this, _$identity);
+  _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<
+          _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>
+      get copyWith =>
+          __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<
+                  _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -169,31 +179,38 @@ class _$PubKeyDeviceOwnedImpl implements _PubKeyDeviceOwned {
   }
 }
 
-abstract class _PubKeyDeviceOwned implements ParsedSimpleNativeScript {
-  const factory _PubKeyDeviceOwned({required final List<int> path}) =
-      _$PubKeyDeviceOwnedImpl;
+abstract class ParsedSimpleNativeScript_PubKeyDeviceOwned
+    extends ParsedSimpleNativeScript {
+  const factory ParsedSimpleNativeScript_PubKeyDeviceOwned(
+          {required final List<int> path}) =
+      _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl;
+  const ParsedSimpleNativeScript_PubKeyDeviceOwned._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)
-  _$$PubKeyDeviceOwnedImplCopyWith<_$PubKeyDeviceOwnedImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<
+          _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PubKeyThirdPartyImplCopyWith<$Res> {
-  factory _$$PubKeyThirdPartyImplCopyWith(_$PubKeyThirdPartyImpl value,
-          $Res Function(_$PubKeyThirdPartyImpl) then) =
-      __$$PubKeyThirdPartyImplCopyWithImpl<$Res>;
+abstract class _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<$Res> {
+  factory _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith(
+          _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl value,
+          $Res Function(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl) then) =
+      __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String keyHashHex});
 }
 
 /// @nodoc
-class __$$PubKeyThirdPartyImplCopyWithImpl<$Res>
-    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$PubKeyThirdPartyImpl>
-    implements _$$PubKeyThirdPartyImplCopyWith<$Res> {
-  __$$PubKeyThirdPartyImplCopyWithImpl(_$PubKeyThirdPartyImpl _value,
-      $Res Function(_$PubKeyThirdPartyImpl) _then)
+class __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res>
+    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res,
+        _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>
+    implements _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<$Res> {
+  __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl(
+      _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl _value,
+      $Res Function(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -201,7 +218,7 @@ class __$$PubKeyThirdPartyImplCopyWithImpl<$Res>
   $Res call({
     Object? keyHashHex = null,
   }) {
-    return _then(_$PubKeyThirdPartyImpl(
+    return _then(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl(
       keyHashHex: null == keyHashHex
           ? _value.keyHashHex
           : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -212,8 +229,11 @@ class __$$PubKeyThirdPartyImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PubKeyThirdPartyImpl implements _PubKeyThirdParty {
-  const _$PubKeyThirdPartyImpl({required this.keyHashHex});
+class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
+    extends ParsedSimpleNativeScript_PubKeyThirdParty {
+  const _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl(
+      {required this.keyHashHex})
+      : super._();
 
   @override
   final String keyHashHex;
@@ -227,7 +247,7 @@ class _$PubKeyThirdPartyImpl implements _PubKeyThirdParty {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PubKeyThirdPartyImpl &&
+            other is _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl &&
             (identical(other.keyHashHex, keyHashHex) ||
                 other.keyHashHex == keyHashHex));
   }
@@ -238,9 +258,12 @@ class _$PubKeyThirdPartyImpl implements _PubKeyThirdParty {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PubKeyThirdPartyImplCopyWith<_$PubKeyThirdPartyImpl> get copyWith =>
-      __$$PubKeyThirdPartyImplCopyWithImpl<_$PubKeyThirdPartyImpl>(
-          this, _$identity);
+  _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<
+          _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>
+      get copyWith =>
+          __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<
+                  _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -280,31 +303,38 @@ class _$PubKeyThirdPartyImpl implements _PubKeyThirdParty {
   }
 }
 
-abstract class _PubKeyThirdParty implements ParsedSimpleNativeScript {
-  const factory _PubKeyThirdParty({required final String keyHashHex}) =
-      _$PubKeyThirdPartyImpl;
+abstract class ParsedSimpleNativeScript_PubKeyThirdParty
+    extends ParsedSimpleNativeScript {
+  const factory ParsedSimpleNativeScript_PubKeyThirdParty(
+          {required final String keyHashHex}) =
+      _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl;
+  const ParsedSimpleNativeScript_PubKeyThirdParty._() : super._();
 
   String get keyHashHex;
   @JsonKey(ignore: true)
-  _$$PubKeyThirdPartyImplCopyWith<_$PubKeyThirdPartyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<
+          _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidBeforeImplCopyWith<$Res> {
-  factory _$$InvalidBeforeImplCopyWith(
-          _$InvalidBeforeImpl value, $Res Function(_$InvalidBeforeImpl) then) =
-      __$$InvalidBeforeImplCopyWithImpl<$Res>;
+abstract class _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<$Res> {
+  factory _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith(
+          _$ParsedSimpleNativeScript_InvalidBeforeImpl value,
+          $Res Function(_$ParsedSimpleNativeScript_InvalidBeforeImpl) then) =
+      __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int slot});
 }
 
 /// @nodoc
-class __$$InvalidBeforeImplCopyWithImpl<$Res>
-    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$InvalidBeforeImpl>
-    implements _$$InvalidBeforeImplCopyWith<$Res> {
-  __$$InvalidBeforeImplCopyWithImpl(
-      _$InvalidBeforeImpl _value, $Res Function(_$InvalidBeforeImpl) _then)
+class __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>
+    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res,
+        _$ParsedSimpleNativeScript_InvalidBeforeImpl>
+    implements _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<$Res> {
+  __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl(
+      _$ParsedSimpleNativeScript_InvalidBeforeImpl _value,
+      $Res Function(_$ParsedSimpleNativeScript_InvalidBeforeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -312,7 +342,7 @@ class __$$InvalidBeforeImplCopyWithImpl<$Res>
   $Res call({
     Object? slot = null,
   }) {
-    return _then(_$InvalidBeforeImpl(
+    return _then(_$ParsedSimpleNativeScript_InvalidBeforeImpl(
       slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
@@ -323,8 +353,10 @@ class __$$InvalidBeforeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidBeforeImpl implements _InvalidBefore {
-  const _$InvalidBeforeImpl({required this.slot});
+class _$ParsedSimpleNativeScript_InvalidBeforeImpl
+    extends ParsedSimpleNativeScript_InvalidBefore {
+  const _$ParsedSimpleNativeScript_InvalidBeforeImpl({required this.slot})
+      : super._();
 
   @override
   final int slot;
@@ -338,7 +370,7 @@ class _$InvalidBeforeImpl implements _InvalidBefore {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidBeforeImpl &&
+            other is _$ParsedSimpleNativeScript_InvalidBeforeImpl &&
             (identical(other.slot, slot) || other.slot == slot));
   }
 
@@ -348,8 +380,11 @@ class _$InvalidBeforeImpl implements _InvalidBefore {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidBeforeImplCopyWith<_$InvalidBeforeImpl> get copyWith =>
-      __$$InvalidBeforeImplCopyWithImpl<_$InvalidBeforeImpl>(this, _$identity);
+  _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<
+          _$ParsedSimpleNativeScript_InvalidBeforeImpl>
+      get copyWith =>
+          __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<
+              _$ParsedSimpleNativeScript_InvalidBeforeImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -389,30 +424,37 @@ class _$InvalidBeforeImpl implements _InvalidBefore {
   }
 }
 
-abstract class _InvalidBefore implements ParsedSimpleNativeScript {
-  const factory _InvalidBefore({required final int slot}) = _$InvalidBeforeImpl;
+abstract class ParsedSimpleNativeScript_InvalidBefore
+    extends ParsedSimpleNativeScript {
+  const factory ParsedSimpleNativeScript_InvalidBefore(
+      {required final int slot}) = _$ParsedSimpleNativeScript_InvalidBeforeImpl;
+  const ParsedSimpleNativeScript_InvalidBefore._() : super._();
 
   int get slot;
   @JsonKey(ignore: true)
-  _$$InvalidBeforeImplCopyWith<_$InvalidBeforeImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<
+          _$ParsedSimpleNativeScript_InvalidBeforeImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$InvalidHereafterImplCopyWith<$Res> {
-  factory _$$InvalidHereafterImplCopyWith(_$InvalidHereafterImpl value,
-          $Res Function(_$InvalidHereafterImpl) then) =
-      __$$InvalidHereafterImplCopyWithImpl<$Res>;
+abstract class _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<$Res> {
+  factory _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith(
+          _$ParsedSimpleNativeScript_InvalidHereafterImpl value,
+          $Res Function(_$ParsedSimpleNativeScript_InvalidHereafterImpl) then) =
+      __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>;
   @useResult
   $Res call({int slot});
 }
 
 /// @nodoc
-class __$$InvalidHereafterImplCopyWithImpl<$Res>
-    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$InvalidHereafterImpl>
-    implements _$$InvalidHereafterImplCopyWith<$Res> {
-  __$$InvalidHereafterImplCopyWithImpl(_$InvalidHereafterImpl _value,
-      $Res Function(_$InvalidHereafterImpl) _then)
+class __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>
+    extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res,
+        _$ParsedSimpleNativeScript_InvalidHereafterImpl>
+    implements _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<$Res> {
+  __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl(
+      _$ParsedSimpleNativeScript_InvalidHereafterImpl _value,
+      $Res Function(_$ParsedSimpleNativeScript_InvalidHereafterImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -420,7 +462,7 @@ class __$$InvalidHereafterImplCopyWithImpl<$Res>
   $Res call({
     Object? slot = null,
   }) {
-    return _then(_$InvalidHereafterImpl(
+    return _then(_$ParsedSimpleNativeScript_InvalidHereafterImpl(
       slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
@@ -431,8 +473,10 @@ class __$$InvalidHereafterImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InvalidHereafterImpl implements _InvalidHereafter {
-  const _$InvalidHereafterImpl({required this.slot});
+class _$ParsedSimpleNativeScript_InvalidHereafterImpl
+    extends ParsedSimpleNativeScript_InvalidHereafter {
+  const _$ParsedSimpleNativeScript_InvalidHereafterImpl({required this.slot})
+      : super._();
 
   @override
   final int slot;
@@ -446,7 +490,7 @@ class _$InvalidHereafterImpl implements _InvalidHereafter {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$InvalidHereafterImpl &&
+            other is _$ParsedSimpleNativeScript_InvalidHereafterImpl &&
             (identical(other.slot, slot) || other.slot == slot));
   }
 
@@ -456,9 +500,12 @@ class _$InvalidHereafterImpl implements _InvalidHereafter {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$InvalidHereafterImplCopyWith<_$InvalidHereafterImpl> get copyWith =>
-      __$$InvalidHereafterImplCopyWithImpl<_$InvalidHereafterImpl>(
-          this, _$identity);
+  _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<
+          _$ParsedSimpleNativeScript_InvalidHereafterImpl>
+      get copyWith =>
+          __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<
+                  _$ParsedSimpleNativeScript_InvalidHereafterImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -498,12 +545,16 @@ class _$InvalidHereafterImpl implements _InvalidHereafter {
   }
 }
 
-abstract class _InvalidHereafter implements ParsedSimpleNativeScript {
-  const factory _InvalidHereafter({required final int slot}) =
-      _$InvalidHereafterImpl;
+abstract class ParsedSimpleNativeScript_InvalidHereafter
+    extends ParsedSimpleNativeScript {
+  const factory ParsedSimpleNativeScript_InvalidHereafter(
+          {required final int slot}) =
+      _$ParsedSimpleNativeScript_InvalidHereafterImpl;
+  const ParsedSimpleNativeScript_InvalidHereafter._() : super._();
 
   int get slot;
   @JsonKey(ignore: true)
-  _$$InvalidHereafterImplCopyWith<_$InvalidHereafterImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<
+          _$ParsedSimpleNativeScript_InvalidHereafterImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

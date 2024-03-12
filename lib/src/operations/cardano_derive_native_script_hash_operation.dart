@@ -3,11 +3,11 @@ import 'dart:typed_data';
 import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoDeriveNativeScriptHashOperation
@@ -30,32 +30,29 @@ class CardanoDeriveNativeScriptHashOperation
 
   Future<void> _deriveNativeScriptHashAddScript(
       LedgerSendFct send, ParsedNativeScript script) async {
-    // TODO change to switch statement (writes sendOperation into a variable)
-    if (script is ParsedNativeScript_Complex) {
-      final complexScript = script.script;
-      await send(
-        SendOperation(
+    final sendOperation = switch (script) {
+      ParsedNativeScript_Complex() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
           p1: 0x01,
           p2: 0x00,
-          data: serializeComplexNativeScriptStart(complexScript),
+          data: serializeComplexNativeScriptStart(script.script),
           expectResponseLength: true,
         ),
-      );
-      for (final subscript in complexScript.scripts) {
-        await _deriveNativeScriptHashAddScript(send, subscript);
-      }
-    } else if (script is ParsedNativeScript_Simple) {
-      final simpleScript = script.script;
-      await send(
-        SendOperation(
+      ParsedNativeScript_Simple() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
           p1: 0x02,
           p2: 0x00,
-          data: serializeSimpleNativeScript(simpleScript),
+          data: serializeSimpleNativeScript(script.script),
           expectResponseLength: true,
         ),
-      );
+    };
+
+    await send(sendOperation);
+
+    if (script is ParsedNativeScript_Complex) {
+      for (final subscript in script.script.scripts) {
+        await _deriveNativeScriptHashAddScript(send, subscript);
+      }
     }
   }
 
@@ -78,51 +75,52 @@ class CardanoDeriveNativeScriptHashOperation
 
   Uint8List serializeComplexNativeScriptStart(
       ParsedComplexNativeScript script) {
-    final writer = ByteDataWriter();
-    script.when(
-      all: (scripts) {
-        writer.writeUint8(NativeScriptType.all.index);
-        writer.writeUint32(scripts.length);
-      },
-      any: (scripts) {
-        writer.writeUint8(NativeScriptType.any.index);
-        writer.writeUint32(scripts.length);
-      },
-      nOfK: (requiredCount, scripts) {
-        writer.writeUint8(NativeScriptType.nOfK.index);
-        writer.writeUint32(scripts.length);
-        writer.writeUint32(requiredCount);
-      },
-    );
-    return writer.toBytes();
+    return useBinaryWriter((writer) {
+      final result = switch (script) {
+        ParsedComplexNativeScript_All() => () {
+            writer.writeUint8(NativeScriptType.all.index);
+            writer.writeUint32(script.scripts.length);
+          },
+        ParsedComplexNativeScript_Any() => () {
+            writer.writeUint8(NativeScriptType.any.index);
+            writer.writeUint32(script.scripts.length);
+          },
+        ParsedComplexNativeScript_NOfK() => () {
+            writer.writeUint8(NativeScriptType.nOfK.index);
+            writer.writeUint32(script.scripts.length);
+            writer.writeUint32(script.requiredCount);
+          },
+      };
+      result();
+      return writer.toBytes();
+    });
   }
 
   Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) {
-    // TODO ; use `useBinaryWriter`
-    final writer = ByteDataWriter();
-
-    // TODO use switch
-    script.when(
-      pubKeyDeviceOwned: (List<int> path) {
-        writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
-        writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
-        writer.write(pathToBuf(path));
-      },
-      pubKeyThirdParty: (String keyHashHex) {
-        writer.writeUint8(NativeScriptType.pubkeyThirdParty.index);
-        writer.writeUint8(NativeScriptType.pubkeyThirdParty.encoding);
-        writer.write(hexToBuf(keyHashHex));
-      },
-      invalidBefore: (int slot) {
-        writer.writeUint8(NativeScriptType.invalidBefore.index);
-        writer.writeUint64(slot);
-      },
-      invalidHereafter: (int slot) {
-        writer.writeUint8(NativeScriptType.invalidHereafter.index);
-        writer.writeUint64(slot);
-      },
-    );
-    return writer.toBytes();
+    return useBinaryWriter((writer) {
+      final result = switch (script) {
+        ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
+            writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
+            writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
+            writer.write(pathToBuf(script.path));
+          },
+        ParsedSimpleNativeScript_PubKeyThirdParty() => () {
+            writer.writeUint8(NativeScriptType.pubkeyThirdParty.index);
+            writer.writeUint8(NativeScriptType.pubkeyThirdParty.encoding);
+            writer.write(hexToBuf(script.keyHashHex));
+          },
+        ParsedSimpleNativeScript_InvalidBefore() => () {
+            writer.writeUint8(NativeScriptType.invalidBefore.index);
+            writer.writeUint64(script.slot);
+          },
+        ParsedSimpleNativeScript_InvalidHereafter() => () {
+            writer.writeUint8(NativeScriptType.invalidHereafter.index);
+            writer.writeUint64(script.slot);
+          },
+      };
+      result();
+      return writer.toBytes();
+    });
   }
 
   Uint8List serializeWholeNativeScriptFinish(

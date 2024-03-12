@@ -68,3 +68,32 @@ enum CardanoResponseCode {
   final int value;
   const CardanoResponseCode(this.value);
 }
+
+enum ReturnType {
+  unused(p1Value: 0x00),
+  returnData(p1Value: 0x01),
+  display(p1Value: 0x02);
+
+  final int p1Value;
+  const ReturnType({required this.p1Value});
+}
+
+enum InstructionType {
+  // DERIVE_NATIVE_SCRIPT_HASH = 0x12,
+
+  // SIGN_TX = 0x21,
+  // SIGN_OPERATIONAL_CERTIFICATE = 0x22,
+  // SIGN_CIP36_VOTE = 0x23,
+
+  // RUN_TESTS = 0xf0,
+
+  deriveAddress(insValue: 0x11),
+  getVersion(insValue: 0x00),
+  getExtendedPublicKey(insValue: 0x10),
+  getSerial(insValue: 0x01),
+  deriveNativeScriptHash(insValue: 0x12);
+
+  final int insValue;
+
+  const InstructionType({required this.insValue});
+}

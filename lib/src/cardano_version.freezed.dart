@@ -169,7 +169,7 @@ class __$$CardanoVersionImplCopyWithImpl<$Res>
 
 class _$CardanoVersionImpl extends _CardanoVersion
     with DiagnosticableTreeMixin {
-  const _$CardanoVersionImpl(
+  _$CardanoVersionImpl(
       {required this.testMode,
       required this.versionMajor,
       required this.versionMinor,
@@ -270,13 +270,13 @@ class _$CardanoVersionImpl extends _CardanoVersion
 }
 
 abstract class _CardanoVersion extends CardanoVersion {
-  const factory _CardanoVersion(
+  factory _CardanoVersion(
       {required final bool testMode,
       required final int versionMajor,
       required final int versionMinor,
       required final int versionPatch,
       required final bool locked}) = _$CardanoVersionImpl;
-  const _CardanoVersion._() : super._();
+  _CardanoVersion._() : super._();
 
   @override
   bool get testMode;

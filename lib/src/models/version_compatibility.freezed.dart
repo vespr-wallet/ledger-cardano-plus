@@ -145,11 +145,12 @@ class __$$VersionCompatibilityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$VersionCompatibilityImpl implements _VersionCompatibility {
+class _$VersionCompatibilityImpl extends _VersionCompatibility {
   const _$VersionCompatibilityImpl(
       {required this.isCompatible,
-      this.recommendedVersion,
-      required this.supportsNativeScriptHashDerivation});
+      required this.recommendedVersion,
+      required this.supportsNativeScriptHashDerivation})
+      : super._();
 
   @override
   final bool isCompatible;
@@ -228,12 +229,13 @@ class _$VersionCompatibilityImpl implements _VersionCompatibility {
   }
 }
 
-abstract class _VersionCompatibility implements VersionCompatibility {
+abstract class _VersionCompatibility extends VersionCompatibility {
   const factory _VersionCompatibility(
           {required final bool isCompatible,
-          final String? recommendedVersion,
+          required final String? recommendedVersion,
           required final bool supportsNativeScriptHashDerivation}) =
       _$VersionCompatibilityImpl;
+  const _VersionCompatibility._() : super._();
 
   @override
   bool get isCompatible;

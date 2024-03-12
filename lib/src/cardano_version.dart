@@ -5,9 +5,9 @@ part 'cardano_version.freezed.dart';
 
 @freezed
 class CardanoVersion with _$CardanoVersion {
-  const CardanoVersion._();
+  CardanoVersion._();
 
-  const factory CardanoVersion({
+  factory CardanoVersion({
     required bool testMode,
     required int versionMajor,
     required int versionMinor,
@@ -16,19 +16,17 @@ class CardanoVersion with _$CardanoVersion {
   }) = _CardanoVersion;
 
   /// Get the version code.
-  int get versionCode =>
+  late final int versionCode =
       versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
   /// Get the version name.
-  String get versionName => '$versionMajor.$versionMinor.$versionPatch';
+  late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
 
-  static CardanoVersion fromVersionCode(int versionCode) {
-    return CardanoVersion(
-      testMode: false,
-      versionMajor: versionCode ~/ 10000,
-      versionMinor: (versionCode % 10000) ~/ 100,
-      versionPatch: versionCode % 100,
-      locked: false,
-    );
-  }
+  factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
+        testMode: false,
+        versionMajor: versionCode ~/ 10000,
+        versionMinor: (versionCode % 10000) ~/ 100,
+        versionPatch: versionCode % 100,
+        locked: false,
+      );
 }

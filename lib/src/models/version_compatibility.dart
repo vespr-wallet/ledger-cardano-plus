@@ -5,13 +5,16 @@ part 'version_compatibility.freezed.dart';
 
 @freezed
 class VersionCompatibility with _$VersionCompatibility {
+  const VersionCompatibility._();
+
   const factory VersionCompatibility({
     required bool isCompatible,
-    String? recommendedVersion,
+    required String? recommendedVersion,
     required bool supportsNativeScriptHashDerivation,
   }) = _VersionCompatibility;
 
-  static VersionCompatibility checkVersionCompatibility(CardanoVersion version) {
+  factory VersionCompatibility.checkVersionCompatibility(
+      CardanoVersion version) {
     final bool isCompatible = version.versionMajor >= 3;
     final bool supportsNativeScriptHashDerivation = version.versionMajor >= 3;
 

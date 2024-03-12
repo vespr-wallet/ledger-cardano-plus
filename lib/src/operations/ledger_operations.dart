@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {
@@ -20,7 +20,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
 
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) async {
-    writer.writeUint8(CardanoLedgerOperation.cla); // CLA
+    writer.writeUint8(claCardano); // CLA
     writer.writeUint8(ins); // INS for Derive Address
     writer.writeUint8(p1); // P1: request type
     writer.writeUint8(p2); // P2: unused

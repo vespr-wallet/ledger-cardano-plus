@@ -76,7 +76,7 @@ class CardanoDeriveNativeScriptHashOperation
   Uint8List serializeComplexNativeScriptStart(
       ParsedComplexNativeScript script) {
     return useBinaryWriter((writer) {
-      final result = switch (script) {
+      final invoker = switch (script) {
         ParsedComplexNativeScript_All() => () {
             writer.writeUint8(NativeScriptType.all.index);
             writer.writeUint32(script.scripts.length);
@@ -91,14 +91,14 @@ class CardanoDeriveNativeScriptHashOperation
             writer.writeUint32(script.requiredCount);
           },
       };
-      result();
+      invoker();
       return writer.toBytes();
     });
   }
 
   Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) {
     return useBinaryWriter((writer) {
-      final result = switch (script) {
+      final invoker = switch (script) {
         ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
             writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.index);
             writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
@@ -118,7 +118,7 @@ class CardanoDeriveNativeScriptHashOperation
             writer.writeUint64(script.slot);
           },
       };
-      result();
+      invoker();
       return writer.toBytes();
     });
   }

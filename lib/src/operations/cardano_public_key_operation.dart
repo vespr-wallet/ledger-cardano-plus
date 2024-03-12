@@ -27,7 +27,7 @@ class GetExtendedPublicKeyOperation
 
     final sendOperation = SendOperation(
       ins: InstructionType.getExtendedPublicKey.insValue,
-      p1: ReturnType.unused.p1Value,
+      p1: p1Unused,
       p2: p2Unused,
       data: data,
     );

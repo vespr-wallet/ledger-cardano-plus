@@ -11,10 +11,10 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
   Future<CardanoVersion> invoke(LedgerSendFct send) async {
     final SendOperation operation = SendOperation(
       ins: InstructionType.getVersion.insValue,
-      p1: ReturnType.unused.p1Value,
-      p2: 0,
+      p1: p1Unused,
+      p2: p2Unused,
       data: Uint8List(0),
-      expectResponseLength: true,
+      prependDataLength: true,
     );
 
     final reader = await send(operation);

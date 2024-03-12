@@ -36,14 +36,14 @@ class CardanoDeriveNativeScriptHashOperation
           p1: 0x01,
           p2: 0x00,
           data: serializeComplexNativeScriptStart(script.script),
-          expectResponseLength: true,
+          prependDataLength: true,
         ),
       ParsedNativeScript_Simple() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
           p1: 0x02,
           p2: 0x00,
           data: serializeSimpleNativeScript(script.script),
-          expectResponseLength: true,
+          prependDataLength: true,
         ),
     };
 
@@ -66,11 +66,11 @@ class CardanoDeriveNativeScriptHashOperation
         p1: 0x03,
         p2: 0x00,
         data: serializeWholeNativeScriptFinish(displayFormat),
-        expectResponseLength: true,
+        prependDataLength: true,
       ),
     );
 
-    return hex.encode(response.read(NATIVE_SCRIPT_HASH_LENGTH));
+    return hex.encode(response.read(nativeScriptHashLength));
   }
 
   Uint8List serializeComplexNativeScriptStart(

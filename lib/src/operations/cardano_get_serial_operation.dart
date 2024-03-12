@@ -19,7 +19,7 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
 
     final SendOperation operation = SendOperation(
       ins: InstructionType.getSerial.insValue,
-      p1: ReturnType.unused.p1Value,
+      p1: p1Unused,
       p2: p2Unused,
       data: data,
     );

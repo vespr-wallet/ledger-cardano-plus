@@ -33,7 +33,7 @@ final ledger = Ledger(
 );
 
 /// Create a new Algorand Ledger Plugin.
-final algorandApp = AlgorandLedgerApp(ledger);
+final cardanoApp = CardanoLedgerApp(ledger);
 
 /// Scan for devices
 ledger.scan().listen((device) => print(device));

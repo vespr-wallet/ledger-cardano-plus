@@ -1,125 +1,227 @@
 import 'package:flutter/material.dart';
+import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_cardano/src/models/extended_public_key.dart';
+import 'package:ledger_cardano/src/models/parsed_native_script.dart';
+import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
+import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final Ledger ledger = Ledger(
+    options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)),
+  );
+  late final CardanoLedgerApp cardanoApp = CardanoLedgerApp(ledger);
+  List<LedgerDevice> devices = [];
+  List<String> accounts = [];
+  String versionInfo = '';
+  String accountsInfo = '';
+  String scriptHashInfo = '';
+
+  void _scanForDevices() async {
+    devices.clear();
+    await for (final device in ledger.scan()) {
+      setState(() {
+        devices.add(device);
+      });
+    }
+  }
+
+  Future<void> _testDeriveNativeScriptHash(LedgerDevice device) async {
+    try {
+      const simpleScript = ParsedSimpleNativeScript.pubKeyDeviceOwned(
+        path: [
+          0x80000000 + 1852,
+          0x80000000 + 1815,
+          0x80000000 + 0,
+          0,
+          0,
+        ],
+      );
+      const script = ParsedNativeScript.simple(simpleScript);
+
+      final hash = await cardanoApp.deriveNativeScriptHash(
+        device,
+        script,
+        NativeScriptHashDisplayFormat.bech32,
+      );
+
+      setState(() {
+        scriptHashInfo = 'Derived Script Hash: $hash';
+      });
+    } on LedgerException catch (e) {
+      setState(() {
+        scriptHashInfo =
+            'Error deriving script hash: ${e.message}, Code: ${e.errorCode}';
+      });
+    } catch (e) {
+      setState(() {
+        scriptHashInfo = 'Error deriving script hash: ${e.toString()}';
+      });
+    }
+  }
+
+  Future<void> _fetchPublicKey(LedgerDevice device) async {
+    try {
+      final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
+        device,
+        request: ExtendedPublicKeyRequest_Byron(),
+      );
+
+      setState(() {
+        accounts = [
+          'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
+              'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
+        ];
+        accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
+      });
+      print('Fetched Accounts: ${accounts.join('\n')}');
+    } on LedgerException catch (e) {
+      setState(() {
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+      });
+      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
+    } catch (e) {
+      setState(() {
+        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+      });
+      print('Generic Error fetching accounts: ${e.toString()}');
+    }
+  }
+
+  Future<void> _fetchAccount(LedgerDevice device) async {
+    try {
+      final derivedAddress = await cardanoApp.deriveAddress(device);
+
+      setState(() {
+        accounts = ['Address: $derivedAddress'];
+        accountsInfo = 'Derived address:\n${accounts.join('\n')}';
+      });
+      print('Fetched Accounts: ${accounts.join('\n')}');
+    } on LedgerException catch (e) {
+      setState(() {
+        accountsInfo =
+            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+      });
+      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
+    } catch (e) {
+      setState(() {
+        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+      });
+      print('Generic Error fetching accounts: ${e.toString()}');
+    }
+  }
+
+  Future<void> _fetchSerial(LedgerDevice device) async {
+    try {
+      final serial = await cardanoApp.getSerialNumber(device);
+      setState(() {
+        versionInfo = 'Device: ${device.name}\n'
+            'Serial: $serial\n';
+      });
+
+      print('Serial: $serial');
+    } on LedgerException catch (e) {
+      setState(() {
+        versionInfo =
+            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+      });
+    }
+  }
+
+  Future<void> _fetchVersion(LedgerDevice device) async {
+    try {
+      final version = await cardanoApp.getVersion(device);
+      setState(() {
+        versionInfo = 'Device: ${device.name}\n'
+            'App Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\n'
+            'Development Version: ${version.testMode ? "Yes" : "No"}';
+      });
+    } on LedgerException catch (e) {
+      setState(() {
+        versionInfo =
+            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Cardano Ledger Test'),
+        ),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: _scanForDevices,
+                  child: const Text('Scan for Devices'),
+                ),
+                const SizedBox(height: 20),
+                const Text('Available Devices:'),
+                ...devices.map((device) => ListTile(
+                      title: Text(device.name),
+                      onTap: () async {
+                        setState(() {
+                          versionInfo = 'Connecting...';
+                          accountsInfo = '';
+                          scriptHashInfo = '';
+                        });
+                        await ledger.connect(device);
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+                        // await _fetchSerial(device);
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+                        await _fetchVersion(device);
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+                        // await _fetchAccountV2(device);
+                        // await _fetchPublicKey(device);
 
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // TRY THIS: Try changing the color here to a specific color (to
-        // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-        // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          //
-          // TRY THIS: Invoke "debug painting" (choose the "Toggle Debug Paint"
-          // action in the IDE, or press "p" in the console), to see the
-          // wireframe for each widget.
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+                        // await _testDeriveNativeScriptHash(device);
+                      },
+                    )),
+                const SizedBox(height: 20),
+                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(accountsInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (versionInfo.isNotEmpty) ...[
+                  const Text('Version Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(versionInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (scriptHashInfo.isNotEmpty) ...[
+                  const Text('Script Hash Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(scriptHashInfo),
+                  ),
+                ],
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+          ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -1,29 +1,72 @@
-/// Hardening constant used in derivation paths.
 const int harden = 0x80000000;
 
-/// CLA (Class Byte) for Cardano, used to identify the application on the Ledger device.
 const int claCardano = 0xD7;
 
-/// INS (Instruction Byte) for the Derive Address operation.
-const int insDeriveAddress = 0x11;
+const int p1Unused = 0x00;
+const int p1ReturnDataToHost = 0x01;
+const int p1DisplayOnDevice = 0x02;
+const int p1FinishScriptHash = 0x03;
 
-/// P1 parameter for the request type, indicating the address should be returned to the host.
-const int p1ReturnAddressToHost = 0x01;
-
-/// P2 parameter, unused in this context.
 const int p2Unused = 0x00;
 
-/// Prefix for staking data source.
-const int stakingDataSourcePrefix = 0x22;
+enum NativeScriptType {
+  pubkeyDeviceOwned(0),
+  pubkeyThirdParty(0),
+  all(1),
+  any(2),
+  nOfK(3),
+  invalidBefore(4),
+  invalidHereafter(5);
 
-/// P1 parameter for the request type, indicating the address should be displayed on the device.
-const int p1DisplayOnDevice = 0x02;
+  final int encoding;
+  const NativeScriptType(this.encoding);
+}
 
-/// Initial value for ByteDataWriter.
-const int initialWriterValue = 0x00;
+enum PubkeyType {
+  deviceOwned(1),
+  thirdParty(2);
 
-/// INS value for derive address operation.
-const int deriveAddressInsValue = 0x11;
+  final int encoding;
+  const PubkeyType(this.encoding);
+}
 
-/// P1 value for returning data.
-const int returnDataP1Value = 0x01;
+enum NativeScriptHashDisplayFormat {
+  bech32(1),
+  policyId(2);
+
+  final int int8Value;
+  const NativeScriptHashDisplayFormat(this.int8Value);
+}
+
+const unknownResponseCodeMessage = "Unknown error code";
+
+enum CardanoResponseCode {
+  success(0x9000, "Success"),
+  errMalformedRequestHeader(0x6E01, "Malformed request header"),
+  errBadCla(0x6E02, "Bad CLA (Command Link Assurance)"),
+  errUnknownIns(0x6E03, "Unknown instruction"),
+  errStillInCall(0x6E04, "Still in call"),
+  errInvalidRequestParameters(0x6E05, "Invalid request parameters"),
+  errInvalidState(0x6E06, "Invalid state"),
+  errInvalidData(0x6E07, "Invalid data"),
+  errInvalidBip44Path(0x6E08, "Invalid BIP44 path"),
+  errRejectedByUser(0x6E09, "Rejected by user"),
+  errRejectedByPolicy(0x6E10, "Rejected by policy"),
+  errDeviceLocked(0x6E11, "Device is locked");
+
+  final int statusCode;
+  final String message;
+  const CardanoResponseCode(this.statusCode, this.message);
+}
+
+enum InstructionType {
+  deriveAddress(insValue: 0x11),
+  getVersion(insValue: 0x00),
+  getExtendedPublicKey(insValue: 0x10),
+  getSerial(insValue: 0x01),
+  deriveNativeScriptHash(insValue: 0x12);
+
+  final int insValue;
+
+  const InstructionType({required this.insValue});
+}

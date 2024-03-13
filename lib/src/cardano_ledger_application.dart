@@ -8,7 +8,6 @@ import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -24,19 +23,6 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 /// https://github.com/cardano-foundation/ledgerjs-hw-app-cardano
 class CardanoLedgerApp {
-  static const success = 0x9000;
-  static const errMalformedRequestHeader = 0x6E01;
-  static const errBadCla = 0x6E02;
-  static const errUnknownIns = 0x6E03;
-  static const errStillInCall = 0x6E04;
-  static const errInvalidRequestParameters = 0x6E05;
-  static const errInvalidState = 0x6E06;
-  static const errInvalidData = 0x6E07;
-  static const errInvalidBip44Path = 0x6E08;
-  static const errRejectedByUser = 0x6E09;
-  static const errRejectedByPolicy = 0x6E10;
-  static const errDeviceLocked = 0x6E11;
-
   final Ledger ledger;
   final int accountIndex;
   final LedgerTransformer? transformer;
@@ -50,7 +36,7 @@ class CardanoLedgerApp {
   Future<CardanoVersion> getVersion(LedgerDevice device) {
     return ledger.sendComplexOperation<CardanoVersion>(
       device,
-      CardanoVersionOperation(),
+      const CardanoVersionOperation(),
       transformer: transformer,
     );
   }
@@ -58,7 +44,7 @@ class CardanoLedgerApp {
   Future<String> getSerialNumber(LedgerDevice device) {
     return ledger.sendComplexOperation<String>(
       device,
-      CardanoGetSerialOperation(),
+      const CardanoGetSerialOperation(),
       transformer: transformer,
     );
   }
@@ -87,7 +73,7 @@ class CardanoLedgerApp {
       displayFormat: displayFormat,
     );
 
-    final String scriptHash = await ledger.sendOperation<String>(
+    final String scriptHash = await ledger.sendComplexOperation<String>(
       device,
       operation,
       transformer: transformer,

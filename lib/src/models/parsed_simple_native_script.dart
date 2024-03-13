@@ -3,17 +3,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'parsed_simple_native_script.freezed.dart';
 
 @freezed
-class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
+sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
+  const ParsedSimpleNativeScript._();
+
   const factory ParsedSimpleNativeScript.pubKeyDeviceOwned({
     required List<int> path,
-  }) = _PubKeyDeviceOwned;
+  }) = ParsedSimpleNativeScript_PubKeyDeviceOwned;
   const factory ParsedSimpleNativeScript.pubKeyThirdParty({
     required String keyHashHex,
-  }) = _PubKeyThirdParty;
+  }) = ParsedSimpleNativeScript_PubKeyThirdParty;
   const factory ParsedSimpleNativeScript.invalidBefore({
     required int slot,
-  }) = _InvalidBefore;
+  }) = ParsedSimpleNativeScript_InvalidBefore;
   const factory ParsedSimpleNativeScript.invalidHereafter({
     required int slot,
-  }) = _InvalidHereafter;
+  }) = ParsedSimpleNativeScript_InvalidHereafter;
 }

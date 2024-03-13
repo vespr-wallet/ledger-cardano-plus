@@ -4,7 +4,8 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 
 void main() {
   runApp(const MyApp());
@@ -59,6 +60,7 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         scriptHashInfo = 'Derived Script Hash: $hash';
       });
+      print('Derived Script Hash: $hash');
     } on LedgerException catch (e) {
       setState(() {
         scriptHashInfo =
@@ -68,8 +70,88 @@ class _MyAppState extends State<MyApp> {
       setState(() {
         scriptHashInfo = 'Error deriving script hash: ${e.toString()}';
       });
+      print('Error deriving script hash: ${e.toString()}');
     }
   }
+  
+ Future<void> _testDeriveComplexNativeScriptHash(LedgerDevice device) async {
+  try {
+    // Constructing the complex script
+    const complexScript = ParsedNativeScript.complex(
+      ParsedComplexNativeScript.all(scripts: [
+        ParsedNativeScript.simple(
+          ParsedSimpleNativeScript.pubKeyThirdParty(
+            keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+          ),
+        ),
+        ParsedNativeScript.complex(
+          ParsedComplexNativeScript.any(scripts: [
+            ParsedNativeScript.simple(
+              ParsedSimpleNativeScript.pubKeyThirdParty(
+                keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+              ),
+            ),
+            ParsedNativeScript.simple(
+              ParsedSimpleNativeScript.pubKeyThirdParty(
+                keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
+              ),
+            ),
+          ]),
+        ),
+        ParsedNativeScript.complex(
+          ParsedComplexNativeScript.nOfK(
+            requiredCount: 2,
+            scripts: [
+              ParsedNativeScript.simple(
+                ParsedSimpleNativeScript.pubKeyThirdParty(
+                  keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+                ),
+              ),
+              ParsedNativeScript.simple(
+                ParsedSimpleNativeScript.pubKeyThirdParty(
+                  keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
+                ),
+              ),
+              ParsedNativeScript.simple(
+                ParsedSimpleNativeScript.pubKeyThirdParty(
+                  keyHashHex: 'cecb1d427c4ae436d28cc0f8ae9bb37501a5b77bcc64cd1693e9ae20',
+                ),
+              ),
+            ],
+          ),
+        ),
+        ParsedNativeScript.simple(
+          ParsedSimpleNativeScript.invalidBefore(slot: 100),
+        ),
+        ParsedNativeScript.simple(
+          ParsedSimpleNativeScript.invalidHereafter(slot: 200),
+        ),
+      ]),
+    );
+
+    // Deriving the script hash
+    final hash = await cardanoApp.deriveNativeScriptHash(
+      device,
+      complexScript,
+      NativeScriptHashDisplayFormat.bech32,
+    );
+
+    // Updating the UI state with the derived script hash
+    setState(() {
+      scriptHashInfo = 'Derived Complex Script Hash: $hash';
+    });
+    print('Derived Complex Script Hash: $hash');
+  } on LedgerException catch (e) {
+    setState(() {
+      scriptHashInfo = 'Error deriving complex script hash: ${e.message}, Code: ${e.errorCode}';
+    });
+  } catch (e) {
+    setState(() {
+      scriptHashInfo = 'Error deriving complex script hash: ${e.toString()}';
+    });
+    print('Error deriving complex script hash: ${e.toString()}');
+  }
+}
 
   Future<void> _fetchPublicKey(LedgerDevice device) async {
     try {
@@ -186,7 +268,10 @@ class _MyAppState extends State<MyApp> {
 
                         // await _fetchSerial(device);
 
-                        await _fetchVersion(device);
+                        // await _fetchVersion(device);
+
+                        // await _testDeriveNativeScriptHash(device);
+                        await _testDeriveComplexNativeScriptHash(device);
 
                         // await _fetchAccountV2(device);
                         // await _fetchPublicKey(device);

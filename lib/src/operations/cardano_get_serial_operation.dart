@@ -1,15 +1,14 @@
 import 'dart:typed_data';
 
-import 'package:buffer/buffer.dart';
-import 'package:ledger_cardano/src/operations/cardano_ledger_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
-  CardanoGetSerialOperation() : super();
+  const CardanoGetSerialOperation() : super();
 
   @override
   Future<String> invoke(LedgerSendFct send) async {
@@ -20,7 +19,7 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
 
     final SendOperation operation = SendOperation(
       ins: InstructionType.getSerial.insValue,
-      p1: ReturnType.unused.p1Value,
+      p1: p1Unused,
       p2: p2Unused,
       data: data,
     );

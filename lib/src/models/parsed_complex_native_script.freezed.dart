@@ -83,20 +83,25 @@ class _$ParsedComplexNativeScriptCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$AllImplCopyWith<$Res>
+abstract class _$$ParsedComplexNativeScript_AllImplCopyWith<$Res>
     implements $ParsedComplexNativeScriptCopyWith<$Res> {
-  factory _$$AllImplCopyWith(_$AllImpl value, $Res Function(_$AllImpl) then) =
-      __$$AllImplCopyWithImpl<$Res>;
+  factory _$$ParsedComplexNativeScript_AllImplCopyWith(
+          _$ParsedComplexNativeScript_AllImpl value,
+          $Res Function(_$ParsedComplexNativeScript_AllImpl) then) =
+      __$$ParsedComplexNativeScript_AllImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ParsedNativeScript> scripts});
 }
 
 /// @nodoc
-class __$$AllImplCopyWithImpl<$Res>
-    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res, _$AllImpl>
-    implements _$$AllImplCopyWith<$Res> {
-  __$$AllImplCopyWithImpl(_$AllImpl _value, $Res Function(_$AllImpl) _then)
+class __$$ParsedComplexNativeScript_AllImplCopyWithImpl<$Res>
+    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res,
+        _$ParsedComplexNativeScript_AllImpl>
+    implements _$$ParsedComplexNativeScript_AllImplCopyWith<$Res> {
+  __$$ParsedComplexNativeScript_AllImplCopyWithImpl(
+      _$ParsedComplexNativeScript_AllImpl _value,
+      $Res Function(_$ParsedComplexNativeScript_AllImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +109,7 @@ class __$$AllImplCopyWithImpl<$Res>
   $Res call({
     Object? scripts = null,
   }) {
-    return _then(_$AllImpl(
+    return _then(_$ParsedComplexNativeScript_AllImpl(
       scripts: null == scripts
           ? _value._scripts
           : scripts // ignore: cast_nullable_to_non_nullable
@@ -115,9 +120,12 @@ class __$$AllImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AllImpl implements _All {
-  const _$AllImpl({required final List<ParsedNativeScript> scripts})
-      : _scripts = scripts;
+class _$ParsedComplexNativeScript_AllImpl
+    extends ParsedComplexNativeScript_All {
+  const _$ParsedComplexNativeScript_AllImpl(
+      {required final List<ParsedNativeScript> scripts})
+      : _scripts = scripts,
+        super._();
 
   final List<ParsedNativeScript> _scripts;
   @override
@@ -136,7 +144,7 @@ class _$AllImpl implements _All {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AllImpl &&
+            other is _$ParsedComplexNativeScript_AllImpl &&
             const DeepCollectionEquality().equals(other._scripts, _scripts));
   }
 
@@ -147,8 +155,10 @@ class _$AllImpl implements _All {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AllImplCopyWith<_$AllImpl> get copyWith =>
-      __$$AllImplCopyWithImpl<_$AllImpl>(this, _$identity);
+  _$$ParsedComplexNativeScript_AllImplCopyWith<
+          _$ParsedComplexNativeScript_AllImpl>
+      get copyWith => __$$ParsedComplexNativeScript_AllImplCopyWithImpl<
+          _$ParsedComplexNativeScript_AllImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -188,33 +198,41 @@ class _$AllImpl implements _All {
   }
 }
 
-abstract class _All implements ParsedComplexNativeScript {
-  const factory _All({required final List<ParsedNativeScript> scripts}) =
-      _$AllImpl;
+abstract class ParsedComplexNativeScript_All extends ParsedComplexNativeScript {
+  const factory ParsedComplexNativeScript_All(
+          {required final List<ParsedNativeScript> scripts}) =
+      _$ParsedComplexNativeScript_AllImpl;
+  const ParsedComplexNativeScript_All._() : super._();
 
   @override
   List<ParsedNativeScript> get scripts;
   @override
   @JsonKey(ignore: true)
-  _$$AllImplCopyWith<_$AllImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedComplexNativeScript_AllImplCopyWith<
+          _$ParsedComplexNativeScript_AllImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AnyImplCopyWith<$Res>
+abstract class _$$ParsedComplexNativeScript_AnyImplCopyWith<$Res>
     implements $ParsedComplexNativeScriptCopyWith<$Res> {
-  factory _$$AnyImplCopyWith(_$AnyImpl value, $Res Function(_$AnyImpl) then) =
-      __$$AnyImplCopyWithImpl<$Res>;
+  factory _$$ParsedComplexNativeScript_AnyImplCopyWith(
+          _$ParsedComplexNativeScript_AnyImpl value,
+          $Res Function(_$ParsedComplexNativeScript_AnyImpl) then) =
+      __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ParsedNativeScript> scripts});
 }
 
 /// @nodoc
-class __$$AnyImplCopyWithImpl<$Res>
-    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res, _$AnyImpl>
-    implements _$$AnyImplCopyWith<$Res> {
-  __$$AnyImplCopyWithImpl(_$AnyImpl _value, $Res Function(_$AnyImpl) _then)
+class __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<$Res>
+    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res,
+        _$ParsedComplexNativeScript_AnyImpl>
+    implements _$$ParsedComplexNativeScript_AnyImplCopyWith<$Res> {
+  __$$ParsedComplexNativeScript_AnyImplCopyWithImpl(
+      _$ParsedComplexNativeScript_AnyImpl _value,
+      $Res Function(_$ParsedComplexNativeScript_AnyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -222,7 +240,7 @@ class __$$AnyImplCopyWithImpl<$Res>
   $Res call({
     Object? scripts = null,
   }) {
-    return _then(_$AnyImpl(
+    return _then(_$ParsedComplexNativeScript_AnyImpl(
       scripts: null == scripts
           ? _value._scripts
           : scripts // ignore: cast_nullable_to_non_nullable
@@ -233,9 +251,12 @@ class __$$AnyImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AnyImpl implements _Any {
-  const _$AnyImpl({required final List<ParsedNativeScript> scripts})
-      : _scripts = scripts;
+class _$ParsedComplexNativeScript_AnyImpl
+    extends ParsedComplexNativeScript_Any {
+  const _$ParsedComplexNativeScript_AnyImpl(
+      {required final List<ParsedNativeScript> scripts})
+      : _scripts = scripts,
+        super._();
 
   final List<ParsedNativeScript> _scripts;
   @override
@@ -254,7 +275,7 @@ class _$AnyImpl implements _Any {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AnyImpl &&
+            other is _$ParsedComplexNativeScript_AnyImpl &&
             const DeepCollectionEquality().equals(other._scripts, _scripts));
   }
 
@@ -265,8 +286,10 @@ class _$AnyImpl implements _Any {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AnyImplCopyWith<_$AnyImpl> get copyWith =>
-      __$$AnyImplCopyWithImpl<_$AnyImpl>(this, _$identity);
+  _$$ParsedComplexNativeScript_AnyImplCopyWith<
+          _$ParsedComplexNativeScript_AnyImpl>
+      get copyWith => __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<
+          _$ParsedComplexNativeScript_AnyImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -306,34 +329,41 @@ class _$AnyImpl implements _Any {
   }
 }
 
-abstract class _Any implements ParsedComplexNativeScript {
-  const factory _Any({required final List<ParsedNativeScript> scripts}) =
-      _$AnyImpl;
+abstract class ParsedComplexNativeScript_Any extends ParsedComplexNativeScript {
+  const factory ParsedComplexNativeScript_Any(
+          {required final List<ParsedNativeScript> scripts}) =
+      _$ParsedComplexNativeScript_AnyImpl;
+  const ParsedComplexNativeScript_Any._() : super._();
 
   @override
   List<ParsedNativeScript> get scripts;
   @override
   @JsonKey(ignore: true)
-  _$$AnyImplCopyWith<_$AnyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedComplexNativeScript_AnyImplCopyWith<
+          _$ParsedComplexNativeScript_AnyImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$NOfKImplCopyWith<$Res>
+abstract class _$$ParsedComplexNativeScript_NOfKImplCopyWith<$Res>
     implements $ParsedComplexNativeScriptCopyWith<$Res> {
-  factory _$$NOfKImplCopyWith(
-          _$NOfKImpl value, $Res Function(_$NOfKImpl) then) =
-      __$$NOfKImplCopyWithImpl<$Res>;
+  factory _$$ParsedComplexNativeScript_NOfKImplCopyWith(
+          _$ParsedComplexNativeScript_NOfKImpl value,
+          $Res Function(_$ParsedComplexNativeScript_NOfKImpl) then) =
+      __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int requiredCount, List<ParsedNativeScript> scripts});
 }
 
 /// @nodoc
-class __$$NOfKImplCopyWithImpl<$Res>
-    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res, _$NOfKImpl>
-    implements _$$NOfKImplCopyWith<$Res> {
-  __$$NOfKImplCopyWithImpl(_$NOfKImpl _value, $Res Function(_$NOfKImpl) _then)
+class __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<$Res>
+    extends _$ParsedComplexNativeScriptCopyWithImpl<$Res,
+        _$ParsedComplexNativeScript_NOfKImpl>
+    implements _$$ParsedComplexNativeScript_NOfKImplCopyWith<$Res> {
+  __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl(
+      _$ParsedComplexNativeScript_NOfKImpl _value,
+      $Res Function(_$ParsedComplexNativeScript_NOfKImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -342,7 +372,7 @@ class __$$NOfKImplCopyWithImpl<$Res>
     Object? requiredCount = null,
     Object? scripts = null,
   }) {
-    return _then(_$NOfKImpl(
+    return _then(_$ParsedComplexNativeScript_NOfKImpl(
       requiredCount: null == requiredCount
           ? _value.requiredCount
           : requiredCount // ignore: cast_nullable_to_non_nullable
@@ -357,11 +387,13 @@ class __$$NOfKImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NOfKImpl implements _NOfK {
-  const _$NOfKImpl(
+class _$ParsedComplexNativeScript_NOfKImpl
+    extends ParsedComplexNativeScript_NOfK {
+  const _$ParsedComplexNativeScript_NOfKImpl(
       {required this.requiredCount,
       required final List<ParsedNativeScript> scripts})
-      : _scripts = scripts;
+      : _scripts = scripts,
+        super._();
 
   @override
   final int requiredCount;
@@ -382,7 +414,7 @@ class _$NOfKImpl implements _NOfK {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NOfKImpl &&
+            other is _$ParsedComplexNativeScript_NOfKImpl &&
             (identical(other.requiredCount, requiredCount) ||
                 other.requiredCount == requiredCount) &&
             const DeepCollectionEquality().equals(other._scripts, _scripts));
@@ -395,8 +427,10 @@ class _$NOfKImpl implements _NOfK {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NOfKImplCopyWith<_$NOfKImpl> get copyWith =>
-      __$$NOfKImplCopyWithImpl<_$NOfKImpl>(this, _$identity);
+  _$$ParsedComplexNativeScript_NOfKImplCopyWith<
+          _$ParsedComplexNativeScript_NOfKImpl>
+      get copyWith => __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<
+          _$ParsedComplexNativeScript_NOfKImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -436,16 +470,20 @@ class _$NOfKImpl implements _NOfK {
   }
 }
 
-abstract class _NOfK implements ParsedComplexNativeScript {
-  const factory _NOfK(
-      {required final int requiredCount,
-      required final List<ParsedNativeScript> scripts}) = _$NOfKImpl;
+abstract class ParsedComplexNativeScript_NOfK
+    extends ParsedComplexNativeScript {
+  const factory ParsedComplexNativeScript_NOfK(
+          {required final int requiredCount,
+          required final List<ParsedNativeScript> scripts}) =
+      _$ParsedComplexNativeScript_NOfKImpl;
+  const ParsedComplexNativeScript_NOfK._() : super._();
 
   int get requiredCount;
   @override
   List<ParsedNativeScript> get scripts;
   @override
   @JsonKey(ignore: true)
-  _$$NOfKImplCopyWith<_$NOfKImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ParsedComplexNativeScript_NOfKImplCopyWith<
+          _$ParsedComplexNativeScript_NOfKImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

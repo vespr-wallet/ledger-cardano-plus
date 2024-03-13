@@ -21,30 +21,27 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
   });
 
   @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) async {
-    return ValidationException.runSafely(() async {
-      writer.writeUint8(claCardano); // CLA
-      writer.writeUint8(ins); // INS for Derive Address
-      writer.writeUint8(p1); // P1: request type
-      writer.writeUint8(p2); // P2: unused
-      if (prependDataLength) {
-        writer.writeUint8(data.length);
-      }
-      if (data.isNotEmpty) {
-        writer.write(data);
-      }
+  Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
+        writer.writeUint8(claCardano); // CLA
+        writer.writeUint8(ins); // INS for Derive Address
+        writer.writeUint8(p1); // P1: request type
+        writer.writeUint8(p2); // P2: unused
+        if (prependDataLength) {
+          writer.writeUint8(data.length);
+        }
+        if (data.isNotEmpty) {
+          writer.write(data);
+        }
 
-      print(hex.encode(writer.toBytes()));
-      return [writer.toBytes()];
-    });
-  }
+        print(hex.encode(writer.toBytes()));
+        return [writer.toBytes()];
+      });
 
   @override
-  Future<ByteDataReader> read(ByteDataReader reader) async {
-    return reader;
-  }
+  Future<ByteDataReader> read(ByteDataReader reader) async => reader;
 }
 
+// TODO - this class is for dev testing purpose only. Remove it before release
 class TestSendOperation extends LedgerOperation<ByteDataReader> {
   final Uint8List data;
 

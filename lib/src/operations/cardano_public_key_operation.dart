@@ -1,13 +1,12 @@
-import 'package:buffer/buffer.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_flutter/ledger_flutter.dart';
 import 'complex_ledger_operations.dart';
 import 'ledger_operations.dart';
 
-class GetExtendedPublicKeyOperation
-    extends ComplexLedgerOperation<ExtendedPublicKey> {
+class GetExtendedPublicKeyOperation extends ComplexLedgerOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
 
   const GetExtendedPublicKeyOperation({

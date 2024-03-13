@@ -6,7 +6,7 @@ repository: https://github.com/RootSoft/ledger-algorand
 issue_tracker: https://github.com/RootSoft/ledger-algorand/issues
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
   # flutter: ">=1.17.0"
 
 dependencies:
@@ -16,13 +16,12 @@ dependencies:
   ledger_flutter:
     git:
       url: https://github.com/vespr-wallet/ledger-flutter
-      ref: f9dfd3d4f457daa3da760a788cd4dd319096891b 
+      ref: f9dfd3d4f457daa3da760a788cd4dd319096891b
 
   algorand_dart: ^2.0.0-dev.4
 
-  freezed_annotation: ^2.4.1 
-  buffer: ^1.2.2
-   
+  freezed_annotation: ^2.4.1
+  collection: ^1.18.0
 
 dev_dependencies:
   flutter_test:

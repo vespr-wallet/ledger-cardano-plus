@@ -2,23 +2,12 @@ const int harden = 0x80000000;
 
 const int claCardano = 0xD7;
 
-const int p1ReturnAddressToHost = 0x01;
-
 const int p1Unused = 0x00;
-
-const int p2Unused = 0x00;
-
-const int stakingDataSourcePrefix = 0x22;
-
+const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
-
-const int initialWriterValue = 0x00;
-
-const int returnDataP1Value = 0x01;
-
 const int p1FinishScriptHash = 0x03;
 
-const int nativeScriptHashLength = 28;
+const int p2Unused = 0x00;
 
 enum NativeScriptType {
   pubkeyDeviceOwned(0),
@@ -49,22 +38,25 @@ enum NativeScriptHashDisplayFormat {
   const NativeScriptHashDisplayFormat(this.int8Value);
 }
 
-enum CardanoResponseCode {
-  success(0x9000),
-  errMalformedRequestHeader(0x6E01),
-  errBadCla(0x6E02),
-  errUnknownIns(0x6E03),
-  errStillInCall(0x6E04),
-  errInvalidRequestParameters(0x6E05),
-  errInvalidState(0x6E06),
-  errInvalidData(0x6E07),
-  errInvalidBip44Path(0x6E08),
-  errRejectedByUser(0x6E09),
-  errRejectedByPolicy(0x6E10),
-  errDeviceLocked(0x6E11);
+const unknownResponseCodeMessage = "Unknown error code";
 
-  final int value;
-  const CardanoResponseCode(this.value);
+enum CardanoResponseCode {
+  success(0x9000, "Success"),
+  errMalformedRequestHeader(0x6E01, "Malformed request header"),
+  errBadCla(0x6E02, "Bad CLA (Command Link Assurance)"),
+  errUnknownIns(0x6E03, "Unknown instruction"),
+  errStillInCall(0x6E04, "Still in call"),
+  errInvalidRequestParameters(0x6E05, "Invalid request parameters"),
+  errInvalidState(0x6E06, "Invalid state"),
+  errInvalidData(0x6E07, "Invalid data"),
+  errInvalidBip44Path(0x6E08, "Invalid BIP44 path"),
+  errRejectedByUser(0x6E09, "Rejected by user"),
+  errRejectedByPolicy(0x6E10, "Rejected by policy"),
+  errDeviceLocked(0x6E11, "Device is locked");
+
+  final int statusCode;
+  final String message;
+  const CardanoResponseCode(this.statusCode, this.message);
 }
 
 enum InstructionType {

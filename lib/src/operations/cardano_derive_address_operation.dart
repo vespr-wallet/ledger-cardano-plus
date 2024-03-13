@@ -4,9 +4,13 @@ import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/serialization_utils.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
+  static const int initialWriterValue = 0x00;
+  static const int stakingDataSourcePrefix = 0x22;
+
   final List<int> bip32SpendingPath;
   final List<int> bip32StakingPath;
   final CardanoNetwork network;
@@ -19,20 +23,22 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
 
   @override
   Future<String> invoke(LedgerSendFct send) async {
-    final ByteDataWriter writer = ByteDataWriter();
+    final data = useBinaryWriter((writer) {
+      writer.writeUint8(initialWriterValue);
+      writer.writeUint8(network.networkId);
 
-    writer.writeUint8(initialWriterValue);
-    writer.writeUint8(network.networkId);
+      _appendSpendingDataSource(writer, bip32SpendingPath);
+      _appendStakingDataSource(writer, bip32StakingPath);
 
-    _appendSpendingDataSource(writer, bip32SpendingPath);
-    _appendStakingDataSource(writer, bip32StakingPath);
+      return writer.toBytes();
+    });
 
     final response = await send(
       SendOperation(
         ins: InstructionType.deriveAddress.insValue,
-        p1: p1ReturnAddressToHost,
+        p1: p1ReturnDataToHost,
         p2: p2Unused,
-        data: writer.toBytes(),
+        data: data,
         prependDataLength: true,
       ),
     );
@@ -41,14 +47,12 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
     return hex.encode(addressBytes);
   }
 
-  static void _appendSpendingDataSource(
-      ByteDataWriter writer, List<int> bipPath) {
+  static void _appendSpendingDataSource(ByteDataWriter writer, List<int> bipPath) {
     SerializationUtils.writerSerializedPath(writer, bipPath);
   }
 
-  static void _appendStakingDataSource(
-      ByteDataWriter writer, List<int> bipPath) {
-    writer.writeUint8(0x22);
+  static void _appendStakingDataSource(ByteDataWriter writer, List<int> bipPath) {
+    writer.writeUint8(stakingDataSourcePrefix);
     SerializationUtils.writerSerializedPath(writer, bipPath);
   }
 }

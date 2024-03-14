@@ -5,6 +5,7 @@ import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
+import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
@@ -13,6 +14,7 @@ import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_sign_operational_certificate_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
@@ -192,4 +194,35 @@ class CardanoLedgerApp {
 
     return signatures;
   }
+  
+  
+  Future<Uint8List> signOperationalCertificate(
+    LedgerDevice device,
+    ParsedOperationalCertificate operationalCertificate,
+  ) async {
+    // Ensure the device's Cardano app version supports the requested operation
+    final CardanoVersion deviceVersion = await getVersion(device);
+    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+
+    if (!compatibility.isCompatible || !compatibility.supportsOperationalCertificateSigning) {
+      throw ValidationException(
+        "Operational certificate signing not supported by the device's Cardano app version. "
+        "Required minimum version: ${compatibility.recommendedVersion}, "
+        "Device version: ${deviceVersion.versionName}",
+      );
+    }
+
+    final operation = CardanoSignOperationalCertificateOperation(
+      operationalCertificate: operationalCertificate,
+    );
+
+    final Uint8List signature = await ledger.sendComplexOperation<Uint8List>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    return signature;
+  }
+  
 }

@@ -6,6 +6,7 @@ const int p1Unused = 0x00;
 const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
+const int ed25519SignatureLength = 64;
 
 const int p2Unused = 0x00;
 
@@ -64,7 +65,8 @@ enum InstructionType {
   getVersion(insValue: 0x00),
   getExtendedPublicKey(insValue: 0x10),
   getSerial(insValue: 0x01),
-  deriveNativeScriptHash(insValue: 0x12);
+  deriveNativeScriptHash(insValue: 0x12),
+  signOperationalCertificate(insValue: 0x22);
 
   final int insValue;
 

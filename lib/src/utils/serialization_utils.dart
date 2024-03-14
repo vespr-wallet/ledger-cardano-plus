@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
@@ -22,7 +23,6 @@ class SerializationUtils {
     writer.write(hex.decode(hexString));
   }
 
-  // TODO ; this needs some unit tests
   static void writeSerializedUint64(ByteDataWriter writer, BigInt value) {
     if (value.isNegative) {
       throw ValidationException("writeSerializedUint64 - Value is negative");
@@ -41,9 +41,7 @@ class SerializationUtils {
           SpendingDataSourceScriptHash() => () {
               writeSerializedHex(writer, dataSource.scriptHashHex);
             },
-          SpendingDataSourceNone() => () {
-              // No additional data to write for None type
-            },
+          SpendingDataSourceNone() => () {},
         };
         invoker();
         return writer.toBytes();
@@ -51,9 +49,7 @@ class SerializationUtils {
 
   static Uint8List serializeStakingDataSource(StakingDataSource dataSource) => useBinaryWriter((writer) {
         final void Function() invoker = switch (dataSource) {
-          StakingDataSourceNone() => () {
-              // No additional data to write for None type
-            },
+          StakingDataSourceNone() => () {},
           StakingDataSourceKeyPath() => () {
               writer.writeUint8(StakingDataSourceType.keyPath.encoding);
               writerSerializedPath(writer, dataSource.path);
@@ -76,4 +72,15 @@ class SerializationUtils {
         invoker();
         return writer.toBytes();
       });
+
+  static Uint8List serializeOperationalCertificate(ParsedOperationalCertificate certificate) {
+    return useBinaryWriter((writer) {
+      writeSerializedHex(writer, certificate.kesPublicKeyHex);
+      writeSerializedUint64(writer, BigInt.parse(certificate.kesPeriod));
+      writeSerializedUint64(writer, BigInt.parse(certificate.issueCounter));
+      writerSerializedPath(writer, certificate.coldKeyPath);
+
+      return writer.toBytes();
+    });
+  }
 }

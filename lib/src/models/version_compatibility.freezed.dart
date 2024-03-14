@@ -20,24 +20,35 @@ mixin _$VersionCompatibility {
   String? get recommendedVersion => throw _privateConstructorUsedError;
   bool get supportsNativeScriptHashDerivation =>
       throw _privateConstructorUsedError;
+  bool get supportsOperationalCertificateSigning =>
+      throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)
+    TResult Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)?
+    TResult? Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)?
+    TResult Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -57,7 +68,8 @@ abstract class $VersionCompatibilityCopyWith<$Res> {
   $Res call(
       {bool isCompatible,
       String? recommendedVersion,
-      bool supportsNativeScriptHashDerivation});
+      bool supportsNativeScriptHashDerivation,
+      bool supportsOperationalCertificateSigning});
 }
 
 /// @nodoc
@@ -77,6 +89,7 @@ class _$VersionCompatibilityCopyWithImpl<$Res,
     Object? isCompatible = null,
     Object? recommendedVersion = freezed,
     Object? supportsNativeScriptHashDerivation = null,
+    Object? supportsOperationalCertificateSigning = null,
   }) {
     return _then(_value.copyWith(
       isCompatible: null == isCompatible
@@ -91,6 +104,11 @@ class _$VersionCompatibilityCopyWithImpl<$Res,
               supportsNativeScriptHashDerivation
           ? _value.supportsNativeScriptHashDerivation
           : supportsNativeScriptHashDerivation // ignore: cast_nullable_to_non_nullable
+              as bool,
+      supportsOperationalCertificateSigning: null ==
+              supportsOperationalCertificateSigning
+          ? _value.supportsOperationalCertificateSigning
+          : supportsOperationalCertificateSigning // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -107,7 +125,8 @@ abstract class _$$VersionCompatibilityImplCopyWith<$Res>
   $Res call(
       {bool isCompatible,
       String? recommendedVersion,
-      bool supportsNativeScriptHashDerivation});
+      bool supportsNativeScriptHashDerivation,
+      bool supportsOperationalCertificateSigning});
 }
 
 /// @nodoc
@@ -124,6 +143,7 @@ class __$$VersionCompatibilityImplCopyWithImpl<$Res>
     Object? isCompatible = null,
     Object? recommendedVersion = freezed,
     Object? supportsNativeScriptHashDerivation = null,
+    Object? supportsOperationalCertificateSigning = null,
   }) {
     return _then(_$VersionCompatibilityImpl(
       isCompatible: null == isCompatible
@@ -139,6 +159,11 @@ class __$$VersionCompatibilityImplCopyWithImpl<$Res>
           ? _value.supportsNativeScriptHashDerivation
           : supportsNativeScriptHashDerivation // ignore: cast_nullable_to_non_nullable
               as bool,
+      supportsOperationalCertificateSigning: null ==
+              supportsOperationalCertificateSigning
+          ? _value.supportsOperationalCertificateSigning
+          : supportsOperationalCertificateSigning // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -149,7 +174,8 @@ class _$VersionCompatibilityImpl extends _VersionCompatibility {
   const _$VersionCompatibilityImpl(
       {required this.isCompatible,
       required this.recommendedVersion,
-      required this.supportsNativeScriptHashDerivation})
+      required this.supportsNativeScriptHashDerivation,
+      required this.supportsOperationalCertificateSigning})
       : super._();
 
   @override
@@ -158,10 +184,12 @@ class _$VersionCompatibilityImpl extends _VersionCompatibility {
   final String? recommendedVersion;
   @override
   final bool supportsNativeScriptHashDerivation;
+  @override
+  final bool supportsOperationalCertificateSigning;
 
   @override
   String toString() {
-    return 'VersionCompatibility(isCompatible: $isCompatible, recommendedVersion: $recommendedVersion, supportsNativeScriptHashDerivation: $supportsNativeScriptHashDerivation)';
+    return 'VersionCompatibility(isCompatible: $isCompatible, recommendedVersion: $recommendedVersion, supportsNativeScriptHashDerivation: $supportsNativeScriptHashDerivation, supportsOperationalCertificateSigning: $supportsOperationalCertificateSigning)';
   }
 
   @override
@@ -176,12 +204,20 @@ class _$VersionCompatibilityImpl extends _VersionCompatibility {
             (identical(other.supportsNativeScriptHashDerivation,
                     supportsNativeScriptHashDerivation) ||
                 other.supportsNativeScriptHashDerivation ==
-                    supportsNativeScriptHashDerivation));
+                    supportsNativeScriptHashDerivation) &&
+            (identical(other.supportsOperationalCertificateSigning,
+                    supportsOperationalCertificateSigning) ||
+                other.supportsOperationalCertificateSigning ==
+                    supportsOperationalCertificateSigning));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isCompatible, recommendedVersion,
-      supportsNativeScriptHashDerivation);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isCompatible,
+      recommendedVersion,
+      supportsNativeScriptHashDerivation,
+      supportsOperationalCertificateSigning);
 
   @JsonKey(ignore: true)
   @override
@@ -194,36 +230,54 @@ class _$VersionCompatibilityImpl extends _VersionCompatibility {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)
+    TResult Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)
         $default,
   ) {
     return $default(
-        isCompatible, recommendedVersion, supportsNativeScriptHashDerivation);
+        isCompatible,
+        recommendedVersion,
+        supportsNativeScriptHashDerivation,
+        supportsOperationalCertificateSigning);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)?
+    TResult? Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)?
         $default,
   ) {
     return $default?.call(
-        isCompatible, recommendedVersion, supportsNativeScriptHashDerivation);
+        isCompatible,
+        recommendedVersion,
+        supportsNativeScriptHashDerivation,
+        supportsOperationalCertificateSigning);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isCompatible, String? recommendedVersion,
-            bool supportsNativeScriptHashDerivation)?
+    TResult Function(
+            bool isCompatible,
+            String? recommendedVersion,
+            bool supportsNativeScriptHashDerivation,
+            bool supportsOperationalCertificateSigning)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
       return $default(
-          isCompatible, recommendedVersion, supportsNativeScriptHashDerivation);
+          isCompatible,
+          recommendedVersion,
+          supportsNativeScriptHashDerivation,
+          supportsOperationalCertificateSigning);
     }
     return orElse();
   }
@@ -233,7 +287,8 @@ abstract class _VersionCompatibility extends VersionCompatibility {
   const factory _VersionCompatibility(
           {required final bool isCompatible,
           required final String? recommendedVersion,
-          required final bool supportsNativeScriptHashDerivation}) =
+          required final bool supportsNativeScriptHashDerivation,
+          required final bool supportsOperationalCertificateSigning}) =
       _$VersionCompatibilityImpl;
   const _VersionCompatibility._() : super._();
 
@@ -243,6 +298,8 @@ abstract class _VersionCompatibility extends VersionCompatibility {
   String? get recommendedVersion;
   @override
   bool get supportsNativeScriptHashDerivation;
+  @override
+  bool get supportsOperationalCertificateSigning;
   @override
   @JsonKey(ignore: true)
   _$$VersionCompatibilityImplCopyWith<_$VersionCompatibilityImpl>

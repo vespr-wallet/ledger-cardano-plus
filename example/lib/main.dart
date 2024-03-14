@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -6,6 +8,8 @@ import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
+import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
+import 'package:ledger_cardano/src/utils/hex_utils.dart';
 
 void main() {
   runApp(const MyApp());
@@ -234,6 +238,39 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
+  Future<void> _testSignOperationalCertificate(LedgerDevice device) async {
+    try {
+      final operationalCertificate = ParsedOperationalCertificate(
+        kesPublicKeyHex: '3d24bc547388cf2403fd978fc3d3a93d1f39acf68a9c00e40512084dc05f2822',
+        kesPeriod: '47',
+        issueCounter: '42',
+        coldKeyPath: [
+          harden + 1853,
+          harden + 1815,
+          harden + 0,
+          harden + 0,
+        ],
+      );
+
+      // Attempt to sign the operational certificate
+      final Uint8List signature = await cardanoApp.signOperationalCertificate(
+        device,
+        operationalCertificate,
+      );
+
+      // Convert the signature to a hex string for comparison
+      final String signatureHex = hex.encode(signature);
+
+      // Log the result
+      print('Operational Certificate Signature: $signatureHex');
+
+      // Here you would compare signatureHex with the expected value manually
+      // In a real app, you might display this on the UI or handle it as needed
+    } catch (e) {
+      print('Error signing operational certificate: $e');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -263,8 +300,10 @@ class _MyAppState extends State<MyApp> {
                         await ledger.connect(device);
 
                         // await _fetchSerial(device);
-                        await _fetchAccount(device);
+                        // await _fetchAccount(device);
                         // await _fetchVersion(device);
+
+                        await _testSignOperationalCertificate(device);
 
                         // await _testDeriveNativeScriptHash(device);
                         // await _testDeriveComplexNativeScriptHash(device);

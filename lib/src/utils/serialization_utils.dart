@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
@@ -54,15 +55,19 @@ class SerializationUtils {
               // No additional data to write for None type
             },
           StakingDataSourceKeyPath() => () {
+              writer.writeUint8(StakingDataSourceType.keyPath.encoding);
               writerSerializedPath(writer, dataSource.path);
             },
           StakingDataSourceKeyHash() => () {
+              writer.writeUint8(StakingDataSourceType.keyHash.encoding);
               writeSerializedHex(writer, dataSource.keyHashHex);
             },
           StakingDataSourceScriptHash() => () {
+              writer.writeUint8(StakingDataSourceType.scriptHash.encoding);
               writeSerializedHex(writer, dataSource.scriptHashHex);
             },
           StakingDataSourceBlockchainPointer() => () {
+              writer.writeUint8(StakingDataSourceType.blockchainPointer.encoding);
               writer.writeUint32(dataSource.blockIndex);
               writer.writeUint32(dataSource.txIndex);
               writer.writeUint32(dataSource.certificateIndex);

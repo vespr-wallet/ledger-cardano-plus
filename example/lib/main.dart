@@ -263,11 +263,11 @@ class _MyAppState extends State<MyApp> {
                         await ledger.connect(device);
 
                         // await _fetchSerial(device);
-
+                        await _fetchAccount(device);
                         // await _fetchVersion(device);
 
                         // await _testDeriveNativeScriptHash(device);
-                        await _testDeriveComplexNativeScriptHash(device);
+                        // await _testDeriveComplexNativeScriptHash(device);
 
                         // await _fetchAccountV2(device);
                         // await _fetchPublicKey(device);

@@ -106,11 +106,11 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
             },
           ParsedSimpleNativeScript_InvalidBefore() => () {
               writer.writeUint8(NativeScriptType.invalidBefore.encoding);
-              writer.writeUint64(script.slot);
+              SerializationUtils.writeSerializedUint64(writer, script.slot);
             },
           ParsedSimpleNativeScript_InvalidHereafter() => () {
               writer.writeUint8(NativeScriptType.invalidHereafter.encoding);
-              writer.writeUint64(script.slot);
+              SerializationUtils.writeSerializedUint64(writer, script.slot);
             },
         };
         invoker();

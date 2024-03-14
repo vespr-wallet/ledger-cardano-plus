@@ -3,7 +3,10 @@ import 'dart:typed_data';
 import 'package:ledger_cardano/src/cardano_transformer.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
+import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
+import 'package:ledger_cardano/src/models/spending_data_source.dart';
+import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
@@ -56,11 +59,9 @@ class CardanoLedgerApp {
   ) async {
     // Ensure the device's Cardano app version supports the requested operation
     final CardanoVersion deviceVersion = await getVersion(device);
-    final VersionCompatibility compatibility =
-        VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
-    if (!compatibility.isCompatible ||
-        !compatibility.supportsNativeScriptHashDerivation) {
+    if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
       throw ValidationException(
         "Deriving native script hash not supported by the device's Cardano app version. "
         "Required minimum version: ${compatibility.recommendedVersion}, "
@@ -128,18 +129,15 @@ class CardanoLedgerApp {
     return xPubKeys;
   }
 
-  Future<String> deriveAddress(LedgerDevice device,
-      {bool displayOnDevice = false}) async {
-    // Derivation path for shelley accounts
-    final List<int> bip32PaymentPath = [
+  Future<String> deriveAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
+    final bip32PaymentPath = [
       harden + 1852,
       harden + 1815,
       harden + accountIndex,
       0,
-      0,
+      1,
     ];
-
-    final List<int> bip32StakePath = [
+    final bip32StakePath = [
       harden + 1852,
       harden + 1815,
       harden + accountIndex,
@@ -147,13 +145,21 @@ class CardanoLedgerApp {
       0,
     ];
 
+    final params = ParsedAddressParams.shelley(
+      type: AddressType.basePaymentKeyStakeKey,
+      networkId: CardanoNetwork.mainnet.networkId,
+      spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath),
+      stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
+    );
+
+    final operation = CardanoDeriveAddressOperation(
+      params: params,
+      network: CardanoNetwork.mainnet,
+    );
+
     final addressResult = await ledger.sendComplexOperation<String>(
       device,
-      CardanoDeriveAddressOperation(
-        network: CardanoNetwork.testnet,
-        bip32SpendingPath: bip32PaymentPath,
-        bip32StakingPath: bip32StakePath,
-      ),
+      operation,
       transformer: transformer,
     );
 

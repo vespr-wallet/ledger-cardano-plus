@@ -70,3 +70,37 @@ enum InstructionType {
 
   const InstructionType({required this.insValue});
 }
+
+enum SpendingDataSourceType {
+  none,
+  path,
+  scriptHash,
+}
+
+enum StakingDataSourceType {
+  none(0x11),
+  keyPath(0x22),
+  keyHash(0x33),
+  blockchainPointer(0x44),
+  scriptHash(0x55);
+
+  final int encoding;
+  const StakingDataSourceType(this.encoding);
+}
+
+enum AddressType {
+  byron(8),
+  basePaymentKeyStakeKey(0),
+  basePaymentScriptStakeKey(1),
+  basePaymentKeyStakeScript(2),
+  basePaymentScriptStakeScript(3),
+  enterpriseKey(6),
+  enterpriseScript(7),
+  pointerKey(4),
+  pointerScript(5),
+  rewardKey(14),
+  rewardScript(15);
+
+  final int value;
+  const AddressType(this.value);
+}

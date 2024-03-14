@@ -40,7 +40,7 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _testDeriveNativeScriptHash(LedgerDevice device) async {
     try {
-      const simpleScript = ParsedSimpleNativeScript.pubKeyDeviceOwned(
+      final simpleScript = ParsedSimpleNativeScript.pubKeyDeviceOwned(
         path: [
           0x80000000 + 1852,
           0x80000000 + 1815,
@@ -49,7 +49,8 @@ class _MyAppState extends State<MyApp> {
           0,
         ],
       );
-      const script = ParsedNativeScript.simple(simpleScript);
+
+      final script = ParsedNativeScript.simple(simpleScript);
 
       final hash = await cardanoApp.deriveNativeScriptHash(
         device,
@@ -63,8 +64,7 @@ class _MyAppState extends State<MyApp> {
       print('Derived Script Hash: $hash');
     } on LedgerException catch (e) {
       setState(() {
-        scriptHashInfo =
-            'Error deriving script hash: ${e.message}, Code: ${e.errorCode}';
+        scriptHashInfo = 'Error deriving script hash: ${e.message}, Code: ${e.errorCode}';
       });
     } catch (e) {
       setState(() {
@@ -73,35 +73,19 @@ class _MyAppState extends State<MyApp> {
       print('Error deriving script hash: ${e.toString()}');
     }
   }
-  
- Future<void> _testDeriveComplexNativeScriptHash(LedgerDevice device) async {
-  try {
-    // Constructing the complex script
-    const complexScript = ParsedNativeScript.complex(
-      ParsedComplexNativeScript.all(scripts: [
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.pubKeyThirdParty(
-            keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+
+  Future<void> _testDeriveComplexNativeScriptHash(LedgerDevice device) async {
+    try {
+      // Constructing the complex script
+      final complexScript = ParsedNativeScript.complex(
+        ParsedComplexNativeScript.all(scripts: [
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.pubKeyThirdParty(
+              keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+            ),
           ),
-        ),
-        ParsedNativeScript.complex(
-          ParsedComplexNativeScript.any(scripts: [
-            ParsedNativeScript.simple(
-              ParsedSimpleNativeScript.pubKeyThirdParty(
-                keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
-              ),
-            ),
-            ParsedNativeScript.simple(
-              ParsedSimpleNativeScript.pubKeyThirdParty(
-                keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
-              ),
-            ),
-          ]),
-        ),
-        ParsedNativeScript.complex(
-          ParsedComplexNativeScript.nOfK(
-            requiredCount: 2,
-            scripts: [
+          ParsedNativeScript.complex(
+            ParsedComplexNativeScript.any(scripts: [
               ParsedNativeScript.simple(
                 ParsedSimpleNativeScript.pubKeyThirdParty(
                   keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
@@ -112,46 +96,62 @@ class _MyAppState extends State<MyApp> {
                   keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
                 ),
               ),
-              ParsedNativeScript.simple(
-                ParsedSimpleNativeScript.pubKeyThirdParty(
-                  keyHashHex: 'cecb1d427c4ae436d28cc0f8ae9bb37501a5b77bcc64cd1693e9ae20',
-                ),
-              ),
-            ],
+            ]),
           ),
-        ),
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.invalidBefore(slot: 100),
-        ),
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.invalidHereafter(slot: 200),
-        ),
-      ]),
-    );
+          ParsedNativeScript.complex(
+            ParsedComplexNativeScript.nOfK(
+              requiredCount: 2,
+              scripts: [
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+                  ),
+                ),
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
+                  ),
+                ),
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: 'cecb1d427c4ae436d28cc0f8ae9bb37501a5b77bcc64cd1693e9ae20',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.invalidBefore(slot: BigInt.from(100)),
+          ),
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.invalidHereafter(slot: BigInt.from(200)),
+          ),
+        ]),
+      );
 
-    // Deriving the script hash
-    final hash = await cardanoApp.deriveNativeScriptHash(
-      device,
-      complexScript,
-      NativeScriptHashDisplayFormat.bech32,
-    );
+      // Deriving the script hash
+      final hash = await cardanoApp.deriveNativeScriptHash(
+        device,
+        complexScript,
+        NativeScriptHashDisplayFormat.bech32,
+      );
 
-    // Updating the UI state with the derived script hash
-    setState(() {
-      scriptHashInfo = 'Derived Complex Script Hash: $hash';
-    });
-    print('Derived Complex Script Hash: $hash');
-  } on LedgerException catch (e) {
-    setState(() {
-      scriptHashInfo = 'Error deriving complex script hash: ${e.message}, Code: ${e.errorCode}';
-    });
-  } catch (e) {
-    setState(() {
-      scriptHashInfo = 'Error deriving complex script hash: ${e.toString()}';
-    });
-    print('Error deriving complex script hash: ${e.toString()}');
+      // Updating the UI state with the derived script hash
+      setState(() {
+        scriptHashInfo = 'Derived Complex Script Hash: $hash';
+      });
+      print('Derived Complex Script Hash: $hash');
+    } on LedgerException catch (e) {
+      setState(() {
+        scriptHashInfo = 'Error deriving complex script hash: ${e.message}, Code: ${e.errorCode}';
+      });
+    } catch (e) {
+      setState(() {
+        scriptHashInfo = 'Error deriving complex script hash: ${e.toString()}';
+      });
+      print('Error deriving complex script hash: ${e.toString()}');
+    }
   }
-}
 
   Future<void> _fetchPublicKey(LedgerDevice device) async {
     try {
@@ -170,8 +170,7 @@ class _MyAppState extends State<MyApp> {
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo =
-            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
       print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
@@ -193,8 +192,7 @@ class _MyAppState extends State<MyApp> {
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo =
-            'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
       });
       print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
@@ -216,8 +214,7 @@ class _MyAppState extends State<MyApp> {
       print('Serial: $serial');
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo =
-            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
@@ -232,8 +229,7 @@ class _MyAppState extends State<MyApp> {
       });
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo =
-            'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }

@@ -20,24 +20,24 @@ mixin _$ParsedSimpleNativeScript {
   TResult when<TResult extends Object?>({
     required TResult Function(List<int> path) pubKeyDeviceOwned,
     required TResult Function(String keyHashHex) pubKeyThirdParty,
-    required TResult Function(int slot) invalidBefore,
-    required TResult Function(int slot) invalidHereafter,
+    required TResult Function(BigInt slot) invalidBefore,
+    required TResult Function(BigInt slot) invalidHereafter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> path)? pubKeyDeviceOwned,
     TResult? Function(String keyHashHex)? pubKeyThirdParty,
-    TResult? Function(int slot)? invalidBefore,
-    TResult? Function(int slot)? invalidHereafter,
+    TResult? Function(BigInt slot)? invalidBefore,
+    TResult? Function(BigInt slot)? invalidHereafter,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> path)? pubKeyDeviceOwned,
     TResult Function(String keyHashHex)? pubKeyThirdParty,
-    TResult Function(int slot)? invalidBefore,
-    TResult Function(int slot)? invalidHereafter,
+    TResult Function(BigInt slot)? invalidBefore,
+    TResult Function(BigInt slot)? invalidHereafter,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -101,7 +101,7 @@ class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>
 
 class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
     extends ParsedSimpleNativeScript_PubKeyDeviceOwned {
-  const _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
+  _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
       {required final List<int> path})
       : _path = path,
         super._();
@@ -146,8 +146,8 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
   TResult when<TResult extends Object?>({
     required TResult Function(List<int> path) pubKeyDeviceOwned,
     required TResult Function(String keyHashHex) pubKeyThirdParty,
-    required TResult Function(int slot) invalidBefore,
-    required TResult Function(int slot) invalidHereafter,
+    required TResult Function(BigInt slot) invalidBefore,
+    required TResult Function(BigInt slot) invalidHereafter,
   }) {
     return pubKeyDeviceOwned(path);
   }
@@ -157,8 +157,8 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> path)? pubKeyDeviceOwned,
     TResult? Function(String keyHashHex)? pubKeyThirdParty,
-    TResult? Function(int slot)? invalidBefore,
-    TResult? Function(int slot)? invalidHereafter,
+    TResult? Function(BigInt slot)? invalidBefore,
+    TResult? Function(BigInt slot)? invalidHereafter,
   }) {
     return pubKeyDeviceOwned?.call(path);
   }
@@ -168,8 +168,8 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> path)? pubKeyDeviceOwned,
     TResult Function(String keyHashHex)? pubKeyThirdParty,
-    TResult Function(int slot)? invalidBefore,
-    TResult Function(int slot)? invalidHereafter,
+    TResult Function(BigInt slot)? invalidBefore,
+    TResult Function(BigInt slot)? invalidHereafter,
     required TResult orElse(),
   }) {
     if (pubKeyDeviceOwned != null) {
@@ -181,10 +181,10 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
 
 abstract class ParsedSimpleNativeScript_PubKeyDeviceOwned
     extends ParsedSimpleNativeScript {
-  const factory ParsedSimpleNativeScript_PubKeyDeviceOwned(
+  factory ParsedSimpleNativeScript_PubKeyDeviceOwned(
           {required final List<int> path}) =
       _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl;
-  const ParsedSimpleNativeScript_PubKeyDeviceOwned._() : super._();
+  ParsedSimpleNativeScript_PubKeyDeviceOwned._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)
@@ -231,8 +231,7 @@ class __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res>
 
 class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
     extends ParsedSimpleNativeScript_PubKeyThirdParty {
-  const _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl(
-      {required this.keyHashHex})
+  _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl({required this.keyHashHex})
       : super._();
 
   @override
@@ -270,8 +269,8 @@ class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
   TResult when<TResult extends Object?>({
     required TResult Function(List<int> path) pubKeyDeviceOwned,
     required TResult Function(String keyHashHex) pubKeyThirdParty,
-    required TResult Function(int slot) invalidBefore,
-    required TResult Function(int slot) invalidHereafter,
+    required TResult Function(BigInt slot) invalidBefore,
+    required TResult Function(BigInt slot) invalidHereafter,
   }) {
     return pubKeyThirdParty(keyHashHex);
   }
@@ -281,8 +280,8 @@ class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> path)? pubKeyDeviceOwned,
     TResult? Function(String keyHashHex)? pubKeyThirdParty,
-    TResult? Function(int slot)? invalidBefore,
-    TResult? Function(int slot)? invalidHereafter,
+    TResult? Function(BigInt slot)? invalidBefore,
+    TResult? Function(BigInt slot)? invalidHereafter,
   }) {
     return pubKeyThirdParty?.call(keyHashHex);
   }
@@ -292,8 +291,8 @@ class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> path)? pubKeyDeviceOwned,
     TResult Function(String keyHashHex)? pubKeyThirdParty,
-    TResult Function(int slot)? invalidBefore,
-    TResult Function(int slot)? invalidHereafter,
+    TResult Function(BigInt slot)? invalidBefore,
+    TResult Function(BigInt slot)? invalidHereafter,
     required TResult orElse(),
   }) {
     if (pubKeyThirdParty != null) {
@@ -305,10 +304,10 @@ class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl
 
 abstract class ParsedSimpleNativeScript_PubKeyThirdParty
     extends ParsedSimpleNativeScript {
-  const factory ParsedSimpleNativeScript_PubKeyThirdParty(
+  factory ParsedSimpleNativeScript_PubKeyThirdParty(
           {required final String keyHashHex}) =
       _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl;
-  const ParsedSimpleNativeScript_PubKeyThirdParty._() : super._();
+  ParsedSimpleNativeScript_PubKeyThirdParty._() : super._();
 
   String get keyHashHex;
   @JsonKey(ignore: true)
@@ -324,7 +323,7 @@ abstract class _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<$Res> {
           $Res Function(_$ParsedSimpleNativeScript_InvalidBeforeImpl) then) =
       __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int slot});
+  $Res call({BigInt slot});
 }
 
 /// @nodoc
@@ -346,7 +345,7 @@ class __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>
       slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BigInt,
     ));
   }
 }
@@ -355,11 +354,11 @@ class __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>
 
 class _$ParsedSimpleNativeScript_InvalidBeforeImpl
     extends ParsedSimpleNativeScript_InvalidBefore {
-  const _$ParsedSimpleNativeScript_InvalidBeforeImpl({required this.slot})
+  _$ParsedSimpleNativeScript_InvalidBeforeImpl({required this.slot})
       : super._();
 
   @override
-  final int slot;
+  final BigInt slot;
 
   @override
   String toString() {
@@ -391,8 +390,8 @@ class _$ParsedSimpleNativeScript_InvalidBeforeImpl
   TResult when<TResult extends Object?>({
     required TResult Function(List<int> path) pubKeyDeviceOwned,
     required TResult Function(String keyHashHex) pubKeyThirdParty,
-    required TResult Function(int slot) invalidBefore,
-    required TResult Function(int slot) invalidHereafter,
+    required TResult Function(BigInt slot) invalidBefore,
+    required TResult Function(BigInt slot) invalidHereafter,
   }) {
     return invalidBefore(slot);
   }
@@ -402,8 +401,8 @@ class _$ParsedSimpleNativeScript_InvalidBeforeImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> path)? pubKeyDeviceOwned,
     TResult? Function(String keyHashHex)? pubKeyThirdParty,
-    TResult? Function(int slot)? invalidBefore,
-    TResult? Function(int slot)? invalidHereafter,
+    TResult? Function(BigInt slot)? invalidBefore,
+    TResult? Function(BigInt slot)? invalidHereafter,
   }) {
     return invalidBefore?.call(slot);
   }
@@ -413,8 +412,8 @@ class _$ParsedSimpleNativeScript_InvalidBeforeImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> path)? pubKeyDeviceOwned,
     TResult Function(String keyHashHex)? pubKeyThirdParty,
-    TResult Function(int slot)? invalidBefore,
-    TResult Function(int slot)? invalidHereafter,
+    TResult Function(BigInt slot)? invalidBefore,
+    TResult Function(BigInt slot)? invalidHereafter,
     required TResult orElse(),
   }) {
     if (invalidBefore != null) {
@@ -426,11 +425,11 @@ class _$ParsedSimpleNativeScript_InvalidBeforeImpl
 
 abstract class ParsedSimpleNativeScript_InvalidBefore
     extends ParsedSimpleNativeScript {
-  const factory ParsedSimpleNativeScript_InvalidBefore(
-      {required final int slot}) = _$ParsedSimpleNativeScript_InvalidBeforeImpl;
-  const ParsedSimpleNativeScript_InvalidBefore._() : super._();
+  factory ParsedSimpleNativeScript_InvalidBefore({required final BigInt slot}) =
+      _$ParsedSimpleNativeScript_InvalidBeforeImpl;
+  ParsedSimpleNativeScript_InvalidBefore._() : super._();
 
-  int get slot;
+  BigInt get slot;
   @JsonKey(ignore: true)
   _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<
           _$ParsedSimpleNativeScript_InvalidBeforeImpl>
@@ -444,7 +443,7 @@ abstract class _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<$Res> {
           $Res Function(_$ParsedSimpleNativeScript_InvalidHereafterImpl) then) =
       __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int slot});
+  $Res call({BigInt slot});
 }
 
 /// @nodoc
@@ -466,7 +465,7 @@ class __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>
       slot: null == slot
           ? _value.slot
           : slot // ignore: cast_nullable_to_non_nullable
-              as int,
+              as BigInt,
     ));
   }
 }
@@ -475,11 +474,11 @@ class __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>
 
 class _$ParsedSimpleNativeScript_InvalidHereafterImpl
     extends ParsedSimpleNativeScript_InvalidHereafter {
-  const _$ParsedSimpleNativeScript_InvalidHereafterImpl({required this.slot})
+  _$ParsedSimpleNativeScript_InvalidHereafterImpl({required this.slot})
       : super._();
 
   @override
-  final int slot;
+  final BigInt slot;
 
   @override
   String toString() {
@@ -512,8 +511,8 @@ class _$ParsedSimpleNativeScript_InvalidHereafterImpl
   TResult when<TResult extends Object?>({
     required TResult Function(List<int> path) pubKeyDeviceOwned,
     required TResult Function(String keyHashHex) pubKeyThirdParty,
-    required TResult Function(int slot) invalidBefore,
-    required TResult Function(int slot) invalidHereafter,
+    required TResult Function(BigInt slot) invalidBefore,
+    required TResult Function(BigInt slot) invalidHereafter,
   }) {
     return invalidHereafter(slot);
   }
@@ -523,8 +522,8 @@ class _$ParsedSimpleNativeScript_InvalidHereafterImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(List<int> path)? pubKeyDeviceOwned,
     TResult? Function(String keyHashHex)? pubKeyThirdParty,
-    TResult? Function(int slot)? invalidBefore,
-    TResult? Function(int slot)? invalidHereafter,
+    TResult? Function(BigInt slot)? invalidBefore,
+    TResult? Function(BigInt slot)? invalidHereafter,
   }) {
     return invalidHereafter?.call(slot);
   }
@@ -534,8 +533,8 @@ class _$ParsedSimpleNativeScript_InvalidHereafterImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(List<int> path)? pubKeyDeviceOwned,
     TResult Function(String keyHashHex)? pubKeyThirdParty,
-    TResult Function(int slot)? invalidBefore,
-    TResult Function(int slot)? invalidHereafter,
+    TResult Function(BigInt slot)? invalidBefore,
+    TResult Function(BigInt slot)? invalidHereafter,
     required TResult orElse(),
   }) {
     if (invalidHereafter != null) {
@@ -547,12 +546,12 @@ class _$ParsedSimpleNativeScript_InvalidHereafterImpl
 
 abstract class ParsedSimpleNativeScript_InvalidHereafter
     extends ParsedSimpleNativeScript {
-  const factory ParsedSimpleNativeScript_InvalidHereafter(
-          {required final int slot}) =
+  factory ParsedSimpleNativeScript_InvalidHereafter(
+          {required final BigInt slot}) =
       _$ParsedSimpleNativeScript_InvalidHereafterImpl;
-  const ParsedSimpleNativeScript_InvalidHereafter._() : super._();
+  ParsedSimpleNativeScript_InvalidHereafter._() : super._();
 
-  int get slot;
+  BigInt get slot;
   @JsonKey(ignore: true)
   _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<
           _$ParsedSimpleNativeScript_InvalidHereafterImpl>

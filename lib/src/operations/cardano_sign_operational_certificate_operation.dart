@@ -5,6 +5,7 @@ import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/serialization_utils.dart';
+import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<Uint8List> {
   final ParsedOperationalCertificate operationalCertificate;
@@ -26,6 +27,11 @@ class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<
         prependDataLength: true,
       ),
     );
+    
+    if (response.remainingLength != ed25519SignatureLength) {
+      throw ValidationException(
+          'Response data length does not match expected ed25519 signature length of $ed25519SignatureLength bytes');
+    }
 
     return response.read(ed25519SignatureLength);
   }

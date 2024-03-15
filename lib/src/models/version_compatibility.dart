@@ -11,17 +11,20 @@ class VersionCompatibility with _$VersionCompatibility {
     required bool isCompatible,
     required String? recommendedVersion,
     required bool supportsNativeScriptHashDerivation,
+    required bool supportsOperationalCertificateSigning,
   }) = _VersionCompatibility;
 
-  factory VersionCompatibility.checkVersionCompatibility(
-      CardanoVersion version) {
+  factory VersionCompatibility.checkVersionCompatibility(CardanoVersion version) {
     final bool isCompatible = version.versionMajor >= 3;
     final bool supportsNativeScriptHashDerivation = version.versionMajor >= 3;
+    final bool supportsOperationalCertificateSigning =
+        version.versionMajor > 2 || (version.versionMajor == 2 && version.versionMinor >= 4);
 
     return VersionCompatibility(
       isCompatible: isCompatible,
       recommendedVersion: isCompatible ? null : ">=3.0.0",
       supportsNativeScriptHashDerivation: supportsNativeScriptHashDerivation,
+      supportsOperationalCertificateSigning: supportsOperationalCertificateSigning,
     );
   }
 }

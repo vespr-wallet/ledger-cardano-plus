@@ -2,6 +2,11 @@ const int harden = 0x80000000;
 
 const int claCardano = 0xD7;
 
+const int maxChunkSize = 255;
+
+const int signTxIncludedNo = 1;
+const int signTxIncludedYes = 2;
+
 const int p1Unused = 0x00;
 const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
@@ -9,6 +14,28 @@ const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 
 const int p2Unused = 0x00;
+
+const int p1StageInit = 0x01;
+const int p1StageAuxData = 0x08;
+const int p1StageInputs = 0x02;
+const int p1StageOutputs = 0x03;
+const int p1StageFee = 0x04;
+const int p1StageTtl = 0x05;
+const int p1StageCertificates = 0x06;
+const int p1StageWithdrawals = 0x07;
+const int p1StageValidityIntervalStart = 0x09;
+const int p1StageMint = 0x0b;
+const int p1StageScriptDataHash = 0x0c;
+const int p1StageCollateralInputs = 0x0d;
+const int p1StageRequiredSigners = 0x0e;
+const int p1StageCollateralOutput = 0x12;
+const int p1StageTotalCollateral = 0x10;
+const int p1StageReferenceInputs = 0x11;
+const int p1StageVotingProcedures = 0x13;
+const int p1StageTreasury = 0x15;
+const int p1StageDonation = 0x16;
+const int p1StageConfirm = 0x0a;
+const int p1StageWitnesses = 0x0f;
 
 enum NativeScriptType {
   pubkeyDeviceOwned(0),
@@ -66,7 +93,8 @@ enum InstructionType {
   getExtendedPublicKey(insValue: 0x10),
   getSerial(insValue: 0x01),
   deriveNativeScriptHash(insValue: 0x12),
-  signOperationalCertificate(insValue: 0x22);
+  signOperationalCertificate(insValue: 0x22),
+  signTransaction(insValue: 0x21);
 
   final int insValue;
 
@@ -105,4 +133,83 @@ enum AddressType {
 
   final int value;
   const AddressType(this.value);
+}
+
+enum OptionFlags {
+  tagCborSets(1);
+
+  final int value;
+  const OptionFlags(this.value);
+}
+
+enum TransactionSigningMode {
+  ordinaryTransaction(3),
+  poolRegistrationAsOwner(4),
+  poolRegistrationAsOperator(5),
+  multisigTransaction(6),
+  plutusTransaction(7);
+  
+  final int value;
+  const TransactionSigningMode(this.value);
+}
+
+enum TxOutputFormat {
+  arrayLegacy(0),
+  mapBabbage(1);
+
+  final int value;
+  const TxOutputFormat(this.value);
+}
+
+enum TxOutputDestinationType {
+  thirdParty,
+  deviceOwned,
+}
+
+enum DatumType {
+  hash,
+  inline,
+}
+
+enum DRepType {
+  keyHash(0),
+  keyPath(100),
+  scriptHash(1),
+  abstain(2),
+  noConfidence(3);
+  
+  final int value;
+  const DRepType(this.value);
+}
+
+enum TxAuxiliaryDataType {
+  arbitraryHash,
+  cip36Registration,
+}
+
+enum CIP36VoteDelegationType {
+  path,
+  key,
+}
+
+enum RequiredSignerType {
+  hash,
+  path,
+}
+
+enum VoterType {
+  committeeKeyHash,
+  committeeKeyPath,
+  committeeScriptHash,
+  drepKeyHash,
+  drepKeyPath,
+  drepScriptHash,
+  stakePoolKeyHash,
+  stakePoolKeyPath,
+}
+
+enum VoteOption {
+  yes,
+  no,
+  abstain,
 }

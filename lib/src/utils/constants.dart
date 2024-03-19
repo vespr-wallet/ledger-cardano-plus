@@ -8,6 +8,8 @@ const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 
+const int maxHumanAddressLength = 150;
+
 const int p2Unused = 0x00;
 
 enum NativeScriptType {

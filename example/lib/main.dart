@@ -10,6 +10,7 @@ import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 void main() {
   runApp(const MyApp());
@@ -188,9 +189,12 @@ class _MyAppState extends State<MyApp> {
   Future<void> _fetchAccount(LedgerDevice device) async {
     try {
       final derivedAddress = await cardanoApp.deriveAddress(device);
+        Uint8List addressBytes = hexToBytes(derivedAddress);
+
+      final result = bech32EncodeAddress('addr', addressBytes);
 
       setState(() {
-        accounts = ['Address: $derivedAddress'];
+        accounts = ['Address: $result'];
         accountsInfo = 'Derived address:\n${accounts.join('\n')}';
       });
       print('Fetched Accounts: ${accounts.join('\n')}');
@@ -290,7 +294,8 @@ class _MyAppState extends State<MyApp> {
                 const SizedBox(height: 20),
                 const Text('Available Devices:'),
                 ...devices.map((device) => ListTile(
-                      title: Text(device.name),
+                      title: Text('Device name: ${device.name}'),
+                      subtitle: Text('Device id: ${device.id}', style: const TextStyle(fontSize: 13)),
                       onTap: () async {
                         setState(() {
                           versionInfo = 'Connecting...';
@@ -301,14 +306,14 @@ class _MyAppState extends State<MyApp> {
 
                         // await _fetchSerial(device);
                         // await _fetchAccount(device);
-                        // await _fetchVersion(device);
+                        await _fetchVersion(device);
 
-                        await _testSignOperationalCertificate(device);
+                        // await _testSignOperationalCertificate(device);
 
                         // await _testDeriveNativeScriptHash(device);
                         // await _testDeriveComplexNativeScriptHash(device);
 
-                        // await _fetchAccountV2(device);
+                        await _fetchAccount(device);
                         // await _fetchPublicKey(device);
 
                         // await _testDeriveNativeScriptHash(device);

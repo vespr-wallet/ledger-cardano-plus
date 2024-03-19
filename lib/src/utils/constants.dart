@@ -68,6 +68,8 @@ const int cvotePublicKeyLength = 32;
 
 const int stringLength64Bytes = 64;
 
+const int maxHumanAddressLength = 150;
+
 const int p2Unused = 0x00;
 
 const int p1StageInit = 0x01;

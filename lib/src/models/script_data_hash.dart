@@ -7,8 +7,8 @@ part 'script_data_hash.freezed.dart';
 @freezed
 sealed class ScriptDataHash with _$ScriptDataHash {
   ScriptDataHash._() {
-    if (hexString.length != expectedLength) {
-      throw ValidationException('ScriptDataHash must be a $expectedLength-byte hex string.');
+    if (hexString.length != expectedScriptDataHashLength) {
+      throw ValidationException('ScriptDataHash must be a $expectedScriptDataHashLength-byte hex string.');
     }
   }
 

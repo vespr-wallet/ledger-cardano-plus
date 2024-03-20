@@ -12,7 +12,7 @@ sealed class ParsedOutput with _$ParsedOutput {
 
   factory ParsedOutput({
     required TxOutputFormat format,
-    required String amount,
+    required BigInt amount,
     required List<ParsedAssetGroup> tokenBundle,
     required ParsedOutputDestination destination,
     ParsedDatum? datum,

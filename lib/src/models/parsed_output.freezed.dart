@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedOutput {
   TxOutputFormat get format => throw _privateConstructorUsedError;
-  String get amount => throw _privateConstructorUsedError;
+  BigInt get amount => throw _privateConstructorUsedError;
   List<ParsedAssetGroup> get tokenBundle => throw _privateConstructorUsedError;
   ParsedOutputDestination get destination => throw _privateConstructorUsedError;
   ParsedDatum? get datum => throw _privateConstructorUsedError;
@@ -26,7 +26,7 @@ mixin _$ParsedOutput {
   TResult when<TResult extends Object?>(
     TResult Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -38,7 +38,7 @@ mixin _$ParsedOutput {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -50,7 +50,7 @@ mixin _$ParsedOutput {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -73,7 +73,7 @@ abstract class $ParsedOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {TxOutputFormat format,
-      String amount,
+      BigInt amount,
       List<ParsedAssetGroup> tokenBundle,
       ParsedOutputDestination destination,
       ParsedDatum? datum,
@@ -111,7 +111,7 @@ class _$ParsedOutputCopyWithImpl<$Res, $Val extends ParsedOutput>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       tokenBundle: null == tokenBundle
           ? _value.tokenBundle
           : tokenBundle // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ abstract class _$$ParsedOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {TxOutputFormat format,
-      String amount,
+      BigInt amount,
       List<ParsedAssetGroup> tokenBundle,
       ParsedOutputDestination destination,
       ParsedDatum? datum,
@@ -200,7 +200,7 @@ class __$$ParsedOutputImplCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       tokenBundle: null == tokenBundle
           ? _value._tokenBundle
           : tokenBundle // ignore: cast_nullable_to_non_nullable
@@ -237,7 +237,7 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   @override
   final TxOutputFormat format;
   @override
-  final String amount;
+  final BigInt amount;
   final List<ParsedAssetGroup> _tokenBundle;
   @override
   List<ParsedAssetGroup> get tokenBundle {
@@ -295,7 +295,7 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   TResult when<TResult extends Object?>(
     TResult Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -311,7 +311,7 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -327,7 +327,7 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             TxOutputFormat format,
-            String amount,
+            BigInt amount,
             List<ParsedAssetGroup> tokenBundle,
             ParsedOutputDestination destination,
             ParsedDatum? datum,
@@ -346,7 +346,7 @@ class _$ParsedOutputImpl extends _ParsedOutput {
 abstract class _ParsedOutput extends ParsedOutput {
   factory _ParsedOutput(
       {required final TxOutputFormat format,
-      required final String amount,
+      required final BigInt amount,
       required final List<ParsedAssetGroup> tokenBundle,
       required final ParsedOutputDestination destination,
       final ParsedDatum? datum,
@@ -356,7 +356,7 @@ abstract class _ParsedOutput extends ParsedOutput {
   @override
   TxOutputFormat get format;
   @override
-  String get amount;
+  BigInt get amount;
   @override
   List<ParsedAssetGroup> get tokenBundle;
   @override

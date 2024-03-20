@@ -24,7 +24,7 @@ const int scriptDataHashLength = 64;
 
 const int kesPublicKeyLength = 64;
 
-const int expectedLength = 64;
+const int expectedScriptDataHashLength = 64;
 
 const int cvotePublicKeyLength = 32;
 

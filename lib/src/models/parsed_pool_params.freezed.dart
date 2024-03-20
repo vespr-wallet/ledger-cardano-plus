@@ -305,7 +305,7 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
       required this.rewardAccount,
       required final List<ParsedPoolOwner> owners,
       required final List<ParsedPoolRelay> relays,
-      this.metadata})
+      required this.metadata})
       : _owners = owners,
         _relays = relays,
         super._();
@@ -457,7 +457,7 @@ abstract class _ParsedPoolParams extends ParsedPoolParams {
       required final ParsedPoolRewardAccount rewardAccount,
       required final List<ParsedPoolOwner> owners,
       required final List<ParsedPoolRelay> relays,
-      final ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsImpl;
+      required final ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsImpl;
   _ParsedPoolParams._() : super._();
 
   @override

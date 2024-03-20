@@ -21,6 +21,6 @@ sealed class ParsedPoolParams with _$ParsedPoolParams {
     required ParsedPoolRewardAccount rewardAccount,
     required List<ParsedPoolOwner> owners,
     required List<ParsedPoolRelay> relays,
-    ParsedPoolMetadata? metadata,
+    required ParsedPoolMetadata? metadata,
   }) = _ParsedPoolParams;
 }

@@ -1,16 +1,18 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
-class ScriptDataHash {
-  final String value;
+part 'script_data_hash.freezed.dart';
 
-  ScriptDataHash._(this.value);
-
-  static const int _expectedLength = 64;
-
-  factory ScriptDataHash(String hexString) {
-    if (hexString.length != _expectedLength) {
-      throw ValidationException('ScriptDataHash must be exactly $_expectedLength characters long.');
+@freezed
+sealed class ScriptDataHash with _$ScriptDataHash {
+  ScriptDataHash._() {
+    if (hexString.length != expectedLength) {
+      throw ValidationException('ScriptDataHash must be a $expectedLength-byte hex string.');
     }
-    return ScriptDataHash._(hexString);
   }
+
+  factory ScriptDataHash({
+    required String hexString,
+  }) = _ScriptDataHash;
 }

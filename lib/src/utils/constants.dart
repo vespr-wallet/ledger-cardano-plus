@@ -12,9 +12,21 @@ const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
+const int keyHashLength = 56;
+
+const int datumHashLength = 64;
+
+const int scriptHashLength = 56;
+
+const int policyIdLength = 28;
+
+const int scriptDataHashLength = 64;
+
+const int kesPublicKeyLength = 64;
+
+const int expectedLength = 64;
 
 const int cvotePublicKeyLength = 32;
-
 
 const int p2Unused = 0x00;
 
@@ -178,11 +190,11 @@ enum TxOutputFormat {
 }
 
 enum TxOutputDestinationType {
-  thirdParty('third_party'),
-  deviceOwned('device_owned');
+  thirdParty(0x01),
+  deviceOwned(0x02);
 
-  final String value;
-  const TxOutputDestinationType(this.value);
+  final int encodingValue;
+  const TxOutputDestinationType(this.encodingValue);
 }
 
 enum DatumType {
@@ -210,11 +222,11 @@ enum TxAuxiliaryDataType {
 }
 
 enum CIP36VoteDelegationType {
-  path('cip36_vote_key_path'),
-  key('cip36_vote_key_keyHex');
+  path(0x01),
+  key(0x02);
 
-  final String value;
-  const CIP36VoteDelegationType(this.value);
+  final int encodingValue;
+  const CIP36VoteDelegationType(this.encodingValue);
 }
 
 enum RequiredSignerType {
@@ -245,10 +257,9 @@ enum TxAuxiliaryDataSupplementType {
 }
 
 enum CIP36VoteRegistrationFormat {
-  cip15(1),
-  cip36(2);
+  cip15(0x01),
+  cip36(0x02);
 
-  final int value;
-  const CIP36VoteRegistrationFormat(this.value);
+  final int encodingValue;
+  const CIP36VoteRegistrationFormat(this.encodingValue);
 }
-

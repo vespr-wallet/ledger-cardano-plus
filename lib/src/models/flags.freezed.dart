@@ -77,21 +77,21 @@ class _$FlagsCopyWithImpl<$Res, $Val extends Flags>
 }
 
 /// @nodoc
-abstract class _$$Flags_modeImplCopyWith<$Res> implements $FlagsCopyWith<$Res> {
-  factory _$$Flags_modeImplCopyWith(
-          _$Flags_modeImpl value, $Res Function(_$Flags_modeImpl) then) =
-      __$$Flags_modeImplCopyWithImpl<$Res>;
+abstract class _$$FlagsImplCopyWith<$Res> implements $FlagsCopyWith<$Res> {
+  factory _$$FlagsImplCopyWith(
+          _$FlagsImpl value, $Res Function(_$FlagsImpl) then) =
+      __$$FlagsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool isDebug, bool isAppXS});
 }
 
 /// @nodoc
-class __$$Flags_modeImplCopyWithImpl<$Res>
-    extends _$FlagsCopyWithImpl<$Res, _$Flags_modeImpl>
-    implements _$$Flags_modeImplCopyWith<$Res> {
-  __$$Flags_modeImplCopyWithImpl(
-      _$Flags_modeImpl _value, $Res Function(_$Flags_modeImpl) _then)
+class __$$FlagsImplCopyWithImpl<$Res>
+    extends _$FlagsCopyWithImpl<$Res, _$FlagsImpl>
+    implements _$$FlagsImplCopyWith<$Res> {
+  __$$FlagsImplCopyWithImpl(
+      _$FlagsImpl _value, $Res Function(_$FlagsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$Flags_modeImplCopyWithImpl<$Res>
     Object? isDebug = null,
     Object? isAppXS = null,
   }) {
-    return _then(_$Flags_modeImpl(
+    return _then(_$FlagsImpl(
       isDebug: null == isDebug
           ? _value.isDebug
           : isDebug // ignore: cast_nullable_to_non_nullable
@@ -115,9 +115,8 @@ class __$$Flags_modeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$Flags_modeImpl extends Flags_mode {
-  const _$Flags_modeImpl({required this.isDebug, required this.isAppXS})
-      : super._();
+class _$FlagsImpl extends _Flags {
+  const _$FlagsImpl({required this.isDebug, required this.isAppXS}) : super._();
 
   @override
   final bool isDebug;
@@ -133,7 +132,7 @@ class _$Flags_modeImpl extends Flags_mode {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$Flags_modeImpl &&
+            other is _$FlagsImpl &&
             (identical(other.isDebug, isDebug) || other.isDebug == isDebug) &&
             (identical(other.isAppXS, isAppXS) || other.isAppXS == isAppXS));
   }
@@ -144,8 +143,8 @@ class _$Flags_modeImpl extends Flags_mode {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$Flags_modeImplCopyWith<_$Flags_modeImpl> get copyWith =>
-      __$$Flags_modeImplCopyWithImpl<_$Flags_modeImpl>(this, _$identity);
+  _$$FlagsImplCopyWith<_$FlagsImpl> get copyWith =>
+      __$$FlagsImplCopyWithImpl<_$FlagsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -176,11 +175,10 @@ class _$Flags_modeImpl extends Flags_mode {
   }
 }
 
-abstract class Flags_mode extends Flags {
-  const factory Flags_mode(
-      {required final bool isDebug,
-      required final bool isAppXS}) = _$Flags_modeImpl;
-  const Flags_mode._() : super._();
+abstract class _Flags extends Flags {
+  const factory _Flags(
+      {required final bool isDebug, required final bool isAppXS}) = _$FlagsImpl;
+  const _Flags._() : super._();
 
   @override
   bool get isDebug;
@@ -188,6 +186,6 @@ abstract class Flags_mode extends Flags {
   bool get isAppXS;
   @override
   @JsonKey(ignore: true)
-  _$$Flags_modeImplCopyWith<_$Flags_modeImpl> get copyWith =>
+  _$$FlagsImplCopyWith<_$FlagsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

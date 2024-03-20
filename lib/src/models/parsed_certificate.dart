@@ -7,7 +7,7 @@ import 'parsed_pool_params.dart';
 part 'parsed_certificate.freezed.dart';
 
 @freezed
-class ParsedCertificate with _$ParsedCertificate {
+sealed class ParsedCertificate with _$ParsedCertificate {
   const ParsedCertificate._();
 
   const factory ParsedCertificate.stakeRegistration({

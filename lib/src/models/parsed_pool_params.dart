@@ -9,10 +9,10 @@ import 'parsed_pool_metadata.dart';
 part 'parsed_pool_params.freezed.dart';
 
 @freezed
-class ParsedPoolParams with _$ParsedPoolParams {
-  const ParsedPoolParams._();
+sealed class ParsedPoolParams with _$ParsedPoolParams {
+  ParsedPoolParams._();
 
-  const factory ParsedPoolParams({
+  factory ParsedPoolParams({
     required ParsedPoolKey poolKey,
     required String vrfHashHex,
     required String pledge,
@@ -21,6 +21,6 @@ class ParsedPoolParams with _$ParsedPoolParams {
     required ParsedPoolRewardAccount rewardAccount,
     required List<ParsedPoolOwner> owners,
     required List<ParsedPoolRelay> relays,
-     ParsedPoolMetadata? metadata,
-  }) = ParsedPoolParamsData;
+    ParsedPoolMetadata? metadata,
+  }) = _ParsedPoolParams;
 }

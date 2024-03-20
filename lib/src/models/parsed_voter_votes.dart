@@ -5,12 +5,12 @@ import 'parsed_vote.dart';
 part 'parsed_voter_votes.freezed.dart';
 
 @freezed
-class ParsedVoterVotes with _$ParsedVoterVotes {
-  const ParsedVoterVotes._();
+sealed class ParsedVoterVotes with _$ParsedVoterVotes {
+   ParsedVoterVotes._();
 
-  const factory ParsedVoterVotes({
+   factory ParsedVoterVotes({
     required ParsedVoter voter,
     required List<ParsedVote> votes,
-  }) = ParsedVoterVotesData;
-
+  }) = _ParsedVoterVotes;
 }
+

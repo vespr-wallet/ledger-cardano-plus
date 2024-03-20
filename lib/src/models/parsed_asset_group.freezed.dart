@@ -82,23 +82,22 @@ class _$ParsedAssetGroupCopyWithImpl<$Res, $Val extends ParsedAssetGroup>
 }
 
 /// @nodoc
-abstract class _$$ParsedAssetGroup_dataImplCopyWith<$Res>
+abstract class _$$ParsedAssetGroupImplCopyWith<$Res>
     implements $ParsedAssetGroupCopyWith<$Res> {
-  factory _$$ParsedAssetGroup_dataImplCopyWith(
-          _$ParsedAssetGroup_dataImpl value,
-          $Res Function(_$ParsedAssetGroup_dataImpl) then) =
-      __$$ParsedAssetGroup_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedAssetGroupImplCopyWith(_$ParsedAssetGroupImpl value,
+          $Res Function(_$ParsedAssetGroupImpl) then) =
+      __$$ParsedAssetGroupImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String policyIdHex, List<ParsedToken<String>> tokens});
 }
 
 /// @nodoc
-class __$$ParsedAssetGroup_dataImplCopyWithImpl<$Res>
-    extends _$ParsedAssetGroupCopyWithImpl<$Res, _$ParsedAssetGroup_dataImpl>
-    implements _$$ParsedAssetGroup_dataImplCopyWith<$Res> {
-  __$$ParsedAssetGroup_dataImplCopyWithImpl(_$ParsedAssetGroup_dataImpl _value,
-      $Res Function(_$ParsedAssetGroup_dataImpl) _then)
+class __$$ParsedAssetGroupImplCopyWithImpl<$Res>
+    extends _$ParsedAssetGroupCopyWithImpl<$Res, _$ParsedAssetGroupImpl>
+    implements _$$ParsedAssetGroupImplCopyWith<$Res> {
+  __$$ParsedAssetGroupImplCopyWithImpl(_$ParsedAssetGroupImpl _value,
+      $Res Function(_$ParsedAssetGroupImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +106,7 @@ class __$$ParsedAssetGroup_dataImplCopyWithImpl<$Res>
     Object? policyIdHex = null,
     Object? tokens = null,
   }) {
-    return _then(_$ParsedAssetGroup_dataImpl(
+    return _then(_$ParsedAssetGroupImpl(
       policyIdHex: null == policyIdHex
           ? _value.policyIdHex
           : policyIdHex // ignore: cast_nullable_to_non_nullable
@@ -122,8 +121,8 @@ class __$$ParsedAssetGroup_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedAssetGroup_dataImpl extends ParsedAssetGroup_data {
-  _$ParsedAssetGroup_dataImpl(
+class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
+  _$ParsedAssetGroupImpl(
       {required this.policyIdHex,
       required final List<ParsedToken<String>> tokens})
       : _tokens = tokens,
@@ -148,7 +147,7 @@ class _$ParsedAssetGroup_dataImpl extends ParsedAssetGroup_data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedAssetGroup_dataImpl &&
+            other is _$ParsedAssetGroupImpl &&
             (identical(other.policyIdHex, policyIdHex) ||
                 other.policyIdHex == policyIdHex) &&
             const DeepCollectionEquality().equals(other._tokens, _tokens));
@@ -161,9 +160,9 @@ class _$ParsedAssetGroup_dataImpl extends ParsedAssetGroup_data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedAssetGroup_dataImplCopyWith<_$ParsedAssetGroup_dataImpl>
-      get copyWith => __$$ParsedAssetGroup_dataImplCopyWithImpl<
-          _$ParsedAssetGroup_dataImpl>(this, _$identity);
+  _$$ParsedAssetGroupImplCopyWith<_$ParsedAssetGroupImpl> get copyWith =>
+      __$$ParsedAssetGroupImplCopyWithImpl<_$ParsedAssetGroupImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -197,12 +196,12 @@ class _$ParsedAssetGroup_dataImpl extends ParsedAssetGroup_data {
   }
 }
 
-abstract class ParsedAssetGroup_data extends ParsedAssetGroup {
-  factory ParsedAssetGroup_data(
+abstract class _ParsedAssetGroup extends ParsedAssetGroup {
+  factory _ParsedAssetGroup(
           {required final String policyIdHex,
           required final List<ParsedToken<String>> tokens}) =
-      _$ParsedAssetGroup_dataImpl;
-  ParsedAssetGroup_data._() : super._();
+      _$ParsedAssetGroupImpl;
+  _ParsedAssetGroup._() : super._();
 
   @override
   String get policyIdHex;
@@ -210,6 +209,6 @@ abstract class ParsedAssetGroup_data extends ParsedAssetGroup {
   List<ParsedToken<String>> get tokens;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedAssetGroup_dataImplCopyWith<_$ParsedAssetGroup_dataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedAssetGroupImplCopyWith<_$ParsedAssetGroupImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -88,22 +88,22 @@ class _$ParsedInputCopyWithImpl<$Res, $Val extends ParsedInput>
 }
 
 /// @nodoc
-abstract class _$$ParsedInput_dataImplCopyWith<$Res>
+abstract class _$$ParsedInputImplCopyWith<$Res>
     implements $ParsedInputCopyWith<$Res> {
-  factory _$$ParsedInput_dataImplCopyWith(_$ParsedInput_dataImpl value,
-          $Res Function(_$ParsedInput_dataImpl) then) =
-      __$$ParsedInput_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedInputImplCopyWith(
+          _$ParsedInputImpl value, $Res Function(_$ParsedInputImpl) then) =
+      __$$ParsedInputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String txHashHex, int outputIndex, List<int>? path});
 }
 
 /// @nodoc
-class __$$ParsedInput_dataImplCopyWithImpl<$Res>
-    extends _$ParsedInputCopyWithImpl<$Res, _$ParsedInput_dataImpl>
-    implements _$$ParsedInput_dataImplCopyWith<$Res> {
-  __$$ParsedInput_dataImplCopyWithImpl(_$ParsedInput_dataImpl _value,
-      $Res Function(_$ParsedInput_dataImpl) _then)
+class __$$ParsedInputImplCopyWithImpl<$Res>
+    extends _$ParsedInputCopyWithImpl<$Res, _$ParsedInputImpl>
+    implements _$$ParsedInputImplCopyWith<$Res> {
+  __$$ParsedInputImplCopyWithImpl(
+      _$ParsedInputImpl _value, $Res Function(_$ParsedInputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +113,7 @@ class __$$ParsedInput_dataImplCopyWithImpl<$Res>
     Object? outputIndex = null,
     Object? path = freezed,
   }) {
-    return _then(_$ParsedInput_dataImpl(
+    return _then(_$ParsedInputImpl(
       txHashHex: null == txHashHex
           ? _value.txHashHex
           : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -132,8 +132,8 @@ class __$$ParsedInput_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedInput_dataImpl extends ParsedInput_data {
-  const _$ParsedInput_dataImpl(
+class _$ParsedInputImpl extends _ParsedInput {
+  _$ParsedInputImpl(
       {required this.txHashHex,
       required this.outputIndex,
       final List<int>? path})
@@ -163,7 +163,7 @@ class _$ParsedInput_dataImpl extends ParsedInput_data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedInput_dataImpl &&
+            other is _$ParsedInputImpl &&
             (identical(other.txHashHex, txHashHex) ||
                 other.txHashHex == txHashHex) &&
             (identical(other.outputIndex, outputIndex) ||
@@ -178,9 +178,8 @@ class _$ParsedInput_dataImpl extends ParsedInput_data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedInput_dataImplCopyWith<_$ParsedInput_dataImpl> get copyWith =>
-      __$$ParsedInput_dataImplCopyWithImpl<_$ParsedInput_dataImpl>(
-          this, _$identity);
+  _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith =>
+      __$$ParsedInputImplCopyWithImpl<_$ParsedInputImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -214,12 +213,12 @@ class _$ParsedInput_dataImpl extends ParsedInput_data {
   }
 }
 
-abstract class ParsedInput_data extends ParsedInput {
-  const factory ParsedInput_data(
+abstract class _ParsedInput extends ParsedInput {
+  factory _ParsedInput(
       {required final String txHashHex,
       required final int outputIndex,
-      final List<int>? path}) = _$ParsedInput_dataImpl;
-  const ParsedInput_data._() : super._();
+      final List<int>? path}) = _$ParsedInputImpl;
+  _ParsedInput._() : super._();
 
   @override
   String get txHashHex;
@@ -229,6 +228,6 @@ abstract class ParsedInput_data extends ParsedInput {
   List<int>? get path;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedInput_dataImplCopyWith<_$ParsedInput_dataImpl> get copyWith =>
+  _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

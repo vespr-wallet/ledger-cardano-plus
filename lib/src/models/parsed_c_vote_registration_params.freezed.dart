@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedCVoteRegistrationParams {
-  String get format => throw _privateConstructorUsedError;
+  CIP36VoteRegistrationFormat get format => throw _privateConstructorUsedError;
   CVotePublicKey? get votePublicKey => throw _privateConstructorUsedError;
   List<int>? get votePublicKeyPath => throw _privateConstructorUsedError;
   List<ParsedCVoteDelegation>? get delegations =>
@@ -29,7 +29,7 @@ mixin _$ParsedCVoteRegistrationParams {
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -43,7 +43,7 @@ mixin _$ParsedCVoteRegistrationParams {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -57,7 +57,7 @@ mixin _$ParsedCVoteRegistrationParams {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -84,7 +84,7 @@ abstract class $ParsedCVoteRegistrationParamsCopyWith<$Res> {
           ParsedCVoteRegistrationParams>;
   @useResult
   $Res call(
-      {String format,
+      {CIP36VoteRegistrationFormat format,
       CVotePublicKey? votePublicKey,
       List<int>? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
@@ -124,7 +124,7 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
       format: null == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as CIP36VoteRegistrationFormat,
       votePublicKey: freezed == votePublicKey
           ? _value.votePublicKey
           : votePublicKey // ignore: cast_nullable_to_non_nullable
@@ -179,16 +179,16 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ParsedCVoteRegistrationParamsDataImplCopyWith<$Res>
+abstract class _$$ParsedCVoteRegistrationParamsImplCopyWith<$Res>
     implements $ParsedCVoteRegistrationParamsCopyWith<$Res> {
-  factory _$$ParsedCVoteRegistrationParamsDataImplCopyWith(
-          _$ParsedCVoteRegistrationParamsDataImpl value,
-          $Res Function(_$ParsedCVoteRegistrationParamsDataImpl) then) =
-      __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedCVoteRegistrationParamsImplCopyWith(
+          _$ParsedCVoteRegistrationParamsImpl value,
+          $Res Function(_$ParsedCVoteRegistrationParamsImpl) then) =
+      __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {String format,
+      {CIP36VoteRegistrationFormat format,
       CVotePublicKey? votePublicKey,
       List<int>? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
@@ -204,13 +204,13 @@ abstract class _$$ParsedCVoteRegistrationParamsDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<$Res>
+class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>
     extends _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
-        _$ParsedCVoteRegistrationParamsDataImpl>
-    implements _$$ParsedCVoteRegistrationParamsDataImplCopyWith<$Res> {
-  __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl(
-      _$ParsedCVoteRegistrationParamsDataImpl _value,
-      $Res Function(_$ParsedCVoteRegistrationParamsDataImpl) _then)
+        _$ParsedCVoteRegistrationParamsImpl>
+    implements _$$ParsedCVoteRegistrationParamsImplCopyWith<$Res> {
+  __$$ParsedCVoteRegistrationParamsImplCopyWithImpl(
+      _$ParsedCVoteRegistrationParamsImpl _value,
+      $Res Function(_$ParsedCVoteRegistrationParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -225,11 +225,11 @@ class __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<$Res>
     Object? nonce = null,
     Object? votingPurpose = freezed,
   }) {
-    return _then(_$ParsedCVoteRegistrationParamsDataImpl(
+    return _then(_$ParsedCVoteRegistrationParamsImpl(
       format: null == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
-              as String,
+              as CIP36VoteRegistrationFormat,
       votePublicKey: freezed == votePublicKey
           ? _value.votePublicKey
           : votePublicKey // ignore: cast_nullable_to_non_nullable
@@ -264,24 +264,24 @@ class __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedCVoteRegistrationParamsDataImpl
-    extends ParsedCVoteRegistrationParamsData {
-  const _$ParsedCVoteRegistrationParamsDataImpl(
+class _$ParsedCVoteRegistrationParamsImpl
+    extends _ParsedCVoteRegistrationParams {
+  const _$ParsedCVoteRegistrationParamsImpl(
       {required this.format,
-      this.votePublicKey,
-      final List<int>? votePublicKeyPath,
-      final List<ParsedCVoteDelegation>? delegations,
+      required this.votePublicKey,
+      required final List<int>? votePublicKeyPath,
+      required final List<ParsedCVoteDelegation>? delegations,
       required final List<int> stakingPath,
       required this.paymentDestination,
       required this.nonce,
-      this.votingPurpose})
+      required this.votingPurpose})
       : _votePublicKeyPath = votePublicKeyPath,
         _delegations = delegations,
         _stakingPath = stakingPath,
         super._();
 
   @override
-  final String format;
+  final CIP36VoteRegistrationFormat format;
   @override
   final CVotePublicKey? votePublicKey;
   final List<int>? _votePublicKeyPath;
@@ -329,7 +329,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedCVoteRegistrationParamsDataImpl &&
+            other is _$ParsedCVoteRegistrationParamsImpl &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.votePublicKey, votePublicKey) ||
                 other.votePublicKey == votePublicKey) &&
@@ -361,16 +361,16 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedCVoteRegistrationParamsDataImplCopyWith<
-          _$ParsedCVoteRegistrationParamsDataImpl>
-      get copyWith => __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<
-          _$ParsedCVoteRegistrationParamsDataImpl>(this, _$identity);
+  _$$ParsedCVoteRegistrationParamsImplCopyWith<
+          _$ParsedCVoteRegistrationParamsImpl>
+      get copyWith => __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<
+          _$ParsedCVoteRegistrationParamsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -388,7 +388,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -406,7 +406,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
-            String format,
+            CIP36VoteRegistrationFormat format,
             CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
@@ -425,21 +425,22 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   }
 }
 
-abstract class ParsedCVoteRegistrationParamsData
+abstract class _ParsedCVoteRegistrationParams
     extends ParsedCVoteRegistrationParams {
-  const factory ParsedCVoteRegistrationParamsData(
-      {required final String format,
-      final CVotePublicKey? votePublicKey,
-      final List<int>? votePublicKeyPath,
-      final List<ParsedCVoteDelegation>? delegations,
-      required final List<int> stakingPath,
-      required final ParsedOutputDestination paymentDestination,
-      required final String nonce,
-      final String? votingPurpose}) = _$ParsedCVoteRegistrationParamsDataImpl;
-  const ParsedCVoteRegistrationParamsData._() : super._();
+  const factory _ParsedCVoteRegistrationParams(
+          {required final CIP36VoteRegistrationFormat format,
+          required final CVotePublicKey? votePublicKey,
+          required final List<int>? votePublicKeyPath,
+          required final List<ParsedCVoteDelegation>? delegations,
+          required final List<int> stakingPath,
+          required final ParsedOutputDestination paymentDestination,
+          required final String nonce,
+          required final String? votingPurpose}) =
+      _$ParsedCVoteRegistrationParamsImpl;
+  const _ParsedCVoteRegistrationParams._() : super._();
 
   @override
-  String get format;
+  CIP36VoteRegistrationFormat get format;
   @override
   CVotePublicKey? get votePublicKey;
   @override
@@ -456,7 +457,7 @@ abstract class ParsedCVoteRegistrationParamsData
   String? get votingPurpose;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedCVoteRegistrationParamsDataImplCopyWith<
-          _$ParsedCVoteRegistrationParamsDataImpl>
+  _$$ParsedCVoteRegistrationParamsImplCopyWith<
+          _$ParsedCVoteRegistrationParamsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

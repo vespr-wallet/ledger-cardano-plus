@@ -73,22 +73,22 @@ class _$CVotePublicKeyCopyWithImpl<$Res, $Val extends CVotePublicKey>
 }
 
 /// @nodoc
-abstract class _$$CVotePublicKeyDataImplCopyWith<$Res>
+abstract class _$$CVotePublicKeyImplCopyWith<$Res>
     implements $CVotePublicKeyCopyWith<$Res> {
-  factory _$$CVotePublicKeyDataImplCopyWith(_$CVotePublicKeyDataImpl value,
-          $Res Function(_$CVotePublicKeyDataImpl) then) =
-      __$$CVotePublicKeyDataImplCopyWithImpl<$Res>;
+  factory _$$CVotePublicKeyImplCopyWith(_$CVotePublicKeyImpl value,
+          $Res Function(_$CVotePublicKeyImpl) then) =
+      __$$CVotePublicKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value});
 }
 
 /// @nodoc
-class __$$CVotePublicKeyDataImplCopyWithImpl<$Res>
-    extends _$CVotePublicKeyCopyWithImpl<$Res, _$CVotePublicKeyDataImpl>
-    implements _$$CVotePublicKeyDataImplCopyWith<$Res> {
-  __$$CVotePublicKeyDataImplCopyWithImpl(_$CVotePublicKeyDataImpl _value,
-      $Res Function(_$CVotePublicKeyDataImpl) _then)
+class __$$CVotePublicKeyImplCopyWithImpl<$Res>
+    extends _$CVotePublicKeyCopyWithImpl<$Res, _$CVotePublicKeyImpl>
+    implements _$$CVotePublicKeyImplCopyWith<$Res> {
+  __$$CVotePublicKeyImplCopyWithImpl(
+      _$CVotePublicKeyImpl _value, $Res Function(_$CVotePublicKeyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +96,7 @@ class __$$CVotePublicKeyDataImplCopyWithImpl<$Res>
   $Res call({
     Object? value = null,
   }) {
-    return _then(_$CVotePublicKeyDataImpl(
+    return _then(_$CVotePublicKeyImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -107,8 +107,8 @@ class __$$CVotePublicKeyDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$CVotePublicKeyDataImpl extends CVotePublicKeyData {
-  const _$CVotePublicKeyDataImpl({required this.value}) : super._();
+class _$CVotePublicKeyImpl extends _CVotePublicKey {
+  _$CVotePublicKeyImpl({required this.value}) : super._();
 
   @override
   final String value;
@@ -122,7 +122,7 @@ class _$CVotePublicKeyDataImpl extends CVotePublicKeyData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CVotePublicKeyDataImpl &&
+            other is _$CVotePublicKeyImpl &&
             (identical(other.value, value) || other.value == value));
   }
 
@@ -132,8 +132,8 @@ class _$CVotePublicKeyDataImpl extends CVotePublicKeyData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CVotePublicKeyDataImplCopyWith<_$CVotePublicKeyDataImpl> get copyWith =>
-      __$$CVotePublicKeyDataImplCopyWithImpl<_$CVotePublicKeyDataImpl>(
+  _$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith =>
+      __$$CVotePublicKeyImplCopyWithImpl<_$CVotePublicKeyImpl>(
           this, _$identity);
 
   @override
@@ -165,15 +165,14 @@ class _$CVotePublicKeyDataImpl extends CVotePublicKeyData {
   }
 }
 
-abstract class CVotePublicKeyData extends CVotePublicKey {
-  const factory CVotePublicKeyData({required final String value}) =
-      _$CVotePublicKeyDataImpl;
-  const CVotePublicKeyData._() : super._();
+abstract class _CVotePublicKey extends CVotePublicKey {
+  factory _CVotePublicKey({required final String value}) = _$CVotePublicKeyImpl;
+  _CVotePublicKey._() : super._();
 
   @override
   String get value;
   @override
   @JsonKey(ignore: true)
-  _$$CVotePublicKeyDataImplCopyWith<_$CVotePublicKeyDataImpl> get copyWith =>
+  _$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

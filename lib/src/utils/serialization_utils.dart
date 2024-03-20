@@ -197,16 +197,7 @@ class SerializationUtils {
 
   static Uint8List serializeCVoteRegistrationInit(ParsedCVoteRegistrationParams params) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final registrationFormatEncoding = {
-        CIP36VoteRegistrationFormat.cip15: 0x01,
-        CIP36VoteRegistrationFormat.cip36: 0x02,
-      };
-
-      if (params.format is CIP36VoteRegistrationFormat) {
-        writer.writeUint8(registrationFormatEncoding[params.format] ?? 0);
-      } else {
-        throw ValidationException('Invalid registration format');
-      }
+      writer.writeUint8(params.format.encodingValue);
 
       final numDelegations = params.delegations?.length ?? 0;
       writer.writeUint32(numDelegations);
@@ -214,34 +205,29 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) {
-    final delegationTypeEncoding = {
-      CIP36VoteDelegationType.key: 0x01,
-      CIP36VoteDelegationType.path: 0x02,
-    };
-    if (delegationTypeEncoding.containsKey(type)) {
-      return Uint8List.fromList([delegationTypeEncoding[type] ?? 0]);
-    } else {
-      throw ValidationException('Invalid delegation type');
-    }
-  }
+  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) => Uint8List.fromList([type.encodingValue]);
 
   static Uint8List serializeCVoteRegistrationVoteKey(
       CVotePublicKey? votePublicKey, List<int>? votePublicKeyPath, CardanoVersion version) {
     return useBinaryWriter((ByteDataWriter writer) {
       if (votePublicKey != null) {
-        assert(votePublicKeyPath == null, 'Redundant vote key path');
+        if (votePublicKeyPath == null) {
+          throw ValidationException('Missing vote key');
+        }
         if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
           writer.write(serializeDelegationType(CIP36VoteDelegationType.key));
         }
         writeSerializedHex(writer, votePublicKey.value);
       } else {
-        final voteKeyPublicKeyPath = votePublicKeyPath ?? [];
-        assert(votePublicKeyPath != null, 'Missing vote key');
-        assert(VersionCompatibility.checkVersionCompatibility(version).supportsCIP36Vote,
-            'Key derivation path for vote keys not supported by the device');
+        if (votePublicKeyPath == null) {
+          throw ValidationException('Missing vote key');
+        }
+
+        if (!VersionCompatibility.checkVersionCompatibility(version).supportsCIP36Vote) {
+          throw ValidationException('Key derivation path for vote keys not supported by the device');
+        }
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
-        writerSerializedPath(writer, voteKeyPublicKeyPath);
+        writerSerializedPath(writer, votePublicKeyPath);
       }
       return writer.toBytes();
     });
@@ -253,12 +239,8 @@ class SerializationUtils {
       writer.writeUint32(delegation.weight);
 
       final void Function() invoker = switch (delegation) {
-        KeyDelegation() => () {
-            writeSerializedHex(writer, delegation.voteKey);
-          },
-        PathDelegation() => () {
-            writerSerializedPath(writer, delegation.voteKeyPath);
-          },
+        KeyDelegation() => () => writeSerializedHex(writer, delegation.voteKey),
+        PathDelegation() => () => writerSerializedPath(writer, delegation.voteKeyPath),
       };
 
       invoker();
@@ -302,16 +284,7 @@ class SerializationUtils {
 
   static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final typeEncoding = {
-        TxOutputDestinationType.thirdParty: 1,
-        TxOutputDestinationType.deviceOwned: 2,
-      };
-
-      if (destination.type == TxOutputDestinationType.thirdParty ||
-          destination.type == TxOutputDestinationType.deviceOwned) {
-        writer.writeUint8(typeEncoding[destination.type] ?? 0);
-      }
-
+      writer.writeUint8(destination.type.encodingValue);
       final void Function() invoker = switch (destination) {
         ThirdParty() => () {
             final addressBytes = hex.decode(destination.addressHex);
@@ -359,8 +332,8 @@ class SerializationUtils {
       return writer.toBytes();
     });
   }
-  
-   static Uint8List serializeTxInput(ParsedInput input) {
+
+  static Uint8List serializeTxInput(ParsedInput input) {
     return useBinaryWriter((ByteDataWriter writer) {
       writeSerializedHex(writer, input.txHashHex);
       writer.writeUint32(input.outputIndex);

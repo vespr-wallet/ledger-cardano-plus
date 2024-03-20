@@ -91,11 +91,11 @@ class _$ParsedWithdrawalCopyWithImpl<$Res, $Val extends ParsedWithdrawal>
 }
 
 /// @nodoc
-abstract class _$$ParsedWithdrawalDataImplCopyWith<$Res>
+abstract class _$$ParsedWithdrawalImplCopyWith<$Res>
     implements $ParsedWithdrawalCopyWith<$Res> {
-  factory _$$ParsedWithdrawalDataImplCopyWith(_$ParsedWithdrawalDataImpl value,
-          $Res Function(_$ParsedWithdrawalDataImpl) then) =
-      __$$ParsedWithdrawalDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedWithdrawalImplCopyWith(_$ParsedWithdrawalImpl value,
+          $Res Function(_$ParsedWithdrawalImpl) then) =
+      __$$ParsedWithdrawalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String amount, ParsedCredential stakeCredential});
@@ -105,11 +105,11 @@ abstract class _$$ParsedWithdrawalDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedWithdrawalDataImplCopyWithImpl<$Res>
-    extends _$ParsedWithdrawalCopyWithImpl<$Res, _$ParsedWithdrawalDataImpl>
-    implements _$$ParsedWithdrawalDataImplCopyWith<$Res> {
-  __$$ParsedWithdrawalDataImplCopyWithImpl(_$ParsedWithdrawalDataImpl _value,
-      $Res Function(_$ParsedWithdrawalDataImpl) _then)
+class __$$ParsedWithdrawalImplCopyWithImpl<$Res>
+    extends _$ParsedWithdrawalCopyWithImpl<$Res, _$ParsedWithdrawalImpl>
+    implements _$$ParsedWithdrawalImplCopyWith<$Res> {
+  __$$ParsedWithdrawalImplCopyWithImpl(_$ParsedWithdrawalImpl _value,
+      $Res Function(_$ParsedWithdrawalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +118,7 @@ class __$$ParsedWithdrawalDataImplCopyWithImpl<$Res>
     Object? amount = null,
     Object? stakeCredential = null,
   }) {
-    return _then(_$ParsedWithdrawalDataImpl(
+    return _then(_$ParsedWithdrawalImpl(
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -133,9 +133,8 @@ class __$$ParsedWithdrawalDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedWithdrawalDataImpl extends ParsedWithdrawalData {
-  const _$ParsedWithdrawalDataImpl(
-      {required this.amount, required this.stakeCredential})
+class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
+  _$ParsedWithdrawalImpl({required this.amount, required this.stakeCredential})
       : super._();
 
   @override
@@ -152,7 +151,7 @@ class _$ParsedWithdrawalDataImpl extends ParsedWithdrawalData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedWithdrawalDataImpl &&
+            other is _$ParsedWithdrawalImpl &&
             (identical(other.amount, amount) || other.amount == amount) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential));
@@ -164,10 +163,9 @@ class _$ParsedWithdrawalDataImpl extends ParsedWithdrawalData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedWithdrawalDataImplCopyWith<_$ParsedWithdrawalDataImpl>
-      get copyWith =>
-          __$$ParsedWithdrawalDataImplCopyWithImpl<_$ParsedWithdrawalDataImpl>(
-              this, _$identity);
+  _$$ParsedWithdrawalImplCopyWith<_$ParsedWithdrawalImpl> get copyWith =>
+      __$$ParsedWithdrawalImplCopyWithImpl<_$ParsedWithdrawalImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -200,12 +198,12 @@ class _$ParsedWithdrawalDataImpl extends ParsedWithdrawalData {
   }
 }
 
-abstract class ParsedWithdrawalData extends ParsedWithdrawal {
-  const factory ParsedWithdrawalData(
+abstract class _ParsedWithdrawal extends ParsedWithdrawal {
+  factory _ParsedWithdrawal(
           {required final String amount,
           required final ParsedCredential stakeCredential}) =
-      _$ParsedWithdrawalDataImpl;
-  const ParsedWithdrawalData._() : super._();
+      _$ParsedWithdrawalImpl;
+  _ParsedWithdrawal._() : super._();
 
   @override
   String get amount;
@@ -213,6 +211,6 @@ abstract class ParsedWithdrawalData extends ParsedWithdrawal {
   ParsedCredential get stakeCredential;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedWithdrawalDataImplCopyWith<_$ParsedWithdrawalDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedWithdrawalImplCopyWith<_$ParsedWithdrawalImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

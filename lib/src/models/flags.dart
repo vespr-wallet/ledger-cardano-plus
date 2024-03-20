@@ -9,5 +9,6 @@ class Flags with _$Flags {
   const factory Flags({
     required bool isDebug,
     required bool isAppXS,
-  }) = Flags_mode;
+  }) = _Flags;
 }
+

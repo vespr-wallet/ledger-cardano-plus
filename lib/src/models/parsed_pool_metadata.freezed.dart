@@ -79,22 +79,22 @@ class _$ParsedPoolMetadataCopyWithImpl<$Res, $Val extends ParsedPoolMetadata>
 }
 
 /// @nodoc
-abstract class _$$ParsedPoolMetaDataImplCopyWith<$Res>
+abstract class _$$ParsedPoolMetadataImplCopyWith<$Res>
     implements $ParsedPoolMetadataCopyWith<$Res> {
-  factory _$$ParsedPoolMetaDataImplCopyWith(_$ParsedPoolMetaDataImpl value,
-          $Res Function(_$ParsedPoolMetaDataImpl) then) =
-      __$$ParsedPoolMetaDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedPoolMetadataImplCopyWith(_$ParsedPoolMetadataImpl value,
+          $Res Function(_$ParsedPoolMetadataImpl) then) =
+      __$$ParsedPoolMetadataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String url, String hashHex});
 }
 
 /// @nodoc
-class __$$ParsedPoolMetaDataImplCopyWithImpl<$Res>
-    extends _$ParsedPoolMetadataCopyWithImpl<$Res, _$ParsedPoolMetaDataImpl>
-    implements _$$ParsedPoolMetaDataImplCopyWith<$Res> {
-  __$$ParsedPoolMetaDataImplCopyWithImpl(_$ParsedPoolMetaDataImpl _value,
-      $Res Function(_$ParsedPoolMetaDataImpl) _then)
+class __$$ParsedPoolMetadataImplCopyWithImpl<$Res>
+    extends _$ParsedPoolMetadataCopyWithImpl<$Res, _$ParsedPoolMetadataImpl>
+    implements _$$ParsedPoolMetadataImplCopyWith<$Res> {
+  __$$ParsedPoolMetadataImplCopyWithImpl(_$ParsedPoolMetadataImpl _value,
+      $Res Function(_$ParsedPoolMetadataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$ParsedPoolMetaDataImplCopyWithImpl<$Res>
     Object? url = null,
     Object? hashHex = null,
   }) {
-    return _then(_$ParsedPoolMetaDataImpl(
+    return _then(_$ParsedPoolMetadataImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -118,8 +118,8 @@ class __$$ParsedPoolMetaDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedPoolMetaDataImpl extends ParsedPoolMetaData {
-  const _$ParsedPoolMetaDataImpl({required this.url, required this.hashHex})
+class _$ParsedPoolMetadataImpl extends _ParsedPoolMetadata {
+  _$ParsedPoolMetadataImpl({required this.url, required this.hashHex})
       : super._();
 
   @override
@@ -136,7 +136,7 @@ class _$ParsedPoolMetaDataImpl extends ParsedPoolMetaData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedPoolMetaDataImpl &&
+            other is _$ParsedPoolMetadataImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
   }
@@ -147,8 +147,8 @@ class _$ParsedPoolMetaDataImpl extends ParsedPoolMetaData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedPoolMetaDataImplCopyWith<_$ParsedPoolMetaDataImpl> get copyWith =>
-      __$$ParsedPoolMetaDataImplCopyWithImpl<_$ParsedPoolMetaDataImpl>(
+  _$$ParsedPoolMetadataImplCopyWith<_$ParsedPoolMetadataImpl> get copyWith =>
+      __$$ParsedPoolMetadataImplCopyWithImpl<_$ParsedPoolMetadataImpl>(
           this, _$identity);
 
   @override
@@ -180,11 +180,11 @@ class _$ParsedPoolMetaDataImpl extends ParsedPoolMetaData {
   }
 }
 
-abstract class ParsedPoolMetaData extends ParsedPoolMetadata {
-  const factory ParsedPoolMetaData(
+abstract class _ParsedPoolMetadata extends ParsedPoolMetadata {
+  factory _ParsedPoolMetadata(
       {required final String url,
-      required final String hashHex}) = _$ParsedPoolMetaDataImpl;
-  const ParsedPoolMetaData._() : super._();
+      required final String hashHex}) = _$ParsedPoolMetadataImpl;
+  _ParsedPoolMetadata._() : super._();
 
   @override
   String get url;
@@ -192,6 +192,6 @@ abstract class ParsedPoolMetaData extends ParsedPoolMetadata {
   String get hashHex;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedPoolMetaDataImplCopyWith<_$ParsedPoolMetaDataImpl> get copyWith =>
+  _$$ParsedPoolMetadataImplCopyWith<_$ParsedPoolMetadataImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

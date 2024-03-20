@@ -203,11 +203,11 @@ class _$ParsedPoolParamsCopyWithImpl<$Res, $Val extends ParsedPoolParams>
 }
 
 /// @nodoc
-abstract class _$$ParsedPoolParamsDataImplCopyWith<$Res>
+abstract class _$$ParsedPoolParamsImplCopyWith<$Res>
     implements $ParsedPoolParamsCopyWith<$Res> {
-  factory _$$ParsedPoolParamsDataImplCopyWith(_$ParsedPoolParamsDataImpl value,
-          $Res Function(_$ParsedPoolParamsDataImpl) then) =
-      __$$ParsedPoolParamsDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedPoolParamsImplCopyWith(_$ParsedPoolParamsImpl value,
+          $Res Function(_$ParsedPoolParamsImpl) then) =
+      __$$ParsedPoolParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -232,11 +232,11 @@ abstract class _$$ParsedPoolParamsDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedPoolParamsDataImplCopyWithImpl<$Res>
-    extends _$ParsedPoolParamsCopyWithImpl<$Res, _$ParsedPoolParamsDataImpl>
-    implements _$$ParsedPoolParamsDataImplCopyWith<$Res> {
-  __$$ParsedPoolParamsDataImplCopyWithImpl(_$ParsedPoolParamsDataImpl _value,
-      $Res Function(_$ParsedPoolParamsDataImpl) _then)
+class __$$ParsedPoolParamsImplCopyWithImpl<$Res>
+    extends _$ParsedPoolParamsCopyWithImpl<$Res, _$ParsedPoolParamsImpl>
+    implements _$$ParsedPoolParamsImplCopyWith<$Res> {
+  __$$ParsedPoolParamsImplCopyWithImpl(_$ParsedPoolParamsImpl _value,
+      $Res Function(_$ParsedPoolParamsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -252,7 +252,7 @@ class __$$ParsedPoolParamsDataImplCopyWithImpl<$Res>
     Object? relays = null,
     Object? metadata = freezed,
   }) {
-    return _then(_$ParsedPoolParamsDataImpl(
+    return _then(_$ParsedPoolParamsImpl(
       poolKey: null == poolKey
           ? _value.poolKey
           : poolKey // ignore: cast_nullable_to_non_nullable
@@ -295,8 +295,8 @@ class __$$ParsedPoolParamsDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedPoolParamsDataImpl extends ParsedPoolParamsData {
-  const _$ParsedPoolParamsDataImpl(
+class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
+  _$ParsedPoolParamsImpl(
       {required this.poolKey,
       required this.vrfHashHex,
       required this.pledge,
@@ -350,7 +350,7 @@ class _$ParsedPoolParamsDataImpl extends ParsedPoolParamsData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedPoolParamsDataImpl &&
+            other is _$ParsedPoolParamsImpl &&
             (identical(other.poolKey, poolKey) || other.poolKey == poolKey) &&
             (identical(other.vrfHashHex, vrfHashHex) ||
                 other.vrfHashHex == vrfHashHex) &&
@@ -381,10 +381,9 @@ class _$ParsedPoolParamsDataImpl extends ParsedPoolParamsData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedPoolParamsDataImplCopyWith<_$ParsedPoolParamsDataImpl>
-      get copyWith =>
-          __$$ParsedPoolParamsDataImplCopyWithImpl<_$ParsedPoolParamsDataImpl>(
-              this, _$identity);
+  _$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith =>
+      __$$ParsedPoolParamsImplCopyWithImpl<_$ParsedPoolParamsImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -448,8 +447,8 @@ class _$ParsedPoolParamsDataImpl extends ParsedPoolParamsData {
   }
 }
 
-abstract class ParsedPoolParamsData extends ParsedPoolParams {
-  const factory ParsedPoolParamsData(
+abstract class _ParsedPoolParams extends ParsedPoolParams {
+  factory _ParsedPoolParams(
       {required final ParsedPoolKey poolKey,
       required final String vrfHashHex,
       required final String pledge,
@@ -458,8 +457,8 @@ abstract class ParsedPoolParamsData extends ParsedPoolParams {
       required final ParsedPoolRewardAccount rewardAccount,
       required final List<ParsedPoolOwner> owners,
       required final List<ParsedPoolRelay> relays,
-      final ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsDataImpl;
-  const ParsedPoolParamsData._() : super._();
+      final ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsImpl;
+  _ParsedPoolParams._() : super._();
 
   @override
   ParsedPoolKey get poolKey;
@@ -481,6 +480,6 @@ abstract class ParsedPoolParamsData extends ParsedPoolParams {
   ParsedPoolMetadata? get metadata;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedPoolParamsDataImplCopyWith<_$ParsedPoolParamsDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

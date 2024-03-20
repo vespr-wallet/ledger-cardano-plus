@@ -94,12 +94,12 @@ class _$ParsedVotingProcedureCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ParsedVotingProcedureDataImplCopyWith<$Res>
+abstract class _$$ParsedVotingProcedureImplCopyWith<$Res>
     implements $ParsedVotingProcedureCopyWith<$Res> {
-  factory _$$ParsedVotingProcedureDataImplCopyWith(
-          _$ParsedVotingProcedureDataImpl value,
-          $Res Function(_$ParsedVotingProcedureDataImpl) then) =
-      __$$ParsedVotingProcedureDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedVotingProcedureImplCopyWith(
+          _$ParsedVotingProcedureImpl value,
+          $Res Function(_$ParsedVotingProcedureImpl) then) =
+      __$$ParsedVotingProcedureImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({VoteOption vote, ParsedAnchor? anchor});
@@ -109,13 +109,12 @@ abstract class _$$ParsedVotingProcedureDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedVotingProcedureDataImplCopyWithImpl<$Res>
+class __$$ParsedVotingProcedureImplCopyWithImpl<$Res>
     extends _$ParsedVotingProcedureCopyWithImpl<$Res,
-        _$ParsedVotingProcedureDataImpl>
-    implements _$$ParsedVotingProcedureDataImplCopyWith<$Res> {
-  __$$ParsedVotingProcedureDataImplCopyWithImpl(
-      _$ParsedVotingProcedureDataImpl _value,
-      $Res Function(_$ParsedVotingProcedureDataImpl) _then)
+        _$ParsedVotingProcedureImpl>
+    implements _$$ParsedVotingProcedureImplCopyWith<$Res> {
+  __$$ParsedVotingProcedureImplCopyWithImpl(_$ParsedVotingProcedureImpl _value,
+      $Res Function(_$ParsedVotingProcedureImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -124,7 +123,7 @@ class __$$ParsedVotingProcedureDataImplCopyWithImpl<$Res>
     Object? vote = null,
     Object? anchor = freezed,
   }) {
-    return _then(_$ParsedVotingProcedureDataImpl(
+    return _then(_$ParsedVotingProcedureImpl(
       vote: null == vote
           ? _value.vote
           : vote // ignore: cast_nullable_to_non_nullable
@@ -139,9 +138,8 @@ class __$$ParsedVotingProcedureDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedVotingProcedureDataImpl extends ParsedVotingProcedureData {
-  const _$ParsedVotingProcedureDataImpl({required this.vote, this.anchor})
-      : super._();
+class _$ParsedVotingProcedureImpl extends _ParsedVotingProcedure {
+  _$ParsedVotingProcedureImpl({required this.vote, this.anchor}) : super._();
 
   @override
   final VoteOption vote;
@@ -157,7 +155,7 @@ class _$ParsedVotingProcedureDataImpl extends ParsedVotingProcedureData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedVotingProcedureDataImpl &&
+            other is _$ParsedVotingProcedureImpl &&
             (identical(other.vote, vote) || other.vote == vote) &&
             (identical(other.anchor, anchor) || other.anchor == anchor));
   }
@@ -168,9 +166,9 @@ class _$ParsedVotingProcedureDataImpl extends ParsedVotingProcedureData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedVotingProcedureDataImplCopyWith<_$ParsedVotingProcedureDataImpl>
-      get copyWith => __$$ParsedVotingProcedureDataImplCopyWithImpl<
-          _$ParsedVotingProcedureDataImpl>(this, _$identity);
+  _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl>
+      get copyWith => __$$ParsedVotingProcedureImplCopyWithImpl<
+          _$ParsedVotingProcedureImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -201,11 +199,11 @@ class _$ParsedVotingProcedureDataImpl extends ParsedVotingProcedureData {
   }
 }
 
-abstract class ParsedVotingProcedureData extends ParsedVotingProcedure {
-  const factory ParsedVotingProcedureData(
+abstract class _ParsedVotingProcedure extends ParsedVotingProcedure {
+  factory _ParsedVotingProcedure(
       {required final VoteOption vote,
-      final ParsedAnchor? anchor}) = _$ParsedVotingProcedureDataImpl;
-  const ParsedVotingProcedureData._() : super._();
+      final ParsedAnchor? anchor}) = _$ParsedVotingProcedureImpl;
+  _ParsedVotingProcedure._() : super._();
 
   @override
   VoteOption get vote;
@@ -213,6 +211,6 @@ abstract class ParsedVotingProcedureData extends ParsedVotingProcedure {
   ParsedAnchor? get anchor;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedVotingProcedureDataImplCopyWith<_$ParsedVotingProcedureDataImpl>
+  _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

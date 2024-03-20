@@ -79,23 +79,22 @@ class _$ParsedGovActionIdCopyWithImpl<$Res, $Val extends ParsedGovActionId>
 }
 
 /// @nodoc
-abstract class _$$ParsedGovActionIdDataImplCopyWith<$Res>
+abstract class _$$ParsedGovActionIdImplCopyWith<$Res>
     implements $ParsedGovActionIdCopyWith<$Res> {
-  factory _$$ParsedGovActionIdDataImplCopyWith(
-          _$ParsedGovActionIdDataImpl value,
-          $Res Function(_$ParsedGovActionIdDataImpl) then) =
-      __$$ParsedGovActionIdDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedGovActionIdImplCopyWith(_$ParsedGovActionIdImpl value,
+          $Res Function(_$ParsedGovActionIdImpl) then) =
+      __$$ParsedGovActionIdImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String txHashHex, int govActionIndex});
 }
 
 /// @nodoc
-class __$$ParsedGovActionIdDataImplCopyWithImpl<$Res>
-    extends _$ParsedGovActionIdCopyWithImpl<$Res, _$ParsedGovActionIdDataImpl>
-    implements _$$ParsedGovActionIdDataImplCopyWith<$Res> {
-  __$$ParsedGovActionIdDataImplCopyWithImpl(_$ParsedGovActionIdDataImpl _value,
-      $Res Function(_$ParsedGovActionIdDataImpl) _then)
+class __$$ParsedGovActionIdImplCopyWithImpl<$Res>
+    extends _$ParsedGovActionIdCopyWithImpl<$Res, _$ParsedGovActionIdImpl>
+    implements _$$ParsedGovActionIdImplCopyWith<$Res> {
+  __$$ParsedGovActionIdImplCopyWithImpl(_$ParsedGovActionIdImpl _value,
+      $Res Function(_$ParsedGovActionIdImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +103,7 @@ class __$$ParsedGovActionIdDataImplCopyWithImpl<$Res>
     Object? txHashHex = null,
     Object? govActionIndex = null,
   }) {
-    return _then(_$ParsedGovActionIdDataImpl(
+    return _then(_$ParsedGovActionIdImpl(
       txHashHex: null == txHashHex
           ? _value.txHashHex
           : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -119,8 +118,8 @@ class __$$ParsedGovActionIdDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedGovActionIdDataImpl extends ParsedGovActionIdData {
-  const _$ParsedGovActionIdDataImpl(
+class _$ParsedGovActionIdImpl extends _ParsedGovActionId {
+  _$ParsedGovActionIdImpl(
       {required this.txHashHex, required this.govActionIndex})
       : super._();
 
@@ -138,7 +137,7 @@ class _$ParsedGovActionIdDataImpl extends ParsedGovActionIdData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedGovActionIdDataImpl &&
+            other is _$ParsedGovActionIdImpl &&
             (identical(other.txHashHex, txHashHex) ||
                 other.txHashHex == txHashHex) &&
             (identical(other.govActionIndex, govActionIndex) ||
@@ -151,9 +150,9 @@ class _$ParsedGovActionIdDataImpl extends ParsedGovActionIdData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedGovActionIdDataImplCopyWith<_$ParsedGovActionIdDataImpl>
-      get copyWith => __$$ParsedGovActionIdDataImplCopyWithImpl<
-          _$ParsedGovActionIdDataImpl>(this, _$identity);
+  _$$ParsedGovActionIdImplCopyWith<_$ParsedGovActionIdImpl> get copyWith =>
+      __$$ParsedGovActionIdImplCopyWithImpl<_$ParsedGovActionIdImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -184,11 +183,11 @@ class _$ParsedGovActionIdDataImpl extends ParsedGovActionIdData {
   }
 }
 
-abstract class ParsedGovActionIdData extends ParsedGovActionId {
-  const factory ParsedGovActionIdData(
+abstract class _ParsedGovActionId extends ParsedGovActionId {
+  factory _ParsedGovActionId(
       {required final String txHashHex,
-      required final int govActionIndex}) = _$ParsedGovActionIdDataImpl;
-  const ParsedGovActionIdData._() : super._();
+      required final int govActionIndex}) = _$ParsedGovActionIdImpl;
+  _ParsedGovActionId._() : super._();
 
   @override
   String get txHashHex;
@@ -196,6 +195,6 @@ abstract class ParsedGovActionIdData extends ParsedGovActionId {
   int get govActionIndex;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedGovActionIdDataImplCopyWith<_$ParsedGovActionIdDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedGovActionIdImplCopyWith<_$ParsedGovActionIdImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

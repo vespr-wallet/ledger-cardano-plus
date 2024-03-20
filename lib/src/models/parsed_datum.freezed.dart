@@ -16,26 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedDatum {
-  String get datumHex => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String datumHashHex) hash,
     required TResult Function(String datumHex) inline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String datumHashHex)? hash,
     TResult? Function(String datumHex)? inline,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String datumHashHex)? hash,
     TResult Function(String datumHex)? inline,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedDatumCopyWith<ParsedDatum> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -44,8 +42,6 @@ abstract class $ParsedDatumCopyWith<$Res> {
   factory $ParsedDatumCopyWith(
           ParsedDatum value, $Res Function(ParsedDatum) then) =
       _$ParsedDatumCopyWithImpl<$Res, ParsedDatum>;
-  @useResult
-  $Res call({String datumHex});
 }
 
 /// @nodoc
@@ -57,38 +53,129 @@ class _$ParsedDatumCopyWithImpl<$Res, $Val extends ParsedDatum>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+}
+
+/// @nodoc
+abstract class _$$ParsedDatumHashImplCopyWith<$Res> {
+  factory _$$ParsedDatumHashImplCopyWith(_$ParsedDatumHashImpl value,
+          $Res Function(_$ParsedDatumHashImpl) then) =
+      __$$ParsedDatumHashImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String datumHashHex});
+}
+
+/// @nodoc
+class __$$ParsedDatumHashImplCopyWithImpl<$Res>
+    extends _$ParsedDatumCopyWithImpl<$Res, _$ParsedDatumHashImpl>
+    implements _$$ParsedDatumHashImplCopyWith<$Res> {
+  __$$ParsedDatumHashImplCopyWithImpl(
+      _$ParsedDatumHashImpl _value, $Res Function(_$ParsedDatumHashImpl) _then)
+      : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? datumHex = null,
+    Object? datumHashHex = null,
   }) {
-    return _then(_value.copyWith(
-      datumHex: null == datumHex
-          ? _value.datumHex
-          : datumHex // ignore: cast_nullable_to_non_nullable
+    return _then(_$ParsedDatumHashImpl(
+      datumHashHex: null == datumHashHex
+          ? _value.datumHashHex
+          : datumHashHex // ignore: cast_nullable_to_non_nullable
               as String,
-    ) as $Val);
+    ));
   }
 }
 
 /// @nodoc
-abstract class _$$DatumInlineImplCopyWith<$Res>
-    implements $ParsedDatumCopyWith<$Res> {
-  factory _$$DatumInlineImplCopyWith(
-          _$DatumInlineImpl value, $Res Function(_$DatumInlineImpl) then) =
-      __$$DatumInlineImplCopyWithImpl<$Res>;
+
+class _$ParsedDatumHashImpl extends ParsedDatumHash {
+  _$ParsedDatumHashImpl({required this.datumHashHex}) : super._();
+
   @override
+  final String datumHashHex;
+
+  @override
+  String toString() {
+    return 'ParsedDatum.hash(datumHashHex: $datumHashHex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ParsedDatumHashImpl &&
+            (identical(other.datumHashHex, datumHashHex) ||
+                other.datumHashHex == datumHashHex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, datumHashHex);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ParsedDatumHashImplCopyWith<_$ParsedDatumHashImpl> get copyWith =>
+      __$$ParsedDatumHashImplCopyWithImpl<_$ParsedDatumHashImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String datumHashHex) hash,
+    required TResult Function(String datumHex) inline,
+  }) {
+    return hash(datumHashHex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String datumHashHex)? hash,
+    TResult? Function(String datumHex)? inline,
+  }) {
+    return hash?.call(datumHashHex);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String datumHashHex)? hash,
+    TResult Function(String datumHex)? inline,
+    required TResult orElse(),
+  }) {
+    if (hash != null) {
+      return hash(datumHashHex);
+    }
+    return orElse();
+  }
+}
+
+abstract class ParsedDatumHash extends ParsedDatum {
+  factory ParsedDatumHash({required final String datumHashHex}) =
+      _$ParsedDatumHashImpl;
+  ParsedDatumHash._() : super._();
+
+  String get datumHashHex;
+  @JsonKey(ignore: true)
+  _$$ParsedDatumHashImplCopyWith<_$ParsedDatumHashImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ParsedDatumInlineImplCopyWith<$Res> {
+  factory _$$ParsedDatumInlineImplCopyWith(_$ParsedDatumInlineImpl value,
+          $Res Function(_$ParsedDatumInlineImpl) then) =
+      __$$ParsedDatumInlineImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String datumHex});
 }
 
 /// @nodoc
-class __$$DatumInlineImplCopyWithImpl<$Res>
-    extends _$ParsedDatumCopyWithImpl<$Res, _$DatumInlineImpl>
-    implements _$$DatumInlineImplCopyWith<$Res> {
-  __$$DatumInlineImplCopyWithImpl(
-      _$DatumInlineImpl _value, $Res Function(_$DatumInlineImpl) _then)
+class __$$ParsedDatumInlineImplCopyWithImpl<$Res>
+    extends _$ParsedDatumCopyWithImpl<$Res, _$ParsedDatumInlineImpl>
+    implements _$$ParsedDatumInlineImplCopyWith<$Res> {
+  __$$ParsedDatumInlineImplCopyWithImpl(_$ParsedDatumInlineImpl _value,
+      $Res Function(_$ParsedDatumInlineImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,7 +183,7 @@ class __$$DatumInlineImplCopyWithImpl<$Res>
   $Res call({
     Object? datumHex = null,
   }) {
-    return _then(_$DatumInlineImpl(
+    return _then(_$ParsedDatumInlineImpl(
       datumHex: null == datumHex
           ? _value.datumHex
           : datumHex // ignore: cast_nullable_to_non_nullable
@@ -107,8 +194,8 @@ class __$$DatumInlineImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DatumInlineImpl extends DatumInline {
-  _$DatumInlineImpl({required this.datumHex}) : super._();
+class _$ParsedDatumInlineImpl extends ParsedDatumInline {
+  _$ParsedDatumInlineImpl({required this.datumHex}) : super._();
 
   @override
   final String datumHex;
@@ -122,7 +209,7 @@ class _$DatumInlineImpl extends DatumInline {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DatumInlineImpl &&
+            other is _$ParsedDatumInlineImpl &&
             (identical(other.datumHex, datumHex) ||
                 other.datumHex == datumHex));
   }
@@ -133,12 +220,14 @@ class _$DatumInlineImpl extends DatumInline {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DatumInlineImplCopyWith<_$DatumInlineImpl> get copyWith =>
-      __$$DatumInlineImplCopyWithImpl<_$DatumInlineImpl>(this, _$identity);
+  _$$ParsedDatumInlineImplCopyWith<_$ParsedDatumInlineImpl> get copyWith =>
+      __$$ParsedDatumInlineImplCopyWithImpl<_$ParsedDatumInlineImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String datumHashHex) hash,
     required TResult Function(String datumHex) inline,
   }) {
     return inline(datumHex);
@@ -147,6 +236,7 @@ class _$DatumInlineImpl extends DatumInline {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(String datumHashHex)? hash,
     TResult? Function(String datumHex)? inline,
   }) {
     return inline?.call(datumHex);
@@ -155,6 +245,7 @@ class _$DatumInlineImpl extends DatumInline {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String datumHashHex)? hash,
     TResult Function(String datumHex)? inline,
     required TResult orElse(),
   }) {
@@ -165,14 +256,13 @@ class _$DatumInlineImpl extends DatumInline {
   }
 }
 
-abstract class DatumInline extends ParsedDatum {
-  factory DatumInline({required final String datumHex}) = _$DatumInlineImpl;
-  DatumInline._() : super._();
+abstract class ParsedDatumInline extends ParsedDatum {
+  factory ParsedDatumInline({required final String datumHex}) =
+      _$ParsedDatumInlineImpl;
+  ParsedDatumInline._() : super._();
 
-  @override
   String get datumHex;
-  @override
   @JsonKey(ignore: true)
-  _$$DatumInlineImplCopyWith<_$DatumInlineImpl> get copyWith =>
+  _$$ParsedDatumInlineImplCopyWith<_$ParsedDatumInlineImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

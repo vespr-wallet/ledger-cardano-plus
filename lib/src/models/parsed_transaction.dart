@@ -9,14 +9,14 @@ import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
 import 'package:ledger_cardano/src/models/parsed_voter_votes.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/script_data_hash.dart';
- 
+
 part 'parsed_transaction.freezed.dart';
 
 @freezed
-class ParsedTransaction with _$ParsedTransaction {
-  const ParsedTransaction._();
+sealed class ParsedTransaction with _$ParsedTransaction {
+  ParsedTransaction._();
 
-  const factory ParsedTransaction({
+  factory ParsedTransaction({
     required ParsedNetwork network,
     required List<ParsedInput> inputs,
     required List<ParsedOutput> outputs,
@@ -37,6 +37,5 @@ class ParsedTransaction with _$ParsedTransaction {
     required List<ParsedVoterVotes> votingProcedures,
     String? treasury,
     String? donation,
-  }) = ParsedTransaction_data;
+  }) = _ParsedTransaction;
 }
-   

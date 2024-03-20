@@ -3,13 +3,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'parsed_gov_action_id.freezed.dart';
 
 @freezed
-class ParsedGovActionId with _$ParsedGovActionId {
-  const ParsedGovActionId._();
+sealed class ParsedGovActionId with _$ParsedGovActionId {
+  ParsedGovActionId._();
 
-  const factory ParsedGovActionId({
+  factory ParsedGovActionId({
     required String txHashHex,
     required int govActionIndex,
-  }) = ParsedGovActionIdData;
-
+  }) = _ParsedGovActionId;
 }
-

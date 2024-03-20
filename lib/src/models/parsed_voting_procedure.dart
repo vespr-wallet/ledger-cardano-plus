@@ -5,12 +5,11 @@ import 'parsed_anchor.dart';
 part 'parsed_voting_procedure.freezed.dart';
 
 @freezed
-class ParsedVotingProcedure with _$ParsedVotingProcedure {
-  const ParsedVotingProcedure._();
+sealed class ParsedVotingProcedure with _$ParsedVotingProcedure {
+  ParsedVotingProcedure._();
 
-  const factory ParsedVotingProcedure({
+  factory ParsedVotingProcedure({
     required VoteOption vote,
     ParsedAnchor? anchor,
-  }) = ParsedVotingProcedureData;
+  }) = _ParsedVotingProcedure;
 }
- 

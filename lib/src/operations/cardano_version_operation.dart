@@ -29,7 +29,7 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
       versionMinor: versionMinor,
       versionPatch: versionPatch,
       locked: false,
-      flags: const Flags_mode(isDebug: false, isAppXS: false),
+      flags: const Flags(isDebug: false, isAppXS: false),
     );
   }
 }

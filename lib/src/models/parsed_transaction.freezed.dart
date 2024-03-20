@@ -155,6 +155,7 @@ abstract class $ParsedTransactionCopyWith<$Res> {
 
   $ParsedNetworkCopyWith<$Res> get network;
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
+  $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex;
   $ParsedOutputCopyWith<$Res>? get collateralOutput;
 }
 
@@ -298,6 +299,18 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
 
   @override
   @pragma('vm:prefer-inline')
+  $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex {
+    if (_value.scriptDataHashHex == null) {
+      return null;
+    }
+
+    return $ScriptDataHashCopyWith<$Res>(_value.scriptDataHashHex!, (value) {
+      return _then(_value.copyWith(scriptDataHashHex: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ParsedOutputCopyWith<$Res>? get collateralOutput {
     if (_value.collateralOutput == null) {
       return null;
@@ -310,12 +323,11 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
 }
 
 /// @nodoc
-abstract class _$$ParsedTransaction_dataImplCopyWith<$Res>
+abstract class _$$ParsedTransactionImplCopyWith<$Res>
     implements $ParsedTransactionCopyWith<$Res> {
-  factory _$$ParsedTransaction_dataImplCopyWith(
-          _$ParsedTransaction_dataImpl value,
-          $Res Function(_$ParsedTransaction_dataImpl) then) =
-      __$$ParsedTransaction_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedTransactionImplCopyWith(_$ParsedTransactionImpl value,
+          $Res Function(_$ParsedTransactionImpl) then) =
+      __$$ParsedTransactionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -345,16 +357,17 @@ abstract class _$$ParsedTransaction_dataImplCopyWith<$Res>
   @override
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
   @override
+  $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex;
+  @override
   $ParsedOutputCopyWith<$Res>? get collateralOutput;
 }
 
 /// @nodoc
-class __$$ParsedTransaction_dataImplCopyWithImpl<$Res>
-    extends _$ParsedTransactionCopyWithImpl<$Res, _$ParsedTransaction_dataImpl>
-    implements _$$ParsedTransaction_dataImplCopyWith<$Res> {
-  __$$ParsedTransaction_dataImplCopyWithImpl(
-      _$ParsedTransaction_dataImpl _value,
-      $Res Function(_$ParsedTransaction_dataImpl) _then)
+class __$$ParsedTransactionImplCopyWithImpl<$Res>
+    extends _$ParsedTransactionCopyWithImpl<$Res, _$ParsedTransactionImpl>
+    implements _$$ParsedTransactionImplCopyWith<$Res> {
+  __$$ParsedTransactionImplCopyWithImpl(_$ParsedTransactionImpl _value,
+      $Res Function(_$ParsedTransactionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -381,7 +394,7 @@ class __$$ParsedTransaction_dataImplCopyWithImpl<$Res>
     Object? treasury = freezed,
     Object? donation = freezed,
   }) {
-    return _then(_$ParsedTransaction_dataImpl(
+    return _then(_$ParsedTransactionImpl(
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
@@ -468,8 +481,8 @@ class __$$ParsedTransaction_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedTransaction_dataImpl extends ParsedTransaction_data {
-  const _$ParsedTransaction_dataImpl(
+class _$ParsedTransactionImpl extends _ParsedTransaction {
+  _$ParsedTransactionImpl(
       {required this.network,
       required final List<ParsedInput> inputs,
       required final List<ParsedOutput> outputs,
@@ -609,7 +622,7 @@ class _$ParsedTransaction_dataImpl extends ParsedTransaction_data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedTransaction_dataImpl &&
+            other is _$ParsedTransactionImpl &&
             (identical(other.network, network) || other.network == network) &&
             const DeepCollectionEquality().equals(other._inputs, _inputs) &&
             const DeepCollectionEquality().equals(other._outputs, _outputs) &&
@@ -674,9 +687,9 @@ class _$ParsedTransaction_dataImpl extends ParsedTransaction_data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedTransaction_dataImplCopyWith<_$ParsedTransaction_dataImpl>
-      get copyWith => __$$ParsedTransaction_dataImplCopyWithImpl<
-          _$ParsedTransaction_dataImpl>(this, _$identity);
+  _$$ParsedTransactionImplCopyWith<_$ParsedTransactionImpl> get copyWith =>
+      __$$ParsedTransactionImplCopyWithImpl<_$ParsedTransactionImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -830,8 +843,8 @@ class _$ParsedTransaction_dataImpl extends ParsedTransaction_data {
   }
 }
 
-abstract class ParsedTransaction_data extends ParsedTransaction {
-  const factory ParsedTransaction_data(
+abstract class _ParsedTransaction extends ParsedTransaction {
+  factory _ParsedTransaction(
       {required final ParsedNetwork network,
       required final List<ParsedInput> inputs,
       required final List<ParsedOutput> outputs,
@@ -851,8 +864,8 @@ abstract class ParsedTransaction_data extends ParsedTransaction {
       required final List<ParsedInput> referenceInputs,
       required final List<ParsedVoterVotes> votingProcedures,
       final String? treasury,
-      final String? donation}) = _$ParsedTransaction_dataImpl;
-  const ParsedTransaction_data._() : super._();
+      final String? donation}) = _$ParsedTransactionImpl;
+  _ParsedTransaction._() : super._();
 
   @override
   ParsedNetwork get network;
@@ -896,6 +909,6 @@ abstract class ParsedTransaction_data extends ParsedTransaction {
   String? get donation;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedTransaction_dataImplCopyWith<_$ParsedTransaction_dataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedTransactionImplCopyWith<_$ParsedTransactionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

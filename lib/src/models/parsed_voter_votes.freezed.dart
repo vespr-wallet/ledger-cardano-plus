@@ -89,11 +89,11 @@ class _$ParsedVoterVotesCopyWithImpl<$Res, $Val extends ParsedVoterVotes>
 }
 
 /// @nodoc
-abstract class _$$ParsedVoterVotesDataImplCopyWith<$Res>
+abstract class _$$ParsedVoterVotesImplCopyWith<$Res>
     implements $ParsedVoterVotesCopyWith<$Res> {
-  factory _$$ParsedVoterVotesDataImplCopyWith(_$ParsedVoterVotesDataImpl value,
-          $Res Function(_$ParsedVoterVotesDataImpl) then) =
-      __$$ParsedVoterVotesDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedVoterVotesImplCopyWith(_$ParsedVoterVotesImpl value,
+          $Res Function(_$ParsedVoterVotesImpl) then) =
+      __$$ParsedVoterVotesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ParsedVoter voter, List<ParsedVote> votes});
@@ -103,11 +103,11 @@ abstract class _$$ParsedVoterVotesDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedVoterVotesDataImplCopyWithImpl<$Res>
-    extends _$ParsedVoterVotesCopyWithImpl<$Res, _$ParsedVoterVotesDataImpl>
-    implements _$$ParsedVoterVotesDataImplCopyWith<$Res> {
-  __$$ParsedVoterVotesDataImplCopyWithImpl(_$ParsedVoterVotesDataImpl _value,
-      $Res Function(_$ParsedVoterVotesDataImpl) _then)
+class __$$ParsedVoterVotesImplCopyWithImpl<$Res>
+    extends _$ParsedVoterVotesCopyWithImpl<$Res, _$ParsedVoterVotesImpl>
+    implements _$$ParsedVoterVotesImplCopyWith<$Res> {
+  __$$ParsedVoterVotesImplCopyWithImpl(_$ParsedVoterVotesImpl _value,
+      $Res Function(_$ParsedVoterVotesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +116,7 @@ class __$$ParsedVoterVotesDataImplCopyWithImpl<$Res>
     Object? voter = null,
     Object? votes = null,
   }) {
-    return _then(_$ParsedVoterVotesDataImpl(
+    return _then(_$ParsedVoterVotesImpl(
       voter: null == voter
           ? _value.voter
           : voter // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,8 @@ class __$$ParsedVoterVotesDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedVoterVotesDataImpl extends ParsedVoterVotesData {
-  const _$ParsedVoterVotesDataImpl(
+class _$ParsedVoterVotesImpl extends _ParsedVoterVotes {
+  _$ParsedVoterVotesImpl(
       {required this.voter, required final List<ParsedVote> votes})
       : _votes = votes,
         super._();
@@ -156,7 +156,7 @@ class _$ParsedVoterVotesDataImpl extends ParsedVoterVotesData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedVoterVotesDataImpl &&
+            other is _$ParsedVoterVotesImpl &&
             (identical(other.voter, voter) || other.voter == voter) &&
             const DeepCollectionEquality().equals(other._votes, _votes));
   }
@@ -168,10 +168,9 @@ class _$ParsedVoterVotesDataImpl extends ParsedVoterVotesData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedVoterVotesDataImplCopyWith<_$ParsedVoterVotesDataImpl>
-      get copyWith =>
-          __$$ParsedVoterVotesDataImplCopyWithImpl<_$ParsedVoterVotesDataImpl>(
-              this, _$identity);
+  _$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith =>
+      __$$ParsedVoterVotesImplCopyWithImpl<_$ParsedVoterVotesImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -202,11 +201,11 @@ class _$ParsedVoterVotesDataImpl extends ParsedVoterVotesData {
   }
 }
 
-abstract class ParsedVoterVotesData extends ParsedVoterVotes {
-  const factory ParsedVoterVotesData(
+abstract class _ParsedVoterVotes extends ParsedVoterVotes {
+  factory _ParsedVoterVotes(
       {required final ParsedVoter voter,
-      required final List<ParsedVote> votes}) = _$ParsedVoterVotesDataImpl;
-  const ParsedVoterVotesData._() : super._();
+      required final List<ParsedVote> votes}) = _$ParsedVoterVotesImpl;
+  _ParsedVoterVotes._() : super._();
 
   @override
   ParsedVoter get voter;
@@ -214,6 +213,6 @@ abstract class ParsedVoterVotesData extends ParsedVoterVotes {
   List<ParsedVote> get votes;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedVoterVotesDataImplCopyWith<_$ParsedVoterVotesDataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

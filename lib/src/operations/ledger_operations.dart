@@ -1,11 +1,14 @@
 import 'dart:typed_data';
 
+import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {
+  final String? debugName;
+
   final int ins;
   final int p1;
   final int p2;
@@ -18,6 +21,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
     required this.p2,
     required this.data,
     this.prependDataLength = true,
+    this.debugName,
   });
 
   @override
@@ -33,28 +37,12 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
           writer.write(data);
         }
 
-        print(hex.encode(writer.toBytes()));
+        if (CardanoLedgerApp.debugPrintEnabled) {
+          print("${debugName ?? "SendOperation"}: ${hex.encode(writer.toBytes())}");
+        }
         return [writer.toBytes()];
       });
 
   @override
   Future<ByteDataReader> read(ByteDataReader reader) async => reader;
-}
-
-// TODO - this class is for dev testing purpose only. Remove it before release
-class TestSendOperation extends LedgerOperation<ByteDataReader> {
-  final Uint8List data;
-
-  TestSendOperation({required this.data});
-
-  @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) async {
-    print(hex.encode(data));
-    return [data];
-  }
-
-  @override
-  Future<ByteDataReader> read(ByteDataReader reader) async {
-    return reader;
-  }
 }

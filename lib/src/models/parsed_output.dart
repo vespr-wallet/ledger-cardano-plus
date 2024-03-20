@@ -7,15 +7,15 @@ import 'parsed_datum.dart';
 part 'parsed_output.freezed.dart';
 
 @freezed
-class ParsedOutput with _$ParsedOutput {
-  const ParsedOutput._();
+sealed class ParsedOutput with _$ParsedOutput {
+  ParsedOutput._();
 
-  const factory ParsedOutput({
+  factory ParsedOutput({
     required TxOutputFormat format,
     required String amount,
     required List<ParsedAssetGroup> tokenBundle,
     required ParsedOutputDestination destination,
     ParsedDatum? datum,
     String? referenceScriptHex,
-  }) = ParsedOutput_data;
+  }) = _ParsedOutput;
 }

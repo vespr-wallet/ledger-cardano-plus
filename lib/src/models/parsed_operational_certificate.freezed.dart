@@ -104,12 +104,12 @@ class _$ParsedOperationalCertificateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ParsedOperationalCertificateDataImplCopyWith<$Res>
+abstract class _$$ParsedOperationalCertificateImplCopyWith<$Res>
     implements $ParsedOperationalCertificateCopyWith<$Res> {
-  factory _$$ParsedOperationalCertificateDataImplCopyWith(
-          _$ParsedOperationalCertificateDataImpl value,
-          $Res Function(_$ParsedOperationalCertificateDataImpl) then) =
-      __$$ParsedOperationalCertificateDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedOperationalCertificateImplCopyWith(
+          _$ParsedOperationalCertificateImpl value,
+          $Res Function(_$ParsedOperationalCertificateImpl) then) =
+      __$$ParsedOperationalCertificateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -120,13 +120,13 @@ abstract class _$$ParsedOperationalCertificateDataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedOperationalCertificateDataImplCopyWithImpl<$Res>
+class __$$ParsedOperationalCertificateImplCopyWithImpl<$Res>
     extends _$ParsedOperationalCertificateCopyWithImpl<$Res,
-        _$ParsedOperationalCertificateDataImpl>
-    implements _$$ParsedOperationalCertificateDataImplCopyWith<$Res> {
-  __$$ParsedOperationalCertificateDataImplCopyWithImpl(
-      _$ParsedOperationalCertificateDataImpl _value,
-      $Res Function(_$ParsedOperationalCertificateDataImpl) _then)
+        _$ParsedOperationalCertificateImpl>
+    implements _$$ParsedOperationalCertificateImplCopyWith<$Res> {
+  __$$ParsedOperationalCertificateImplCopyWithImpl(
+      _$ParsedOperationalCertificateImpl _value,
+      $Res Function(_$ParsedOperationalCertificateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -137,7 +137,7 @@ class __$$ParsedOperationalCertificateDataImplCopyWithImpl<$Res>
     Object? issueCounter = null,
     Object? coldKeyPath = null,
   }) {
-    return _then(_$ParsedOperationalCertificateDataImpl(
+    return _then(_$ParsedOperationalCertificateImpl(
       kesPublicKeyHex: null == kesPublicKeyHex
           ? _value.kesPublicKeyHex
           : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
@@ -160,9 +160,8 @@ class __$$ParsedOperationalCertificateDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedOperationalCertificateDataImpl
-    extends ParsedOperationalCertificateData {
-  _$ParsedOperationalCertificateDataImpl(
+class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
+  _$ParsedOperationalCertificateImpl(
       {required this.kesPublicKeyHex,
       required this.kesPeriod,
       required this.issueCounter,
@@ -193,7 +192,7 @@ class _$ParsedOperationalCertificateDataImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedOperationalCertificateDataImpl &&
+            other is _$ParsedOperationalCertificateImpl &&
             (identical(other.kesPublicKeyHex, kesPublicKeyHex) ||
                 other.kesPublicKeyHex == kesPublicKeyHex) &&
             (identical(other.kesPeriod, kesPeriod) ||
@@ -211,10 +210,10 @@ class _$ParsedOperationalCertificateDataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedOperationalCertificateDataImplCopyWith<
-          _$ParsedOperationalCertificateDataImpl>
-      get copyWith => __$$ParsedOperationalCertificateDataImplCopyWithImpl<
-          _$ParsedOperationalCertificateDataImpl>(this, _$identity);
+  _$$ParsedOperationalCertificateImplCopyWith<
+          _$ParsedOperationalCertificateImpl>
+      get copyWith => __$$ParsedOperationalCertificateImplCopyWithImpl<
+          _$ParsedOperationalCertificateImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -252,15 +251,15 @@ class _$ParsedOperationalCertificateDataImpl
   }
 }
 
-abstract class ParsedOperationalCertificateData
+abstract class _ParsedOperationalCertificate
     extends ParsedOperationalCertificate {
-  factory ParsedOperationalCertificateData(
+  factory _ParsedOperationalCertificate(
           {required final String kesPublicKeyHex,
           required final String kesPeriod,
           required final String issueCounter,
           required final List<int> coldKeyPath}) =
-      _$ParsedOperationalCertificateDataImpl;
-  ParsedOperationalCertificateData._() : super._();
+      _$ParsedOperationalCertificateImpl;
+  _ParsedOperationalCertificate._() : super._();
 
   @override
   String get kesPublicKeyHex;
@@ -272,7 +271,7 @@ abstract class ParsedOperationalCertificateData
   List<int> get coldKeyPath;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedOperationalCertificateDataImplCopyWith<
-          _$ParsedOperationalCertificateDataImpl>
+  _$$ParsedOperationalCertificateImplCopyWith<
+          _$ParsedOperationalCertificateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

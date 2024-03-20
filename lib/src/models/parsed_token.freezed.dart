@@ -79,22 +79,22 @@ class _$ParsedTokenCopyWithImpl<T, $Res, $Val extends ParsedToken<T>>
 }
 
 /// @nodoc
-abstract class _$$ParsedToken_dataImplCopyWith<T, $Res>
+abstract class _$$ParsedTokenImplCopyWith<T, $Res>
     implements $ParsedTokenCopyWith<T, $Res> {
-  factory _$$ParsedToken_dataImplCopyWith(_$ParsedToken_dataImpl<T> value,
-          $Res Function(_$ParsedToken_dataImpl<T>) then) =
-      __$$ParsedToken_dataImplCopyWithImpl<T, $Res>;
+  factory _$$ParsedTokenImplCopyWith(_$ParsedTokenImpl<T> value,
+          $Res Function(_$ParsedTokenImpl<T>) then) =
+      __$$ParsedTokenImplCopyWithImpl<T, $Res>;
   @override
   @useResult
   $Res call({String assetNameHex, T amount});
 }
 
 /// @nodoc
-class __$$ParsedToken_dataImplCopyWithImpl<T, $Res>
-    extends _$ParsedTokenCopyWithImpl<T, $Res, _$ParsedToken_dataImpl<T>>
-    implements _$$ParsedToken_dataImplCopyWith<T, $Res> {
-  __$$ParsedToken_dataImplCopyWithImpl(_$ParsedToken_dataImpl<T> _value,
-      $Res Function(_$ParsedToken_dataImpl<T>) _then)
+class __$$ParsedTokenImplCopyWithImpl<T, $Res>
+    extends _$ParsedTokenCopyWithImpl<T, $Res, _$ParsedTokenImpl<T>>
+    implements _$$ParsedTokenImplCopyWith<T, $Res> {
+  __$$ParsedTokenImplCopyWithImpl(
+      _$ParsedTokenImpl<T> _value, $Res Function(_$ParsedTokenImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$ParsedToken_dataImplCopyWithImpl<T, $Res>
     Object? assetNameHex = null,
     Object? amount = freezed,
   }) {
-    return _then(_$ParsedToken_dataImpl<T>(
+    return _then(_$ParsedTokenImpl<T>(
       assetNameHex: null == assetNameHex
           ? _value.assetNameHex
           : assetNameHex // ignore: cast_nullable_to_non_nullable
@@ -118,9 +118,8 @@ class __$$ParsedToken_dataImplCopyWithImpl<T, $Res>
 
 /// @nodoc
 
-class _$ParsedToken_dataImpl<T> extends ParsedToken_data<T> {
-  const _$ParsedToken_dataImpl(
-      {required this.assetNameHex, required this.amount})
+class _$ParsedTokenImpl<T> extends _ParsedToken<T> {
+  _$ParsedTokenImpl({required this.assetNameHex, required this.amount})
       : super._();
 
   @override
@@ -137,7 +136,7 @@ class _$ParsedToken_dataImpl<T> extends ParsedToken_data<T> {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedToken_dataImpl<T> &&
+            other is _$ParsedTokenImpl<T> &&
             (identical(other.assetNameHex, assetNameHex) ||
                 other.assetNameHex == assetNameHex) &&
             const DeepCollectionEquality().equals(other.amount, amount));
@@ -150,8 +149,8 @@ class _$ParsedToken_dataImpl<T> extends ParsedToken_data<T> {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedToken_dataImplCopyWith<T, _$ParsedToken_dataImpl<T>> get copyWith =>
-      __$$ParsedToken_dataImplCopyWithImpl<T, _$ParsedToken_dataImpl<T>>(
+  _$$ParsedTokenImplCopyWith<T, _$ParsedTokenImpl<T>> get copyWith =>
+      __$$ParsedTokenImplCopyWithImpl<T, _$ParsedTokenImpl<T>>(
           this, _$identity);
 
   @override
@@ -183,11 +182,11 @@ class _$ParsedToken_dataImpl<T> extends ParsedToken_data<T> {
   }
 }
 
-abstract class ParsedToken_data<T> extends ParsedToken<T> {
-  const factory ParsedToken_data(
+abstract class _ParsedToken<T> extends ParsedToken<T> {
+  factory _ParsedToken(
       {required final String assetNameHex,
-      required final T amount}) = _$ParsedToken_dataImpl<T>;
-  const ParsedToken_data._() : super._();
+      required final T amount}) = _$ParsedTokenImpl<T>;
+  _ParsedToken._() : super._();
 
   @override
   String get assetNameHex;
@@ -195,6 +194,6 @@ abstract class ParsedToken_data<T> extends ParsedToken<T> {
   T get amount;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedToken_dataImplCopyWith<T, _$ParsedToken_dataImpl<T>> get copyWith =>
+  _$$ParsedTokenImplCopyWith<T, _$ParsedTokenImpl<T>> get copyWith =>
       throw _privateConstructorUsedError;
 }

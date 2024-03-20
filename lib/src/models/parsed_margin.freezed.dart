@@ -79,22 +79,22 @@ class _$ParsedMarginCopyWithImpl<$Res, $Val extends ParsedMargin>
 }
 
 /// @nodoc
-abstract class _$$ParsedMarginDataImplCopyWith<$Res>
+abstract class _$$ParsedMarginImplCopyWith<$Res>
     implements $ParsedMarginCopyWith<$Res> {
-  factory _$$ParsedMarginDataImplCopyWith(_$ParsedMarginDataImpl value,
-          $Res Function(_$ParsedMarginDataImpl) then) =
-      __$$ParsedMarginDataImplCopyWithImpl<$Res>;
+  factory _$$ParsedMarginImplCopyWith(
+          _$ParsedMarginImpl value, $Res Function(_$ParsedMarginImpl) then) =
+      __$$ParsedMarginImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String numerator, String denominator});
 }
 
 /// @nodoc
-class __$$ParsedMarginDataImplCopyWithImpl<$Res>
-    extends _$ParsedMarginCopyWithImpl<$Res, _$ParsedMarginDataImpl>
-    implements _$$ParsedMarginDataImplCopyWith<$Res> {
-  __$$ParsedMarginDataImplCopyWithImpl(_$ParsedMarginDataImpl _value,
-      $Res Function(_$ParsedMarginDataImpl) _then)
+class __$$ParsedMarginImplCopyWithImpl<$Res>
+    extends _$ParsedMarginCopyWithImpl<$Res, _$ParsedMarginImpl>
+    implements _$$ParsedMarginImplCopyWith<$Res> {
+  __$$ParsedMarginImplCopyWithImpl(
+      _$ParsedMarginImpl _value, $Res Function(_$ParsedMarginImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$ParsedMarginDataImplCopyWithImpl<$Res>
     Object? numerator = null,
     Object? denominator = null,
   }) {
-    return _then(_$ParsedMarginDataImpl(
+    return _then(_$ParsedMarginImpl(
       numerator: null == numerator
           ? _value.numerator
           : numerator // ignore: cast_nullable_to_non_nullable
@@ -118,9 +118,8 @@ class __$$ParsedMarginDataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedMarginDataImpl extends ParsedMarginData {
-  const _$ParsedMarginDataImpl(
-      {required this.numerator, required this.denominator})
+class _$ParsedMarginImpl extends _ParsedMargin {
+  _$ParsedMarginImpl({required this.numerator, required this.denominator})
       : super._();
 
   @override
@@ -137,7 +136,7 @@ class _$ParsedMarginDataImpl extends ParsedMarginData {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedMarginDataImpl &&
+            other is _$ParsedMarginImpl &&
             (identical(other.numerator, numerator) ||
                 other.numerator == numerator) &&
             (identical(other.denominator, denominator) ||
@@ -150,9 +149,8 @@ class _$ParsedMarginDataImpl extends ParsedMarginData {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedMarginDataImplCopyWith<_$ParsedMarginDataImpl> get copyWith =>
-      __$$ParsedMarginDataImplCopyWithImpl<_$ParsedMarginDataImpl>(
-          this, _$identity);
+  _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith =>
+      __$$ParsedMarginImplCopyWithImpl<_$ParsedMarginImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -183,11 +181,11 @@ class _$ParsedMarginDataImpl extends ParsedMarginData {
   }
 }
 
-abstract class ParsedMarginData extends ParsedMargin {
-  const factory ParsedMarginData(
+abstract class _ParsedMargin extends ParsedMargin {
+  factory _ParsedMargin(
       {required final String numerator,
-      required final String denominator}) = _$ParsedMarginDataImpl;
-  const ParsedMarginData._() : super._();
+      required final String denominator}) = _$ParsedMarginImpl;
+  _ParsedMargin._() : super._();
 
   @override
   String get numerator;
@@ -195,6 +193,6 @@ abstract class ParsedMarginData extends ParsedMargin {
   String get denominator;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedMarginDataImplCopyWith<_$ParsedMarginDataImpl> get copyWith =>
+  _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

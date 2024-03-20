@@ -4,12 +4,11 @@ import 'parsed_credential.dart';
 part 'parsed_withdrawal.freezed.dart';
 
 @freezed
-class ParsedWithdrawal with _$ParsedWithdrawal {
-  const ParsedWithdrawal._();
+sealed class ParsedWithdrawal with _$ParsedWithdrawal {
+  ParsedWithdrawal._();
 
-  const factory ParsedWithdrawal({
+  factory ParsedWithdrawal({
     required String amount,
     required ParsedCredential stakeCredential,
-  }) = ParsedWithdrawalData;
-
+  }) = _ParsedWithdrawal;
 }

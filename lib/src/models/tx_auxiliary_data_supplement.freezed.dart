@@ -155,8 +155,8 @@ class __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TxAuxiliaryDataSupplementDataImpl
-    extends TxAuxiliaryDataSupplementData {
-  const _$TxAuxiliaryDataSupplementDataImpl(
+    extends _TxAuxiliaryDataSupplementData {
+  _$TxAuxiliaryDataSupplementDataImpl(
       {required this.type,
       required this.auxiliaryDataHashHex,
       required this.cip36VoteRegistrationSignatureHex})
@@ -244,13 +244,14 @@ class _$TxAuxiliaryDataSupplementDataImpl
   }
 }
 
-abstract class TxAuxiliaryDataSupplementData extends TxAuxiliaryDataSupplement {
-  const factory TxAuxiliaryDataSupplementData(
+abstract class _TxAuxiliaryDataSupplementData
+    extends TxAuxiliaryDataSupplement {
+  factory _TxAuxiliaryDataSupplementData(
           {required final TxAuxiliaryDataSupplementType type,
           required final String auxiliaryDataHashHex,
           required final String cip36VoteRegistrationSignatureHex}) =
       _$TxAuxiliaryDataSupplementDataImpl;
-  const TxAuxiliaryDataSupplementData._() : super._();
+  _TxAuxiliaryDataSupplementData._() : super._();
 
   @override
   TxAuxiliaryDataSupplementType get type;

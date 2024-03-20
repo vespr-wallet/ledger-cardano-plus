@@ -153,11 +153,11 @@ class _$ParsedOutputCopyWithImpl<$Res, $Val extends ParsedOutput>
 }
 
 /// @nodoc
-abstract class _$$ParsedOutput_dataImplCopyWith<$Res>
+abstract class _$$ParsedOutputImplCopyWith<$Res>
     implements $ParsedOutputCopyWith<$Res> {
-  factory _$$ParsedOutput_dataImplCopyWith(_$ParsedOutput_dataImpl value,
-          $Res Function(_$ParsedOutput_dataImpl) then) =
-      __$$ParsedOutput_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedOutputImplCopyWith(
+          _$ParsedOutputImpl value, $Res Function(_$ParsedOutputImpl) then) =
+      __$$ParsedOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -175,11 +175,11 @@ abstract class _$$ParsedOutput_dataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ParsedOutput_dataImplCopyWithImpl<$Res>
-    extends _$ParsedOutputCopyWithImpl<$Res, _$ParsedOutput_dataImpl>
-    implements _$$ParsedOutput_dataImplCopyWith<$Res> {
-  __$$ParsedOutput_dataImplCopyWithImpl(_$ParsedOutput_dataImpl _value,
-      $Res Function(_$ParsedOutput_dataImpl) _then)
+class __$$ParsedOutputImplCopyWithImpl<$Res>
+    extends _$ParsedOutputCopyWithImpl<$Res, _$ParsedOutputImpl>
+    implements _$$ParsedOutputImplCopyWith<$Res> {
+  __$$ParsedOutputImplCopyWithImpl(
+      _$ParsedOutputImpl _value, $Res Function(_$ParsedOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -192,7 +192,7 @@ class __$$ParsedOutput_dataImplCopyWithImpl<$Res>
     Object? datum = freezed,
     Object? referenceScriptHex = freezed,
   }) {
-    return _then(_$ParsedOutput_dataImpl(
+    return _then(_$ParsedOutputImpl(
       format: null == format
           ? _value.format
           : format // ignore: cast_nullable_to_non_nullable
@@ -223,8 +223,8 @@ class __$$ParsedOutput_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedOutput_dataImpl extends ParsedOutput_data {
-  const _$ParsedOutput_dataImpl(
+class _$ParsedOutputImpl extends _ParsedOutput {
+  _$ParsedOutputImpl(
       {required this.format,
       required this.amount,
       required final List<ParsedAssetGroup> tokenBundle,
@@ -262,7 +262,7 @@ class _$ParsedOutput_dataImpl extends ParsedOutput_data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedOutput_dataImpl &&
+            other is _$ParsedOutputImpl &&
             (identical(other.format, format) || other.format == format) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             const DeepCollectionEquality()
@@ -287,9 +287,8 @@ class _$ParsedOutput_dataImpl extends ParsedOutput_data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedOutput_dataImplCopyWith<_$ParsedOutput_dataImpl> get copyWith =>
-      __$$ParsedOutput_dataImplCopyWithImpl<_$ParsedOutput_dataImpl>(
-          this, _$identity);
+  _$$ParsedOutputImplCopyWith<_$ParsedOutputImpl> get copyWith =>
+      __$$ParsedOutputImplCopyWithImpl<_$ParsedOutputImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -344,15 +343,15 @@ class _$ParsedOutput_dataImpl extends ParsedOutput_data {
   }
 }
 
-abstract class ParsedOutput_data extends ParsedOutput {
-  const factory ParsedOutput_data(
+abstract class _ParsedOutput extends ParsedOutput {
+  factory _ParsedOutput(
       {required final TxOutputFormat format,
       required final String amount,
       required final List<ParsedAssetGroup> tokenBundle,
       required final ParsedOutputDestination destination,
       final ParsedDatum? datum,
-      final String? referenceScriptHex}) = _$ParsedOutput_dataImpl;
-  const ParsedOutput_data._() : super._();
+      final String? referenceScriptHex}) = _$ParsedOutputImpl;
+  _ParsedOutput._() : super._();
 
   @override
   TxOutputFormat get format;
@@ -368,6 +367,6 @@ abstract class ParsedOutput_data extends ParsedOutput {
   String? get referenceScriptHex;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedOutput_dataImplCopyWith<_$ParsedOutput_dataImpl> get copyWith =>
+  _$$ParsedOutputImplCopyWith<_$ParsedOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

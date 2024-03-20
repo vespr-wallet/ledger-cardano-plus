@@ -74,25 +74,25 @@ class _$ParsedTransactionOptionsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ParsedTransactionOptions_dataImplCopyWith<$Res>
+abstract class _$$ParsedTransactionOptionsImplCopyWith<$Res>
     implements $ParsedTransactionOptionsCopyWith<$Res> {
-  factory _$$ParsedTransactionOptions_dataImplCopyWith(
-          _$ParsedTransactionOptions_dataImpl value,
-          $Res Function(_$ParsedTransactionOptions_dataImpl) then) =
-      __$$ParsedTransactionOptions_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedTransactionOptionsImplCopyWith(
+          _$ParsedTransactionOptionsImpl value,
+          $Res Function(_$ParsedTransactionOptionsImpl) then) =
+      __$$ParsedTransactionOptionsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool tagCborSets});
 }
 
 /// @nodoc
-class __$$ParsedTransactionOptions_dataImplCopyWithImpl<$Res>
+class __$$ParsedTransactionOptionsImplCopyWithImpl<$Res>
     extends _$ParsedTransactionOptionsCopyWithImpl<$Res,
-        _$ParsedTransactionOptions_dataImpl>
-    implements _$$ParsedTransactionOptions_dataImplCopyWith<$Res> {
-  __$$ParsedTransactionOptions_dataImplCopyWithImpl(
-      _$ParsedTransactionOptions_dataImpl _value,
-      $Res Function(_$ParsedTransactionOptions_dataImpl) _then)
+        _$ParsedTransactionOptionsImpl>
+    implements _$$ParsedTransactionOptionsImplCopyWith<$Res> {
+  __$$ParsedTransactionOptionsImplCopyWithImpl(
+      _$ParsedTransactionOptionsImpl _value,
+      $Res Function(_$ParsedTransactionOptionsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$ParsedTransactionOptions_dataImplCopyWithImpl<$Res>
   $Res call({
     Object? tagCborSets = null,
   }) {
-    return _then(_$ParsedTransactionOptions_dataImpl(
+    return _then(_$ParsedTransactionOptionsImpl(
       tagCborSets: null == tagCborSets
           ? _value.tagCborSets
           : tagCborSets // ignore: cast_nullable_to_non_nullable
@@ -111,10 +111,8 @@ class __$$ParsedTransactionOptions_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedTransactionOptions_dataImpl
-    extends ParsedTransactionOptions_data {
-  const _$ParsedTransactionOptions_dataImpl({required this.tagCborSets})
-      : super._();
+class _$ParsedTransactionOptionsImpl extends _ParsedTransactionOptions {
+  _$ParsedTransactionOptionsImpl({required this.tagCborSets}) : super._();
 
   @override
   final bool tagCborSets;
@@ -128,7 +126,7 @@ class _$ParsedTransactionOptions_dataImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedTransactionOptions_dataImpl &&
+            other is _$ParsedTransactionOptionsImpl &&
             (identical(other.tagCborSets, tagCborSets) ||
                 other.tagCborSets == tagCborSets));
   }
@@ -139,10 +137,9 @@ class _$ParsedTransactionOptions_dataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedTransactionOptions_dataImplCopyWith<
-          _$ParsedTransactionOptions_dataImpl>
-      get copyWith => __$$ParsedTransactionOptions_dataImplCopyWithImpl<
-          _$ParsedTransactionOptions_dataImpl>(this, _$identity);
+  _$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl>
+      get copyWith => __$$ParsedTransactionOptionsImplCopyWithImpl<
+          _$ParsedTransactionOptionsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -173,16 +170,15 @@ class _$ParsedTransactionOptions_dataImpl
   }
 }
 
-abstract class ParsedTransactionOptions_data extends ParsedTransactionOptions {
-  const factory ParsedTransactionOptions_data(
-      {required final bool tagCborSets}) = _$ParsedTransactionOptions_dataImpl;
-  const ParsedTransactionOptions_data._() : super._();
+abstract class _ParsedTransactionOptions extends ParsedTransactionOptions {
+  factory _ParsedTransactionOptions({required final bool tagCborSets}) =
+      _$ParsedTransactionOptionsImpl;
+  _ParsedTransactionOptions._() : super._();
 
   @override
   bool get tagCborSets;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedTransactionOptions_dataImplCopyWith<
-          _$ParsedTransactionOptions_dataImpl>
+  _$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

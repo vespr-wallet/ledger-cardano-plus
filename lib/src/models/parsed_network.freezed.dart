@@ -79,22 +79,22 @@ class _$ParsedNetworkCopyWithImpl<$Res, $Val extends ParsedNetwork>
 }
 
 /// @nodoc
-abstract class _$$ParsedNetwork_dataImplCopyWith<$Res>
+abstract class _$$ParsedNetworkImplCopyWith<$Res>
     implements $ParsedNetworkCopyWith<$Res> {
-  factory _$$ParsedNetwork_dataImplCopyWith(_$ParsedNetwork_dataImpl value,
-          $Res Function(_$ParsedNetwork_dataImpl) then) =
-      __$$ParsedNetwork_dataImplCopyWithImpl<$Res>;
+  factory _$$ParsedNetworkImplCopyWith(
+          _$ParsedNetworkImpl value, $Res Function(_$ParsedNetworkImpl) then) =
+      __$$ParsedNetworkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int protocolMagic, int networkId});
 }
 
 /// @nodoc
-class __$$ParsedNetwork_dataImplCopyWithImpl<$Res>
-    extends _$ParsedNetworkCopyWithImpl<$Res, _$ParsedNetwork_dataImpl>
-    implements _$$ParsedNetwork_dataImplCopyWith<$Res> {
-  __$$ParsedNetwork_dataImplCopyWithImpl(_$ParsedNetwork_dataImpl _value,
-      $Res Function(_$ParsedNetwork_dataImpl) _then)
+class __$$ParsedNetworkImplCopyWithImpl<$Res>
+    extends _$ParsedNetworkCopyWithImpl<$Res, _$ParsedNetworkImpl>
+    implements _$$ParsedNetworkImplCopyWith<$Res> {
+  __$$ParsedNetworkImplCopyWithImpl(
+      _$ParsedNetworkImpl _value, $Res Function(_$ParsedNetworkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$ParsedNetwork_dataImplCopyWithImpl<$Res>
     Object? protocolMagic = null,
     Object? networkId = null,
   }) {
-    return _then(_$ParsedNetwork_dataImpl(
+    return _then(_$ParsedNetworkImpl(
       protocolMagic: null == protocolMagic
           ? _value.protocolMagic
           : protocolMagic // ignore: cast_nullable_to_non_nullable
@@ -118,9 +118,8 @@ class __$$ParsedNetwork_dataImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ParsedNetwork_dataImpl extends ParsedNetwork_data {
-  const _$ParsedNetwork_dataImpl(
-      {required this.protocolMagic, required this.networkId})
+class _$ParsedNetworkImpl extends _ParsedNetwork {
+  _$ParsedNetworkImpl({required this.protocolMagic, required this.networkId})
       : super._();
 
   @override
@@ -137,7 +136,7 @@ class _$ParsedNetwork_dataImpl extends ParsedNetwork_data {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedNetwork_dataImpl &&
+            other is _$ParsedNetworkImpl &&
             (identical(other.protocolMagic, protocolMagic) ||
                 other.protocolMagic == protocolMagic) &&
             (identical(other.networkId, networkId) ||
@@ -150,9 +149,8 @@ class _$ParsedNetwork_dataImpl extends ParsedNetwork_data {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedNetwork_dataImplCopyWith<_$ParsedNetwork_dataImpl> get copyWith =>
-      __$$ParsedNetwork_dataImplCopyWithImpl<_$ParsedNetwork_dataImpl>(
-          this, _$identity);
+  _$$ParsedNetworkImplCopyWith<_$ParsedNetworkImpl> get copyWith =>
+      __$$ParsedNetworkImplCopyWithImpl<_$ParsedNetworkImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -183,11 +181,11 @@ class _$ParsedNetwork_dataImpl extends ParsedNetwork_data {
   }
 }
 
-abstract class ParsedNetwork_data extends ParsedNetwork {
-  const factory ParsedNetwork_data(
+abstract class _ParsedNetwork extends ParsedNetwork {
+  factory _ParsedNetwork(
       {required final int protocolMagic,
-      required final int networkId}) = _$ParsedNetwork_dataImpl;
-  const ParsedNetwork_data._() : super._();
+      required final int networkId}) = _$ParsedNetworkImpl;
+  _ParsedNetwork._() : super._();
 
   @override
   int get protocolMagic;
@@ -195,6 +193,6 @@ abstract class ParsedNetwork_data extends ParsedNetwork {
   int get networkId;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedNetwork_dataImplCopyWith<_$ParsedNetwork_dataImpl> get copyWith =>
+  _$$ParsedNetworkImplCopyWith<_$ParsedNetworkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

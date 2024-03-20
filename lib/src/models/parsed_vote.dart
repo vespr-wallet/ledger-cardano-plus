@@ -5,12 +5,11 @@ import 'parsed_voting_procedure.dart';
 part 'parsed_vote.freezed.dart';
 
 @freezed
-class ParsedVote with _$ParsedVote {
-  const ParsedVote._();
+sealed class ParsedVote with _$ParsedVote {
+  ParsedVote._();
 
-  const factory ParsedVote({
+  factory ParsedVote({
     required ParsedGovActionId govActionId,
     required ParsedVotingProcedure votingProcedure,
-  }) = ParsedVoteData;
-
+  }) = _ParsedVote;
 }

@@ -12,6 +12,7 @@ import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/serialization_utils.dart';
+import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> {
   final ParsedTransaction transaction;
@@ -39,13 +40,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
   }
 
   Future<void> signTx_init(LedgerSendFct send) async {
-    final data = SerializationUtils.serializeTxInit(
-      transaction,
-      signingMode,
-      witnessPaths.length,
-      options,
-      cardanoVersion
-    );
+    final data =
+        SerializationUtils.serializeTxInit(transaction, signingMode, witnessPaths.length, options, cardanoVersion);
 
     await send(
       SendOperation(
@@ -69,21 +65,21 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
           p2: p2Unused,
           data: data,
           prependDataLength: true,
+          debugName: "SendInput",
         ),
       );
     }
   }
-  
+
   Future<TxAuxiliaryDataSupplement?> signTx_setAuxiliaryData(
     ParsedTxAuxiliaryData auxiliaryData,
     CardanoVersion version,
     LedgerSendFct send,
   ) async {
-    
-   // Before executing the check, ensure auxiliaryData is of a specific type
-if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
-  throw Exception('Auxiliary data type not implemented');
-}
+    // Before executing the check, ensure auxiliaryData is of a specific type
+    if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
+      throw ValidationException('Auxiliary data type not implemented');
+    }
 
     // Serialize and send auxiliary data
     final serializedAuxData = SerializationUtils.serializeTxAuxiliaryData(auxiliaryData);
@@ -110,7 +106,8 @@ if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
       }
 
       if (params.votePublicKey != null || params.votePublicKeyPath != null) {
-        final serializedVoteKeyData = SerializationUtils.serializeCVoteRegistrationVoteKey(params.votePublicKey, params.votePublicKeyPath, version);
+        final serializedVoteKeyData = SerializationUtils.serializeCVoteRegistrationVoteKey(
+            params.votePublicKey, params.votePublicKeyPath, version);
         await send(SendOperation(
           ins: InstructionType.signTransaction.insValue,
           p1: p1StageAuxData,
@@ -142,7 +139,8 @@ if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
         prependDataLength: true,
       ));
 
-      final serializedPaymentAddressData = SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version);
+      final serializedPaymentAddressData =
+          SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version);
       await send(SendOperation(
         ins: InstructionType.signTransaction.insValue,
         p1: p1StageAuxData,
@@ -160,7 +158,8 @@ if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
       ));
 
       if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
-        final serializedVotingPurposeData = SerializationUtils.serializeCVoteRegistrationVotingPurpose(params.votingPurpose);
+        final serializedVotingPurposeData =
+            SerializationUtils.serializeCVoteRegistrationVotingPurpose(params.votingPurpose);
         await send(SendOperation(
           ins: InstructionType.signTransaction.insValue,
           p1: p1StageAuxData,
@@ -200,27 +199,27 @@ if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
 
     return null;
   }
-  
+
   Future<void> signTx_addOutput_sendChunks(String hexString, int p2, LedgerSendFct send) async {
-  var start = maxChunkSize * 2;
+    var start = maxChunkSize * 2;
 
-  while (start < hexString.length) {
-    final end = min(hexString.length, start + maxChunkSize * 2);
-    final chunk = hexString.substring(start, end);
+    while (start < hexString.length) {
+      final end = min(hexString.length, start + maxChunkSize * 2);
+      final chunk = hexString.substring(start, end);
 
-    await send(
-      SendOperation(
-        ins: InstructionType.signTransaction.insValue,
-        p1: p1StageOutputs,
-        p2: p2,
-        data: Uint8List.fromList([
-          ...Uint32List.fromList([chunk.length ~/ 2]).buffer.asUint8List(),
-          ...hex.decode(chunk),
-        ]),
-        prependDataLength: true,
-      ),
-    );
-    start = end;
+      await send(
+        SendOperation(
+          ins: InstructionType.signTransaction.insValue,
+          p1: p1StageOutputs,
+          p2: p2,
+          data: Uint8List.fromList([
+            ...Uint32List.fromList([chunk.length ~/ 2]).buffer.asUint8List(),
+            ...hex.decode(chunk),
+          ]),
+          prependDataLength: true,
+        ),
+      );
+      start = end;
+    }
   }
-}
 }

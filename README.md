@@ -1,7 +1,7 @@
 <br />
 <div align="center">
   <a href="https://www.ledger.com/">
-    <img src="https://i.ibb.co/7CQsS8p/ledger-cardano.webp" width="600"/>
+    <img src="https://i.ibb.co/PMvdnnz/ledger-cardano.jpg" width="400"/>
   </a>
 
 <h1 align="center">ledger-cardano</h1>

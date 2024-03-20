@@ -13,6 +13,9 @@ const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 
+const int cvotePublicKeyLength = 32;
+
+
 const int p2Unused = 0x00;
 
 const int p1StageInit = 0x01;
@@ -36,6 +39,16 @@ const int p1StageTreasury = 0x15;
 const int p1StageDonation = 0x16;
 const int p1StageConfirm = 0x0a;
 const int p1StageWitnesses = 0x0f;
+
+const p2Init = 0x36;
+const p2VoteKey = 0x30;
+const p2Delegation = 0x37;
+const p2StakingKey = 0x31;
+const p2PaymentAddress = 0x32;
+const p2Nonce = 0x33;
+const p2VotingPurpose = 0x35;
+const p2Confirm = 0x34;
+const auxiliaryDataHashLength = 32; // Placeholder length
 
 enum NativeScriptType {
   pubkeyDeviceOwned(0),
@@ -102,9 +115,12 @@ enum InstructionType {
 }
 
 enum SpendingDataSourceType {
-  none,
-  path,
-  scriptHash,
+  none('no_spending'),
+  path('spending_path'),
+  scriptHash('spending_script_hash');
+
+  final String value;
+  const SpendingDataSourceType(this.value);
 }
 
 enum StakingDataSourceType {
@@ -148,7 +164,7 @@ enum TransactionSigningMode {
   poolRegistrationAsOperator(5),
   multisigTransaction(6),
   plutusTransaction(7);
-  
+
   final int value;
   const TransactionSigningMode(this.value);
 }
@@ -162,8 +178,11 @@ enum TxOutputFormat {
 }
 
 enum TxOutputDestinationType {
-  thirdParty,
-  deviceOwned,
+  thirdParty('third_party'),
+  deviceOwned('device_owned');
+
+  final String value;
+  const TxOutputDestinationType(this.value);
 }
 
 enum DatumType {
@@ -177,19 +196,25 @@ enum DRepType {
   scriptHash(1),
   abstain(2),
   noConfidence(3);
-  
+
   final int value;
   const DRepType(this.value);
 }
 
 enum TxAuxiliaryDataType {
-  arbitraryHash,
-  cip36Registration,
+  arbitraryHash(0),
+  cip36Registration(1);
+
+  final int value;
+  const TxAuxiliaryDataType(this.value);
 }
 
 enum CIP36VoteDelegationType {
-  path,
-  key,
+  path('cip36_vote_key_path'),
+  key('cip36_vote_key_keyHex');
+
+  final String value;
+  const CIP36VoteDelegationType(this.value);
 }
 
 enum RequiredSignerType {
@@ -213,3 +238,17 @@ enum VoteOption {
   no,
   abstain,
 }
+
+enum TxAuxiliaryDataSupplementType {
+  cip36VotingRegistration,
+  cip36Registration,
+}
+
+enum CIP36VoteRegistrationFormat {
+  cip15(1),
+  cip36(2);
+
+  final int value;
+  const CIP36VoteRegistrationFormat(this.value);
+}
+

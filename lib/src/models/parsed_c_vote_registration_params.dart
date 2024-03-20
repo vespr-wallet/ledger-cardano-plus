@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/cvote_public_key.dart';
 import 'parsed_c_vote_delegation.dart';
 import 'parsed_output_destination.dart';
 
@@ -10,7 +11,7 @@ class ParsedCVoteRegistrationParams with _$ParsedCVoteRegistrationParams {
 
   const factory ParsedCVoteRegistrationParams({
     required String format,
-    String? votePublicKey,
+    CVotePublicKey? votePublicKey,
     List<int>? votePublicKeyPath,
     List<ParsedCVoteDelegation>? delegations,
     required List<int> stakingPath,

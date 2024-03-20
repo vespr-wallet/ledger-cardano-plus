@@ -16,24 +16,38 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedOutputDestination {
+  TxOutputDestinationType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
+    required TResult Function(TxOutputDestinationType type, String addressHex)
+        thirdParty,
+    required TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)
+        deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult? Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult? Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ParsedOutputDestinationCopyWith<ParsedOutputDestination> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -42,6 +56,8 @@ abstract class $ParsedOutputDestinationCopyWith<$Res> {
   factory $ParsedOutputDestinationCopyWith(ParsedOutputDestination value,
           $Res Function(ParsedOutputDestination) then) =
       _$ParsedOutputDestinationCopyWithImpl<$Res, ParsedOutputDestination>;
+  @useResult
+  $Res call({TxOutputDestinationType type});
 }
 
 /// @nodoc
@@ -54,15 +70,30 @@ class _$ParsedOutputDestinationCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TxOutputDestinationType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$ThirdPartyImplCopyWith<$Res> {
+abstract class _$$ThirdPartyImplCopyWith<$Res>
+    implements $ParsedOutputDestinationCopyWith<$Res> {
   factory _$$ThirdPartyImplCopyWith(
           _$ThirdPartyImpl value, $Res Function(_$ThirdPartyImpl) then) =
       __$$ThirdPartyImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({String addressHex});
+  $Res call({TxOutputDestinationType type, String addressHex});
 }
 
 /// @nodoc
@@ -76,9 +107,14 @@ class __$$ThirdPartyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? addressHex = null,
   }) {
     return _then(_$ThirdPartyImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TxOutputDestinationType,
       addressHex: null == addressHex
           ? _value.addressHex
           : addressHex // ignore: cast_nullable_to_non_nullable
@@ -90,14 +126,17 @@ class __$$ThirdPartyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyImpl extends ThirdParty {
-  const _$ThirdPartyImpl({required this.addressHex}) : super._();
+  const _$ThirdPartyImpl({required this.type, required this.addressHex})
+      : super._();
 
+  @override
+  final TxOutputDestinationType type;
   @override
   final String addressHex;
 
   @override
   String toString() {
-    return 'ParsedOutputDestination.thirdParty(addressHex: $addressHex)';
+    return 'ParsedOutputDestination.thirdParty(type: $type, addressHex: $addressHex)';
   }
 
   @override
@@ -105,12 +144,13 @@ class _$ThirdPartyImpl extends ThirdParty {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThirdPartyImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.addressHex, addressHex) ||
                 other.addressHex == addressHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, addressHex);
+  int get hashCode => Object.hash(runtimeType, type, addressHex);
 
   @JsonKey(ignore: true)
   @override
@@ -121,53 +161,68 @@ class _$ThirdPartyImpl extends ThirdParty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
+    required TResult Function(TxOutputDestinationType type, String addressHex)
+        thirdParty,
+    required TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)
+        deviceOwned,
   }) {
-    return thirdParty(addressHex);
+    return thirdParty(type, addressHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult? Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult? Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
   }) {
-    return thirdParty?.call(addressHex);
+    return thirdParty?.call(type, addressHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
     required TResult orElse(),
   }) {
     if (thirdParty != null) {
-      return thirdParty(addressHex);
+      return thirdParty(type, addressHex);
     }
     return orElse();
   }
 }
 
 abstract class ThirdParty extends ParsedOutputDestination {
-  const factory ThirdParty({required final String addressHex}) =
-      _$ThirdPartyImpl;
+  const factory ThirdParty(
+      {required final TxOutputDestinationType type,
+      required final String addressHex}) = _$ThirdPartyImpl;
   const ThirdParty._() : super._();
 
+  @override
+  TxOutputDestinationType get type;
   String get addressHex;
+  @override
   @JsonKey(ignore: true)
   _$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedImplCopyWith<$Res> {
+abstract class _$$DeviceOwnedImplCopyWith<$Res>
+    implements $ParsedOutputDestinationCopyWith<$Res> {
   factory _$$DeviceOwnedImplCopyWith(
           _$DeviceOwnedImpl value, $Res Function(_$DeviceOwnedImpl) then) =
       __$$DeviceOwnedImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({ParsedAddressParams addressParams});
+  $Res call({TxOutputDestinationType type, ParsedAddressParams addressParams});
 
   $ParsedAddressParamsCopyWith<$Res> get addressParams;
 }
@@ -183,9 +238,14 @@ class __$$DeviceOwnedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? addressParams = null,
   }) {
     return _then(_$DeviceOwnedImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as TxOutputDestinationType,
       addressParams: null == addressParams
           ? _value.addressParams
           : addressParams // ignore: cast_nullable_to_non_nullable
@@ -205,14 +265,17 @@ class __$$DeviceOwnedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedImpl extends DeviceOwned {
-  const _$DeviceOwnedImpl({required this.addressParams}) : super._();
+  const _$DeviceOwnedImpl({required this.type, required this.addressParams})
+      : super._();
 
+  @override
+  final TxOutputDestinationType type;
   @override
   final ParsedAddressParams addressParams;
 
   @override
   String toString() {
-    return 'ParsedOutputDestination.deviceOwned(addressParams: $addressParams)';
+    return 'ParsedOutputDestination.deviceOwned(type: $type, addressParams: $addressParams)';
   }
 
   @override
@@ -220,12 +283,13 @@ class _$DeviceOwnedImpl extends DeviceOwned {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.addressParams, addressParams) ||
                 other.addressParams == addressParams));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, addressParams);
+  int get hashCode => Object.hash(runtimeType, type, addressParams);
 
   @JsonKey(ignore: true)
   @override
@@ -236,30 +300,39 @@ class _$DeviceOwnedImpl extends DeviceOwned {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
+    required TResult Function(TxOutputDestinationType type, String addressHex)
+        thirdParty,
+    required TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)
+        deviceOwned,
   }) {
-    return deviceOwned(addressParams);
+    return deviceOwned(type, addressParams);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult? Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult? Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
   }) {
-    return deviceOwned?.call(addressParams);
+    return deviceOwned?.call(type, addressParams);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
+    TResult Function(TxOutputDestinationType type, String addressHex)?
+        thirdParty,
+    TResult Function(
+            TxOutputDestinationType type, ParsedAddressParams addressParams)?
+        deviceOwned,
     required TResult orElse(),
   }) {
     if (deviceOwned != null) {
-      return deviceOwned(addressParams);
+      return deviceOwned(type, addressParams);
     }
     return orElse();
   }
@@ -267,10 +340,14 @@ class _$DeviceOwnedImpl extends DeviceOwned {
 
 abstract class DeviceOwned extends ParsedOutputDestination {
   const factory DeviceOwned(
-      {required final ParsedAddressParams addressParams}) = _$DeviceOwnedImpl;
+      {required final TxOutputDestinationType type,
+      required final ParsedAddressParams addressParams}) = _$DeviceOwnedImpl;
   const DeviceOwned._() : super._();
 
+  @override
+  TxOutputDestinationType get type;
   ParsedAddressParams get addressParams;
+  @override
   @JsonKey(ignore: true)
   _$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith =>
       throw _privateConstructorUsedError;

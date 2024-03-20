@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedCVoteRegistrationParams {
   String get format => throw _privateConstructorUsedError;
-  String? get votePublicKey => throw _privateConstructorUsedError;
+  CVotePublicKey? get votePublicKey => throw _privateConstructorUsedError;
   List<int>? get votePublicKeyPath => throw _privateConstructorUsedError;
   List<ParsedCVoteDelegation>? get delegations =>
       throw _privateConstructorUsedError;
@@ -30,7 +30,7 @@ mixin _$ParsedCVoteRegistrationParams {
   TResult when<TResult extends Object?>(
     TResult Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -44,7 +44,7 @@ mixin _$ParsedCVoteRegistrationParams {
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -58,7 +58,7 @@ mixin _$ParsedCVoteRegistrationParams {
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -85,7 +85,7 @@ abstract class $ParsedCVoteRegistrationParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String format,
-      String? votePublicKey,
+      CVotePublicKey? votePublicKey,
       List<int>? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
       List<int> stakingPath,
@@ -93,6 +93,7 @@ abstract class $ParsedCVoteRegistrationParamsCopyWith<$Res> {
       String nonce,
       String? votingPurpose});
 
+  $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination;
 }
 
@@ -127,7 +128,7 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
       votePublicKey: freezed == votePublicKey
           ? _value.votePublicKey
           : votePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CVotePublicKey?,
       votePublicKeyPath: freezed == votePublicKeyPath
           ? _value.votePublicKeyPath
           : votePublicKeyPath // ignore: cast_nullable_to_non_nullable
@@ -157,6 +158,18 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
+  $CVotePublicKeyCopyWith<$Res>? get votePublicKey {
+    if (_value.votePublicKey == null) {
+      return null;
+    }
+
+    return $CVotePublicKeyCopyWith<$Res>(_value.votePublicKey!, (value) {
+      return _then(_value.copyWith(votePublicKey: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination {
     return $ParsedOutputDestinationCopyWith<$Res>(_value.paymentDestination,
         (value) {
@@ -176,7 +189,7 @@ abstract class _$$ParsedCVoteRegistrationParamsDataImplCopyWith<$Res>
   @useResult
   $Res call(
       {String format,
-      String? votePublicKey,
+      CVotePublicKey? votePublicKey,
       List<int>? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
       List<int> stakingPath,
@@ -184,6 +197,8 @@ abstract class _$$ParsedCVoteRegistrationParamsDataImplCopyWith<$Res>
       String nonce,
       String? votingPurpose});
 
+  @override
+  $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
   @override
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination;
 }
@@ -218,7 +233,7 @@ class __$$ParsedCVoteRegistrationParamsDataImplCopyWithImpl<$Res>
       votePublicKey: freezed == votePublicKey
           ? _value.votePublicKey
           : votePublicKey // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CVotePublicKey?,
       votePublicKeyPath: freezed == votePublicKeyPath
           ? _value._votePublicKeyPath
           : votePublicKeyPath // ignore: cast_nullable_to_non_nullable
@@ -268,7 +283,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   @override
   final String format;
   @override
-  final String? votePublicKey;
+  final CVotePublicKey? votePublicKey;
   final List<int>? _votePublicKeyPath;
   @override
   List<int>? get votePublicKeyPath {
@@ -356,7 +371,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   TResult when<TResult extends Object?>(
     TResult Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -374,7 +389,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -392,7 +407,7 @@ class _$ParsedCVoteRegistrationParamsDataImpl
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(
             String format,
-            String? votePublicKey,
+            CVotePublicKey? votePublicKey,
             List<int>? votePublicKeyPath,
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
@@ -414,7 +429,7 @@ abstract class ParsedCVoteRegistrationParamsData
     extends ParsedCVoteRegistrationParams {
   const factory ParsedCVoteRegistrationParamsData(
       {required final String format,
-      final String? votePublicKey,
+      final CVotePublicKey? votePublicKey,
       final List<int>? votePublicKeyPath,
       final List<ParsedCVoteDelegation>? delegations,
       required final List<int> stakingPath,
@@ -426,7 +441,7 @@ abstract class ParsedCVoteRegistrationParamsData
   @override
   String get format;
   @override
-  String? get votePublicKey;
+  CVotePublicKey? get votePublicKey;
   @override
   List<int>? get votePublicKeyPath;
   @override

@@ -7,7 +7,7 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {
-  final String? debugName;
+  final String debugName;
 
   final int ins;
   final int p1;
@@ -21,7 +21,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
     required this.p2,
     required this.data,
     this.prependDataLength = true,
-    this.debugName,
+    required this.debugName,
   });
 
   @override
@@ -38,7 +38,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
         }
 
         if (CardanoLedgerApp.debugPrintEnabled) {
-          print("${debugName ?? "SendOperation"}: ${hex.encode(writer.toBytes())}");
+          print("$debugName: ${hex.encode(writer.toBytes())}");
         }
         return [writer.toBytes()];
       });

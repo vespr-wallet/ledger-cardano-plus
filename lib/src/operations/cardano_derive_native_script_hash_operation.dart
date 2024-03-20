@@ -36,6 +36,7 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
           p2: p2Unused,
           data: serializeComplexNativeScriptStart(script.script),
           prependDataLength: true,
+          debugName: 'Add Complex Native Script',
         ),
       ParsedNativeScript_Simple() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
@@ -43,6 +44,7 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
           p2: p2Unused,
           data: serializeSimpleNativeScript(script.script),
           prependDataLength: true,
+          debugName: 'Add Simple Native Script',
         ),
     };
 
@@ -66,6 +68,7 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
         p2: p2Unused,
         data: serializeWholeNativeScriptFinish(displayFormat),
         prependDataLength: true,
+        debugName: 'Finish Whole Native Script',
       ),
     );
 

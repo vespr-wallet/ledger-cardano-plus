@@ -16,6 +16,7 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
       p2: p2Unused,
       data: Uint8List(0),
       prependDataLength: true,
+      debugName: 'Get Cardano Version',
     );
 
     final reader = await send(operation);

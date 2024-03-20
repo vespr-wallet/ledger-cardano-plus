@@ -36,7 +36,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
 
     // final signature = await signTx_finish(send);
 
-    return signature;
+    // return signature;
   }
 
   Future<void> signTx_init(LedgerSendFct send) async {
@@ -50,6 +50,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
         p2: p2Unused,
         data: data,
         prependDataLength: true,
+        debugName: 'Sign Transaction Init',
       ),
     );
   }
@@ -65,7 +66,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
           p2: p2Unused,
           data: data,
           prependDataLength: true,
-          debugName: "SendInput",
+          debugName: 'Sign Transaction Add Inputs',
         ),
       );
     }
@@ -89,6 +90,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
       p2: p2Unused,
       data: serializedAuxData,
       prependDataLength: true,
+      debugName: 'Sign Transaction Set Auxiliary Data',
     ));
 
     if (auxiliaryData is CIP36Registration) {
@@ -102,6 +104,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
           p2: p2Init,
           data: serializedInitData,
           prependDataLength: true,
+          debugName: 'Sign Transaction Set CVote Registration Init',
         ));
       }
 
@@ -114,6 +117,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
           p2: p2VoteKey,
           data: serializedVoteKeyData,
           prependDataLength: true,
+          debugName: 'Sign Transaction Set CVote Registration Vote Key',
         ));
       }
 
@@ -126,6 +130,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
             p2: p2Delegation,
             data: serializedDelegationData,
             prependDataLength: true,
+            debugName: 'Sign Transaction Set CVote Registration Delegation',
           ));
         }
       }
@@ -137,6 +142,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
         p2: p2StakingKey,
         data: serializedStakingKeyData,
         prependDataLength: true,
+        debugName: 'Sign Transaction Set CVote Registration Staking Key',
       ));
 
       final serializedPaymentAddressData =
@@ -147,6 +153,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
         p2: p2PaymentAddress,
         data: serializedPaymentAddressData,
         prependDataLength: true,
+        debugName: 'Sign Transaction Set CVote Registration Payment Address',
       ));
       final serializedNonceData = SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
       await send(SendOperation(
@@ -155,6 +162,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
         p2: p2Nonce,
         data: serializedNonceData,
         prependDataLength: true,
+        debugName: 'Sign Transaction Set CVote Registration Nonce',
       ));
 
       if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
@@ -166,6 +174,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
           p2: p2VotingPurpose,
           data: serializedVotingPurposeData,
           prependDataLength: true,
+          debugName: 'Sign Transaction Set CVote Registration Voting Purpose',
         ));
       }
 
@@ -176,6 +185,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
         p2: p2Confirm,
         data: Uint8List(0), // Sending an empty payload for confirmation
         prependDataLength: true,
+        debugName: 'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
       ));
 
       // Assuming the response format is as expected, extract the auxiliary data hash and signature
@@ -217,6 +227,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
             ...hex.decode(chunk),
           ]),
           prependDataLength: true,
+          debugName: 'Sign Transaction Add Output Chunk',
         ),
       );
       start = end;

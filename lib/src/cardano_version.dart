@@ -14,7 +14,7 @@ class CardanoVersion with _$CardanoVersion {
     required int versionMinor,
     required int versionPatch,
     required bool locked,
-    required Flags_mode flags,
+    required Flags flags,
   }) = _CardanoVersion;
 
   late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
@@ -27,7 +27,7 @@ class CardanoVersion with _$CardanoVersion {
         versionMinor: (versionCode % 10000) ~/ 100,
         versionPatch: versionCode % 100,
         locked: false,
-        flags: const Flags_mode(isDebug: false, isAppXS: false),
+        flags: const Flags(isDebug: false, isAppXS: false),
       );
 }
 

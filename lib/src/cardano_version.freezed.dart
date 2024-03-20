@@ -21,25 +21,25 @@ mixin _$CardanoVersion {
   int get versionMinor => throw _privateConstructorUsedError;
   int get versionPatch => throw _privateConstructorUsedError;
   bool get locked => throw _privateConstructorUsedError;
-  Flags_mode get flags => throw _privateConstructorUsedError;
+  Flags get flags => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)
+            int versionPatch, bool locked, Flags flags)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)?
+            int versionPatch, bool locked, Flags flags)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)?
+            int versionPatch, bool locked, Flags flags)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -62,7 +62,9 @@ abstract class $CardanoVersionCopyWith<$Res> {
       int versionMinor,
       int versionPatch,
       bool locked,
-      Flags_mode flags});
+      Flags flags});
+
+  $FlagsCopyWith<$Res> get flags;
 }
 
 /// @nodoc
@@ -83,7 +85,7 @@ class _$CardanoVersionCopyWithImpl<$Res, $Val extends CardanoVersion>
     Object? versionMinor = null,
     Object? versionPatch = null,
     Object? locked = null,
-    Object? flags = freezed,
+    Object? flags = null,
   }) {
     return _then(_value.copyWith(
       testMode: null == testMode
@@ -106,11 +108,19 @@ class _$CardanoVersionCopyWithImpl<$Res, $Val extends CardanoVersion>
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
               as bool,
-      flags: freezed == flags
+      flags: null == flags
           ? _value.flags
           : flags // ignore: cast_nullable_to_non_nullable
-              as Flags_mode,
+              as Flags,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FlagsCopyWith<$Res> get flags {
+    return $FlagsCopyWith<$Res>(_value.flags, (value) {
+      return _then(_value.copyWith(flags: value) as $Val);
+    });
   }
 }
 
@@ -128,7 +138,10 @@ abstract class _$$CardanoVersionImplCopyWith<$Res>
       int versionMinor,
       int versionPatch,
       bool locked,
-      Flags_mode flags});
+      Flags flags});
+
+  @override
+  $FlagsCopyWith<$Res> get flags;
 }
 
 /// @nodoc
@@ -147,7 +160,7 @@ class __$$CardanoVersionImplCopyWithImpl<$Res>
     Object? versionMinor = null,
     Object? versionPatch = null,
     Object? locked = null,
-    Object? flags = freezed,
+    Object? flags = null,
   }) {
     return _then(_$CardanoVersionImpl(
       testMode: null == testMode
@@ -170,10 +183,10 @@ class __$$CardanoVersionImplCopyWithImpl<$Res>
           ? _value.locked
           : locked // ignore: cast_nullable_to_non_nullable
               as bool,
-      flags: freezed == flags
+      flags: null == flags
           ? _value.flags
           : flags // ignore: cast_nullable_to_non_nullable
-              as Flags_mode,
+              as Flags,
     ));
   }
 }
@@ -202,7 +215,7 @@ class _$CardanoVersionImpl extends _CardanoVersion
   @override
   final bool locked;
   @override
-  final Flags_mode flags;
+  final Flags flags;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -236,18 +249,12 @@ class _$CardanoVersionImpl extends _CardanoVersion
             (identical(other.versionPatch, versionPatch) ||
                 other.versionPatch == versionPatch) &&
             (identical(other.locked, locked) || other.locked == locked) &&
-            const DeepCollectionEquality().equals(other.flags, flags));
+            (identical(other.flags, flags) || other.flags == flags));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      testMode,
-      versionMajor,
-      versionMinor,
-      versionPatch,
-      locked,
-      const DeepCollectionEquality().hash(flags));
+  int get hashCode => Object.hash(runtimeType, testMode, versionMajor,
+      versionMinor, versionPatch, locked, flags);
 
   @JsonKey(ignore: true)
   @override
@@ -260,7 +267,7 @@ class _$CardanoVersionImpl extends _CardanoVersion
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)
+            int versionPatch, bool locked, Flags flags)
         $default,
   ) {
     return $default(
@@ -271,7 +278,7 @@ class _$CardanoVersionImpl extends _CardanoVersion
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
     TResult? Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)?
+            int versionPatch, bool locked, Flags flags)?
         $default,
   ) {
     return $default?.call(
@@ -282,7 +289,7 @@ class _$CardanoVersionImpl extends _CardanoVersion
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
     TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags_mode flags)?
+            int versionPatch, bool locked, Flags flags)?
         $default, {
     required TResult orElse(),
   }) {
@@ -301,7 +308,7 @@ abstract class _CardanoVersion extends CardanoVersion {
       required final int versionMinor,
       required final int versionPatch,
       required final bool locked,
-      required final Flags_mode flags}) = _$CardanoVersionImpl;
+      required final Flags flags}) = _$CardanoVersionImpl;
   _CardanoVersion._() : super._();
 
   @override
@@ -315,7 +322,7 @@ abstract class _CardanoVersion extends CardanoVersion {
   @override
   bool get locked;
   @override
-  Flags_mode get flags;
+  Flags get flags;
   @override
   @JsonKey(ignore: true)
   _$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith =>

@@ -28,6 +28,7 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 /// https://github.com/cardano-foundation/ledgerjs-hw-app-cardano
 class CardanoLedgerApp {
+  static bool debugPrintEnabled = false;
   final Ledger ledger;
   final int accountIndex;
   final LedgerTransformer? transformer;
@@ -150,8 +151,8 @@ class CardanoLedgerApp {
     final params = ParsedAddressParams.shelley(
       type: AddressType.basePaymentKeyStakeKey,
       networkId: CardanoNetwork.mainnet.networkId,
-      spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath),
-      stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
+      spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath, type: SpendingDataSourceType.path),
+      stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath, type: StakingDataSourceType.keyPath),
     );
 
     final operation = CardanoDeriveAddressOperation(
@@ -194,8 +195,7 @@ class CardanoLedgerApp {
 
     return signatures;
   }
-  
-  
+
   Future<Uint8List> signOperationalCertificate(
     LedgerDevice device,
     ParsedOperationalCertificate operationalCertificate,
@@ -224,5 +224,4 @@ class CardanoLedgerApp {
 
     return signature;
   }
-  
 }

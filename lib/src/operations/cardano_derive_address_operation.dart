@@ -29,6 +29,7 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
         p2: p2Unused,
         data: data,
         prependDataLength: true,
+        debugName: 'Derive Address',
       ),
     );
 

@@ -25,6 +25,7 @@ class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<
         p2: p2Unused,
         data: data,
         prependDataLength: true,
+        debugName: 'Sign Operational Certificate',
       ),
     );
     

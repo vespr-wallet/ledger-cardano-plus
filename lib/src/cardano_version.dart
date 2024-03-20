@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/flags.dart';
 
 part 'cardano_version.freezed.dart';
 
@@ -13,13 +14,11 @@ class CardanoVersion with _$CardanoVersion {
     required int versionMinor,
     required int versionPatch,
     required bool locked,
+    required Flags flags,
   }) = _CardanoVersion;
 
-  /// Get the version code.
-  late final int versionCode =
-      versionMajor * 10000 + versionMinor * 100 + versionPatch;
+  late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
-  /// Get the version name.
   late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
@@ -28,5 +27,7 @@ class CardanoVersion with _$CardanoVersion {
         versionMinor: (versionCode % 10000) ~/ 100,
         versionPatch: versionCode % 100,
         locked: false,
+        flags: const Flags(isDebug: false, isAppXS: false),
       );
 }
+

@@ -1,4 +1,5 @@
 import 'dart:typed_data';
+import 'package:ledger_cardano/src/models/flags.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
@@ -15,6 +16,7 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
       p2: p2Unused,
       data: Uint8List(0),
       prependDataLength: true,
+      debugName: 'Get Cardano Version',
     );
 
     final reader = await send(operation);
@@ -28,6 +30,7 @@ class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
       versionMinor: versionMinor,
       versionPatch: versionPatch,
       locked: false,
+      flags: const Flags(isDebug: false, isAppXS: false),
     );
   }
 }

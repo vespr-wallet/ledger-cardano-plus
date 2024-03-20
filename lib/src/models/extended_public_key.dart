@@ -45,7 +45,6 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
         harden + 44,
         harden + 1815,
         harden + 0,
-        //TODO: For Alex: Check if this is the only valid Byron derivation path
       ],
     ExtendedPublicKeyRequest_Stake(accountIndex: final accIndex) => [
         harden + 1852,

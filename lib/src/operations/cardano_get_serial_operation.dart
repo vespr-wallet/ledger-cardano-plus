@@ -22,6 +22,7 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
       p1: p1Unused,
       p2: p2Unused,
       data: data,
+      debugName: 'Get Serial',
     );
 
     final reader = await send(operation);

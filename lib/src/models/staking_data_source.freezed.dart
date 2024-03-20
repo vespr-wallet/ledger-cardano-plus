@@ -16,36 +16,49 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$StakingDataSource {
+  StakingDataSourceType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $StakingDataSourceCopyWith<StakingDataSource> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -54,6 +67,8 @@ abstract class $StakingDataSourceCopyWith<$Res> {
   factory $StakingDataSourceCopyWith(
           StakingDataSource value, $Res Function(StakingDataSource) then) =
       _$StakingDataSourceCopyWithImpl<$Res, StakingDataSource>;
+  @useResult
+  $Res call({StakingDataSourceType type});
 }
 
 /// @nodoc
@@ -65,14 +80,31 @@ class _$StakingDataSourceCopyWithImpl<$Res, $Val extends StakingDataSource>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceNoneImplCopyWith<$Res> {
+abstract class _$$StakingDataSourceNoneImplCopyWith<$Res>
+    implements $StakingDataSourceCopyWith<$Res> {
   factory _$$StakingDataSourceNoneImplCopyWith(
           _$StakingDataSourceNoneImpl value,
           $Res Function(_$StakingDataSourceNoneImpl) then) =
       __$$StakingDataSourceNoneImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({StakingDataSourceType type});
 }
 
 /// @nodoc
@@ -82,85 +114,128 @@ class __$$StakingDataSourceNoneImplCopyWithImpl<$Res>
   __$$StakingDataSourceNoneImplCopyWithImpl(_$StakingDataSourceNoneImpl _value,
       $Res Function(_$StakingDataSourceNoneImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_$StakingDataSourceNoneImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$StakingDataSourceNoneImpl extends StakingDataSourceNone {
-  const _$StakingDataSourceNoneImpl() : super._();
+  const _$StakingDataSourceNoneImpl({required this.type}) : super._();
+
+  @override
+  final StakingDataSourceType type;
 
   @override
   String toString() {
-    return 'StakingDataSource.none()';
+    return 'StakingDataSource.none(type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$StakingDataSourceNoneImpl);
+            other is _$StakingDataSourceNoneImpl &&
+            (identical(other.type, type) || other.type == type));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, type);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StakingDataSourceNoneImplCopyWith<_$StakingDataSourceNoneImpl>
+      get copyWith => __$$StakingDataSourceNoneImplCopyWithImpl<
+          _$StakingDataSourceNoneImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) {
-    return none();
+    return none(type);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) {
-    return none?.call();
+    return none?.call(type);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) {
     if (none != null) {
-      return none();
+      return none(type);
     }
     return orElse();
   }
 }
 
 abstract class StakingDataSourceNone extends StakingDataSource {
-  const factory StakingDataSourceNone() = _$StakingDataSourceNoneImpl;
+  const factory StakingDataSourceNone(
+          {required final StakingDataSourceType type}) =
+      _$StakingDataSourceNoneImpl;
   const StakingDataSourceNone._() : super._();
+
+  @override
+  StakingDataSourceType get type;
+  @override
+  @JsonKey(ignore: true)
+  _$$StakingDataSourceNoneImplCopyWith<_$StakingDataSourceNoneImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceKeyPathImplCopyWith<$Res> {
+abstract class _$$StakingDataSourceKeyPathImplCopyWith<$Res>
+    implements $StakingDataSourceCopyWith<$Res> {
   factory _$$StakingDataSourceKeyPathImplCopyWith(
           _$StakingDataSourceKeyPathImpl value,
           $Res Function(_$StakingDataSourceKeyPathImpl) then) =
       __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({List<int> path});
+  $Res call({StakingDataSourceType type, List<int> path});
 }
 
 /// @nodoc
@@ -176,9 +251,14 @@ class __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$StakingDataSourceKeyPathImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -190,10 +270,13 @@ class __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
-  const _$StakingDataSourceKeyPathImpl({required final List<int> path})
+  const _$StakingDataSourceKeyPathImpl(
+      {required this.type, required final List<int> path})
       : _path = path,
         super._();
 
+  @override
+  final StakingDataSourceType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -204,7 +287,7 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
 
   @override
   String toString() {
-    return 'StakingDataSource.keyPath(path: $path)';
+    return 'StakingDataSource.keyPath(type: $type, path: $path)';
   }
 
   @override
@@ -212,12 +295,13 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakingDataSourceKeyPathImpl &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -229,66 +313,80 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) {
-    return keyPath(path);
+    return keyPath(type, path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) {
-    return keyPath?.call(path);
+    return keyPath?.call(type, path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) {
     if (keyPath != null) {
-      return keyPath(path);
+      return keyPath(type, path);
     }
     return orElse();
   }
 }
 
 abstract class StakingDataSourceKeyPath extends StakingDataSource {
-  const factory StakingDataSourceKeyPath({required final List<int> path}) =
-      _$StakingDataSourceKeyPathImpl;
+  const factory StakingDataSourceKeyPath(
+      {required final StakingDataSourceType type,
+      required final List<int> path}) = _$StakingDataSourceKeyPathImpl;
   const StakingDataSourceKeyPath._() : super._();
 
+  @override
+  StakingDataSourceType get type;
   List<int> get path;
+  @override
   @JsonKey(ignore: true)
   _$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceKeyHashImplCopyWith<$Res> {
+abstract class _$$StakingDataSourceKeyHashImplCopyWith<$Res>
+    implements $StakingDataSourceCopyWith<$Res> {
   factory _$$StakingDataSourceKeyHashImplCopyWith(
           _$StakingDataSourceKeyHashImpl value,
           $Res Function(_$StakingDataSourceKeyHashImpl) then) =
       __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({String keyHashHex});
+  $Res call({StakingDataSourceType type, String keyHashHex});
 }
 
 /// @nodoc
@@ -304,9 +402,14 @@ class __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? keyHashHex = null,
   }) {
     return _then(_$StakingDataSourceKeyHashImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
       keyHashHex: null == keyHashHex
           ? _value.keyHashHex
           : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -318,14 +421,18 @@ class __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakingDataSourceKeyHashImpl extends StakingDataSourceKeyHash {
-  const _$StakingDataSourceKeyHashImpl({required this.keyHashHex}) : super._();
+  const _$StakingDataSourceKeyHashImpl(
+      {required this.type, required this.keyHashHex})
+      : super._();
 
+  @override
+  final StakingDataSourceType type;
   @override
   final String keyHashHex;
 
   @override
   String toString() {
-    return 'StakingDataSource.keyHash(keyHashHex: $keyHashHex)';
+    return 'StakingDataSource.keyHash(type: $type, keyHashHex: $keyHashHex)';
   }
 
   @override
@@ -333,12 +440,13 @@ class _$StakingDataSourceKeyHashImpl extends StakingDataSourceKeyHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakingDataSourceKeyHashImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.keyHashHex, keyHashHex) ||
                 other.keyHashHex == keyHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyHashHex);
+  int get hashCode => Object.hash(runtimeType, type, keyHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -350,66 +458,84 @@ class _$StakingDataSourceKeyHashImpl extends StakingDataSourceKeyHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) {
-    return keyHash(keyHashHex);
+    return keyHash(type, keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) {
-    return keyHash?.call(keyHashHex);
+    return keyHash?.call(type, keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) {
     if (keyHash != null) {
-      return keyHash(keyHashHex);
+      return keyHash(type, keyHashHex);
     }
     return orElse();
   }
 }
 
 abstract class StakingDataSourceKeyHash extends StakingDataSource {
-  const factory StakingDataSourceKeyHash({required final String keyHashHex}) =
-      _$StakingDataSourceKeyHashImpl;
+  const factory StakingDataSourceKeyHash(
+      {required final StakingDataSourceType type,
+      required final String keyHashHex}) = _$StakingDataSourceKeyHashImpl;
   const StakingDataSourceKeyHash._() : super._();
 
+  @override
+  StakingDataSourceType get type;
   String get keyHashHex;
+  @override
   @JsonKey(ignore: true)
   _$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceBlockchainPointerImplCopyWith<$Res> {
+abstract class _$$StakingDataSourceBlockchainPointerImplCopyWith<$Res>
+    implements $StakingDataSourceCopyWith<$Res> {
   factory _$$StakingDataSourceBlockchainPointerImplCopyWith(
           _$StakingDataSourceBlockchainPointerImpl value,
           $Res Function(_$StakingDataSourceBlockchainPointerImpl) then) =
       __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({int blockIndex, int txIndex, int certificateIndex});
+  $Res call(
+      {StakingDataSourceType type,
+      int blockIndex,
+      int txIndex,
+      int certificateIndex});
 }
 
 /// @nodoc
@@ -425,11 +551,16 @@ class __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? blockIndex = null,
     Object? txIndex = null,
     Object? certificateIndex = null,
   }) {
     return _then(_$StakingDataSourceBlockchainPointerImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
       blockIndex: null == blockIndex
           ? _value.blockIndex
           : blockIndex // ignore: cast_nullable_to_non_nullable
@@ -451,11 +582,14 @@ class __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res>
 class _$StakingDataSourceBlockchainPointerImpl
     extends StakingDataSourceBlockchainPointer {
   const _$StakingDataSourceBlockchainPointerImpl(
-      {required this.blockIndex,
+      {required this.type,
+      required this.blockIndex,
       required this.txIndex,
       required this.certificateIndex})
       : super._();
 
+  @override
+  final StakingDataSourceType type;
   @override
   final int blockIndex;
   @override
@@ -465,7 +599,7 @@ class _$StakingDataSourceBlockchainPointerImpl
 
   @override
   String toString() {
-    return 'StakingDataSource.blockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
+    return 'StakingDataSource.blockchainPointer(type: $type, blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
   }
 
   @override
@@ -473,6 +607,7 @@ class _$StakingDataSourceBlockchainPointerImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakingDataSourceBlockchainPointerImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.blockIndex, blockIndex) ||
                 other.blockIndex == blockIndex) &&
             (identical(other.txIndex, txIndex) || other.txIndex == txIndex) &&
@@ -482,7 +617,7 @@ class _$StakingDataSourceBlockchainPointerImpl
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, blockIndex, txIndex, certificateIndex);
+      Object.hash(runtimeType, type, blockIndex, txIndex, certificateIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -495,42 +630,50 @@ class _$StakingDataSourceBlockchainPointerImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) {
-    return blockchainPointer(blockIndex, txIndex, certificateIndex);
+    return blockchainPointer(type, blockIndex, txIndex, certificateIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) {
-    return blockchainPointer?.call(blockIndex, txIndex, certificateIndex);
+    return blockchainPointer?.call(type, blockIndex, txIndex, certificateIndex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) {
     if (blockchainPointer != null) {
-      return blockchainPointer(blockIndex, txIndex, certificateIndex);
+      return blockchainPointer(type, blockIndex, txIndex, certificateIndex);
     }
     return orElse();
   }
@@ -538,15 +681,19 @@ class _$StakingDataSourceBlockchainPointerImpl
 
 abstract class StakingDataSourceBlockchainPointer extends StakingDataSource {
   const factory StakingDataSourceBlockchainPointer(
-          {required final int blockIndex,
+          {required final StakingDataSourceType type,
+          required final int blockIndex,
           required final int txIndex,
           required final int certificateIndex}) =
       _$StakingDataSourceBlockchainPointerImpl;
   const StakingDataSourceBlockchainPointer._() : super._();
 
+  @override
+  StakingDataSourceType get type;
   int get blockIndex;
   int get txIndex;
   int get certificateIndex;
+  @override
   @JsonKey(ignore: true)
   _$$StakingDataSourceBlockchainPointerImplCopyWith<
           _$StakingDataSourceBlockchainPointerImpl>
@@ -554,13 +701,15 @@ abstract class StakingDataSourceBlockchainPointer extends StakingDataSource {
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceScriptHashImplCopyWith<$Res> {
+abstract class _$$StakingDataSourceScriptHashImplCopyWith<$Res>
+    implements $StakingDataSourceCopyWith<$Res> {
   factory _$$StakingDataSourceScriptHashImplCopyWith(
           _$StakingDataSourceScriptHashImpl value,
           $Res Function(_$StakingDataSourceScriptHashImpl) then) =
       __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({String scriptHashHex});
+  $Res call({StakingDataSourceType type, String scriptHashHex});
 }
 
 /// @nodoc
@@ -576,9 +725,14 @@ class __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? scriptHashHex = null,
   }) {
     return _then(_$StakingDataSourceScriptHashImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceType,
       scriptHashHex: null == scriptHashHex
           ? _value.scriptHashHex
           : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -590,15 +744,18 @@ class __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash {
-  const _$StakingDataSourceScriptHashImpl({required this.scriptHashHex})
+  const _$StakingDataSourceScriptHashImpl(
+      {required this.type, required this.scriptHashHex})
       : super._();
 
+  @override
+  final StakingDataSourceType type;
   @override
   final String scriptHashHex;
 
   @override
   String toString() {
-    return 'StakingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
+    return 'StakingDataSource.scriptHash(type: $type, scriptHashHex: $scriptHashHex)';
   }
 
   @override
@@ -606,12 +763,13 @@ class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakingDataSourceScriptHashImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.scriptHashHex, scriptHashHex) ||
                 other.scriptHashHex == scriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, scriptHashHex);
+  int get hashCode => Object.hash(runtimeType, type, scriptHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -623,42 +781,50 @@ class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
+    required TResult Function(StakingDataSourceType type) none,
+    required TResult Function(StakingDataSourceType type, List<int> path)
+        keyPath,
+    required TResult Function(StakingDataSourceType type, String keyHashHex)
+        keyHash,
+    required TResult Function(StakingDataSourceType type, int blockIndex,
+            int txIndex, int certificateIndex)
         blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function(StakingDataSourceType type, String scriptHashHex)
+        scriptHash,
   }) {
-    return scriptHash(scriptHashHex);
+    return scriptHash(type, scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult? Function(StakingDataSourceType type)? none,
+    TResult? Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult? Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult? Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
   }) {
-    return scriptHash?.call(scriptHashHex);
+    return scriptHash?.call(type, scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
+    TResult Function(StakingDataSourceType type)? none,
+    TResult Function(StakingDataSourceType type, List<int> path)? keyPath,
+    TResult Function(StakingDataSourceType type, String keyHashHex)? keyHash,
+    TResult Function(StakingDataSourceType type, int blockIndex, int txIndex,
+            int certificateIndex)?
         blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function(StakingDataSourceType type, String scriptHashHex)?
+        scriptHash,
     required TResult orElse(),
   }) {
     if (scriptHash != null) {
-      return scriptHash(scriptHashHex);
+      return scriptHash(type, scriptHashHex);
     }
     return orElse();
   }
@@ -666,11 +832,14 @@ class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash {
 
 abstract class StakingDataSourceScriptHash extends StakingDataSource {
   const factory StakingDataSourceScriptHash(
-          {required final String scriptHashHex}) =
-      _$StakingDataSourceScriptHashImpl;
+      {required final StakingDataSourceType type,
+      required final String scriptHashHex}) = _$StakingDataSourceScriptHashImpl;
   const StakingDataSourceScriptHash._() : super._();
 
+  @override
+  StakingDataSourceType get type;
   String get scriptHashHex;
+  @override
   @JsonKey(ignore: true)
   _$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl>
       get copyWith => throw _privateConstructorUsedError;

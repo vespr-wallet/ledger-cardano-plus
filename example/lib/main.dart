@@ -12,6 +12,7 @@ import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 
 void main() {
+  CardanoLedgerApp.debugPrintEnabled = true;
   runApp(const MyApp());
 }
 

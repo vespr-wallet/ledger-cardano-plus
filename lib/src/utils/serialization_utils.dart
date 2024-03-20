@@ -5,6 +5,7 @@ import 'package:ledger_cardano/src/models/cvote_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_c_vote_delegation.dart';
 import 'package:ledger_cardano/src/models/parsed_c_vote_registration_params.dart';
+import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
@@ -355,6 +356,14 @@ class SerializationUtils {
       writer.write(serializeSpendingDataSource(spending));
       writer.write(serializeStakingDataSource(staking));
 
+      return writer.toBytes();
+    });
+  }
+  
+   static Uint8List serializeTxInput(ParsedInput input) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writeSerializedHex(writer, input.txHashHex);
+      writer.writeUint32(input.outputIndex);
       return writer.toBytes();
     });
   }

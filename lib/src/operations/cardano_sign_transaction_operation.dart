@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
@@ -71,6 +72,154 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
       );
     }
   }
+
+  Future<void> signTx_setFee(String fee, LedgerSendFct send) async {
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageFee, // Assuming p1StageFee is defined in constants.dart
+      p2: p2Unused,
+      data: SerializationUtils.serializeCoin(fee), // Assuming the existence of a serializeCoin method
+      prependDataLength: true,
+      debugName: 'Sign Transaction Set Fee',
+    ));
+  }
+
+  Future<void> signTx_setTtl(String ttl, LedgerSendFct send) async {
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageTtl, // Assuming p1StageTtl is defined in constants.dart
+      p2: p2Unused,
+      data: SerializationUtils.serializeTxTtl(ttl), // Assuming the existence of a serializeTxTtl method
+      prependDataLength: true,
+      debugName: 'Sign Transaction Set TTL',
+    ));
+  }
+  
+  Future<void> signTx_addCertificate(
+  ParsedCertificate certificate,
+  CardanoVersion version,
+  LedgerSendFct send,
+) async {
+
+  // Serialize the certificate data
+  final Uint8List data = SerializationUtils.serializeTxCertificate(certificate, version);
+
+  // Send the certificate data
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates, // Assuming p1StageCertificates is defined in constants.dart
+    p2: p2Unused,
+    data: data,
+    prependDataLength: true,
+    debugName: 'Sign Transaction Add Certificate',
+  ));
+
+  // Additional data for pool certificate
+  if (certificate is StakePoolRegistration) {
+    if (VersionCompatibility.checkVersionCompatibility(version).supportsPoolRegistrationAsOperator) {
+      await signTx_addStakePoolRegistrationCertificate(certificate, send);
+    }
+  }
+}
+
+Future<void> signTx_addStakePoolRegistrationCertificate(
+  ParsedCertificate certificate,
+  LedgerSendFct send,
+) async {
+  if (certificate is! StakePoolRegistration) {
+    throw ValidationException('Invalid certificate type');
+  }
+  final  poolParams = certificate;
+  // Assuming SerializationUtils has methods for serializing pool parameters
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2InitPool, // Assuming p2Init and others are defined in constants.dart
+    data: SerializationUtils.serializePoolInitialParams(poolParams.pool),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Init',
+  ));
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2PoolKey,
+    data: SerializationUtils.serializePoolKey(poolParams.pool.poolKey),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Pool Key',
+  ));
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2VrfKey,
+    data: Uint8List.fromList(hex.decode(poolParams.pool.vrfHashHex)),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration VRF Key',
+  ));
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2Financials,
+    data: SerializationUtils.serializeFinancials(poolParams.pool),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Financials',
+  ));
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2RewardAccount,
+    data: SerializationUtils.serializePoolRewardAccount(poolParams.pool.rewardAccount),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Reward Account',
+  ));
+
+  for (final owner in poolParams.pool.owners) {
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageCertificates,
+      p2: p2Owners,
+      data: SerializationUtils.serializePoolOwner(owner),
+      prependDataLength: true,
+      debugName: 'Sign Transaction Stake Pool Registration Owner',
+    ));
+  }
+
+  for (final relay in poolParams.pool.relays) {
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageCertificates,
+      p2: p2Relays,
+      data: SerializationUtils.serializePoolRelay(relay),
+      prependDataLength: true,
+      debugName: 'Sign Transaction Stake Pool Registration Relay',
+    ));
+  }
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2Metadata,
+    data: SerializationUtils.serializePoolMetadata(poolParams.pool.metadata),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Metadata',
+  ));
+
+  await send(SendOperation(
+    ins: InstructionType.signTransaction.insValue,
+    p1: p1StageCertificates,
+    p2: p2Confirmation,
+    data: Uint8List(0),
+    prependDataLength: true,
+    debugName: 'Sign Transaction Stake Pool Registration Confirmation',
+  ));
+}
+ 
+
+  
+  
 
   Future<TxAuxiliaryDataSupplement?> signTx_setAuxiliaryData(
     ParsedTxAuxiliaryData auxiliaryData,

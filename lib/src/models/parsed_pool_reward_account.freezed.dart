@@ -16,24 +16,34 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedPoolRewardAccount {
+  PoolRewardAccountType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
+    required TResult Function(PoolRewardAccountType type, List<int> path)
+        deviceOwned,
+    required TResult Function(
+            PoolRewardAccountType type, String rewardAccountHex)
+        thirdParty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
+    TResult? Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult? Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
+    TResult Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ParsedPoolRewardAccountCopyWith<ParsedPoolRewardAccount> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -42,6 +52,8 @@ abstract class $ParsedPoolRewardAccountCopyWith<$Res> {
   factory $ParsedPoolRewardAccountCopyWith(ParsedPoolRewardAccount value,
           $Res Function(ParsedPoolRewardAccount) then) =
       _$ParsedPoolRewardAccountCopyWithImpl<$Res, ParsedPoolRewardAccount>;
+  @useResult
+  $Res call({PoolRewardAccountType type});
 }
 
 /// @nodoc
@@ -54,16 +66,31 @@ class _$ParsedPoolRewardAccountCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PoolRewardAccountType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedPoolRewardAccountImplCopyWith<$Res> {
+abstract class _$$DeviceOwnedPoolRewardAccountImplCopyWith<$Res>
+    implements $ParsedPoolRewardAccountCopyWith<$Res> {
   factory _$$DeviceOwnedPoolRewardAccountImplCopyWith(
           _$DeviceOwnedPoolRewardAccountImpl value,
           $Res Function(_$DeviceOwnedPoolRewardAccountImpl) then) =
       __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({List<int> path});
+  $Res call({PoolRewardAccountType type, List<int> path});
 }
 
 /// @nodoc
@@ -79,9 +106,14 @@ class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$DeviceOwnedPoolRewardAccountImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PoolRewardAccountType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -93,10 +125,13 @@ class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
-  const _$DeviceOwnedPoolRewardAccountImpl({required final List<int> path})
+  const _$DeviceOwnedPoolRewardAccountImpl(
+      {required this.type, required final List<int> path})
       : _path = path,
         super._();
 
+  @override
+  final PoolRewardAccountType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -107,7 +142,7 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
 
   @override
   String toString() {
-    return 'ParsedPoolRewardAccount.deviceOwned(path: $path)';
+    return 'ParsedPoolRewardAccount.deviceOwned(type: $type, path: $path)';
   }
 
   @override
@@ -115,12 +150,13 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedPoolRewardAccountImpl &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -133,41 +169,50 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
+    required TResult Function(PoolRewardAccountType type, List<int> path)
+        deviceOwned,
+    required TResult Function(
+            PoolRewardAccountType type, String rewardAccountHex)
+        thirdParty,
   }) {
-    return deviceOwned(path);
+    return deviceOwned(type, path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
+    TResult? Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult? Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
   }) {
-    return deviceOwned?.call(path);
+    return deviceOwned?.call(type, path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
+    TResult Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
     required TResult orElse(),
   }) {
     if (deviceOwned != null) {
-      return deviceOwned(path);
+      return deviceOwned(type, path);
     }
     return orElse();
   }
 }
 
 abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
-  const factory DeviceOwnedPoolRewardAccount({required final List<int> path}) =
-      _$DeviceOwnedPoolRewardAccountImpl;
+  const factory DeviceOwnedPoolRewardAccount(
+      {required final PoolRewardAccountType type,
+      required final List<int> path}) = _$DeviceOwnedPoolRewardAccountImpl;
   const DeviceOwnedPoolRewardAccount._() : super._();
 
+  @override
+  PoolRewardAccountType get type;
   List<int> get path;
+  @override
   @JsonKey(ignore: true)
   _$$DeviceOwnedPoolRewardAccountImplCopyWith<
           _$DeviceOwnedPoolRewardAccountImpl>
@@ -175,13 +220,15 @@ abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
 }
 
 /// @nodoc
-abstract class _$$ThirdPartyPoolRewardAccountImplCopyWith<$Res> {
+abstract class _$$ThirdPartyPoolRewardAccountImplCopyWith<$Res>
+    implements $ParsedPoolRewardAccountCopyWith<$Res> {
   factory _$$ThirdPartyPoolRewardAccountImplCopyWith(
           _$ThirdPartyPoolRewardAccountImpl value,
           $Res Function(_$ThirdPartyPoolRewardAccountImpl) then) =
       __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({String rewardAccountHex});
+  $Res call({PoolRewardAccountType type, String rewardAccountHex});
 }
 
 /// @nodoc
@@ -197,9 +244,14 @@ class __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? rewardAccountHex = null,
   }) {
     return _then(_$ThirdPartyPoolRewardAccountImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as PoolRewardAccountType,
       rewardAccountHex: null == rewardAccountHex
           ? _value.rewardAccountHex
           : rewardAccountHex // ignore: cast_nullable_to_non_nullable
@@ -211,15 +263,18 @@ class __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
-  const _$ThirdPartyPoolRewardAccountImpl({required this.rewardAccountHex})
+  const _$ThirdPartyPoolRewardAccountImpl(
+      {required this.type, required this.rewardAccountHex})
       : super._();
 
+  @override
+  final PoolRewardAccountType type;
   @override
   final String rewardAccountHex;
 
   @override
   String toString() {
-    return 'ParsedPoolRewardAccount.thirdParty(rewardAccountHex: $rewardAccountHex)';
+    return 'ParsedPoolRewardAccount.thirdParty(type: $type, rewardAccountHex: $rewardAccountHex)';
   }
 
   @override
@@ -227,12 +282,13 @@ class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThirdPartyPoolRewardAccountImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.rewardAccountHex, rewardAccountHex) ||
                 other.rewardAccountHex == rewardAccountHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, rewardAccountHex);
+  int get hashCode => Object.hash(runtimeType, type, rewardAccountHex);
 
   @JsonKey(ignore: true)
   @override
@@ -244,30 +300,35 @@ class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
+    required TResult Function(PoolRewardAccountType type, List<int> path)
+        deviceOwned,
+    required TResult Function(
+            PoolRewardAccountType type, String rewardAccountHex)
+        thirdParty,
   }) {
-    return thirdParty(rewardAccountHex);
+    return thirdParty(type, rewardAccountHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
+    TResult? Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult? Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
   }) {
-    return thirdParty?.call(rewardAccountHex);
+    return thirdParty?.call(type, rewardAccountHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
+    TResult Function(PoolRewardAccountType type, List<int> path)? deviceOwned,
+    TResult Function(PoolRewardAccountType type, String rewardAccountHex)?
+        thirdParty,
     required TResult orElse(),
   }) {
     if (thirdParty != null) {
-      return thirdParty(rewardAccountHex);
+      return thirdParty(type, rewardAccountHex);
     }
     return orElse();
   }
@@ -275,11 +336,15 @@ class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
 
 abstract class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {
   const factory ThirdPartyPoolRewardAccount(
-          {required final String rewardAccountHex}) =
+          {required final PoolRewardAccountType type,
+          required final String rewardAccountHex}) =
       _$ThirdPartyPoolRewardAccountImpl;
   const ThirdPartyPoolRewardAccount._() : super._();
 
+  @override
+  PoolRewardAccountType get type;
   String get rewardAccountHex;
+  @override
   @JsonKey(ignore: true)
   _$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl>
       get copyWith => throw _privateConstructorUsedError;

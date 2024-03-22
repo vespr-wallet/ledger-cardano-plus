@@ -14,6 +14,16 @@ const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 const int keyHashLength = 56;
 
+const int p2InitPool = 0x30;
+const int p2PoolKey = 0x31;
+const int p2VrfKey = 0x32;
+const int p2Financials = 0x33;
+const int p2RewardAccount = 0x34;
+const int p2Owners = 0x35;
+const int p2Relays = 0x36;
+const int p2Metadata = 0x37;
+const int p2Confirmation = 0x38;
+
 const int datumHashLength = 64;
 
 const int scriptHashLength = 56;
@@ -260,4 +270,73 @@ enum CIP36VoteRegistrationFormat {
 
   final int encodingValue;
   const CIP36VoteRegistrationFormat(this.encodingValue);
+}
+
+enum CertificateType {
+  stakeRegistration(0),
+  stakeDeregistration(1),
+  stakeDelegation(2),
+  stakePoolRegistration(3),
+  stakePoolRetirement(4),
+  stakeRegistrationConway(7),
+  stakeDeregistrationConway(8),
+  voteDelegation(9),
+  authorizeCommitteeHot(14),
+  resignCommitteeCold(15),
+  dRepRegistration(16),
+  dRepDeregistration(17),
+  dRepUpdate(18);
+
+  final int value;
+  const CertificateType(this.value);
+}
+
+enum CredentialType {
+  keyPath(0),
+  keyHash(2),
+  scriptHash(1);
+
+  final int value;
+  const CredentialType(this.value);
+}
+
+enum PoolKeyType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolKeyType(this.encodingValue);
+}
+
+enum PoolRewardAccountType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolRewardAccountType(this.encodingValue);
+}
+
+enum PoolOwnerType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolOwnerType(this.encodingValue);
+}
+
+enum RelayType {
+  /// Relay is a single host specified with IPv4 or IPv6
+  /// @see [SingleHostIpAddrRelayParams]
+  singleHostIpAddr(0),
+
+  /// Relay is a single host specified as dns name
+  /// @see [SingleHostHostnameRelayParams]
+  singleHostHostname(1),
+
+  /// Relay is multiple hosts reachable under dns name
+  /// @see [MultiHostRelayParams]
+  multiHost(2);
+
+  final int value;
+  const RelayType(this.value);
 }

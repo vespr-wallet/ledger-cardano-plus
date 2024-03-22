@@ -7,6 +7,12 @@ const int maxChunkSize = 255;
 const int signTxIncludedNo = 1;
 const int signTxIncludedYes = 2;
 
+const int p2MintBasicData = 0x30;
+const int p2MintConfirm = 0x33;
+
+const int p2AssetGroup = 0x31;
+const int p2Token = 0x32;
+
 const int p1Unused = 0x00;
 const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
@@ -238,8 +244,11 @@ enum CIP36VoteDelegationType {
 }
 
 enum RequiredSignerType {
-  hash,
-  path,
+  hash1(1),
+  path0(0);
+  
+  final int value;
+  const RequiredSignerType(this.value);
 }
 
 enum VoterType {

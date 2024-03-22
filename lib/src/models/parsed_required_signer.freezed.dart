@@ -16,24 +16,29 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedRequiredSigner {
+  RequiredSignerType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
+    required TResult Function(RequiredSignerType type, String hashHex) hash,
+    required TResult Function(RequiredSignerType type, List<int> path) path,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
+    TResult? Function(RequiredSignerType type, String hashHex)? hash,
+    TResult? Function(RequiredSignerType type, List<int> path)? path,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
+    TResult Function(RequiredSignerType type, String hashHex)? hash,
+    TResult Function(RequiredSignerType type, List<int> path)? path,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $ParsedRequiredSignerCopyWith<ParsedRequiredSigner> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -42,6 +47,8 @@ abstract class $ParsedRequiredSignerCopyWith<$Res> {
   factory $ParsedRequiredSignerCopyWith(ParsedRequiredSigner value,
           $Res Function(ParsedRequiredSigner) then) =
       _$ParsedRequiredSignerCopyWithImpl<$Res, ParsedRequiredSigner>;
+  @useResult
+  $Res call({RequiredSignerType type});
 }
 
 /// @nodoc
@@ -54,15 +61,30 @@ class _$ParsedRequiredSignerCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as RequiredSignerType,
+    ) as $Val);
+  }
 }
 
 /// @nodoc
-abstract class _$$RequiredSignerHashImplCopyWith<$Res> {
+abstract class _$$RequiredSignerHashImplCopyWith<$Res>
+    implements $ParsedRequiredSignerCopyWith<$Res> {
   factory _$$RequiredSignerHashImplCopyWith(_$RequiredSignerHashImpl value,
           $Res Function(_$RequiredSignerHashImpl) then) =
       __$$RequiredSignerHashImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({String hashHex});
+  $Res call({RequiredSignerType type, String hashHex});
 }
 
 /// @nodoc
@@ -76,9 +98,14 @@ class __$$RequiredSignerHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? hashHex = null,
   }) {
     return _then(_$RequiredSignerHashImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as RequiredSignerType,
       hashHex: null == hashHex
           ? _value.hashHex
           : hashHex // ignore: cast_nullable_to_non_nullable
@@ -90,14 +117,17 @@ class __$$RequiredSignerHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RequiredSignerHashImpl extends RequiredSignerHash {
-  const _$RequiredSignerHashImpl({required this.hashHex}) : super._();
+  const _$RequiredSignerHashImpl({required this.type, required this.hashHex})
+      : super._();
 
+  @override
+  final RequiredSignerType type;
   @override
   final String hashHex;
 
   @override
   String toString() {
-    return 'ParsedRequiredSigner.hash(hashHex: $hashHex)';
+    return 'ParsedRequiredSigner.hash(type: $type, hashHex: $hashHex)';
   }
 
   @override
@@ -105,11 +135,12 @@ class _$RequiredSignerHashImpl extends RequiredSignerHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RequiredSignerHashImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, hashHex);
+  int get hashCode => Object.hash(runtimeType, type, hashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -121,53 +152,59 @@ class _$RequiredSignerHashImpl extends RequiredSignerHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
+    required TResult Function(RequiredSignerType type, String hashHex) hash,
+    required TResult Function(RequiredSignerType type, List<int> path) path,
   }) {
-    return hash(hashHex);
+    return hash(type, hashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
+    TResult? Function(RequiredSignerType type, String hashHex)? hash,
+    TResult? Function(RequiredSignerType type, List<int> path)? path,
   }) {
-    return hash?.call(hashHex);
+    return hash?.call(type, hashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
+    TResult Function(RequiredSignerType type, String hashHex)? hash,
+    TResult Function(RequiredSignerType type, List<int> path)? path,
     required TResult orElse(),
   }) {
     if (hash != null) {
-      return hash(hashHex);
+      return hash(type, hashHex);
     }
     return orElse();
   }
 }
 
 abstract class RequiredSignerHash extends ParsedRequiredSigner {
-  const factory RequiredSignerHash({required final String hashHex}) =
-      _$RequiredSignerHashImpl;
+  const factory RequiredSignerHash(
+      {required final RequiredSignerType type,
+      required final String hashHex}) = _$RequiredSignerHashImpl;
   const RequiredSignerHash._() : super._();
 
+  @override
+  RequiredSignerType get type;
   String get hashHex;
+  @override
   @JsonKey(ignore: true)
   _$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RequiredSignerPathImplCopyWith<$Res> {
+abstract class _$$RequiredSignerPathImplCopyWith<$Res>
+    implements $ParsedRequiredSignerCopyWith<$Res> {
   factory _$$RequiredSignerPathImplCopyWith(_$RequiredSignerPathImpl value,
           $Res Function(_$RequiredSignerPathImpl) then) =
       __$$RequiredSignerPathImplCopyWithImpl<$Res>;
+  @override
   @useResult
-  $Res call({List<int> path});
+  $Res call({RequiredSignerType type, List<int> path});
 }
 
 /// @nodoc
@@ -181,9 +218,14 @@ class __$$RequiredSignerPathImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$RequiredSignerPathImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as RequiredSignerType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -195,10 +237,13 @@ class __$$RequiredSignerPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RequiredSignerPathImpl extends RequiredSignerPath {
-  const _$RequiredSignerPathImpl({required final List<int> path})
+  const _$RequiredSignerPathImpl(
+      {required this.type, required final List<int> path})
       : _path = path,
         super._();
 
+  @override
+  final RequiredSignerType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -209,7 +254,7 @@ class _$RequiredSignerPathImpl extends RequiredSignerPath {
 
   @override
   String toString() {
-    return 'ParsedRequiredSigner.path(path: $path)';
+    return 'ParsedRequiredSigner.path(type: $type, path: $path)';
   }
 
   @override
@@ -217,12 +262,13 @@ class _$RequiredSignerPathImpl extends RequiredSignerPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RequiredSignerPathImpl &&
+            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -234,41 +280,45 @@ class _$RequiredSignerPathImpl extends RequiredSignerPath {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
+    required TResult Function(RequiredSignerType type, String hashHex) hash,
+    required TResult Function(RequiredSignerType type, List<int> path) path,
   }) {
-    return path(this.path);
+    return path(type, this.path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
+    TResult? Function(RequiredSignerType type, String hashHex)? hash,
+    TResult? Function(RequiredSignerType type, List<int> path)? path,
   }) {
-    return path?.call(this.path);
+    return path?.call(type, this.path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
+    TResult Function(RequiredSignerType type, String hashHex)? hash,
+    TResult Function(RequiredSignerType type, List<int> path)? path,
     required TResult orElse(),
   }) {
     if (path != null) {
-      return path(this.path);
+      return path(type, this.path);
     }
     return orElse();
   }
 }
 
 abstract class RequiredSignerPath extends ParsedRequiredSigner {
-  const factory RequiredSignerPath({required final List<int> path}) =
-      _$RequiredSignerPathImpl;
+  const factory RequiredSignerPath(
+      {required final RequiredSignerType type,
+      required final List<int> path}) = _$RequiredSignerPathImpl;
   const RequiredSignerPath._() : super._();
 
+  @override
+  RequiredSignerType get type;
   List<int> get path;
+  @override
   @JsonKey(ignore: true)
   _$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith =>
       throw _privateConstructorUsedError;

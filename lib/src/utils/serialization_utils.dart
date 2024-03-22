@@ -4,6 +4,7 @@ import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/cvote_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_anchor.dart';
+import 'package:ledger_cardano/src/models/parsed_asset_group.dart';
 import 'package:ledger_cardano/src/models/parsed_c_vote_delegation.dart';
 import 'package:ledger_cardano/src/models/parsed_c_vote_registration_params.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
@@ -18,10 +19,12 @@ import 'package:ledger_cardano/src/models/parsed_pool_owner.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_params.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_relay.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_reward_account.dart';
+import 'package:ledger_cardano/src/models/parsed_required_signer.dart';
+import 'package:ledger_cardano/src/models/parsed_token.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano/src/models/parsed_voter.dart';
+import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
@@ -31,6 +34,8 @@ import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'dart:convert';
+
+typedef SerializeTokenAmountFn<T> = Uint8List Function(T value);
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
@@ -497,7 +502,7 @@ class SerializationUtils {
   static Uint8List serializeTxCertificatePreMultisig(ParsedCertificate certificate) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(certificate.type.value);
-      final Object invoker = switch (certificate) {
+      final void Function() invoker = switch (certificate) {
         StakeRegistration() => () {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
@@ -538,13 +543,9 @@ class SerializationUtils {
         ResignCommitteeCold() => throw ValidationException('Conway certificates in pre-multisig serialization'),
         DRepRegistration() => throw ValidationException('Conway certificates in pre-multisig serialization'),
         DRepDeregistration() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        DRepUpdate() => () {
-            throw ValidationException('Conway certificates in pre-multisig serialization');
-          },
+        DRepUpdate() => throw ValidationException('Conway certificates in pre-multisig serialization'),
       };
-      if (invoker is Function) {
-        (invoker)();
-      }
+      invoker();
       return writer.toBytes();
     });
   }
@@ -672,6 +673,75 @@ class SerializationUtils {
         writeSerializedHex(writer, metadata.hashHex);
         writer.write(Uint8List.fromList(utf8.encode(metadata.url)));
       }
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeTxWithdrawal(ParsedWithdrawal withdrawal, CardanoVersion version) {
+    if (VersionCompatibility.checkVersionCompatibility(version).supportsMultisigTransaction) {
+      return useBinaryWriter((ByteDataWriter writer) {
+        writer.write(serializeCoin(withdrawal.amount));
+        writer.write(serializeCredential(withdrawal.stakeCredential));
+        return writer.toBytes();
+      });
+    } else {
+      final withdrawalStakeCredential = withdrawal.stakeCredential;
+      if (withdrawalStakeCredential is! CredentialKeyPath) {
+        throw ValidationException('WITHDRAWAL_INVALID_STAKE_CREDENTIAL');
+      }
+      return useBinaryWriter((ByteDataWriter writer) {
+        writer.write(serializeCoin(withdrawal.amount));
+        writerSerializedPath(writer, withdrawalStakeCredential.path);
+        return writer.toBytes();
+      });
+    }
+  }
+
+  static Uint8List serializeTxValidityStart(String validityIntervalStart) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writeSerializedUint64(writer, BigInt.parse(validityIntervalStart));
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeMintBasicParams(List<ParsedAssetGroup> mint) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writer.writeUint32(mint.length);
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeAssetGroup(ParsedAssetGroup assetGroup) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writeSerializedHex(writer, assetGroup.policyIdHex);
+      writer.writeUint32(assetGroup.tokens.length);
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeToken<T>(ParsedToken token, Uint8List Function(T) serializeTokenAmountFn) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      final assetNameBytes = hex.decode(token.assetNameHex);
+      writer.writeUint32(assetNameBytes.length);
+      writer.write(assetNameBytes);
+      writer.write(serializeTokenAmountFn(token.amount));
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeRequiredSigner(ParsedRequiredSigner requiredSigner) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      final void Function() invoker = switch (requiredSigner) {
+        RequiredSignerPath() => () {
+            writer.writeUint8(requiredSigner.type.value);
+            writerSerializedPath(writer, requiredSigner.path);
+          },
+        RequiredSignerHash() => () {
+            writer.writeUint8(requiredSigner.type.value);
+            writeSerializedHex(writer, requiredSigner.hashHex);
+          },
+      };
+      invoker();
       return writer.toBytes();
     });
   }

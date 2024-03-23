@@ -5,15 +5,18 @@ part 'parsed_required_signer.freezed.dart';
 
 @freezed
 sealed class ParsedRequiredSigner with _$ParsedRequiredSigner {
-  const ParsedRequiredSigner._();
+  ParsedRequiredSigner._();
 
-  const factory ParsedRequiredSigner.hash({
-    required RequiredSignerType type,
+  factory ParsedRequiredSigner.hash({
     required String hashHex,
   }) = RequiredSignerHash;
 
-  const factory ParsedRequiredSigner.path({
-    required RequiredSignerType type,
+  factory ParsedRequiredSigner.path({
     required List<int> path,
   }) = RequiredSignerPath;
+
+  late final RequiredSignerType requiredSignerType = switch (this) {
+    RequiredSignerHash() => RequiredSignerType.hash,
+    RequiredSignerPath() => RequiredSignerType.path,
+  };
 }

@@ -16,29 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedPoolOwner {
-  PoolOwnerType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PoolOwnerType type, List<int> path) deviceOwned,
-    required TResult Function(PoolOwnerType type, String hashHex) thirdParty,
+    required TResult Function(List<int> path) deviceOwned,
+    required TResult Function(String hashHex) thirdParty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult? Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult? Function(List<int> path)? deviceOwned,
+    TResult? Function(String hashHex)? thirdParty,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult Function(List<int> path)? deviceOwned,
+    TResult Function(String hashHex)? thirdParty,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedPoolOwnerCopyWith<ParsedPoolOwner> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -47,8 +42,6 @@ abstract class $ParsedPoolOwnerCopyWith<$Res> {
   factory $ParsedPoolOwnerCopyWith(
           ParsedPoolOwner value, $Res Function(ParsedPoolOwner) then) =
       _$ParsedPoolOwnerCopyWithImpl<$Res, ParsedPoolOwner>;
-  @useResult
-  $Res call({PoolOwnerType type});
 }
 
 /// @nodoc
@@ -60,30 +53,15 @@ class _$ParsedPoolOwnerCopyWithImpl<$Res, $Val extends ParsedPoolOwner>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as PoolOwnerType,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedPoolOwnerImplCopyWith<$Res>
-    implements $ParsedPoolOwnerCopyWith<$Res> {
+abstract class _$$DeviceOwnedPoolOwnerImplCopyWith<$Res> {
   factory _$$DeviceOwnedPoolOwnerImplCopyWith(_$DeviceOwnedPoolOwnerImpl value,
           $Res Function(_$DeviceOwnedPoolOwnerImpl) then) =
       __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({PoolOwnerType type, List<int> path});
+  $Res call({List<int> path});
 }
 
 /// @nodoc
@@ -97,14 +75,9 @@ class __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$DeviceOwnedPoolOwnerImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as PoolOwnerType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -116,13 +89,10 @@ class __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
-  const _$DeviceOwnedPoolOwnerImpl(
-      {required this.type, required final List<int> path})
+  _$DeviceOwnedPoolOwnerImpl({required final List<int> path})
       : _path = path,
         super._();
 
-  @override
-  final PoolOwnerType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -133,7 +103,7 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
 
   @override
   String toString() {
-    return 'ParsedPoolOwner.deviceOwned(type: $type, path: $path)';
+    return 'ParsedPoolOwner.deviceOwned(path: $path)';
   }
 
   @override
@@ -141,13 +111,12 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedPoolOwnerImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_path));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -160,59 +129,53 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PoolOwnerType type, List<int> path) deviceOwned,
-    required TResult Function(PoolOwnerType type, String hashHex) thirdParty,
+    required TResult Function(List<int> path) deviceOwned,
+    required TResult Function(String hashHex) thirdParty,
   }) {
-    return deviceOwned(type, path);
+    return deviceOwned(path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult? Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult? Function(List<int> path)? deviceOwned,
+    TResult? Function(String hashHex)? thirdParty,
   }) {
-    return deviceOwned?.call(type, path);
+    return deviceOwned?.call(path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult Function(List<int> path)? deviceOwned,
+    TResult Function(String hashHex)? thirdParty,
     required TResult orElse(),
   }) {
     if (deviceOwned != null) {
-      return deviceOwned(type, path);
+      return deviceOwned(path);
     }
     return orElse();
   }
 }
 
 abstract class DeviceOwnedPoolOwner extends ParsedPoolOwner {
-  const factory DeviceOwnedPoolOwner(
-      {required final PoolOwnerType type,
-      required final List<int> path}) = _$DeviceOwnedPoolOwnerImpl;
-  const DeviceOwnedPoolOwner._() : super._();
+  factory DeviceOwnedPoolOwner({required final List<int> path}) =
+      _$DeviceOwnedPoolOwnerImpl;
+  DeviceOwnedPoolOwner._() : super._();
 
-  @override
-  PoolOwnerType get type;
   List<int> get path;
-  @override
   @JsonKey(ignore: true)
   _$$DeviceOwnedPoolOwnerImplCopyWith<_$DeviceOwnedPoolOwnerImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ThirdPartyPoolOwnerImplCopyWith<$Res>
-    implements $ParsedPoolOwnerCopyWith<$Res> {
+abstract class _$$ThirdPartyPoolOwnerImplCopyWith<$Res> {
   factory _$$ThirdPartyPoolOwnerImplCopyWith(_$ThirdPartyPoolOwnerImpl value,
           $Res Function(_$ThirdPartyPoolOwnerImpl) then) =
       __$$ThirdPartyPoolOwnerImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({PoolOwnerType type, String hashHex});
+  $Res call({String hashHex});
 }
 
 /// @nodoc
@@ -226,14 +189,9 @@ class __$$ThirdPartyPoolOwnerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? hashHex = null,
   }) {
     return _then(_$ThirdPartyPoolOwnerImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as PoolOwnerType,
       hashHex: null == hashHex
           ? _value.hashHex
           : hashHex // ignore: cast_nullable_to_non_nullable
@@ -245,17 +203,14 @@ class __$$ThirdPartyPoolOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyPoolOwnerImpl extends ThirdPartyPoolOwner {
-  const _$ThirdPartyPoolOwnerImpl({required this.type, required this.hashHex})
-      : super._();
+  _$ThirdPartyPoolOwnerImpl({required this.hashHex}) : super._();
 
-  @override
-  final PoolOwnerType type;
   @override
   final String hashHex;
 
   @override
   String toString() {
-    return 'ParsedPoolOwner.thirdParty(type: $type, hashHex: $hashHex)';
+    return 'ParsedPoolOwner.thirdParty(hashHex: $hashHex)';
   }
 
   @override
@@ -263,12 +218,11 @@ class _$ThirdPartyPoolOwnerImpl extends ThirdPartyPoolOwner {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThirdPartyPoolOwnerImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, hashHex);
+  int get hashCode => Object.hash(runtimeType, hashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -280,45 +234,41 @@ class _$ThirdPartyPoolOwnerImpl extends ThirdPartyPoolOwner {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(PoolOwnerType type, List<int> path) deviceOwned,
-    required TResult Function(PoolOwnerType type, String hashHex) thirdParty,
+    required TResult Function(List<int> path) deviceOwned,
+    required TResult Function(String hashHex) thirdParty,
   }) {
-    return thirdParty(type, hashHex);
+    return thirdParty(hashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult? Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult? Function(List<int> path)? deviceOwned,
+    TResult? Function(String hashHex)? thirdParty,
   }) {
-    return thirdParty?.call(type, hashHex);
+    return thirdParty?.call(hashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(PoolOwnerType type, List<int> path)? deviceOwned,
-    TResult Function(PoolOwnerType type, String hashHex)? thirdParty,
+    TResult Function(List<int> path)? deviceOwned,
+    TResult Function(String hashHex)? thirdParty,
     required TResult orElse(),
   }) {
     if (thirdParty != null) {
-      return thirdParty(type, hashHex);
+      return thirdParty(hashHex);
     }
     return orElse();
   }
 }
 
 abstract class ThirdPartyPoolOwner extends ParsedPoolOwner {
-  const factory ThirdPartyPoolOwner(
-      {required final PoolOwnerType type,
-      required final String hashHex}) = _$ThirdPartyPoolOwnerImpl;
-  const ThirdPartyPoolOwner._() : super._();
+  factory ThirdPartyPoolOwner({required final String hashHex}) =
+      _$ThirdPartyPoolOwnerImpl;
+  ThirdPartyPoolOwner._() : super._();
 
-  @override
-  PoolOwnerType get type;
   String get hashHex;
-  @override
   @JsonKey(ignore: true)
   _$$ThirdPartyPoolOwnerImplCopyWith<_$ThirdPartyPoolOwnerImpl> get copyWith =>
       throw _privateConstructorUsedError;

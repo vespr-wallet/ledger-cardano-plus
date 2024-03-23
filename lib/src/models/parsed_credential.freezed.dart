@@ -16,33 +16,27 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedCredential {
-  CredentialType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CredentialType type, List<int> path) keyPath,
-    required TResult Function(CredentialType type, String keyHashHex) keyHash,
-    required TResult Function(CredentialType type, String scriptHashHex)
-        scriptHash,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CredentialType type, List<int> path)? keyPath,
-    TResult? Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult? Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CredentialType type, List<int> path)? keyPath,
-    TResult Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedCredentialCopyWith<ParsedCredential> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -51,8 +45,6 @@ abstract class $ParsedCredentialCopyWith<$Res> {
   factory $ParsedCredentialCopyWith(
           ParsedCredential value, $Res Function(ParsedCredential) then) =
       _$ParsedCredentialCopyWithImpl<$Res, ParsedCredential>;
-  @useResult
-  $Res call({CredentialType type});
 }
 
 /// @nodoc
@@ -64,30 +56,15 @@ class _$ParsedCredentialCopyWithImpl<$Res, $Val extends ParsedCredential>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CredentialType,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$CredentialKeyPathImplCopyWith<$Res>
-    implements $ParsedCredentialCopyWith<$Res> {
+abstract class _$$CredentialKeyPathImplCopyWith<$Res> {
   factory _$$CredentialKeyPathImplCopyWith(_$CredentialKeyPathImpl value,
           $Res Function(_$CredentialKeyPathImpl) then) =
       __$$CredentialKeyPathImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CredentialType type, List<int> path});
+  $Res call({List<int> path});
 }
 
 /// @nodoc
@@ -101,14 +78,9 @@ class __$$CredentialKeyPathImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$CredentialKeyPathImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CredentialType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -120,12 +92,10 @@ class __$$CredentialKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CredentialKeyPathImpl extends CredentialKeyPath {
-  _$CredentialKeyPathImpl({required this.type, required final List<int> path})
+  _$CredentialKeyPathImpl({required final List<int> path})
       : _path = path,
         super._();
 
-  @override
-  final CredentialType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -136,7 +106,7 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
 
   @override
   String toString() {
-    return 'ParsedCredential.keyPath(type: $type, path: $path)';
+    return 'ParsedCredential.keyPath(path: $path)';
   }
 
   @override
@@ -144,13 +114,12 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CredentialKeyPathImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_path));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -162,63 +131,56 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CredentialType type, List<int> path) keyPath,
-    required TResult Function(CredentialType type, String keyHashHex) keyHash,
-    required TResult Function(CredentialType type, String scriptHashHex)
-        scriptHash,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
   }) {
-    return keyPath(type, path);
+    return keyPath(path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CredentialType type, List<int> path)? keyPath,
-    TResult? Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult? Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
   }) {
-    return keyPath?.call(type, path);
+    return keyPath?.call(path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CredentialType type, List<int> path)? keyPath,
-    TResult Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
   }) {
     if (keyPath != null) {
-      return keyPath(type, path);
+      return keyPath(path);
     }
     return orElse();
   }
 }
 
 abstract class CredentialKeyPath extends ParsedCredential {
-  factory CredentialKeyPath(
-      {required final CredentialType type,
-      required final List<int> path}) = _$CredentialKeyPathImpl;
+  factory CredentialKeyPath({required final List<int> path}) =
+      _$CredentialKeyPathImpl;
   CredentialKeyPath._() : super._();
 
-  @override
-  CredentialType get type;
   List<int> get path;
-  @override
   @JsonKey(ignore: true)
   _$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CredentialKeyHashImplCopyWith<$Res>
-    implements $ParsedCredentialCopyWith<$Res> {
+abstract class _$$CredentialKeyHashImplCopyWith<$Res> {
   factory _$$CredentialKeyHashImplCopyWith(_$CredentialKeyHashImpl value,
           $Res Function(_$CredentialKeyHashImpl) then) =
       __$$CredentialKeyHashImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CredentialType type, String keyHashHex});
+  $Res call({String keyHashHex});
 }
 
 /// @nodoc
@@ -232,14 +194,9 @@ class __$$CredentialKeyHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? keyHashHex = null,
   }) {
     return _then(_$CredentialKeyHashImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CredentialType,
       keyHashHex: null == keyHashHex
           ? _value.keyHashHex
           : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -251,17 +208,14 @@ class __$$CredentialKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CredentialKeyHashImpl extends CredentialKeyHash {
-  _$CredentialKeyHashImpl({required this.type, required this.keyHashHex})
-      : super._();
+  _$CredentialKeyHashImpl({required this.keyHashHex}) : super._();
 
-  @override
-  final CredentialType type;
   @override
   final String keyHashHex;
 
   @override
   String toString() {
-    return 'ParsedCredential.keyHash(type: $type, keyHashHex: $keyHashHex)';
+    return 'ParsedCredential.keyHash(keyHashHex: $keyHashHex)';
   }
 
   @override
@@ -269,13 +223,12 @@ class _$CredentialKeyHashImpl extends CredentialKeyHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CredentialKeyHashImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.keyHashHex, keyHashHex) ||
                 other.keyHashHex == keyHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, keyHashHex);
+  int get hashCode => Object.hash(runtimeType, keyHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -287,63 +240,56 @@ class _$CredentialKeyHashImpl extends CredentialKeyHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CredentialType type, List<int> path) keyPath,
-    required TResult Function(CredentialType type, String keyHashHex) keyHash,
-    required TResult Function(CredentialType type, String scriptHashHex)
-        scriptHash,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
   }) {
-    return keyHash(type, keyHashHex);
+    return keyHash(keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CredentialType type, List<int> path)? keyPath,
-    TResult? Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult? Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
   }) {
-    return keyHash?.call(type, keyHashHex);
+    return keyHash?.call(keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CredentialType type, List<int> path)? keyPath,
-    TResult Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
   }) {
     if (keyHash != null) {
-      return keyHash(type, keyHashHex);
+      return keyHash(keyHashHex);
     }
     return orElse();
   }
 }
 
 abstract class CredentialKeyHash extends ParsedCredential {
-  factory CredentialKeyHash(
-      {required final CredentialType type,
-      required final String keyHashHex}) = _$CredentialKeyHashImpl;
+  factory CredentialKeyHash({required final String keyHashHex}) =
+      _$CredentialKeyHashImpl;
   CredentialKeyHash._() : super._();
 
-  @override
-  CredentialType get type;
   String get keyHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CredentialScriptHashImplCopyWith<$Res>
-    implements $ParsedCredentialCopyWith<$Res> {
+abstract class _$$CredentialScriptHashImplCopyWith<$Res> {
   factory _$$CredentialScriptHashImplCopyWith(_$CredentialScriptHashImpl value,
           $Res Function(_$CredentialScriptHashImpl) then) =
       __$$CredentialScriptHashImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CredentialType type, String scriptHashHex});
+  $Res call({String scriptHashHex});
 }
 
 /// @nodoc
@@ -357,14 +303,9 @@ class __$$CredentialScriptHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? scriptHashHex = null,
   }) {
     return _then(_$CredentialScriptHashImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CredentialType,
       scriptHashHex: null == scriptHashHex
           ? _value.scriptHashHex
           : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -376,17 +317,14 @@ class __$$CredentialScriptHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CredentialScriptHashImpl extends CredentialScriptHash {
-  _$CredentialScriptHashImpl({required this.type, required this.scriptHashHex})
-      : super._();
+  _$CredentialScriptHashImpl({required this.scriptHashHex}) : super._();
 
-  @override
-  final CredentialType type;
   @override
   final String scriptHashHex;
 
   @override
   String toString() {
-    return 'ParsedCredential.scriptHash(type: $type, scriptHashHex: $scriptHashHex)';
+    return 'ParsedCredential.scriptHash(scriptHashHex: $scriptHashHex)';
   }
 
   @override
@@ -394,13 +332,12 @@ class _$CredentialScriptHashImpl extends CredentialScriptHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CredentialScriptHashImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.scriptHashHex, scriptHashHex) ||
                 other.scriptHashHex == scriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, scriptHashHex);
+  int get hashCode => Object.hash(runtimeType, scriptHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -413,49 +350,44 @@ class _$CredentialScriptHashImpl extends CredentialScriptHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(CredentialType type, List<int> path) keyPath,
-    required TResult Function(CredentialType type, String keyHashHex) keyHash,
-    required TResult Function(CredentialType type, String scriptHashHex)
-        scriptHash,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
   }) {
-    return scriptHash(type, scriptHashHex);
+    return scriptHash(scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CredentialType type, List<int> path)? keyPath,
-    TResult? Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult? Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
   }) {
-    return scriptHash?.call(type, scriptHashHex);
+    return scriptHash?.call(scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CredentialType type, List<int> path)? keyPath,
-    TResult Function(CredentialType type, String keyHashHex)? keyHash,
-    TResult Function(CredentialType type, String scriptHashHex)? scriptHash,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
   }) {
     if (scriptHash != null) {
-      return scriptHash(type, scriptHashHex);
+      return scriptHash(scriptHashHex);
     }
     return orElse();
   }
 }
 
 abstract class CredentialScriptHash extends ParsedCredential {
-  factory CredentialScriptHash(
-      {required final CredentialType type,
-      required final String scriptHashHex}) = _$CredentialScriptHashImpl;
+  factory CredentialScriptHash({required final String scriptHashHex}) =
+      _$CredentialScriptHashImpl;
   CredentialScriptHash._() : super._();
 
-  @override
-  CredentialType get type;
   String get scriptHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$CredentialScriptHashImplCopyWith<_$CredentialScriptHashImpl>
       get copyWith => throw _privateConstructorUsedError;

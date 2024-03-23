@@ -6,16 +6,18 @@ part 'parsed_tx_auxiliary_data.freezed.dart';
 
 @freezed
 sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
-  const ParsedTxAuxiliaryData._();
+  ParsedTxAuxiliaryData._();
 
-  const factory ParsedTxAuxiliaryData.arbitraryHash({
-    required TxAuxiliaryDataType type,
+  factory ParsedTxAuxiliaryData.arbitraryHash({
     required String hashHex,
   }) = ArbitraryHash;
 
-  const factory ParsedTxAuxiliaryData.cip36Registration({
-    required TxAuxiliaryDataType type,
+  factory ParsedTxAuxiliaryData.cip36Registration({
     required ParsedCVoteRegistrationParams params,
   }) = CIP36Registration;
 
+  late final TxAuxiliaryDataType txAuxiliaryDataType = switch (this) {
+    ArbitraryHash() => TxAuxiliaryDataType.arbitraryHash,
+    CIP36Registration() => TxAuxiliaryDataType.cip36Registration,
+  };
 }

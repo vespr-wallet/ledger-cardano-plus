@@ -5,31 +5,33 @@ part 'staking_data_source.freezed.dart';
 
 @freezed
 sealed class StakingDataSource with _$StakingDataSource {
-  const StakingDataSource._();
+  StakingDataSource._();
 
-  const factory StakingDataSource.none({
-    required StakingDataSourceType type,
-  }) = StakingDataSourceNone;
+  factory StakingDataSource.none() = StakingDataSourceNone;
 
-  const factory StakingDataSource.keyPath({
-    required StakingDataSourceType type,
+  factory StakingDataSource.keyPath({
     required List<int> path,
   }) = StakingDataSourceKeyPath;
 
-  const factory StakingDataSource.keyHash({
-    required StakingDataSourceType type,
+  factory StakingDataSource.keyHash({
     required String keyHashHex,
   }) = StakingDataSourceKeyHash;
 
-  const factory StakingDataSource.blockchainPointer({
-    required StakingDataSourceType type,
+  factory StakingDataSource.blockchainPointer({
     required int blockIndex,
     required int txIndex,
     required int certificateIndex,
   }) = StakingDataSourceBlockchainPointer;
 
-  const factory StakingDataSource.scriptHash({
-    required StakingDataSourceType type,
+  factory StakingDataSource.scriptHash({
     required String scriptHashHex,
   }) = StakingDataSourceScriptHash;
+
+  late final StakingDataSourceType stakingDataSourceType = switch (this) {
+    StakingDataSourceNone() => StakingDataSourceType.none,
+    StakingDataSourceKeyPath() => StakingDataSourceType.keyPath,
+    StakingDataSourceKeyHash() => StakingDataSourceType.keyHash,
+    StakingDataSourceBlockchainPointer() => StakingDataSourceType.blockchainPointer,
+    StakingDataSourceScriptHash() => StakingDataSourceType.scriptHash,
+  };
 }

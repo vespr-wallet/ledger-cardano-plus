@@ -16,136 +16,98 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedCertificate {
-  CertificateType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedCertificateCopyWith<ParsedCertificate> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -154,8 +116,6 @@ abstract class $ParsedCertificateCopyWith<$Res> {
   factory $ParsedCertificateCopyWith(
           ParsedCertificate value, $Res Function(ParsedCertificate) then) =
       _$ParsedCertificateCopyWithImpl<$Res, ParsedCertificate>;
-  @useResult
-  $Res call({CertificateType type});
 }
 
 /// @nodoc
@@ -167,30 +127,15 @@ class _$ParsedCertificateCopyWithImpl<$Res, $Val extends ParsedCertificate>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$StakeRegistrationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakeRegistrationImplCopyWith<$Res> {
   factory _$$StakeRegistrationImplCopyWith(_$StakeRegistrationImpl value,
           $Res Function(_$StakeRegistrationImpl) then) =
       __$$StakeRegistrationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CertificateType type, ParsedCredential stakeCredential});
+  $Res call({ParsedCredential stakeCredential});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -206,14 +151,9 @@ class __$$StakeRegistrationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
   }) {
     return _then(_$StakeRegistrationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -233,18 +173,14 @@ class __$$StakeRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeRegistrationImpl extends StakeRegistration {
-  const _$StakeRegistrationImpl(
-      {required this.type, required this.stakeCredential})
-      : super._();
+  _$StakeRegistrationImpl({required this.stakeCredential}) : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakeRegistration(type: $type, stakeCredential: $stakeCredential)';
+    return 'ParsedCertificate.stakeRegistration(stakeCredential: $stakeCredential)';
   }
 
   @override
@@ -252,13 +188,12 @@ class _$StakeRegistrationImpl extends StakeRegistration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakeRegistrationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, stakeCredential);
+  int get hashCode => Object.hash(runtimeType, stakeCredential);
 
   @JsonKey(ignore: true)
   @override
@@ -270,169 +205,128 @@ class _$StakeRegistrationImpl extends StakeRegistration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakeRegistration(type, stakeCredential);
+    return stakeRegistration(stakeCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakeRegistration?.call(type, stakeCredential);
+    return stakeRegistration?.call(stakeCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakeRegistration != null) {
-      return stakeRegistration(type, stakeCredential);
+      return stakeRegistration(stakeCredential);
     }
     return orElse();
   }
 }
 
 abstract class StakeRegistration extends ParsedCertificate {
-  const factory StakeRegistration(
-          {required final CertificateType type,
-          required final ParsedCredential stakeCredential}) =
+  factory StakeRegistration({required final ParsedCredential stakeCredential}) =
       _$StakeRegistrationImpl;
-  const StakeRegistration._() : super._();
+  StakeRegistration._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
-  @override
   @JsonKey(ignore: true)
   _$$StakeRegistrationImplCopyWith<_$StakeRegistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakeRegistrationConwayImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakeRegistrationConwayImplCopyWith<$Res> {
   factory _$$StakeRegistrationConwayImplCopyWith(
           _$StakeRegistrationConwayImpl value,
           $Res Function(_$StakeRegistrationConwayImpl) then) =
       __$$StakeRegistrationConwayImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type, ParsedCredential stakeCredential, String deposit});
+  $Res call({ParsedCredential stakeCredential, String deposit});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -449,15 +343,10 @@ class __$$StakeRegistrationConwayImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
     Object? deposit = null,
   }) {
     return _then(_$StakeRegistrationConwayImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -481,14 +370,10 @@ class __$$StakeRegistrationConwayImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
-  const _$StakeRegistrationConwayImpl(
-      {required this.type,
-      required this.stakeCredential,
-      required this.deposit})
+  _$StakeRegistrationConwayImpl(
+      {required this.stakeCredential, required this.deposit})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
   @override
@@ -496,7 +381,7 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakeRegistrationConway(type: $type, stakeCredential: $stakeCredential, deposit: $deposit)';
+    return 'ParsedCertificate.stakeRegistrationConway(stakeCredential: $stakeCredential, deposit: $deposit)';
   }
 
   @override
@@ -504,14 +389,13 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakeRegistrationConwayImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential) &&
             (identical(other.deposit, deposit) || other.deposit == deposit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, stakeCredential, deposit);
+  int get hashCode => Object.hash(runtimeType, stakeCredential, deposit);
 
   @JsonKey(ignore: true)
   @override
@@ -523,168 +407,129 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakeRegistrationConway(type, stakeCredential, deposit);
+    return stakeRegistrationConway(stakeCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakeRegistrationConway?.call(type, stakeCredential, deposit);
+    return stakeRegistrationConway?.call(stakeCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakeRegistrationConway != null) {
-      return stakeRegistrationConway(type, stakeCredential, deposit);
+      return stakeRegistrationConway(stakeCredential, deposit);
     }
     return orElse();
   }
 }
 
 abstract class StakeRegistrationConway extends ParsedCertificate {
-  const factory StakeRegistrationConway(
-      {required final CertificateType type,
-      required final ParsedCredential stakeCredential,
+  factory StakeRegistrationConway(
+      {required final ParsedCredential stakeCredential,
       required final String deposit}) = _$StakeRegistrationConwayImpl;
-  const StakeRegistrationConway._() : super._();
+  StakeRegistrationConway._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
   String get deposit;
-  @override
   @JsonKey(ignore: true)
   _$$StakeRegistrationConwayImplCopyWith<_$StakeRegistrationConwayImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakeDeregistrationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakeDeregistrationImplCopyWith<$Res> {
   factory _$$StakeDeregistrationImplCopyWith(_$StakeDeregistrationImpl value,
           $Res Function(_$StakeDeregistrationImpl) then) =
       __$$StakeDeregistrationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CertificateType type, ParsedCredential stakeCredential});
+  $Res call({ParsedCredential stakeCredential});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -700,14 +545,9 @@ class __$$StakeDeregistrationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
   }) {
     return _then(_$StakeDeregistrationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -727,18 +567,14 @@ class __$$StakeDeregistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDeregistrationImpl extends StakeDeregistration {
-  const _$StakeDeregistrationImpl(
-      {required this.type, required this.stakeCredential})
-      : super._();
+  _$StakeDeregistrationImpl({required this.stakeCredential}) : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakeDeregistration(type: $type, stakeCredential: $stakeCredential)';
+    return 'ParsedCertificate.stakeDeregistration(stakeCredential: $stakeCredential)';
   }
 
   @override
@@ -746,13 +582,12 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakeDeregistrationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, stakeCredential);
+  int get hashCode => Object.hash(runtimeType, stakeCredential);
 
   @JsonKey(ignore: true)
   @override
@@ -764,169 +599,129 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakeDeregistration(type, stakeCredential);
+    return stakeDeregistration(stakeCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakeDeregistration?.call(type, stakeCredential);
+    return stakeDeregistration?.call(stakeCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakeDeregistration != null) {
-      return stakeDeregistration(type, stakeCredential);
+      return stakeDeregistration(stakeCredential);
     }
     return orElse();
   }
 }
 
 abstract class StakeDeregistration extends ParsedCertificate {
-  const factory StakeDeregistration(
-          {required final CertificateType type,
-          required final ParsedCredential stakeCredential}) =
+  factory StakeDeregistration(
+          {required final ParsedCredential stakeCredential}) =
       _$StakeDeregistrationImpl;
-  const StakeDeregistration._() : super._();
+  StakeDeregistration._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
-  @override
   @JsonKey(ignore: true)
   _$$StakeDeregistrationImplCopyWith<_$StakeDeregistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakeDeregistrationConwayImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakeDeregistrationConwayImplCopyWith<$Res> {
   factory _$$StakeDeregistrationConwayImplCopyWith(
           _$StakeDeregistrationConwayImpl value,
           $Res Function(_$StakeDeregistrationConwayImpl) then) =
       __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type, ParsedCredential stakeCredential, String deposit});
+  $Res call({ParsedCredential stakeCredential, String deposit});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -944,15 +739,10 @@ class __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
     Object? deposit = null,
   }) {
     return _then(_$StakeDeregistrationConwayImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -976,14 +766,10 @@ class __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
-  const _$StakeDeregistrationConwayImpl(
-      {required this.type,
-      required this.stakeCredential,
-      required this.deposit})
+  _$StakeDeregistrationConwayImpl(
+      {required this.stakeCredential, required this.deposit})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
   @override
@@ -991,7 +777,7 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakeDeregistrationConway(type: $type, stakeCredential: $stakeCredential, deposit: $deposit)';
+    return 'ParsedCertificate.stakeDeregistrationConway(stakeCredential: $stakeCredential, deposit: $deposit)';
   }
 
   @override
@@ -999,14 +785,13 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakeDeregistrationConwayImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential) &&
             (identical(other.deposit, deposit) || other.deposit == deposit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, stakeCredential, deposit);
+  int get hashCode => Object.hash(runtimeType, stakeCredential, deposit);
 
   @JsonKey(ignore: true)
   @override
@@ -1018,171 +803,129 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakeDeregistrationConway(type, stakeCredential, deposit);
+    return stakeDeregistrationConway(stakeCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakeDeregistrationConway?.call(type, stakeCredential, deposit);
+    return stakeDeregistrationConway?.call(stakeCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakeDeregistrationConway != null) {
-      return stakeDeregistrationConway(type, stakeCredential, deposit);
+      return stakeDeregistrationConway(stakeCredential, deposit);
     }
     return orElse();
   }
 }
 
 abstract class StakeDeregistrationConway extends ParsedCertificate {
-  const factory StakeDeregistrationConway(
-      {required final CertificateType type,
-      required final ParsedCredential stakeCredential,
+  factory StakeDeregistrationConway(
+      {required final ParsedCredential stakeCredential,
       required final String deposit}) = _$StakeDeregistrationConwayImpl;
-  const StakeDeregistrationConway._() : super._();
+  StakeDeregistrationConway._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
   String get deposit;
-  @override
   @JsonKey(ignore: true)
   _$$StakeDeregistrationConwayImplCopyWith<_$StakeDeregistrationConwayImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakeDelegationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakeDelegationImplCopyWith<$Res> {
   factory _$$StakeDelegationImplCopyWith(_$StakeDelegationImpl value,
           $Res Function(_$StakeDelegationImpl) then) =
       __$$StakeDelegationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type,
-      ParsedCredential stakeCredential,
-      String poolKeyHashHex});
+  $Res call({ParsedCredential stakeCredential, String poolKeyHashHex});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -1198,15 +941,10 @@ class __$$StakeDelegationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
     Object? poolKeyHashHex = null,
   }) {
     return _then(_$StakeDelegationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -1230,14 +968,10 @@ class __$$StakeDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDelegationImpl extends StakeDelegation {
-  const _$StakeDelegationImpl(
-      {required this.type,
-      required this.stakeCredential,
-      required this.poolKeyHashHex})
+  _$StakeDelegationImpl(
+      {required this.stakeCredential, required this.poolKeyHashHex})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
   @override
@@ -1245,7 +979,7 @@ class _$StakeDelegationImpl extends StakeDelegation {
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakeDelegation(type: $type, stakeCredential: $stakeCredential, poolKeyHashHex: $poolKeyHashHex)';
+    return 'ParsedCertificate.stakeDelegation(stakeCredential: $stakeCredential, poolKeyHashHex: $poolKeyHashHex)';
   }
 
   @override
@@ -1253,7 +987,6 @@ class _$StakeDelegationImpl extends StakeDelegation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakeDelegationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential) &&
             (identical(other.poolKeyHashHex, poolKeyHashHex) ||
@@ -1261,8 +994,7 @@ class _$StakeDelegationImpl extends StakeDelegation {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, stakeCredential, poolKeyHashHex);
+  int get hashCode => Object.hash(runtimeType, stakeCredential, poolKeyHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -1274,171 +1006,129 @@ class _$StakeDelegationImpl extends StakeDelegation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakeDelegation(type, stakeCredential, poolKeyHashHex);
+    return stakeDelegation(stakeCredential, poolKeyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakeDelegation?.call(type, stakeCredential, poolKeyHashHex);
+    return stakeDelegation?.call(stakeCredential, poolKeyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakeDelegation != null) {
-      return stakeDelegation(type, stakeCredential, poolKeyHashHex);
+      return stakeDelegation(stakeCredential, poolKeyHashHex);
     }
     return orElse();
   }
 }
 
 abstract class StakeDelegation extends ParsedCertificate {
-  const factory StakeDelegation(
-      {required final CertificateType type,
-      required final ParsedCredential stakeCredential,
+  factory StakeDelegation(
+      {required final ParsedCredential stakeCredential,
       required final String poolKeyHashHex}) = _$StakeDelegationImpl;
-  const StakeDelegation._() : super._();
+  StakeDelegation._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
   String get poolKeyHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$StakeDelegationImplCopyWith<_$StakeDelegationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$VoteDelegationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$VoteDelegationImplCopyWith<$Res> {
   factory _$$VoteDelegationImplCopyWith(_$VoteDelegationImpl value,
           $Res Function(_$VoteDelegationImpl) then) =
       __$$VoteDelegationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type,
-      ParsedCredential stakeCredential,
-      ParsedDRep dRep});
+  $Res call({ParsedCredential stakeCredential, ParsedDRep dRep});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
   $ParsedDRepCopyWith<$Res> get dRep;
@@ -1455,15 +1145,10 @@ class __$$VoteDelegationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? stakeCredential = null,
     Object? dRep = null,
   }) {
     return _then(_$VoteDelegationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -1495,12 +1180,9 @@ class __$$VoteDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$VoteDelegationImpl extends VoteDelegation {
-  const _$VoteDelegationImpl(
-      {required this.type, required this.stakeCredential, required this.dRep})
+  _$VoteDelegationImpl({required this.stakeCredential, required this.dRep})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential stakeCredential;
   @override
@@ -1508,7 +1190,7 @@ class _$VoteDelegationImpl extends VoteDelegation {
 
   @override
   String toString() {
-    return 'ParsedCertificate.voteDelegation(type: $type, stakeCredential: $stakeCredential, dRep: $dRep)';
+    return 'ParsedCertificate.voteDelegation(stakeCredential: $stakeCredential, dRep: $dRep)';
   }
 
   @override
@@ -1516,14 +1198,13 @@ class _$VoteDelegationImpl extends VoteDelegation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$VoteDelegationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.stakeCredential, stakeCredential) ||
                 other.stakeCredential == stakeCredential) &&
             (identical(other.dRep, dRep) || other.dRep == dRep));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, stakeCredential, dRep);
+  int get hashCode => Object.hash(runtimeType, stakeCredential, dRep);
 
   @JsonKey(ignore: true)
   @override
@@ -1535,172 +1216,130 @@ class _$VoteDelegationImpl extends VoteDelegation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return voteDelegation(type, stakeCredential, dRep);
+    return voteDelegation(stakeCredential, dRep);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return voteDelegation?.call(type, stakeCredential, dRep);
+    return voteDelegation?.call(stakeCredential, dRep);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (voteDelegation != null) {
-      return voteDelegation(type, stakeCredential, dRep);
+      return voteDelegation(stakeCredential, dRep);
     }
     return orElse();
   }
 }
 
 abstract class VoteDelegation extends ParsedCertificate {
-  const factory VoteDelegation(
-      {required final CertificateType type,
-      required final ParsedCredential stakeCredential,
+  factory VoteDelegation(
+      {required final ParsedCredential stakeCredential,
       required final ParsedDRep dRep}) = _$VoteDelegationImpl;
-  const VoteDelegation._() : super._();
+  VoteDelegation._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get stakeCredential;
   ParsedDRep get dRep;
-  @override
   @JsonKey(ignore: true)
   _$$VoteDelegationImplCopyWith<_$VoteDelegationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$AuthorizeCommitteeHotImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$AuthorizeCommitteeHotImplCopyWith<$Res> {
   factory _$$AuthorizeCommitteeHotImplCopyWith(
           _$AuthorizeCommitteeHotImpl value,
           $Res Function(_$AuthorizeCommitteeHotImpl) then) =
       __$$AuthorizeCommitteeHotImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type,
-      ParsedCredential coldCredential,
-      ParsedCredential hotCredential});
+  $Res call({ParsedCredential coldCredential, ParsedCredential hotCredential});
 
   $ParsedCredentialCopyWith<$Res> get coldCredential;
   $ParsedCredentialCopyWith<$Res> get hotCredential;
@@ -1717,15 +1356,10 @@ class __$$AuthorizeCommitteeHotImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? coldCredential = null,
     Object? hotCredential = null,
   }) {
     return _then(_$AuthorizeCommitteeHotImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       coldCredential: null == coldCredential
           ? _value.coldCredential
           : coldCredential // ignore: cast_nullable_to_non_nullable
@@ -1757,14 +1391,10 @@ class __$$AuthorizeCommitteeHotImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
-  const _$AuthorizeCommitteeHotImpl(
-      {required this.type,
-      required this.coldCredential,
-      required this.hotCredential})
+  _$AuthorizeCommitteeHotImpl(
+      {required this.coldCredential, required this.hotCredential})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential coldCredential;
   @override
@@ -1772,7 +1402,7 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
 
   @override
   String toString() {
-    return 'ParsedCertificate.authorizeCommitteeHot(type: $type, coldCredential: $coldCredential, hotCredential: $hotCredential)';
+    return 'ParsedCertificate.authorizeCommitteeHot(coldCredential: $coldCredential, hotCredential: $hotCredential)';
   }
 
   @override
@@ -1780,7 +1410,6 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AuthorizeCommitteeHotImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.coldCredential, coldCredential) ||
                 other.coldCredential == coldCredential) &&
             (identical(other.hotCredential, hotCredential) ||
@@ -1788,8 +1417,7 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, coldCredential, hotCredential);
+  int get hashCode => Object.hash(runtimeType, coldCredential, hotCredential);
 
   @JsonKey(ignore: true)
   @override
@@ -1801,172 +1429,130 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return authorizeCommitteeHot(type, coldCredential, hotCredential);
+    return authorizeCommitteeHot(coldCredential, hotCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return authorizeCommitteeHot?.call(type, coldCredential, hotCredential);
+    return authorizeCommitteeHot?.call(coldCredential, hotCredential);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (authorizeCommitteeHot != null) {
-      return authorizeCommitteeHot(type, coldCredential, hotCredential);
+      return authorizeCommitteeHot(coldCredential, hotCredential);
     }
     return orElse();
   }
 }
 
 abstract class AuthorizeCommitteeHot extends ParsedCertificate {
-  const factory AuthorizeCommitteeHot(
-          {required final CertificateType type,
-          required final ParsedCredential coldCredential,
+  factory AuthorizeCommitteeHot(
+          {required final ParsedCredential coldCredential,
           required final ParsedCredential hotCredential}) =
       _$AuthorizeCommitteeHotImpl;
-  const AuthorizeCommitteeHot._() : super._();
+  AuthorizeCommitteeHot._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get coldCredential;
   ParsedCredential get hotCredential;
-  @override
   @JsonKey(ignore: true)
   _$$AuthorizeCommitteeHotImplCopyWith<_$AuthorizeCommitteeHotImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ResignCommitteeColdImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$ResignCommitteeColdImplCopyWith<$Res> {
   factory _$$ResignCommitteeColdImplCopyWith(_$ResignCommitteeColdImpl value,
           $Res Function(_$ResignCommitteeColdImpl) then) =
       __$$ResignCommitteeColdImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type,
-      ParsedCredential coldCredential,
-      ParsedAnchor anchor});
+  $Res call({ParsedCredential coldCredential, ParsedAnchor anchor});
 
   $ParsedCredentialCopyWith<$Res> get coldCredential;
   $ParsedAnchorCopyWith<$Res> get anchor;
@@ -1983,15 +1569,10 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? coldCredential = null,
     Object? anchor = null,
   }) {
     return _then(_$ResignCommitteeColdImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       coldCredential: null == coldCredential
           ? _value.coldCredential
           : coldCredential // ignore: cast_nullable_to_non_nullable
@@ -2023,12 +1604,10 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
-  const _$ResignCommitteeColdImpl(
-      {required this.type, required this.coldCredential, required this.anchor})
+  _$ResignCommitteeColdImpl(
+      {required this.coldCredential, required this.anchor})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential coldCredential;
   @override
@@ -2036,7 +1615,7 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
 
   @override
   String toString() {
-    return 'ParsedCertificate.resignCommitteeCold(type: $type, coldCredential: $coldCredential, anchor: $anchor)';
+    return 'ParsedCertificate.resignCommitteeCold(coldCredential: $coldCredential, anchor: $anchor)';
   }
 
   @override
@@ -2044,14 +1623,13 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResignCommitteeColdImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.coldCredential, coldCredential) ||
                 other.coldCredential == coldCredential) &&
             (identical(other.anchor, anchor) || other.anchor == anchor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, coldCredential, anchor);
+  int get hashCode => Object.hash(runtimeType, coldCredential, anchor);
 
   @JsonKey(ignore: true)
   @override
@@ -2063,172 +1641,130 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return resignCommitteeCold(type, coldCredential, anchor);
+    return resignCommitteeCold(coldCredential, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return resignCommitteeCold?.call(type, coldCredential, anchor);
+    return resignCommitteeCold?.call(coldCredential, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (resignCommitteeCold != null) {
-      return resignCommitteeCold(type, coldCredential, anchor);
+      return resignCommitteeCold(coldCredential, anchor);
     }
     return orElse();
   }
 }
 
 abstract class ResignCommitteeCold extends ParsedCertificate {
-  const factory ResignCommitteeCold(
-      {required final CertificateType type,
-      required final ParsedCredential coldCredential,
+  factory ResignCommitteeCold(
+      {required final ParsedCredential coldCredential,
       required final ParsedAnchor anchor}) = _$ResignCommitteeColdImpl;
-  const ResignCommitteeCold._() : super._();
+  ResignCommitteeCold._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get coldCredential;
   ParsedAnchor get anchor;
-  @override
   @JsonKey(ignore: true)
   _$$ResignCommitteeColdImplCopyWith<_$ResignCommitteeColdImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepRegistrationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$DRepRegistrationImplCopyWith<$Res> {
   factory _$$DRepRegistrationImplCopyWith(_$DRepRegistrationImpl value,
           $Res Function(_$DRepRegistrationImpl) then) =
       __$$DRepRegistrationImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {CertificateType type,
-      ParsedCredential dRepCredential,
-      String deposit,
-      ParsedAnchor anchor});
+      {ParsedCredential dRepCredential, String deposit, ParsedAnchor anchor});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
   $ParsedAnchorCopyWith<$Res> get anchor;
@@ -2245,16 +1781,11 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? dRepCredential = null,
     Object? deposit = null,
     Object? anchor = null,
   }) {
     return _then(_$DRepRegistrationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       dRepCredential: null == dRepCredential
           ? _value.dRepCredential
           : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -2290,15 +1821,12 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepRegistrationImpl extends DRepRegistration {
-  const _$DRepRegistrationImpl(
-      {required this.type,
-      required this.dRepCredential,
+  _$DRepRegistrationImpl(
+      {required this.dRepCredential,
       required this.deposit,
       required this.anchor})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential dRepCredential;
   @override
@@ -2308,7 +1836,7 @@ class _$DRepRegistrationImpl extends DRepRegistration {
 
   @override
   String toString() {
-    return 'ParsedCertificate.dRepRegistration(type: $type, dRepCredential: $dRepCredential, deposit: $deposit, anchor: $anchor)';
+    return 'ParsedCertificate.dRepRegistration(dRepCredential: $dRepCredential, deposit: $deposit, anchor: $anchor)';
   }
 
   @override
@@ -2316,7 +1844,6 @@ class _$DRepRegistrationImpl extends DRepRegistration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepRegistrationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.dRepCredential, dRepCredential) ||
                 other.dRepCredential == dRepCredential) &&
             (identical(other.deposit, deposit) || other.deposit == deposit) &&
@@ -2324,8 +1851,7 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, dRepCredential, deposit, anchor);
+  int get hashCode => Object.hash(runtimeType, dRepCredential, deposit, anchor);
 
   @JsonKey(ignore: true)
   @override
@@ -2337,171 +1863,131 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return dRepRegistration(type, dRepCredential, deposit, anchor);
+    return dRepRegistration(dRepCredential, deposit, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return dRepRegistration?.call(type, dRepCredential, deposit, anchor);
+    return dRepRegistration?.call(dRepCredential, deposit, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (dRepRegistration != null) {
-      return dRepRegistration(type, dRepCredential, deposit, anchor);
+      return dRepRegistration(dRepCredential, deposit, anchor);
     }
     return orElse();
   }
 }
 
 abstract class DRepRegistration extends ParsedCertificate {
-  const factory DRepRegistration(
-      {required final CertificateType type,
-      required final ParsedCredential dRepCredential,
+  factory DRepRegistration(
+      {required final ParsedCredential dRepCredential,
       required final String deposit,
       required final ParsedAnchor anchor}) = _$DRepRegistrationImpl;
-  const DRepRegistration._() : super._();
+  DRepRegistration._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get dRepCredential;
   String get deposit;
   ParsedAnchor get anchor;
-  @override
   @JsonKey(ignore: true)
   _$$DRepRegistrationImplCopyWith<_$DRepRegistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepDeregistrationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$DRepDeregistrationImplCopyWith<$Res> {
   factory _$$DRepDeregistrationImplCopyWith(_$DRepDeregistrationImpl value,
           $Res Function(_$DRepDeregistrationImpl) then) =
       __$$DRepDeregistrationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type, ParsedCredential dRepCredential, String deposit});
+  $Res call({ParsedCredential dRepCredential, String deposit});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
 }
@@ -2517,15 +2003,10 @@ class __$$DRepDeregistrationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? dRepCredential = null,
     Object? deposit = null,
   }) {
     return _then(_$DRepDeregistrationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       dRepCredential: null == dRepCredential
           ? _value.dRepCredential
           : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -2549,12 +2030,10 @@ class __$$DRepDeregistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepDeregistrationImpl extends DRepDeregistration {
-  const _$DRepDeregistrationImpl(
-      {required this.type, required this.dRepCredential, required this.deposit})
+  _$DRepDeregistrationImpl(
+      {required this.dRepCredential, required this.deposit})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential dRepCredential;
   @override
@@ -2562,7 +2041,7 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
 
   @override
   String toString() {
-    return 'ParsedCertificate.dRepDeregistration(type: $type, dRepCredential: $dRepCredential, deposit: $deposit)';
+    return 'ParsedCertificate.dRepDeregistration(dRepCredential: $dRepCredential, deposit: $deposit)';
   }
 
   @override
@@ -2570,14 +2049,13 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepDeregistrationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.dRepCredential, dRepCredential) ||
                 other.dRepCredential == dRepCredential) &&
             (identical(other.deposit, deposit) || other.deposit == deposit));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, dRepCredential, deposit);
+  int get hashCode => Object.hash(runtimeType, dRepCredential, deposit);
 
   @JsonKey(ignore: true)
   @override
@@ -2589,171 +2067,129 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return dRepDeregistration(type, dRepCredential, deposit);
+    return dRepDeregistration(dRepCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return dRepDeregistration?.call(type, dRepCredential, deposit);
+    return dRepDeregistration?.call(dRepCredential, deposit);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (dRepDeregistration != null) {
-      return dRepDeregistration(type, dRepCredential, deposit);
+      return dRepDeregistration(dRepCredential, deposit);
     }
     return orElse();
   }
 }
 
 abstract class DRepDeregistration extends ParsedCertificate {
-  const factory DRepDeregistration(
-      {required final CertificateType type,
-      required final ParsedCredential dRepCredential,
+  factory DRepDeregistration(
+      {required final ParsedCredential dRepCredential,
       required final String deposit}) = _$DRepDeregistrationImpl;
-  const DRepDeregistration._() : super._();
+  DRepDeregistration._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get dRepCredential;
   String get deposit;
-  @override
   @JsonKey(ignore: true)
   _$$DRepDeregistrationImplCopyWith<_$DRepDeregistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepUpdateImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$DRepUpdateImplCopyWith<$Res> {
   factory _$$DRepUpdateImplCopyWith(
           _$DRepUpdateImpl value, $Res Function(_$DRepUpdateImpl) then) =
       __$$DRepUpdateImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {CertificateType type,
-      ParsedCredential dRepCredential,
-      ParsedAnchor anchor});
+  $Res call({ParsedCredential dRepCredential, ParsedAnchor anchor});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
   $ParsedAnchorCopyWith<$Res> get anchor;
@@ -2770,15 +2206,10 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? dRepCredential = null,
     Object? anchor = null,
   }) {
     return _then(_$DRepUpdateImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       dRepCredential: null == dRepCredential
           ? _value.dRepCredential
           : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -2810,12 +2241,9 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepUpdateImpl extends DRepUpdate {
-  const _$DRepUpdateImpl(
-      {required this.type, required this.dRepCredential, required this.anchor})
+  _$DRepUpdateImpl({required this.dRepCredential, required this.anchor})
       : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedCredential dRepCredential;
   @override
@@ -2823,7 +2251,7 @@ class _$DRepUpdateImpl extends DRepUpdate {
 
   @override
   String toString() {
-    return 'ParsedCertificate.dRepUpdate(type: $type, dRepCredential: $dRepCredential, anchor: $anchor)';
+    return 'ParsedCertificate.dRepUpdate(dRepCredential: $dRepCredential, anchor: $anchor)';
   }
 
   @override
@@ -2831,14 +2259,13 @@ class _$DRepUpdateImpl extends DRepUpdate {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepUpdateImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.dRepCredential, dRepCredential) ||
                 other.dRepCredential == dRepCredential) &&
             (identical(other.anchor, anchor) || other.anchor == anchor));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, dRepCredential, anchor);
+  int get hashCode => Object.hash(runtimeType, dRepCredential, anchor);
 
   @JsonKey(ignore: true)
   @override
@@ -2849,169 +2276,130 @@ class _$DRepUpdateImpl extends DRepUpdate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return dRepUpdate(type, dRepCredential, anchor);
+    return dRepUpdate(dRepCredential, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return dRepUpdate?.call(type, dRepCredential, anchor);
+    return dRepUpdate?.call(dRepCredential, anchor);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (dRepUpdate != null) {
-      return dRepUpdate(type, dRepCredential, anchor);
+      return dRepUpdate(dRepCredential, anchor);
     }
     return orElse();
   }
 }
 
 abstract class DRepUpdate extends ParsedCertificate {
-  const factory DRepUpdate(
-      {required final CertificateType type,
-      required final ParsedCredential dRepCredential,
+  factory DRepUpdate(
+      {required final ParsedCredential dRepCredential,
       required final ParsedAnchor anchor}) = _$DRepUpdateImpl;
-  const DRepUpdate._() : super._();
+  DRepUpdate._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedCredential get dRepCredential;
   ParsedAnchor get anchor;
-  @override
   @JsonKey(ignore: true)
   _$$DRepUpdateImplCopyWith<_$DRepUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakePoolRegistrationImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakePoolRegistrationImplCopyWith<$Res> {
   factory _$$StakePoolRegistrationImplCopyWith(
           _$StakePoolRegistrationImpl value,
           $Res Function(_$StakePoolRegistrationImpl) then) =
       __$$StakePoolRegistrationImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CertificateType type, ParsedPoolParams pool});
+  $Res call({ParsedPoolParams pool});
 
   $ParsedPoolParamsCopyWith<$Res> get pool;
 }
@@ -3027,14 +2415,9 @@ class __$$StakePoolRegistrationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? pool = null,
   }) {
     return _then(_$StakePoolRegistrationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       pool: null == pool
           ? _value.pool
           : pool // ignore: cast_nullable_to_non_nullable
@@ -3054,17 +2437,14 @@ class __$$StakePoolRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolRegistrationImpl extends StakePoolRegistration {
-  const _$StakePoolRegistrationImpl({required this.type, required this.pool})
-      : super._();
+  _$StakePoolRegistrationImpl({required this.pool}) : super._();
 
-  @override
-  final CertificateType type;
   @override
   final ParsedPoolParams pool;
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakePoolRegistration(type: $type, pool: $pool)';
+    return 'ParsedCertificate.stakePoolRegistration(pool: $pool)';
   }
 
   @override
@@ -3072,12 +2452,11 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakePoolRegistrationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.pool, pool) || other.pool == pool));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, pool);
+  int get hashCode => Object.hash(runtimeType, pool);
 
   @JsonKey(ignore: true)
   @override
@@ -3089,166 +2468,127 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakePoolRegistration(type, pool);
+    return stakePoolRegistration(pool);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakePoolRegistration?.call(type, pool);
+    return stakePoolRegistration?.call(pool);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakePoolRegistration != null) {
-      return stakePoolRegistration(type, pool);
+      return stakePoolRegistration(pool);
     }
     return orElse();
   }
 }
 
 abstract class StakePoolRegistration extends ParsedCertificate {
-  const factory StakePoolRegistration(
-      {required final CertificateType type,
-      required final ParsedPoolParams pool}) = _$StakePoolRegistrationImpl;
-  const StakePoolRegistration._() : super._();
+  factory StakePoolRegistration({required final ParsedPoolParams pool}) =
+      _$StakePoolRegistrationImpl;
+  StakePoolRegistration._() : super._();
 
-  @override
-  CertificateType get type;
   ParsedPoolParams get pool;
-  @override
   @JsonKey(ignore: true)
   _$$StakePoolRegistrationImplCopyWith<_$StakePoolRegistrationImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$StakePoolRetirementImplCopyWith<$Res>
-    implements $ParsedCertificateCopyWith<$Res> {
+abstract class _$$StakePoolRetirementImplCopyWith<$Res> {
   factory _$$StakePoolRetirementImplCopyWith(_$StakePoolRetirementImpl value,
           $Res Function(_$StakePoolRetirementImpl) then) =
       __$$StakePoolRetirementImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({CertificateType type, List<int> path, String retirementEpoch});
+  $Res call({List<int> path, String retirementEpoch});
 }
 
 /// @nodoc
@@ -3262,15 +2602,10 @@ class __$$StakePoolRetirementImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? path = null,
     Object? retirementEpoch = null,
   }) {
     return _then(_$StakePoolRetirementImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CertificateType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -3286,15 +2621,11 @@ class __$$StakePoolRetirementImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolRetirementImpl extends StakePoolRetirement {
-  const _$StakePoolRetirementImpl(
-      {required this.type,
-      required final List<int> path,
-      required this.retirementEpoch})
+  _$StakePoolRetirementImpl(
+      {required final List<int> path, required this.retirementEpoch})
       : _path = path,
         super._();
 
-  @override
-  final CertificateType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -3308,7 +2639,7 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
 
   @override
   String toString() {
-    return 'ParsedCertificate.stakePoolRetirement(type: $type, path: $path, retirementEpoch: $retirementEpoch)';
+    return 'ParsedCertificate.stakePoolRetirement(path: $path, retirementEpoch: $retirementEpoch)';
   }
 
   @override
@@ -3316,15 +2647,14 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakePoolRetirementImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path) &&
             (identical(other.retirementEpoch, retirementEpoch) ||
                 other.retirementEpoch == retirementEpoch));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type,
-      const DeepCollectionEquality().hash(_path), retirementEpoch);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_path), retirementEpoch);
 
   @JsonKey(ignore: true)
   @override
@@ -3336,154 +2666,117 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeRegistrationConway,
-    required TResult Function(
-            CertificateType type, ParsedCredential stakeCredential)
+    required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, String deposit)
         stakeDeregistrationConway,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
         stakeDelegation,
-    required TResult Function(CertificateType type,
-            ParsedCredential stakeCredential, ParsedDRep dRep)
+    required TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)
         voteDelegation,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor anchor)
         resignCommitteeCold,
-    required TResult Function(
-            CertificateType type,
-            ParsedCredential dRepCredential,
-            String deposit,
+    required TResult Function(ParsedCredential dRepCredential, String deposit,
             ParsedAnchor anchor)
         dRepRegistration,
-    required TResult Function(CertificateType type,
-            ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
-    required TResult Function(CertificateType type,
+    required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor anchor)
         dRepUpdate,
-    required TResult Function(CertificateType type, ParsedPoolParams pool)
-        stakePoolRegistration,
-    required TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)
+    required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
+    required TResult Function(List<int> path, String retirementEpoch)
         stakePoolRetirement,
   }) {
-    return stakePoolRetirement(type, path, retirementEpoch);
+    return stakePoolRetirement(path, retirementEpoch);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult? Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult? Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult? Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult? Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult? Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult? Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult? Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult? Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult? Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
   }) {
-    return stakePoolRetirement?.call(type, path, retirementEpoch);
+    return stakePoolRetirement?.call(path, retirementEpoch);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeRegistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeRegistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential)?
-        stakeDeregistration,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String deposit)?
+    TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
+    TResult Function(ParsedCredential stakeCredential, String deposit)?
         stakeDeregistrationConway,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            String poolKeyHashHex)?
+    TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
-    TResult Function(CertificateType type, ParsedCredential stakeCredential,
-            ParsedDRep dRep)?
+    TResult Function(ParsedCredential stakeCredential, ParsedDRep dRep)?
         voteDelegation,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedCredential hotCredential)?
-        authorizeCommitteeHot,
-    TResult Function(CertificateType type, ParsedCredential coldCredential,
-            ParsedAnchor anchor)?
-        resignCommitteeCold,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit, ParsedAnchor anchor)?
-        dRepRegistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            String deposit)?
-        dRepDeregistration,
-    TResult Function(CertificateType type, ParsedCredential dRepCredential,
-            ParsedAnchor anchor)?
-        dRepUpdate,
-    TResult Function(CertificateType type, ParsedPoolParams pool)?
-        stakePoolRegistration,
     TResult Function(
-            CertificateType type, List<int> path, String retirementEpoch)?
+            ParsedCredential coldCredential, ParsedCredential hotCredential)?
+        authorizeCommitteeHot,
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+        resignCommitteeCold,
+    TResult Function(ParsedCredential dRepCredential, String deposit,
+            ParsedAnchor anchor)?
+        dRepRegistration,
+    TResult Function(ParsedCredential dRepCredential, String deposit)?
+        dRepDeregistration,
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+        dRepUpdate,
+    TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
+    TResult Function(List<int> path, String retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
     if (stakePoolRetirement != null) {
-      return stakePoolRetirement(type, path, retirementEpoch);
+      return stakePoolRetirement(path, retirementEpoch);
     }
     return orElse();
   }
 }
 
 abstract class StakePoolRetirement extends ParsedCertificate {
-  const factory StakePoolRetirement(
-      {required final CertificateType type,
-      required final List<int> path,
+  factory StakePoolRetirement(
+      {required final List<int> path,
       required final String retirementEpoch}) = _$StakePoolRetirementImpl;
-  const StakePoolRetirement._() : super._();
+  StakePoolRetirement._() : super._();
 
-  @override
-  CertificateType get type;
   List<int> get path;
   String get retirementEpoch;
-  @override
   @JsonKey(ignore: true)
   _$$StakePoolRetirementImplCopyWith<_$StakePoolRetirementImpl> get copyWith =>
       throw _privateConstructorUsedError;

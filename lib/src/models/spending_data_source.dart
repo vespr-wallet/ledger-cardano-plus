@@ -5,19 +5,21 @@ part 'spending_data_source.freezed.dart';
 
 @freezed
 sealed class SpendingDataSource with _$SpendingDataSource {
-  const SpendingDataSource._();
+   SpendingDataSource._();
 
-  const factory SpendingDataSource.none({
-    required SpendingDataSourceType type,
-  }) = SpendingDataSourceNone;
+   factory SpendingDataSource.none() = SpendingDataSourceNone;
 
-  const factory SpendingDataSource.path({
-    required SpendingDataSourceType type,
+   factory SpendingDataSource.path({
     required List<int> path,
   }) = SpendingDataSourcePath;
 
-  const factory SpendingDataSource.scriptHash({
-    required SpendingDataSourceType type,
+   factory SpendingDataSource.scriptHash({
     required String scriptHashHex,
   }) = SpendingDataSourceScriptHash;
+  
+  late final SpendingDataSourceType spendingDataSourceType = switch (this) {
+    SpendingDataSourceNone() => SpendingDataSourceType.none,
+    SpendingDataSourcePath() => SpendingDataSourceType.path,
+    SpendingDataSourceScriptHash() => SpendingDataSourceType.scriptHash,
+  };
 }

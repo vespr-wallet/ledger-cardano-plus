@@ -16,62 +16,33 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedAddressParams {
-  AddressType get type => throw _privateConstructorUsedError;
-  SpendingDataSource get spendingDataSource =>
-      throw _privateConstructorUsedError;
-  StakingDataSource get stakingDataSource => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            AddressType type,
             int protocolMagic,
             SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)
         byron,
-    required TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
+    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
         shelley,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult? Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedAddressParamsCopyWith<ParsedAddressParams> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -80,14 +51,6 @@ abstract class $ParsedAddressParamsCopyWith<$Res> {
   factory $ParsedAddressParamsCopyWith(
           ParsedAddressParams value, $Res Function(ParsedAddressParams) then) =
       _$ParsedAddressParamsCopyWithImpl<$Res, ParsedAddressParams>;
-  @useResult
-  $Res call(
-      {AddressType type,
-      SpendingDataSource spendingDataSource,
-      StakingDataSource stakingDataSource});
-
-  $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
-  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
@@ -99,65 +62,20 @@ class _$ParsedAddressParamsCopyWithImpl<$Res, $Val extends ParsedAddressParams>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-    Object? spendingDataSource = null,
-    Object? stakingDataSource = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AddressType,
-      spendingDataSource: null == spendingDataSource
-          ? _value.spendingDataSource
-          : spendingDataSource // ignore: cast_nullable_to_non_nullable
-              as SpendingDataSource,
-      stakingDataSource: null == stakingDataSource
-          ? _value.stakingDataSource
-          : stakingDataSource // ignore: cast_nullable_to_non_nullable
-              as StakingDataSource,
-    ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
-    return $SpendingDataSourceCopyWith<$Res>(_value.spendingDataSource,
-        (value) {
-      return _then(_value.copyWith(spendingDataSource: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
-    return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
-      return _then(_value.copyWith(stakingDataSource: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$ByronAddressParamsImplCopyWith<$Res>
-    implements $ParsedAddressParamsCopyWith<$Res> {
+abstract class _$$ByronAddressParamsImplCopyWith<$Res> {
   factory _$$ByronAddressParamsImplCopyWith(_$ByronAddressParamsImpl value,
           $Res Function(_$ByronAddressParamsImpl) then) =
       __$$ByronAddressParamsImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {AddressType type,
-      int protocolMagic,
+      {int protocolMagic,
       SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
-  @override
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
-  @override
   $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
@@ -172,16 +90,11 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? protocolMagic = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$ByronAddressParamsImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AddressType,
       protocolMagic: null == protocolMagic
           ? _value.protocolMagic
           : protocolMagic // ignore: cast_nullable_to_non_nullable
@@ -196,20 +109,34 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
               as StakingDataSource,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
+    return $SpendingDataSourceCopyWith<$Res>(_value.spendingDataSource,
+        (value) {
+      return _then(_value.copyWith(spendingDataSource: value));
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
+    return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
+      return _then(_value.copyWith(stakingDataSource: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$ByronAddressParamsImpl extends ByronAddressParams {
-  const _$ByronAddressParamsImpl(
-      {required this.type,
-      required this.protocolMagic,
+  _$ByronAddressParamsImpl(
+      {required this.protocolMagic,
       required this.spendingDataSource,
       required this.stakingDataSource})
       : super._();
 
-  @override
-  final AddressType type;
   @override
   final int protocolMagic;
   @override
@@ -219,7 +146,7 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
 
   @override
   String toString() {
-    return 'ParsedAddressParams.byron(type: $type, protocolMagic: $protocolMagic, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ParsedAddressParams.byron(protocolMagic: $protocolMagic, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -227,7 +154,6 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ByronAddressParamsImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.protocolMagic, protocolMagic) ||
                 other.protocolMagic == protocolMagic) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
@@ -238,7 +164,7 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
 
   @override
   int get hashCode => Object.hash(
-      runtimeType, type, protocolMagic, spendingDataSource, stakingDataSource);
+      runtimeType, protocolMagic, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -251,105 +177,68 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            AddressType type,
             int protocolMagic,
             SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)
         byron,
-    required TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
+    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
         shelley,
   }) {
-    return byron(type, protocolMagic, spendingDataSource, stakingDataSource);
+    return byron(protocolMagic, spendingDataSource, stakingDataSource);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult? Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
   }) {
-    return byron?.call(
-        type, protocolMagic, spendingDataSource, stakingDataSource);
+    return byron?.call(protocolMagic, spendingDataSource, stakingDataSource);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
     required TResult orElse(),
   }) {
     if (byron != null) {
-      return byron(type, protocolMagic, spendingDataSource, stakingDataSource);
+      return byron(protocolMagic, spendingDataSource, stakingDataSource);
     }
     return orElse();
   }
 }
 
 abstract class ByronAddressParams extends ParsedAddressParams {
-  const factory ByronAddressParams(
-          {required final AddressType type,
-          required final int protocolMagic,
+  factory ByronAddressParams(
+          {required final int protocolMagic,
           required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$ByronAddressParamsImpl;
-  const ByronAddressParams._() : super._();
+  ByronAddressParams._() : super._();
 
-  @override
-  AddressType get type;
   int get protocolMagic;
-  @override
   SpendingDataSource get spendingDataSource;
-  @override
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ShelleyAddressParamsImplCopyWith<$Res>
-    implements $ParsedAddressParamsCopyWith<$Res> {
+abstract class _$$ShelleyAddressParamsImplCopyWith<$Res> {
   factory _$$ShelleyAddressParamsImplCopyWith(_$ShelleyAddressParamsImpl value,
           $Res Function(_$ShelleyAddressParamsImpl) then) =
       __$$ShelleyAddressParamsImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call(
-      {AddressType type,
-      int networkId,
-      SpendingDataSource spendingDataSource,
-      StakingDataSource stakingDataSource});
+  $Res call({ShelleyAddressParamsData shelleyAddressParams});
 
-  @override
-  $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
-  @override
-  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
+  $ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams;
 }
 
 /// @nodoc
@@ -363,54 +252,37 @@ class __$$ShelleyAddressParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
-    Object? networkId = null,
-    Object? spendingDataSource = null,
-    Object? stakingDataSource = null,
+    Object? shelleyAddressParams = null,
   }) {
     return _then(_$ShelleyAddressParamsImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as AddressType,
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
-      spendingDataSource: null == spendingDataSource
-          ? _value.spendingDataSource
-          : spendingDataSource // ignore: cast_nullable_to_non_nullable
-              as SpendingDataSource,
-      stakingDataSource: null == stakingDataSource
-          ? _value.stakingDataSource
-          : stakingDataSource // ignore: cast_nullable_to_non_nullable
-              as StakingDataSource,
+      shelleyAddressParams: null == shelleyAddressParams
+          ? _value.shelleyAddressParams
+          : shelleyAddressParams // ignore: cast_nullable_to_non_nullable
+              as ShelleyAddressParamsData,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams {
+    return $ShelleyAddressParamsDataCopyWith<$Res>(_value.shelleyAddressParams,
+        (value) {
+      return _then(_value.copyWith(shelleyAddressParams: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$ShelleyAddressParamsImpl extends ShelleyAddressParams {
-  const _$ShelleyAddressParamsImpl(
-      {required this.type,
-      required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
-      : super._();
+  _$ShelleyAddressParamsImpl({required this.shelleyAddressParams}) : super._();
 
   @override
-  final AddressType type;
-  @override
-  final int networkId;
-  @override
-  final SpendingDataSource spendingDataSource;
-  @override
-  final StakingDataSource stakingDataSource;
+  final ShelleyAddressParamsData shelleyAddressParams;
 
   @override
   String toString() {
-    return 'ParsedAddressParams.shelley(type: $type, networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ParsedAddressParams.shelley(shelleyAddressParams: $shelleyAddressParams)';
   }
 
   @override
@@ -418,18 +290,12 @@ class _$ShelleyAddressParamsImpl extends ShelleyAddressParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ShelleyAddressParamsImpl &&
-            (identical(other.type, type) || other.type == type) &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
-            (identical(other.spendingDataSource, spendingDataSource) ||
-                other.spendingDataSource == spendingDataSource) &&
-            (identical(other.stakingDataSource, stakingDataSource) ||
-                other.stakingDataSource == stakingDataSource));
+            (identical(other.shelleyAddressParams, shelleyAddressParams) ||
+                other.shelleyAddressParams == shelleyAddressParams));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode => Object.hash(runtimeType, shelleyAddressParams);
 
   @JsonKey(ignore: true)
   @override
@@ -443,82 +309,50 @@ class _$ShelleyAddressParamsImpl extends ShelleyAddressParams {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            AddressType type,
             int protocolMagic,
             SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)
         byron,
-    required TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
+    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
         shelley,
   }) {
-    return shelley(type, networkId, spendingDataSource, stakingDataSource);
+    return shelley(shelleyAddressParams);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult? Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
   }) {
-    return shelley?.call(
-        type, networkId, spendingDataSource, stakingDataSource);
+    return shelley?.call(shelleyAddressParams);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            AddressType type,
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
+    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
             StakingDataSource stakingDataSource)?
         byron,
-    TResult Function(
-            AddressType type,
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        shelley,
+    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
     required TResult orElse(),
   }) {
     if (shelley != null) {
-      return shelley(type, networkId, spendingDataSource, stakingDataSource);
+      return shelley(shelleyAddressParams);
     }
     return orElse();
   }
 }
 
 abstract class ShelleyAddressParams extends ParsedAddressParams {
-  const factory ShelleyAddressParams(
-          {required final AddressType type,
-          required final int networkId,
-          required final SpendingDataSource spendingDataSource,
-          required final StakingDataSource stakingDataSource}) =
+  factory ShelleyAddressParams(
+          {required final ShelleyAddressParamsData shelleyAddressParams}) =
       _$ShelleyAddressParamsImpl;
-  const ShelleyAddressParams._() : super._();
+  ShelleyAddressParams._() : super._();
 
-  @override
-  AddressType get type;
-  int get networkId;
-  @override
-  SpendingDataSource get spendingDataSource;
-  @override
-  StakingDataSource get stakingDataSource;
-  @override
+  ShelleyAddressParamsData get shelleyAddressParams;
   @JsonKey(ignore: true)
   _$$ShelleyAddressParamsImplCopyWith<_$ShelleyAddressParamsImpl>
       get copyWith => throw _privateConstructorUsedError;

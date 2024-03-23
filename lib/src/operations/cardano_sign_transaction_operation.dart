@@ -433,7 +433,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
       debugName: 'Sign Transaction Set Mint Basic Data',
     ));
 
-    await signTx_addTokenBundle(mint, p1StageMint, send);
+    await signTx_addTokenBundle(mint, p1StageMint, send, SerializationUtils.int64ToBuf);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,

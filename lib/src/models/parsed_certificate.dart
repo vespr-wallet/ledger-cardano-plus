@@ -9,81 +9,84 @@ part 'parsed_certificate.freezed.dart';
 
 @freezed
 sealed class ParsedCertificate with _$ParsedCertificate {
-  const ParsedCertificate._();
+  ParsedCertificate._();
 
-  const factory ParsedCertificate.stakeRegistration({
-    required CertificateType type,
+  factory ParsedCertificate.stakeRegistration({
     required ParsedCredential stakeCredential,
   }) = StakeRegistration;
 
-  const factory ParsedCertificate.stakeRegistrationConway({
-    required CertificateType type,
+  factory ParsedCertificate.stakeRegistrationConway({
     required ParsedCredential stakeCredential,
     required String deposit,
   }) = StakeRegistrationConway;
 
-  const factory ParsedCertificate.stakeDeregistration({
-    required CertificateType type,
+  factory ParsedCertificate.stakeDeregistration({
     required ParsedCredential stakeCredential,
   }) = StakeDeregistration;
 
-  const factory ParsedCertificate.stakeDeregistrationConway({
-    required CertificateType type,
+  factory ParsedCertificate.stakeDeregistrationConway({
     required ParsedCredential stakeCredential,
     required String deposit,
   }) = StakeDeregistrationConway;
 
-  const factory ParsedCertificate.stakeDelegation({
-    required CertificateType type,
+  factory ParsedCertificate.stakeDelegation({
     required ParsedCredential stakeCredential,
     required String poolKeyHashHex,
   }) = StakeDelegation;
 
-  const factory ParsedCertificate.voteDelegation({
-    required CertificateType type,
+  factory ParsedCertificate.voteDelegation({
     required ParsedCredential stakeCredential,
     required ParsedDRep dRep,
   }) = VoteDelegation;
 
-  const factory ParsedCertificate.authorizeCommitteeHot({
-    required CertificateType type,
+  factory ParsedCertificate.authorizeCommitteeHot({
     required ParsedCredential coldCredential,
     required ParsedCredential hotCredential,
   }) = AuthorizeCommitteeHot;
 
-  const factory ParsedCertificate.resignCommitteeCold({
-    required CertificateType type,
+  factory ParsedCertificate.resignCommitteeCold({
     required ParsedCredential coldCredential,
     required ParsedAnchor anchor,
   }) = ResignCommitteeCold;
 
-  const factory ParsedCertificate.dRepRegistration({
-    required CertificateType type,
+  factory ParsedCertificate.dRepRegistration({
     required ParsedCredential dRepCredential,
     required String deposit,
     required ParsedAnchor anchor,
   }) = DRepRegistration;
 
-  const factory ParsedCertificate.dRepDeregistration({
-    required CertificateType type,
+  factory ParsedCertificate.dRepDeregistration({
     required ParsedCredential dRepCredential,
     required String deposit,
   }) = DRepDeregistration;
 
-  const factory ParsedCertificate.dRepUpdate({
-    required CertificateType type,
+  factory ParsedCertificate.dRepUpdate({
     required ParsedCredential dRepCredential,
     required ParsedAnchor anchor,
   }) = DRepUpdate;
 
-  const factory ParsedCertificate.stakePoolRegistration({
-    required CertificateType type,
+  factory ParsedCertificate.stakePoolRegistration({
     required ParsedPoolParams pool,
   }) = StakePoolRegistration;
 
-  const factory ParsedCertificate.stakePoolRetirement({
-    required CertificateType type,
+  factory ParsedCertificate.stakePoolRetirement({
     required List<int> path,
     required String retirementEpoch,
   }) = StakePoolRetirement;
+
+  late final CertificateType certificateType = switch (this) {
+    StakeRegistration() => CertificateType.stakeRegistration,
+    StakeRegistrationConway() => CertificateType.stakeRegistrationConway,
+    StakeDeregistration() => CertificateType.stakeDeregistration,
+    StakeDeregistrationConway() => CertificateType.stakeDeregistrationConway,
+    StakeDelegation() => CertificateType.stakeDelegation,
+    VoteDelegation() => CertificateType.voteDelegation,
+    AuthorizeCommitteeHot() => CertificateType.authorizeCommitteeHot,
+    ResignCommitteeCold() => CertificateType.resignCommitteeCold,
+    DRepRegistration() => CertificateType.dRepRegistration,
+    DRepDeregistration() => CertificateType.dRepDeregistration,
+    DRepUpdate() => CertificateType.dRepUpdate,
+    StakePoolRegistration() => CertificateType.stakePoolRegistration,
+    StakePoolRetirement() => CertificateType.stakePoolRetirement,
+  };
 }

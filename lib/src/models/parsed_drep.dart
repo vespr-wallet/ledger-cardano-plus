@@ -28,25 +28,26 @@ sealed class ParsedDRep with _$ParsedDRep {
   }
 
   factory ParsedDRep.keyPath({
-    required DRepType type,
     required List<int> path,
   }) = DRepKeyPath;
 
   factory ParsedDRep.keyHash({
-    required DRepType type,
     required String keyHashHex,
   }) = DRepKeyHash;
 
   factory ParsedDRep.scriptHash({
-    required DRepType type,
     required String scriptHashHex,
   }) = DRepScriptHash;
 
-  factory ParsedDRep.abstain({
-    required DRepType type,
-  }) = DRepAbstain;
+  factory ParsedDRep.abstain() = DRepAbstain;
 
-  factory ParsedDRep.noConfidence({
-    required DRepType type,
-  }) = DRepNoConfidence;
+  factory ParsedDRep.noConfidence() = DRepNoConfidence;
+
+  late final DRepType dRepType = switch (this) {
+    DRepKeyPath() => DRepType.keyPath,
+    DRepKeyHash() => DRepType.keyHash,
+    DRepScriptHash() => DRepType.scriptHash,
+    DRepAbstain() => DRepType.abstain,
+    DRepNoConfidence() => DRepType.noConfidence,
+  };
 }

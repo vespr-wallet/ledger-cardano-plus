@@ -16,39 +16,28 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedPoolRelay {
-  RelayType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RelayType type, int? port, String? ipv4, String? ipv6)
+    required TResult Function(int? port, String? ipv4, String? ipv6)
         singleHostIpAddr,
-    required TResult Function(RelayType type, int? port, String dnsName)
-        singleHostHostname,
-    required TResult Function(RelayType type, String dnsName) multiHost,
+    required TResult Function(int? port, String dnsName) singletHostname,
+    required TResult Function(String dnsName) multiHost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult? Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult? Function(RelayType type, String dnsName)? multiHost,
+    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult? Function(int? port, String dnsName)? singletHostname,
+    TResult? Function(String dnsName)? multiHost,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult Function(RelayType type, String dnsName)? multiHost,
+    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult Function(int? port, String dnsName)? singletHostname,
+    TResult Function(String dnsName)? multiHost,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedPoolRelayCopyWith<ParsedPoolRelay> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -57,8 +46,6 @@ abstract class $ParsedPoolRelayCopyWith<$Res> {
   factory $ParsedPoolRelayCopyWith(
           ParsedPoolRelay value, $Res Function(ParsedPoolRelay) then) =
       _$ParsedPoolRelayCopyWithImpl<$Res, ParsedPoolRelay>;
-  @useResult
-  $Res call({RelayType type});
 }
 
 /// @nodoc
@@ -70,30 +57,15 @@ class _$ParsedPoolRelayCopyWithImpl<$Res, $Val extends ParsedPoolRelay>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as RelayType,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$SingleHostIpAddrImplCopyWith<$Res>
-    implements $ParsedPoolRelayCopyWith<$Res> {
+abstract class _$$SingleHostIpAddrImplCopyWith<$Res> {
   factory _$$SingleHostIpAddrImplCopyWith(_$SingleHostIpAddrImpl value,
           $Res Function(_$SingleHostIpAddrImpl) then) =
       __$$SingleHostIpAddrImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({RelayType type, int? port, String? ipv4, String? ipv6});
+  $Res call({int? port, String? ipv4, String? ipv6});
 }
 
 /// @nodoc
@@ -107,16 +79,11 @@ class __$$SingleHostIpAddrImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? port = freezed,
     Object? ipv4 = freezed,
     Object? ipv6 = freezed,
   }) {
     return _then(_$SingleHostIpAddrImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as RelayType,
       port: freezed == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
@@ -136,12 +103,8 @@ class __$$SingleHostIpAddrImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SingleHostIpAddrImpl extends SingleHostIpAddr {
-  const _$SingleHostIpAddrImpl(
-      {required this.type, this.port, this.ipv4, this.ipv6})
-      : super._();
+  _$SingleHostIpAddrImpl({this.port, this.ipv4, this.ipv6}) : super._();
 
-  @override
-  final RelayType type;
   @override
   final int? port;
   @override
@@ -151,7 +114,7 @@ class _$SingleHostIpAddrImpl extends SingleHostIpAddr {
 
   @override
   String toString() {
-    return 'ParsedPoolRelay.singleHostIpAddr(type: $type, port: $port, ipv4: $ipv4, ipv6: $ipv6)';
+    return 'ParsedPoolRelay.singleHostIpAddr(port: $port, ipv4: $ipv4, ipv6: $ipv6)';
   }
 
   @override
@@ -159,14 +122,13 @@ class _$SingleHostIpAddrImpl extends SingleHostIpAddr {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SingleHostIpAddrImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.port, port) || other.port == port) &&
             (identical(other.ipv4, ipv4) || other.ipv4 == ipv4) &&
             (identical(other.ipv6, ipv6) || other.ipv6 == ipv6));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, port, ipv4, ipv6);
+  int get hashCode => Object.hash(runtimeType, port, ipv4, ipv6);
 
   @JsonKey(ignore: true)
   @override
@@ -178,73 +140,61 @@ class _$SingleHostIpAddrImpl extends SingleHostIpAddr {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RelayType type, int? port, String? ipv4, String? ipv6)
+    required TResult Function(int? port, String? ipv4, String? ipv6)
         singleHostIpAddr,
-    required TResult Function(RelayType type, int? port, String dnsName)
-        singleHostHostname,
-    required TResult Function(RelayType type, String dnsName) multiHost,
+    required TResult Function(int? port, String dnsName) singletHostname,
+    required TResult Function(String dnsName) multiHost,
   }) {
-    return singleHostIpAddr(type, port, ipv4, ipv6);
+    return singleHostIpAddr(port, ipv4, ipv6);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult? Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult? Function(RelayType type, String dnsName)? multiHost,
+    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult? Function(int? port, String dnsName)? singletHostname,
+    TResult? Function(String dnsName)? multiHost,
   }) {
-    return singleHostIpAddr?.call(type, port, ipv4, ipv6);
+    return singleHostIpAddr?.call(port, ipv4, ipv6);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult Function(RelayType type, String dnsName)? multiHost,
+    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult Function(int? port, String dnsName)? singletHostname,
+    TResult Function(String dnsName)? multiHost,
     required TResult orElse(),
   }) {
     if (singleHostIpAddr != null) {
-      return singleHostIpAddr(type, port, ipv4, ipv6);
+      return singleHostIpAddr(port, ipv4, ipv6);
     }
     return orElse();
   }
 }
 
 abstract class SingleHostIpAddr extends ParsedPoolRelay {
-  const factory SingleHostIpAddr(
-      {required final RelayType type,
-      final int? port,
+  factory SingleHostIpAddr(
+      {final int? port,
       final String? ipv4,
       final String? ipv6}) = _$SingleHostIpAddrImpl;
-  const SingleHostIpAddr._() : super._();
+  SingleHostIpAddr._() : super._();
 
-  @override
-  RelayType get type;
   int? get port;
   String? get ipv4;
   String? get ipv6;
-  @override
   @JsonKey(ignore: true)
   _$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$SingleHostNameImplCopyWith<$Res>
-    implements $ParsedPoolRelayCopyWith<$Res> {
+abstract class _$$SingleHostNameImplCopyWith<$Res> {
   factory _$$SingleHostNameImplCopyWith(_$SingleHostNameImpl value,
           $Res Function(_$SingleHostNameImpl) then) =
       __$$SingleHostNameImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({RelayType type, int? port, String dnsName});
+  $Res call({int? port, String dnsName});
 }
 
 /// @nodoc
@@ -258,15 +208,10 @@ class __$$SingleHostNameImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? port = freezed,
     Object? dnsName = null,
   }) {
     return _then(_$SingleHostNameImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as RelayType,
       port: freezed == port
           ? _value.port
           : port // ignore: cast_nullable_to_non_nullable
@@ -282,12 +227,8 @@ class __$$SingleHostNameImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SingleHostNameImpl extends SingleHostName {
-  const _$SingleHostNameImpl(
-      {required this.type, this.port, required this.dnsName})
-      : super._();
+  _$SingleHostNameImpl({this.port, required this.dnsName}) : super._();
 
-  @override
-  final RelayType type;
   @override
   final int? port;
   @override
@@ -295,7 +236,7 @@ class _$SingleHostNameImpl extends SingleHostName {
 
   @override
   String toString() {
-    return 'ParsedPoolRelay.singleHostHostname(type: $type, port: $port, dnsName: $dnsName)';
+    return 'ParsedPoolRelay.singletHostname(port: $port, dnsName: $dnsName)';
   }
 
   @override
@@ -303,13 +244,12 @@ class _$SingleHostNameImpl extends SingleHostName {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SingleHostNameImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.port, port) || other.port == port) &&
             (identical(other.dnsName, dnsName) || other.dnsName == dnsName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, port, dnsName);
+  int get hashCode => Object.hash(runtimeType, port, dnsName);
 
   @JsonKey(ignore: true)
   @override
@@ -321,71 +261,58 @@ class _$SingleHostNameImpl extends SingleHostName {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RelayType type, int? port, String? ipv4, String? ipv6)
+    required TResult Function(int? port, String? ipv4, String? ipv6)
         singleHostIpAddr,
-    required TResult Function(RelayType type, int? port, String dnsName)
-        singleHostHostname,
-    required TResult Function(RelayType type, String dnsName) multiHost,
+    required TResult Function(int? port, String dnsName) singletHostname,
+    required TResult Function(String dnsName) multiHost,
   }) {
-    return singleHostHostname(type, port, dnsName);
+    return singletHostname(port, dnsName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult? Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult? Function(RelayType type, String dnsName)? multiHost,
+    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult? Function(int? port, String dnsName)? singletHostname,
+    TResult? Function(String dnsName)? multiHost,
   }) {
-    return singleHostHostname?.call(type, port, dnsName);
+    return singletHostname?.call(port, dnsName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult Function(RelayType type, String dnsName)? multiHost,
+    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult Function(int? port, String dnsName)? singletHostname,
+    TResult Function(String dnsName)? multiHost,
     required TResult orElse(),
   }) {
-    if (singleHostHostname != null) {
-      return singleHostHostname(type, port, dnsName);
+    if (singletHostname != null) {
+      return singletHostname(port, dnsName);
     }
     return orElse();
   }
 }
 
 abstract class SingleHostName extends ParsedPoolRelay {
-  const factory SingleHostName(
-      {required final RelayType type,
-      final int? port,
-      required final String dnsName}) = _$SingleHostNameImpl;
-  const SingleHostName._() : super._();
+  factory SingleHostName({final int? port, required final String dnsName}) =
+      _$SingleHostNameImpl;
+  SingleHostName._() : super._();
 
-  @override
-  RelayType get type;
   int? get port;
   String get dnsName;
-  @override
   @JsonKey(ignore: true)
   _$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MultiHostImplCopyWith<$Res>
-    implements $ParsedPoolRelayCopyWith<$Res> {
+abstract class _$$MultiHostImplCopyWith<$Res> {
   factory _$$MultiHostImplCopyWith(
           _$MultiHostImpl value, $Res Function(_$MultiHostImpl) then) =
       __$$MultiHostImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({RelayType type, String dnsName});
+  $Res call({String dnsName});
 }
 
 /// @nodoc
@@ -399,14 +326,9 @@ class __$$MultiHostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? dnsName = null,
   }) {
     return _then(_$MultiHostImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as RelayType,
       dnsName: null == dnsName
           ? _value.dnsName
           : dnsName // ignore: cast_nullable_to_non_nullable
@@ -418,17 +340,14 @@ class __$$MultiHostImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MultiHostImpl extends MultiHost {
-  const _$MultiHostImpl({required this.type, required this.dnsName})
-      : super._();
+  _$MultiHostImpl({required this.dnsName}) : super._();
 
-  @override
-  final RelayType type;
   @override
   final String dnsName;
 
   @override
   String toString() {
-    return 'ParsedPoolRelay.multiHost(type: $type, dnsName: $dnsName)';
+    return 'ParsedPoolRelay.multiHost(dnsName: $dnsName)';
   }
 
   @override
@@ -436,12 +355,11 @@ class _$MultiHostImpl extends MultiHost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MultiHostImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.dnsName, dnsName) || other.dnsName == dnsName));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, dnsName);
+  int get hashCode => Object.hash(runtimeType, dnsName);
 
   @JsonKey(ignore: true)
   @override
@@ -452,55 +370,44 @@ class _$MultiHostImpl extends MultiHost {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            RelayType type, int? port, String? ipv4, String? ipv6)
+    required TResult Function(int? port, String? ipv4, String? ipv6)
         singleHostIpAddr,
-    required TResult Function(RelayType type, int? port, String dnsName)
-        singleHostHostname,
-    required TResult Function(RelayType type, String dnsName) multiHost,
+    required TResult Function(int? port, String dnsName) singletHostname,
+    required TResult Function(String dnsName) multiHost,
   }) {
-    return multiHost(type, dnsName);
+    return multiHost(dnsName);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult? Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult? Function(RelayType type, String dnsName)? multiHost,
+    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult? Function(int? port, String dnsName)? singletHostname,
+    TResult? Function(String dnsName)? multiHost,
   }) {
-    return multiHost?.call(type, dnsName);
+    return multiHost?.call(dnsName);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RelayType type, int? port, String? ipv4, String? ipv6)?
-        singleHostIpAddr,
-    TResult Function(RelayType type, int? port, String dnsName)?
-        singleHostHostname,
-    TResult Function(RelayType type, String dnsName)? multiHost,
+    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
+    TResult Function(int? port, String dnsName)? singletHostname,
+    TResult Function(String dnsName)? multiHost,
     required TResult orElse(),
   }) {
     if (multiHost != null) {
-      return multiHost(type, dnsName);
+      return multiHost(dnsName);
     }
     return orElse();
   }
 }
 
 abstract class MultiHost extends ParsedPoolRelay {
-  const factory MultiHost(
-      {required final RelayType type,
-      required final String dnsName}) = _$MultiHostImpl;
-  const MultiHost._() : super._();
+  factory MultiHost({required final String dnsName}) = _$MultiHostImpl;
+  MultiHost._() : super._();
 
-  @override
-  RelayType get type;
   String get dnsName;
-  @override
   @JsonKey(ignore: true)
   _$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith =>
       throw _privateConstructorUsedError;

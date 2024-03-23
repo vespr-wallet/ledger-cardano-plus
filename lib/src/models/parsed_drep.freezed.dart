@@ -16,38 +16,33 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedDRep {
-  DRepType get type => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedDRepCopyWith<ParsedDRep> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -56,8 +51,6 @@ abstract class $ParsedDRepCopyWith<$Res> {
   factory $ParsedDRepCopyWith(
           ParsedDRep value, $Res Function(ParsedDRep) then) =
       _$ParsedDRepCopyWithImpl<$Res, ParsedDRep>;
-  @useResult
-  $Res call({DRepType type});
 }
 
 /// @nodoc
@@ -69,30 +62,15 @@ class _$ParsedDRepCopyWithImpl<$Res, $Val extends ParsedDRep>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$DRepKeyPathImplCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
+abstract class _$$DRepKeyPathImplCopyWith<$Res> {
   factory _$$DRepKeyPathImplCopyWith(
           _$DRepKeyPathImpl value, $Res Function(_$DRepKeyPathImpl) then) =
       __$$DRepKeyPathImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({DRepType type, List<int> path});
+  $Res call({List<int> path});
 }
 
 /// @nodoc
@@ -106,14 +84,9 @@ class __$$DRepKeyPathImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? path = null,
   }) {
     return _then(_$DRepKeyPathImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
       path: null == path
           ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
@@ -125,12 +98,10 @@ class __$$DRepKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepKeyPathImpl extends DRepKeyPath {
-  _$DRepKeyPathImpl({required this.type, required final List<int> path})
+  _$DRepKeyPathImpl({required final List<int> path})
       : _path = path,
         super._();
 
-  @override
-  final DRepType type;
   final List<int> _path;
   @override
   List<int> get path {
@@ -141,7 +112,7 @@ class _$DRepKeyPathImpl extends DRepKeyPath {
 
   @override
   String toString() {
-    return 'ParsedDRep.keyPath(type: $type, path: $path)';
+    return 'ParsedDRep.keyPath(path: $path)';
   }
 
   @override
@@ -149,13 +120,12 @@ class _$DRepKeyPathImpl extends DRepKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepKeyPathImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, const DeepCollectionEquality().hash(_path));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -166,68 +136,61 @@ class _$DRepKeyPathImpl extends DRepKeyPath {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) {
-    return keyPath(type, path);
+    return keyPath(path);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) {
-    return keyPath?.call(type, path);
+    return keyPath?.call(path);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) {
     if (keyPath != null) {
-      return keyPath(type, path);
+      return keyPath(path);
     }
     return orElse();
   }
 }
 
 abstract class DRepKeyPath extends ParsedDRep {
-  factory DRepKeyPath(
-      {required final DRepType type,
-      required final List<int> path}) = _$DRepKeyPathImpl;
+  factory DRepKeyPath({required final List<int> path}) = _$DRepKeyPathImpl;
   DRepKeyPath._() : super._();
 
-  @override
-  DRepType get type;
   List<int> get path;
-  @override
   @JsonKey(ignore: true)
   _$$DRepKeyPathImplCopyWith<_$DRepKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepKeyHashImplCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
+abstract class _$$DRepKeyHashImplCopyWith<$Res> {
   factory _$$DRepKeyHashImplCopyWith(
           _$DRepKeyHashImpl value, $Res Function(_$DRepKeyHashImpl) then) =
       __$$DRepKeyHashImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({DRepType type, String keyHashHex});
+  $Res call({String keyHashHex});
 }
 
 /// @nodoc
@@ -241,14 +204,9 @@ class __$$DRepKeyHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? keyHashHex = null,
   }) {
     return _then(_$DRepKeyHashImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
       keyHashHex: null == keyHashHex
           ? _value.keyHashHex
           : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -260,16 +218,14 @@ class __$$DRepKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepKeyHashImpl extends DRepKeyHash {
-  _$DRepKeyHashImpl({required this.type, required this.keyHashHex}) : super._();
+  _$DRepKeyHashImpl({required this.keyHashHex}) : super._();
 
-  @override
-  final DRepType type;
   @override
   final String keyHashHex;
 
   @override
   String toString() {
-    return 'ParsedDRep.keyHash(type: $type, keyHashHex: $keyHashHex)';
+    return 'ParsedDRep.keyHash(keyHashHex: $keyHashHex)';
   }
 
   @override
@@ -277,13 +233,12 @@ class _$DRepKeyHashImpl extends DRepKeyHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepKeyHashImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.keyHashHex, keyHashHex) ||
                 other.keyHashHex == keyHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, keyHashHex);
+  int get hashCode => Object.hash(runtimeType, keyHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -294,68 +249,61 @@ class _$DRepKeyHashImpl extends DRepKeyHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) {
-    return keyHash(type, keyHashHex);
+    return keyHash(keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) {
-    return keyHash?.call(type, keyHashHex);
+    return keyHash?.call(keyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) {
     if (keyHash != null) {
-      return keyHash(type, keyHashHex);
+      return keyHash(keyHashHex);
     }
     return orElse();
   }
 }
 
 abstract class DRepKeyHash extends ParsedDRep {
-  factory DRepKeyHash(
-      {required final DRepType type,
-      required final String keyHashHex}) = _$DRepKeyHashImpl;
+  factory DRepKeyHash({required final String keyHashHex}) = _$DRepKeyHashImpl;
   DRepKeyHash._() : super._();
 
-  @override
-  DRepType get type;
   String get keyHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$DRepKeyHashImplCopyWith<_$DRepKeyHashImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepScriptHashImplCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
+abstract class _$$DRepScriptHashImplCopyWith<$Res> {
   factory _$$DRepScriptHashImplCopyWith(_$DRepScriptHashImpl value,
           $Res Function(_$DRepScriptHashImpl) then) =
       __$$DRepScriptHashImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({DRepType type, String scriptHashHex});
+  $Res call({String scriptHashHex});
 }
 
 /// @nodoc
@@ -369,14 +317,9 @@ class __$$DRepScriptHashImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? scriptHashHex = null,
   }) {
     return _then(_$DRepScriptHashImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
       scriptHashHex: null == scriptHashHex
           ? _value.scriptHashHex
           : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -388,17 +331,14 @@ class __$$DRepScriptHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepScriptHashImpl extends DRepScriptHash {
-  _$DRepScriptHashImpl({required this.type, required this.scriptHashHex})
-      : super._();
+  _$DRepScriptHashImpl({required this.scriptHashHex}) : super._();
 
-  @override
-  final DRepType type;
   @override
   final String scriptHashHex;
 
   @override
   String toString() {
-    return 'ParsedDRep.scriptHash(type: $type, scriptHashHex: $scriptHashHex)';
+    return 'ParsedDRep.scriptHash(scriptHashHex: $scriptHashHex)';
   }
 
   @override
@@ -406,13 +346,12 @@ class _$DRepScriptHashImpl extends DRepScriptHash {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DRepScriptHashImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.scriptHashHex, scriptHashHex) ||
                 other.scriptHashHex == scriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, scriptHashHex);
+  int get hashCode => Object.hash(runtimeType, scriptHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -424,68 +363,60 @@ class _$DRepScriptHashImpl extends DRepScriptHash {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) {
-    return scriptHash(type, scriptHashHex);
+    return scriptHash(scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) {
-    return scriptHash?.call(type, scriptHashHex);
+    return scriptHash?.call(scriptHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) {
     if (scriptHash != null) {
-      return scriptHash(type, scriptHashHex);
+      return scriptHash(scriptHashHex);
     }
     return orElse();
   }
 }
 
 abstract class DRepScriptHash extends ParsedDRep {
-  factory DRepScriptHash(
-      {required final DRepType type,
-      required final String scriptHashHex}) = _$DRepScriptHashImpl;
+  factory DRepScriptHash({required final String scriptHashHex}) =
+      _$DRepScriptHashImpl;
   DRepScriptHash._() : super._();
 
-  @override
-  DRepType get type;
   String get scriptHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$DRepScriptHashImplCopyWith<_$DRepScriptHashImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepAbstainImplCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
+abstract class _$$DRepAbstainImplCopyWith<$Res> {
   factory _$$DRepAbstainImplCopyWith(
           _$DRepAbstainImpl value, $Res Function(_$DRepAbstainImpl) then) =
       __$$DRepAbstainImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DRepType type});
 }
 
 /// @nodoc
@@ -495,113 +426,78 @@ class __$$DRepAbstainImplCopyWithImpl<$Res>
   __$$DRepAbstainImplCopyWithImpl(
       _$DRepAbstainImpl _value, $Res Function(_$DRepAbstainImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_$DRepAbstainImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$DRepAbstainImpl extends DRepAbstain {
-  _$DRepAbstainImpl({required this.type}) : super._();
-
-  @override
-  final DRepType type;
+  _$DRepAbstainImpl() : super._();
 
   @override
   String toString() {
-    return 'ParsedDRep.abstain(type: $type)';
+    return 'ParsedDRep.abstain()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DRepAbstainImpl &&
-            (identical(other.type, type) || other.type == type));
+        (other.runtimeType == runtimeType && other is _$DRepAbstainImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DRepAbstainImplCopyWith<_$DRepAbstainImpl> get copyWith =>
-      __$$DRepAbstainImplCopyWithImpl<_$DRepAbstainImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) {
-    return abstain(type);
+    return abstain();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) {
-    return abstain?.call(type);
+    return abstain?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) {
     if (abstain != null) {
-      return abstain(type);
+      return abstain();
     }
     return orElse();
   }
 }
 
 abstract class DRepAbstain extends ParsedDRep {
-  factory DRepAbstain({required final DRepType type}) = _$DRepAbstainImpl;
+  factory DRepAbstain() = _$DRepAbstainImpl;
   DRepAbstain._() : super._();
-
-  @override
-  DRepType get type;
-  @override
-  @JsonKey(ignore: true)
-  _$$DRepAbstainImplCopyWith<_$DRepAbstainImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DRepNoConfidenceImplCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
+abstract class _$$DRepNoConfidenceImplCopyWith<$Res> {
   factory _$$DRepNoConfidenceImplCopyWith(_$DRepNoConfidenceImpl value,
           $Res Function(_$DRepNoConfidenceImpl) then) =
       __$$DRepNoConfidenceImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({DRepType type});
 }
 
 /// @nodoc
@@ -611,102 +507,69 @@ class __$$DRepNoConfidenceImplCopyWithImpl<$Res>
   __$$DRepNoConfidenceImplCopyWithImpl(_$DRepNoConfidenceImpl _value,
       $Res Function(_$DRepNoConfidenceImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? type = null,
-  }) {
-    return _then(_$DRepNoConfidenceImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as DRepType,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$DRepNoConfidenceImpl extends DRepNoConfidence {
-  _$DRepNoConfidenceImpl({required this.type}) : super._();
-
-  @override
-  final DRepType type;
+  _$DRepNoConfidenceImpl() : super._();
 
   @override
   String toString() {
-    return 'ParsedDRep.noConfidence(type: $type)';
+    return 'ParsedDRep.noConfidence()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DRepNoConfidenceImpl &&
-            (identical(other.type, type) || other.type == type));
+        (other.runtimeType == runtimeType && other is _$DRepNoConfidenceImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DRepNoConfidenceImplCopyWith<_$DRepNoConfidenceImpl> get copyWith =>
-      __$$DRepNoConfidenceImplCopyWithImpl<_$DRepNoConfidenceImpl>(
-          this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(DRepType type, List<int> path) keyPath,
-    required TResult Function(DRepType type, String keyHashHex) keyHash,
-    required TResult Function(DRepType type, String scriptHashHex) scriptHash,
-    required TResult Function(DRepType type) abstain,
-    required TResult Function(DRepType type) noConfidence,
+    required TResult Function(List<int> path) keyPath,
+    required TResult Function(String keyHashHex) keyHash,
+    required TResult Function(String scriptHashHex) scriptHash,
+    required TResult Function() abstain,
+    required TResult Function() noConfidence,
   }) {
-    return noConfidence(type);
+    return noConfidence();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(DRepType type, List<int> path)? keyPath,
-    TResult? Function(DRepType type, String keyHashHex)? keyHash,
-    TResult? Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult? Function(DRepType type)? abstain,
-    TResult? Function(DRepType type)? noConfidence,
+    TResult? Function(List<int> path)? keyPath,
+    TResult? Function(String keyHashHex)? keyHash,
+    TResult? Function(String scriptHashHex)? scriptHash,
+    TResult? Function()? abstain,
+    TResult? Function()? noConfidence,
   }) {
-    return noConfidence?.call(type);
+    return noConfidence?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(DRepType type, List<int> path)? keyPath,
-    TResult Function(DRepType type, String keyHashHex)? keyHash,
-    TResult Function(DRepType type, String scriptHashHex)? scriptHash,
-    TResult Function(DRepType type)? abstain,
-    TResult Function(DRepType type)? noConfidence,
+    TResult Function(List<int> path)? keyPath,
+    TResult Function(String keyHashHex)? keyHash,
+    TResult Function(String scriptHashHex)? scriptHash,
+    TResult Function()? abstain,
+    TResult Function()? noConfidence,
     required TResult orElse(),
   }) {
     if (noConfidence != null) {
-      return noConfidence(type);
+      return noConfidence();
     }
     return orElse();
   }
 }
 
 abstract class DRepNoConfidence extends ParsedDRep {
-  factory DRepNoConfidence({required final DRepType type}) =
-      _$DRepNoConfidenceImpl;
+  factory DRepNoConfidence() = _$DRepNoConfidenceImpl;
   DRepNoConfidence._() : super._();
-
-  @override
-  DRepType get type;
-  @override
-  @JsonKey(ignore: true)
-  _$$DRepNoConfidenceImplCopyWith<_$DRepNoConfidenceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
 }

@@ -5,16 +5,18 @@ part 'parsed_pool_owner.freezed.dart';
 
 @freezed
 sealed class ParsedPoolOwner with _$ParsedPoolOwner {
-  const ParsedPoolOwner._();
+  ParsedPoolOwner._();
 
-  const factory ParsedPoolOwner.deviceOwned({
-    required PoolOwnerType type,
+  factory ParsedPoolOwner.deviceOwned({
     required List<int> path,
   }) = DeviceOwnedPoolOwner;
 
-  const factory ParsedPoolOwner.thirdParty({
-    required PoolOwnerType type,
+  factory ParsedPoolOwner.thirdParty({
     required String hashHex,
   }) = ThirdPartyPoolOwner;
 
+  late final PoolOwnerType poolOwnerType = switch (this) {
+    DeviceOwnedPoolOwner() => PoolOwnerType.deviceOwned,
+    ThirdPartyPoolOwner() => PoolOwnerType.thirdParty,
+  };
 }

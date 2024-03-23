@@ -16,34 +16,23 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedCVoteDelegation {
-  CIP36VoteDelegationType get type => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)
-        path,
-    required TResult Function(
-            CIP36VoteDelegationType type, String voteKey, int weight)
-        key,
+    required TResult Function(List<int> voteKeyPath, int weight) path,
+    required TResult Function(String voteKey, int weight) key,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult? Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult? Function(List<int> voteKeyPath, int weight)? path,
+    TResult? Function(String voteKey, int weight)? key,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult Function(List<int> voteKeyPath, int weight)? path,
+    TResult Function(String voteKey, int weight)? key,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -59,7 +48,7 @@ abstract class $ParsedCVoteDelegationCopyWith<$Res> {
           $Res Function(ParsedCVoteDelegation) then) =
       _$ParsedCVoteDelegationCopyWithImpl<$Res, ParsedCVoteDelegation>;
   @useResult
-  $Res call({CIP36VoteDelegationType type, int weight});
+  $Res call({int weight});
 }
 
 /// @nodoc
@@ -76,14 +65,9 @@ class _$ParsedCVoteDelegationCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? weight = null,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CIP36VoteDelegationType,
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
@@ -100,7 +84,7 @@ abstract class _$$PathDelegationImplCopyWith<$Res>
       __$$PathDelegationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CIP36VoteDelegationType type, List<int> voteKeyPath, int weight});
+  $Res call({List<int> voteKeyPath, int weight});
 }
 
 /// @nodoc
@@ -114,15 +98,10 @@ class __$$PathDelegationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? voteKeyPath = null,
     Object? weight = null,
   }) {
     return _then(_$PathDelegationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CIP36VoteDelegationType,
       voteKeyPath: null == voteKeyPath
           ? _value._voteKeyPath
           : voteKeyPath // ignore: cast_nullable_to_non_nullable
@@ -138,15 +117,11 @@ class __$$PathDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PathDelegationImpl extends PathDelegation {
-  const _$PathDelegationImpl(
-      {required this.type,
-      required final List<int> voteKeyPath,
-      required this.weight})
+  _$PathDelegationImpl(
+      {required final List<int> voteKeyPath, required this.weight})
       : _voteKeyPath = voteKeyPath,
         super._();
 
-  @override
-  final CIP36VoteDelegationType type;
   final List<int> _voteKeyPath;
   @override
   List<int> get voteKeyPath {
@@ -160,7 +135,7 @@ class _$PathDelegationImpl extends PathDelegation {
 
   @override
   String toString() {
-    return 'ParsedCVoteDelegation.path(type: $type, voteKeyPath: $voteKeyPath, weight: $weight)';
+    return 'ParsedCVoteDelegation.path(voteKeyPath: $voteKeyPath, weight: $weight)';
   }
 
   @override
@@ -168,15 +143,14 @@ class _$PathDelegationImpl extends PathDelegation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PathDelegationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality()
                 .equals(other._voteKeyPath, _voteKeyPath) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type,
-      const DeepCollectionEquality().hash(_voteKeyPath), weight);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_voteKeyPath), weight);
 
   @JsonKey(ignore: true)
   @override
@@ -188,54 +162,41 @@ class _$PathDelegationImpl extends PathDelegation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)
-        path,
-    required TResult Function(
-            CIP36VoteDelegationType type, String voteKey, int weight)
-        key,
+    required TResult Function(List<int> voteKeyPath, int weight) path,
+    required TResult Function(String voteKey, int weight) key,
   }) {
-    return path(type, voteKeyPath, weight);
+    return path(voteKeyPath, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult? Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult? Function(List<int> voteKeyPath, int weight)? path,
+    TResult? Function(String voteKey, int weight)? key,
   }) {
-    return path?.call(type, voteKeyPath, weight);
+    return path?.call(voteKeyPath, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult Function(List<int> voteKeyPath, int weight)? path,
+    TResult Function(String voteKey, int weight)? key,
     required TResult orElse(),
   }) {
     if (path != null) {
-      return path(type, voteKeyPath, weight);
+      return path(voteKeyPath, weight);
     }
     return orElse();
   }
 }
 
 abstract class PathDelegation extends ParsedCVoteDelegation {
-  const factory PathDelegation(
-      {required final CIP36VoteDelegationType type,
-      required final List<int> voteKeyPath,
+  factory PathDelegation(
+      {required final List<int> voteKeyPath,
       required final int weight}) = _$PathDelegationImpl;
-  const PathDelegation._() : super._();
+  PathDelegation._() : super._();
 
-  @override
-  CIP36VoteDelegationType get type;
   List<int> get voteKeyPath;
   @override
   int get weight;
@@ -253,7 +214,7 @@ abstract class _$$KeyDelegationImplCopyWith<$Res>
       __$$KeyDelegationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CIP36VoteDelegationType type, String voteKey, int weight});
+  $Res call({String voteKey, int weight});
 }
 
 /// @nodoc
@@ -267,15 +228,10 @@ class __$$KeyDelegationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? voteKey = null,
     Object? weight = null,
   }) {
     return _then(_$KeyDelegationImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as CIP36VoteDelegationType,
       voteKey: null == voteKey
           ? _value.voteKey
           : voteKey // ignore: cast_nullable_to_non_nullable
@@ -291,12 +247,9 @@ class __$$KeyDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$KeyDelegationImpl extends KeyDelegation {
-  const _$KeyDelegationImpl(
-      {required this.type, required this.voteKey, required this.weight})
+  _$KeyDelegationImpl({required this.voteKey, required this.weight})
       : super._();
 
-  @override
-  final CIP36VoteDelegationType type;
   @override
   final String voteKey;
   @override
@@ -304,7 +257,7 @@ class _$KeyDelegationImpl extends KeyDelegation {
 
   @override
   String toString() {
-    return 'ParsedCVoteDelegation.key(type: $type, voteKey: $voteKey, weight: $weight)';
+    return 'ParsedCVoteDelegation.key(voteKey: $voteKey, weight: $weight)';
   }
 
   @override
@@ -312,13 +265,12 @@ class _$KeyDelegationImpl extends KeyDelegation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KeyDelegationImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.voteKey, voteKey) || other.voteKey == voteKey) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, voteKey, weight);
+  int get hashCode => Object.hash(runtimeType, voteKey, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -329,54 +281,41 @@ class _$KeyDelegationImpl extends KeyDelegation {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)
-        path,
-    required TResult Function(
-            CIP36VoteDelegationType type, String voteKey, int weight)
-        key,
+    required TResult Function(List<int> voteKeyPath, int weight) path,
+    required TResult Function(String voteKey, int weight) key,
   }) {
-    return key(type, voteKey, weight);
+    return key(voteKey, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult? Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult? Function(List<int> voteKeyPath, int weight)? path,
+    TResult? Function(String voteKey, int weight)? key,
   }) {
-    return key?.call(type, voteKey, weight);
+    return key?.call(voteKey, weight);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(
-            CIP36VoteDelegationType type, List<int> voteKeyPath, int weight)?
-        path,
-    TResult Function(CIP36VoteDelegationType type, String voteKey, int weight)?
-        key,
+    TResult Function(List<int> voteKeyPath, int weight)? path,
+    TResult Function(String voteKey, int weight)? key,
     required TResult orElse(),
   }) {
     if (key != null) {
-      return key(type, voteKey, weight);
+      return key(voteKey, weight);
     }
     return orElse();
   }
 }
 
 abstract class KeyDelegation extends ParsedCVoteDelegation {
-  const factory KeyDelegation(
-      {required final CIP36VoteDelegationType type,
-      required final String voteKey,
+  factory KeyDelegation(
+      {required final String voteKey,
       required final int weight}) = _$KeyDelegationImpl;
-  const KeyDelegation._() : super._();
+  KeyDelegation._() : super._();
 
-  @override
-  CIP36VoteDelegationType get type;
   String get voteKey;
   @override
   int get weight;

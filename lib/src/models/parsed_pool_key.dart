@@ -5,16 +5,18 @@ part 'parsed_pool_key.freezed.dart';
 
 @freezed
 sealed class ParsedPoolKey with _$ParsedPoolKey {
-  const ParsedPoolKey._();
+  ParsedPoolKey._();
 
-  const factory ParsedPoolKey.deviceOwned({
-    required PoolKeyType type,
+  factory ParsedPoolKey.deviceOwned({
     required List<int> path,
   }) = DeviceOwnedPoolKey;
 
-  const factory ParsedPoolKey.thirdParty({
-    required PoolKeyType type,
+  factory ParsedPoolKey.thirdParty({
     required String hashHex,
   }) = ThirdPartyPoolKey;
 
+  late final PoolKeyType poolKeyType = switch (this) {
+    DeviceOwnedPoolKey() => PoolKeyType.deviceOwned,
+    ThirdPartyPoolKey() => PoolKeyType.thirdParty,
+  };
 }

@@ -5,23 +5,27 @@ part 'parsed_pool_relay.freezed.dart';
 
 @freezed
 sealed class ParsedPoolRelay with _$ParsedPoolRelay {
-  const ParsedPoolRelay._();
+  ParsedPoolRelay._();
 
-  const factory ParsedPoolRelay.singleHostIpAddr({
-    required RelayType type,
+  factory ParsedPoolRelay.singleHostIpAddr({
     int? port,
     String? ipv4,
     String? ipv6,
   }) = SingleHostIpAddr;
 
-  const factory ParsedPoolRelay.singleHostHostname({
-    required RelayType type,
+  factory ParsedPoolRelay.singletHostname({
     int? port,
     required String dnsName,
   }) = SingleHostName;
 
-  const factory ParsedPoolRelay.multiHost({
-    required RelayType type,
+  factory ParsedPoolRelay.multiHost({
     required String dnsName,
   }) = MultiHost;
+
+  late final RelayType relayType = switch (this) {
+    SingleHostIpAddr() => RelayType.singleHostIpAddr,
+    SingleHostName() => RelayType.singleHostname,
+    MultiHost() => RelayType.multiHost,
+  };
 }
+ 

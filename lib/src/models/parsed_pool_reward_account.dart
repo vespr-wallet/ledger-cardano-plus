@@ -5,16 +5,18 @@ part 'parsed_pool_reward_account.freezed.dart';
 
 @freezed
 sealed class ParsedPoolRewardAccount with _$ParsedPoolRewardAccount {
-  const ParsedPoolRewardAccount._();
+  ParsedPoolRewardAccount._();
 
-  const factory ParsedPoolRewardAccount.deviceOwned({
-    required PoolRewardAccountType type,
+  factory ParsedPoolRewardAccount.deviceOwned({
     required List<int> path,
   }) = DeviceOwnedPoolRewardAccount;
 
-  const factory ParsedPoolRewardAccount.thirdParty({
-    required PoolRewardAccountType type,
+  factory ParsedPoolRewardAccount.thirdParty({
     required String rewardAccountHex,
   }) = ThirdPartyPoolRewardAccount;
 
+  late final PoolRewardAccountType poolRewardAccountType = switch (this) {
+    DeviceOwnedPoolRewardAccount() => PoolRewardAccountType.deviceOwned,
+    ThirdPartyPoolRewardAccount() => PoolRewardAccountType.thirdParty,
+  };
 }

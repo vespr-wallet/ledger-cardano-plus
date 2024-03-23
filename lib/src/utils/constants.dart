@@ -244,8 +244,8 @@ enum CIP36VoteDelegationType {
 }
 
 enum RequiredSignerType {
-  hash1(1),
-  path0(0);
+  hash(1),
+  path(0);
   
   final int value;
   const RequiredSignerType(this.value);
@@ -340,7 +340,7 @@ enum RelayType {
 
   /// Relay is a single host specified as dns name
   /// @see [SingleHostHostnameRelayParams]
-  singleHostHostname(1),
+  singleHostname(1),
 
   /// Relay is multiple hosts reachable under dns name
   /// @see [MultiHostRelayParams]

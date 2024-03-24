@@ -20,7 +20,7 @@ sealed class ParsedTransaction with _$ParsedTransaction {
     required ParsedNetwork network,
     required List<ParsedInput> inputs,
     required List<ParsedOutput> outputs,
-    required String fee,
+    required BigInt fee,
     String? ttl,
     required List<ParsedCertificate> certificates,
     required List<ParsedWithdrawal> withdrawals,
@@ -32,10 +32,10 @@ sealed class ParsedTransaction with _$ParsedTransaction {
     required List<ParsedRequiredSigner> requiredSigners,
     required bool includeNetworkId,
     ParsedOutput? collateralOutput,
-    String? totalCollateral,
+    BigInt? totalCollateral,
     required List<ParsedInput> referenceInputs,
     required List<ParsedVoterVotes> votingProcedures,
-    String? treasury,
-    String? donation,
+    BigInt? treasury,
+    BigInt? donation,
   }) = _ParsedTransaction;
 }

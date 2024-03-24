@@ -12,4 +12,6 @@ sealed class ParsedVotingProcedure with _$ParsedVotingProcedure {
     required VoteOption vote,
     ParsedAnchor? anchor,
   }) = _ParsedVotingProcedure;
-}
+
+  
+  }

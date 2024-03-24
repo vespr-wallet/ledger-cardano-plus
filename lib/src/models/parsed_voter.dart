@@ -1,41 +1,54 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'parsed_voter.freezed.dart';
 
 @freezed
-class ParsedVoter with _$ParsedVoter {
-  const ParsedVoter._();
+sealed class ParsedVoter with _$ParsedVoter {
+  ParsedVoter._();
 
-  const factory ParsedVoter.committeeKeyHash({
+  factory ParsedVoter.committeeKeyHash({
     required String keyHashHex,
   }) = CommitteeKeyHash;
 
-  const factory ParsedVoter.committeeKeyPath({
+  factory ParsedVoter.committeeKeyPath({
     required List<int> keyPath,
   }) = CommitteeKeyPath;
 
-  const factory ParsedVoter.committeeScriptHash({
+  factory ParsedVoter.committeeScriptHash({
     required String scriptHashHex,
   }) = CommitteeScriptHash;
 
-  const factory ParsedVoter.drepKeyHash({
+  factory ParsedVoter.drepKeyHash({
     required String keyHashHex,
   }) = DrepKeyHash;
 
-  const factory ParsedVoter.drepKeyPath({
+  factory ParsedVoter.drepKeyPath({
     required List<int> keyPath,
   }) = DrepKeyPath;
 
-  const factory ParsedVoter.drepScriptHash({
+  factory ParsedVoter.drepScriptHash({
     required String scriptHashHex,
   }) = DrepScriptHash;
 
-  const factory ParsedVoter.stakePoolKeyHash({
+  factory ParsedVoter.stakePoolKeyHash({
     required String keyHashHex,
   }) = StakePoolKeyHash;
 
-  const factory ParsedVoter.stakePoolKeyPath({
+  factory ParsedVoter.stakePoolKeyPath({
     required List<int> keyPath,
   }) = StakePoolKeyPath;
+    
+    late final VoterType voterType = switch (this) {
+    CommitteeKeyHash() => VoterType.committeeKeyHash,
+    CommitteeKeyPath() => VoterType.committeeKeyPath,
+    CommitteeScriptHash() => VoterType.committeeScriptHash,
+    DrepKeyHash() => VoterType.drepKeyHash,
+    DrepKeyPath() => VoterType.drepKeyPath,
+    DrepScriptHash() => VoterType.drepScriptHash,
+    StakePoolKeyHash() => VoterType.stakePoolKeyHash,
+    StakePoolKeyPath() => VoterType.stakePoolKeyPath,
+  };
 
 }
+

@@ -16,33 +16,26 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$TxAuxiliaryDataSupplement {
-  TxAuxiliaryDataSupplementType get type => throw _privateConstructorUsedError;
   String get auxiliaryDataHashHex => throw _privateConstructorUsedError;
   String get cip36VoteRegistrationSignatureHex =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult? Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)?
         $default, {
     required TResult orElse(),
@@ -61,9 +54,7 @@ abstract class $TxAuxiliaryDataSupplementCopyWith<$Res> {
       _$TxAuxiliaryDataSupplementCopyWithImpl<$Res, TxAuxiliaryDataSupplement>;
   @useResult
   $Res call(
-      {TxAuxiliaryDataSupplementType type,
-      String auxiliaryDataHashHex,
-      String cip36VoteRegistrationSignatureHex});
+      {String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex});
 }
 
 /// @nodoc
@@ -80,15 +71,10 @@ class _$TxAuxiliaryDataSupplementCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? auxiliaryDataHashHex = null,
     Object? cip36VoteRegistrationSignatureHex = null,
   }) {
     return _then(_value.copyWith(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as TxAuxiliaryDataSupplementType,
       auxiliaryDataHashHex: null == auxiliaryDataHashHex
           ? _value.auxiliaryDataHashHex
           : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
@@ -112,9 +98,7 @@ abstract class _$$TxAuxiliaryDataSupplementDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {TxAuxiliaryDataSupplementType type,
-      String auxiliaryDataHashHex,
-      String cip36VoteRegistrationSignatureHex});
+      {String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex});
 }
 
 /// @nodoc
@@ -130,15 +114,10 @@ class __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = null,
     Object? auxiliaryDataHashHex = null,
     Object? cip36VoteRegistrationSignatureHex = null,
   }) {
     return _then(_$TxAuxiliaryDataSupplementDataImpl(
-      type: null == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as TxAuxiliaryDataSupplementType,
       auxiliaryDataHashHex: null == auxiliaryDataHashHex
           ? _value.auxiliaryDataHashHex
           : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
@@ -157,13 +136,10 @@ class __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res>
 class _$TxAuxiliaryDataSupplementDataImpl
     extends _TxAuxiliaryDataSupplementData {
   _$TxAuxiliaryDataSupplementDataImpl(
-      {required this.type,
-      required this.auxiliaryDataHashHex,
+      {required this.auxiliaryDataHashHex,
       required this.cip36VoteRegistrationSignatureHex})
       : super._();
 
-  @override
-  final TxAuxiliaryDataSupplementType type;
   @override
   final String auxiliaryDataHashHex;
   @override
@@ -171,7 +147,7 @@ class _$TxAuxiliaryDataSupplementDataImpl
 
   @override
   String toString() {
-    return 'TxAuxiliaryDataSupplement(type: $type, auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+    return 'TxAuxiliaryDataSupplement(auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
   }
 
   @override
@@ -179,7 +155,6 @@ class _$TxAuxiliaryDataSupplementDataImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TxAuxiliaryDataSupplementDataImpl &&
-            (identical(other.type, type) || other.type == type) &&
             (identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) ||
                 other.auxiliaryDataHashHex == auxiliaryDataHashHex) &&
             (identical(other.cip36VoteRegistrationSignatureHex,
@@ -189,8 +164,8 @@ class _$TxAuxiliaryDataSupplementDataImpl
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, type, auxiliaryDataHashHex,
-      cip36VoteRegistrationSignatureHex);
+  int get hashCode => Object.hash(
+      runtimeType, auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
 
   @JsonKey(ignore: true)
   @override
@@ -203,42 +178,34 @@ class _$TxAuxiliaryDataSupplementDataImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)
         $default,
   ) {
-    return $default(
-        type, auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
+    return $default(auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult? Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)?
         $default,
   ) {
     return $default?.call(
-        type, auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
+        auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxAuxiliaryDataSupplementType type,
-            String auxiliaryDataHashHex,
+    TResult Function(String auxiliaryDataHashHex,
             String cip36VoteRegistrationSignatureHex)?
         $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
-      return $default(
-          type, auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
+      return $default(auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
     }
     return orElse();
   }
@@ -247,14 +214,11 @@ class _$TxAuxiliaryDataSupplementDataImpl
 abstract class _TxAuxiliaryDataSupplementData
     extends TxAuxiliaryDataSupplement {
   factory _TxAuxiliaryDataSupplementData(
-          {required final TxAuxiliaryDataSupplementType type,
-          required final String auxiliaryDataHashHex,
+          {required final String auxiliaryDataHashHex,
           required final String cip36VoteRegistrationSignatureHex}) =
       _$TxAuxiliaryDataSupplementDataImpl;
   _TxAuxiliaryDataSupplementData._() : super._();
 
-  @override
-  TxAuxiliaryDataSupplementType get type;
   @override
   String get auxiliaryDataHashHex;
   @override

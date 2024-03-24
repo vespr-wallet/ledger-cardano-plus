@@ -9,9 +9,11 @@ import 'package:ledger_cardano/src/models/parsed_c_vote_delegation.dart';
 import 'package:ledger_cardano/src/models/parsed_c_vote_registration_params.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_credential.dart';
+import 'package:ledger_cardano/src/models/parsed_datum.dart';
 import 'package:ledger_cardano/src/models/parsed_drep.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
+import 'package:ledger_cardano/src/models/parsed_output.dart';
 import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_key.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_metadata.dart';
@@ -24,6 +26,8 @@ import 'package:ledger_cardano/src/models/parsed_token.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
+import 'package:ledger_cardano/src/models/parsed_voter.dart';
+import 'package:ledger_cardano/src/models/parsed_voter_votes.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
@@ -360,11 +364,9 @@ class SerializationUtils {
                 },
               EnterpriseKey() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  // No staking data source for enterprise addresses
                 },
               EnterpriseScript() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  // No staking data source for enterprise addresses
                 },
               PointerKey() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
@@ -374,12 +376,8 @@ class SerializationUtils {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
                   writer.write(serializeStakingDataSource(newparams.stakingDataSource));
                 },
-              RewardKey() => () {
-                  // No spending or staking data source for reward addresses
-                },
-              RewardScript() => () {
-                  // No spending or staking data source for reward addresses
-                },
+              RewardKey() => () {},
+              RewardScript() => () {},
             };
 
             shelleyInvoker();
@@ -795,5 +793,125 @@ class SerializationUtils {
       throw ValidationException("int64ToBuf - Invalid data length");
     }
     return data;
+  }
+
+  static Uint8List serializeTxOutputBasicParams(ParsedOutput output, CardanoVersion version) {
+    final ByteDataWriter writer = ByteDataWriter();
+
+    final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+
+    if (compatibility.supportsBabbage) {
+      writer.writeUint8(output.format.value);
+    }
+
+    if (compatibility.supportsAlonzo) {
+      serializeOptionFlag(writer, output.datum != null);
+    }
+
+    if (compatibility.supportsBabbage) {
+      serializeOptionFlag(writer, output.referenceScriptHex != null);
+    }
+
+    writer.write(serializeTxOutputDestination(output.destination, version));
+
+    writer.write(serializeCoin(output.amount));
+
+    writer.writeUint32(output.tokenBundle.length);
+
+    return writer.toBytes();
+  }
+
+  static Uint8List serializeVoterVotes(ParsedVoterVotes voterVotes) {
+    if (voterVotes.votes.length != 1) {
+      throw ValidationException('too few / too many votes');
+    }
+    final vote = voterVotes.votes[0];
+    return useBinaryWriter((ByteDataWriter writer) {
+      writer.write(serializeVoter(voterVotes.voter));
+      writer.write(hex.decode(vote.govActionId.txHashHex));
+      writer.writeUint32(vote.govActionId.govActionIndex);
+      writer.writeUint8(vote.votingProcedure.vote.value);
+      writer.write(serializeAnchor(vote.votingProcedure.anchor));
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeVoter(ParsedVoter voter) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writer.writeUint8(voter.voterType.value);
+      final void Function() invoker = switch (voter) {
+        CommitteeKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
+        CommitteeKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+        CommitteeScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
+        DrepKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
+        DrepKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+        DrepScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
+        StakePoolKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
+        StakePoolKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+      };
+      invoker();
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeTxWitnessRequest(List<int> path) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writerSerializedPath(writer, path);
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeTxOutputDatum(ParsedDatum datum, CardanoVersion version) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+
+      final void Function() invoker = switch (datum) {
+        ParsedDatumHash() => () {
+            if (compatibility.supportsBabbage) {
+              writer.writeUint8(datum.datumType.value);
+            }
+            writeSerializedHex(writer, datum.datumHashHex);
+          },
+        ParsedDatumInline() => () {
+            final totalDatumSize = datum.datumHex.length ~/ 2;
+            String chunkHex;
+
+            if (totalDatumSize > maxChunkSize) {
+              chunkHex = datum.datumHex.substring(0, maxChunkSize * 2);
+            } else {
+              chunkHex = datum.datumHex;
+            }
+            final chunkSize = chunkHex.length ~/ 2;
+
+            writer.writeUint8(datum.datumType.value);
+            writeSerializedUint64(writer, BigInt.from(totalDatumSize));
+            writeSerializedUint64(writer, BigInt.from(chunkSize));
+            writeSerializedHex(writer, chunkHex);
+          },
+      };
+
+      invoker();
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeTxOutputRefScript(String referenceScriptHex) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      final totalScriptSize = referenceScriptHex.length ~/ 2;
+      String chunkHex;
+
+      if (totalScriptSize > maxChunkSize) {
+        chunkHex = referenceScriptHex.substring(0, maxChunkSize * 2);
+      } else {
+        chunkHex = referenceScriptHex;
+      }
+      final chunkSize = chunkHex.length ~/ 2;
+
+      writeSerializedUint64(writer, BigInt.from(totalScriptSize));
+      writeSerializedUint64(writer, BigInt.from(chunkSize));
+      writeSerializedHex(writer, chunkHex);
+
+      return writer.toBytes();
+    });
   }
 }

@@ -8,8 +8,11 @@ sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
   TxAuxiliaryDataSupplement._();
 
   factory TxAuxiliaryDataSupplement({
-    required TxAuxiliaryDataSupplementType type,
     required String auxiliaryDataHashHex,
     required String cip36VoteRegistrationSignatureHex,
   }) = _TxAuxiliaryDataSupplementData;
+
+  late final TxAuxiliaryDataSupplementType type = switch (this) {
+    _TxAuxiliaryDataSupplementData() => TxAuxiliaryDataSupplementType.cip36Registration,
+  };
 }

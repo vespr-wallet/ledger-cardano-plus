@@ -27,4 +27,9 @@ sealed class ParsedDatum with _$ParsedDatum {
   factory ParsedDatum.inline({
     required String datumHex,
   }) = ParsedDatumInline;
+  
+  late final DatumType datumType = switch (this) {
+    ParsedDatumHash() => DatumType.hash,
+    ParsedDatumInline() => DatumType.inline,
+  };
 }

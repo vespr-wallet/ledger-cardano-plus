@@ -16,22 +16,22 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedWithdrawal {
-  String get amount => throw _privateConstructorUsedError;
+  BigInt get amount => throw _privateConstructorUsedError;
   ParsedCredential get stakeCredential => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String amount, ParsedCredential stakeCredential) $default,
+    TResult Function(BigInt amount, ParsedCredential stakeCredential) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String amount, ParsedCredential stakeCredential)?
+    TResult? Function(BigInt amount, ParsedCredential stakeCredential)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String amount, ParsedCredential stakeCredential)?
+    TResult Function(BigInt amount, ParsedCredential stakeCredential)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -48,7 +48,7 @@ abstract class $ParsedWithdrawalCopyWith<$Res> {
           ParsedWithdrawal value, $Res Function(ParsedWithdrawal) then) =
       _$ParsedWithdrawalCopyWithImpl<$Res, ParsedWithdrawal>;
   @useResult
-  $Res call({String amount, ParsedCredential stakeCredential});
+  $Res call({BigInt amount, ParsedCredential stakeCredential});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -73,7 +73,7 @@ class _$ParsedWithdrawalCopyWithImpl<$Res, $Val extends ParsedWithdrawal>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$ParsedWithdrawalImplCopyWith<$Res>
       __$$ParsedWithdrawalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String amount, ParsedCredential stakeCredential});
+  $Res call({BigInt amount, ParsedCredential stakeCredential});
 
   @override
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
@@ -122,7 +122,7 @@ class __$$ParsedWithdrawalImplCopyWithImpl<$Res>
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       stakeCredential: null == stakeCredential
           ? _value.stakeCredential
           : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -138,7 +138,7 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
       : super._();
 
   @override
-  final String amount;
+  final BigInt amount;
   @override
   final ParsedCredential stakeCredential;
 
@@ -170,7 +170,7 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String amount, ParsedCredential stakeCredential) $default,
+    TResult Function(BigInt amount, ParsedCredential stakeCredential) $default,
   ) {
     return $default(amount, stakeCredential);
   }
@@ -178,7 +178,7 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String amount, ParsedCredential stakeCredential)?
+    TResult? Function(BigInt amount, ParsedCredential stakeCredential)?
         $default,
   ) {
     return $default?.call(amount, stakeCredential);
@@ -187,7 +187,7 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String amount, ParsedCredential stakeCredential)?
+    TResult Function(BigInt amount, ParsedCredential stakeCredential)?
         $default, {
     required TResult orElse(),
   }) {
@@ -200,13 +200,13 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
 
 abstract class _ParsedWithdrawal extends ParsedWithdrawal {
   factory _ParsedWithdrawal(
-          {required final String amount,
+          {required final BigInt amount,
           required final ParsedCredential stakeCredential}) =
       _$ParsedWithdrawalImpl;
   _ParsedWithdrawal._() : super._();
 
   @override
-  String get amount;
+  BigInt get amount;
   @override
   ParsedCredential get stakeCredential;
   @override

@@ -15,8 +15,8 @@ sealed class ParsedPoolParams with _$ParsedPoolParams {
   factory ParsedPoolParams({
     required ParsedPoolKey poolKey,
     required String vrfHashHex,
-    required String pledge,
-    required String cost,
+    required BigInt pledge,
+    required BigInt cost,
     required ParsedMargin margin,
     required ParsedPoolRewardAccount rewardAccount,
     required List<ParsedPoolOwner> owners,

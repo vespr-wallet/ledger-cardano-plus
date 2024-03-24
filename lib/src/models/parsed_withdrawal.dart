@@ -8,7 +8,7 @@ sealed class ParsedWithdrawal with _$ParsedWithdrawal {
   ParsedWithdrawal._();
 
   factory ParsedWithdrawal({
-    required String amount,
+    required BigInt amount,
     required ParsedCredential stakeCredential,
   }) = _ParsedWithdrawal;
 }

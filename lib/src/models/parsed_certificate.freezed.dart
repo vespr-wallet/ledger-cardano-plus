@@ -35,15 +35,15 @@ mixin _$ParsedCertificate {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -65,14 +65,14 @@ mixin _$ParsedCertificate {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -94,14 +94,14 @@ mixin _$ParsedCertificate {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -222,15 +222,15 @@ class _$StakeRegistrationImpl extends StakeRegistration {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -255,14 +255,14 @@ class _$StakeRegistrationImpl extends StakeRegistration {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -287,14 +287,14 @@ class _$StakeRegistrationImpl extends StakeRegistration {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -424,15 +424,15 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -457,14 +457,14 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -489,14 +489,14 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -616,15 +616,15 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -649,14 +649,14 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -681,14 +681,14 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -820,15 +820,15 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -853,14 +853,14 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -885,14 +885,14 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1023,15 +1023,15 @@ class _$StakeDelegationImpl extends StakeDelegation {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -1056,14 +1056,14 @@ class _$StakeDelegationImpl extends StakeDelegation {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -1088,14 +1088,14 @@ class _$StakeDelegationImpl extends StakeDelegation {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1233,15 +1233,15 @@ class _$VoteDelegationImpl extends VoteDelegation {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -1266,14 +1266,14 @@ class _$VoteDelegationImpl extends VoteDelegation {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -1298,14 +1298,14 @@ class _$VoteDelegationImpl extends VoteDelegation {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1446,15 +1446,15 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -1479,14 +1479,14 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -1511,14 +1511,14 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1552,10 +1552,10 @@ abstract class _$$ResignCommitteeColdImplCopyWith<$Res> {
           $Res Function(_$ResignCommitteeColdImpl) then) =
       __$$ResignCommitteeColdImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ParsedCredential coldCredential, ParsedAnchor anchor});
+  $Res call({ParsedCredential coldCredential, ParsedAnchor? anchor});
 
   $ParsedCredentialCopyWith<$Res> get coldCredential;
-  $ParsedAnchorCopyWith<$Res> get anchor;
+  $ParsedAnchorCopyWith<$Res>? get anchor;
 }
 
 /// @nodoc
@@ -1570,17 +1570,17 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? coldCredential = null,
-    Object? anchor = null,
+    Object? anchor = freezed,
   }) {
     return _then(_$ResignCommitteeColdImpl(
       coldCredential: null == coldCredential
           ? _value.coldCredential
           : coldCredential // ignore: cast_nullable_to_non_nullable
               as ParsedCredential,
-      anchor: null == anchor
+      anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
-              as ParsedAnchor,
+              as ParsedAnchor?,
     ));
   }
 
@@ -1594,8 +1594,12 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParsedAnchorCopyWith<$Res> get anchor {
-    return $ParsedAnchorCopyWith<$Res>(_value.anchor, (value) {
+  $ParsedAnchorCopyWith<$Res>? get anchor {
+    if (_value.anchor == null) {
+      return null;
+    }
+
+    return $ParsedAnchorCopyWith<$Res>(_value.anchor!, (value) {
       return _then(_value.copyWith(anchor: value));
     });
   }
@@ -1604,14 +1608,13 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
-  _$ResignCommitteeColdImpl(
-      {required this.coldCredential, required this.anchor})
+  _$ResignCommitteeColdImpl({required this.coldCredential, this.anchor})
       : super._();
 
   @override
   final ParsedCredential coldCredential;
   @override
-  final ParsedAnchor anchor;
+  final ParsedAnchor? anchor;
 
   @override
   String toString() {
@@ -1658,15 +1661,15 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -1691,14 +1694,14 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -1723,14 +1726,14 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1747,11 +1750,11 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
 abstract class ResignCommitteeCold extends ParsedCertificate {
   factory ResignCommitteeCold(
       {required final ParsedCredential coldCredential,
-      required final ParsedAnchor anchor}) = _$ResignCommitteeColdImpl;
+      final ParsedAnchor? anchor}) = _$ResignCommitteeColdImpl;
   ResignCommitteeCold._() : super._();
 
   ParsedCredential get coldCredential;
-  ParsedAnchor get anchor;
+  ParsedAnchor? get anchor;
   @JsonKey(ignore: true)
   _$$ResignCommitteeColdImplCopyWith<_$ResignCommitteeColdImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1764,10 +1767,10 @@ abstract class _$$DRepRegistrationImplCopyWith<$Res> {
       __$$DRepRegistrationImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {ParsedCredential dRepCredential, String deposit, ParsedAnchor anchor});
+      {ParsedCredential dRepCredential, String deposit, ParsedAnchor? anchor});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
-  $ParsedAnchorCopyWith<$Res> get anchor;
+  $ParsedAnchorCopyWith<$Res>? get anchor;
 }
 
 /// @nodoc
@@ -1783,7 +1786,7 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
   $Res call({
     Object? dRepCredential = null,
     Object? deposit = null,
-    Object? anchor = null,
+    Object? anchor = freezed,
   }) {
     return _then(_$DRepRegistrationImpl(
       dRepCredential: null == dRepCredential
@@ -1794,10 +1797,10 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
               as String,
-      anchor: null == anchor
+      anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
-              as ParsedAnchor,
+              as ParsedAnchor?,
     ));
   }
 
@@ -1811,8 +1814,12 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParsedAnchorCopyWith<$Res> get anchor {
-    return $ParsedAnchorCopyWith<$Res>(_value.anchor, (value) {
+  $ParsedAnchorCopyWith<$Res>? get anchor {
+    if (_value.anchor == null) {
+      return null;
+    }
+
+    return $ParsedAnchorCopyWith<$Res>(_value.anchor!, (value) {
       return _then(_value.copyWith(anchor: value));
     });
   }
@@ -1822,9 +1829,7 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
 
 class _$DRepRegistrationImpl extends DRepRegistration {
   _$DRepRegistrationImpl(
-      {required this.dRepCredential,
-      required this.deposit,
-      required this.anchor})
+      {required this.dRepCredential, required this.deposit, this.anchor})
       : super._();
 
   @override
@@ -1832,7 +1837,7 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   @override
   final String deposit;
   @override
-  final ParsedAnchor anchor;
+  final ParsedAnchor? anchor;
 
   @override
   String toString() {
@@ -1880,15 +1885,15 @@ class _$DRepRegistrationImpl extends DRepRegistration {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -1913,14 +1918,14 @@ class _$DRepRegistrationImpl extends DRepRegistration {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -1945,14 +1950,14 @@ class _$DRepRegistrationImpl extends DRepRegistration {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -1970,12 +1975,12 @@ abstract class DRepRegistration extends ParsedCertificate {
   factory DRepRegistration(
       {required final ParsedCredential dRepCredential,
       required final String deposit,
-      required final ParsedAnchor anchor}) = _$DRepRegistrationImpl;
+      final ParsedAnchor? anchor}) = _$DRepRegistrationImpl;
   DRepRegistration._() : super._();
 
   ParsedCredential get dRepCredential;
   String get deposit;
-  ParsedAnchor get anchor;
+  ParsedAnchor? get anchor;
   @JsonKey(ignore: true)
   _$$DRepRegistrationImplCopyWith<_$DRepRegistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2084,15 +2089,15 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -2117,14 +2122,14 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -2149,14 +2154,14 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -2189,10 +2194,10 @@ abstract class _$$DRepUpdateImplCopyWith<$Res> {
           _$DRepUpdateImpl value, $Res Function(_$DRepUpdateImpl) then) =
       __$$DRepUpdateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ParsedCredential dRepCredential, ParsedAnchor anchor});
+  $Res call({ParsedCredential dRepCredential, ParsedAnchor? anchor});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
-  $ParsedAnchorCopyWith<$Res> get anchor;
+  $ParsedAnchorCopyWith<$Res>? get anchor;
 }
 
 /// @nodoc
@@ -2207,17 +2212,17 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? dRepCredential = null,
-    Object? anchor = null,
+    Object? anchor = freezed,
   }) {
     return _then(_$DRepUpdateImpl(
       dRepCredential: null == dRepCredential
           ? _value.dRepCredential
           : dRepCredential // ignore: cast_nullable_to_non_nullable
               as ParsedCredential,
-      anchor: null == anchor
+      anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
-              as ParsedAnchor,
+              as ParsedAnchor?,
     ));
   }
 
@@ -2231,8 +2236,12 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParsedAnchorCopyWith<$Res> get anchor {
-    return $ParsedAnchorCopyWith<$Res>(_value.anchor, (value) {
+  $ParsedAnchorCopyWith<$Res>? get anchor {
+    if (_value.anchor == null) {
+      return null;
+    }
+
+    return $ParsedAnchorCopyWith<$Res>(_value.anchor!, (value) {
       return _then(_value.copyWith(anchor: value));
     });
   }
@@ -2241,13 +2250,12 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepUpdateImpl extends DRepUpdate {
-  _$DRepUpdateImpl({required this.dRepCredential, required this.anchor})
-      : super._();
+  _$DRepUpdateImpl({required this.dRepCredential, this.anchor}) : super._();
 
   @override
   final ParsedCredential dRepCredential;
   @override
-  final ParsedAnchor anchor;
+  final ParsedAnchor? anchor;
 
   @override
   String toString() {
@@ -2293,15 +2301,15 @@ class _$DRepUpdateImpl extends DRepUpdate {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -2326,14 +2334,14 @@ class _$DRepUpdateImpl extends DRepUpdate {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -2358,14 +2366,14 @@ class _$DRepUpdateImpl extends DRepUpdate {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -2382,11 +2390,11 @@ class _$DRepUpdateImpl extends DRepUpdate {
 abstract class DRepUpdate extends ParsedCertificate {
   factory DRepUpdate(
       {required final ParsedCredential dRepCredential,
-      required final ParsedAnchor anchor}) = _$DRepUpdateImpl;
+      final ParsedAnchor? anchor}) = _$DRepUpdateImpl;
   DRepUpdate._() : super._();
 
   ParsedCredential get dRepCredential;
-  ParsedAnchor get anchor;
+  ParsedAnchor? get anchor;
   @JsonKey(ignore: true)
   _$$DRepUpdateImplCopyWith<_$DRepUpdateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2485,15 +2493,15 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -2518,14 +2526,14 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -2550,14 +2558,14 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?
@@ -2683,15 +2691,15 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
             ParsedCredential coldCredential, ParsedCredential hotCredential)
         authorizeCommitteeHot,
     required TResult Function(
-            ParsedCredential coldCredential, ParsedAnchor anchor)
+            ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
     required TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)
+            ParsedAnchor? anchor)
         dRepRegistration,
     required TResult Function(ParsedCredential dRepCredential, String deposit)
         dRepDeregistration,
     required TResult Function(
-            ParsedCredential dRepCredential, ParsedAnchor anchor)
+            ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
     required TResult Function(List<int> path, String retirementEpoch)
@@ -2716,14 +2724,14 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
     TResult? Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult? Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult? Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult? Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult? Function(List<int> path, String retirementEpoch)?
@@ -2748,14 +2756,14 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
     TResult Function(
             ParsedCredential coldCredential, ParsedCredential hotCredential)?
         authorizeCommitteeHot,
-    TResult Function(ParsedCredential coldCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
     TResult Function(ParsedCredential dRepCredential, String deposit,
-            ParsedAnchor anchor)?
+            ParsedAnchor? anchor)?
         dRepRegistration,
     TResult Function(ParsedCredential dRepCredential, String deposit)?
         dRepDeregistration,
-    TResult Function(ParsedCredential dRepCredential, ParsedAnchor anchor)?
+    TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
     TResult Function(List<int> path, String retirementEpoch)?

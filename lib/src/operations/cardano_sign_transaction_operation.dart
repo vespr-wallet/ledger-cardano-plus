@@ -75,7 +75,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<Uint8List> 
     }
   }
 
-  Future<void> signTx_setFee(String fee, LedgerSendFct send) async {
+  Future<void> signTx_setFee(BigInt fee, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageFee,

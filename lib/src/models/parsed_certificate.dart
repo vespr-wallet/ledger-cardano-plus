@@ -46,13 +46,13 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.resignCommitteeCold({
     required ParsedCredential coldCredential,
-    required ParsedAnchor anchor,
+    ParsedAnchor? anchor,
   }) = ResignCommitteeCold;
 
   factory ParsedCertificate.dRepRegistration({
     required ParsedCredential dRepCredential,
     required String deposit,
-    required ParsedAnchor anchor,
+    ParsedAnchor? anchor,
   }) = DRepRegistration;
 
   factory ParsedCertificate.dRepDeregistration({
@@ -62,7 +62,7 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.dRepUpdate({
     required ParsedCredential dRepCredential,
-    required ParsedAnchor anchor,
+    ParsedAnchor? anchor,
   }) = DRepUpdate;
 
   factory ParsedCertificate.stakePoolRegistration({

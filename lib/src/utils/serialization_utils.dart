@@ -138,9 +138,9 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCoin(String coin) {
+  static Uint8List serializeCoin(BigInt coin) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, BigInt.parse(coin));
+      writeSerializedUint64(writer, coin);
       return writer.toBytes();
     });
   }

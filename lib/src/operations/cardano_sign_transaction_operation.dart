@@ -8,8 +8,7 @@ import 'package:ledger_cardano/src/models/parsed_datum.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_output.dart';
 import 'package:ledger_cardano/src/models/parsed_required_signer.dart';
-import 'package:ledger_cardano/src/models/parsed_transaction.dart';
-import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
+import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
 import 'package:ledger_cardano/src/models/parsed_voter_votes.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
@@ -26,24 +25,18 @@ import 'package:ledger_cardano/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTransactionData> {
-  final ParsedTransaction transaction;
-  final TransactionSigningMode signingMode;
-  final List<List<int>> witnessPaths;
-  final ParsedTransactionOptions options;
+  final ParsedSigningRequest signingRequest;
   final CardanoVersion cardanoVersion;
 
   const CardanoSignTransactionOperation({
-    required this.transaction,
-    required this.signingMode,
-    required this.witnessPaths,
-    required this.options,
+    required this.signingRequest,
     required this.cardanoVersion,
   });
 
   @override
   Future<SignedTransactionData> invoke(LedgerSendFct send) async {
     VersionCompatibility.checkVersionCompatibility(cardanoVersion);
-    // ensureRequestSupportedByAppVersion(cardanoVersion, transaction);
+    VersionCompatibility.ensureRequestSupportedByAppVersion(cardanoVersion, signingRequest);
 
     final auxDataBeforeTxBody =
         VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCatalystRegistration ||
@@ -52,7 +45,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     // init
     await signTxInit(send);
 
-    final auxiliaryData = transaction.auxiliaryData;
+    final auxiliaryData = signingRequest.tx.auxiliaryData;
     // auxiliary data
     TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
     if (auxDataBeforeTxBody && auxiliaryData != null) {
@@ -60,99 +53,99 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
 
     // inputs
-    for (final input in transaction.inputs) {
+    for (final input in signingRequest.tx.inputs) {
       await signTxAddInput(input, send);
     }
 
     // outputs
-    for (final output in transaction.outputs) {
+    for (final output in signingRequest.tx.outputs) {
       await signTxAddOutput(output, cardanoVersion, send);
     }
 
     // fee
-    await signTxSetFee(transaction.fee, send);
+    await signTxSetFee(signingRequest.tx.fee, send);
 
-    final ttl = transaction.ttl;
+    final ttl = signingRequest.tx.ttl;
     // ttl
     if (ttl != null) {
       await signTxSetTtl(ttl, send);
     }
 
     // certificates
-    for (final certificate in transaction.certificates) {
+    for (final certificate in signingRequest.tx.certificates) {
       await signTxAddCertificate(certificate, cardanoVersion, send);
     }
 
     // withdrawals
-    for (final withdrawal in transaction.withdrawals) {
+    for (final withdrawal in signingRequest.tx.withdrawals) {
       await signTxAddWithdrawal(withdrawal, cardanoVersion, send);
     }
 
-    final auxiliarydata = transaction.auxiliaryData;
+    final auxiliarydata = signingRequest.tx.auxiliaryData;
     // auxiliary data before Ledger app version 2.3.x
     if (!auxDataBeforeTxBody && auxiliarydata != null) {
       auxiliaryDataSupplement = await signTxSetAuxiliaryDatabBeforev2_3(auxiliarydata, send);
     }
 
-    final validityStart = transaction.validityIntervalStart;
+    final validityStart = signingRequest.tx.validityIntervalStart;
 
     // validity start
     if (validityStart != null) {
       await signTxSetValidityIntervalStart(validityStart, send);
     }
 
-    final mint = transaction.mint;
+    final mint = signingRequest.tx.mint;
     // mint
     if (mint != null) {
       await signTxSetMint(mint, send);
     }
 
-    final scriptDataHashHex = transaction.scriptDataHashHex;
+    final scriptDataHashHex = signingRequest.tx.scriptDataHashHex;
     // script data hash
     if (scriptDataHashHex != null) {
       await signTxSetScriptDataHash(scriptDataHashHex, send);
     }
 
     // collateral inputs
-    for (final input in transaction.collateralInputs) {
+    for (final input in signingRequest.tx.collateralInputs) {
       await signTxAddCollateralInput(input, send);
     }
 
     // required signers
-    for (final requiredSigner in transaction.requiredSigners) {
+    for (final requiredSigner in signingRequest.tx.requiredSigners) {
       await signTxAddRequiredSigner(requiredSigner, send);
     }
 
-    final collateralOutput = transaction.collateralOutput;
+    final collateralOutput = signingRequest.tx.collateralOutput;
     // collateral output
     if (collateralOutput != null) {
       await signTxAddCollateralOutput(collateralOutput, cardanoVersion, send);
     }
 
-    final totalCollateral = transaction.totalCollateral;
+    final totalCollateral = signingRequest.tx.totalCollateral;
     // totalCollateral
     if (totalCollateral != null) {
       await signTxAddTotalCollateral(totalCollateral, send);
     }
 
     // reference inputs
-    for (final referenceInput in transaction.referenceInputs) {
+    for (final referenceInput in signingRequest.tx.referenceInputs) {
       await signTxAddReferenceInput(referenceInput, send);
     }
 
     // voting procedures
-    for (final voterVotes in transaction.votingProcedures) {
+    for (final voterVotes in signingRequest.tx.votingProcedures) {
       await signTxAddVoterVotes(voterVotes, send);
     }
 
-    final treasury = transaction.treasury;
+    final treasury = signingRequest.tx.treasury;
 
     // treasury
     if (treasury != null) {
       await signTxAddTreasury(treasury, send);
     }
 
-    final donation = transaction.donation;
+    final donation = signingRequest.tx.donation;
     // donation
     if (donation != null) {
       await signTxAddDonation(donation, send);
@@ -163,7 +156,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
     // witnesses
     final witnesses = <Witness>[];
-    for (final path in witnessPaths) {
+    for (final path in signingRequest.additionalWitnessPaths) {
       final witness = await signTxGetWitness(path, send);
       witnesses.add(witness);
     }
@@ -176,8 +169,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
   }
 
   Future<void> signTxInit(LedgerSendFct send) async {
-    final data =
-        SerializationUtils.serializeTxInit(transaction, signingMode, witnessPaths.length, options, cardanoVersion);
+    final data = SerializationUtils.serializeTxInit(signingRequest.tx, signingRequest.signingMode,
+        signingRequest.additionalWitnessPaths.length, signingRequest.options, cardanoVersion);
 
     await send(
       SendOperation(

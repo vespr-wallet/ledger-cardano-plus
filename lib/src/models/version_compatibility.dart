@@ -6,6 +6,7 @@ import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
 import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
+import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
@@ -73,22 +74,22 @@ class VersionCompatibility with _$VersionCompatibility {
     final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
     final void Function() invoker = switch (request.signingMode) {
-      TransactionSigningMode.poolRegistrationAsOwner when !compatibility.supportsPoolRegistrationAsOwner => () {
+      PoolRegistrationAsOwner() when !compatibility.supportsPoolRegistrationAsOwner => () {
           throw ValidationException(
             'Pool registration as owner not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningMode.poolRegistrationAsOperator when !compatibility.supportsPoolRegistrationAsOperator => () {
+      PoolRegistrationAsOperator() when !compatibility.supportsPoolRegistrationAsOperator => () {
           throw ValidationException(
             'Pool registration as operator not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningMode.multisigTransaction when !compatibility.supportsMultisigTransaction => () {
+      MultisigTransaction() when !compatibility.supportsMultisigTransaction => () {
           throw ValidationException(
             'Multisig transactions not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningMode.plutusTransaction when !compatibility.supportsAlonzo => () {
+      PlutusTransaction() when !compatibility.supportsAlonzo => () {
           throw ValidationException(
             'Plutus transactions not supported by Ledger app version ${version.versionName}.',
           );

@@ -32,6 +32,7 @@ import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
+import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
@@ -81,13 +82,20 @@ class SerializationUtils {
     writeSerializedUint64(writer, optionFlags);
   }
 
-  static void _serializeSigningMode(ByteDataWriter writer, TransactionSigningMode mode) {
-    writer.writeUint8(mode.value);
+  static void _serializeSigningMode(ByteDataWriter writer, TransactionSigningModes mode) {
+    final void Function() invoker = switch (mode) {
+      OrdinaryTransaction() => () => writer.writeUint8(mode.value),
+      MultisigTransaction() => () => writer.writeUint8(mode.value),
+      PoolRegistrationAsOwner() => () => writer.writeUint8(mode.value),
+      PoolRegistrationAsOperator() => () => writer.writeUint8(mode.value),
+      PlutusTransaction() => () => writer.writeUint8(mode.value),
+    };
+    invoker();
   }
 
   static Uint8List serializeTxInit(
     ParsedTransaction tx,
-    TransactionSigningMode signingMode,
+    TransactionSigningModes signingMode,
     int numWitnesses,
     ParsedTransactionOptions options,
     CardanoVersion version,

@@ -85,7 +85,7 @@ class __$$OrdinaryTransactionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$OrdinaryTransactionImpl extends OrdinaryTransaction {
-  const _$OrdinaryTransactionImpl() : super._();
+  _$OrdinaryTransactionImpl() : super._();
 
   @override
   String toString() {
@@ -144,8 +144,8 @@ class _$OrdinaryTransactionImpl extends OrdinaryTransaction {
 }
 
 abstract class OrdinaryTransaction extends TransactionSigningModes {
-  const factory OrdinaryTransaction() = _$OrdinaryTransactionImpl;
-  const OrdinaryTransaction._() : super._();
+  factory OrdinaryTransaction() = _$OrdinaryTransactionImpl;
+  OrdinaryTransaction._() : super._();
 }
 
 /// @nodoc
@@ -168,7 +168,7 @@ class __$$MultisigTransactionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$MultisigTransactionImpl extends MultisigTransaction {
-  const _$MultisigTransactionImpl() : super._();
+  _$MultisigTransactionImpl() : super._();
 
   @override
   String toString() {
@@ -227,8 +227,8 @@ class _$MultisigTransactionImpl extends MultisigTransaction {
 }
 
 abstract class MultisigTransaction extends TransactionSigningModes {
-  const factory MultisigTransaction() = _$MultisigTransactionImpl;
-  const MultisigTransaction._() : super._();
+  factory MultisigTransaction() = _$MultisigTransactionImpl;
+  MultisigTransaction._() : super._();
 }
 
 /// @nodoc
@@ -253,7 +253,7 @@ class __$$PoolRegistrationAsOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PoolRegistrationAsOwnerImpl extends PoolRegistrationAsOwner {
-  const _$PoolRegistrationAsOwnerImpl() : super._();
+  _$PoolRegistrationAsOwnerImpl() : super._();
 
   @override
   String toString() {
@@ -312,8 +312,8 @@ class _$PoolRegistrationAsOwnerImpl extends PoolRegistrationAsOwner {
 }
 
 abstract class PoolRegistrationAsOwner extends TransactionSigningModes {
-  const factory PoolRegistrationAsOwner() = _$PoolRegistrationAsOwnerImpl;
-  const PoolRegistrationAsOwner._() : super._();
+  factory PoolRegistrationAsOwner() = _$PoolRegistrationAsOwnerImpl;
+  PoolRegistrationAsOwner._() : super._();
 }
 
 /// @nodoc
@@ -338,7 +338,7 @@ class __$$PoolRegistrationAsOperatorImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PoolRegistrationAsOperatorImpl extends PoolRegistrationAsOperator {
-  const _$PoolRegistrationAsOperatorImpl() : super._();
+  _$PoolRegistrationAsOperatorImpl() : super._();
 
   @override
   String toString() {
@@ -397,8 +397,8 @@ class _$PoolRegistrationAsOperatorImpl extends PoolRegistrationAsOperator {
 }
 
 abstract class PoolRegistrationAsOperator extends TransactionSigningModes {
-  const factory PoolRegistrationAsOperator() = _$PoolRegistrationAsOperatorImpl;
-  const PoolRegistrationAsOperator._() : super._();
+  factory PoolRegistrationAsOperator() = _$PoolRegistrationAsOperatorImpl;
+  PoolRegistrationAsOperator._() : super._();
 }
 
 /// @nodoc
@@ -420,7 +420,7 @@ class __$$PlutusTransactionImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PlutusTransactionImpl extends PlutusTransaction {
-  const _$PlutusTransactionImpl() : super._();
+  _$PlutusTransactionImpl() : super._();
 
   @override
   String toString() {
@@ -478,6 +478,6 @@ class _$PlutusTransactionImpl extends PlutusTransaction {
 }
 
 abstract class PlutusTransaction extends TransactionSigningModes {
-  const factory PlutusTransaction() = _$PlutusTransactionImpl;
-  const PlutusTransaction._() : super._();
+  factory PlutusTransaction() = _$PlutusTransactionImpl;
+  PlutusTransaction._() : super._();
 }

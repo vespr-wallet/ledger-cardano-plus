@@ -195,7 +195,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxSetTtl(String ttl, LedgerSendFct send) async {
+  Future<void> signTxSetTtl(BigInt ttl, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageTtl,
@@ -514,8 +514,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return null;
   }
 
-  Future<void> signTxSetValidityIntervalStart(String validityIntervalStartStr, LedgerSendFct send) async {
-    final Uint8List data = SerializationUtils.serializeTxValidityStart(validityIntervalStartStr);
+  Future<void> signTxSetValidityIntervalStart(BigInt validityIntervalStart, LedgerSendFct send) async {
+    final Uint8List data = SerializationUtils.serializeTxValidityStart(validityIntervalStart);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,

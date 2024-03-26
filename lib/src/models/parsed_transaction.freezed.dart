@@ -20,13 +20,13 @@ mixin _$ParsedTransaction {
   List<ParsedInput> get inputs => throw _privateConstructorUsedError;
   List<ParsedOutput> get outputs => throw _privateConstructorUsedError;
   BigInt get fee => throw _privateConstructorUsedError;
-  String? get ttl => throw _privateConstructorUsedError;
+  BigInt? get ttl => throw _privateConstructorUsedError;
   List<ParsedCertificate> get certificates =>
       throw _privateConstructorUsedError;
   List<ParsedWithdrawal> get withdrawals => throw _privateConstructorUsedError;
   ParsedTxAuxiliaryData? get auxiliaryData =>
       throw _privateConstructorUsedError;
-  String? get validityIntervalStart => throw _privateConstructorUsedError;
+  BigInt? get validityIntervalStart => throw _privateConstructorUsedError;
   List<ParsedAssetGroup>? get mint => throw _privateConstructorUsedError;
   ScriptDataHash? get scriptDataHashHex => throw _privateConstructorUsedError;
   List<ParsedInput> get collateralInputs => throw _privateConstructorUsedError;
@@ -47,11 +47,11 @@ mixin _$ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -73,11 +73,11 @@ mixin _$ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -99,11 +99,11 @@ mixin _$ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -136,11 +136,11 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
       BigInt fee,
-      String? ttl,
+      BigInt? ttl,
       List<ParsedCertificate> certificates,
       List<ParsedWithdrawal> withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
-      String? validityIntervalStart,
+      BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
       List<ParsedInput> collateralInputs,
@@ -213,7 +213,7 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       certificates: null == certificates
           ? _value.certificates
           : certificates // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       validityIntervalStart: freezed == validityIntervalStart
           ? _value.validityIntervalStart
           : validityIntervalStart // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       mint: freezed == mint
           ? _value.mint
           : mint // ignore: cast_nullable_to_non_nullable
@@ -335,11 +335,11 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
       BigInt fee,
-      String? ttl,
+      BigInt? ttl,
       List<ParsedCertificate> certificates,
       List<ParsedWithdrawal> withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
-      String? validityIntervalStart,
+      BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
       List<ParsedInput> collateralInputs,
@@ -414,7 +414,7 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       certificates: null == certificates
           ? _value._certificates
           : certificates // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       validityIntervalStart: freezed == validityIntervalStart
           ? _value.validityIntervalStart
           : validityIntervalStart // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       mint: freezed == mint
           ? _value._mint
           : mint // ignore: cast_nullable_to_non_nullable
@@ -535,7 +535,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   @override
   final BigInt fee;
   @override
-  final String? ttl;
+  final BigInt? ttl;
   final List<ParsedCertificate> _certificates;
   @override
   List<ParsedCertificate> get certificates {
@@ -555,7 +555,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   @override
   final ParsedTxAuxiliaryData? auxiliaryData;
   @override
-  final String? validityIntervalStart;
+  final BigInt? validityIntervalStart;
   final List<ParsedAssetGroup>? _mint;
   @override
   List<ParsedAssetGroup>? get mint {
@@ -699,11 +699,11 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -748,11 +748,11 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -797,11 +797,11 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
             BigInt fee,
-            String? ttl,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
@@ -849,11 +849,11 @@ abstract class _ParsedTransaction extends ParsedTransaction {
       required final List<ParsedInput> inputs,
       required final List<ParsedOutput> outputs,
       required final BigInt fee,
-      final String? ttl,
+      final BigInt? ttl,
       required final List<ParsedCertificate> certificates,
       required final List<ParsedWithdrawal> withdrawals,
       final ParsedTxAuxiliaryData? auxiliaryData,
-      final String? validityIntervalStart,
+      final BigInt? validityIntervalStart,
       final List<ParsedAssetGroup>? mint,
       final ScriptDataHash? scriptDataHashHex,
       required final List<ParsedInput> collateralInputs,
@@ -876,7 +876,7 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   BigInt get fee;
   @override
-  String? get ttl;
+  BigInt? get ttl;
   @override
   List<ParsedCertificate> get certificates;
   @override
@@ -884,7 +884,7 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   ParsedTxAuxiliaryData? get auxiliaryData;
   @override
-  String? get validityIntervalStart;
+  BigInt? get validityIntervalStart;
   @override
   List<ParsedAssetGroup>? get mint;
   @override

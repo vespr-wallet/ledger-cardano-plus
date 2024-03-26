@@ -157,9 +157,9 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxTtl(String ttl) {
+  static Uint8List serializeTxTtl(BigInt ttl) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, BigInt.parse(ttl));
+      writeSerializedUint64(writer, ttl);
       return writer.toBytes();
     });
   }
@@ -207,8 +207,8 @@ class SerializationUtils {
   static Uint8List serializeOperationalCertificate(ParsedOperationalCertificate certificate) {
     return useBinaryWriter((writer) {
       writeSerializedHex(writer, certificate.kesPublicKeyHex);
-      writeSerializedUint64(writer, BigInt.parse(certificate.kesPeriod));
-      writeSerializedUint64(writer, BigInt.parse(certificate.issueCounter));
+      writeSerializedUint64(writer, certificate.kesPeriod);
+      writeSerializedUint64(writer, certificate.issueCounter);
       writerSerializedPath(writer, certificate.coldKeyPath);
 
       return writer.toBytes();
@@ -301,18 +301,18 @@ class SerializationUtils {
     throw ValidationException('Invalid payment destination');
   }
 
-  static Uint8List serializeCVoteRegistrationNonce(String nonce) {
+  static Uint8List serializeCVoteRegistrationNonce(BigInt nonce) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, BigInt.parse(nonce));
+      writeSerializedUint64(writer, nonce);
       return writer.toBytes();
     });
   }
 
-  static Uint8List serializeCVoteRegistrationVotingPurpose(String? votingPurpose) {
+  static Uint8List serializeCVoteRegistrationVotingPurpose(BigInt? votingPurpose) {
     return useBinaryWriter((ByteDataWriter writer) {
       serializeOptionFlag(writer, votingPurpose != null);
       if (votingPurpose != null) {
-        writeSerializedUint64(writer, BigInt.parse(votingPurpose));
+        writeSerializedUint64(writer, votingPurpose);
       }
       return writer.toBytes();
     });
@@ -473,7 +473,7 @@ class SerializationUtils {
         StakePoolRetirement() => () {
             writer.writeUint8(certificate.certificateType.value);
             writerSerializedPath(writer, certificate.path);
-            writeSerializedUint64(writer, BigInt.parse(certificate.retirementEpoch));
+            writeSerializedUint64(writer, certificate.retirementEpoch);
           },
       };
 
@@ -503,8 +503,8 @@ class SerializationUtils {
     });
   }
 
-  static void writeSerializedCoin(ByteDataWriter writer, String coin) {
-    writeSerializedUint64(writer, BigInt.parse(coin));
+  static void writeSerializedCoin(ByteDataWriter writer, BigInt coin) {
+    writeSerializedUint64(writer, coin);
   }
 
   static Uint8List serializeDRep(ParsedDRep dRep) {
@@ -576,7 +576,7 @@ class SerializationUtils {
         StakePoolRetirement() => () {
             writer.writeUint8(certificate.certificateType.value);
             writerSerializedPath(writer, certificate.path);
-            writeSerializedUint64(writer, BigInt.parse(certificate.retirementEpoch));
+            writeSerializedUint64(writer, certificate.retirementEpoch);
           },
         StakeRegistrationConway() => throw ValidationException('Conway certificates in pre-multisig serialization'),
         StakeDeregistrationConway() => throw ValidationException('Conway certificates in pre-multisig serialization'),
@@ -739,9 +739,9 @@ class SerializationUtils {
     }
   }
 
-  static Uint8List serializeTxValidityStart(String validityIntervalStart) {
+  static Uint8List serializeTxValidityStart(BigInt validityIntervalStart) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, BigInt.parse(validityIntervalStart));
+      writeSerializedUint64(writer, validityIntervalStart);
       return writer.toBytes();
     });
   }

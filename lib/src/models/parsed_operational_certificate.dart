@@ -14,8 +14,8 @@ sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
 
   factory ParsedOperationalCertificate({
     required String kesPublicKeyHex,
-    required String kesPeriod,
-    required String issueCounter,
+    required BigInt kesPeriod,
+    required BigInt issueCounter,
     required List<int> coldKeyPath,
   }) = _ParsedOperationalCertificate;
 }

@@ -24,8 +24,8 @@ mixin _$ParsedCVoteRegistrationParams {
   List<int> get stakingPath => throw _privateConstructorUsedError;
   ParsedOutputDestination get paymentDestination =>
       throw _privateConstructorUsedError;
-  String get nonce => throw _privateConstructorUsedError;
-  String? get votingPurpose => throw _privateConstructorUsedError;
+  BigInt get nonce => throw _privateConstructorUsedError;
+  BigInt? get votingPurpose => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
@@ -35,8 +35,8 @@ mixin _$ParsedCVoteRegistrationParams {
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)
+            BigInt nonce,
+            BigInt? votingPurpose)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -49,8 +49,8 @@ mixin _$ParsedCVoteRegistrationParams {
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)?
+            BigInt nonce,
+            BigInt? votingPurpose)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -63,8 +63,8 @@ mixin _$ParsedCVoteRegistrationParams {
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)?
+            BigInt nonce,
+            BigInt? votingPurpose)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -90,8 +90,8 @@ abstract class $ParsedCVoteRegistrationParamsCopyWith<$Res> {
       List<ParsedCVoteDelegation>? delegations,
       List<int> stakingPath,
       ParsedOutputDestination paymentDestination,
-      String nonce,
-      String? votingPurpose});
+      BigInt nonce,
+      BigInt? votingPurpose});
 
   $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination;
@@ -148,11 +148,11 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
       nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       votingPurpose: freezed == votingPurpose
           ? _value.votingPurpose
           : votingPurpose // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
     ) as $Val);
   }
 
@@ -194,8 +194,8 @@ abstract class _$$ParsedCVoteRegistrationParamsImplCopyWith<$Res>
       List<ParsedCVoteDelegation>? delegations,
       List<int> stakingPath,
       ParsedOutputDestination paymentDestination,
-      String nonce,
-      String? votingPurpose});
+      BigInt nonce,
+      BigInt? votingPurpose});
 
   @override
   $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
@@ -253,11 +253,11 @@ class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>
       nonce: null == nonce
           ? _value.nonce
           : nonce // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       votingPurpose: freezed == votingPurpose
           ? _value.votingPurpose
           : votingPurpose // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
     ));
   }
 }
@@ -316,9 +316,9 @@ class _$ParsedCVoteRegistrationParamsImpl
   @override
   final ParsedOutputDestination paymentDestination;
   @override
-  final String nonce;
+  final BigInt nonce;
   @override
-  final String? votingPurpose;
+  final BigInt? votingPurpose;
 
   @override
   String toString() {
@@ -376,8 +376,8 @@ class _$ParsedCVoteRegistrationParamsImpl
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)
+            BigInt nonce,
+            BigInt? votingPurpose)
         $default,
   ) {
     return $default(format, votePublicKey, votePublicKeyPath, delegations,
@@ -394,8 +394,8 @@ class _$ParsedCVoteRegistrationParamsImpl
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)?
+            BigInt nonce,
+            BigInt? votingPurpose)?
         $default,
   ) {
     return $default?.call(format, votePublicKey, votePublicKeyPath, delegations,
@@ -412,8 +412,8 @@ class _$ParsedCVoteRegistrationParamsImpl
             List<ParsedCVoteDelegation>? delegations,
             List<int> stakingPath,
             ParsedOutputDestination paymentDestination,
-            String nonce,
-            String? votingPurpose)?
+            BigInt nonce,
+            BigInt? votingPurpose)?
         $default, {
     required TResult orElse(),
   }) {
@@ -434,8 +434,8 @@ abstract class _ParsedCVoteRegistrationParams
           required final List<ParsedCVoteDelegation>? delegations,
           required final List<int> stakingPath,
           required final ParsedOutputDestination paymentDestination,
-          required final String nonce,
-          required final String? votingPurpose}) =
+          required final BigInt nonce,
+          required final BigInt? votingPurpose}) =
       _$ParsedCVoteRegistrationParamsImpl;
   const _ParsedCVoteRegistrationParams._() : super._();
 
@@ -452,9 +452,9 @@ abstract class _ParsedCVoteRegistrationParams
   @override
   ParsedOutputDestination get paymentDestination;
   @override
-  String get nonce;
+  BigInt get nonce;
   @override
-  String? get votingPurpose;
+  BigInt? get votingPurpose;
   @override
   @JsonKey(ignore: true)
   _$$ParsedCVoteRegistrationParamsImplCopyWith<

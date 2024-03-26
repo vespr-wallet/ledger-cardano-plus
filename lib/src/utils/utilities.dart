@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
@@ -11,8 +10,21 @@ Uint8List useBinaryWriter(Uint8List Function(ByteDataWriter writer) invoker) {
 
 Uint8List ipStringToBytes(String ipString) {
   try {
-    InternetAddress address = InternetAddress(ipString);
-    return Uint8List.fromList(address.rawAddress);
+    List<String> parts = ipString.split('.');
+    if (parts.length != 4) {
+      throw ValidationException('Invalid IP string format');
+    }
+    
+    Uint8List bytes = Uint8List(4);
+    for (int i = 0; i < 4; i++) {
+      int part = int.parse(parts[i]);
+      if (part < 0 || part > 255) {
+        throw ValidationException('Invalid IP address range');
+      }
+      bytes[i] = part;
+    }
+    
+    return bytes;
   } catch (e) {
     throw ValidationException('Error converting IP string to bytes: $e');
   }

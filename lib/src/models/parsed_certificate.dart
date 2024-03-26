@@ -17,7 +17,7 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.stakeRegistrationConway({
     required ParsedCredential stakeCredential,
-    required String deposit,
+    required BigInt deposit,
   }) = StakeRegistrationConway;
 
   factory ParsedCertificate.stakeDeregistration({
@@ -26,7 +26,7 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.stakeDeregistrationConway({
     required ParsedCredential stakeCredential,
-    required String deposit,
+    required BigInt deposit,
   }) = StakeDeregistrationConway;
 
   factory ParsedCertificate.stakeDelegation({
@@ -51,13 +51,13 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.dRepRegistration({
     required ParsedCredential dRepCredential,
-    required String deposit,
+    required BigInt deposit,
     ParsedAnchor? anchor,
   }) = DRepRegistration;
 
   factory ParsedCertificate.dRepDeregistration({
     required ParsedCredential dRepCredential,
-    required String deposit,
+    required BigInt deposit,
   }) = DRepDeregistration;
 
   factory ParsedCertificate.dRepUpdate({
@@ -71,7 +71,7 @@ sealed class ParsedCertificate with _$ParsedCertificate {
 
   factory ParsedCertificate.stakePoolRetirement({
     required List<int> path,
-    required String retirementEpoch,
+    required BigInt retirementEpoch,
   }) = StakePoolRetirement;
 
   late final CertificateType certificateType = switch (this) {

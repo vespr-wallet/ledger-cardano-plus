@@ -89,7 +89,7 @@ class __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
-  const _$DeviceOwnedPoolOwnerImpl({required final List<int> path})
+  _$DeviceOwnedPoolOwnerImpl({required final List<int> path})
       : _path = path,
         super._();
 
@@ -159,9 +159,9 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
 }
 
 abstract class DeviceOwnedPoolOwner extends ParsedPoolOwner {
-  const factory DeviceOwnedPoolOwner({required final List<int> path}) =
+  factory DeviceOwnedPoolOwner({required final List<int> path}) =
       _$DeviceOwnedPoolOwnerImpl;
-  const DeviceOwnedPoolOwner._() : super._();
+  DeviceOwnedPoolOwner._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)
@@ -203,7 +203,7 @@ class __$$ThirdPartyPoolOwnerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyPoolOwnerImpl extends ThirdPartyPoolOwner {
-  const _$ThirdPartyPoolOwnerImpl({required this.hashHex}) : super._();
+  _$ThirdPartyPoolOwnerImpl({required this.hashHex}) : super._();
 
   @override
   final String hashHex;
@@ -264,9 +264,9 @@ class _$ThirdPartyPoolOwnerImpl extends ThirdPartyPoolOwner {
 }
 
 abstract class ThirdPartyPoolOwner extends ParsedPoolOwner {
-  const factory ThirdPartyPoolOwner({required final String hashHex}) =
+  factory ThirdPartyPoolOwner({required final String hashHex}) =
       _$ThirdPartyPoolOwnerImpl;
-  const ThirdPartyPoolOwner._() : super._();
+  ThirdPartyPoolOwner._() : super._();
 
   String get hashHex;
   @JsonKey(ignore: true)

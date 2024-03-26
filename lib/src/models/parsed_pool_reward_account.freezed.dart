@@ -93,7 +93,7 @@ class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
-  const _$DeviceOwnedPoolRewardAccountImpl({required final List<int> path})
+  _$DeviceOwnedPoolRewardAccountImpl({required final List<int> path})
       : _path = path,
         super._();
 
@@ -163,9 +163,9 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
 }
 
 abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
-  const factory DeviceOwnedPoolRewardAccount({required final List<int> path}) =
+  factory DeviceOwnedPoolRewardAccount({required final List<int> path}) =
       _$DeviceOwnedPoolRewardAccountImpl;
-  const DeviceOwnedPoolRewardAccount._() : super._();
+  DeviceOwnedPoolRewardAccount._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)
@@ -211,7 +211,7 @@ class __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
-  const _$ThirdPartyPoolRewardAccountImpl({required this.rewardAccountHex})
+  _$ThirdPartyPoolRewardAccountImpl({required this.rewardAccountHex})
       : super._();
 
   @override
@@ -274,10 +274,10 @@ class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
 }
 
 abstract class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {
-  const factory ThirdPartyPoolRewardAccount(
+  factory ThirdPartyPoolRewardAccount(
           {required final String rewardAccountHex}) =
       _$ThirdPartyPoolRewardAccountImpl;
-  const ThirdPartyPoolRewardAccount._() : super._();
+  ThirdPartyPoolRewardAccount._() : super._();
 
   String get rewardAccountHex;
   @JsonKey(ignore: true)

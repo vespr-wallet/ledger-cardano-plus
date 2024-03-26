@@ -90,7 +90,7 @@ class __$$RequiredSignerHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RequiredSignerHashImpl extends RequiredSignerHash {
-  const _$RequiredSignerHashImpl({required this.hashHex}) : super._();
+  _$RequiredSignerHashImpl({required this.hashHex}) : super._();
 
   @override
   final String hashHex;
@@ -151,9 +151,9 @@ class _$RequiredSignerHashImpl extends RequiredSignerHash {
 }
 
 abstract class RequiredSignerHash extends ParsedRequiredSigner {
-  const factory RequiredSignerHash({required final String hashHex}) =
+  factory RequiredSignerHash({required final String hashHex}) =
       _$RequiredSignerHashImpl;
-  const RequiredSignerHash._() : super._();
+  RequiredSignerHash._() : super._();
 
   String get hashHex;
   @JsonKey(ignore: true)
@@ -195,7 +195,7 @@ class __$$RequiredSignerPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RequiredSignerPathImpl extends RequiredSignerPath {
-  const _$RequiredSignerPathImpl({required final List<int> path})
+  _$RequiredSignerPathImpl({required final List<int> path})
       : _path = path,
         super._();
 
@@ -264,9 +264,9 @@ class _$RequiredSignerPathImpl extends RequiredSignerPath {
 }
 
 abstract class RequiredSignerPath extends ParsedRequiredSigner {
-  const factory RequiredSignerPath({required final List<int> path}) =
+  factory RequiredSignerPath({required final List<int> path}) =
       _$RequiredSignerPathImpl;
-  const RequiredSignerPath._() : super._();
+  RequiredSignerPath._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)

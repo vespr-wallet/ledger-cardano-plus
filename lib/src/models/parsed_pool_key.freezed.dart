@@ -89,7 +89,7 @@ class __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedPoolKeyImpl extends DeviceOwnedPoolKey {
-  const _$DeviceOwnedPoolKeyImpl({required final List<int> path})
+  _$DeviceOwnedPoolKeyImpl({required final List<int> path})
       : _path = path,
         super._();
 
@@ -158,9 +158,9 @@ class _$DeviceOwnedPoolKeyImpl extends DeviceOwnedPoolKey {
 }
 
 abstract class DeviceOwnedPoolKey extends ParsedPoolKey {
-  const factory DeviceOwnedPoolKey({required final List<int> path}) =
+  factory DeviceOwnedPoolKey({required final List<int> path}) =
       _$DeviceOwnedPoolKeyImpl;
-  const DeviceOwnedPoolKey._() : super._();
+  DeviceOwnedPoolKey._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)
@@ -202,7 +202,7 @@ class __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyPoolKeyImpl extends ThirdPartyPoolKey {
-  const _$ThirdPartyPoolKeyImpl({required this.hashHex}) : super._();
+  _$ThirdPartyPoolKeyImpl({required this.hashHex}) : super._();
 
   @override
   final String hashHex;
@@ -263,9 +263,9 @@ class _$ThirdPartyPoolKeyImpl extends ThirdPartyPoolKey {
 }
 
 abstract class ThirdPartyPoolKey extends ParsedPoolKey {
-  const factory ThirdPartyPoolKey({required final String hashHex}) =
+  factory ThirdPartyPoolKey({required final String hashHex}) =
       _$ThirdPartyPoolKeyImpl;
-  const ThirdPartyPoolKey._() : super._();
+  ThirdPartyPoolKey._() : super._();
 
   String get hashHex;
   @JsonKey(ignore: true)

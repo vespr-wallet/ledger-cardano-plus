@@ -36,4 +36,10 @@ sealed class ParsedCredential with _$ParsedCredential {
   factory ParsedCredential.scriptHash({
     required String scriptHashHex,
   }) = CredentialScriptHash;
+
+  late final CredentialType credentialType = switch (this) {
+    CredentialKeyPath() => CredentialType.keyPath,
+    CredentialKeyHash() => CredentialType.keyHash,
+    CredentialScriptHash() => CredentialType.scriptHash,
+  };
 }

@@ -18,8 +18,8 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedPoolParams {
   ParsedPoolKey get poolKey => throw _privateConstructorUsedError;
   String get vrfHashHex => throw _privateConstructorUsedError;
-  String get pledge => throw _privateConstructorUsedError;
-  String get cost => throw _privateConstructorUsedError;
+  BigInt get pledge => throw _privateConstructorUsedError;
+  BigInt get cost => throw _privateConstructorUsedError;
   ParsedMargin get margin => throw _privateConstructorUsedError;
   ParsedPoolRewardAccount get rewardAccount =>
       throw _privateConstructorUsedError;
@@ -31,8 +31,8 @@ mixin _$ParsedPoolParams {
     TResult Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -46,8 +46,8 @@ mixin _$ParsedPoolParams {
     TResult? Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -61,8 +61,8 @@ mixin _$ParsedPoolParams {
     TResult Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -87,8 +87,8 @@ abstract class $ParsedPoolParamsCopyWith<$Res> {
   $Res call(
       {ParsedPoolKey poolKey,
       String vrfHashHex,
-      String pledge,
-      String cost,
+      BigInt pledge,
+      BigInt cost,
       ParsedMargin margin,
       ParsedPoolRewardAccount rewardAccount,
       List<ParsedPoolOwner> owners,
@@ -136,11 +136,11 @@ class _$ParsedPoolParamsCopyWithImpl<$Res, $Val extends ParsedPoolParams>
       pledge: null == pledge
           ? _value.pledge
           : pledge // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       cost: null == cost
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       margin: null == margin
           ? _value.margin
           : margin // ignore: cast_nullable_to_non_nullable
@@ -213,8 +213,8 @@ abstract class _$$ParsedPoolParamsImplCopyWith<$Res>
   $Res call(
       {ParsedPoolKey poolKey,
       String vrfHashHex,
-      String pledge,
-      String cost,
+      BigInt pledge,
+      BigInt cost,
       ParsedMargin margin,
       ParsedPoolRewardAccount rewardAccount,
       List<ParsedPoolOwner> owners,
@@ -264,11 +264,11 @@ class __$$ParsedPoolParamsImplCopyWithImpl<$Res>
       pledge: null == pledge
           ? _value.pledge
           : pledge // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       cost: null == cost
           ? _value.cost
           : cost // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       margin: null == margin
           ? _value.margin
           : margin // ignore: cast_nullable_to_non_nullable
@@ -315,9 +315,9 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
   @override
   final String vrfHashHex;
   @override
-  final String pledge;
+  final BigInt pledge;
   @override
-  final String cost;
+  final BigInt cost;
   @override
   final ParsedMargin margin;
   @override
@@ -391,8 +391,8 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
     TResult Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -410,8 +410,8 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
     TResult? Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -429,8 +429,8 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
     TResult Function(
             ParsedPoolKey poolKey,
             String vrfHashHex,
-            String pledge,
-            String cost,
+            BigInt pledge,
+            BigInt cost,
             ParsedMargin margin,
             ParsedPoolRewardAccount rewardAccount,
             List<ParsedPoolOwner> owners,
@@ -451,8 +451,8 @@ abstract class _ParsedPoolParams extends ParsedPoolParams {
   factory _ParsedPoolParams(
       {required final ParsedPoolKey poolKey,
       required final String vrfHashHex,
-      required final String pledge,
-      required final String cost,
+      required final BigInt pledge,
+      required final BigInt cost,
       required final ParsedMargin margin,
       required final ParsedPoolRewardAccount rewardAccount,
       required final List<ParsedPoolOwner> owners,
@@ -465,9 +465,9 @@ abstract class _ParsedPoolParams extends ParsedPoolParams {
   @override
   String get vrfHashHex;
   @override
-  String get pledge;
+  BigInt get pledge;
   @override
-  String get cost;
+  BigInt get cost;
   @override
   ParsedMargin get margin;
   @override

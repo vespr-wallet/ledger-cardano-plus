@@ -107,7 +107,7 @@ class __$$CommitteeKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CommitteeKeyHashImpl extends CommitteeKeyHash {
-  const _$CommitteeKeyHashImpl({required this.keyHashHex}) : super._();
+  _$CommitteeKeyHashImpl({required this.keyHashHex}) : super._();
 
   @override
   final String keyHashHex;
@@ -187,9 +187,9 @@ class _$CommitteeKeyHashImpl extends CommitteeKeyHash {
 }
 
 abstract class CommitteeKeyHash extends ParsedVoter {
-  const factory CommitteeKeyHash({required final String keyHashHex}) =
+  factory CommitteeKeyHash({required final String keyHashHex}) =
       _$CommitteeKeyHashImpl;
-  const CommitteeKeyHash._() : super._();
+  CommitteeKeyHash._() : super._();
 
   String get keyHashHex;
   @JsonKey(ignore: true)
@@ -231,7 +231,7 @@ class __$$CommitteeKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
-  const _$CommitteeKeyPathImpl({required final List<int> keyPath})
+  _$CommitteeKeyPathImpl({required final List<int> keyPath})
       : _keyPath = keyPath,
         super._();
 
@@ -318,9 +318,9 @@ class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
 }
 
 abstract class CommitteeKeyPath extends ParsedVoter {
-  const factory CommitteeKeyPath({required final List<int> keyPath}) =
+  factory CommitteeKeyPath({required final List<int> keyPath}) =
       _$CommitteeKeyPathImpl;
-  const CommitteeKeyPath._() : super._();
+  CommitteeKeyPath._() : super._();
 
   List<int> get keyPath;
   @JsonKey(ignore: true)
@@ -362,7 +362,7 @@ class __$$CommitteeScriptHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CommitteeScriptHashImpl extends CommitteeScriptHash {
-  const _$CommitteeScriptHashImpl({required this.scriptHashHex}) : super._();
+  _$CommitteeScriptHashImpl({required this.scriptHashHex}) : super._();
 
   @override
   final String scriptHashHex;
@@ -442,9 +442,9 @@ class _$CommitteeScriptHashImpl extends CommitteeScriptHash {
 }
 
 abstract class CommitteeScriptHash extends ParsedVoter {
-  const factory CommitteeScriptHash({required final String scriptHashHex}) =
+  factory CommitteeScriptHash({required final String scriptHashHex}) =
       _$CommitteeScriptHashImpl;
-  const CommitteeScriptHash._() : super._();
+  CommitteeScriptHash._() : super._();
 
   String get scriptHashHex;
   @JsonKey(ignore: true)
@@ -486,7 +486,7 @@ class __$$DrepKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DrepKeyHashImpl extends DrepKeyHash {
-  const _$DrepKeyHashImpl({required this.keyHashHex}) : super._();
+  _$DrepKeyHashImpl({required this.keyHashHex}) : super._();
 
   @override
   final String keyHashHex;
@@ -565,9 +565,8 @@ class _$DrepKeyHashImpl extends DrepKeyHash {
 }
 
 abstract class DrepKeyHash extends ParsedVoter {
-  const factory DrepKeyHash({required final String keyHashHex}) =
-      _$DrepKeyHashImpl;
-  const DrepKeyHash._() : super._();
+  factory DrepKeyHash({required final String keyHashHex}) = _$DrepKeyHashImpl;
+  DrepKeyHash._() : super._();
 
   String get keyHashHex;
   @JsonKey(ignore: true)
@@ -609,7 +608,7 @@ class __$$DrepKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DrepKeyPathImpl extends DrepKeyPath {
-  const _$DrepKeyPathImpl({required final List<int> keyPath})
+  _$DrepKeyPathImpl({required final List<int> keyPath})
       : _keyPath = keyPath,
         super._();
 
@@ -695,9 +694,8 @@ class _$DrepKeyPathImpl extends DrepKeyPath {
 }
 
 abstract class DrepKeyPath extends ParsedVoter {
-  const factory DrepKeyPath({required final List<int> keyPath}) =
-      _$DrepKeyPathImpl;
-  const DrepKeyPath._() : super._();
+  factory DrepKeyPath({required final List<int> keyPath}) = _$DrepKeyPathImpl;
+  DrepKeyPath._() : super._();
 
   List<int> get keyPath;
   @JsonKey(ignore: true)
@@ -739,7 +737,7 @@ class __$$DrepScriptHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DrepScriptHashImpl extends DrepScriptHash {
-  const _$DrepScriptHashImpl({required this.scriptHashHex}) : super._();
+  _$DrepScriptHashImpl({required this.scriptHashHex}) : super._();
 
   @override
   final String scriptHashHex;
@@ -819,9 +817,9 @@ class _$DrepScriptHashImpl extends DrepScriptHash {
 }
 
 abstract class DrepScriptHash extends ParsedVoter {
-  const factory DrepScriptHash({required final String scriptHashHex}) =
+  factory DrepScriptHash({required final String scriptHashHex}) =
       _$DrepScriptHashImpl;
-  const DrepScriptHash._() : super._();
+  DrepScriptHash._() : super._();
 
   String get scriptHashHex;
   @JsonKey(ignore: true)
@@ -863,7 +861,7 @@ class __$$StakePoolKeyHashImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolKeyHashImpl extends StakePoolKeyHash {
-  const _$StakePoolKeyHashImpl({required this.keyHashHex}) : super._();
+  _$StakePoolKeyHashImpl({required this.keyHashHex}) : super._();
 
   @override
   final String keyHashHex;
@@ -943,9 +941,9 @@ class _$StakePoolKeyHashImpl extends StakePoolKeyHash {
 }
 
 abstract class StakePoolKeyHash extends ParsedVoter {
-  const factory StakePoolKeyHash({required final String keyHashHex}) =
+  factory StakePoolKeyHash({required final String keyHashHex}) =
       _$StakePoolKeyHashImpl;
-  const StakePoolKeyHash._() : super._();
+  StakePoolKeyHash._() : super._();
 
   String get keyHashHex;
   @JsonKey(ignore: true)
@@ -987,7 +985,7 @@ class __$$StakePoolKeyPathImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
-  const _$StakePoolKeyPathImpl({required final List<int> keyPath})
+  _$StakePoolKeyPathImpl({required final List<int> keyPath})
       : _keyPath = keyPath,
         super._();
 
@@ -1074,9 +1072,9 @@ class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
 }
 
 abstract class StakePoolKeyPath extends ParsedVoter {
-  const factory StakePoolKeyPath({required final List<int> keyPath}) =
+  factory StakePoolKeyPath({required final List<int> keyPath}) =
       _$StakePoolKeyPathImpl;
-  const StakePoolKeyPath._() : super._();
+  StakePoolKeyPath._() : super._();
 
   List<int> get keyPath;
   @JsonKey(ignore: true)

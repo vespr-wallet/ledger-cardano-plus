@@ -1,17 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'parsed_pool_key.freezed.dart';
 
 @freezed
 sealed class ParsedPoolKey with _$ParsedPoolKey {
-  const ParsedPoolKey._();
+  ParsedPoolKey._();
 
-  const factory ParsedPoolKey.deviceOwned({
+  factory ParsedPoolKey.deviceOwned({
     required List<int> path,
   }) = DeviceOwnedPoolKey;
 
-  const factory ParsedPoolKey.thirdParty({
+  factory ParsedPoolKey.thirdParty({
     required String hashHex,
   }) = ThirdPartyPoolKey;
 
+  late final PoolKeyType poolKeyType = switch (this) {
+    DeviceOwnedPoolKey() => PoolKeyType.deviceOwned,
+    ThirdPartyPoolKey() => PoolKeyType.thirdParty,
+  };
 }

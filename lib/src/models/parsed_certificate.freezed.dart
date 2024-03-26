@@ -20,11 +20,11 @@ mixin _$ParsedCertificate {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -37,26 +37,26 @@ mixin _$ParsedCertificate {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -67,25 +67,25 @@ mixin _$ParsedCertificate {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -96,15 +96,15 @@ mixin _$ParsedCertificate {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) =>
@@ -173,7 +173,7 @@ class __$$StakeRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeRegistrationImpl extends StakeRegistration {
-  const _$StakeRegistrationImpl({required this.stakeCredential}) : super._();
+  _$StakeRegistrationImpl({required this.stakeCredential}) : super._();
 
   @override
   final ParsedCredential stakeCredential;
@@ -207,11 +207,11 @@ class _$StakeRegistrationImpl extends StakeRegistration {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -224,16 +224,16 @@ class _$StakeRegistrationImpl extends StakeRegistration {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakeRegistration(stakeCredential);
@@ -243,10 +243,10 @@ class _$StakeRegistrationImpl extends StakeRegistration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -257,15 +257,15 @@ class _$StakeRegistrationImpl extends StakeRegistration {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakeRegistration?.call(stakeCredential);
@@ -275,10 +275,10 @@ class _$StakeRegistrationImpl extends StakeRegistration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -289,15 +289,15 @@ class _$StakeRegistrationImpl extends StakeRegistration {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -309,10 +309,9 @@ class _$StakeRegistrationImpl extends StakeRegistration {
 }
 
 abstract class StakeRegistration extends ParsedCertificate {
-  const factory StakeRegistration(
-          {required final ParsedCredential stakeCredential}) =
+  factory StakeRegistration({required final ParsedCredential stakeCredential}) =
       _$StakeRegistrationImpl;
-  const StakeRegistration._() : super._();
+  StakeRegistration._() : super._();
 
   ParsedCredential get stakeCredential;
   @JsonKey(ignore: true)
@@ -327,7 +326,7 @@ abstract class _$$StakeRegistrationConwayImplCopyWith<$Res> {
           $Res Function(_$StakeRegistrationConwayImpl) then) =
       __$$StakeRegistrationConwayImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ParsedCredential stakeCredential, String deposit});
+  $Res call({ParsedCredential stakeCredential, BigInt deposit});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -355,7 +354,7 @@ class __$$StakeRegistrationConwayImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 
@@ -371,14 +370,14 @@ class __$$StakeRegistrationConwayImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
-  const _$StakeRegistrationConwayImpl(
+  _$StakeRegistrationConwayImpl(
       {required this.stakeCredential, required this.deposit})
       : super._();
 
   @override
   final ParsedCredential stakeCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
 
   @override
   String toString() {
@@ -410,11 +409,11 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -427,16 +426,16 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakeRegistrationConway(stakeCredential, deposit);
@@ -446,10 +445,10 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -460,15 +459,15 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakeRegistrationConway?.call(stakeCredential, deposit);
@@ -478,10 +477,10 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -492,15 +491,15 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -512,13 +511,13 @@ class _$StakeRegistrationConwayImpl extends StakeRegistrationConway {
 }
 
 abstract class StakeRegistrationConway extends ParsedCertificate {
-  const factory StakeRegistrationConway(
+  factory StakeRegistrationConway(
       {required final ParsedCredential stakeCredential,
-      required final String deposit}) = _$StakeRegistrationConwayImpl;
-  const StakeRegistrationConway._() : super._();
+      required final BigInt deposit}) = _$StakeRegistrationConwayImpl;
+  StakeRegistrationConway._() : super._();
 
   ParsedCredential get stakeCredential;
-  String get deposit;
+  BigInt get deposit;
   @JsonKey(ignore: true)
   _$$StakeRegistrationConwayImplCopyWith<_$StakeRegistrationConwayImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -568,7 +567,7 @@ class __$$StakeDeregistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDeregistrationImpl extends StakeDeregistration {
-  const _$StakeDeregistrationImpl({required this.stakeCredential}) : super._();
+  _$StakeDeregistrationImpl({required this.stakeCredential}) : super._();
 
   @override
   final ParsedCredential stakeCredential;
@@ -602,11 +601,11 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -619,16 +618,16 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakeDeregistration(stakeCredential);
@@ -638,10 +637,10 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -652,15 +651,15 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakeDeregistration?.call(stakeCredential);
@@ -670,10 +669,10 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -684,15 +683,15 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -704,10 +703,10 @@ class _$StakeDeregistrationImpl extends StakeDeregistration {
 }
 
 abstract class StakeDeregistration extends ParsedCertificate {
-  const factory StakeDeregistration(
+  factory StakeDeregistration(
           {required final ParsedCredential stakeCredential}) =
       _$StakeDeregistrationImpl;
-  const StakeDeregistration._() : super._();
+  StakeDeregistration._() : super._();
 
   ParsedCredential get stakeCredential;
   @JsonKey(ignore: true)
@@ -722,7 +721,7 @@ abstract class _$$StakeDeregistrationConwayImplCopyWith<$Res> {
           $Res Function(_$StakeDeregistrationConwayImpl) then) =
       __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ParsedCredential stakeCredential, String deposit});
+  $Res call({ParsedCredential stakeCredential, BigInt deposit});
 
   $ParsedCredentialCopyWith<$Res> get stakeCredential;
 }
@@ -751,7 +750,7 @@ class __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 
@@ -767,14 +766,14 @@ class __$$StakeDeregistrationConwayImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
-  const _$StakeDeregistrationConwayImpl(
+  _$StakeDeregistrationConwayImpl(
       {required this.stakeCredential, required this.deposit})
       : super._();
 
   @override
   final ParsedCredential stakeCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
 
   @override
   String toString() {
@@ -806,11 +805,11 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -823,16 +822,16 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakeDeregistrationConway(stakeCredential, deposit);
@@ -842,10 +841,10 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -856,15 +855,15 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakeDeregistrationConway?.call(stakeCredential, deposit);
@@ -874,10 +873,10 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -888,15 +887,15 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -908,13 +907,13 @@ class _$StakeDeregistrationConwayImpl extends StakeDeregistrationConway {
 }
 
 abstract class StakeDeregistrationConway extends ParsedCertificate {
-  const factory StakeDeregistrationConway(
+  factory StakeDeregistrationConway(
       {required final ParsedCredential stakeCredential,
-      required final String deposit}) = _$StakeDeregistrationConwayImpl;
-  const StakeDeregistrationConway._() : super._();
+      required final BigInt deposit}) = _$StakeDeregistrationConwayImpl;
+  StakeDeregistrationConway._() : super._();
 
   ParsedCredential get stakeCredential;
-  String get deposit;
+  BigInt get deposit;
   @JsonKey(ignore: true)
   _$$StakeDeregistrationConwayImplCopyWith<_$StakeDeregistrationConwayImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -969,7 +968,7 @@ class __$$StakeDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakeDelegationImpl extends StakeDelegation {
-  const _$StakeDelegationImpl(
+  _$StakeDelegationImpl(
       {required this.stakeCredential, required this.poolKeyHashHex})
       : super._();
 
@@ -1009,11 +1008,11 @@ class _$StakeDelegationImpl extends StakeDelegation {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -1026,16 +1025,16 @@ class _$StakeDelegationImpl extends StakeDelegation {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakeDelegation(stakeCredential, poolKeyHashHex);
@@ -1045,10 +1044,10 @@ class _$StakeDelegationImpl extends StakeDelegation {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1059,15 +1058,15 @@ class _$StakeDelegationImpl extends StakeDelegation {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakeDelegation?.call(stakeCredential, poolKeyHashHex);
@@ -1077,10 +1076,10 @@ class _$StakeDelegationImpl extends StakeDelegation {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1091,15 +1090,15 @@ class _$StakeDelegationImpl extends StakeDelegation {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -1111,10 +1110,10 @@ class _$StakeDelegationImpl extends StakeDelegation {
 }
 
 abstract class StakeDelegation extends ParsedCertificate {
-  const factory StakeDelegation(
+  factory StakeDelegation(
       {required final ParsedCredential stakeCredential,
       required final String poolKeyHashHex}) = _$StakeDelegationImpl;
-  const StakeDelegation._() : super._();
+  StakeDelegation._() : super._();
 
   ParsedCredential get stakeCredential;
   String get poolKeyHashHex;
@@ -1181,8 +1180,7 @@ class __$$VoteDelegationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$VoteDelegationImpl extends VoteDelegation {
-  const _$VoteDelegationImpl(
-      {required this.stakeCredential, required this.dRep})
+  _$VoteDelegationImpl({required this.stakeCredential, required this.dRep})
       : super._();
 
   @override
@@ -1220,11 +1218,11 @@ class _$VoteDelegationImpl extends VoteDelegation {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -1237,16 +1235,16 @@ class _$VoteDelegationImpl extends VoteDelegation {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return voteDelegation(stakeCredential, dRep);
@@ -1256,10 +1254,10 @@ class _$VoteDelegationImpl extends VoteDelegation {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1270,15 +1268,15 @@ class _$VoteDelegationImpl extends VoteDelegation {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return voteDelegation?.call(stakeCredential, dRep);
@@ -1288,10 +1286,10 @@ class _$VoteDelegationImpl extends VoteDelegation {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1302,15 +1300,15 @@ class _$VoteDelegationImpl extends VoteDelegation {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -1322,10 +1320,10 @@ class _$VoteDelegationImpl extends VoteDelegation {
 }
 
 abstract class VoteDelegation extends ParsedCertificate {
-  const factory VoteDelegation(
+  factory VoteDelegation(
       {required final ParsedCredential stakeCredential,
       required final ParsedDRep dRep}) = _$VoteDelegationImpl;
-  const VoteDelegation._() : super._();
+  VoteDelegation._() : super._();
 
   ParsedCredential get stakeCredential;
   ParsedDRep get dRep;
@@ -1393,7 +1391,7 @@ class __$$AuthorizeCommitteeHotImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
-  const _$AuthorizeCommitteeHotImpl(
+  _$AuthorizeCommitteeHotImpl(
       {required this.coldCredential, required this.hotCredential})
       : super._();
 
@@ -1433,11 +1431,11 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -1450,16 +1448,16 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return authorizeCommitteeHot(coldCredential, hotCredential);
@@ -1469,10 +1467,10 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1483,15 +1481,15 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return authorizeCommitteeHot?.call(coldCredential, hotCredential);
@@ -1501,10 +1499,10 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1515,15 +1513,15 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -1535,11 +1533,11 @@ class _$AuthorizeCommitteeHotImpl extends AuthorizeCommitteeHot {
 }
 
 abstract class AuthorizeCommitteeHot extends ParsedCertificate {
-  const factory AuthorizeCommitteeHot(
+  factory AuthorizeCommitteeHot(
           {required final ParsedCredential coldCredential,
           required final ParsedCredential hotCredential}) =
       _$AuthorizeCommitteeHotImpl;
-  const AuthorizeCommitteeHot._() : super._();
+  AuthorizeCommitteeHot._() : super._();
 
   ParsedCredential get coldCredential;
   ParsedCredential get hotCredential;
@@ -1610,7 +1608,7 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
-  const _$ResignCommitteeColdImpl({required this.coldCredential, this.anchor})
+  _$ResignCommitteeColdImpl({required this.coldCredential, this.anchor})
       : super._();
 
   @override
@@ -1648,11 +1646,11 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -1665,16 +1663,16 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return resignCommitteeCold(coldCredential, anchor);
@@ -1684,10 +1682,10 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1698,15 +1696,15 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return resignCommitteeCold?.call(coldCredential, anchor);
@@ -1716,10 +1714,10 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1730,15 +1728,15 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -1750,10 +1748,10 @@ class _$ResignCommitteeColdImpl extends ResignCommitteeCold {
 }
 
 abstract class ResignCommitteeCold extends ParsedCertificate {
-  const factory ResignCommitteeCold(
+  factory ResignCommitteeCold(
       {required final ParsedCredential coldCredential,
       final ParsedAnchor? anchor}) = _$ResignCommitteeColdImpl;
-  const ResignCommitteeCold._() : super._();
+  ResignCommitteeCold._() : super._();
 
   ParsedCredential get coldCredential;
   ParsedAnchor? get anchor;
@@ -1769,7 +1767,7 @@ abstract class _$$DRepRegistrationImplCopyWith<$Res> {
       __$$DRepRegistrationImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {ParsedCredential dRepCredential, String deposit, ParsedAnchor? anchor});
+      {ParsedCredential dRepCredential, BigInt deposit, ParsedAnchor? anchor});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
   $ParsedAnchorCopyWith<$Res>? get anchor;
@@ -1798,7 +1796,7 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
@@ -1830,14 +1828,14 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepRegistrationImpl extends DRepRegistration {
-  const _$DRepRegistrationImpl(
+  _$DRepRegistrationImpl(
       {required this.dRepCredential, required this.deposit, this.anchor})
       : super._();
 
   @override
   final ParsedCredential dRepCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
   @override
   final ParsedAnchor? anchor;
 
@@ -1872,11 +1870,11 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -1889,16 +1887,16 @@ class _$DRepRegistrationImpl extends DRepRegistration {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return dRepRegistration(dRepCredential, deposit, anchor);
@@ -1908,10 +1906,10 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1922,15 +1920,15 @@ class _$DRepRegistrationImpl extends DRepRegistration {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return dRepRegistration?.call(dRepCredential, deposit, anchor);
@@ -1940,10 +1938,10 @@ class _$DRepRegistrationImpl extends DRepRegistration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -1954,15 +1952,15 @@ class _$DRepRegistrationImpl extends DRepRegistration {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -1974,14 +1972,14 @@ class _$DRepRegistrationImpl extends DRepRegistration {
 }
 
 abstract class DRepRegistration extends ParsedCertificate {
-  const factory DRepRegistration(
+  factory DRepRegistration(
       {required final ParsedCredential dRepCredential,
-      required final String deposit,
+      required final BigInt deposit,
       final ParsedAnchor? anchor}) = _$DRepRegistrationImpl;
-  const DRepRegistration._() : super._();
+  DRepRegistration._() : super._();
 
   ParsedCredential get dRepCredential;
-  String get deposit;
+  BigInt get deposit;
   ParsedAnchor? get anchor;
   @JsonKey(ignore: true)
   _$$DRepRegistrationImplCopyWith<_$DRepRegistrationImpl> get copyWith =>
@@ -1994,7 +1992,7 @@ abstract class _$$DRepDeregistrationImplCopyWith<$Res> {
           $Res Function(_$DRepDeregistrationImpl) then) =
       __$$DRepDeregistrationImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ParsedCredential dRepCredential, String deposit});
+  $Res call({ParsedCredential dRepCredential, BigInt deposit});
 
   $ParsedCredentialCopyWith<$Res> get dRepCredential;
 }
@@ -2021,7 +2019,7 @@ class __$$DRepDeregistrationImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 
@@ -2037,14 +2035,14 @@ class __$$DRepDeregistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepDeregistrationImpl extends DRepDeregistration {
-  const _$DRepDeregistrationImpl(
+  _$DRepDeregistrationImpl(
       {required this.dRepCredential, required this.deposit})
       : super._();
 
   @override
   final ParsedCredential dRepCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
 
   @override
   String toString() {
@@ -2076,11 +2074,11 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -2093,16 +2091,16 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return dRepDeregistration(dRepCredential, deposit);
@@ -2112,10 +2110,10 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2126,15 +2124,15 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return dRepDeregistration?.call(dRepCredential, deposit);
@@ -2144,10 +2142,10 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2158,15 +2156,15 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -2178,13 +2176,13 @@ class _$DRepDeregistrationImpl extends DRepDeregistration {
 }
 
 abstract class DRepDeregistration extends ParsedCertificate {
-  const factory DRepDeregistration(
+  factory DRepDeregistration(
       {required final ParsedCredential dRepCredential,
-      required final String deposit}) = _$DRepDeregistrationImpl;
-  const DRepDeregistration._() : super._();
+      required final BigInt deposit}) = _$DRepDeregistrationImpl;
+  DRepDeregistration._() : super._();
 
   ParsedCredential get dRepCredential;
-  String get deposit;
+  BigInt get deposit;
   @JsonKey(ignore: true)
   _$$DRepDeregistrationImplCopyWith<_$DRepDeregistrationImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -2252,8 +2250,7 @@ class __$$DRepUpdateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DRepUpdateImpl extends DRepUpdate {
-  const _$DRepUpdateImpl({required this.dRepCredential, this.anchor})
-      : super._();
+  _$DRepUpdateImpl({required this.dRepCredential, this.anchor}) : super._();
 
   @override
   final ParsedCredential dRepCredential;
@@ -2289,11 +2286,11 @@ class _$DRepUpdateImpl extends DRepUpdate {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -2306,16 +2303,16 @@ class _$DRepUpdateImpl extends DRepUpdate {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return dRepUpdate(dRepCredential, anchor);
@@ -2325,10 +2322,10 @@ class _$DRepUpdateImpl extends DRepUpdate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2339,15 +2336,15 @@ class _$DRepUpdateImpl extends DRepUpdate {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return dRepUpdate?.call(dRepCredential, anchor);
@@ -2357,10 +2354,10 @@ class _$DRepUpdateImpl extends DRepUpdate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2371,15 +2368,15 @@ class _$DRepUpdateImpl extends DRepUpdate {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -2391,10 +2388,10 @@ class _$DRepUpdateImpl extends DRepUpdate {
 }
 
 abstract class DRepUpdate extends ParsedCertificate {
-  const factory DRepUpdate(
+  factory DRepUpdate(
       {required final ParsedCredential dRepCredential,
       final ParsedAnchor? anchor}) = _$DRepUpdateImpl;
-  const DRepUpdate._() : super._();
+  DRepUpdate._() : super._();
 
   ParsedCredential get dRepCredential;
   ParsedAnchor? get anchor;
@@ -2448,7 +2445,7 @@ class __$$StakePoolRegistrationImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolRegistrationImpl extends StakePoolRegistration {
-  const _$StakePoolRegistrationImpl({required this.pool}) : super._();
+  _$StakePoolRegistrationImpl({required this.pool}) : super._();
 
   @override
   final ParsedPoolParams pool;
@@ -2481,11 +2478,11 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -2498,16 +2495,16 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakePoolRegistration(pool);
@@ -2517,10 +2514,10 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2531,15 +2528,15 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakePoolRegistration?.call(pool);
@@ -2549,10 +2546,10 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2563,15 +2560,15 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -2583,9 +2580,9 @@ class _$StakePoolRegistrationImpl extends StakePoolRegistration {
 }
 
 abstract class StakePoolRegistration extends ParsedCertificate {
-  const factory StakePoolRegistration({required final ParsedPoolParams pool}) =
+  factory StakePoolRegistration({required final ParsedPoolParams pool}) =
       _$StakePoolRegistrationImpl;
-  const StakePoolRegistration._() : super._();
+  StakePoolRegistration._() : super._();
 
   ParsedPoolParams get pool;
   @JsonKey(ignore: true)
@@ -2599,7 +2596,7 @@ abstract class _$$StakePoolRetirementImplCopyWith<$Res> {
           $Res Function(_$StakePoolRetirementImpl) then) =
       __$$StakePoolRetirementImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path, String retirementEpoch});
+  $Res call({List<int> path, BigInt retirementEpoch});
 }
 
 /// @nodoc
@@ -2624,7 +2621,7 @@ class __$$StakePoolRetirementImplCopyWithImpl<$Res>
       retirementEpoch: null == retirementEpoch
           ? _value.retirementEpoch
           : retirementEpoch // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 }
@@ -2632,7 +2629,7 @@ class __$$StakePoolRetirementImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$StakePoolRetirementImpl extends StakePoolRetirement {
-  const _$StakePoolRetirementImpl(
+  _$StakePoolRetirementImpl(
       {required final List<int> path, required this.retirementEpoch})
       : _path = path,
         super._();
@@ -2646,7 +2643,7 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
   }
 
   @override
-  final String retirementEpoch;
+  final BigInt retirementEpoch;
 
   @override
   String toString() {
@@ -2679,11 +2676,11 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
   TResult when<TResult extends Object?>({
     required TResult Function(ParsedCredential stakeCredential)
         stakeRegistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeRegistrationConway,
     required TResult Function(ParsedCredential stakeCredential)
         stakeDeregistration,
-    required TResult Function(ParsedCredential stakeCredential, String deposit)
+    required TResult Function(ParsedCredential stakeCredential, BigInt deposit)
         stakeDeregistrationConway,
     required TResult Function(
             ParsedCredential stakeCredential, String poolKeyHashHex)
@@ -2696,16 +2693,16 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
     required TResult Function(
             ParsedCredential coldCredential, ParsedAnchor? anchor)
         resignCommitteeCold,
-    required TResult Function(ParsedCredential dRepCredential, String deposit,
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)
         dRepRegistration,
-    required TResult Function(ParsedCredential dRepCredential, String deposit)
+    required TResult Function(ParsedCredential dRepCredential, BigInt deposit)
         dRepDeregistration,
     required TResult Function(
             ParsedCredential dRepCredential, ParsedAnchor? anchor)
         dRepUpdate,
     required TResult Function(ParsedPoolParams pool) stakePoolRegistration,
-    required TResult Function(List<int> path, String retirementEpoch)
+    required TResult Function(List<int> path, BigInt retirementEpoch)
         stakePoolRetirement,
   }) {
     return stakePoolRetirement(path, retirementEpoch);
@@ -2715,10 +2712,10 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult? Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult? Function(ParsedCredential stakeCredential, String deposit)?
+    TResult? Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult? Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2729,15 +2726,15 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
         authorizeCommitteeHot,
     TResult? Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult? Function(ParsedCredential dRepCredential, String deposit,
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult? Function(ParsedCredential dRepCredential, String deposit)?
+    TResult? Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult? Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult? Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult? Function(List<int> path, String retirementEpoch)?
+    TResult? Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
   }) {
     return stakePoolRetirement?.call(path, retirementEpoch);
@@ -2747,10 +2744,10 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(ParsedCredential stakeCredential)? stakeRegistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeRegistrationConway,
     TResult Function(ParsedCredential stakeCredential)? stakeDeregistration,
-    TResult Function(ParsedCredential stakeCredential, String deposit)?
+    TResult Function(ParsedCredential stakeCredential, BigInt deposit)?
         stakeDeregistrationConway,
     TResult Function(ParsedCredential stakeCredential, String poolKeyHashHex)?
         stakeDelegation,
@@ -2761,15 +2758,15 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
         authorizeCommitteeHot,
     TResult Function(ParsedCredential coldCredential, ParsedAnchor? anchor)?
         resignCommitteeCold,
-    TResult Function(ParsedCredential dRepCredential, String deposit,
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit,
             ParsedAnchor? anchor)?
         dRepRegistration,
-    TResult Function(ParsedCredential dRepCredential, String deposit)?
+    TResult Function(ParsedCredential dRepCredential, BigInt deposit)?
         dRepDeregistration,
     TResult Function(ParsedCredential dRepCredential, ParsedAnchor? anchor)?
         dRepUpdate,
     TResult Function(ParsedPoolParams pool)? stakePoolRegistration,
-    TResult Function(List<int> path, String retirementEpoch)?
+    TResult Function(List<int> path, BigInt retirementEpoch)?
         stakePoolRetirement,
     required TResult orElse(),
   }) {
@@ -2781,13 +2778,13 @@ class _$StakePoolRetirementImpl extends StakePoolRetirement {
 }
 
 abstract class StakePoolRetirement extends ParsedCertificate {
-  const factory StakePoolRetirement(
+  factory StakePoolRetirement(
       {required final List<int> path,
-      required final String retirementEpoch}) = _$StakePoolRetirementImpl;
-  const StakePoolRetirement._() : super._();
+      required final BigInt retirementEpoch}) = _$StakePoolRetirementImpl;
+  StakePoolRetirement._() : super._();
 
   List<int> get path;
-  String get retirementEpoch;
+  BigInt get retirementEpoch;
   @JsonKey(ignore: true)
   _$$StakePoolRetirementImplCopyWith<_$StakePoolRetirementImpl> get copyWith =>
       throw _privateConstructorUsedError;

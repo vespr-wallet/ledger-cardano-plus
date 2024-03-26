@@ -1,17 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'parsed_required_signer.freezed.dart';
 
 @freezed
-class ParsedRequiredSigner with _$ParsedRequiredSigner {
-  const ParsedRequiredSigner._();
+sealed class ParsedRequiredSigner with _$ParsedRequiredSigner {
+  ParsedRequiredSigner._();
 
-  const factory ParsedRequiredSigner.hash({
+  factory ParsedRequiredSigner.hash({
     required String hashHex,
   }) = RequiredSignerHash;
 
-  const factory ParsedRequiredSigner.path({
+  factory ParsedRequiredSigner.path({
     required List<int> path,
   }) = RequiredSignerPath;
 
+  late final RequiredSignerType requiredSignerType = switch (this) {
+    RequiredSignerHash() => RequiredSignerType.hash,
+    RequiredSignerPath() => RequiredSignerType.path,
+  };
 }

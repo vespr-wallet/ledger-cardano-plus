@@ -5,18 +5,22 @@ part 'parsed_c_vote_delegation.freezed.dart';
 
 @freezed
 sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
-  const ParsedCVoteDelegation._();
+   ParsedCVoteDelegation._();
 
-  const factory ParsedCVoteDelegation.path({
-    required CIP36VoteDelegationType type,
+   factory ParsedCVoteDelegation.path({
     required List<int> voteKeyPath,
     required int weight,
   }) = PathDelegation;
 
-  const factory ParsedCVoteDelegation.key({
-    required CIP36VoteDelegationType type,
+   factory ParsedCVoteDelegation.key({
     required String voteKey,
     required int weight,
   }) = KeyDelegation;
+  
+  late final CIP36VoteDelegationType cVoteDelegationType = switch (this) {
+    PathDelegation() => CIP36VoteDelegationType.path,
+    KeyDelegation() => CIP36VoteDelegationType.key,
+  };
 
 }
+

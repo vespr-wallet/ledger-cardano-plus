@@ -1,23 +1,31 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'parsed_pool_relay.freezed.dart';
 
 @freezed
-class ParsedPoolRelay with _$ParsedPoolRelay {
-  const ParsedPoolRelay._();
+sealed class ParsedPoolRelay with _$ParsedPoolRelay {
+  ParsedPoolRelay._();
 
-  const factory ParsedPoolRelay.singleHostIpAddr({
+  factory ParsedPoolRelay.singleHostIpAddr({
     int? port,
     String? ipv4,
     String? ipv6,
   }) = SingleHostIpAddr;
 
-  const factory ParsedPoolRelay.singleHostHostname({
+  factory ParsedPoolRelay.singletHostname({
     int? port,
     required String dnsName,
-  }) = SingleHostHostname;
+  }) = SingleHostName;
 
-  const factory ParsedPoolRelay.multiHost({
+  factory ParsedPoolRelay.multiHost({
     required String dnsName,
   }) = MultiHost;
+
+  late final RelayType relayType = switch (this) {
+    SingleHostIpAddr() => RelayType.singleHostIpAddr,
+    SingleHostName() => RelayType.singleHostname,
+    MultiHost() => RelayType.multiHost,
+  };
 }
+ 

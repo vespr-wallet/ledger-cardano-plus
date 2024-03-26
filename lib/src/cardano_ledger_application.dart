@@ -6,6 +6,7 @@ import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
+import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
@@ -149,10 +150,11 @@ class CardanoLedgerApp {
     ];
 
     final params = ParsedAddressParams.shelley(
-      type: AddressType.basePaymentKeyStakeKey,
-      networkId: CardanoNetwork.mainnet.networkId,
-      spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath, type: SpendingDataSourceType.path),
-      stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath, type: StakingDataSourceType.keyPath),
+      shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
+        networkId: CardanoNetwork.mainnet.networkId,
+        spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath),
+        stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
+      ),
     );
 
     final operation = CardanoDeriveAddressOperation(

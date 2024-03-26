@@ -6,15 +6,18 @@ part 'parsed_output_destination.freezed.dart';
 
 @freezed
 sealed class ParsedOutputDestination with _$ParsedOutputDestination {
-  const ParsedOutputDestination._();
+  ParsedOutputDestination._();
 
-  const factory ParsedOutputDestination.thirdParty({
-    required TxOutputDestinationType type,
+  factory ParsedOutputDestination.thirdParty({
     required String addressHex,
   }) = ThirdParty;
 
-  const factory ParsedOutputDestination.deviceOwned({
-    required TxOutputDestinationType type,
+  factory ParsedOutputDestination.deviceOwned({
     required ParsedAddressParams addressParams,
   }) = DeviceOwned;
+
+  late final TxOutputDestinationType outputDestinationType = switch (this) {
+    ThirdParty() => TxOutputDestinationType.thirdParty,
+    DeviceOwned() => TxOutputDestinationType.deviceOwned,
+  };
 }

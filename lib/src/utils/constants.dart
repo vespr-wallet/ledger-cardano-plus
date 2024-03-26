@@ -7,12 +7,41 @@ const int maxChunkSize = 255;
 const int signTxIncludedNo = 1;
 const int signTxIncludedYes = 2;
 
+const int p2OutputDatum = 0x34;
+const int p2OutputDatumChunk = 0x35;
+const int p2OutputScript = 0x36;
+const int p2OutputScriptChunk = 0x37;
+const int p2OutputConfirm = 0x33;
+const int p2OutputBasicData = 0x30;
+
+
+const int p2MintBasicData = 0x30;
+const int p2MintConfirm = 0x33;
+
+const int p2AssetGroup = 0x31;
+const int p2Token = 0x32;
+
+const int txHashLength = 32;
+
 const int p1Unused = 0x00;
 const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 const int keyHashLength = 56;
+
+const int p2CollateralOutputBasicData = 0x30;
+const int p2CollateralOutputConfirm = 0x33;
+
+const int p2InitPool = 0x30;
+const int p2PoolKey = 0x31;
+const int p2VrfKey = 0x32;
+const int p2Financials = 0x33;
+const int p2RewardAccount = 0x34;
+const int p2Owners = 0x35;
+const int p2Relays = 0x36;
+const int p2Metadata = 0x37;
+const int p2Confirmation = 0x38;
 
 const int datumHashLength = 64;
 
@@ -196,8 +225,11 @@ enum TxOutputDestinationType {
 }
 
 enum DatumType {
-  hash,
-  inline,
+  hash(0),
+  inline(1);
+
+  final int value;
+  const DatumType(this.value);
 }
 
 enum DRepType {
@@ -228,30 +260,41 @@ enum CIP36VoteDelegationType {
 }
 
 enum RequiredSignerType {
-  hash,
-  path,
+  hash(1),
+  path(0);
+  
+  final int value;
+  const RequiredSignerType(this.value);
 }
 
 enum VoterType {
-  committeeKeyHash,
-  committeeKeyPath,
-  committeeScriptHash,
-  drepKeyHash,
-  drepKeyPath,
-  drepScriptHash,
-  stakePoolKeyHash,
-  stakePoolKeyPath,
+  committeeKeyHash(0),
+  committeeKeyPath(100),
+  committeeScriptHash(1),
+  drepKeyHash(2),
+  drepKeyPath(102),
+  drepScriptHash(3),
+  stakePoolKeyHash(4),
+  stakePoolKeyPath(104);
+  
+  final int value;
+  const VoterType(this.value);
 }
 
 enum VoteOption {
-  yes,
-  no,
-  abstain,
+  no(0),
+  yes(1),
+  abstain(2);
+
+  final int value;
+  const VoteOption(this.value);
 }
 
 enum TxAuxiliaryDataSupplementType {
-  cip36VotingRegistration,
-  cip36Registration,
+  cip36Registration('cip36_voting_registration');
+  
+  final String value;
+  const TxAuxiliaryDataSupplementType(this.value);
 }
 
 enum CIP36VoteRegistrationFormat {
@@ -261,3 +304,74 @@ enum CIP36VoteRegistrationFormat {
   final int encodingValue;
   const CIP36VoteRegistrationFormat(this.encodingValue);
 }
+
+enum CertificateType {
+  stakeRegistration(0),
+  stakeDeregistration(1),
+  stakeDelegation(2),
+  stakePoolRegistration(3),
+  stakePoolRetirement(4),
+  stakeRegistrationConway(7),
+  stakeDeregistrationConway(8),
+  voteDelegation(9),
+  authorizeCommitteeHot(14),
+  resignCommitteeCold(15),
+  dRepRegistration(16),
+  dRepDeregistration(17),
+  dRepUpdate(18);
+
+  final int value;
+  const CertificateType(this.value);
+}
+
+enum CredentialType {
+  keyPath(0),
+  keyHash(2),
+  scriptHash(1);
+
+  final int value;
+  const CredentialType(this.value);
+}
+
+enum PoolKeyType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolKeyType(this.encodingValue);
+}
+
+enum PoolRewardAccountType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolRewardAccountType(this.encodingValue);
+}
+
+enum PoolOwnerType {
+  deviceOwned(1),
+  thirdParty(2);
+
+  final int encodingValue;
+  const PoolOwnerType(this.encodingValue);
+}
+
+enum RelayType {
+  /// Relay is a single host specified with IPv4 or IPv6
+  /// @see [SingleHostIpAddrRelayParams]
+  singleHostIpAddr(0),
+
+  /// Relay is a single host specified as dns name
+  /// @see [SingleHostHostnameRelayParams]
+  singleHostname(1),
+
+  /// Relay is multiple hosts reachable under dns name
+  /// @see [MultiHostRelayParams]
+  multiHost(2);
+
+  final int value;
+  const RelayType(this.value);
+}
+
+

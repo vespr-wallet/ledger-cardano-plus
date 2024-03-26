@@ -1,17 +1,22 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'parsed_pool_owner.freezed.dart';
 
 @freezed
-class ParsedPoolOwner with _$ParsedPoolOwner {
-  const ParsedPoolOwner._();
+sealed class ParsedPoolOwner with _$ParsedPoolOwner {
+  ParsedPoolOwner._();
 
-  const factory ParsedPoolOwner.deviceOwned({
+  factory ParsedPoolOwner.deviceOwned({
     required List<int> path,
   }) = DeviceOwnedPoolOwner;
 
-  const factory ParsedPoolOwner.thirdParty({
+  factory ParsedPoolOwner.thirdParty({
     required String hashHex,
   }) = ThirdPartyPoolOwner;
 
+  late final PoolOwnerType poolOwnerType = switch (this) {
+    DeviceOwnedPoolOwner() => PoolOwnerType.deviceOwned,
+    ThirdPartyPoolOwner() => PoolOwnerType.thirdParty,
+  };
 }

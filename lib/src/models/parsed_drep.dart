@@ -42,4 +42,12 @@ sealed class ParsedDRep with _$ParsedDRep {
   factory ParsedDRep.abstain() = DRepAbstain;
 
   factory ParsedDRep.noConfidence() = DRepNoConfidence;
+
+  late final DRepType dRepType = switch (this) {
+    DRepKeyPath() => DRepType.keyPath,
+    DRepKeyHash() => DRepType.keyHash,
+    DRepScriptHash() => DRepType.scriptHash,
+    DRepAbstain() => DRepType.abstain,
+    DRepNoConfidence() => DRepType.noConfidence,
+  };
 }

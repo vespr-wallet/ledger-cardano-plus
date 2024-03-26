@@ -17,7 +17,7 @@ sealed class ParsedCVoteRegistrationParams with _$ParsedCVoteRegistrationParams 
     required List<ParsedCVoteDelegation>? delegations,
     required List<int> stakingPath,
     required ParsedOutputDestination paymentDestination,
-    required String nonce,
-    required String? votingPurpose,
+    required BigInt nonce,
+    required BigInt? votingPurpose,
   }) = _ParsedCVoteRegistrationParams;
 }

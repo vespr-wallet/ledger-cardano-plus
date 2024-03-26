@@ -17,27 +17,27 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedOperationalCertificate {
   String get kesPublicKeyHex => throw _privateConstructorUsedError;
-  String get kesPeriod => throw _privateConstructorUsedError;
-  String get issueCounter => throw _privateConstructorUsedError;
+  BigInt get kesPeriod => throw _privateConstructorUsedError;
+  BigInt get issueCounter => throw _privateConstructorUsedError;
   List<int> get coldKeyPath => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)
+    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)?
+    TResult? Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)?
+    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -58,8 +58,8 @@ abstract class $ParsedOperationalCertificateCopyWith<$Res> {
   @useResult
   $Res call(
       {String kesPublicKeyHex,
-      String kesPeriod,
-      String issueCounter,
+      BigInt kesPeriod,
+      BigInt issueCounter,
       List<int> coldKeyPath});
 }
 
@@ -90,11 +90,11 @@ class _$ParsedOperationalCertificateCopyWithImpl<$Res,
       kesPeriod: null == kesPeriod
           ? _value.kesPeriod
           : kesPeriod // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       issueCounter: null == issueCounter
           ? _value.issueCounter
           : issueCounter // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       coldKeyPath: null == coldKeyPath
           ? _value.coldKeyPath
           : coldKeyPath // ignore: cast_nullable_to_non_nullable
@@ -114,8 +114,8 @@ abstract class _$$ParsedOperationalCertificateImplCopyWith<$Res>
   @useResult
   $Res call(
       {String kesPublicKeyHex,
-      String kesPeriod,
-      String issueCounter,
+      BigInt kesPeriod,
+      BigInt issueCounter,
       List<int> coldKeyPath});
 }
 
@@ -145,11 +145,11 @@ class __$$ParsedOperationalCertificateImplCopyWithImpl<$Res>
       kesPeriod: null == kesPeriod
           ? _value.kesPeriod
           : kesPeriod // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       issueCounter: null == issueCounter
           ? _value.issueCounter
           : issueCounter // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       coldKeyPath: null == coldKeyPath
           ? _value._coldKeyPath
           : coldKeyPath // ignore: cast_nullable_to_non_nullable
@@ -172,9 +172,9 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
   @override
   final String kesPublicKeyHex;
   @override
-  final String kesPeriod;
+  final BigInt kesPeriod;
   @override
-  final String issueCounter;
+  final BigInt issueCounter;
   final List<int> _coldKeyPath;
   @override
   List<int> get coldKeyPath {
@@ -218,8 +218,8 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)
+    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)
         $default,
   ) {
     return $default(kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
@@ -228,8 +228,8 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)?
+    TResult? Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)?
         $default,
   ) {
     return $default?.call(
@@ -239,8 +239,8 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, String kesPeriod,
-            String issueCounter, List<int> coldKeyPath)?
+    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
+            BigInt issueCounter, List<int> coldKeyPath)?
         $default, {
     required TResult orElse(),
   }) {
@@ -255,8 +255,8 @@ abstract class _ParsedOperationalCertificate
     extends ParsedOperationalCertificate {
   factory _ParsedOperationalCertificate(
           {required final String kesPublicKeyHex,
-          required final String kesPeriod,
-          required final String issueCounter,
+          required final BigInt kesPeriod,
+          required final BigInt issueCounter,
           required final List<int> coldKeyPath}) =
       _$ParsedOperationalCertificateImpl;
   _ParsedOperationalCertificate._() : super._();
@@ -264,9 +264,9 @@ abstract class _ParsedOperationalCertificate
   @override
   String get kesPublicKeyHex;
   @override
-  String get kesPeriod;
+  BigInt get kesPeriod;
   @override
-  String get issueCounter;
+  BigInt get issueCounter;
   @override
   List<int> get coldKeyPath;
   @override

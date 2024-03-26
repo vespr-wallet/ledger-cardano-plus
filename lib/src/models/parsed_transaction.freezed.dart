@@ -19,14 +19,14 @@ mixin _$ParsedTransaction {
   ParsedNetwork get network => throw _privateConstructorUsedError;
   List<ParsedInput> get inputs => throw _privateConstructorUsedError;
   List<ParsedOutput> get outputs => throw _privateConstructorUsedError;
-  String get fee => throw _privateConstructorUsedError;
-  String? get ttl => throw _privateConstructorUsedError;
+  BigInt get fee => throw _privateConstructorUsedError;
+  BigInt? get ttl => throw _privateConstructorUsedError;
   List<ParsedCertificate> get certificates =>
       throw _privateConstructorUsedError;
   List<ParsedWithdrawal> get withdrawals => throw _privateConstructorUsedError;
   ParsedTxAuxiliaryData? get auxiliaryData =>
       throw _privateConstructorUsedError;
-  String? get validityIntervalStart => throw _privateConstructorUsedError;
+  BigInt? get validityIntervalStart => throw _privateConstructorUsedError;
   List<ParsedAssetGroup>? get mint => throw _privateConstructorUsedError;
   ScriptDataHash? get scriptDataHashHex => throw _privateConstructorUsedError;
   List<ParsedInput> get collateralInputs => throw _privateConstructorUsedError;
@@ -34,35 +34,35 @@ mixin _$ParsedTransaction {
       throw _privateConstructorUsedError;
   bool get includeNetworkId => throw _privateConstructorUsedError;
   ParsedOutput? get collateralOutput => throw _privateConstructorUsedError;
-  String? get totalCollateral => throw _privateConstructorUsedError;
+  BigInt? get totalCollateral => throw _privateConstructorUsedError;
   List<ParsedInput> get referenceInputs => throw _privateConstructorUsedError;
   List<ParsedVoterVotes> get votingProcedures =>
       throw _privateConstructorUsedError;
-  String? get treasury => throw _privateConstructorUsedError;
-  String? get donation => throw _privateConstructorUsedError;
+  BigInt? get treasury => throw _privateConstructorUsedError;
+  BigInt? get donation => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)
+            BigInt? treasury,
+            BigInt? donation)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -72,23 +72,23 @@ mixin _$ParsedTransaction {
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)?
+            BigInt? treasury,
+            BigInt? donation)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -98,23 +98,23 @@ mixin _$ParsedTransaction {
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)?
+            BigInt? treasury,
+            BigInt? donation)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -135,23 +135,23 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       {ParsedNetwork network,
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
-      String fee,
-      String? ttl,
+      BigInt fee,
+      BigInt? ttl,
       List<ParsedCertificate> certificates,
       List<ParsedWithdrawal> withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
-      String? validityIntervalStart,
+      BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
       List<ParsedInput> collateralInputs,
       List<ParsedRequiredSigner> requiredSigners,
       bool includeNetworkId,
       ParsedOutput? collateralOutput,
-      String? totalCollateral,
+      BigInt? totalCollateral,
       List<ParsedInput> referenceInputs,
       List<ParsedVoterVotes> votingProcedures,
-      String? treasury,
-      String? donation});
+      BigInt? treasury,
+      BigInt? donation});
 
   $ParsedNetworkCopyWith<$Res> get network;
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
@@ -209,11 +209,11 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       fee: null == fee
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       certificates: null == certificates
           ? _value.certificates
           : certificates // ignore: cast_nullable_to_non_nullable
@@ -229,7 +229,7 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       validityIntervalStart: freezed == validityIntervalStart
           ? _value.validityIntervalStart
           : validityIntervalStart // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       mint: freezed == mint
           ? _value.mint
           : mint // ignore: cast_nullable_to_non_nullable
@@ -257,7 +257,7 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       totalCollateral: freezed == totalCollateral
           ? _value.totalCollateral
           : totalCollateral // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       referenceInputs: null == referenceInputs
           ? _value.referenceInputs
           : referenceInputs // ignore: cast_nullable_to_non_nullable
@@ -269,11 +269,11 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       treasury: freezed == treasury
           ? _value.treasury
           : treasury // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       donation: freezed == donation
           ? _value.donation
           : donation // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
     ) as $Val);
   }
 
@@ -334,23 +334,23 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
       {ParsedNetwork network,
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
-      String fee,
-      String? ttl,
+      BigInt fee,
+      BigInt? ttl,
       List<ParsedCertificate> certificates,
       List<ParsedWithdrawal> withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
-      String? validityIntervalStart,
+      BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
       List<ParsedInput> collateralInputs,
       List<ParsedRequiredSigner> requiredSigners,
       bool includeNetworkId,
       ParsedOutput? collateralOutput,
-      String? totalCollateral,
+      BigInt? totalCollateral,
       List<ParsedInput> referenceInputs,
       List<ParsedVoterVotes> votingProcedures,
-      String? treasury,
-      String? donation});
+      BigInt? treasury,
+      BigInt? donation});
 
   @override
   $ParsedNetworkCopyWith<$Res> get network;
@@ -410,11 +410,11 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       fee: null == fee
           ? _value.fee
           : fee // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       ttl: freezed == ttl
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       certificates: null == certificates
           ? _value._certificates
           : certificates // ignore: cast_nullable_to_non_nullable
@@ -430,7 +430,7 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       validityIntervalStart: freezed == validityIntervalStart
           ? _value.validityIntervalStart
           : validityIntervalStart // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       mint: freezed == mint
           ? _value._mint
           : mint // ignore: cast_nullable_to_non_nullable
@@ -458,7 +458,7 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       totalCollateral: freezed == totalCollateral
           ? _value.totalCollateral
           : totalCollateral // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       referenceInputs: null == referenceInputs
           ? _value._referenceInputs
           : referenceInputs // ignore: cast_nullable_to_non_nullable
@@ -470,11 +470,11 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       treasury: freezed == treasury
           ? _value.treasury
           : treasury // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
       donation: freezed == donation
           ? _value.donation
           : donation // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as BigInt?,
     ));
   }
 }
@@ -533,9 +533,9 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   }
 
   @override
-  final String fee;
+  final BigInt fee;
   @override
-  final String? ttl;
+  final BigInt? ttl;
   final List<ParsedCertificate> _certificates;
   @override
   List<ParsedCertificate> get certificates {
@@ -555,7 +555,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   @override
   final ParsedTxAuxiliaryData? auxiliaryData;
   @override
-  final String? validityIntervalStart;
+  final BigInt? validityIntervalStart;
   final List<ParsedAssetGroup>? _mint;
   @override
   List<ParsedAssetGroup>? get mint {
@@ -590,7 +590,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   @override
   final ParsedOutput? collateralOutput;
   @override
-  final String? totalCollateral;
+  final BigInt? totalCollateral;
   final List<ParsedInput> _referenceInputs;
   @override
   List<ParsedInput> get referenceInputs {
@@ -609,9 +609,9 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   }
 
   @override
-  final String? treasury;
+  final BigInt? treasury;
   @override
-  final String? donation;
+  final BigInt? donation;
 
   @override
   String toString() {
@@ -698,23 +698,23 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)
+            BigInt? treasury,
+            BigInt? donation)
         $default,
   ) {
     return $default(
@@ -747,23 +747,23 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)?
+            BigInt? treasury,
+            BigInt? donation)?
         $default,
   ) {
     return $default?.call(
@@ -796,23 +796,23 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             ParsedNetwork network,
             List<ParsedInput> inputs,
             List<ParsedOutput> outputs,
-            String fee,
-            String? ttl,
+            BigInt fee,
+            BigInt? ttl,
             List<ParsedCertificate> certificates,
             List<ParsedWithdrawal> withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
-            String? validityIntervalStart,
+            BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
             List<ParsedInput> collateralInputs,
             List<ParsedRequiredSigner> requiredSigners,
             bool includeNetworkId,
             ParsedOutput? collateralOutput,
-            String? totalCollateral,
+            BigInt? totalCollateral,
             List<ParsedInput> referenceInputs,
             List<ParsedVoterVotes> votingProcedures,
-            String? treasury,
-            String? donation)?
+            BigInt? treasury,
+            BigInt? donation)?
         $default, {
     required TResult orElse(),
   }) {
@@ -848,23 +848,23 @@ abstract class _ParsedTransaction extends ParsedTransaction {
       {required final ParsedNetwork network,
       required final List<ParsedInput> inputs,
       required final List<ParsedOutput> outputs,
-      required final String fee,
-      final String? ttl,
+      required final BigInt fee,
+      final BigInt? ttl,
       required final List<ParsedCertificate> certificates,
       required final List<ParsedWithdrawal> withdrawals,
       final ParsedTxAuxiliaryData? auxiliaryData,
-      final String? validityIntervalStart,
+      final BigInt? validityIntervalStart,
       final List<ParsedAssetGroup>? mint,
       final ScriptDataHash? scriptDataHashHex,
       required final List<ParsedInput> collateralInputs,
       required final List<ParsedRequiredSigner> requiredSigners,
       required final bool includeNetworkId,
       final ParsedOutput? collateralOutput,
-      final String? totalCollateral,
+      final BigInt? totalCollateral,
       required final List<ParsedInput> referenceInputs,
       required final List<ParsedVoterVotes> votingProcedures,
-      final String? treasury,
-      final String? donation}) = _$ParsedTransactionImpl;
+      final BigInt? treasury,
+      final BigInt? donation}) = _$ParsedTransactionImpl;
   _ParsedTransaction._() : super._();
 
   @override
@@ -874,9 +874,9 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   List<ParsedOutput> get outputs;
   @override
-  String get fee;
+  BigInt get fee;
   @override
-  String? get ttl;
+  BigInt? get ttl;
   @override
   List<ParsedCertificate> get certificates;
   @override
@@ -884,7 +884,7 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   ParsedTxAuxiliaryData? get auxiliaryData;
   @override
-  String? get validityIntervalStart;
+  BigInt? get validityIntervalStart;
   @override
   List<ParsedAssetGroup>? get mint;
   @override
@@ -898,15 +898,15 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   ParsedOutput? get collateralOutput;
   @override
-  String? get totalCollateral;
+  BigInt? get totalCollateral;
   @override
   List<ParsedInput> get referenceInputs;
   @override
   List<ParsedVoterVotes> get votingProcedures;
   @override
-  String? get treasury;
+  BigInt? get treasury;
   @override
-  String? get donation;
+  BigInt? get donation;
   @override
   @JsonKey(ignore: true)
   _$$ParsedTransactionImplCopyWith<_$ParsedTransactionImpl> get copyWith =>

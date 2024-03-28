@@ -10,6 +10,15 @@ import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
+import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
+import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
+import 'package:ledger_cardano/src/models/parsed_transaction.dart';
+import 'package:ledger_cardano/src/models/parsed_input.dart';
+import 'package:ledger_cardano/src/models/parsed_network.dart';
+import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
+import 'package:ledger_cardano/src/models/sign_transaction_request.dart';
+import 'package:ledger_cardano/src/models/transaction.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
@@ -33,6 +42,7 @@ class _MyAppState extends State<MyApp> {
   String versionInfo = '';
   String accountsInfo = '';
   String scriptHashInfo = '';
+  String signatureHex = '';
 
   void _scanForDevices() async {
     devices.clear();
@@ -207,6 +217,59 @@ class _MyAppState extends State<MyApp> {
       print('Generic Error fetching accounts: ${e.toString()}');
     }
   }
+  
+  Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
+  try {
+    // Constructing the transaction to sign
+    final txToSign = SignTransactionRequest(
+      signingMode: OrdinaryTransaction(),
+      tx: Transaction(
+        network: ParsedNetwork.mainnet,
+        inputs: [
+          ParsedInput(
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            outputIndex: 0,
+            path: [
+              harden + 1852,
+              harden + 1815,
+              harden + 0,
+              0,
+              0,
+            ],
+          ),
+        ],
+        outputs: [],
+        fee: BigInt.parse('42'),
+        ttl: BigInt.parse('10'),
+      ),
+      additionalWitnessPaths: [],
+    );
+
+    // Signing the transaction
+    final SignedTransactionData signedTx = await cardanoApp.signTransaction(
+      device,
+      txToSign,
+    );
+
+    // Updating the UI state with the signed transaction data
+    setState(() {
+      signatureHex = 'Signed Transaction: ${signedTx.txHashHex}';
+    });
+
+    // Logging the signed transaction data
+    print('Signed Transaction: ${signedTx.txHashHex}');
+  } on LedgerException catch (e) {
+    setState(() {
+      signatureHex = 'Error signing transaction: ${e.message}, Code: ${e.errorCode}';
+    });
+    print('Error signing transaction: ${e.message}, Code: ${e.errorCode}');
+  } catch (e) {
+    setState(() {
+      signatureHex = 'Error signing transaction: ${e.toString()}';
+    });
+    print('Error signing transaction: ${e.toString()}');
+  }
+}
 
   Future<void> _fetchSerial(LedgerDevice device) async {
     try {
@@ -243,8 +306,8 @@ class _MyAppState extends State<MyApp> {
     try {
       final operationalCertificate = ParsedOperationalCertificate(
         kesPublicKeyHex: '3d24bc547388cf2403fd978fc3d3a93d1f39acf68a9c00e40512084dc05f2822',
-        kesPeriod: '47',
-        issueCounter: '42',
+        kesPeriod: BigInt.from(47),
+        issueCounter: BigInt.from(42),
         coldKeyPath: [
           harden + 1853,
           harden + 1815,
@@ -261,6 +324,10 @@ class _MyAppState extends State<MyApp> {
 
       // Convert the signature to a hex string for comparison
       final String signatureHex = hex.encode(signature);
+
+      setState(() {
+        this.signatureHex = 'Operational Certificate Signature: $signatureHex';
+      });
 
       // Log the result
       print('Operational Certificate Signature: $signatureHex');
@@ -297,6 +364,7 @@ class _MyAppState extends State<MyApp> {
                           versionInfo = 'Connecting...';
                           accountsInfo = '';
                           scriptHashInfo = '';
+                          signatureHex = '';
                         });
                         await ledger.connect(device);
 
@@ -336,6 +404,14 @@ class _MyAppState extends State<MyApp> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text(scriptHashInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (signatureHex.isNotEmpty) ...[
+                  const Text('Signature Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(signatureHex),
                   ),
                 ],
               ],

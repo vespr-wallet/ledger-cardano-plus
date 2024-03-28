@@ -14,7 +14,6 @@ const int p2OutputScriptChunk = 0x37;
 const int p2OutputConfirm = 0x33;
 const int p2OutputBasicData = 0x30;
 
-
 const int p2MintBasicData = 0x30;
 const int p2MintConfirm = 0x33;
 
@@ -79,6 +78,8 @@ const int p1StageDonation = 0x16;
 const int p1StageConfirm = 0x0a;
 const int p1StageWitnesses = 0x0f;
 
+const String maxUint64Str = '18446744073709551615';
+
 const p2Init = 0x36;
 const p2VoteKey = 0x30;
 const p2Delegation = 0x37;
@@ -88,6 +89,12 @@ const p2Nonce = 0x33;
 const p2VotingPurpose = 0x35;
 const p2Confirm = 0x34;
 const auxiliaryDataHashLength = 32; // Placeholder length
+
+const String maxLovelaceSupplyStr = '45000000000000000';
+const int poolRegistrationOwnersMax = 1000;
+const int poolRegistrationRelaysMax = 1000;
+const int assetGroupsMax = 1000;
+const int tokensInGroupMax = 1000;
 
 enum NativeScriptType {
   pubkeyDeviceOwned(0),
@@ -262,7 +269,7 @@ enum CIP36VoteDelegationType {
 enum RequiredSignerType {
   hash(1),
   path(0);
-  
+
   final int value;
   const RequiredSignerType(this.value);
 }
@@ -276,7 +283,7 @@ enum VoterType {
   drepScriptHash(3),
   stakePoolKeyHash(4),
   stakePoolKeyPath(104);
-  
+
   final int value;
   const VoterType(this.value);
 }
@@ -292,7 +299,7 @@ enum VoteOption {
 
 enum TxAuxiliaryDataSupplementType {
   cip36Registration('cip36_voting_registration');
-  
+
   final String value;
   const TxAuxiliaryDataSupplementType(this.value);
 }
@@ -373,5 +380,4 @@ enum RelayType {
   final int value;
   const RelayType(this.value);
 }
-
 

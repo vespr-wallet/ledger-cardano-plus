@@ -103,26 +103,88 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
+      // Serialize transaction options or write an empty buffer
       if (compatibility.supportsConway) {
         serializeTxOptions(writer, options);
+      } else {
+        writer.write(Uint8List(0));
       }
 
-      serializeOptionFlag(writer, tx.mint != null && (compatibility.supportsMint || version.flags.isAppXS));
-      serializeOptionFlag(writer, tx.scriptDataHashHex != null && compatibility.supportsAlonzo);
+      // Serialize mint flag or write an empty buffer
+      if (compatibility.supportsMint || version.flags.isAppXS) {
+        serializeOptionFlag(writer, tx.mint != null);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize script data hash flag or write an empty buffer
+      if (compatibility.supportsAlonzo) {
+        serializeOptionFlag(writer, tx.scriptDataHashHex != null);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize collateral inputs count or write an empty buffer
       if (compatibility.supportsAlonzo) {
         writer.writeUint32(tx.collateralInputs.length);
-        writer.writeUint32(tx.requiredSigners.length);
-        serializeOptionFlag(writer, tx.includeNetworkId);
+      } else {
+        writer.write(Uint8List(0));
       }
+
+      // Serialize required signers count or write an empty buffer
+      if (compatibility.supportsAlonzo) {
+        writer.writeUint32(tx.requiredSigners.length);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize include network ID flag or write an empty buffer
+      if (compatibility.supportsAlonzo) {
+        serializeOptionFlag(writer, tx.includeNetworkId);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize collateral output flag or write an empty buffer
       if (compatibility.supportsBabbage) {
         serializeOptionFlag(writer, tx.collateralOutput != null);
-        serializeOptionFlag(writer, tx.totalCollateral != null);
-        writer.writeUint32(tx.referenceInputs.length);
+      } else {
+        writer.write(Uint8List(0));
       }
+
+      // Serialize total collateral flag or write an empty buffer
+      if (compatibility.supportsBabbage) {
+        serializeOptionFlag(writer, tx.totalCollateral != null);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize reference inputs count or write an empty buffer
+      if (compatibility.supportsBabbage) {
+        writer.writeUint32(tx.referenceInputs.length);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize voting procedures count or write an empty buffer
       if (compatibility.supportsConway) {
         writer.writeUint32(tx.votingProcedures.length);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize treasury flag or write an empty buffer
+      if (compatibility.supportsConway) {
         serializeOptionFlag(writer, tx.treasury != null);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize donation flag or write an empty buffer
+      if (compatibility.supportsConway) {
         serializeOptionFlag(writer, tx.donation != null);
+      } else {
+        writer.write(Uint8List(0));
       }
 
       writer.writeUint8(tx.network.networkId);
@@ -139,10 +201,11 @@ class SerializationUtils {
       writer.writeUint32(tx.certificates.length);
       writer.writeUint32(tx.withdrawals.length);
 
-      if (!compatibility.supportsBabbage) {
-        writer.writeUint32(numWitnesses);
-      }
+      // Serialize number of witnesses or write an empty buffer based on Babbage support
       if (compatibility.supportsBabbage) {
+        writer.writeUint32(numWitnesses);
+      } else {
+        writer.write(Uint8List(0));
         writer.writeUint32(numWitnesses);
       }
 

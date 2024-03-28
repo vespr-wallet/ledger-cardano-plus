@@ -6,7 +6,10 @@ import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
+import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
+import 'package:ledger_cardano/src/models/sign_transaction_request.dart';
+import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
@@ -14,12 +17,13 @@ import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.d
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
-import 'package:ledger_cardano/src/operations/cardano_sign_msgpack_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_operational_certificate_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
@@ -171,33 +175,6 @@ class CardanoLedgerApp {
     return addressResult;
   }
 
-  Future<Uint8List> signTransaction(
-    LedgerDevice device,
-    Uint8List transaction,
-  ) {
-    return ledger.sendOperation<Uint8List>(
-      device,
-      CardanoSignMsgPackOperation(
-        accountIndex: accountIndex,
-        transaction: transaction,
-      ),
-      transformer: transformer,
-    );
-  }
-
-  Future<List<Uint8List>> signTransactions(
-    LedgerDevice device,
-    List<Uint8List> transactions,
-  ) async {
-    final signatures = <Uint8List>[];
-    for (var tx in transactions) {
-      final signature = await signTransaction(device, tx);
-      signatures.add(signature);
-    }
-
-    return signatures;
-  }
-
   Future<Uint8List> signOperationalCertificate(
     LedgerDevice device,
     ParsedOperationalCertificate operationalCertificate,
@@ -225,5 +202,31 @@ class CardanoLedgerApp {
     );
 
     return signature;
+  }
+
+  Future<SignedTransactionData> signTransaction(
+    LedgerDevice device,
+    SignTransactionRequest signingRequest,
+  ) async {
+    final parsedRequest = parseSignTransactionRequest(signingRequest);
+    // Ensure the device's Cardano app version supports the requested operation
+    final CardanoVersion deviceVersion = await getVersion(device);
+    VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    VersionCompatibility.ensureRequestSupportedByAppVersion(deviceVersion, parsedRequest);
+
+    // Create the operation
+    final operation = CardanoSignTransactionOperation(
+      signingRequest: parsedRequest,
+      cardanoVersion: deviceVersion,
+    );
+
+    // Send the operation to the ledger device
+    final SignedTransactionData signedTransactionData = await ledger.sendComplexOperation<SignedTransactionData>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    return signedTransactionData;
   }
 }

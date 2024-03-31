@@ -6,9 +6,9 @@ part 'signed_transaction_data.freezed.dart';
 
 @freezed
 sealed class SignedTransactionData with _$SignedTransactionData {
-  SignedTransactionData._();
+  const SignedTransactionData._();
 
-  factory SignedTransactionData({
+  const factory SignedTransactionData({
     required String txHashHex,
     required List<Witness> witnesses,
     TxAuxiliaryDataSupplement? auxiliaryDataSupplement,

@@ -4,9 +4,9 @@ part 'third_party_address_params.freezed.dart';
 
 @freezed
 class ThirdPartyAddressParams with _$ThirdPartyAddressParams {
-  ThirdPartyAddressParams._();
+  const ThirdPartyAddressParams._();
 
-  factory ThirdPartyAddressParams({
+  const factory ThirdPartyAddressParams({
     required String addressHex,
   }) = _ThirdPartyAddressParams;
 }

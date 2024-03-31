@@ -6,9 +6,9 @@ part 'parsed_vote.freezed.dart';
 
 @freezed
 sealed class ParsedVote with _$ParsedVote {
-  ParsedVote._();
+  const ParsedVote._();
 
-  factory ParsedVote({
+  const factory ParsedVote({
     required ParsedGovActionId govActionId,
     required ParsedVotingProcedure votingProcedure,
   }) = _ParsedVote;

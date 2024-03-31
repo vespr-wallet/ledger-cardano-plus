@@ -133,7 +133,7 @@ class __$$BlockchainPointerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$BlockchainPointerImpl extends _BlockchainPointer {
-  _$BlockchainPointerImpl(
+  const _$BlockchainPointerImpl(
       {required this.blockIndex,
       required this.txIndex,
       required this.certificateIndex})
@@ -207,11 +207,11 @@ class _$BlockchainPointerImpl extends _BlockchainPointer {
 }
 
 abstract class _BlockchainPointer extends BlockchainPointer {
-  factory _BlockchainPointer(
+  const factory _BlockchainPointer(
       {required final int blockIndex,
       required final int txIndex,
       required final int certificateIndex}) = _$BlockchainPointerImpl;
-  _BlockchainPointer._() : super._();
+  const _BlockchainPointer._() : super._();
 
   @override
   int get blockIndex;

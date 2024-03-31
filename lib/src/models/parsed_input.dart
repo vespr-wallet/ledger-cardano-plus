@@ -4,9 +4,9 @@ part 'parsed_input.freezed.dart';
 
 @freezed
 sealed class ParsedInput with _$ParsedInput {
-  ParsedInput._();
+  const ParsedInput._();
 
-  factory ParsedInput({
+  const factory ParsedInput({
     required String txHashHex,
     required int outputIndex,
     List<int>? path,

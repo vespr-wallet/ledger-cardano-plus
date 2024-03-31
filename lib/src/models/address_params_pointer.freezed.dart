@@ -156,7 +156,7 @@ class __$$AddressParamsPointerImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddressParamsPointerImpl extends _AddressParamsPointer {
-  _$AddressParamsPointerImpl(
+  const _$AddressParamsPointerImpl(
       {required this.spendingParams, required this.stakingBlockchainPointer})
       : super._();
 
@@ -230,11 +230,11 @@ class _$AddressParamsPointerImpl extends _AddressParamsPointer {
 }
 
 abstract class _AddressParamsPointer extends AddressParamsPointer {
-  factory _AddressParamsPointer(
+  const factory _AddressParamsPointer(
           {required final SpendingParams spendingParams,
           required final BlockchainPointer stakingBlockchainPointer}) =
       _$AddressParamsPointerImpl;
-  _AddressParamsPointer._() : super._();
+  const _AddressParamsPointer._() : super._();
 
   @override
   SpendingParams get spendingParams;

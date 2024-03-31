@@ -14,7 +14,6 @@ Uint8List useBinaryWriter(Uint8List Function(ByteDataWriter writer) invoker) {
 Uint8List ipStringToBytes(String ipString) {
   try {
     if (ipString.contains('.')) {
-      // IPv4 address
       List<String> parts = ipString.split('.');
       if (parts.length != 4) {
         throw ValidationException('Invalid IPv4 string format');
@@ -31,7 +30,6 @@ Uint8List ipStringToBytes(String ipString) {
       
       return bytes;
     } else if (ipString.contains(':')) {
-      // IPv6 address
       List<String> parts = ipString.split(':');
       if (parts.length != 8) {
         throw ValidationException('Invalid IPv6 string format');
@@ -60,29 +58,22 @@ void validate(bool condition, String reason) {
 }
 
 ParsedSigningRequest parseSignTransactionRequest(SignTransactionRequest request) {
-  final tx = parseTransaction(request.tx); // Implement this function based on TypeScript logic
-  final signingMode = parseSigningMode(request.signingMode); // Implement or adjust this logic
-  final options = parseTxOptions(request.options); // Implement this function based on TypeScript logic
+  //TODO: validate signing mode
+  final tx = parseTransaction(request.tx);
+  final signingMode = parseSigningMode(request.signingMode);
+  final options = parseTxOptions(request.options);
 
-  // Implement the validation logic. Dart doesn't have a direct equivalent to TypeScript's `validate` function,
-  // so you might use a series of if statements and throw `ValidationException` where necessary.
-  
-  // Example validation converted to Dart
+  //TODO: validate additional witness paths
   validate(request.additionalWitnessPaths != null, 'ADDITIONAL_WITNESSES_NOT_ARRAY');
   var additionalWitnessPaths = request.additionalWitnessPaths.map(
-    (path) => parseBIP32Path(path, 'INVALID_PATH'), // Adjust according to your implementation
+    (path) => parseBIP32Path(path, 'INVALID_PATH'),
   ).toList();
 
-  // Additional restrictions based on signing mode
-  // This is a simplified example. You'll need to adapt the logic to Dart.
   switch (signingMode) {
     case TransactionSigningMode.ORDINARY_TRANSACTION:
-      // Implement the validation logic for ORDINARY_TRANSACTION
       break;
     case TransactionSigningMode.MULTISIG_TRANSACTION:
-      // Implement the validation logic for MULTISIG_TRANSACTION
       break;
-    // Add other cases as necessary
     default:
       throw UnimplementedError('Signing mode not supported');
   }

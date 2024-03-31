@@ -6,12 +6,10 @@ part 'parsed_voting_procedure.freezed.dart';
 
 @freezed
 sealed class ParsedVotingProcedure with _$ParsedVotingProcedure {
-  ParsedVotingProcedure._();
+  const ParsedVotingProcedure._();
 
-  factory ParsedVotingProcedure({
+  const factory ParsedVotingProcedure({
     required VoteOption vote,
     ParsedAnchor? anchor,
   }) = _ParsedVotingProcedure;
-
-  
-  }
+}

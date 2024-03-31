@@ -8,13 +8,13 @@ part 'tx_output.freezed.dart';
 
 @freezed
 sealed class TxOutput with _$TxOutput {
-   TxOutput._();
+  TxOutput._();
 
   factory TxOutput.alonzo({
     required TxOutputDestination destination,
     required BigInt amount, // Using String to represent bigint_like
     List<AssetGroup>? tokenBundle,
-    @Default(null) String? datumHashHex,
+    String? datumHashHex,
   }) = TxOutputAlonzo;
 
   factory TxOutput.babbage({
@@ -22,7 +22,7 @@ sealed class TxOutput with _$TxOutput {
     required BigInt amount, // Using String to represent bigint_like
     List<AssetGroup>? tokenBundle,
     Datum? datum,
-    @Default(null) String? referenceScriptHex,
+    String? referenceScriptHex,
   }) = TxOutputBabbage;
 
   late final TxOutputFormat format = switch (this) {

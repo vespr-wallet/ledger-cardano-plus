@@ -208,7 +208,7 @@ class __$$SignTransactionRequestImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SignTransactionRequestImpl extends _SignTransactionRequest {
-  _$SignTransactionRequestImpl(
+  const _$SignTransactionRequestImpl(
       {required this.tx,
       required this.signingMode,
       final List<List<int>>? additionalWitnessPaths,
@@ -308,12 +308,12 @@ class _$SignTransactionRequestImpl extends _SignTransactionRequest {
 }
 
 abstract class _SignTransactionRequest extends SignTransactionRequest {
-  factory _SignTransactionRequest(
+  const factory _SignTransactionRequest(
       {required final Transaction tx,
       required final TransactionSigningModes signingMode,
       final List<List<int>>? additionalWitnessPaths,
       final ParsedTransactionOptions? options}) = _$SignTransactionRequestImpl;
-  _SignTransactionRequest._() : super._();
+  const _SignTransactionRequest._() : super._();
 
   @override
   Transaction get tx;

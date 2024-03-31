@@ -4,11 +4,10 @@ part 'token.freezed.dart';
 
 @freezed
 sealed class Token with _$Token {
-  Token._();
+  const Token._();
 
-  factory Token({
+  const factory Token({
     required String assetNameHex,
     required BigInt amount,
   }) = _Token;
-
 }

@@ -224,7 +224,7 @@ class __$$ParsedOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedOutputImpl extends _ParsedOutput {
-  _$ParsedOutputImpl(
+  const _$ParsedOutputImpl(
       {required this.format,
       required this.amount,
       required final List<ParsedAssetGroup> tokenBundle,
@@ -344,14 +344,14 @@ class _$ParsedOutputImpl extends _ParsedOutput {
 }
 
 abstract class _ParsedOutput extends ParsedOutput {
-  factory _ParsedOutput(
+  const factory _ParsedOutput(
       {required final TxOutputFormat format,
       required final BigInt amount,
       required final List<ParsedAssetGroup> tokenBundle,
       required final ParsedOutputDestination destination,
       final ParsedDatum? datum,
       final String? referenceScriptHex}) = _$ParsedOutputImpl;
-  _ParsedOutput._() : super._();
+  const _ParsedOutput._() : super._();
 
   @override
   TxOutputFormat get format;

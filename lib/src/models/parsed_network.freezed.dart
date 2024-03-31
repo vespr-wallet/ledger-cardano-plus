@@ -119,7 +119,8 @@ class __$$ParsedNetworkImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedNetworkImpl extends _ParsedNetwork {
-  _$ParsedNetworkImpl({required this.protocolMagic, required this.networkId})
+  const _$ParsedNetworkImpl(
+      {required this.protocolMagic, required this.networkId})
       : super._();
 
   @override
@@ -182,10 +183,10 @@ class _$ParsedNetworkImpl extends _ParsedNetwork {
 }
 
 abstract class _ParsedNetwork extends ParsedNetwork {
-  factory _ParsedNetwork(
+  const factory _ParsedNetwork(
       {required final int protocolMagic,
       required final int networkId}) = _$ParsedNetworkImpl;
-  _ParsedNetwork._() : super._();
+  const _ParsedNetwork._() : super._();
 
   @override
   int get protocolMagic;

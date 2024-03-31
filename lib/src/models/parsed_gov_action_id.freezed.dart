@@ -119,7 +119,7 @@ class __$$ParsedGovActionIdImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedGovActionIdImpl extends _ParsedGovActionId {
-  _$ParsedGovActionIdImpl(
+  const _$ParsedGovActionIdImpl(
       {required this.txHashHex, required this.govActionIndex})
       : super._();
 
@@ -184,10 +184,10 @@ class _$ParsedGovActionIdImpl extends _ParsedGovActionId {
 }
 
 abstract class _ParsedGovActionId extends ParsedGovActionId {
-  factory _ParsedGovActionId(
+  const factory _ParsedGovActionId(
       {required final String txHashHex,
       required final int govActionIndex}) = _$ParsedGovActionIdImpl;
-  _ParsedGovActionId._() : super._();
+  const _ParsedGovActionId._() : super._();
 
   @override
   String get txHashHex;

@@ -134,7 +134,8 @@ class __$$ParsedWithdrawalImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
-  _$ParsedWithdrawalImpl({required this.amount, required this.stakeCredential})
+  const _$ParsedWithdrawalImpl(
+      {required this.amount, required this.stakeCredential})
       : super._();
 
   @override
@@ -199,11 +200,11 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
 }
 
 abstract class _ParsedWithdrawal extends ParsedWithdrawal {
-  factory _ParsedWithdrawal(
+  const factory _ParsedWithdrawal(
           {required final BigInt amount,
           required final ParsedCredential stakeCredential}) =
       _$ParsedWithdrawalImpl;
-  _ParsedWithdrawal._() : super._();
+  const _ParsedWithdrawal._() : super._();
 
   @override
   BigInt get amount;

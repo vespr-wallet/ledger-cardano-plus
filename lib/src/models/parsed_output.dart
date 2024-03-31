@@ -8,9 +8,9 @@ part 'parsed_output.freezed.dart';
 
 @freezed
 sealed class ParsedOutput with _$ParsedOutput {
-  ParsedOutput._();
+  const ParsedOutput._();
 
-  factory ParsedOutput({
+  const factory ParsedOutput({
     required TxOutputFormat format,
     required BigInt amount,
     required List<ParsedAssetGroup> tokenBundle,

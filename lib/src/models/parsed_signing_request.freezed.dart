@@ -201,7 +201,7 @@ class __$$ParsedSigningRequestImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
-  _$ParsedSigningRequestImpl(
+  const _$ParsedSigningRequestImpl(
       {required this.tx,
       required this.signingMode,
       required final List<List<int>> additionalWitnessPaths,
@@ -300,13 +300,13 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
 }
 
 abstract class _ParsedSigningRequest extends ParsedSigningRequest {
-  factory _ParsedSigningRequest(
+  const factory _ParsedSigningRequest(
           {required final ParsedTransaction tx,
           required final TransactionSigningModes signingMode,
           required final List<List<int>> additionalWitnessPaths,
           required final ParsedTransactionOptions options}) =
       _$ParsedSigningRequestImpl;
-  _ParsedSigningRequest._() : super._();
+  const _ParsedSigningRequest._() : super._();
 
   @override
   ParsedTransaction get tx;

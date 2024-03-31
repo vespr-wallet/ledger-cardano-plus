@@ -119,7 +119,7 @@ class __$$ParsedMarginImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedMarginImpl extends _ParsedMargin {
-  _$ParsedMarginImpl({required this.numerator, required this.denominator})
+  const _$ParsedMarginImpl({required this.numerator, required this.denominator})
       : super._();
 
   @override
@@ -182,10 +182,10 @@ class _$ParsedMarginImpl extends _ParsedMargin {
 }
 
 abstract class _ParsedMargin extends ParsedMargin {
-  factory _ParsedMargin(
+  const factory _ParsedMargin(
       {required final String numerator,
       required final String denominator}) = _$ParsedMarginImpl;
-  _ParsedMargin._() : super._();
+  const _ParsedMargin._() : super._();
 
   @override
   String get numerator;

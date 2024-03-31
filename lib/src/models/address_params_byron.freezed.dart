@@ -108,7 +108,7 @@ class __$$AddressParamsByronImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddressParamsByronImpl extends _AddressParamsByron {
-  _$AddressParamsByronImpl({required final List<int> spendingPath})
+  const _$AddressParamsByronImpl({required final List<int> spendingPath})
       : _spendingPath = spendingPath,
         super._();
 
@@ -175,9 +175,9 @@ class _$AddressParamsByronImpl extends _AddressParamsByron {
 }
 
 abstract class _AddressParamsByron extends AddressParamsByron {
-  factory _AddressParamsByron({required final List<int> spendingPath}) =
+  const factory _AddressParamsByron({required final List<int> spendingPath}) =
       _$AddressParamsByronImpl;
-  _AddressParamsByron._() : super._();
+  const _AddressParamsByron._() : super._();
 
   @override
   List<int> get spendingPath;

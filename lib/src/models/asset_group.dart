@@ -5,11 +5,10 @@ part 'asset_group.freezed.dart';
 
 @freezed
 class AssetGroup with _$AssetGroup {
-  AssetGroup._();
+  const AssetGroup._();
 
-  factory AssetGroup({
+  const factory AssetGroup({
     required String policyIdHex,
     required List<Token> tokens,
   }) = _AssetGroup;
-
 }

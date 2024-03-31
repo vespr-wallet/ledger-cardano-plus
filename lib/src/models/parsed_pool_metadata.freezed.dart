@@ -119,7 +119,7 @@ class __$$ParsedPoolMetadataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedPoolMetadataImpl extends _ParsedPoolMetadata {
-  _$ParsedPoolMetadataImpl({required this.url, required this.hashHex})
+  const _$ParsedPoolMetadataImpl({required this.url, required this.hashHex})
       : super._();
 
   @override
@@ -181,10 +181,10 @@ class _$ParsedPoolMetadataImpl extends _ParsedPoolMetadata {
 }
 
 abstract class _ParsedPoolMetadata extends ParsedPoolMetadata {
-  factory _ParsedPoolMetadata(
+  const factory _ParsedPoolMetadata(
       {required final String url,
       required final String hashHex}) = _$ParsedPoolMetadataImpl;
-  _ParsedPoolMetadata._() : super._();
+  const _ParsedPoolMetadata._() : super._();
 
   @override
   String get url;

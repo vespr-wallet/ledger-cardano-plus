@@ -4,9 +4,9 @@ part 'parsed_network.freezed.dart';
 
 @freezed
 sealed class ParsedNetwork with _$ParsedNetwork {
-  ParsedNetwork._();
+  const ParsedNetwork._();
 
-  factory ParsedNetwork({
+  const factory ParsedNetwork({
     required int protocolMagic,
     required int networkId,
   }) = _ParsedNetwork;

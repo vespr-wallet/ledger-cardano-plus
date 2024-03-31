@@ -132,7 +132,7 @@ class __$$ParsedVoterVotesImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedVoterVotesImpl extends _ParsedVoterVotes {
-  _$ParsedVoterVotesImpl(
+  const _$ParsedVoterVotesImpl(
       {required this.voter, required final List<ParsedVote> votes})
       : _votes = votes,
         super._();
@@ -202,10 +202,10 @@ class _$ParsedVoterVotesImpl extends _ParsedVoterVotes {
 }
 
 abstract class _ParsedVoterVotes extends ParsedVoterVotes {
-  factory _ParsedVoterVotes(
+  const factory _ParsedVoterVotes(
       {required final ParsedVoter voter,
       required final List<ParsedVote> votes}) = _$ParsedVoterVotesImpl;
-  _ParsedVoterVotes._() : super._();
+  const _ParsedVoterVotes._() : super._();
 
   @override
   ParsedVoter get voter;

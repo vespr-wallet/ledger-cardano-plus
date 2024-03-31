@@ -112,7 +112,7 @@ class __$$ThirdPartyAddressParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ThirdPartyAddressParamsImpl extends _ThirdPartyAddressParams {
-  _$ThirdPartyAddressParamsImpl({required this.addressHex}) : super._();
+  const _$ThirdPartyAddressParamsImpl({required this.addressHex}) : super._();
 
   @override
   final String addressHex;
@@ -171,9 +171,9 @@ class _$ThirdPartyAddressParamsImpl extends _ThirdPartyAddressParams {
 }
 
 abstract class _ThirdPartyAddressParams extends ThirdPartyAddressParams {
-  factory _ThirdPartyAddressParams({required final String addressHex}) =
+  const factory _ThirdPartyAddressParams({required final String addressHex}) =
       _$ThirdPartyAddressParamsImpl;
-  _ThirdPartyAddressParams._() : super._();
+  const _ThirdPartyAddressParams._() : super._();
 
   @override
   String get addressHex;

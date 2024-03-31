@@ -116,7 +116,8 @@ class __$$TokenImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$TokenImpl extends _Token {
-  _$TokenImpl({required this.assetNameHex, required this.amount}) : super._();
+  const _$TokenImpl({required this.assetNameHex, required this.amount})
+      : super._();
 
   @override
   final String assetNameHex;
@@ -177,10 +178,10 @@ class _$TokenImpl extends _Token {
 }
 
 abstract class _Token extends Token {
-  factory _Token(
+  const factory _Token(
       {required final String assetNameHex,
       required final BigInt amount}) = _$TokenImpl;
-  _Token._() : super._();
+  const _Token._() : super._();
 
   @override
   String get assetNameHex;

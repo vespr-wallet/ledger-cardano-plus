@@ -6,7 +6,7 @@ part 'witness.freezed.dart';
 sealed class Witness with _$Witness {
   const Witness._();
 
-  factory Witness({
+  const factory Witness({
     required List<int> path,
     required String witnessSignatureHex,
   }) = _Witness;

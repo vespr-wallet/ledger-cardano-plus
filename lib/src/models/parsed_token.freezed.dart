@@ -119,7 +119,7 @@ class __$$ParsedTokenImplCopyWithImpl<T, $Res>
 /// @nodoc
 
 class _$ParsedTokenImpl<T> extends _ParsedToken<T> {
-  _$ParsedTokenImpl({required this.assetNameHex, required this.amount})
+  const _$ParsedTokenImpl({required this.assetNameHex, required this.amount})
       : super._();
 
   @override
@@ -183,10 +183,10 @@ class _$ParsedTokenImpl<T> extends _ParsedToken<T> {
 }
 
 abstract class _ParsedToken<T> extends ParsedToken<T> {
-  factory _ParsedToken(
+  const factory _ParsedToken(
       {required final String assetNameHex,
       required final T amount}) = _$ParsedTokenImpl<T>;
-  _ParsedToken._() : super._();
+  const _ParsedToken._() : super._();
 
   @override
   String get assetNameHex;

@@ -119,7 +119,7 @@ class __$$AssetGroupImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AssetGroupImpl extends _AssetGroup {
-  _$AssetGroupImpl(
+  const _$AssetGroupImpl(
       {required this.policyIdHex, required final List<Token> tokens})
       : _tokens = tokens,
         super._();
@@ -189,10 +189,10 @@ class _$AssetGroupImpl extends _AssetGroup {
 }
 
 abstract class _AssetGroup extends AssetGroup {
-  factory _AssetGroup(
+  const factory _AssetGroup(
       {required final String policyIdHex,
       required final List<Token> tokens}) = _$AssetGroupImpl;
-  _AssetGroup._() : super._();
+  const _AssetGroup._() : super._();
 
   @override
   String get policyIdHex;

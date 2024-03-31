@@ -4,6 +4,8 @@ part 'network.freezed.dart';
 
 @freezed
 class Network with _$Network {
+  const Network._();
+
   const factory Network({
     required int protocolMagic,
     required int networkId,

@@ -4,9 +4,9 @@ part 'parsed_token.freezed.dart';
 
 @freezed
 sealed class ParsedToken<T> with _$ParsedToken<T> {
-  ParsedToken._();
+  const ParsedToken._();
 
-  factory ParsedToken({
+  const factory ParsedToken({
     required String assetNameHex,
     required T amount,
   }) = _ParsedToken<T>;

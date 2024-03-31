@@ -112,7 +112,7 @@ class __$$ParsedTransactionOptionsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedTransactionOptionsImpl extends _ParsedTransactionOptions {
-  _$ParsedTransactionOptionsImpl({required this.tagCborSets}) : super._();
+  const _$ParsedTransactionOptionsImpl({required this.tagCborSets}) : super._();
 
   @override
   final bool tagCborSets;
@@ -171,9 +171,9 @@ class _$ParsedTransactionOptionsImpl extends _ParsedTransactionOptions {
 }
 
 abstract class _ParsedTransactionOptions extends ParsedTransactionOptions {
-  factory _ParsedTransactionOptions({required final bool tagCborSets}) =
+  const factory _ParsedTransactionOptions({required final bool tagCborSets}) =
       _$ParsedTransactionOptionsImpl;
-  _ParsedTransactionOptions._() : super._();
+  const _ParsedTransactionOptions._() : super._();
 
   @override
   bool get tagCborSets;

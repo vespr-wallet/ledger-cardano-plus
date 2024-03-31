@@ -186,7 +186,7 @@ class _$TxOutputAlonzoImpl extends TxOutputAlonzo {
       {required this.destination,
       required this.amount,
       final List<AssetGroup>? tokenBundle,
-      this.datumHashHex = null})
+      this.datumHashHex})
       : _tokenBundle = tokenBundle,
         super._();
 
@@ -207,7 +207,6 @@ class _$TxOutputAlonzoImpl extends TxOutputAlonzo {
   }
 
   @override
-  @JsonKey()
   final String? datumHashHex;
 
   @override
@@ -334,6 +333,7 @@ abstract class _$$TxOutputBabbageImplCopyWith<$Res>
 
   @override
   $TxOutputDestinationCopyWith<$Res> get destination;
+  $DatumCopyWith<$Res>? get datum;
 }
 
 /// @nodoc
@@ -376,6 +376,18 @@ class __$$TxOutputBabbageImplCopyWithImpl<$Res>
               as String?,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $DatumCopyWith<$Res>? get datum {
+    if (_value.datum == null) {
+      return null;
+    }
+
+    return $DatumCopyWith<$Res>(_value.datum!, (value) {
+      return _then(_value.copyWith(datum: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -386,7 +398,7 @@ class _$TxOutputBabbageImpl extends TxOutputBabbage {
       required this.amount,
       final List<AssetGroup>? tokenBundle,
       this.datum,
-      this.referenceScriptHex = null})
+      this.referenceScriptHex})
       : _tokenBundle = tokenBundle,
         super._();
 
@@ -409,7 +421,6 @@ class _$TxOutputBabbageImpl extends TxOutputBabbage {
   @override
   final Datum? datum;
   @override
-  @JsonKey()
   final String? referenceScriptHex;
 
   @override
@@ -427,7 +438,7 @@ class _$TxOutputBabbageImpl extends TxOutputBabbage {
             (identical(other.amount, amount) || other.amount == amount) &&
             const DeepCollectionEquality()
                 .equals(other._tokenBundle, _tokenBundle) &&
-            const DeepCollectionEquality().equals(other.datum, datum) &&
+            (identical(other.datum, datum) || other.datum == datum) &&
             (identical(other.referenceScriptHex, referenceScriptHex) ||
                 other.referenceScriptHex == referenceScriptHex));
   }
@@ -438,7 +449,7 @@ class _$TxOutputBabbageImpl extends TxOutputBabbage {
       destination,
       amount,
       const DeepCollectionEquality().hash(_tokenBundle),
-      const DeepCollectionEquality().hash(datum),
+      datum,
       referenceScriptHex);
 
   @JsonKey(ignore: true)

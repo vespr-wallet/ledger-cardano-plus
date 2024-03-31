@@ -296,7 +296,7 @@ class __$$ParsedPoolParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
-  _$ParsedPoolParamsImpl(
+  const _$ParsedPoolParamsImpl(
       {required this.poolKey,
       required this.vrfHashHex,
       required this.pledge,
@@ -448,7 +448,7 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
 }
 
 abstract class _ParsedPoolParams extends ParsedPoolParams {
-  factory _ParsedPoolParams(
+  const factory _ParsedPoolParams(
       {required final ParsedPoolKey poolKey,
       required final String vrfHashHex,
       required final BigInt pledge,
@@ -458,7 +458,7 @@ abstract class _ParsedPoolParams extends ParsedPoolParams {
       required final List<ParsedPoolOwner> owners,
       required final List<ParsedPoolRelay> relays,
       required final ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsImpl;
-  _ParsedPoolParams._() : super._();
+  const _ParsedPoolParams._() : super._();
 
   @override
   ParsedPoolKey get poolKey;

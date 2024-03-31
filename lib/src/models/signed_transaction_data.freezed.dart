@@ -164,7 +164,7 @@ class __$$SignedTransactionDataImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SignedTransactionDataImpl extends _SignedTransactionData {
-  _$SignedTransactionDataImpl(
+  const _$SignedTransactionDataImpl(
       {required this.txHashHex,
       required final List<Witness> witnesses,
       this.auxiliaryDataSupplement})
@@ -250,12 +250,12 @@ class _$SignedTransactionDataImpl extends _SignedTransactionData {
 }
 
 abstract class _SignedTransactionData extends SignedTransactionData {
-  factory _SignedTransactionData(
+  const factory _SignedTransactionData(
           {required final String txHashHex,
           required final List<Witness> witnesses,
           final TxAuxiliaryDataSupplement? auxiliaryDataSupplement}) =
       _$SignedTransactionDataImpl;
-  _SignedTransactionData._() : super._();
+  const _SignedTransactionData._() : super._();
 
   @override
   String get txHashHex;

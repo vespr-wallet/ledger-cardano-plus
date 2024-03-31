@@ -10,9 +10,9 @@ part 'parsed_pool_params.freezed.dart';
 
 @freezed
 sealed class ParsedPoolParams with _$ParsedPoolParams {
-  ParsedPoolParams._();
+  const ParsedPoolParams._();
 
-  factory ParsedPoolParams({
+  const factory ParsedPoolParams({
     required ParsedPoolKey poolKey,
     required String vrfHashHex,
     required BigInt pledge,

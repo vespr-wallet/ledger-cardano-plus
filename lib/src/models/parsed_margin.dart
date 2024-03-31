@@ -4,9 +4,9 @@ part 'parsed_margin.freezed.dart';
 
 @freezed
 sealed class ParsedMargin with _$ParsedMargin {
-  ParsedMargin._();
+  const ParsedMargin._();
 
-  factory ParsedMargin({
+  const factory ParsedMargin({
     required String numerator,
     required String denominator,
   }) = _ParsedMargin;

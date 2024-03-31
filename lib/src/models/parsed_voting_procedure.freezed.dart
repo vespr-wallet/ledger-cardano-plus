@@ -139,7 +139,8 @@ class __$$ParsedVotingProcedureImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedVotingProcedureImpl extends _ParsedVotingProcedure {
-  _$ParsedVotingProcedureImpl({required this.vote, this.anchor}) : super._();
+  const _$ParsedVotingProcedureImpl({required this.vote, this.anchor})
+      : super._();
 
   @override
   final VoteOption vote;
@@ -200,10 +201,10 @@ class _$ParsedVotingProcedureImpl extends _ParsedVotingProcedure {
 }
 
 abstract class _ParsedVotingProcedure extends ParsedVotingProcedure {
-  factory _ParsedVotingProcedure(
+  const factory _ParsedVotingProcedure(
       {required final VoteOption vote,
       final ParsedAnchor? anchor}) = _$ParsedVotingProcedureImpl;
-  _ParsedVotingProcedure._() : super._();
+  const _ParsedVotingProcedure._() : super._();
 
   @override
   VoteOption get vote;

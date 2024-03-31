@@ -4,9 +4,9 @@ part 'parsed_gov_action_id.freezed.dart';
 
 @freezed
 sealed class ParsedGovActionId with _$ParsedGovActionId {
-  ParsedGovActionId._();
+  const ParsedGovActionId._();
 
-  factory ParsedGovActionId({
+  const factory ParsedGovActionId({
     required String txHashHex,
     required int govActionIndex,
   }) = _ParsedGovActionId;

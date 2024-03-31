@@ -7,12 +7,12 @@ part 'sign_transaction_request.freezed.dart';
 
 @freezed
 sealed class SignTransactionRequest with _$SignTransactionRequest {
-  SignTransactionRequest._();
+  const SignTransactionRequest._();
 
-  factory SignTransactionRequest({
+  const factory SignTransactionRequest({
     required Transaction tx,
     required TransactionSigningModes signingMode,
-     List<List<int>>? additionalWitnessPaths,
+    List<List<int>>? additionalWitnessPaths,
     ParsedTransactionOptions? options,
   }) = _SignTransactionRequest;
 }

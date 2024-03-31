@@ -7,9 +7,9 @@ part 'parsed_signing_request.freezed.dart';
 
 @freezed
 sealed class ParsedSigningRequest with _$ParsedSigningRequest {
-  ParsedSigningRequest._();
+  const ParsedSigningRequest._();
 
-  factory ParsedSigningRequest({
+  const factory ParsedSigningRequest({
     required ParsedTransaction tx,
     required TransactionSigningModes signingMode,
     required List<List<int>> additionalWitnessPaths,

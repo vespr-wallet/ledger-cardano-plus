@@ -115,8 +115,9 @@ class __$$NetworkImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$NetworkImpl implements _Network {
-  const _$NetworkImpl({required this.protocolMagic, required this.networkId});
+class _$NetworkImpl extends _Network {
+  const _$NetworkImpl({required this.protocolMagic, required this.networkId})
+      : super._();
 
   @override
   final int protocolMagic;
@@ -177,10 +178,11 @@ class _$NetworkImpl implements _Network {
   }
 }
 
-abstract class _Network implements Network {
+abstract class _Network extends Network {
   const factory _Network(
       {required final int protocolMagic,
       required final int networkId}) = _$NetworkImpl;
+  const _Network._() : super._();
 
   @override
   int get protocolMagic;

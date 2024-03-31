@@ -116,7 +116,7 @@ class __$$WitnessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$WitnessImpl extends _Witness {
-  _$WitnessImpl(
+  const _$WitnessImpl(
       {required final List<int> path, required this.witnessSignatureHex})
       : _path = path,
         super._();
@@ -187,10 +187,10 @@ class _$WitnessImpl extends _Witness {
 }
 
 abstract class _Witness extends Witness {
-  factory _Witness(
+  const factory _Witness(
       {required final List<int> path,
       required final String witnessSignatureHex}) = _$WitnessImpl;
-  _Witness._() : super._();
+  const _Witness._() : super._();
 
   @override
   List<int> get path;

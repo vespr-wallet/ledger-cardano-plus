@@ -5,9 +5,9 @@ part 'parsed_withdrawal.freezed.dart';
 
 @freezed
 sealed class ParsedWithdrawal with _$ParsedWithdrawal {
-  ParsedWithdrawal._();
+  const ParsedWithdrawal._();
 
-  factory ParsedWithdrawal({
+  const factory ParsedWithdrawal({
     required BigInt amount,
     required ParsedCredential stakeCredential,
   }) = _ParsedWithdrawal;

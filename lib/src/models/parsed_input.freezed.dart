@@ -133,7 +133,7 @@ class __$$ParsedInputImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ParsedInputImpl extends _ParsedInput {
-  _$ParsedInputImpl(
+  const _$ParsedInputImpl(
       {required this.txHashHex,
       required this.outputIndex,
       final List<int>? path})
@@ -214,11 +214,11 @@ class _$ParsedInputImpl extends _ParsedInput {
 }
 
 abstract class _ParsedInput extends ParsedInput {
-  factory _ParsedInput(
+  const factory _ParsedInput(
       {required final String txHashHex,
       required final int outputIndex,
       final List<int>? path}) = _$ParsedInputImpl;
-  _ParsedInput._() : super._();
+  const _ParsedInput._() : super._();
 
   @override
   String get txHashHex;

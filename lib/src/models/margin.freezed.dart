@@ -16,21 +16,21 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Margin {
-  String get numerator => throw _privateConstructorUsedError;
-  String get denominator => throw _privateConstructorUsedError;
+  BigInt get numerator => throw _privateConstructorUsedError;
+  BigInt get denominator => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String numerator, String denominator) $default,
+    TResult Function(BigInt numerator, BigInt denominator) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String numerator, String denominator)? $default,
+    TResult? Function(BigInt numerator, BigInt denominator)? $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String numerator, String denominator)? $default, {
+    TResult Function(BigInt numerator, BigInt denominator)? $default, {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $MarginCopyWith<$Res> {
   factory $MarginCopyWith(Margin value, $Res Function(Margin) then) =
       _$MarginCopyWithImpl<$Res, Margin>;
   @useResult
-  $Res call({String numerator, String denominator});
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
 /// @nodoc
@@ -67,11 +67,11 @@ class _$MarginCopyWithImpl<$Res, $Val extends Margin>
       numerator: null == numerator
           ? _value.numerator
           : numerator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       denominator: null == denominator
           ? _value.denominator
           : denominator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ) as $Val);
   }
 }
@@ -83,7 +83,7 @@ abstract class _$$MarginImplCopyWith<$Res> implements $MarginCopyWith<$Res> {
       __$$MarginImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String numerator, String denominator});
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
 /// @nodoc
@@ -104,11 +104,11 @@ class __$$MarginImplCopyWithImpl<$Res>
       numerator: null == numerator
           ? _value.numerator
           : numerator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       denominator: null == denominator
           ? _value.denominator
           : denominator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 }
@@ -120,9 +120,9 @@ class _$MarginImpl extends _Margin {
       : super._();
 
   @override
-  final String numerator;
+  final BigInt numerator;
   @override
-  final String denominator;
+  final BigInt denominator;
 
   @override
   String toString() {
@@ -152,7 +152,7 @@ class _$MarginImpl extends _Margin {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String numerator, String denominator) $default,
+    TResult Function(BigInt numerator, BigInt denominator) $default,
   ) {
     return $default(numerator, denominator);
   }
@@ -160,7 +160,7 @@ class _$MarginImpl extends _Margin {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String numerator, String denominator)? $default,
+    TResult? Function(BigInt numerator, BigInt denominator)? $default,
   ) {
     return $default?.call(numerator, denominator);
   }
@@ -168,7 +168,7 @@ class _$MarginImpl extends _Margin {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String numerator, String denominator)? $default, {
+    TResult Function(BigInt numerator, BigInt denominator)? $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -180,14 +180,14 @@ class _$MarginImpl extends _Margin {
 
 abstract class _Margin extends Margin {
   const factory _Margin(
-      {required final String numerator,
-      required final String denominator}) = _$MarginImpl;
+      {required final BigInt numerator,
+      required final BigInt denominator}) = _$MarginImpl;
   const _Margin._() : super._();
 
   @override
-  String get numerator;
+  BigInt get numerator;
   @override
-  String get denominator;
+  BigInt get denominator;
   @override
   @JsonKey(ignore: true)
   _$$MarginImplCopyWith<_$MarginImpl> get copyWith =>

@@ -17,21 +17,21 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DRepDeregistrationParams {
   CredentialParams get dRepCredential => throw _privateConstructorUsedError;
-  String get deposit => throw _privateConstructorUsedError;
+  BigInt get deposit => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit) $default,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(CredentialParams dRepCredential, String deposit)?
+    TResult? Function(CredentialParams dRepCredential, BigInt deposit)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit)?
+    TResult Function(CredentialParams dRepCredential, BigInt deposit)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -48,7 +48,7 @@ abstract class $DRepDeregistrationParamsCopyWith<$Res> {
           $Res Function(DRepDeregistrationParams) then) =
       _$DRepDeregistrationParamsCopyWithImpl<$Res, DRepDeregistrationParams>;
   @useResult
-  $Res call({CredentialParams dRepCredential, String deposit});
+  $Res call({CredentialParams dRepCredential, BigInt deposit});
 
   $CredentialParamsCopyWith<$Res> get dRepCredential;
 }
@@ -78,7 +78,7 @@ class _$DRepDeregistrationParamsCopyWithImpl<$Res,
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ) as $Val);
   }
 
@@ -100,7 +100,7 @@ abstract class _$$DRepDeregistrationParamsImplCopyWith<$Res>
       __$$DRepDeregistrationParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({CredentialParams dRepCredential, String deposit});
+  $Res call({CredentialParams dRepCredential, BigInt deposit});
 
   @override
   $CredentialParamsCopyWith<$Res> get dRepCredential;
@@ -130,7 +130,7 @@ class __$$DRepDeregistrationParamsImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 }
@@ -145,7 +145,7 @@ class _$DRepDeregistrationParamsImpl extends _DRepDeregistrationParams {
   @override
   final CredentialParams dRepCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
 
   @override
   String toString() {
@@ -175,7 +175,7 @@ class _$DRepDeregistrationParamsImpl extends _DRepDeregistrationParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit) $default,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit) $default,
   ) {
     return $default(dRepCredential, deposit);
   }
@@ -183,7 +183,7 @@ class _$DRepDeregistrationParamsImpl extends _DRepDeregistrationParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(CredentialParams dRepCredential, String deposit)?
+    TResult? Function(CredentialParams dRepCredential, BigInt deposit)?
         $default,
   ) {
     return $default?.call(dRepCredential, deposit);
@@ -192,7 +192,7 @@ class _$DRepDeregistrationParamsImpl extends _DRepDeregistrationParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit)?
+    TResult Function(CredentialParams dRepCredential, BigInt deposit)?
         $default, {
     required TResult orElse(),
   }) {
@@ -206,13 +206,13 @@ class _$DRepDeregistrationParamsImpl extends _DRepDeregistrationParams {
 abstract class _DRepDeregistrationParams extends DRepDeregistrationParams {
   const factory _DRepDeregistrationParams(
       {required final CredentialParams dRepCredential,
-      required final String deposit}) = _$DRepDeregistrationParamsImpl;
+      required final BigInt deposit}) = _$DRepDeregistrationParamsImpl;
   const _DRepDeregistrationParams._() : super._();
 
   @override
   CredentialParams get dRepCredential;
   @override
-  String get deposit;
+  BigInt get deposit;
   @override
   @JsonKey(ignore: true)
   _$$DRepDeregistrationParamsImplCopyWith<_$DRepDeregistrationParamsImpl>

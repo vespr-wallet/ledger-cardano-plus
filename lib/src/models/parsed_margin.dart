@@ -7,7 +7,7 @@ sealed class ParsedMargin with _$ParsedMargin {
   const ParsedMargin._();
 
   const factory ParsedMargin({
-    required String numerator,
-    required String denominator,
+    required BigInt numerator,
+    required BigInt denominator,
   }) = _ParsedMargin;
 }

@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/models/asset_group.dart';
+import 'package:ledger_cardano/src/models/certificate.dart';
 import 'package:ledger_cardano/src/models/network.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
@@ -22,7 +23,7 @@ class Transaction with _$Transaction {
     required List<TxOutput> outputs,
     required BigInt fee,
     BigInt? ttl,
-    List<ParsedCertificate>? certificates,
+    List<Certificate>? certificates,
     List<ParsedWithdrawal>? withdrawals,
     ParsedTxAuxiliaryData? auxiliaryData,
     BigInt? validityIntervalStart,

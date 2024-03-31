@@ -15,8 +15,8 @@ sealed class PoolRegistrationParams with _$PoolRegistrationParams {
   const factory PoolRegistrationParams({
     required PoolKey poolKey,
     required String vrfKeyHashHex,
-    required String pledge,
-    required String cost,
+    required BigInt pledge,
+    required BigInt cost,
     required Margin margin,
     required PoolRewardAccount rewardAccount,
     required List<PoolOwner> poolOwners,

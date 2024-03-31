@@ -1,12 +1,33 @@
+
 import 'package:ledger_cardano/src/errors/invalid_data_reason.dart';
+import 'package:ledger_cardano/src/models/anchor_params.dart';
 import 'package:ledger_cardano/src/models/certificate.dart' as certification;
 import 'package:ledger_cardano/src/models/certificate.dart';
+import 'package:ledger_cardano/src/models/credential_params.dart';
+import 'package:ledger_cardano/src/models/drep_params.dart';
+import 'package:ledger_cardano/src/models/margin.dart';
 import 'package:ledger_cardano/src/models/network.dart';
+import 'package:ledger_cardano/src/models/parsed_anchor.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
+import 'package:ledger_cardano/src/models/parsed_credential.dart';
+import 'package:ledger_cardano/src/models/parsed_drep.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
+import 'package:ledger_cardano/src/models/parsed_margin.dart';
 import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/parsed_output.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_key.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_metadata.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_owner.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_params.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_relay.dart';
+import 'package:ledger_cardano/src/models/parsed_pool_reward_account.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
+import 'package:ledger_cardano/src/models/pool_key.dart';
+import 'package:ledger_cardano/src/models/pool_metadata_params.dart';
+import 'package:ledger_cardano/src/models/pool_owner.dart';
+import 'package:ledger_cardano/src/models/pool_registration_params.dart';
+import 'package:ledger_cardano/src/models/pool_reward_account.dart';
+import 'package:ledger_cardano/src/models/relay.dart';
 import 'package:ledger_cardano/src/models/transaction.dart';
 import 'package:ledger_cardano/src/models/tx_input.dart';
 import 'package:ledger_cardano/src/models/tx_output.dart';
@@ -17,67 +38,50 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 ParsedTransaction parseTransaction(Transaction tx) {
   final network = parseNetwork(tx.network);
 
-  // inputs
   final inputs = tx.inputs.map((inp) => parseTxInput(inp)).toList();
 
-  // outputs
   final outputs = tx.outputs.map((o) => parseTxOutput(o, tx.network)).toList();
 
-  // fee
   final fee = validateBigInt(tx.fee, InvalidDataReason.feeInvalid);
 
-  // ttl
   final ttl = tx.ttl == null ? null : validateBigInt(tx.ttl, InvalidDataReason.ttlInvalid);
 
-  // certificates
   validate(tx.certificates is List, InvalidDataReason.certificatesNotArray.message);
   final certificates = parseCertificates(tx.certificates);
 
-  // withdrawals
   validate(tx.withdrawals is List, InvalidDataReason.withdrawalsNotArray.message);
   final withdrawals = tx.withdrawals?.map((w) => parseWithdrawal(w)).toList();
 
-  // auxiliary data
   final auxiliaryData = tx.auxiliaryData == null ? null : parseTxAuxiliaryData(network, tx.auxiliaryData);
 
-  // validity start
   final validityIntervalStart = tx.validityIntervalStart;
 
-  // mint instructions
   final mint = tx.mint == null ? null : parseTokenBundle(tx.mint, false, parseInt64_str);
 
-  // script data hash hex
   final scriptDataHashHex = tx.scriptDataHash == null
       ? null
       : parseHexStringOfLength(tx.scriptDataHash, scriptDataHashLength, InvalidDataReason.scriptDataHashWrongLength);
 
-  // collateral inputs
   validate(tx.collateralInputs is List, InvalidDataReason.collateralInputsNotArray.message);
   final collateralInputs = tx.collateralInputs?.map((inp) => parseTxInput(inp)).toList();
 
-  // required signers
   validate(tx.requiredSigners is List, InvalidDataReason.requiredSignersNotArray.message);
   final requiredSigners = tx.requiredSigners?.map((rs) => parseRequiredSigner(rs)).toList();
 
-  // include network ID
   final includeNetworkId = tx.includeNetworkId == null
       ? false
       : parseBoolean(tx.includeNetworkId, InvalidDataReason.networkIdIncludeInvalid.message);
 
-  // collateral output
   final collateralOutput = tx.collateralOutput == null ? null : parseTxOutput(tx.collateralOutput, tx.network);
   validate(collateralOutput?.datum == null, InvalidDataReason.collateralInputContainsDatum.message);
   validate(
       collateralOutput?.referenceScriptHex == null, InvalidDataReason.collateralInputContainsReferenceScript.message);
 
-  // total collateral
   final totalCollateral = tx.totalCollateral;
 
-  // reference inputs
   validate(tx.referenceInputs is List, InvalidDataReason.referenceInputsNotArray.message);
   final referenceInputs = tx.referenceInputs?.map((ri) => parseTxInput(ri)).toList();
 
-  // voting procedures
   validate(tx.votingProcedures is List, InvalidDataReason.votingProceduresNotArray.message);
   final votingProcedures = tx.votingProcedures?.map((x) => parseVoterVotes(x)).toList();
   validate(votingProcedures?.length == 1, InvalidDataReason.votingProceduresInvalidNumberOfVoters.message);
@@ -85,10 +89,8 @@ ParsedTransaction parseTransaction(Transaction tx) {
     validate(voterVotes.votes.length == 1, InvalidDataReason.votingProceduresInvalidNumberOfVotes.message);
   }
 
-  // treasury
   final treasury = tx.treasury;
 
-  // donation
   final donation = tx.donation;
 
   return ParsedTransaction(
@@ -151,8 +153,7 @@ int parseUint8t(dynamic value, String errMsg) {
 
 bool isUint64Str(dynamic data) => isUintStr(data, {});
 
-bool isUint64Number(dynamic data) =>
-    isInteger(data) && data >= 0 && data <= 9007199254740991; // Dart equivalent of JS Number.MAX_SAFE_INTEGER
+bool isUint64Number(dynamic data) => isInteger(data) && data >= 0 && data <= 9007199254740991;
 
 bool isUint64Bigint(dynamic data) => data is BigInt && isUint64Str(data.toString());
 
@@ -165,16 +166,12 @@ bool isUintStr(dynamic data, Map<String, String> constraints) {
   final RegExp numericOnly = RegExp(r'^[0-9]*$');
   bool isNumericOnly = numericOnly.hasMatch(data);
 
-  // Length checks
   bool hasValidLength = data.isNotEmpty && data.length <= max.length;
 
-  // Leading zeros
   bool hasNoLeadingZeros = data.length == 1 || !data.startsWith('0');
 
-  // Less or equal than max value
   bool isLessOrEqualToMax = data.length < max.length || data.compareTo(max) <= 0;
 
-  // Greater or equal than min value
   bool isGreaterOrEqualToMin = data.length > min.length || data.compareTo(min) >= 0;
 
   return isNumericOnly && hasValidLength && hasNoLeadingZeros && isLessOrEqualToMax && isGreaterOrEqualToMin;
@@ -271,8 +268,8 @@ BigInt validateBigInt(BigInt? value, InvalidDataReason errMsg) {
   return value;
 }
 
-List<ParsedCertificate> parseCertificates(List<Certificate> certificates) {
-  final parsed = certificates.map((cert) => parseCertificate(cert)).toList();
+List<ParsedCertificate> parseCertificates(List<Certificate>? certificates) {
+  final parsed = certificates?.map((cert) => parseCertificate(cert)).toList() ?? [];
 
   return parsed;
 }
@@ -280,102 +277,369 @@ List<ParsedCertificate> parseCertificates(List<Certificate> certificates) {
 ParsedCertificate parseCertificate(Certificate cert) {
   final ParsedCertificate Function() parser = switch (cert) {
     certification.StakeRegistration() => () => ParsedCertificate.stakeRegistration(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+        ),
     certification.StakeDeregistration() => () => ParsedCertificate.stakeDeregistration(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+        ),
     certification.StakeRegistrationConway() => () => ParsedCertificate.stakeRegistrationConway(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-      deposit: parseDeposit(cert.params.deposit),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+          deposit: cert.params.deposit,
+        ),
     certification.StakeDeregistrationConway() => () => ParsedCertificate.stakeDeregistrationConway(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-      deposit: parseDeposit(cert.params.deposit),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+          deposit: cert.params.deposit,
+        ),
     certification.StakeDelegation() => () => ParsedCertificate.stakeDelegation(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-      poolKeyHashHex: parseHexStringOfLength(
-        cert.params.poolKeyHashHex,
-        keyHashLength,
-        InvalidDataReason.certificateInvalidPoolKeyHash,
-      ),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+          poolKeyHashHex: parseHexStringOfLength(
+            cert.params.poolKeyHashHex,
+            keyHashLength,
+            InvalidDataReason.certificateInvalidPoolKeyHash,
+          ),
+        ),
     certification.VoteDelegation() => () => ParsedCertificate.voteDelegation(
-      stakeCredential: parseCredential(
-        cert.params.stakeCredential,
-        InvalidDataReason.certificateInvalidStakeCredential,
-      ),
-      dRep: parseDRep(
-        cert.params.dRep,
-        InvalidDataReason.certificateInvalidDrep,
-      ),
-    ),
+          stakeCredential: parseCredential(
+            cert.params.stakeCredential,
+            InvalidDataReason.certificateInvalidStakeCredential,
+          ),
+          dRep: parseDRep(
+            cert.params.dRep,
+            InvalidDataReason.certificateInvalidDrep,
+          ),
+        ),
     certification.AuthorizeCommitteeHot() => () => ParsedCertificate.authorizeCommitteeHot(
-      coldCredential: parseCredential(
-        cert.params.coldCredential,
-        InvalidDataReason.certificateInvalidCommitteeCredential,
-      ),
-      hotCredential: parseCredential(
-        cert.params.hotCredential,
-        InvalidDataReason.certificateInvalidCommitteeCredential,
-      ),
-    ),
+          coldCredential: parseCredential(
+            cert.params.coldCredential,
+            InvalidDataReason.certificateInvalidCommitteeCredential,
+          ),
+          hotCredential: parseCredential(
+            cert.params.hotCredential,
+            InvalidDataReason.certificateInvalidCommitteeCredential,
+          ),
+        ),
     certification.ResignCommitteeCold() => () => ParsedCertificate.resignCommitteeCold(
-      coldCredential: parseCredential(
-        cert.params.coldCredential,
-        InvalidDataReason.certificateInvalidCommitteeCredential,
-      ),
-      anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
-    ),
+          coldCredential: parseCredential(
+            cert.params.coldCredential,
+            InvalidDataReason.certificateInvalidCommitteeCredential,
+          ),
+          anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
+        ),
     certification.DRepRegistration() => () => ParsedCertificate.dRepRegistration(
-      dRepCredential: parseCredential(
-        cert.params.dRepCredential,
-        InvalidDataReason.certificateInvalidDrepCredential,
-      ),
-      deposit: parseDeposit(cert.params.deposit),
-      anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
-    ),
+          dRepCredential: parseCredential(
+            cert.params.dRepCredential,
+            InvalidDataReason.certificateInvalidDrepCredential,
+          ),
+          deposit: cert.params.deposit,
+          anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
+        ),
     certification.DRepDeregistration() => () => ParsedCertificate.dRepDeregistration(
-      dRepCredential: parseCredential(
-        cert.params.dRepCredential,
-        InvalidDataReason.certificateInvalidDrepCredential,
-      ),
-      deposit: parseDeposit(cert.params.deposit),
-    ),
+          dRepCredential: parseCredential(
+            cert.params.dRepCredential,
+            InvalidDataReason.certificateInvalidDrepCredential,
+          ),
+          deposit: cert.params.deposit,
+        ),
     certification.DRepUpdate() => () => ParsedCertificate.dRepUpdate(
-      dRepCredential: parseCredential(
-        cert.params.dRepCredential,
-        InvalidDataReason.certificateInvalidDrepCredential,
-      ),
-      anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
-    ),
+          dRepCredential: parseCredential(
+            cert.params.dRepCredential,
+            InvalidDataReason.certificateInvalidDrepCredential,
+          ),
+          anchor: cert.params.anchor == null ? null : parseAnchor(cert.params.anchor),
+        ),
     certification.StakePoolRegistration() => () => ParsedCertificate.stakePoolRegistration(
-      pool: parsePoolParams(cert.params),
-    ),
+          pool: parsePoolParams(cert.params),
+        ),
     certification.StakePoolRetirement() => () => ParsedCertificate.stakePoolRetirement(
-      path: parseBIP32Path(
-        cert.params.poolKeyPath,
-        InvalidDataReason.certificateInvalidPath,
-      ),
-      retirementEpoch: cert.params.retirementEpoch,
-    ),
+          path: parseBIP32Path(
+            cert.params.poolKeyPath,
+            InvalidDataReason.certificateInvalidPath,
+          ),
+          retirementEpoch: cert.params.retirementEpoch,
+        ),
   };
 
   return parser();
+}
+
+ParsedCredential parseCredential(CredentialParams credential, InvalidDataReason errMsg) {
+  final ParsedCredential Function() parser = switch (credential) {
+    KeyPathCredentialParams() => () => ParsedCredential.keyPath(
+          path: parseBIP32Path(credential.keyPath, errMsg),
+        ),
+    KeyHashCredentialParams() => () => ParsedCredential.keyHash(
+          keyHashHex: parseHexStringOfLength(
+            credential.keyHashHex,
+            keyHashLength,
+            errMsg,
+          ),
+        ),
+    ScriptHashCredentialParams() => () => ParsedCredential.scriptHash(
+          scriptHashHex: parseHexStringOfLength(
+            credential.scriptHashHex,
+            scriptHashLength,
+            errMsg,
+          ),
+        ),
+  };
+
+  return parser();
+}
+
+ParsedDRep parseDRep(DRepParams dRep, InvalidDataReason errMsg) {
+  final ParsedDRep Function() parser = switch (dRep) {
+    KeyPathDRepParams() => () => ParsedDRep.keyPath(
+          path: parseBIP32Path(dRep.keyPath, errMsg),
+        ),
+    KeyHashDRepParams() => () => ParsedDRep.keyHash(
+          keyHashHex: parseHexStringOfLength(
+            dRep.keyHashHex,
+            keyHashLength,
+            errMsg,
+          ),
+        ),
+    ScriptHashDRepParams() => () => ParsedDRep.scriptHash(
+          scriptHashHex: parseHexStringOfLength(
+            dRep.scriptHashHex,
+            scriptHashLength,
+            errMsg,
+          ),
+        ),
+    AbstainDRepParams() => () => ParsedDRep.abstain(),
+    NoConfidenceParams() => () => ParsedDRep.noConfidence(),
+  };
+
+  return parser();
+}
+
+ParsedAnchor? parseAnchor(AnchorParams? params) {
+  if (params == null) return null;
+
+  final url = parseAscii(params.url, InvalidDataReason.anchorInvalidUrl);
+  validate(url.length <= maxUrlLength, InvalidDataReason.anchorInvalidUrl.message);
+
+  final hashHex = parseHexStringOfLength(
+    params.hashHex,
+    anchorHashLength,
+    InvalidDataReason.anchorInvalidHash,
+  );
+
+  return ParsedAnchor(
+    url: url,
+    hashHex: hashHex,
+  );
+}
+
+String parseAscii(String str, InvalidDataReason errMsg) {
+  validate(
+    str.split('').every((c) => c.codeUnitAt(0) >= 32 && c.codeUnitAt(0) <= 126),
+    errMsg.message,
+  );
+  return str;
+}
+
+ParsedPoolParams parsePoolParams(PoolRegistrationParams params) {
+  final poolKey = parsePoolKey(params.poolKey);
+  final vrfHashHex = parseHexStringOfLength(
+    params.vrfKeyHashHex,
+    vrfKeyHashLength,
+    InvalidDataReason.poolRegistrationInvalidVrfKeyHash,
+  );
+  final pledge = params.pledge;
+  final cost = params.cost;
+  final margin = parseMargin(params.margin);
+  final rewardAccount = parseRewardAccount(params.rewardAccount);
+
+  final owners = params.poolOwners.map((owner) => parsePoolOwnerParams(owner)).toList();
+  final relays = params.relays.map((relay) => parsePoolRelayParams(relay)).toList();
+  final metadata = params.metadata == null ? null : parsePoolMetadataParams(params.metadata);
+
+  validate(
+    owners.length <= poolRegistrationOwnersMax,
+    InvalidDataReason.poolRegistrationOwnersTooMany.message,
+  );
+  validate(
+    relays.length <= poolRegistrationRelaysMax,
+    InvalidDataReason.poolRegistrationRelaysTooMany.message,
+  );
+
+  return ParsedPoolParams(
+    poolKey: poolKey,
+    vrfHashHex: vrfHashHex,
+    pledge: pledge,
+    cost: cost,
+    margin: margin,
+    rewardAccount: rewardAccount,
+    owners: owners,
+    relays: relays,
+    metadata: metadata,
+  );
+}
+
+ParsedPoolKey parsePoolKey(PoolKey poolKey) {
+  final ParsedPoolKey Function() parser = switch (poolKey) {
+    PoolKeyDeviceOwned() => () => ParsedPoolKey.deviceOwned(
+          path: parseBIP32Path(
+            poolKey.path,
+            InvalidDataReason.poolKeyInvalidPath,
+          ),
+        ),
+    PoolKeyThirdParty() => () => ParsedPoolKey.thirdParty(
+          hashHex: parseHexStringOfLength(
+            poolKey.keyHashHex,
+            keyHashLength,
+            InvalidDataReason.poolKeyInvalidKeyHash,
+          ),
+        ),
+  };
+
+  return parser();
+}
+
+ParsedMargin parseMargin(Margin params) {
+  return ParsedMargin(
+    numerator: params.numerator,
+    denominator: params.denominator,
+  );
+}
+
+ParsedPoolRewardAccount parseRewardAccount(PoolRewardAccount poolRewardAccount) {
+  final ParsedPoolRewardAccount Function() parser = switch (poolRewardAccount) {
+    PoolRewardAccountDeviceOwned() => () => ParsedPoolRewardAccount.deviceOwned(
+          path: parseBIP32Path(
+            poolRewardAccount.path,
+            InvalidDataReason.poolRewardAccountInvalidPath,
+          ),
+        ),
+    PoolRewardAccountThirdParty() => () => ParsedPoolRewardAccount.thirdParty(
+          rewardAccountHex: parseHexStringOfLength(
+            poolRewardAccount.rewardAccountHex,
+            rewardAccountHexLength,
+            InvalidDataReason.poolRewardAccountInvalidHex,
+          ),
+        ),
+  };
+
+  return parser();
+}
+
+ParsedPoolOwner parsePoolOwnerParams(PoolOwner poolOwner) {
+  final ParsedPoolOwner Function() parser = switch (poolOwner) {
+    PoolOwnerDeviceOwned() => () => ParsedPoolOwner.deviceOwned(
+          path: parseBIP32Path(
+            poolOwner.stakingPath,
+            InvalidDataReason.poolOwnerInvalidPath,
+          ),
+        ),
+    PoolOwnerThirdParty() => () => ParsedPoolOwner.thirdParty(
+          hashHex: parseHexStringOfLength(
+            poolOwner.stakingKeyHashHex,
+            keyHashLength,
+            InvalidDataReason.poolOwnerInvalidKeyHash,
+          ),
+        ),
+  };
+
+  return parser();
+}
+
+ParsedPoolRelay parsePoolRelayParams(Relay relayParams) {
+  final ParsedPoolRelay Function() parser = switch (relayParams) {
+    SingleHostIpAddrRelay() => () => ParsedPoolRelay.singleHostIpAddr(
+          port: relayParams.portNumber != null
+              ? parsePort(relayParams.portNumber, InvalidDataReason.relayInvalidPort)
+              : null,
+          ipv4: relayParams.ipv4 != null ? parseIPv4(relayParams.ipv4, InvalidDataReason.relayInvalidIpv4) : null,
+          ipv6: relayParams.ipv6 != null ? parseIPv6(relayParams.ipv6, InvalidDataReason.relayInvalidIpv6) : null,
+        ),
+    SingleHostHostnameRelay() => () => ParsedPoolRelay.singletHostname(
+          port: relayParams.portNumber != null
+              ? parsePort(relayParams.portNumber, InvalidDataReason.relayInvalidPort)
+              : null,
+          dnsName: parseDnsName(
+            relayParams.dnsName,
+            InvalidDataReason.relayInvalidDns,
+          ),
+        ),
+    MultiHostRelay() => () => ParsedPoolRelay.multiHost(
+          dnsName: parseDnsName(
+            relayParams.dnsName,
+            InvalidDataReason.relayInvalidDns,
+          ),
+        ),
+  };
+
+  return parser();
+}
+
+int parsePort(int? portNumber, InvalidDataReason errMsg) {
+if (portNumber == null) throw ValidationException(errMsg.message);
+  return portNumber;
+}
+
+String parseIPv4(String? ipv4, InvalidDataReason errMsg) {
+  if (ipv4 == null) throw ValidationException(errMsg.message);
+  final ipParts = ipv4.split('.');
+  validate(ipParts.length == 4, errMsg.message);
+
+  return ipv4;
+}
+
+String parseIPv6(String? ipv6, InvalidDataReason errMsg) {
+  if (ipv6 == null) throw ValidationException(errMsg.message);
+  final ipHex = ipv6.split(':').join('');
+  validate(ipHex.length == 32, errMsg.message);
+  return ipv6;
+}
+
+String parseDnsName(String dnsName, InvalidDataReason errMsg) {
+  validate(dnsName.length <= maxDnsNameLength, errMsg.message);
+  validate(dnsName.isNotEmpty, errMsg.message);
+  validate(
+    RegExp(r'^[\x00-\x7F]*$').hasMatch(dnsName),
+    errMsg.message,
+  );
+  validate(
+    dnsName.split('').every((c) => c.codeUnitAt(0) >= 32 && c.codeUnitAt(0) <= 126),
+    errMsg.message,
+  );
+  return dnsName;
+}
+
+ParsedPoolMetadata parsePoolMetadataParams(PoolMetadataParams? params) {
+  if (params == null) throw ValidationException(InvalidDataReason.poolRegistrationMetadataInvalidUrl.message);
+  final url = parseAscii(
+    params.metadataUrl,
+    InvalidDataReason.poolRegistrationMetadataInvalidUrl,
+  );
+  validate(
+    url.length <= maxUrlLength,
+    InvalidDataReason.poolRegistrationMetadataInvalidUrl.message,
+  );
+
+  final hashHex = parseHexStringOfLength(
+    params.metadataHashHex,
+    auxiliaryDataHashLength,
+    InvalidDataReason.poolRegistrationMetadataInvalidHash,
+  );
+
+  return ParsedPoolMetadata(
+    url: url,
+    hashHex: hashHex,
+  );
 }

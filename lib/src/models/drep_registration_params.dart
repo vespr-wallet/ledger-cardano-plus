@@ -10,7 +10,7 @@ sealed class DRepRegistrationParams with _$DRepRegistrationParams {
 
   const factory DRepRegistrationParams({
     required CredentialParams dRepCredential,
-    required String deposit,
+    required BigInt deposit,
     AnchorParams? anchor,
   }) = _DRepRegistrationParams;
 }

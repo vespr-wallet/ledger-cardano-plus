@@ -7,7 +7,7 @@ class Margin with _$Margin {
   const Margin._();
 
   const factory Margin({
-    required String numerator,
-    required String denominator,
+    required BigInt numerator,
+    required BigInt denominator,
   }) = _Margin;
 }

@@ -21,8 +21,7 @@ mixin _$Transaction {
   List<TxOutput> get outputs => throw _privateConstructorUsedError;
   BigInt get fee => throw _privateConstructorUsedError;
   BigInt? get ttl => throw _privateConstructorUsedError;
-  List<ParsedCertificate>? get certificates =>
-      throw _privateConstructorUsedError;
+  List<Certificate>? get certificates => throw _privateConstructorUsedError;
   List<ParsedWithdrawal>? get withdrawals => throw _privateConstructorUsedError;
   ParsedTxAuxiliaryData? get auxiliaryData =>
       throw _privateConstructorUsedError;
@@ -48,7 +47,7 @@ mixin _$Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -74,7 +73,7 @@ mixin _$Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -100,7 +99,7 @@ mixin _$Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -137,7 +136,7 @@ abstract class $TransactionCopyWith<$Res> {
       List<TxOutput> outputs,
       BigInt fee,
       BigInt? ttl,
-      List<ParsedCertificate>? certificates,
+      List<Certificate>? certificates,
       List<ParsedWithdrawal>? withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
       BigInt? validityIntervalStart,
@@ -217,7 +216,7 @@ class _$TransactionCopyWithImpl<$Res, $Val extends Transaction>
       certificates: freezed == certificates
           ? _value.certificates
           : certificates // ignore: cast_nullable_to_non_nullable
-              as List<ParsedCertificate>?,
+              as List<Certificate>?,
       withdrawals: freezed == withdrawals
           ? _value.withdrawals
           : withdrawals // ignore: cast_nullable_to_non_nullable
@@ -336,7 +335,7 @@ abstract class _$$TransactionImplCopyWith<$Res>
       List<TxOutput> outputs,
       BigInt fee,
       BigInt? ttl,
-      List<ParsedCertificate>? certificates,
+      List<Certificate>? certificates,
       List<ParsedWithdrawal>? withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
       BigInt? validityIntervalStart,
@@ -418,7 +417,7 @@ class __$$TransactionImplCopyWithImpl<$Res>
       certificates: freezed == certificates
           ? _value._certificates
           : certificates // ignore: cast_nullable_to_non_nullable
-              as List<ParsedCertificate>?,
+              as List<Certificate>?,
       withdrawals: freezed == withdrawals
           ? _value._withdrawals
           : withdrawals // ignore: cast_nullable_to_non_nullable
@@ -488,7 +487,7 @@ class _$TransactionImpl extends _Transaction {
       required final List<TxOutput> outputs,
       required this.fee,
       this.ttl,
-      final List<ParsedCertificate>? certificates,
+      final List<Certificate>? certificates,
       final List<ParsedWithdrawal>? withdrawals,
       this.auxiliaryData,
       this.validityIntervalStart,
@@ -536,9 +535,9 @@ class _$TransactionImpl extends _Transaction {
   final BigInt fee;
   @override
   final BigInt? ttl;
-  final List<ParsedCertificate>? _certificates;
+  final List<Certificate>? _certificates;
   @override
-  List<ParsedCertificate>? get certificates {
+  List<Certificate>? get certificates {
     final value = _certificates;
     if (value == null) return null;
     if (_certificates is EqualUnmodifiableListView) return _certificates;
@@ -711,7 +710,7 @@ class _$TransactionImpl extends _Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -760,7 +759,7 @@ class _$TransactionImpl extends _Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -809,7 +808,7 @@ class _$TransactionImpl extends _Transaction {
             List<TxOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate>? certificates,
+            List<Certificate>? certificates,
             List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
@@ -861,7 +860,7 @@ abstract class _Transaction extends Transaction {
       required final List<TxOutput> outputs,
       required final BigInt fee,
       final BigInt? ttl,
-      final List<ParsedCertificate>? certificates,
+      final List<Certificate>? certificates,
       final List<ParsedWithdrawal>? withdrawals,
       final ParsedTxAuxiliaryData? auxiliaryData,
       final BigInt? validityIntervalStart,
@@ -889,7 +888,7 @@ abstract class _Transaction extends Transaction {
   @override
   BigInt? get ttl;
   @override
-  List<ParsedCertificate>? get certificates;
+  List<Certificate>? get certificates;
   @override
   List<ParsedWithdrawal>? get withdrawals;
   @override

@@ -17,25 +17,25 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DRepRegistrationParams {
   CredentialParams get dRepCredential => throw _privateConstructorUsedError;
-  String get deposit => throw _privateConstructorUsedError;
+  BigInt get deposit => throw _privateConstructorUsedError;
   AnchorParams? get anchor => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(CredentialParams dRepCredential, String deposit,
+    TResult? Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)?
         $default, {
     required TResult orElse(),
@@ -54,7 +54,7 @@ abstract class $DRepRegistrationParamsCopyWith<$Res> {
       _$DRepRegistrationParamsCopyWithImpl<$Res, DRepRegistrationParams>;
   @useResult
   $Res call(
-      {CredentialParams dRepCredential, String deposit, AnchorParams? anchor});
+      {CredentialParams dRepCredential, BigInt deposit, AnchorParams? anchor});
 
   $CredentialParamsCopyWith<$Res> get dRepCredential;
   $AnchorParamsCopyWith<$Res>? get anchor;
@@ -86,7 +86,7 @@ class _$DRepRegistrationParamsCopyWithImpl<$Res,
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ abstract class _$$DRepRegistrationParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {CredentialParams dRepCredential, String deposit, AnchorParams? anchor});
+      {CredentialParams dRepCredential, BigInt deposit, AnchorParams? anchor});
 
   @override
   $CredentialParamsCopyWith<$Res> get dRepCredential;
@@ -158,7 +158,7 @@ class __$$DRepRegistrationParamsImplCopyWithImpl<$Res>
       deposit: null == deposit
           ? _value.deposit
           : deposit // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       anchor: freezed == anchor
           ? _value.anchor
           : anchor // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$DRepRegistrationParamsImpl extends _DRepRegistrationParams {
   @override
   final CredentialParams dRepCredential;
   @override
-  final String deposit;
+  final BigInt deposit;
   @override
   final AnchorParams? anchor;
 
@@ -210,7 +210,7 @@ class _$DRepRegistrationParamsImpl extends _DRepRegistrationParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)
         $default,
   ) {
@@ -220,7 +220,7 @@ class _$DRepRegistrationParamsImpl extends _DRepRegistrationParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(CredentialParams dRepCredential, String deposit,
+    TResult? Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)?
         $default,
   ) {
@@ -230,7 +230,7 @@ class _$DRepRegistrationParamsImpl extends _DRepRegistrationParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(CredentialParams dRepCredential, String deposit,
+    TResult Function(CredentialParams dRepCredential, BigInt deposit,
             AnchorParams? anchor)?
         $default, {
     required TResult orElse(),
@@ -245,14 +245,14 @@ class _$DRepRegistrationParamsImpl extends _DRepRegistrationParams {
 abstract class _DRepRegistrationParams extends DRepRegistrationParams {
   const factory _DRepRegistrationParams(
       {required final CredentialParams dRepCredential,
-      required final String deposit,
+      required final BigInt deposit,
       final AnchorParams? anchor}) = _$DRepRegistrationParamsImpl;
   const _DRepRegistrationParams._() : super._();
 
   @override
   CredentialParams get dRepCredential;
   @override
-  String get deposit;
+  BigInt get deposit;
   @override
   AnchorParams? get anchor;
   @override

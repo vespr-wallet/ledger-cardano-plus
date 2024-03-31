@@ -46,6 +46,19 @@ const int datumHashLength = 64;
 
 const int scriptHashLength = 56;
 
+const int anchorHashLength = 32;
+
+const int maxUrlLength = 128;
+
+const int vrfKeyHashLength = 32;
+
+const int rewardAccountHexLength = 29;
+
+const int maxDnsNameLength = 128;
+
+
+
+
 const int policyIdLength = 28;
 
 const int scriptDataHashLength = 64;

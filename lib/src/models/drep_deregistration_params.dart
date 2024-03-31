@@ -9,6 +9,7 @@ sealed class DRepDeregistrationParams with _$DRepDeregistrationParams {
 
   const factory DRepDeregistrationParams({
     required CredentialParams dRepCredential,
-    required String deposit,
+    required BigInt deposit,
   }) = _DRepDeregistrationParams;
 }
+

@@ -7,10 +7,11 @@ sealed class PoolOwner with _$PoolOwner {
   PoolOwner._();
 
   factory PoolOwner.thirdParty({
-    required String params,
+    required String stakingKeyHashHex,
   }) = PoolOwnerThirdParty;
 
   factory PoolOwner.deviceOwned({
-    required String params,
+    required List<int> stakingPath,
   }) = PoolOwnerDeviceOwned;
 }
+

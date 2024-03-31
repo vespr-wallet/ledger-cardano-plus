@@ -16,29 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PoolOwner {
-  String get params => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String params) thirdParty,
-    required TResult Function(String params) deviceOwned,
+    required TResult Function(String stakingKeyHashHex) thirdParty,
+    required TResult Function(List<int> stakingPath) deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String params)? thirdParty,
-    TResult? Function(String params)? deviceOwned,
+    TResult? Function(String stakingKeyHashHex)? thirdParty,
+    TResult? Function(List<int> stakingPath)? deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String params)? thirdParty,
-    TResult Function(String params)? deviceOwned,
+    TResult Function(String stakingKeyHashHex)? thirdParty,
+    TResult Function(List<int> stakingPath)? deviceOwned,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $PoolOwnerCopyWith<PoolOwner> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -46,8 +41,6 @@ mixin _$PoolOwner {
 abstract class $PoolOwnerCopyWith<$Res> {
   factory $PoolOwnerCopyWith(PoolOwner value, $Res Function(PoolOwner) then) =
       _$PoolOwnerCopyWithImpl<$Res, PoolOwner>;
-  @useResult
-  $Res call({String params});
 }
 
 /// @nodoc
@@ -59,30 +52,15 @@ class _$PoolOwnerCopyWithImpl<$Res, $Val extends PoolOwner>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? params = null,
-  }) {
-    return _then(_value.copyWith(
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$PoolOwnerThirdPartyImplCopyWith<$Res>
-    implements $PoolOwnerCopyWith<$Res> {
+abstract class _$$PoolOwnerThirdPartyImplCopyWith<$Res> {
   factory _$$PoolOwnerThirdPartyImplCopyWith(_$PoolOwnerThirdPartyImpl value,
           $Res Function(_$PoolOwnerThirdPartyImpl) then) =
       __$$PoolOwnerThirdPartyImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String params});
+  $Res call({String stakingKeyHashHex});
 }
 
 /// @nodoc
@@ -96,12 +74,12 @@ class __$$PoolOwnerThirdPartyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? params = null,
+    Object? stakingKeyHashHex = null,
   }) {
     return _then(_$PoolOwnerThirdPartyImpl(
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
+      stakingKeyHashHex: null == stakingKeyHashHex
+          ? _value.stakingKeyHashHex
+          : stakingKeyHashHex // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -110,14 +88,14 @@ class __$$PoolOwnerThirdPartyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PoolOwnerThirdPartyImpl extends PoolOwnerThirdParty {
-  _$PoolOwnerThirdPartyImpl({required this.params}) : super._();
+  _$PoolOwnerThirdPartyImpl({required this.stakingKeyHashHex}) : super._();
 
   @override
-  final String params;
+  final String stakingKeyHashHex;
 
   @override
   String toString() {
-    return 'PoolOwner.thirdParty(params: $params)';
+    return 'PoolOwner.thirdParty(stakingKeyHashHex: $stakingKeyHashHex)';
   }
 
   @override
@@ -125,11 +103,12 @@ class _$PoolOwnerThirdPartyImpl extends PoolOwnerThirdParty {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PoolOwnerThirdPartyImpl &&
-            (identical(other.params, params) || other.params == params));
+            (identical(other.stakingKeyHashHex, stakingKeyHashHex) ||
+                other.stakingKeyHashHex == stakingKeyHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, params);
+  int get hashCode => Object.hash(runtimeType, stakingKeyHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -141,57 +120,53 @@ class _$PoolOwnerThirdPartyImpl extends PoolOwnerThirdParty {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String params) thirdParty,
-    required TResult Function(String params) deviceOwned,
+    required TResult Function(String stakingKeyHashHex) thirdParty,
+    required TResult Function(List<int> stakingPath) deviceOwned,
   }) {
-    return thirdParty(params);
+    return thirdParty(stakingKeyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String params)? thirdParty,
-    TResult? Function(String params)? deviceOwned,
+    TResult? Function(String stakingKeyHashHex)? thirdParty,
+    TResult? Function(List<int> stakingPath)? deviceOwned,
   }) {
-    return thirdParty?.call(params);
+    return thirdParty?.call(stakingKeyHashHex);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String params)? thirdParty,
-    TResult Function(String params)? deviceOwned,
+    TResult Function(String stakingKeyHashHex)? thirdParty,
+    TResult Function(List<int> stakingPath)? deviceOwned,
     required TResult orElse(),
   }) {
     if (thirdParty != null) {
-      return thirdParty(params);
+      return thirdParty(stakingKeyHashHex);
     }
     return orElse();
   }
 }
 
 abstract class PoolOwnerThirdParty extends PoolOwner {
-  factory PoolOwnerThirdParty({required final String params}) =
+  factory PoolOwnerThirdParty({required final String stakingKeyHashHex}) =
       _$PoolOwnerThirdPartyImpl;
   PoolOwnerThirdParty._() : super._();
 
-  @override
-  String get params;
-  @override
+  String get stakingKeyHashHex;
   @JsonKey(ignore: true)
   _$$PoolOwnerThirdPartyImplCopyWith<_$PoolOwnerThirdPartyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PoolOwnerDeviceOwnedImplCopyWith<$Res>
-    implements $PoolOwnerCopyWith<$Res> {
+abstract class _$$PoolOwnerDeviceOwnedImplCopyWith<$Res> {
   factory _$$PoolOwnerDeviceOwnedImplCopyWith(_$PoolOwnerDeviceOwnedImpl value,
           $Res Function(_$PoolOwnerDeviceOwnedImpl) then) =
       __$$PoolOwnerDeviceOwnedImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({String params});
+  $Res call({List<int> stakingPath});
 }
 
 /// @nodoc
@@ -205,13 +180,13 @@ class __$$PoolOwnerDeviceOwnedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? params = null,
+    Object? stakingPath = null,
   }) {
     return _then(_$PoolOwnerDeviceOwnedImpl(
-      params: null == params
-          ? _value.params
-          : params // ignore: cast_nullable_to_non_nullable
-              as String,
+      stakingPath: null == stakingPath
+          ? _value._stakingPath
+          : stakingPath // ignore: cast_nullable_to_non_nullable
+              as List<int>,
     ));
   }
 }
@@ -219,14 +194,21 @@ class __$$PoolOwnerDeviceOwnedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PoolOwnerDeviceOwnedImpl extends PoolOwnerDeviceOwned {
-  _$PoolOwnerDeviceOwnedImpl({required this.params}) : super._();
+  _$PoolOwnerDeviceOwnedImpl({required final List<int> stakingPath})
+      : _stakingPath = stakingPath,
+        super._();
 
+  final List<int> _stakingPath;
   @override
-  final String params;
+  List<int> get stakingPath {
+    if (_stakingPath is EqualUnmodifiableListView) return _stakingPath;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_stakingPath);
+  }
 
   @override
   String toString() {
-    return 'PoolOwner.deviceOwned(params: $params)';
+    return 'PoolOwner.deviceOwned(stakingPath: $stakingPath)';
   }
 
   @override
@@ -234,11 +216,13 @@ class _$PoolOwnerDeviceOwnedImpl extends PoolOwnerDeviceOwned {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PoolOwnerDeviceOwnedImpl &&
-            (identical(other.params, params) || other.params == params));
+            const DeepCollectionEquality()
+                .equals(other._stakingPath, _stakingPath));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, params);
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_stakingPath));
 
   @JsonKey(ignore: true)
   @override
@@ -251,43 +235,41 @@ class _$PoolOwnerDeviceOwnedImpl extends PoolOwnerDeviceOwned {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String params) thirdParty,
-    required TResult Function(String params) deviceOwned,
+    required TResult Function(String stakingKeyHashHex) thirdParty,
+    required TResult Function(List<int> stakingPath) deviceOwned,
   }) {
-    return deviceOwned(params);
+    return deviceOwned(stakingPath);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String params)? thirdParty,
-    TResult? Function(String params)? deviceOwned,
+    TResult? Function(String stakingKeyHashHex)? thirdParty,
+    TResult? Function(List<int> stakingPath)? deviceOwned,
   }) {
-    return deviceOwned?.call(params);
+    return deviceOwned?.call(stakingPath);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String params)? thirdParty,
-    TResult Function(String params)? deviceOwned,
+    TResult Function(String stakingKeyHashHex)? thirdParty,
+    TResult Function(List<int> stakingPath)? deviceOwned,
     required TResult orElse(),
   }) {
     if (deviceOwned != null) {
-      return deviceOwned(params);
+      return deviceOwned(stakingPath);
     }
     return orElse();
   }
 }
 
 abstract class PoolOwnerDeviceOwned extends PoolOwner {
-  factory PoolOwnerDeviceOwned({required final String params}) =
+  factory PoolOwnerDeviceOwned({required final List<int> stakingPath}) =
       _$PoolOwnerDeviceOwnedImpl;
   PoolOwnerDeviceOwned._() : super._();
 
-  @override
-  String get params;
-  @override
+  List<int> get stakingPath;
   @JsonKey(ignore: true)
   _$$PoolOwnerDeviceOwnedImplCopyWith<_$PoolOwnerDeviceOwnedImpl>
       get copyWith => throw _privateConstructorUsedError;

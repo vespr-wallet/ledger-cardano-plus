@@ -125,7 +125,7 @@ class __$$AddressParamsEnterpriseImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$AddressParamsEnterpriseImpl extends _AddressParamsEnterprise {
-  const _$AddressParamsEnterpriseImpl({required this.spendingPath}) : super._();
+  _$AddressParamsEnterpriseImpl({required this.spendingPath}) : super._();
 
   @override
   final SpendingParams spendingPath;
@@ -184,10 +184,10 @@ class _$AddressParamsEnterpriseImpl extends _AddressParamsEnterprise {
 }
 
 abstract class _AddressParamsEnterprise extends AddressParamsEnterprise {
-  const factory _AddressParamsEnterprise(
+  factory _AddressParamsEnterprise(
           {required final SpendingParams spendingPath}) =
       _$AddressParamsEnterpriseImpl;
-  const _AddressParamsEnterprise._() : super._();
+  _AddressParamsEnterprise._() : super._();
 
   @override
   SpendingParams get spendingPath;

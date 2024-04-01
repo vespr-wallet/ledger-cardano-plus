@@ -15,6 +15,6 @@ sealed class ParsedAssetGroup with _$ParsedAssetGroup {
 
   factory ParsedAssetGroup({
     required String policyIdHex,
-    required List<ParsedToken<String>> tokens,
+    required List<ParsedToken> tokens,
   }) = _ParsedAssetGroup;
 }

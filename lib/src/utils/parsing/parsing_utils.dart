@@ -74,7 +74,8 @@ ParsedTransaction parseTransaction(Transaction tx) {
 
   final scriptDataHashHex = tx.scriptDataHash == null
       ? null
-      : parseHexStringOfLength(tx.scriptDataHash, scriptDataHashLength, InvalidDataReason.scriptDataHashWrongLength);
+      : parseHexStringOfLength(
+          tx.scriptDataHash?.hexString, scriptDataHashLength, InvalidDataReason.scriptDataHashWrongLength);
 
   validate(tx.collateralInputs is List, InvalidDataReason.collateralInputsNotArray.message);
   final collateralInputs = tx.collateralInputs?.map((inp) => parseTxInput(inp)).toList();
@@ -143,7 +144,6 @@ ParsedNetwork parseNetwork(Network network) {
   return parsed;
 }
 
-
 bool isUint32(int data) => data >= 0 && data <= 4294967295;
 
 ParsedInput parseTxInput(TxInput input) {
@@ -161,10 +161,11 @@ ParsedInput parseTxInput(TxInput input) {
 }
 
 String parseHexStringOfLength(
-  String str,
+  String? str,
   int length,
   InvalidDataReason errMsg,
 ) {
+  if (str == null) throw ValidationException(errMsg.message);
   validate(isHexStringOfLength(str, length), errMsg.message);
   return str;
 }
@@ -732,41 +733,9 @@ ParsedOutputDestination parseTxDestination(Network network, TxOutputDestination 
   return parser();
 }
 
+// TODO remove this method altogether and use its content directly
 ParsedAddressParams parseAddress(Network network, DeviceOwnedAddress address) {
-  final parsedNetwork = parseNetwork(network);
-  // Cast to union of all param fields
-  final params = address.params;
-
-  final spendingDataSource = extractSpendingDataSource(
-    params.spendingPath,
-    params.spendingScriptHashHex,
-  );
-  final stakingDataSource = extractStakingDataSource(
-    params.stakingPath,
-    params.stakingKeyHashHex,
-    params.stakingBlockchainPointer,
-    params.stakingScriptHashHex,
-  );
-
-  validateSpendingDataSource(address.type, spendingDataSource);
-  validateStakingDataSource(address.type, stakingDataSource);
-
-  if (address is DeviceOwnedAddressByron) {
-    return ParsedAddressParams.byron(
-      protocolMagic: parsedNetwork.protocolMagic,
-      spendingDataSource: spendingDataSource,
-      stakingDataSource: stakingDataSource,
-    );
-  } else {
-    final networkId = parsedNetwork.networkId;
-    return ParsedAddressParams.shelley(
-      shelleyAddressParams: ShelleyAddressParamsData(
-        networkId: networkId,
-        spendingDataSource: spendingDataSource,
-        stakingDataSource: stakingDataSource,
-      ),
-    );
-  }
+  return address.parsedAddressParams(network: network);
 }
 
 SpendingDataSource extractSpendingDataSource(
@@ -858,6 +827,7 @@ StakingDataSource extractStakingDataSource(
   }
   return StakingDataSource.none();
 }
+
 ParsedDatum? parseDatum(TxOutput output) {
   if (output is TxOutputBabbage) {
     final datum = output.datum;
@@ -874,7 +844,7 @@ ParsedDatum? parseDatum(TxOutput output) {
 
     return parser?.call();
   } else {
-    if(output is TxOutputAlonzo) {
+    if (output is TxOutputAlonzo) {
       return output.datumHashHex == null ? null : parseDatumHash(output.datumHashHex);
     }
     return null;
@@ -891,4 +861,3 @@ ParsedDatum? parseDatumHash(String? datumHashHex) {
     ),
   );
 }
-

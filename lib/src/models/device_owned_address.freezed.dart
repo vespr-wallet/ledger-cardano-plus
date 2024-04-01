@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DeviceOwnedAddress {
-  Object get params => throw _privateConstructorUsedError;
+  AddressParams get params => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(AddressParamsByron params) byron,

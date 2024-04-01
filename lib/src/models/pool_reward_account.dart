@@ -11,6 +11,7 @@ sealed class PoolRewardAccount with _$PoolRewardAccount {
   }) = PoolRewardAccountThirdParty;
 
   factory PoolRewardAccount.deviceOwned({
-    required String path,
+    required List<int> path,
   }) = PoolRewardAccountDeviceOwned;
 }
+

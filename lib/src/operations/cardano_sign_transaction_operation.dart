@@ -552,11 +552,11 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddTokenBundle<T>(
+  Future<void> signTxAddTokenBundle(
     List<ParsedAssetGroup> tokenBundle,
     int p1,
     LedgerSendFct send,
-    SerializeTokenAmountFn<T> serializeTokenAmountFn,
+    SerializeTokenAmountFn serializeTokenAmountFn,
   ) async {
     for (final assetGroup in tokenBundle) {
       final Uint8List assetGroupData = SerializationUtils.serializeAssetGroup(assetGroup);
@@ -570,7 +570,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ));
 
       for (final token in assetGroup.tokens) {
-        final Uint8List tokenData = SerializationUtils.serializeToken<T>(token, serializeTokenAmountFn);
+        final Uint8List tokenData = SerializationUtils.serializeToken(token, serializeTokenAmountFn);
         await send(SendOperation(
           ins: InstructionType.signTransaction.insValue,
           p1: p1,

@@ -57,6 +57,12 @@ const int rewardAccountHexLength = 29;
 const int maxDnsNameLength = 128;
 
 
+const int tokenPolicyLength = 28;
+
+const int assetNameLengthMax = 32;
+
+
+
 
 
 const int policyIdLength = 28;

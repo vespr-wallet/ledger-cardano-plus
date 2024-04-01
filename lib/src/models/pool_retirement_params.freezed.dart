@@ -16,21 +16,21 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$PoolRetirementParams {
-  String get poolKeyPath => throw _privateConstructorUsedError;
+  List<int> get poolKeyPath => throw _privateConstructorUsedError;
   BigInt get retirementEpoch => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String poolKeyPath, BigInt retirementEpoch) $default,
+    TResult Function(List<int> poolKeyPath, BigInt retirementEpoch) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String poolKeyPath, BigInt retirementEpoch)? $default,
+    TResult? Function(List<int> poolKeyPath, BigInt retirementEpoch)? $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String poolKeyPath, BigInt retirementEpoch)? $default, {
+    TResult Function(List<int> poolKeyPath, BigInt retirementEpoch)? $default, {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $PoolRetirementParamsCopyWith<$Res> {
           $Res Function(PoolRetirementParams) then) =
       _$PoolRetirementParamsCopyWithImpl<$Res, PoolRetirementParams>;
   @useResult
-  $Res call({String poolKeyPath, BigInt retirementEpoch});
+  $Res call({List<int> poolKeyPath, BigInt retirementEpoch});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$PoolRetirementParamsCopyWithImpl<$Res,
       poolKeyPath: null == poolKeyPath
           ? _value.poolKeyPath
           : poolKeyPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<int>,
       retirementEpoch: null == retirementEpoch
           ? _value.retirementEpoch
           : retirementEpoch // ignore: cast_nullable_to_non_nullable
@@ -87,7 +87,7 @@ abstract class _$$PoolRetirementParamsImplCopyWith<$Res>
       __$$PoolRetirementParamsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String poolKeyPath, BigInt retirementEpoch});
+  $Res call({List<int> poolKeyPath, BigInt retirementEpoch});
 }
 
 /// @nodoc
@@ -106,9 +106,9 @@ class __$$PoolRetirementParamsImplCopyWithImpl<$Res>
   }) {
     return _then(_$PoolRetirementParamsImpl(
       poolKeyPath: null == poolKeyPath
-          ? _value.poolKeyPath
+          ? _value._poolKeyPath
           : poolKeyPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<int>,
       retirementEpoch: null == retirementEpoch
           ? _value.retirementEpoch
           : retirementEpoch // ignore: cast_nullable_to_non_nullable
@@ -121,11 +121,18 @@ class __$$PoolRetirementParamsImplCopyWithImpl<$Res>
 
 class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
   const _$PoolRetirementParamsImpl(
-      {required this.poolKeyPath, required this.retirementEpoch})
-      : super._();
+      {required final List<int> poolKeyPath, required this.retirementEpoch})
+      : _poolKeyPath = poolKeyPath,
+        super._();
 
+  final List<int> _poolKeyPath;
   @override
-  final String poolKeyPath;
+  List<int> get poolKeyPath {
+    if (_poolKeyPath is EqualUnmodifiableListView) return _poolKeyPath;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_poolKeyPath);
+  }
+
   @override
   final BigInt retirementEpoch;
 
@@ -139,14 +146,15 @@ class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PoolRetirementParamsImpl &&
-            (identical(other.poolKeyPath, poolKeyPath) ||
-                other.poolKeyPath == poolKeyPath) &&
+            const DeepCollectionEquality()
+                .equals(other._poolKeyPath, _poolKeyPath) &&
             (identical(other.retirementEpoch, retirementEpoch) ||
                 other.retirementEpoch == retirementEpoch));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, poolKeyPath, retirementEpoch);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_poolKeyPath), retirementEpoch);
 
   @JsonKey(ignore: true)
   @override
@@ -159,7 +167,7 @@ class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String poolKeyPath, BigInt retirementEpoch) $default,
+    TResult Function(List<int> poolKeyPath, BigInt retirementEpoch) $default,
   ) {
     return $default(poolKeyPath, retirementEpoch);
   }
@@ -167,7 +175,7 @@ class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String poolKeyPath, BigInt retirementEpoch)? $default,
+    TResult? Function(List<int> poolKeyPath, BigInt retirementEpoch)? $default,
   ) {
     return $default?.call(poolKeyPath, retirementEpoch);
   }
@@ -175,7 +183,7 @@ class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String poolKeyPath, BigInt retirementEpoch)? $default, {
+    TResult Function(List<int> poolKeyPath, BigInt retirementEpoch)? $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -187,12 +195,12 @@ class _$PoolRetirementParamsImpl extends _PoolRetirementParams {
 
 abstract class _PoolRetirementParams extends PoolRetirementParams {
   const factory _PoolRetirementParams(
-      {required final String poolKeyPath,
+      {required final List<int> poolKeyPath,
       required final BigInt retirementEpoch}) = _$PoolRetirementParamsImpl;
   const _PoolRetirementParams._() : super._();
 
   @override
-  String get poolKeyPath;
+  List<int> get poolKeyPath;
   @override
   BigInt get retirementEpoch;
   @override

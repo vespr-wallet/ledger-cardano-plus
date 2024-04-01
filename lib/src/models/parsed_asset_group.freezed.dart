@@ -17,23 +17,20 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedAssetGroup {
   String get policyIdHex => throw _privateConstructorUsedError;
-  List<ParsedToken<String>> get tokens => throw _privateConstructorUsedError;
+  List<ParsedToken> get tokens => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<ParsedToken<String>> tokens)
-        $default,
+    TResult Function(String policyIdHex, List<ParsedToken> tokens) $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String policyIdHex, List<ParsedToken<String>> tokens)?
-        $default,
+    TResult? Function(String policyIdHex, List<ParsedToken> tokens)? $default,
   ) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<ParsedToken<String>> tokens)?
-        $default, {
+    TResult Function(String policyIdHex, List<ParsedToken> tokens)? $default, {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,7 +46,7 @@ abstract class $ParsedAssetGroupCopyWith<$Res> {
           ParsedAssetGroup value, $Res Function(ParsedAssetGroup) then) =
       _$ParsedAssetGroupCopyWithImpl<$Res, ParsedAssetGroup>;
   @useResult
-  $Res call({String policyIdHex, List<ParsedToken<String>> tokens});
+  $Res call({String policyIdHex, List<ParsedToken> tokens});
 }
 
 /// @nodoc
@@ -76,7 +73,7 @@ class _$ParsedAssetGroupCopyWithImpl<$Res, $Val extends ParsedAssetGroup>
       tokens: null == tokens
           ? _value.tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<ParsedToken<String>>,
+              as List<ParsedToken>,
     ) as $Val);
   }
 }
@@ -89,7 +86,7 @@ abstract class _$$ParsedAssetGroupImplCopyWith<$Res>
       __$$ParsedAssetGroupImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String policyIdHex, List<ParsedToken<String>> tokens});
+  $Res call({String policyIdHex, List<ParsedToken> tokens});
 }
 
 /// @nodoc
@@ -114,7 +111,7 @@ class __$$ParsedAssetGroupImplCopyWithImpl<$Res>
       tokens: null == tokens
           ? _value._tokens
           : tokens // ignore: cast_nullable_to_non_nullable
-              as List<ParsedToken<String>>,
+              as List<ParsedToken>,
     ));
   }
 }
@@ -123,16 +120,15 @@ class __$$ParsedAssetGroupImplCopyWithImpl<$Res>
 
 class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
   _$ParsedAssetGroupImpl(
-      {required this.policyIdHex,
-      required final List<ParsedToken<String>> tokens})
+      {required this.policyIdHex, required final List<ParsedToken> tokens})
       : _tokens = tokens,
         super._();
 
   @override
   final String policyIdHex;
-  final List<ParsedToken<String>> _tokens;
+  final List<ParsedToken> _tokens;
   @override
-  List<ParsedToken<String>> get tokens {
+  List<ParsedToken> get tokens {
     if (_tokens is EqualUnmodifiableListView) return _tokens;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_tokens);
@@ -167,8 +163,7 @@ class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<ParsedToken<String>> tokens)
-        $default,
+    TResult Function(String policyIdHex, List<ParsedToken> tokens) $default,
   ) {
     return $default(policyIdHex, tokens);
   }
@@ -176,8 +171,7 @@ class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String policyIdHex, List<ParsedToken<String>> tokens)?
-        $default,
+    TResult? Function(String policyIdHex, List<ParsedToken> tokens)? $default,
   ) {
     return $default?.call(policyIdHex, tokens);
   }
@@ -185,8 +179,7 @@ class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<ParsedToken<String>> tokens)?
-        $default, {
+    TResult Function(String policyIdHex, List<ParsedToken> tokens)? $default, {
     required TResult orElse(),
   }) {
     if ($default != null) {
@@ -198,15 +191,14 @@ class _$ParsedAssetGroupImpl extends _ParsedAssetGroup {
 
 abstract class _ParsedAssetGroup extends ParsedAssetGroup {
   factory _ParsedAssetGroup(
-          {required final String policyIdHex,
-          required final List<ParsedToken<String>> tokens}) =
-      _$ParsedAssetGroupImpl;
+      {required final String policyIdHex,
+      required final List<ParsedToken> tokens}) = _$ParsedAssetGroupImpl;
   _ParsedAssetGroup._() : super._();
 
   @override
   String get policyIdHex;
   @override
-  List<ParsedToken<String>> get tokens;
+  List<ParsedToken> get tokens;
   @override
   @JsonKey(ignore: true)
   _$$ParsedAssetGroupImplCopyWith<_$ParsedAssetGroupImpl> get copyWith =>

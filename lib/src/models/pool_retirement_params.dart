@@ -7,7 +7,7 @@ sealed class PoolRetirementParams with _$PoolRetirementParams {
   const PoolRetirementParams._();
 
   const factory PoolRetirementParams({
-    required String poolKeyPath,
+    required List<int> poolKeyPath,
     required BigInt retirementEpoch,
   }) = _PoolRetirementParams;
 }

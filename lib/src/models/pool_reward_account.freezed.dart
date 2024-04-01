@@ -19,19 +19,19 @@ mixin _$PoolRewardAccount {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String rewardAccountHex) thirdParty,
-    required TResult Function(String path) deviceOwned,
+    required TResult Function(List<int> path) deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String rewardAccountHex)? thirdParty,
-    TResult? Function(String path)? deviceOwned,
+    TResult? Function(List<int> path)? deviceOwned,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String rewardAccountHex)? thirdParty,
-    TResult Function(String path)? deviceOwned,
+    TResult Function(List<int> path)? deviceOwned,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -126,7 +126,7 @@ class _$PoolRewardAccountThirdPartyImpl extends PoolRewardAccountThirdParty {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String rewardAccountHex) thirdParty,
-    required TResult Function(String path) deviceOwned,
+    required TResult Function(List<int> path) deviceOwned,
   }) {
     return thirdParty(rewardAccountHex);
   }
@@ -135,7 +135,7 @@ class _$PoolRewardAccountThirdPartyImpl extends PoolRewardAccountThirdParty {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String rewardAccountHex)? thirdParty,
-    TResult? Function(String path)? deviceOwned,
+    TResult? Function(List<int> path)? deviceOwned,
   }) {
     return thirdParty?.call(rewardAccountHex);
   }
@@ -144,7 +144,7 @@ class _$PoolRewardAccountThirdPartyImpl extends PoolRewardAccountThirdParty {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String rewardAccountHex)? thirdParty,
-    TResult Function(String path)? deviceOwned,
+    TResult Function(List<int> path)? deviceOwned,
     required TResult orElse(),
   }) {
     if (thirdParty != null) {
@@ -173,7 +173,7 @@ abstract class _$$PoolRewardAccountDeviceOwnedImplCopyWith<$Res> {
           $Res Function(_$PoolRewardAccountDeviceOwnedImpl) then) =
       __$$PoolRewardAccountDeviceOwnedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String path});
+  $Res call({List<int> path});
 }
 
 /// @nodoc
@@ -193,9 +193,9 @@ class __$$PoolRewardAccountDeviceOwnedImplCopyWithImpl<$Res>
   }) {
     return _then(_$PoolRewardAccountDeviceOwnedImpl(
       path: null == path
-          ? _value.path
+          ? _value._path
           : path // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<int>,
     ));
   }
 }
@@ -203,10 +203,17 @@ class __$$PoolRewardAccountDeviceOwnedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
-  _$PoolRewardAccountDeviceOwnedImpl({required this.path}) : super._();
+  _$PoolRewardAccountDeviceOwnedImpl({required final List<int> path})
+      : _path = path,
+        super._();
 
+  final List<int> _path;
   @override
-  final String path;
+  List<int> get path {
+    if (_path is EqualUnmodifiableListView) return _path;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_path);
+  }
 
   @override
   String toString() {
@@ -218,11 +225,12 @@ class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PoolRewardAccountDeviceOwnedImpl &&
-            (identical(other.path, path) || other.path == path));
+            const DeepCollectionEquality().equals(other._path, _path));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, path);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
 
   @JsonKey(ignore: true)
   @override
@@ -236,7 +244,7 @@ class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String rewardAccountHex) thirdParty,
-    required TResult Function(String path) deviceOwned,
+    required TResult Function(List<int> path) deviceOwned,
   }) {
     return deviceOwned(path);
   }
@@ -245,7 +253,7 @@ class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(String rewardAccountHex)? thirdParty,
-    TResult? Function(String path)? deviceOwned,
+    TResult? Function(List<int> path)? deviceOwned,
   }) {
     return deviceOwned?.call(path);
   }
@@ -254,7 +262,7 @@ class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String rewardAccountHex)? thirdParty,
-    TResult Function(String path)? deviceOwned,
+    TResult Function(List<int> path)? deviceOwned,
     required TResult orElse(),
   }) {
     if (deviceOwned != null) {
@@ -265,11 +273,11 @@ class _$PoolRewardAccountDeviceOwnedImpl extends PoolRewardAccountDeviceOwned {
 }
 
 abstract class PoolRewardAccountDeviceOwned extends PoolRewardAccount {
-  factory PoolRewardAccountDeviceOwned({required final String path}) =
+  factory PoolRewardAccountDeviceOwned({required final List<int> path}) =
       _$PoolRewardAccountDeviceOwnedImpl;
   PoolRewardAccountDeviceOwned._() : super._();
 
-  String get path;
+  List<int> get path;
   @JsonKey(ignore: true)
   _$$PoolRewardAccountDeviceOwnedImplCopyWith<
           _$PoolRewardAccountDeviceOwnedImpl>

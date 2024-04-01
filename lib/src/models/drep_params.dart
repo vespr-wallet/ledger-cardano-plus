@@ -7,7 +7,7 @@ sealed class DRepParams with _$DRepParams {
   DRepParams._();
 
   factory DRepParams.keyPath({
-    required String keyPath,
+    required List<int> keyPath,
   }) = KeyPathDRepParams;
 
   factory DRepParams.keyHash({

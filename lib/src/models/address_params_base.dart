@@ -4,7 +4,7 @@ import 'package:ledger_cardano/src/models/spending_params.dart';
 part 'address_params_base.freezed.dart';
 
 @freezed
-class AddressParamsBase with _$AddressParamsBase {
+sealed class AddressParamsBase with _$AddressParamsBase {
   AddressParamsBase._();
 
   factory AddressParamsBase.stakingPath({

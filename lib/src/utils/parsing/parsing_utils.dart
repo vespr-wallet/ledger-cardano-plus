@@ -1,26 +1,35 @@
-
+import 'package:flutter/foundation.dart';
 import 'package:ledger_cardano/src/errors/invalid_data_reason.dart';
 import 'package:ledger_cardano/src/models/anchor_params.dart';
+import 'package:ledger_cardano/src/models/asset_group.dart';
+import 'package:ledger_cardano/src/models/blockchain_pointer.dart';
 import 'package:ledger_cardano/src/models/certificate.dart' as certification;
 import 'package:ledger_cardano/src/models/certificate.dart';
 import 'package:ledger_cardano/src/models/credential_params.dart';
+import 'package:ledger_cardano/src/models/datum.dart';
+import 'package:ledger_cardano/src/models/device_owned_address.dart';
 import 'package:ledger_cardano/src/models/drep_params.dart';
 import 'package:ledger_cardano/src/models/margin.dart';
 import 'package:ledger_cardano/src/models/network.dart';
+import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_anchor.dart';
+import 'package:ledger_cardano/src/models/parsed_asset_group.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_credential.dart';
+import 'package:ledger_cardano/src/models/parsed_datum.dart';
 import 'package:ledger_cardano/src/models/parsed_drep.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_margin.dart';
 import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/parsed_output.dart';
+import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_key.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_metadata.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_owner.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_params.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_relay.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_reward_account.dart';
+import 'package:ledger_cardano/src/models/parsed_token.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/pool_key.dart';
 import 'package:ledger_cardano/src/models/pool_metadata_params.dart';
@@ -28,9 +37,14 @@ import 'package:ledger_cardano/src/models/pool_owner.dart';
 import 'package:ledger_cardano/src/models/pool_registration_params.dart';
 import 'package:ledger_cardano/src/models/pool_reward_account.dart';
 import 'package:ledger_cardano/src/models/relay.dart';
+import 'package:ledger_cardano/src/models/shelley_address_params.dart';
+import 'package:ledger_cardano/src/models/spending_data_source.dart';
+import 'package:ledger_cardano/src/models/staking_data_source.dart';
+import 'package:ledger_cardano/src/models/token.dart';
 import 'package:ledger_cardano/src/models/transaction.dart';
 import 'package:ledger_cardano/src/models/tx_input.dart';
 import 'package:ledger_cardano/src/models/tx_output.dart';
+import 'package:ledger_cardano/src/models/tx_output_destination.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
@@ -56,7 +70,7 @@ ParsedTransaction parseTransaction(Transaction tx) {
 
   final validityIntervalStart = tx.validityIntervalStart;
 
-  final mint = tx.mint == null ? null : parseTokenBundle(tx.mint, false, parseInt64_str);
+  final mint = tx.mint == null ? null : parseTokenBundle(tx.mint, false);
 
   final scriptDataHashHex = tx.scriptDataHash == null
       ? null
@@ -119,14 +133,8 @@ ParsedTransaction parseTransaction(Transaction tx) {
 
 ParsedNetwork parseNetwork(Network network) {
   final parsed = ParsedNetwork(
-    protocolMagic: parseUint32t(
-      network.protocolMagic,
-      InvalidDataReason.networkInvalidProtocolMagic.message,
-    ),
-    networkId: parseUint8t(
-      network.networkId,
-      InvalidDataReason.networkInvalidNetworkId.message,
-    ),
+    protocolMagic: network.protocolMagic,
+    networkId: network.networkId,
   );
   validate(
     parsed.networkId <= 0x0F,
@@ -135,47 +143,8 @@ ParsedNetwork parseNetwork(Network network) {
   return parsed;
 }
 
-int parseUint32t(dynamic value, String errMsg) {
-  validate(isUint32(value), errMsg);
-  return value as int;
-}
 
 bool isUint32(int data) => data >= 0 && data <= 4294967295;
-
-bool isInteger(BigInt data) => data is int;
-
-bool isUint8(int data) => data >= 0 && data <= 255;
-
-int parseUint8t(dynamic value, String errMsg) {
-  validate(isUint8(value), errMsg);
-  return value as int;
-}
-
-bool isUint64Str(dynamic data) => isUintStr(data, {});
-
-bool isUint64Number(dynamic data) => isInteger(data) && data >= 0 && data <= 9007199254740991;
-
-bool isUint64Bigint(dynamic data) => data is BigInt && isUint64Str(data.toString());
-
-bool isUintStr(dynamic data, Map<String, String> constraints) {
-  final String min = constraints['min'] ?? '0';
-  final String max = constraints['max'] ?? maxUint64Str;
-
-  if (data is! String) return false;
-
-  final RegExp numericOnly = RegExp(r'^[0-9]*$');
-  bool isNumericOnly = numericOnly.hasMatch(data);
-
-  bool hasValidLength = data.isNotEmpty && data.length <= max.length;
-
-  bool hasNoLeadingZeros = data.length == 1 || !data.startsWith('0');
-
-  bool isLessOrEqualToMax = data.length < max.length || data.compareTo(max) <= 0;
-
-  bool isGreaterOrEqualToMin = data.length > min.length || data.compareTo(min) >= 0;
-
-  return isNumericOnly && hasValidLength && hasNoLeadingZeros && isLessOrEqualToMax && isGreaterOrEqualToMin;
-}
 
 ParsedInput parseTxInput(TxInput input) {
   final String txHashHex = parseHexStringOfLength(
@@ -183,10 +152,7 @@ ParsedInput parseTxInput(TxInput input) {
     txHashLength,
     InvalidDataReason.inputInvalidTxHash,
   );
-  final int outputIndex = parseUint32t(
-    input.outputIndex,
-    InvalidDataReason.inputInvalidUtxoIndex.message,
-  );
+  final int outputIndex = input.outputIndex;
   return ParsedInput(
     txHashHex: txHashHex,
     outputIndex: outputIndex,
@@ -195,7 +161,7 @@ ParsedInput parseTxInput(TxInput input) {
 }
 
 String parseHexStringOfLength(
-  dynamic str,
+  String str,
   int length,
   InvalidDataReason errMsg,
 ) {
@@ -209,14 +175,15 @@ bool isHexStringOfLength(String? data, int expectedByteLength) =>
     isHexString(data) && (data?.length ?? 0) == expectedByteLength * 2;
 
 List<int> parseBIP32Path(
-  dynamic value,
+  List<int>? value,
   InvalidDataReason errMsg,
 ) {
+  if (value == null) throw ValidationException(errMsg.message);
   validate(isValidPath(value), errMsg.message);
   return value;
 }
 
-bool isValidPath(dynamic data) => data is List && data.every((x) => isUint32(x)) && data.length <= 5;
+bool isValidPath(List<int> data) => data.every((x) => isUint32(x)) && data.length <= 5;
 
 ParsedOutput parseTxOutput(TxOutput output, Network network) {
   final format = output.format == TxOutputFormat.mapBabbage ? TxOutputFormat.mapBabbage : TxOutputFormat.arrayLegacy;
@@ -226,23 +193,22 @@ ParsedOutput parseTxOutput(TxOutput output, Network network) {
   final tokenBundle = parseTokenBundle(
     output.tokenBundle ?? [],
     true,
-    parseUint64Str,
   );
 
   final destination = parseTxDestination(network, output.destination, true);
 
   final datum = parseDatum(output);
-  if (datum?.type == DatumType.inline) {
+  if (datum is DatumInline) {
     validate(
       output.format == TxOutputFormat.mapBabbage,
       InvalidDataReason.outputInconsistentDatum.message,
     );
   }
 
-  final referenceScriptHex = output.format == TxOutputFormat.mapBabbage && output.referenceScriptHex != null
+  final referenceScriptHex = output is TxOutputBabbage && output.referenceScriptHex != null
       ? parseHexString(
-          output.referenceScriptHex!,
-          InvalidDataReason.OUTPUT_INVALID_REFERENCE_SCRIPT_HEX,
+          output.referenceScriptHex,
+          InvalidDataReason.outputInvalidReferenceScriptHex,
         )
       : null;
   if (referenceScriptHex != null) {
@@ -588,7 +554,7 @@ ParsedPoolRelay parsePoolRelayParams(Relay relayParams) {
 }
 
 int parsePort(int? portNumber, InvalidDataReason errMsg) {
-if (portNumber == null) throw ValidationException(errMsg.message);
+  if (portNumber == null) throw ValidationException(errMsg.message);
   return portNumber;
 }
 
@@ -643,3 +609,286 @@ ParsedPoolMetadata parsePoolMetadataParams(PoolMetadataParams? params) {
     hashHex: hashHex,
   );
 }
+
+List<ParsedAssetGroup> parseTokenBundle(List<AssetGroup>? tokenBundle, bool emptyTokenBundleAllowed) {
+  if (tokenBundle == null) throw ValidationException(InvalidDataReason.multiassetInvalidTokenBundleEmpty.message);
+  validate(
+    tokenBundle.length <= assetGroupsMax,
+    InvalidDataReason.multiassetInvalidTokenBundleTooLarge.message,
+  );
+  validate(
+    emptyTokenBundleAllowed || tokenBundle.isNotEmpty,
+    InvalidDataReason.multiassetInvalidTokenBundleEmpty.message,
+  );
+
+  final parsedTokenBundle = tokenBundle.map((ag) => parseAssetGroup(ag)).toList();
+
+  final policyIds = parsedTokenBundle.map((ag) => ag.policyIdHex).toList();
+  validate(
+    policyIds.length == policyIds.toSet().length,
+    InvalidDataReason.multiassetInvalidTokenBundleNotUnique.message,
+  );
+
+  final sortedPolicyIds = List.from(policyIds)..sort();
+  validate(
+    listEquals(policyIds, sortedPolicyIds),
+    InvalidDataReason.multiassetInvalidTokenBundleOrdering.message,
+  );
+
+  return parsedTokenBundle;
+}
+
+ParsedAssetGroup parseAssetGroup(AssetGroup assetGroup) {
+  validate(
+    assetGroup.tokens.length <= tokensInGroupMax,
+    InvalidDataReason.multiassetInvalidAssetGroupTooLarge.message,
+  );
+  validate(
+    assetGroup.tokens.isNotEmpty,
+    InvalidDataReason.multiassetInvalidAssetGroupEmpty.message,
+  );
+
+  final parsedAssetGroup = ParsedAssetGroup(
+    policyIdHex: parseHexStringOfLength(
+      assetGroup.policyIdHex,
+      tokenPolicyLength,
+      InvalidDataReason.multiassetInvalidPolicyName,
+    ),
+    tokens: assetGroup.tokens.map((t) => parseToken(t)).toList(),
+  );
+
+  final assetNamesHex = parsedAssetGroup.tokens.map((t) => t.assetNameHex).toList();
+  validate(
+    assetNamesHex.length == assetNamesHex.toSet().length,
+    InvalidDataReason.multiassetInvalidAssetGroupNotUnique.message,
+  );
+
+  final sortedAssetNames = List.from(assetNamesHex)
+    ..sort((n1, n2) {
+      if (n1.length == n2.length) {
+        return n1.compareTo(n2);
+      } else {
+        return n1.length.compareTo(n2.length);
+      }
+    });
+  validate(
+    listEquals(assetNamesHex, sortedAssetNames),
+    InvalidDataReason.multiassetInvalidAssetGroupOrdering.message,
+  );
+
+  return parsedAssetGroup;
+}
+
+ParsedToken parseToken(Token token) {
+  final assetNameHex = parseHexString(
+    token.assetNameHex,
+    InvalidDataReason.multiassetInvalidAssetName,
+  );
+  validate(
+    token.assetNameHex.length <= assetNameLengthMax * 2,
+    InvalidDataReason.multiassetInvalidAssetName.message,
+  );
+
+  final amount = token.amount;
+
+  return ParsedToken(
+    assetNameHex: assetNameHex,
+    amount: amount,
+  );
+}
+
+String parseHexString(String? str, InvalidDataReason errMsg) {
+  if (str == null) throw ValidationException(errMsg.message);
+  validate(isHexString(str), errMsg.message);
+  return str;
+}
+
+ParsedOutputDestination parseTxDestination(Network network, TxOutputDestination destination, bool validateAsTxOutput) {
+  final ParsedOutputDestination Function() parser = switch (destination) {
+    TxOutputDestinationThirdParty() => () => ParsedOutputDestination.thirdParty(
+          addressHex: parseHexString(
+            destination.params.addressHex,
+            InvalidDataReason.outputInvalidAddress,
+          ),
+        ),
+    TxOutputDestinationDeviceOwned() => () => ParsedOutputDestination.deviceOwned(
+          addressParams: parseAddress(
+            network,
+            destination.params,
+          ),
+        ),
+  };
+
+  if (validateAsTxOutput && destination is TxOutputDestinationDeviceOwned) {
+    final addressParams = parseAddress(network, destination.params);
+    if (addressParams is ByronAddressParams) {
+      validate(
+        addressParams.spendingDataSource is SpendingDataSourcePath,
+        InvalidDataReason.outputInvalidAddressParams.message,
+      );
+    }
+  }
+
+  return parser();
+}
+
+ParsedAddressParams parseAddress(Network network, DeviceOwnedAddress address) {
+  final parsedNetwork = parseNetwork(network);
+  // Cast to union of all param fields
+  final params = address.params;
+
+  final spendingDataSource = extractSpendingDataSource(
+    params.spendingPath,
+    params.spendingScriptHashHex,
+  );
+  final stakingDataSource = extractStakingDataSource(
+    params.stakingPath,
+    params.stakingKeyHashHex,
+    params.stakingBlockchainPointer,
+    params.stakingScriptHashHex,
+  );
+
+  validateSpendingDataSource(address.type, spendingDataSource);
+  validateStakingDataSource(address.type, stakingDataSource);
+
+  if (address is DeviceOwnedAddressByron) {
+    return ParsedAddressParams.byron(
+      protocolMagic: parsedNetwork.protocolMagic,
+      spendingDataSource: spendingDataSource,
+      stakingDataSource: stakingDataSource,
+    );
+  } else {
+    final networkId = parsedNetwork.networkId;
+    return ParsedAddressParams.shelley(
+      shelleyAddressParams: ShelleyAddressParamsData(
+        networkId: networkId,
+        spendingDataSource: spendingDataSource,
+        stakingDataSource: stakingDataSource,
+      ),
+    );
+  }
+}
+
+SpendingDataSource extractSpendingDataSource(
+  List<int>? spendingPath,
+  String? spendingScriptHash,
+) {
+  if (spendingPath != null) {
+    validate(
+      spendingScriptHash == null,
+      InvalidDataReason.addressInvalidSpendingScriptHash.message,
+    );
+    return SpendingDataSource.path(
+      path: parseBIP32Path(
+        spendingPath,
+        InvalidDataReason.addressInvalidSpendingKeyPath,
+      ),
+    );
+  }
+  if (spendingScriptHash != null) {
+    validate(
+      spendingPath == null,
+      InvalidDataReason.addressInvalidSpendingKeyPath.message,
+    );
+    return SpendingDataSource.scriptHash(
+      scriptHashHex: parseHexStringOfLength(
+        spendingScriptHash,
+        scriptHashLength,
+        InvalidDataReason.addressInvalidSpendingScriptHash,
+      ),
+    );
+  }
+  return SpendingDataSource.none();
+}
+
+StakingDataSource extractStakingDataSource(
+  List<int>? stakingPath,
+  String? stakingKeyHashHex,
+  BlockchainPointer? stakingBlockchainPointer,
+  String? stakingScriptHashHex,
+) {
+  if (stakingPath != null) {
+    validate(
+      stakingKeyHashHex == null && stakingBlockchainPointer == null && stakingScriptHashHex == null,
+      InvalidDataReason.addressInvalidStakingInfo.message,
+    );
+    return StakingDataSource.keyPath(
+      path: parseBIP32Path(
+        stakingPath,
+        InvalidDataReason.addressInvalidSpendingKeyPath,
+      ),
+    );
+  }
+  if (stakingKeyHashHex != null) {
+    validate(
+      stakingPath == null && stakingBlockchainPointer == null && stakingScriptHashHex == null,
+      InvalidDataReason.addressInvalidStakingInfo.message,
+    );
+    return StakingDataSource.keyHash(
+      keyHashHex: parseHexStringOfLength(
+        stakingKeyHashHex,
+        keyHashLength,
+        InvalidDataReason.addressInvalidStakingKeyHash,
+      ),
+    );
+  }
+  if (stakingBlockchainPointer != null) {
+    validate(
+      stakingPath == null && stakingKeyHashHex == null && stakingScriptHashHex == null,
+      InvalidDataReason.addressInvalidStakingInfo.message,
+    );
+    return StakingDataSource.blockchainPointer(
+      blockIndex: stakingBlockchainPointer.blockIndex,
+      txIndex: stakingBlockchainPointer.txIndex,
+      certificateIndex: stakingBlockchainPointer.certificateIndex,
+    );
+  }
+  if (stakingScriptHashHex != null) {
+    validate(
+      stakingPath == null && stakingKeyHashHex == null && stakingBlockchainPointer == null,
+      InvalidDataReason.addressInvalidStakingInfo.message,
+    );
+    return StakingDataSource.scriptHash(
+      scriptHashHex: parseHexStringOfLength(
+        stakingScriptHashHex,
+        scriptHashLength,
+        InvalidDataReason.addressInvalidStakingScriptHash,
+      ),
+    );
+  }
+  return StakingDataSource.none();
+}
+ParsedDatum? parseDatum(TxOutput output) {
+  if (output is TxOutputBabbage) {
+    final datum = output.datum;
+    final ParsedDatum? Function()? parser = switch (datum) {
+      DatumHash() => () => parseDatumHash(datum.datumHashHex),
+      DatumInline() => () => ParsedDatum.inline(
+            datumHex: parseHexString(
+              datum.datumHex,
+              InvalidDataReason.outputInvalidInlineDatum,
+            ),
+          ),
+      _ => null,
+    };
+
+    return parser?.call();
+  } else {
+    if(output is TxOutputAlonzo) {
+      return output.datumHashHex == null ? null : parseDatumHash(output.datumHashHex);
+    }
+    return null;
+  }
+}
+
+ParsedDatum? parseDatumHash(String? datumHashHex) {
+  if (datumHashHex == null) return null;
+  return ParsedDatum.hash(
+    datumHashHex: parseHexStringOfLength(
+      datumHashHex,
+      datumHashLength,
+      InvalidDataReason.outputInvalidDatumHash,
+    ),
+  );
+}
+

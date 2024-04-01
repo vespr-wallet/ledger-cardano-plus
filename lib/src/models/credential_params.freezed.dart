@@ -18,21 +18,21 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$CredentialParams {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
@@ -65,7 +65,7 @@ abstract class _$$KeyPathCredentialParamsImplCopyWith<$Res> {
           $Res Function(_$KeyPathCredentialParamsImpl) then) =
       __$$KeyPathCredentialParamsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String keyPath});
+  $Res call({List<int> keyPath});
 }
 
 /// @nodoc
@@ -84,9 +84,9 @@ class __$$KeyPathCredentialParamsImplCopyWithImpl<$Res>
   }) {
     return _then(_$KeyPathCredentialParamsImpl(
       keyPath: null == keyPath
-          ? _value.keyPath
+          ? _value._keyPath
           : keyPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<int>,
     ));
   }
 }
@@ -94,10 +94,17 @@ class __$$KeyPathCredentialParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
-  _$KeyPathCredentialParamsImpl({required this.keyPath}) : super._();
+  _$KeyPathCredentialParamsImpl({required final List<int> keyPath})
+      : _keyPath = keyPath,
+        super._();
 
+  final List<int> _keyPath;
   @override
-  final String keyPath;
+  List<int> get keyPath {
+    if (_keyPath is EqualUnmodifiableListView) return _keyPath;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_keyPath);
+  }
 
   @override
   String toString() {
@@ -109,11 +116,12 @@ class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KeyPathCredentialParamsImpl &&
-            (identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+            const DeepCollectionEquality().equals(other._keyPath, _keyPath));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyPath);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keyPath));
 
   @JsonKey(ignore: true)
   @override
@@ -125,7 +133,7 @@ class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
   }) {
@@ -135,7 +143,7 @@ class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
   }) {
@@ -145,7 +153,7 @@ class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
@@ -158,11 +166,11 @@ class _$KeyPathCredentialParamsImpl extends KeyPathCredentialParams {
 }
 
 abstract class KeyPathCredentialParams extends CredentialParams {
-  factory KeyPathCredentialParams({required final String keyPath}) =
+  factory KeyPathCredentialParams({required final List<int> keyPath}) =
       _$KeyPathCredentialParamsImpl;
   KeyPathCredentialParams._() : super._();
 
-  String get keyPath;
+  List<int> get keyPath;
   @JsonKey(ignore: true)
   _$$KeyPathCredentialParamsImplCopyWith<_$KeyPathCredentialParamsImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -236,7 +244,7 @@ class _$KeyHashCredentialParamsImpl extends KeyHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
   }) {
@@ -246,7 +254,7 @@ class _$KeyHashCredentialParamsImpl extends KeyHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
   }) {
@@ -256,7 +264,7 @@ class _$KeyHashCredentialParamsImpl extends KeyHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),
@@ -348,7 +356,7 @@ class _$ScriptHashCredentialParamsImpl extends ScriptHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
   }) {
@@ -358,7 +366,7 @@ class _$ScriptHashCredentialParamsImpl extends ScriptHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
   }) {
@@ -368,7 +376,7 @@ class _$ScriptHashCredentialParamsImpl extends ScriptHashCredentialParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     required TResult orElse(),

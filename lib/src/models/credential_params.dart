@@ -7,7 +7,7 @@ sealed class CredentialParams with _$CredentialParams {
    CredentialParams._();
 
   factory CredentialParams.keyPath({
-    required String keyPath,
+    required List<int> keyPath,
   }) = KeyPathCredentialParams;
 
   factory CredentialParams.keyHash({

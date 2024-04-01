@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$DRepParams {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -27,7 +27,7 @@ mixin _$DRepParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -36,7 +36,7 @@ mixin _$DRepParams {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,
@@ -70,7 +70,7 @@ abstract class _$$KeyPathDRepParamsImplCopyWith<$Res> {
           $Res Function(_$KeyPathDRepParamsImpl) then) =
       __$$KeyPathDRepParamsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String keyPath});
+  $Res call({List<int> keyPath});
 }
 
 /// @nodoc
@@ -88,9 +88,9 @@ class __$$KeyPathDRepParamsImplCopyWithImpl<$Res>
   }) {
     return _then(_$KeyPathDRepParamsImpl(
       keyPath: null == keyPath
-          ? _value.keyPath
+          ? _value._keyPath
           : keyPath // ignore: cast_nullable_to_non_nullable
-              as String,
+              as List<int>,
     ));
   }
 }
@@ -98,10 +98,17 @@ class __$$KeyPathDRepParamsImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
-  _$KeyPathDRepParamsImpl({required this.keyPath}) : super._();
+  _$KeyPathDRepParamsImpl({required final List<int> keyPath})
+      : _keyPath = keyPath,
+        super._();
 
+  final List<int> _keyPath;
   @override
-  final String keyPath;
+  List<int> get keyPath {
+    if (_keyPath is EqualUnmodifiableListView) return _keyPath;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_keyPath);
+  }
 
   @override
   String toString() {
@@ -113,11 +120,12 @@ class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$KeyPathDRepParamsImpl &&
-            (identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+            const DeepCollectionEquality().equals(other._keyPath, _keyPath));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, keyPath);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keyPath));
 
   @JsonKey(ignore: true)
   @override
@@ -129,7 +137,7 @@ class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -141,7 +149,7 @@ class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -153,7 +161,7 @@ class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,
@@ -168,11 +176,11 @@ class _$KeyPathDRepParamsImpl extends KeyPathDRepParams {
 }
 
 abstract class KeyPathDRepParams extends DRepParams {
-  factory KeyPathDRepParams({required final String keyPath}) =
+  factory KeyPathDRepParams({required final List<int> keyPath}) =
       _$KeyPathDRepParamsImpl;
   KeyPathDRepParams._() : super._();
 
-  String get keyPath;
+  List<int> get keyPath;
   @JsonKey(ignore: true)
   _$$KeyPathDRepParamsImplCopyWith<_$KeyPathDRepParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -244,7 +252,7 @@ class _$KeyHashDRepParamsImpl extends KeyHashDRepParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -256,7 +264,7 @@ class _$KeyHashDRepParamsImpl extends KeyHashDRepParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -268,7 +276,7 @@ class _$KeyHashDRepParamsImpl extends KeyHashDRepParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,
@@ -360,7 +368,7 @@ class _$ScriptHashDRepParamsImpl extends ScriptHashDRepParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -372,7 +380,7 @@ class _$ScriptHashDRepParamsImpl extends ScriptHashDRepParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -384,7 +392,7 @@ class _$ScriptHashDRepParamsImpl extends ScriptHashDRepParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,
@@ -447,7 +455,7 @@ class _$AbstainDRepParamsImpl extends AbstainDRepParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -459,7 +467,7 @@ class _$AbstainDRepParamsImpl extends AbstainDRepParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -471,7 +479,7 @@ class _$AbstainDRepParamsImpl extends AbstainDRepParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,
@@ -528,7 +536,7 @@ class _$NoConfidenceParamsImpl extends NoConfidenceParams {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String keyPath) keyPath,
+    required TResult Function(List<int> keyPath) keyPath,
     required TResult Function(String keyHashHex) keyHash,
     required TResult Function(String scriptHashHex) scriptHash,
     required TResult Function() abstain,
@@ -540,7 +548,7 @@ class _$NoConfidenceParamsImpl extends NoConfidenceParams {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyPath)? keyPath,
+    TResult? Function(List<int> keyPath)? keyPath,
     TResult? Function(String keyHashHex)? keyHash,
     TResult? Function(String scriptHashHex)? scriptHash,
     TResult? Function()? abstain,
@@ -552,7 +560,7 @@ class _$NoConfidenceParamsImpl extends NoConfidenceParams {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyPath)? keyPath,
+    TResult Function(List<int> keyPath)? keyPath,
     TResult Function(String keyHashHex)? keyHash,
     TResult Function(String scriptHashHex)? scriptHash,
     TResult Function()? abstain,

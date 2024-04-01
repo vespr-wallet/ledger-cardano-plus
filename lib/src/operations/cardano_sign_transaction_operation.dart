@@ -42,6 +42,10 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCatalystRegistration ||
             VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCIP36;
 
+    final witnessPaths = gatherWitnessPaths(signingRequest);
+
+    print('witnessPaths: $witnessPaths');
+
     // init
     await signTxInit(send);
 
@@ -52,18 +56,21 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       auxiliaryDataSupplement = await signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send);
     }
 
+    final inputs = signingRequest.tx.inputs;
     // inputs
-    for (final input in signingRequest.tx.inputs) {
+    for (final input in inputs) {
       await signTxAddInput(input, send);
     }
 
+    final outputs = signingRequest.tx.outputs;
     // outputs
-    for (final output in signingRequest.tx.outputs) {
+    for (final output in outputs) {
       await signTxAddOutput(output, cardanoVersion, send);
     }
 
+    final fee = signingRequest.tx.fee;
     // fee
-    await signTxSetFee(signingRequest.tx.fee, send);
+    await signTxSetFee(fee, send);
 
     final ttl = signingRequest.tx.ttl;
     // ttl
@@ -71,13 +78,15 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       await signTxSetTtl(ttl, send);
     }
 
+    final certificates = signingRequest.tx.certificates;
     // certificates
-    for (final certificate in signingRequest.tx.certificates ?? []) {
+    for (final certificate in certificates ?? []) {
       await signTxAddCertificate(certificate, cardanoVersion, send);
     }
 
+    final withdrawals = signingRequest.tx.withdrawals;
     // withdrawals
-    for (final withdrawal in signingRequest.tx.withdrawals ?? []) {
+    for (final withdrawal in withdrawals ?? []) {
       await signTxAddWithdrawal(withdrawal, cardanoVersion, send);
     }
 
@@ -106,13 +115,15 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       await signTxSetScriptDataHash(scriptDataHashHex, send);
     }
 
+    final collateralInputs = signingRequest.tx.collateralInputs;
     // collateral inputs
-    for (final input in signingRequest.tx.collateralInputs ?? []) {
+    for (final input in collateralInputs ?? []) {
       await signTxAddCollateralInput(input, send);
     }
 
+    final requiredSigners = signingRequest.tx.requiredSigners;
     // required signers
-    for (final requiredSigner in signingRequest.tx.requiredSigners ?? []) {
+    for (final requiredSigner in requiredSigners ?? []) {
       await signTxAddRequiredSigner(requiredSigner, send);
     }
 
@@ -128,13 +139,15 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       await signTxAddTotalCollateral(totalCollateral, send);
     }
 
+    final referenceInputs = signingRequest.tx.referenceInputs;
     // reference inputs
-    for (final referenceInput in signingRequest.tx.referenceInputs ?? []) {
+    for (final referenceInput in referenceInputs ?? []) {
       await signTxAddReferenceInput(referenceInput, send);
     }
 
+    final votingProcedures = signingRequest.tx.votingProcedures;
     // voting procedures
-    for (final voterVotes in signingRequest.tx.votingProcedures ?? []) {
+    for (final voterVotes in votingProcedures ?? []) {
       await signTxAddVoterVotes(voterVotes, send);
     }
 
@@ -154,12 +167,16 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     // confirm
     final txHashHex = await signTxAwaitConfirm(send);
 
+    print('signingRequest: ${signingRequest.additionalWitnessPaths}');
+
     // witnesses
     final witnesses = <Witness>[];
-    for (final path in signingRequest.additionalWitnessPaths) {
+    for (final path in witnessPaths) {
+      print('path: $path');
       final witness = await signTxGetWitness(path, send);
       witnesses.add(witness);
     }
+    print('witnesses: $witnesses');
 
     return SignedTransactionData(
       txHashHex: txHashHex,
@@ -725,7 +742,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
   }
 
   Future<Witness> signTxGetWitness(List<int> path, LedgerSendFct send) async {
-    final Uint8List data = SerializationUtils.serializeTxWitnessRequest(path);
+    final Uint8List data = SerializationUtils.pathToBuf(path);
 
     final response = await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -740,6 +757,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       throw ValidationException('Unexpected response length for witness signature');
     }
 
+    print('response: ${response.remainingLength}');
     final witnessSignature = response.read(response.remainingLength);
     final witnessSignatureHex = hex.encode(witnessSignature);
 

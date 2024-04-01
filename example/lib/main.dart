@@ -251,7 +251,15 @@ class _MyAppState extends State<MyApp> {
 
     // Updating the UI state with the signed transaction data
     setState(() {
-      signatureHex = 'Signed Transaction: ${signedTx.txHashHex}';
+      signatureHex = 'Signed Transaction: {\n'
+        '  txHashHex: \'${signedTx.txHashHex}\',\n'
+        '  witnesses: [\n'
+        '    {\n'
+        '      path: ${signedTx.witnesses.first.path},\n' // Assuming path is an array you'd like to display differently
+        '      witnessSignatureHex: \'${signedTx.witnesses.first.witnessSignatureHex}\'\n'
+        '    }\n'
+        '  ],\n'
+        '}';
     });
 
     // Logging the signed transaction data

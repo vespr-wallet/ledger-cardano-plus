@@ -22,6 +22,7 @@ import 'package:ledger_cardano/src/models/parsed_pool_params.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_relay.dart';
 import 'package:ledger_cardano/src/models/parsed_pool_reward_account.dart';
 import 'package:ledger_cardano/src/models/parsed_required_signer.dart';
+import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/parsed_token.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
@@ -52,6 +53,15 @@ class SerializationUtils {
     for (var index in path) {
       writer.writeUint32(index);
     }
+  }
+  
+  static Uint8List pathToBuf(List<int> path) {
+    final ByteData data = ByteData(1 + 4 * path.length);
+    data.setUint8(0, path.length);
+    for (int i = 0; i < path.length; i++) {
+      data.setUint32(1 + i * 4, path[i], Endian.big);
+    }
+    return data.buffer.asUint8List();
   }
 
   static void writeSerializedHex(ByteDataWriter writer, String hexString) {
@@ -109,6 +119,13 @@ class SerializationUtils {
         writer.write(Uint8List(0));
       }
 
+      writer.writeUint8(tx.network.networkId);
+      writer.writeUint32(tx.network.protocolMagic);
+
+      serializeOptionFlag(writer, tx.ttl != null);
+      serializeOptionFlag(writer, tx.auxiliaryData != null);
+      serializeOptionFlag(writer, tx.validityIntervalStart != null);
+
       // Serialize mint flag or write an empty buffer
       if (compatibility.supportsMint || version.flags.isAppXS) {
         serializeOptionFlag(writer, tx.mint != null);
@@ -119,20 +136,6 @@ class SerializationUtils {
       // Serialize script data hash flag or write an empty buffer
       if (compatibility.supportsAlonzo) {
         serializeOptionFlag(writer, tx.scriptDataHashHex != null);
-      } else {
-        writer.write(Uint8List(0));
-      }
-
-      // Serialize collateral inputs count or write an empty buffer
-      if (compatibility.supportsAlonzo) {
-        writer.writeUint32(tx.collateralInputs?.length ?? 0);
-      } else {
-        writer.write(Uint8List(0));
-      }
-
-      // Serialize required signers count or write an empty buffer
-      if (compatibility.supportsAlonzo) {
-        writer.writeUint32(tx.requiredSigners?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
@@ -158,20 +161,6 @@ class SerializationUtils {
         writer.write(Uint8List(0));
       }
 
-      // Serialize reference inputs count or write an empty buffer
-      if (compatibility.supportsBabbage) {
-        writer.writeUint32(tx.referenceInputs?.length ?? 0);
-      } else {
-        writer.write(Uint8List(0));
-      }
-
-      // Serialize voting procedures count or write an empty buffer
-      if (compatibility.supportsConway) {
-        writer.writeUint32(tx.votingProcedures?.length ?? 0);
-      } else {
-        writer.write(Uint8List(0));
-      }
-
       // Serialize treasury flag or write an empty buffer
       if (compatibility.supportsConway) {
         serializeOptionFlag(writer, tx.treasury != null);
@@ -186,13 +175,6 @@ class SerializationUtils {
         writer.write(Uint8List(0));
       }
 
-      writer.writeUint8(tx.network.networkId);
-      writer.writeUint32(tx.network.protocolMagic);
-
-      serializeOptionFlag(writer, tx.ttl != null);
-      serializeOptionFlag(writer, tx.auxiliaryData != null);
-      serializeOptionFlag(writer, tx.validityIntervalStart != null);
-
       _serializeSigningMode(writer, signingMode);
 
       writer.writeUint32(tx.inputs.length);
@@ -205,7 +187,34 @@ class SerializationUtils {
         writer.writeUint32(numWitnesses);
       } else {
         writer.write(Uint8List(0));
-        writer.writeUint32(numWitnesses);
+      }
+
+      // Serialize collateral inputs count or write an empty buffer
+      if (compatibility.supportsAlonzo) {
+        writer.writeUint32(tx.collateralInputs?.length ?? 0);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize required signers count or write an empty buffer
+      if (compatibility.supportsAlonzo) {
+        writer.writeUint32(tx.requiredSigners?.length ?? 0);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize reference inputs count or write an empty buffer
+      if (compatibility.supportsBabbage) {
+        writer.writeUint32(tx.referenceInputs?.length ?? 0);
+      } else {
+        writer.write(Uint8List(0));
+      }
+
+      // Serialize voting procedures count or write an empty buffer
+      if (compatibility.supportsConway) {
+        writer.writeUint32(tx.votingProcedures?.length ?? 0);
+      } else {
+        writer.write(Uint8List(0));
       }
 
       return writer.toBytes();
@@ -985,3 +994,151 @@ class SerializationUtils {
     });
   }
 }
+
+List<List<int>> gatherWitnessPaths(ParsedSigningRequest request)   {
+  final tx = request.tx;
+  final signingMode = request.signingMode;
+  final additionalWitnessPaths = request.additionalWitnessPaths;
+  final List<List<int>> witnessPaths = [];
+
+  if (signingMode is! MultisigTransaction) {
+    // Input witnesses
+    for (final input in tx.inputs) {
+      final path = input.path;
+      if (path != null) {
+        witnessPaths.add(path);
+      }
+    }
+
+    final certificates = tx.certificates;
+    // Certificate witnesses
+    for (final cert in certificates ?? []) {
+      final void Function() invoker = switch (cert) {
+        StakeRegistrationConway() => () {
+          final credential = cert.stakeCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        StakeDeregistration() => () {
+          final credential = cert.stakeCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        StakeDeregistrationConway() => () {
+          final credential = cert.stakeCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        StakeDelegation() => () {
+          final credential = cert.stakeCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        VoteDelegation() => () {
+          final credential = cert.stakeCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        AuthorizeCommitteeHot() => () {
+          final credential = cert.coldCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        ResignCommitteeCold() => () {
+          final credential = cert.coldCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        DRepRegistration() => () {
+          final credential = cert.dRepCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        DRepDeregistration() => () {
+          final credential = cert.dRepCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        DRepUpdate() => () {
+          final credential = cert.dRepCredential;
+          if (credential is CredentialKeyPath) {
+            witnessPaths.add(credential.path);
+          }
+        },
+        StakePoolRegistration() => () {
+          for (var owner in cert.pool.owners) {
+            if (owner is DeviceOwnedPoolOwner) {
+              witnessPaths.add(owner.path);
+            }
+          }
+          final poolKey = cert.pool.poolKey;
+          if (poolKey is DeviceOwnedPoolKey) {
+            witnessPaths.add(poolKey.path);
+          }
+        },
+        StakePoolRetirement() => () => witnessPaths.add(cert.path),
+        // TODO: Handle this case.
+        Object() => throw UnimplementedError(),
+        // TODO: Handle this case.
+        null => throw UnimplementedError(),
+      };
+      invoker();
+    }
+
+    // Withdrawal witnesses
+    for (final withdrawal in tx.withdrawals ?? []) {
+      if (withdrawal.stakeCredential.type == CredentialType.keyPath) {
+        witnessPaths.add(withdrawal.stakeCredential.path);
+      }
+    }
+
+    // Required signers witnesses
+    for (final signer in tx.requiredSigners ?? []) {
+      if (signer.type == RequiredSignerType.path) {
+        witnessPaths.add(signer.path);
+      }
+    }
+
+    // Collateral inputs witnesses
+    for (final collateral in tx.collateralInputs ?? []) {
+      if (collateral.path != null) {
+        witnessPaths.add(collateral.path);
+      }
+    }
+
+    final votingProcedures = tx.votingProcedures;
+    // Voting procedures witnesses
+    for (final votingProcedure in votingProcedures ?? []) {
+      final void Function() invoker = switch (votingProcedure.voter.type) {
+        CommitteeKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
+        DrepKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
+        StakePoolKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
+        _ => () {},
+      };
+      invoker();
+    }
+  }
+
+  // Add additionalWitnessPaths
+  witnessPaths.addAll(additionalWitnessPaths);
+
+  // Remove duplicates
+  return uniquify(witnessPaths);
+}
+
+
+List<List<int>> uniquify(List<List<int>> paths) {
+  return paths.toSet().toList();
+}
+
+
+

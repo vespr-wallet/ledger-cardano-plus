@@ -16,6 +16,7 @@ import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
@@ -213,7 +214,7 @@ class _MyAppState extends State<MyApp> {
       });
       print('Generic Error fetching accounts: ${e.toString()}');
     }
-  }
+  } 
   
   Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
   try {
@@ -221,7 +222,7 @@ class _MyAppState extends State<MyApp> {
     final txToSign = ParsedSigningRequest(
       signingMode: OrdinaryTransaction(),
       tx: ParsedTransaction(
-        network: ParsedNetwork.mainnet,
+        network: ParsedNetworkMainnet(),
         inputs: [
           ParsedInput(
             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
@@ -369,7 +370,9 @@ class _MyAppState extends State<MyApp> {
                         // await _fetchAccount(device);
                         // await _fetchVersion(device);
 
-                        await _testSignOperationalCertificate(device);
+                        // await _testSignOperationalCertificate(device);
+                        
+                        await _testSignTransactionWithoutOutputs(device);
 
                         // await _testDeriveNativeScriptHash(device);
                         // await _testDeriveComplexNativeScriptHash(device);

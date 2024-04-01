@@ -21,22 +21,22 @@ mixin _$ParsedTransaction {
   List<ParsedOutput> get outputs => throw _privateConstructorUsedError;
   BigInt get fee => throw _privateConstructorUsedError;
   BigInt? get ttl => throw _privateConstructorUsedError;
-  List<ParsedCertificate> get certificates =>
+  List<ParsedCertificate>? get certificates =>
       throw _privateConstructorUsedError;
-  List<ParsedWithdrawal> get withdrawals => throw _privateConstructorUsedError;
+  List<ParsedWithdrawal>? get withdrawals => throw _privateConstructorUsedError;
   ParsedTxAuxiliaryData? get auxiliaryData =>
       throw _privateConstructorUsedError;
   BigInt? get validityIntervalStart => throw _privateConstructorUsedError;
   List<ParsedAssetGroup>? get mint => throw _privateConstructorUsedError;
   ScriptDataHash? get scriptDataHashHex => throw _privateConstructorUsedError;
-  List<ParsedInput> get collateralInputs => throw _privateConstructorUsedError;
-  List<ParsedRequiredSigner> get requiredSigners =>
+  List<ParsedInput>? get collateralInputs => throw _privateConstructorUsedError;
+  List<ParsedRequiredSigner>? get requiredSigners =>
       throw _privateConstructorUsedError;
-  bool get includeNetworkId => throw _privateConstructorUsedError;
+  bool? get includeNetworkId => throw _privateConstructorUsedError;
   ParsedOutput? get collateralOutput => throw _privateConstructorUsedError;
   BigInt? get totalCollateral => throw _privateConstructorUsedError;
-  List<ParsedInput> get referenceInputs => throw _privateConstructorUsedError;
-  List<ParsedVoterVotes> get votingProcedures =>
+  List<ParsedInput>? get referenceInputs => throw _privateConstructorUsedError;
+  List<ParsedVoterVotes>? get votingProcedures =>
       throw _privateConstructorUsedError;
   BigInt? get treasury => throw _privateConstructorUsedError;
   BigInt? get donation => throw _privateConstructorUsedError;
@@ -48,19 +48,19 @@ mixin _$ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)
         $default,
@@ -74,19 +74,19 @@ mixin _$ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)?
         $default,
@@ -100,19 +100,19 @@ mixin _$ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)?
         $default, {
@@ -137,19 +137,19 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       List<ParsedOutput> outputs,
       BigInt fee,
       BigInt? ttl,
-      List<ParsedCertificate> certificates,
-      List<ParsedWithdrawal> withdrawals,
+      List<ParsedCertificate>? certificates,
+      List<ParsedWithdrawal>? withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
       BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
-      List<ParsedInput> collateralInputs,
-      List<ParsedRequiredSigner> requiredSigners,
-      bool includeNetworkId,
+      List<ParsedInput>? collateralInputs,
+      List<ParsedRequiredSigner>? requiredSigners,
+      bool? includeNetworkId,
       ParsedOutput? collateralOutput,
       BigInt? totalCollateral,
-      List<ParsedInput> referenceInputs,
-      List<ParsedVoterVotes> votingProcedures,
+      List<ParsedInput>? referenceInputs,
+      List<ParsedVoterVotes>? votingProcedures,
       BigInt? treasury,
       BigInt? donation});
 
@@ -177,19 +177,19 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
     Object? outputs = null,
     Object? fee = null,
     Object? ttl = freezed,
-    Object? certificates = null,
-    Object? withdrawals = null,
+    Object? certificates = freezed,
+    Object? withdrawals = freezed,
     Object? auxiliaryData = freezed,
     Object? validityIntervalStart = freezed,
     Object? mint = freezed,
     Object? scriptDataHashHex = freezed,
-    Object? collateralInputs = null,
-    Object? requiredSigners = null,
-    Object? includeNetworkId = null,
+    Object? collateralInputs = freezed,
+    Object? requiredSigners = freezed,
+    Object? includeNetworkId = freezed,
     Object? collateralOutput = freezed,
     Object? totalCollateral = freezed,
-    Object? referenceInputs = null,
-    Object? votingProcedures = null,
+    Object? referenceInputs = freezed,
+    Object? votingProcedures = freezed,
     Object? treasury = freezed,
     Object? donation = freezed,
   }) {
@@ -214,14 +214,14 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
               as BigInt?,
-      certificates: null == certificates
+      certificates: freezed == certificates
           ? _value.certificates
           : certificates // ignore: cast_nullable_to_non_nullable
-              as List<ParsedCertificate>,
-      withdrawals: null == withdrawals
+              as List<ParsedCertificate>?,
+      withdrawals: freezed == withdrawals
           ? _value.withdrawals
           : withdrawals // ignore: cast_nullable_to_non_nullable
-              as List<ParsedWithdrawal>,
+              as List<ParsedWithdrawal>?,
       auxiliaryData: freezed == auxiliaryData
           ? _value.auxiliaryData
           : auxiliaryData // ignore: cast_nullable_to_non_nullable
@@ -238,18 +238,18 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
           ? _value.scriptDataHashHex
           : scriptDataHashHex // ignore: cast_nullable_to_non_nullable
               as ScriptDataHash?,
-      collateralInputs: null == collateralInputs
+      collateralInputs: freezed == collateralInputs
           ? _value.collateralInputs
           : collateralInputs // ignore: cast_nullable_to_non_nullable
-              as List<ParsedInput>,
-      requiredSigners: null == requiredSigners
+              as List<ParsedInput>?,
+      requiredSigners: freezed == requiredSigners
           ? _value.requiredSigners
           : requiredSigners // ignore: cast_nullable_to_non_nullable
-              as List<ParsedRequiredSigner>,
-      includeNetworkId: null == includeNetworkId
+              as List<ParsedRequiredSigner>?,
+      includeNetworkId: freezed == includeNetworkId
           ? _value.includeNetworkId
           : includeNetworkId // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       collateralOutput: freezed == collateralOutput
           ? _value.collateralOutput
           : collateralOutput // ignore: cast_nullable_to_non_nullable
@@ -258,14 +258,14 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
           ? _value.totalCollateral
           : totalCollateral // ignore: cast_nullable_to_non_nullable
               as BigInt?,
-      referenceInputs: null == referenceInputs
+      referenceInputs: freezed == referenceInputs
           ? _value.referenceInputs
           : referenceInputs // ignore: cast_nullable_to_non_nullable
-              as List<ParsedInput>,
-      votingProcedures: null == votingProcedures
+              as List<ParsedInput>?,
+      votingProcedures: freezed == votingProcedures
           ? _value.votingProcedures
           : votingProcedures // ignore: cast_nullable_to_non_nullable
-              as List<ParsedVoterVotes>,
+              as List<ParsedVoterVotes>?,
       treasury: freezed == treasury
           ? _value.treasury
           : treasury // ignore: cast_nullable_to_non_nullable
@@ -336,19 +336,19 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
       List<ParsedOutput> outputs,
       BigInt fee,
       BigInt? ttl,
-      List<ParsedCertificate> certificates,
-      List<ParsedWithdrawal> withdrawals,
+      List<ParsedCertificate>? certificates,
+      List<ParsedWithdrawal>? withdrawals,
       ParsedTxAuxiliaryData? auxiliaryData,
       BigInt? validityIntervalStart,
       List<ParsedAssetGroup>? mint,
       ScriptDataHash? scriptDataHashHex,
-      List<ParsedInput> collateralInputs,
-      List<ParsedRequiredSigner> requiredSigners,
-      bool includeNetworkId,
+      List<ParsedInput>? collateralInputs,
+      List<ParsedRequiredSigner>? requiredSigners,
+      bool? includeNetworkId,
       ParsedOutput? collateralOutput,
       BigInt? totalCollateral,
-      List<ParsedInput> referenceInputs,
-      List<ParsedVoterVotes> votingProcedures,
+      List<ParsedInput>? referenceInputs,
+      List<ParsedVoterVotes>? votingProcedures,
       BigInt? treasury,
       BigInt? donation});
 
@@ -378,19 +378,19 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
     Object? outputs = null,
     Object? fee = null,
     Object? ttl = freezed,
-    Object? certificates = null,
-    Object? withdrawals = null,
+    Object? certificates = freezed,
+    Object? withdrawals = freezed,
     Object? auxiliaryData = freezed,
     Object? validityIntervalStart = freezed,
     Object? mint = freezed,
     Object? scriptDataHashHex = freezed,
-    Object? collateralInputs = null,
-    Object? requiredSigners = null,
-    Object? includeNetworkId = null,
+    Object? collateralInputs = freezed,
+    Object? requiredSigners = freezed,
+    Object? includeNetworkId = freezed,
     Object? collateralOutput = freezed,
     Object? totalCollateral = freezed,
-    Object? referenceInputs = null,
-    Object? votingProcedures = null,
+    Object? referenceInputs = freezed,
+    Object? votingProcedures = freezed,
     Object? treasury = freezed,
     Object? donation = freezed,
   }) {
@@ -415,14 +415,14 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
           ? _value.ttl
           : ttl // ignore: cast_nullable_to_non_nullable
               as BigInt?,
-      certificates: null == certificates
+      certificates: freezed == certificates
           ? _value._certificates
           : certificates // ignore: cast_nullable_to_non_nullable
-              as List<ParsedCertificate>,
-      withdrawals: null == withdrawals
+              as List<ParsedCertificate>?,
+      withdrawals: freezed == withdrawals
           ? _value._withdrawals
           : withdrawals // ignore: cast_nullable_to_non_nullable
-              as List<ParsedWithdrawal>,
+              as List<ParsedWithdrawal>?,
       auxiliaryData: freezed == auxiliaryData
           ? _value.auxiliaryData
           : auxiliaryData // ignore: cast_nullable_to_non_nullable
@@ -439,18 +439,18 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
           ? _value.scriptDataHashHex
           : scriptDataHashHex // ignore: cast_nullable_to_non_nullable
               as ScriptDataHash?,
-      collateralInputs: null == collateralInputs
+      collateralInputs: freezed == collateralInputs
           ? _value._collateralInputs
           : collateralInputs // ignore: cast_nullable_to_non_nullable
-              as List<ParsedInput>,
-      requiredSigners: null == requiredSigners
+              as List<ParsedInput>?,
+      requiredSigners: freezed == requiredSigners
           ? _value._requiredSigners
           : requiredSigners // ignore: cast_nullable_to_non_nullable
-              as List<ParsedRequiredSigner>,
-      includeNetworkId: null == includeNetworkId
+              as List<ParsedRequiredSigner>?,
+      includeNetworkId: freezed == includeNetworkId
           ? _value.includeNetworkId
           : includeNetworkId // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       collateralOutput: freezed == collateralOutput
           ? _value.collateralOutput
           : collateralOutput // ignore: cast_nullable_to_non_nullable
@@ -459,14 +459,14 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
           ? _value.totalCollateral
           : totalCollateral // ignore: cast_nullable_to_non_nullable
               as BigInt?,
-      referenceInputs: null == referenceInputs
+      referenceInputs: freezed == referenceInputs
           ? _value._referenceInputs
           : referenceInputs // ignore: cast_nullable_to_non_nullable
-              as List<ParsedInput>,
-      votingProcedures: null == votingProcedures
+              as List<ParsedInput>?,
+      votingProcedures: freezed == votingProcedures
           ? _value._votingProcedures
           : votingProcedures // ignore: cast_nullable_to_non_nullable
-              as List<ParsedVoterVotes>,
+              as List<ParsedVoterVotes>?,
       treasury: freezed == treasury
           ? _value.treasury
           : treasury // ignore: cast_nullable_to_non_nullable
@@ -488,19 +488,19 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
       required final List<ParsedOutput> outputs,
       required this.fee,
       this.ttl,
-      required final List<ParsedCertificate> certificates,
-      required final List<ParsedWithdrawal> withdrawals,
+      final List<ParsedCertificate>? certificates,
+      final List<ParsedWithdrawal>? withdrawals,
       this.auxiliaryData,
       this.validityIntervalStart,
       final List<ParsedAssetGroup>? mint,
       this.scriptDataHashHex,
-      required final List<ParsedInput> collateralInputs,
-      required final List<ParsedRequiredSigner> requiredSigners,
-      required this.includeNetworkId,
+      final List<ParsedInput>? collateralInputs,
+      final List<ParsedRequiredSigner>? requiredSigners,
+      this.includeNetworkId,
       this.collateralOutput,
       this.totalCollateral,
-      required final List<ParsedInput> referenceInputs,
-      required final List<ParsedVoterVotes> votingProcedures,
+      final List<ParsedInput>? referenceInputs,
+      final List<ParsedVoterVotes>? votingProcedures,
       this.treasury,
       this.donation})
       : _inputs = inputs,
@@ -536,20 +536,24 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
   final BigInt fee;
   @override
   final BigInt? ttl;
-  final List<ParsedCertificate> _certificates;
+  final List<ParsedCertificate>? _certificates;
   @override
-  List<ParsedCertificate> get certificates {
+  List<ParsedCertificate>? get certificates {
+    final value = _certificates;
+    if (value == null) return null;
     if (_certificates is EqualUnmodifiableListView) return _certificates;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_certificates);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<ParsedWithdrawal> _withdrawals;
+  final List<ParsedWithdrawal>? _withdrawals;
   @override
-  List<ParsedWithdrawal> get withdrawals {
+  List<ParsedWithdrawal>? get withdrawals {
+    final value = _withdrawals;
+    if (value == null) return null;
     if (_withdrawals is EqualUnmodifiableListView) return _withdrawals;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_withdrawals);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -568,44 +572,52 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
 
   @override
   final ScriptDataHash? scriptDataHashHex;
-  final List<ParsedInput> _collateralInputs;
+  final List<ParsedInput>? _collateralInputs;
   @override
-  List<ParsedInput> get collateralInputs {
+  List<ParsedInput>? get collateralInputs {
+    final value = _collateralInputs;
+    if (value == null) return null;
     if (_collateralInputs is EqualUnmodifiableListView)
       return _collateralInputs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_collateralInputs);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<ParsedRequiredSigner> _requiredSigners;
+  final List<ParsedRequiredSigner>? _requiredSigners;
   @override
-  List<ParsedRequiredSigner> get requiredSigners {
+  List<ParsedRequiredSigner>? get requiredSigners {
+    final value = _requiredSigners;
+    if (value == null) return null;
     if (_requiredSigners is EqualUnmodifiableListView) return _requiredSigners;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_requiredSigners);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
-  final bool includeNetworkId;
+  final bool? includeNetworkId;
   @override
   final ParsedOutput? collateralOutput;
   @override
   final BigInt? totalCollateral;
-  final List<ParsedInput> _referenceInputs;
+  final List<ParsedInput>? _referenceInputs;
   @override
-  List<ParsedInput> get referenceInputs {
+  List<ParsedInput>? get referenceInputs {
+    final value = _referenceInputs;
+    if (value == null) return null;
     if (_referenceInputs is EqualUnmodifiableListView) return _referenceInputs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_referenceInputs);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<ParsedVoterVotes> _votingProcedures;
+  final List<ParsedVoterVotes>? _votingProcedures;
   @override
-  List<ParsedVoterVotes> get votingProcedures {
+  List<ParsedVoterVotes>? get votingProcedures {
+    final value = _votingProcedures;
+    if (value == null) return null;
     if (_votingProcedures is EqualUnmodifiableListView)
       return _votingProcedures;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_votingProcedures);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -700,19 +712,19 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)
         $default,
@@ -749,19 +761,19 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)?
         $default,
@@ -798,19 +810,19 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
             List<ParsedOutput> outputs,
             BigInt fee,
             BigInt? ttl,
-            List<ParsedCertificate> certificates,
-            List<ParsedWithdrawal> withdrawals,
+            List<ParsedCertificate>? certificates,
+            List<ParsedWithdrawal>? withdrawals,
             ParsedTxAuxiliaryData? auxiliaryData,
             BigInt? validityIntervalStart,
             List<ParsedAssetGroup>? mint,
             ScriptDataHash? scriptDataHashHex,
-            List<ParsedInput> collateralInputs,
-            List<ParsedRequiredSigner> requiredSigners,
-            bool includeNetworkId,
+            List<ParsedInput>? collateralInputs,
+            List<ParsedRequiredSigner>? requiredSigners,
+            bool? includeNetworkId,
             ParsedOutput? collateralOutput,
             BigInt? totalCollateral,
-            List<ParsedInput> referenceInputs,
-            List<ParsedVoterVotes> votingProcedures,
+            List<ParsedInput>? referenceInputs,
+            List<ParsedVoterVotes>? votingProcedures,
             BigInt? treasury,
             BigInt? donation)?
         $default, {
@@ -850,19 +862,19 @@ abstract class _ParsedTransaction extends ParsedTransaction {
       required final List<ParsedOutput> outputs,
       required final BigInt fee,
       final BigInt? ttl,
-      required final List<ParsedCertificate> certificates,
-      required final List<ParsedWithdrawal> withdrawals,
+      final List<ParsedCertificate>? certificates,
+      final List<ParsedWithdrawal>? withdrawals,
       final ParsedTxAuxiliaryData? auxiliaryData,
       final BigInt? validityIntervalStart,
       final List<ParsedAssetGroup>? mint,
       final ScriptDataHash? scriptDataHashHex,
-      required final List<ParsedInput> collateralInputs,
-      required final List<ParsedRequiredSigner> requiredSigners,
-      required final bool includeNetworkId,
+      final List<ParsedInput>? collateralInputs,
+      final List<ParsedRequiredSigner>? requiredSigners,
+      final bool? includeNetworkId,
       final ParsedOutput? collateralOutput,
       final BigInt? totalCollateral,
-      required final List<ParsedInput> referenceInputs,
-      required final List<ParsedVoterVotes> votingProcedures,
+      final List<ParsedInput>? referenceInputs,
+      final List<ParsedVoterVotes>? votingProcedures,
       final BigInt? treasury,
       final BigInt? donation}) = _$ParsedTransactionImpl;
   _ParsedTransaction._() : super._();
@@ -878,9 +890,9 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   BigInt? get ttl;
   @override
-  List<ParsedCertificate> get certificates;
+  List<ParsedCertificate>? get certificates;
   @override
-  List<ParsedWithdrawal> get withdrawals;
+  List<ParsedWithdrawal>? get withdrawals;
   @override
   ParsedTxAuxiliaryData? get auxiliaryData;
   @override
@@ -890,19 +902,19 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   @override
   ScriptDataHash? get scriptDataHashHex;
   @override
-  List<ParsedInput> get collateralInputs;
+  List<ParsedInput>? get collateralInputs;
   @override
-  List<ParsedRequiredSigner> get requiredSigners;
+  List<ParsedRequiredSigner>? get requiredSigners;
   @override
-  bool get includeNetworkId;
+  bool? get includeNetworkId;
   @override
   ParsedOutput? get collateralOutput;
   @override
   BigInt? get totalCollateral;
   @override
-  List<ParsedInput> get referenceInputs;
+  List<ParsedInput>? get referenceInputs;
   @override
-  List<ParsedVoterVotes> get votingProcedures;
+  List<ParsedVoterVotes>? get votingProcedures;
   @override
   BigInt? get treasury;
   @override

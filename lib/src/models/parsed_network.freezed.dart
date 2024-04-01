@@ -16,27 +16,24 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedNetwork {
-  int get protocolMagic => throw _privateConstructorUsedError;
-  int get networkId => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int protocolMagic, int networkId)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId)? $default, {
-    required TResult orElse(),
+  TResult when<TResult extends Object?>({
+    required TResult Function() testnet,
+    required TResult Function() mainnet,
   }) =>
       throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ParsedNetworkCopyWith<ParsedNetwork> get copyWith =>
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? testnet,
+    TResult? Function()? mainnet,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? testnet,
+    TResult Function()? mainnet,
+    required TResult orElse(),
+  }) =>
       throw _privateConstructorUsedError;
 }
 
@@ -45,8 +42,6 @@ abstract class $ParsedNetworkCopyWith<$Res> {
   factory $ParsedNetworkCopyWith(
           ParsedNetwork value, $Res Function(ParsedNetwork) then) =
       _$ParsedNetworkCopyWithImpl<$Res, ParsedNetwork>;
-  @useResult
-  $Res call({int protocolMagic, int networkId});
 }
 
 /// @nodoc
@@ -58,141 +53,150 @@ class _$ParsedNetworkCopyWithImpl<$Res, $Val extends ParsedNetwork>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? protocolMagic = null,
-    Object? networkId = null,
-  }) {
-    return _then(_value.copyWith(
-      protocolMagic: null == protocolMagic
-          ? _value.protocolMagic
-          : protocolMagic // ignore: cast_nullable_to_non_nullable
-              as int,
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$ParsedNetworkImplCopyWith<$Res>
-    implements $ParsedNetworkCopyWith<$Res> {
-  factory _$$ParsedNetworkImplCopyWith(
-          _$ParsedNetworkImpl value, $Res Function(_$ParsedNetworkImpl) then) =
-      __$$ParsedNetworkImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({int protocolMagic, int networkId});
+abstract class _$$ParsedNetworkTestnetImplCopyWith<$Res> {
+  factory _$$ParsedNetworkTestnetImplCopyWith(_$ParsedNetworkTestnetImpl value,
+          $Res Function(_$ParsedNetworkTestnetImpl) then) =
+      __$$ParsedNetworkTestnetImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ParsedNetworkImplCopyWithImpl<$Res>
-    extends _$ParsedNetworkCopyWithImpl<$Res, _$ParsedNetworkImpl>
-    implements _$$ParsedNetworkImplCopyWith<$Res> {
-  __$$ParsedNetworkImplCopyWithImpl(
-      _$ParsedNetworkImpl _value, $Res Function(_$ParsedNetworkImpl) _then)
+class __$$ParsedNetworkTestnetImplCopyWithImpl<$Res>
+    extends _$ParsedNetworkCopyWithImpl<$Res, _$ParsedNetworkTestnetImpl>
+    implements _$$ParsedNetworkTestnetImplCopyWith<$Res> {
+  __$$ParsedNetworkTestnetImplCopyWithImpl(_$ParsedNetworkTestnetImpl _value,
+      $Res Function(_$ParsedNetworkTestnetImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? protocolMagic = null,
-    Object? networkId = null,
-  }) {
-    return _then(_$ParsedNetworkImpl(
-      protocolMagic: null == protocolMagic
-          ? _value.protocolMagic
-          : protocolMagic // ignore: cast_nullable_to_non_nullable
-              as int,
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ));
-  }
 }
 
 /// @nodoc
 
-class _$ParsedNetworkImpl extends _ParsedNetwork {
-  _$ParsedNetworkImpl({required this.protocolMagic, required this.networkId})
-      : super._();
-
-  @override
-  final int protocolMagic;
-  @override
-  final int networkId;
+class _$ParsedNetworkTestnetImpl extends ParsedNetworkTestnet {
+  _$ParsedNetworkTestnetImpl() : super._();
 
   @override
   String toString() {
-    return 'ParsedNetwork(protocolMagic: $protocolMagic, networkId: $networkId)';
+    return 'ParsedNetwork.testnet()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedNetworkImpl &&
-            (identical(other.protocolMagic, protocolMagic) ||
-                other.protocolMagic == protocolMagic) &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId));
+            other is _$ParsedNetworkTestnetImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, protocolMagic, networkId);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ParsedNetworkImplCopyWith<_$ParsedNetworkImpl> get copyWith =>
-      __$$ParsedNetworkImplCopyWithImpl<_$ParsedNetworkImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId) $default,
-  ) {
-    return $default(protocolMagic, networkId);
+  TResult when<TResult extends Object?>({
+    required TResult Function() testnet,
+    required TResult Function() mainnet,
+  }) {
+    return testnet();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int protocolMagic, int networkId)? $default,
-  ) {
-    return $default?.call(protocolMagic, networkId);
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? testnet,
+    TResult? Function()? mainnet,
+  }) {
+    return testnet?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId)? $default, {
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? testnet,
+    TResult Function()? mainnet,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(protocolMagic, networkId);
+    if (testnet != null) {
+      return testnet();
     }
     return orElse();
   }
 }
 
-abstract class _ParsedNetwork extends ParsedNetwork {
-  factory _ParsedNetwork(
-      {required final int protocolMagic,
-      required final int networkId}) = _$ParsedNetworkImpl;
-  _ParsedNetwork._() : super._();
+abstract class ParsedNetworkTestnet extends ParsedNetwork {
+  factory ParsedNetworkTestnet() = _$ParsedNetworkTestnetImpl;
+  ParsedNetworkTestnet._() : super._();
+}
+
+/// @nodoc
+abstract class _$$ParsedNetworkMainnetImplCopyWith<$Res> {
+  factory _$$ParsedNetworkMainnetImplCopyWith(_$ParsedNetworkMainnetImpl value,
+          $Res Function(_$ParsedNetworkMainnetImpl) then) =
+      __$$ParsedNetworkMainnetImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ParsedNetworkMainnetImplCopyWithImpl<$Res>
+    extends _$ParsedNetworkCopyWithImpl<$Res, _$ParsedNetworkMainnetImpl>
+    implements _$$ParsedNetworkMainnetImplCopyWith<$Res> {
+  __$$ParsedNetworkMainnetImplCopyWithImpl(_$ParsedNetworkMainnetImpl _value,
+      $Res Function(_$ParsedNetworkMainnetImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ParsedNetworkMainnetImpl extends ParsedNetworkMainnet {
+  _$ParsedNetworkMainnetImpl() : super._();
 
   @override
-  int get protocolMagic;
+  String toString() {
+    return 'ParsedNetwork.mainnet()';
+  }
+
   @override
-  int get networkId;
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ParsedNetworkMainnetImpl);
+  }
+
   @override
-  @JsonKey(ignore: true)
-  _$$ParsedNetworkImplCopyWith<_$ParsedNetworkImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() testnet,
+    required TResult Function() mainnet,
+  }) {
+    return mainnet();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? testnet,
+    TResult? Function()? mainnet,
+  }) {
+    return mainnet?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? testnet,
+    TResult Function()? mainnet,
+    required TResult orElse(),
+  }) {
+    if (mainnet != null) {
+      return mainnet();
+    }
+    return orElse();
+  }
+}
+
+abstract class ParsedNetworkMainnet extends ParsedNetwork {
+  factory ParsedNetworkMainnet() = _$ParsedNetworkMainnetImpl;
+  ParsedNetworkMainnet._() : super._();
 }

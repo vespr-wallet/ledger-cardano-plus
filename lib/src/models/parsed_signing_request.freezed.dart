@@ -20,14 +20,14 @@ mixin _$ParsedSigningRequest {
   TransactionSigningModes get signingMode => throw _privateConstructorUsedError;
   List<List<int>> get additionalWitnessPaths =>
       throw _privateConstructorUsedError;
-  ParsedTransactionOptions get options => throw _privateConstructorUsedError;
+  ParsedTransactionOptions? get options => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
     TResult Function(
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)
+            ParsedTransactionOptions? options)
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ mixin _$ParsedSigningRequest {
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)?
+            ParsedTransactionOptions? options)?
         $default,
   ) =>
       throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ mixin _$ParsedSigningRequest {
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)?
+            ParsedTransactionOptions? options)?
         $default, {
     required TResult orElse(),
   }) =>
@@ -68,11 +68,11 @@ abstract class $ParsedSigningRequestCopyWith<$Res> {
       {ParsedTransaction tx,
       TransactionSigningModes signingMode,
       List<List<int>> additionalWitnessPaths,
-      ParsedTransactionOptions options});
+      ParsedTransactionOptions? options});
 
   $ParsedTransactionCopyWith<$Res> get tx;
   $TransactionSigningModesCopyWith<$Res> get signingMode;
-  $ParsedTransactionOptionsCopyWith<$Res> get options;
+  $ParsedTransactionOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -92,7 +92,7 @@ class _$ParsedSigningRequestCopyWithImpl<$Res,
     Object? tx = null,
     Object? signingMode = null,
     Object? additionalWitnessPaths = null,
-    Object? options = null,
+    Object? options = freezed,
   }) {
     return _then(_value.copyWith(
       tx: null == tx
@@ -107,10 +107,10 @@ class _$ParsedSigningRequestCopyWithImpl<$Res,
           ? _value.additionalWitnessPaths
           : additionalWitnessPaths // ignore: cast_nullable_to_non_nullable
               as List<List<int>>,
-      options: null == options
+      options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
-              as ParsedTransactionOptions,
+              as ParsedTransactionOptions?,
     ) as $Val);
   }
 
@@ -132,8 +132,12 @@ class _$ParsedSigningRequestCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ParsedTransactionOptionsCopyWith<$Res> get options {
-    return $ParsedTransactionOptionsCopyWith<$Res>(_value.options, (value) {
+  $ParsedTransactionOptionsCopyWith<$Res>? get options {
+    if (_value.options == null) {
+      return null;
+    }
+
+    return $ParsedTransactionOptionsCopyWith<$Res>(_value.options!, (value) {
       return _then(_value.copyWith(options: value) as $Val);
     });
   }
@@ -151,14 +155,14 @@ abstract class _$$ParsedSigningRequestImplCopyWith<$Res>
       {ParsedTransaction tx,
       TransactionSigningModes signingMode,
       List<List<int>> additionalWitnessPaths,
-      ParsedTransactionOptions options});
+      ParsedTransactionOptions? options});
 
   @override
   $ParsedTransactionCopyWith<$Res> get tx;
   @override
   $TransactionSigningModesCopyWith<$Res> get signingMode;
   @override
-  $ParsedTransactionOptionsCopyWith<$Res> get options;
+  $ParsedTransactionOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -175,7 +179,7 @@ class __$$ParsedSigningRequestImplCopyWithImpl<$Res>
     Object? tx = null,
     Object? signingMode = null,
     Object? additionalWitnessPaths = null,
-    Object? options = null,
+    Object? options = freezed,
   }) {
     return _then(_$ParsedSigningRequestImpl(
       tx: null == tx
@@ -190,10 +194,10 @@ class __$$ParsedSigningRequestImplCopyWithImpl<$Res>
           ? _value._additionalWitnessPaths
           : additionalWitnessPaths // ignore: cast_nullable_to_non_nullable
               as List<List<int>>,
-      options: null == options
+      options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
-              as ParsedTransactionOptions,
+              as ParsedTransactionOptions?,
     ));
   }
 }
@@ -205,7 +209,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
       {required this.tx,
       required this.signingMode,
       required final List<List<int>> additionalWitnessPaths,
-      required this.options})
+      this.options})
       : _additionalWitnessPaths = additionalWitnessPaths,
         super._();
 
@@ -223,7 +227,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
   }
 
   @override
-  final ParsedTransactionOptions options;
+  final ParsedTransactionOptions? options;
 
   @override
   String toString() {
@@ -262,7 +266,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)
+            ParsedTransactionOptions? options)
         $default,
   ) {
     return $default(tx, signingMode, additionalWitnessPaths, options);
@@ -275,7 +279,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)?
+            ParsedTransactionOptions? options)?
         $default,
   ) {
     return $default?.call(tx, signingMode, additionalWitnessPaths, options);
@@ -288,7 +292,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
             ParsedTransaction tx,
             TransactionSigningModes signingMode,
             List<List<int>> additionalWitnessPaths,
-            ParsedTransactionOptions options)?
+            ParsedTransactionOptions? options)?
         $default, {
     required TResult orElse(),
   }) {
@@ -301,11 +305,10 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
 
 abstract class _ParsedSigningRequest extends ParsedSigningRequest {
   factory _ParsedSigningRequest(
-          {required final ParsedTransaction tx,
-          required final TransactionSigningModes signingMode,
-          required final List<List<int>> additionalWitnessPaths,
-          required final ParsedTransactionOptions options}) =
-      _$ParsedSigningRequestImpl;
+      {required final ParsedTransaction tx,
+      required final TransactionSigningModes signingMode,
+      required final List<List<int>> additionalWitnessPaths,
+      final ParsedTransactionOptions? options}) = _$ParsedSigningRequestImpl;
   _ParsedSigningRequest._() : super._();
 
   @override
@@ -315,7 +318,7 @@ abstract class _ParsedSigningRequest extends ParsedSigningRequest {
   @override
   List<List<int>> get additionalWitnessPaths;
   @override
-  ParsedTransactionOptions get options;
+  ParsedTransactionOptions? get options;
   @override
   @JsonKey(ignore: true)
   _$$ParsedSigningRequestImplCopyWith<_$ParsedSigningRequestImpl>

@@ -120,19 +120,19 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasPoolRetirement = request.tx.certificates.any((c) {
+    final hasPoolRetirement = request.tx.certificates?.any((c) {
       if (c is StakePoolRetirement) {
         return true;
       }
       return false;
     });
-    if (hasPoolRetirement && !compatibility.supportsPoolRetirement) {
+    if (hasPoolRetirement != null && !compatibility.supportsPoolRetirement) {
       throw ValidationException(
         'Pool retirement certificate not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    final hasConwayCertificates = request.tx.certificates.any((c) {
+    final hasConwayCertificates = request.tx.certificates?.any((c) {
       final isConwayCertificate = c.certificateType is ConwayAndSpecialCertificates;
 
       if (isConwayCertificate) {
@@ -140,7 +140,7 @@ class VersionCompatibility with _$VersionCompatibility {
       }
       return false;
     });
-    if (hasConwayCertificates && !compatibility.supportsConway) {
+    if (hasConwayCertificates != null && !compatibility.supportsConway) {
       throw ValidationException(
         'Conway era certificates not supported by Ledger app version ${version.versionName}.',
       );
@@ -171,13 +171,13 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.referenceInputs.isNotEmpty && !compatibility.supportsBabbage) {
+    if (request.tx.referenceInputs?.isNotEmpty == true && !compatibility.supportsBabbage) {
       throw ValidationException(
         'Reference inputs not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    if (request.tx.requiredSigners.isNotEmpty && !compatibility.supportsAlonzo) {
+    if (request.tx.requiredSigners?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Required signers not supported by Ledger app version ${version.versionName}.',
       );
@@ -195,7 +195,7 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.collateralInputs.isNotEmpty && !compatibility.supportsAlonzo) {
+    if (request.tx.collateralInputs?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Collateral inputs not supported by Ledger app version ${version.versionName}.',
       );

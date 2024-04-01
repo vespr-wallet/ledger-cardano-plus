@@ -78,7 +78,6 @@ class SerializationUtils {
     if (options.tagCborSets) {
       optionFlags += optionFlagsTagCborSets;
     }
-
     writeSerializedUint64(writer, optionFlags);
   }
 
@@ -97,7 +96,7 @@ class SerializationUtils {
     ParsedTransaction tx,
     TransactionSigningModes signingMode,
     int numWitnesses,
-    ParsedTransactionOptions options,
+    ParsedTransactionOptions? options,
     CardanoVersion version,
   ) {
     return useBinaryWriter((ByteDataWriter writer) {
@@ -105,7 +104,7 @@ class SerializationUtils {
 
       // Serialize transaction options or write an empty buffer
       if (compatibility.supportsConway) {
-        serializeTxOptions(writer, options);
+        serializeTxOptions(writer, options ?? ParsedTransactionOptions(tagCborSets: false));
       } else {
         writer.write(Uint8List(0));
       }
@@ -126,21 +125,21 @@ class SerializationUtils {
 
       // Serialize collateral inputs count or write an empty buffer
       if (compatibility.supportsAlonzo) {
-        writer.writeUint32(tx.collateralInputs.length);
+        writer.writeUint32(tx.collateralInputs?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
       // Serialize required signers count or write an empty buffer
       if (compatibility.supportsAlonzo) {
-        writer.writeUint32(tx.requiredSigners.length);
+        writer.writeUint32(tx.requiredSigners?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
       // Serialize include network ID flag or write an empty buffer
       if (compatibility.supportsAlonzo) {
-        serializeOptionFlag(writer, tx.includeNetworkId);
+        serializeOptionFlag(writer, tx.includeNetworkId ?? false);
       } else {
         writer.write(Uint8List(0));
       }
@@ -161,14 +160,14 @@ class SerializationUtils {
 
       // Serialize reference inputs count or write an empty buffer
       if (compatibility.supportsBabbage) {
-        writer.writeUint32(tx.referenceInputs.length);
+        writer.writeUint32(tx.referenceInputs?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
       // Serialize voting procedures count or write an empty buffer
       if (compatibility.supportsConway) {
-        writer.writeUint32(tx.votingProcedures.length);
+        writer.writeUint32(tx.votingProcedures?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
@@ -198,8 +197,8 @@ class SerializationUtils {
 
       writer.writeUint32(tx.inputs.length);
       writer.writeUint32(tx.outputs.length);
-      writer.writeUint32(tx.certificates.length);
-      writer.writeUint32(tx.withdrawals.length);
+      writer.writeUint32(tx.certificates?.length ?? 0);
+      writer.writeUint32(tx.withdrawals?.length ?? 0);
 
       // Serialize number of witnesses or write an empty buffer based on Babbage support
       if (compatibility.supportsBabbage) {

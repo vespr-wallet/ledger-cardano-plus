@@ -72,12 +72,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
 
     // certificates
-    for (final certificate in signingRequest.tx.certificates) {
+    for (final certificate in signingRequest.tx.certificates ?? []) {
       await signTxAddCertificate(certificate, cardanoVersion, send);
     }
 
     // withdrawals
-    for (final withdrawal in signingRequest.tx.withdrawals) {
+    for (final withdrawal in signingRequest.tx.withdrawals ?? []) {
       await signTxAddWithdrawal(withdrawal, cardanoVersion, send);
     }
 
@@ -107,12 +107,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
 
     // collateral inputs
-    for (final input in signingRequest.tx.collateralInputs) {
+    for (final input in signingRequest.tx.collateralInputs ?? []) {
       await signTxAddCollateralInput(input, send);
     }
 
     // required signers
-    for (final requiredSigner in signingRequest.tx.requiredSigners) {
+    for (final requiredSigner in signingRequest.tx.requiredSigners ?? []) {
       await signTxAddRequiredSigner(requiredSigner, send);
     }
 
@@ -129,12 +129,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
 
     // reference inputs
-    for (final referenceInput in signingRequest.tx.referenceInputs) {
+    for (final referenceInput in signingRequest.tx.referenceInputs ?? []) {
       await signTxAddReferenceInput(referenceInput, send);
     }
 
     // voting procedures
-    for (final voterVotes in signingRequest.tx.votingProcedures) {
+    for (final voterVotes in signingRequest.tx.votingProcedures ?? []) {
       await signTxAddVoterVotes(voterVotes, send);
     }
 

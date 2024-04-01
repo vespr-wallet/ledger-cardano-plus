@@ -12,13 +12,10 @@ import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
-import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano/src/models/sign_transaction_request.dart';
-import 'package:ledger_cardano/src/models/transaction.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
@@ -221,9 +218,9 @@ class _MyAppState extends State<MyApp> {
   Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
   try {
     // Constructing the transaction to sign
-    final txToSign = SignTransactionRequest(
+    final txToSign = ParsedSigningRequest(
       signingMode: OrdinaryTransaction(),
-      tx: Transaction(
+      tx: ParsedTransaction(
         network: ParsedNetwork.mainnet,
         inputs: [
           ParsedInput(

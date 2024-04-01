@@ -59,32 +59,3 @@ void validate(bool condition, String reason) {
   }
 }
 
-ParsedSigningRequest parseSignTransactionRequest(SignTransactionRequest request) {
-  final tx = parseTransaction(request.tx); // Implement this function based on TypeScript logic
-  final signingMode = parseSigningMode(request.signingMode); // Implement or adjust this logic
-  final options = parseTxOptions(request.options); // Implement this function based on TypeScript logic
-
-  // Implement the validation logic. Dart doesn't have a direct equivalent to TypeScript's `validate` function,
-  // so you might use a series of if statements and throw `ValidationException` where necessary.
-  
-  // Example validation converted to Dart
-  validate(request.additionalWitnessPaths != null, 'ADDITIONAL_WITNESSES_NOT_ARRAY');
-  var additionalWitnessPaths = request.additionalWitnessPaths.map(
-    (path) => parseBIP32Path(path, 'INVALID_PATH'), // Adjust according to your implementation
-  ).toList();
-
-  // Additional restrictions based on signing mode
-  // This is a simplified example. You'll need to adapt the logic to Dart.
-  switch (signingMode) {
-    case TransactionSigningMode.ORDINARY_TRANSACTION:
-      // Implement the validation logic for ORDINARY_TRANSACTION
-      break;
-    case TransactionSigningMode.MULTISIG_TRANSACTION:
-      // Implement the validation logic for MULTISIG_TRANSACTION
-      break;
-    // Add other cases as necessary
-    default:
-      throw UnimplementedError('Signing mode not supported');
-  }
-}
-

@@ -206,17 +206,16 @@ class CardanoLedgerApp {
 
   Future<SignedTransactionData> signTransaction(
     LedgerDevice device,
-    SignTransactionRequest signingRequest,
+    ParsedSigningRequest signingRequest,
   ) async {
-    final parsedRequest = parseSignTransactionRequest(signingRequest);
     // Ensure the device's Cardano app version supports the requested operation
     final CardanoVersion deviceVersion = await getVersion(device);
     VersionCompatibility.checkVersionCompatibility(deviceVersion);
-    VersionCompatibility.ensureRequestSupportedByAppVersion(deviceVersion, parsedRequest);
+    VersionCompatibility.ensureRequestSupportedByAppVersion(deviceVersion, signingRequest);
 
     // Create the operation
     final operation = CardanoSignTransactionOperation(
-      signingRequest: parsedRequest,
+      signingRequest: signingRequest,
       cardanoVersion: deviceVersion,
     );
 

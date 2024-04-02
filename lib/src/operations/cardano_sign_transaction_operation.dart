@@ -47,7 +47,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     print('witnessPaths: $witnessPaths');
 
     // init
-    await signTxInit(send);
+    await signTxInit(send, witnessPaths);
 
     final auxiliaryData = signingRequest.tx.auxiliaryData;
     // auxiliary data
@@ -185,9 +185,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> signTxInit(LedgerSendFct send) async {
-    final data = SerializationUtils.serializeTxInit(signingRequest.tx, signingRequest.signingMode,
-        signingRequest.additionalWitnessPaths.length, signingRequest.options, cardanoVersion);
+  Future<void> signTxInit(LedgerSendFct send, List<List<int>> witnessPaths) async {
+    final data = SerializationUtils.serializeTxInit(
+      signingRequest.tx,
+      signingRequest.signingMode,
+      witnessPaths.length,
+      signingRequest.options,
+      cardanoVersion,
+    );
 
     await send(
       SendOperation(

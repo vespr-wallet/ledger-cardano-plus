@@ -14,9 +14,12 @@ sealed class ParsedDatum with _$ParsedDatum {
             throw ValidationException("Datum hash hex must be exactly $datumHashLength characters long.");
           }
         },
-      ParsedDatumInline() => () {},
+      ParsedDatumInline() => () {
+          if (!RegExp(r'^[0-9a-fA-F]+$').hasMatch(thisClass.datumHex)) {
+            throw ValidationException("Datum hex must be a valid hex string.");
+          }
+        },
     };
-
     assertInvoker();
   }
 
@@ -27,7 +30,7 @@ sealed class ParsedDatum with _$ParsedDatum {
   factory ParsedDatum.inline({
     required String datumHex,
   }) = ParsedDatumInline;
-  
+
   late final DatumType datumType = switch (this) {
     ParsedDatumHash() => DatumType.hash,
     ParsedDatumInline() => DatumType.inline,

@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddressParamsByron {
   List<int> get spendingPath => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<int> spendingPath) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<int> spendingPath)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<int> spendingPath)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressParamsByronCopyWith<AddressParamsByron> get copyWith =>
@@ -144,34 +128,6 @@ class _$AddressParamsByronImpl extends _AddressParamsByron {
   _$$AddressParamsByronImplCopyWith<_$AddressParamsByronImpl> get copyWith =>
       __$$AddressParamsByronImplCopyWithImpl<_$AddressParamsByronImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<int> spendingPath) $default,
-  ) {
-    return $default(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<int> spendingPath)? $default,
-  ) {
-    return $default?.call(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<int> spendingPath)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(spendingPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class _AddressParamsByron extends AddressParamsByron {

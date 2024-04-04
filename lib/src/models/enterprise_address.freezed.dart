@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$EnterpriseAddress {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterpriseKey,
-    required TResult Function() enterpriseScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterpriseKey,
-    TResult? Function()? enterpriseScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterpriseKey,
-    TResult Function()? enterpriseScript,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$EnterpriseAddress {}
 
 /// @nodoc
 abstract class $EnterpriseAddressCopyWith<$Res> {
@@ -89,37 +69,6 @@ class _$EnterpriseKeyImpl extends EnterpriseKey {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterpriseKey,
-    required TResult Function() enterpriseScript,
-  }) {
-    return enterpriseKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterpriseKey,
-    TResult? Function()? enterpriseScript,
-  }) {
-    return enterpriseKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterpriseKey,
-    TResult Function()? enterpriseScript,
-    required TResult orElse(),
-  }) {
-    if (enterpriseKey != null) {
-      return enterpriseKey();
-    }
-    return orElse();
-  }
 }
 
 abstract class EnterpriseKey extends EnterpriseAddress {
@@ -161,37 +110,6 @@ class _$EnterpriseScriptImpl extends EnterpriseScript {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() enterpriseKey,
-    required TResult Function() enterpriseScript,
-  }) {
-    return enterpriseScript();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? enterpriseKey,
-    TResult? Function()? enterpriseScript,
-  }) {
-    return enterpriseScript?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? enterpriseKey,
-    TResult Function()? enterpriseScript,
-    required TResult orElse(),
-  }) {
-    if (enterpriseScript != null) {
-      return enterpriseScript();
-    }
-    return orElse();
-  }
 }
 
 abstract class EnterpriseScript extends EnterpriseAddress {

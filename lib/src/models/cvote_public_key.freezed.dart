@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$CVotePublicKey {
   String get value => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String value) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String value)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String value)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CVotePublicKeyCopyWith<CVotePublicKey> get copyWith =>
@@ -135,34 +119,6 @@ class _$CVotePublicKeyImpl extends _CVotePublicKey {
   _$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith =>
       __$$CVotePublicKeyImplCopyWithImpl<_$CVotePublicKeyImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String value) $default,
-  ) {
-    return $default(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String value)? $default,
-  ) {
-    return $default?.call(value);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String value)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(value);
-    }
-    return orElse();
-  }
 }
 
 abstract class _CVotePublicKey extends CVotePublicKey {

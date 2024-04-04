@@ -19,25 +19,6 @@ mixin _$BlockchainPointer {
   int get blockIndex => throw _privateConstructorUsedError;
   int get txIndex => throw _privateConstructorUsedError;
   int get certificateIndex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $BlockchainPointerCopyWith<BlockchainPointer> get copyWith =>
@@ -173,37 +154,6 @@ class _$BlockchainPointerImpl extends _BlockchainPointer {
   _$$BlockchainPointerImplCopyWith<_$BlockchainPointerImpl> get copyWith =>
       __$$BlockchainPointerImplCopyWithImpl<_$BlockchainPointerImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        $default,
-  ) {
-    return $default(blockIndex, txIndex, certificateIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        $default,
-  ) {
-    return $default?.call(blockIndex, txIndex, certificateIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(blockIndex, txIndex, certificateIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _BlockchainPointer extends BlockchainPointer {

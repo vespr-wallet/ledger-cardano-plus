@@ -8,7 +8,6 @@ import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
-import 'package:ledger_cardano/src/models/sign_transaction_request.dart';
 import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
@@ -23,7 +22,6 @@ import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 

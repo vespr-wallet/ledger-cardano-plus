@@ -17,25 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$TxOutputDestination {
   Object get params => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThirdPartyAddressParams params) thirdParty,
-    required TResult Function(DeviceOwnedAddress params) deviceOwned,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult? Function(DeviceOwnedAddress params)? deviceOwned,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult Function(DeviceOwnedAddress params)? deviceOwned,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -132,37 +113,6 @@ class _$TxOutputDestinationThirdPartyImpl
           _$TxOutputDestinationThirdPartyImpl>
       get copyWith => __$$TxOutputDestinationThirdPartyImplCopyWithImpl<
           _$TxOutputDestinationThirdPartyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThirdPartyAddressParams params) thirdParty,
-    required TResult Function(DeviceOwnedAddress params) deviceOwned,
-  }) {
-    return thirdParty(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult? Function(DeviceOwnedAddress params)? deviceOwned,
-  }) {
-    return thirdParty?.call(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult Function(DeviceOwnedAddress params)? deviceOwned,
-    required TResult orElse(),
-  }) {
-    if (thirdParty != null) {
-      return thirdParty(params);
-    }
-    return orElse();
-  }
 }
 
 abstract class TxOutputDestinationThirdParty extends TxOutputDestination {
@@ -255,37 +205,6 @@ class _$TxOutputDestinationDeviceOwnedImpl
           _$TxOutputDestinationDeviceOwnedImpl>
       get copyWith => __$$TxOutputDestinationDeviceOwnedImplCopyWithImpl<
           _$TxOutputDestinationDeviceOwnedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ThirdPartyAddressParams params) thirdParty,
-    required TResult Function(DeviceOwnedAddress params) deviceOwned,
-  }) {
-    return deviceOwned(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult? Function(DeviceOwnedAddress params)? deviceOwned,
-  }) {
-    return deviceOwned?.call(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ThirdPartyAddressParams params)? thirdParty,
-    TResult Function(DeviceOwnedAddress params)? deviceOwned,
-    required TResult orElse(),
-  }) {
-    if (deviceOwned != null) {
-      return deviceOwned(params);
-    }
-    return orElse();
-  }
 }
 
 abstract class TxOutputDestinationDeviceOwned extends TxOutputDestination {

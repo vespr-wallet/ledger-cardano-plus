@@ -4,4 +4,4 @@ targets:
       freezed:
         options:
           map: false
-          when: true
+          when: false

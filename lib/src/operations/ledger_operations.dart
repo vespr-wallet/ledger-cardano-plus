@@ -46,3 +46,20 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
   @override
   Future<ByteDataReader> read(ByteDataReader reader) async => reader;
 }
+
+class ResetOperation extends LedgerOperation<ByteDataReader> {
+  ResetOperation();
+
+  @override
+  Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
+        if (CardanoLedgerApp.debugPrintEnabled) {
+          print("ResetOperation command sent to ledger");
+        }
+
+        // TODO do we need to write anything to binaryWriter?
+        return [writer.toBytes()];
+      });
+
+  @override
+  Future<ByteDataReader> read(ByteDataReader reader) async => reader;
+}

@@ -42,7 +42,7 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'dart:convert';
 
-typedef SerializeTokenAmountFn<T> = Uint8List Function(T value);
+typedef SerializeTokenAmountFn = Uint8List Function(BigInt value);
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
@@ -54,7 +54,7 @@ class SerializationUtils {
       writer.writeUint32(index);
     }
   }
-  
+
   static Uint8List pathToBuf(List<int> path) {
     final ByteData data = ByteData(1 + 4 * path.length);
     data.setUint8(0, path.length);
@@ -485,64 +485,64 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (certificate) {
         StakeRegistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
           },
         StakeDeregistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
           },
         StakeRegistrationConway() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
             writeSerializedCoin(writer, certificate.deposit);
           },
         StakeDeregistrationConway() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
             writeSerializedCoin(writer, certificate.deposit);
           },
         StakeDelegation() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
             writeSerializedHex(writer, certificate.poolKeyHashHex);
           },
         VoteDelegation() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.stakeCredential));
             writer.write(serializeDRep(certificate.dRep));
           },
         AuthorizeCommitteeHot() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.coldCredential));
             writer.write(serializeCredential(certificate.hotCredential));
           },
         ResignCommitteeCold() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.coldCredential));
             writer.write(serializeAnchor(certificate.anchor));
           },
         DRepRegistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.dRepCredential));
             writeSerializedCoin(writer, certificate.deposit);
             writer.write(serializeAnchor(certificate.anchor));
           },
         DRepDeregistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.dRepCredential));
             writeSerializedCoin(writer, certificate.deposit);
           },
         DRepUpdate() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writer.write(serializeCredential(certificate.dRepCredential));
             writer.write(serializeAnchor(certificate.anchor));
           },
         StakePoolRegistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
           },
         StakePoolRetirement() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certificate.path);
             writeSerializedUint64(writer, certificate.retirementEpoch);
           },
@@ -614,14 +614,14 @@ class SerializationUtils {
 
   static Uint8List serializeTxCertificatePreMultisig(ParsedCertificate certificate) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writer.writeUint8(certificate.certificateType.value);
+      writer.writeUint8(certificate.certificateTypeSerializationValue);
       final void Function() invoker = switch (certificate) {
         StakeRegistration() => () {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
               throw ValidationException('Invalid stake credential');
             }
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
           },
         StakeDeregistration() => () {
@@ -629,7 +629,7 @@ class SerializationUtils {
             if (certStakeCredential is! CredentialKeyPath) {
               throw ValidationException('Invalid stake credential');
             }
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
           },
         StakeDelegation() => () {
@@ -637,15 +637,15 @@ class SerializationUtils {
             if (certStakeCredential is! CredentialKeyPath) {
               throw ValidationException('Invalid stake credential');
             }
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
             writeSerializedHex(writer, certificate.poolKeyHashHex);
           },
         StakePoolRegistration() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
           },
         StakePoolRetirement() => () {
-            writer.writeUint8(certificate.certificateType.value);
+            writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certificate.path);
             writeSerializedUint64(writer, certificate.retirementEpoch);
           },
@@ -832,7 +832,7 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeToken<T>(ParsedToken token, Uint8List Function(T) serializeTokenAmountFn) {
+  static Uint8List serializeToken(ParsedToken token, Uint8List Function(BigInt) serializeTokenAmountFn) {
     return useBinaryWriter((ByteDataWriter writer) {
       final assetNameBytes = hex.decode(token.assetNameHex);
       writer.writeUint32(assetNameBytes.length);
@@ -995,7 +995,7 @@ class SerializationUtils {
   }
 }
 
-List<List<int>> gatherWitnessPaths(ParsedSigningRequest request)   {
+List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
   final tx = request.tx;
   final signingMode = request.signingMode;
   final additionalWitnessPaths = request.additionalWitnessPaths;
@@ -1015,76 +1015,76 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request)   {
     for (final cert in certificates ?? []) {
       final void Function() invoker = switch (cert) {
         StakeRegistrationConway() => () {
-          final credential = cert.stakeCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        StakeDeregistration() => () {
-          final credential = cert.stakeCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        StakeDeregistrationConway() => () {
-          final credential = cert.stakeCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        StakeDelegation() => () {
-          final credential = cert.stakeCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        VoteDelegation() => () {
-          final credential = cert.stakeCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        AuthorizeCommitteeHot() => () {
-          final credential = cert.coldCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        ResignCommitteeCold() => () {
-          final credential = cert.coldCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        DRepRegistration() => () {
-          final credential = cert.dRepCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        DRepDeregistration() => () {
-          final credential = cert.dRepCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        DRepUpdate() => () {
-          final credential = cert.dRepCredential;
-          if (credential is CredentialKeyPath) {
-            witnessPaths.add(credential.path);
-          }
-        },
-        StakePoolRegistration() => () {
-          for (var owner in cert.pool.owners) {
-            if (owner is DeviceOwnedPoolOwner) {
-              witnessPaths.add(owner.path);
+            final credential = cert.stakeCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
             }
-          }
-          final poolKey = cert.pool.poolKey;
-          if (poolKey is DeviceOwnedPoolKey) {
-            witnessPaths.add(poolKey.path);
-          }
-        },
+          },
+        StakeDeregistration() => () {
+            final credential = cert.stakeCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        StakeDeregistrationConway() => () {
+            final credential = cert.stakeCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        StakeDelegation() => () {
+            final credential = cert.stakeCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        VoteDelegation() => () {
+            final credential = cert.stakeCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        AuthorizeCommitteeHot() => () {
+            final credential = cert.coldCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        ResignCommitteeCold() => () {
+            final credential = cert.coldCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        DRepRegistration() => () {
+            final credential = cert.dRepCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        DRepDeregistration() => () {
+            final credential = cert.dRepCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        DRepUpdate() => () {
+            final credential = cert.dRepCredential;
+            if (credential is CredentialKeyPath) {
+              witnessPaths.add(credential.path);
+            }
+          },
+        StakePoolRegistration() => () {
+            for (var owner in cert.pool.owners) {
+              if (owner is DeviceOwnedPoolOwner) {
+                witnessPaths.add(owner.path);
+              }
+            }
+            final poolKey = cert.pool.poolKey;
+            if (poolKey is DeviceOwnedPoolKey) {
+              witnessPaths.add(poolKey.path);
+            }
+          },
         StakePoolRetirement() => () => witnessPaths.add(cert.path),
         // TODO: Handle this case.
         Object() => throw UnimplementedError(),
@@ -1135,10 +1135,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request)   {
   return uniquify(witnessPaths);
 }
 
-
 List<List<int>> uniquify(List<List<int>> paths) {
   return paths.toSet().toList();
 }
-
-
-

@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Network {
   int get protocolMagic => throw _privateConstructorUsedError;
   int get networkId => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int protocolMagic, int networkId)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $NetworkCopyWith<Network> get copyWith => throw _privateConstructorUsedError;
@@ -147,34 +131,6 @@ class _$NetworkImpl implements _Network {
   @pragma('vm:prefer-inline')
   _$$NetworkImplCopyWith<_$NetworkImpl> get copyWith =>
       __$$NetworkImplCopyWithImpl<_$NetworkImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId) $default,
-  ) {
-    return $default(protocolMagic, networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(int protocolMagic, int networkId)? $default,
-  ) {
-    return $default?.call(protocolMagic, networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(int protocolMagic, int networkId)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(protocolMagic, networkId);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Network implements Network {

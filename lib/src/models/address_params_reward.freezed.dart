@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AddressParamsReward {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> stakingPath) stakingPath,
-    required TResult Function(String stakingScriptHashHex) stakingScriptHashHex,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> stakingPath)? stakingPath,
-    TResult? Function(String stakingScriptHashHex)? stakingScriptHashHex,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> stakingPath)? stakingPath,
-    TResult Function(String stakingScriptHashHex)? stakingScriptHashHex,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$AddressParamsReward {}
 
 /// @nodoc
 abstract class $AddressParamsRewardCopyWith<$Res> {
@@ -130,37 +110,6 @@ class _$AddressParamsRewardStakingPathImpl
           _$AddressParamsRewardStakingPathImpl>
       get copyWith => __$$AddressParamsRewardStakingPathImplCopyWithImpl<
           _$AddressParamsRewardStakingPathImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> stakingPath) stakingPath,
-    required TResult Function(String stakingScriptHashHex) stakingScriptHashHex,
-  }) {
-    return stakingPath(this.stakingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> stakingPath)? stakingPath,
-    TResult? Function(String stakingScriptHashHex)? stakingScriptHashHex,
-  }) {
-    return stakingPath?.call(this.stakingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> stakingPath)? stakingPath,
-    TResult Function(String stakingScriptHashHex)? stakingScriptHashHex,
-    required TResult orElse(),
-  }) {
-    if (stakingPath != null) {
-      return stakingPath(this.stakingPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class AddressParamsRewardStakingPath extends AddressParamsReward {
@@ -246,37 +195,6 @@ class _$AddressParamsRewardStakingScriptHashHexImpl
       get copyWith =>
           __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<
               _$AddressParamsRewardStakingScriptHashHexImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> stakingPath) stakingPath,
-    required TResult Function(String stakingScriptHashHex) stakingScriptHashHex,
-  }) {
-    return stakingScriptHashHex(this.stakingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> stakingPath)? stakingPath,
-    TResult? Function(String stakingScriptHashHex)? stakingScriptHashHex,
-  }) {
-    return stakingScriptHashHex?.call(this.stakingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> stakingPath)? stakingPath,
-    TResult Function(String stakingScriptHashHex)? stakingScriptHashHex,
-    required TResult orElse(),
-  }) {
-    if (stakingScriptHashHex != null) {
-      return stakingScriptHashHex(this.stakingScriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class AddressParamsRewardStakingScriptHashHex

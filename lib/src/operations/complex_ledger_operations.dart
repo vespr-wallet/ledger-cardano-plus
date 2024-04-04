@@ -1,4 +1,5 @@
-
+import 'package:ledger_cardano/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 abstract class ComplexLedgerOperation<T> {
@@ -15,9 +16,14 @@ extension LedgerX on Ledger {
     ComplexLedgerOperation<T> operation, {
     LedgerTransformer? transformer,
   }) {
-    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) =>
-        sendOperation(device, simpleOp, transformer: transformer);
+    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) => sendOperation(device, simpleOp, transformer: transformer);
 
-    return operation.invoke(send);
+    try {
+      return operation.invoke(send);
+    } on ValidationException catch (_) {
+      // TODO use `send` function to send some kind of termination command to release ledger
+      send(ResetOperation());
+      rethrow;
+    }
   }
 }

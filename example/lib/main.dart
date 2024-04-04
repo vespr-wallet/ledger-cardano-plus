@@ -16,7 +16,6 @@ import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
 import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
@@ -214,68 +213,68 @@ class _MyAppState extends State<MyApp> {
       });
       print('Generic Error fetching accounts: ${e.toString()}');
     }
-  } 
-  
-  Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
-  try {
-    // Constructing the transaction to sign
-    final txToSign = ParsedSigningRequest(
-      signingMode: OrdinaryTransaction(),
-      tx: ParsedTransaction(
-        network: ParsedNetworkMainnet(),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: [
-              harden + 1852,
-              harden + 1815,
-              harden + 0,
-              0,
-              0,
-            ],
-          ),
-        ],
-        outputs: [],
-        fee: BigInt.parse('42'),
-        ttl: BigInt.parse('10'),
-      ),
-      additionalWitnessPaths: [],
-    );
-
-    // Signing the transaction
-    final SignedTransactionData signedTx = await cardanoApp.signTransaction(
-      device,
-      txToSign,
-    );
-
-    // Updating the UI state with the signed transaction data
-    setState(() {
-      signatureHex = 'Signed Transaction: {\n'
-        '  txHashHex: \'${signedTx.txHashHex}\',\n'
-        '  witnesses: [\n'
-        '    {\n'
-        '      path: ${signedTx.witnesses.first.path},\n' // Assuming path is an array you'd like to display differently
-        '      witnessSignatureHex: \'${signedTx.witnesses.first.witnessSignatureHex}\'\n'
-        '    }\n'
-        '  ],\n'
-        '}';
-    });
-
-    // Logging the signed transaction data
-    print('Signed Transaction: ${signedTx.txHashHex}');
-  } on LedgerException catch (e) {
-    setState(() {
-      signatureHex = 'Error signing transaction: ${e.message}, Code: ${e.errorCode}';
-    });
-    print('Error signing transaction: ${e.message}, Code: ${e.errorCode}');
-  } catch (e) {
-    setState(() {
-      signatureHex = 'Error signing transaction: ${e.toString()}';
-    });
-    print('Error signing transaction: ${e.toString()}');
   }
-}
+
+  Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
+    try {
+      // Constructing the transaction to sign
+      final txToSign = ParsedSigningRequest(
+        signingMode: OrdinaryTransaction(),
+        tx: ParsedTransaction(
+          network: ParsedNetworkMainnet(),
+          inputs: [
+            ParsedInput(
+              txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+              outputIndex: 0,
+              path: [
+                harden + 1852,
+                harden + 1815,
+                harden + 0,
+                0,
+                0,
+              ],
+            ),
+          ],
+          outputs: [],
+          fee: BigInt.parse('20000000'),
+          ttl: BigInt.parse('2312'),
+        ),
+        additionalWitnessPaths: [],
+      );
+
+      // Signing the transaction
+      final SignedTransactionData signedTx = await cardanoApp.signTransaction(
+        device,
+        txToSign,
+      );
+
+      // Updating the UI state with the signed transaction data
+      setState(() {
+        signatureHex = 'Signed Transaction: {\n'
+            '  txHashHex: \'${signedTx.txHashHex}\',\n'
+            '  witnesses: [\n'
+            '    {\n'
+            '      path: ${signedTx.witnesses.first.path},\n' // Assuming path is an array you'd like to display differently
+            '      witnessSignatureHex: \'${signedTx.witnesses.first.witnessSignatureHex}\'\n'
+            '    }\n'
+            '  ],\n'
+            '}';
+      });
+
+      // Logging the signed transaction data
+      print('Signed Transaction: ${signedTx.txHashHex}');
+    } on LedgerException catch (e) {
+      setState(() {
+        signatureHex = 'Error signing transaction: ${e.message}, Code: ${e.errorCode}';
+      });
+      print('Error signing transaction: ${e.message}, Code: ${e.errorCode}');
+    } catch (e) {
+      setState(() {
+        signatureHex = 'Error signing transaction: ${e.toString()}';
+      });
+      print('Error signing transaction: ${e.toString()}');
+    }
+  }
 
   Future<void> _fetchSerial(LedgerDevice device) async {
     try {
@@ -379,7 +378,7 @@ class _MyAppState extends State<MyApp> {
                         // await _fetchVersion(device);
 
                         // await _testSignOperationalCertificate(device);
-                        
+
                         await _testSignTransactionWithoutOutputs(device);
 
                         // await _testDeriveNativeScriptHash(device);

@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AssetGroup {
   String get policyIdHex => throw _privateConstructorUsedError;
   List<Token> get tokens => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<Token> tokens) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String policyIdHex, List<Token> tokens)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<Token> tokens)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AssetGroupCopyWith<AssetGroup> get copyWith =>
@@ -158,34 +142,6 @@ class _$AssetGroupImpl extends _AssetGroup {
   @pragma('vm:prefer-inline')
   _$$AssetGroupImplCopyWith<_$AssetGroupImpl> get copyWith =>
       __$$AssetGroupImplCopyWithImpl<_$AssetGroupImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<Token> tokens) $default,
-  ) {
-    return $default(policyIdHex, tokens);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String policyIdHex, List<Token> tokens)? $default,
-  ) {
-    return $default?.call(policyIdHex, tokens);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String policyIdHex, List<Token> tokens)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(policyIdHex, tokens);
-    }
-    return orElse();
-  }
 }
 
 abstract class _AssetGroup extends AssetGroup {

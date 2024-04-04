@@ -22,12 +22,20 @@ const int p2Token = 0x32;
 
 const int txHashLength = 32;
 
+const int max32BitValue = 0xFFFFFFFF;
+
 const int p1Unused = 0x00;
 const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
 const int keyHashLength = 56;
+
+const int maxBIP32PathLength = 10;
+
+const int maxUrlLength = 128;
+
+const int txHashHexMaxLength = 64;
 
 const int p2CollateralOutputBasicData = 0x30;
 const int p2CollateralOutputConfirm = 0x33;
@@ -46,13 +54,15 @@ const int datumHashLength = 64;
 
 const int scriptHashLength = 56;
 
-const int policyIdLength = 28;
+const int policyIdLength = 56;
 
 const int scriptDataHashLength = 64;
 
 const int kesPublicKeyLength = 64;
 
 const int cvotePublicKeyLength = 32;
+
+const int maxHexStringLength = 64;
 
 const int p2Unused = 0x00;
 
@@ -380,4 +390,3 @@ enum RelayType {
   final int value;
   const RelayType(this.value);
 }
-

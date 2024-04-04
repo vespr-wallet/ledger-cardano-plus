@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Token {
   String get assetNameHex => throw _privateConstructorUsedError;
   BigInt get amount => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String assetNameHex, BigInt amount) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String assetNameHex, BigInt amount)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String assetNameHex, BigInt amount)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TokenCopyWith<Token> get copyWith => throw _privateConstructorUsedError;
@@ -146,34 +130,6 @@ class _$TokenImpl extends _Token {
   @pragma('vm:prefer-inline')
   _$$TokenImplCopyWith<_$TokenImpl> get copyWith =>
       __$$TokenImplCopyWithImpl<_$TokenImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String assetNameHex, BigInt amount) $default,
-  ) {
-    return $default(assetNameHex, amount);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String assetNameHex, BigInt amount)? $default,
-  ) {
-    return $default?.call(assetNameHex, amount);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String assetNameHex, BigInt amount)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(assetNameHex, amount);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Token extends Token {

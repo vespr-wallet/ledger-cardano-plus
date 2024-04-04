@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 part 'parsed_drep.freezed.dart';
@@ -9,7 +10,9 @@ sealed class ParsedDRep with _$ParsedDRep {
   ParsedDRep._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
-      DRepKeyPath() => () {},
+      DRepKeyPath() => () {
+        validateBIP32Path(thisClass.path, 'path');
+      },
       DRepKeyHash() => () {
           if (thisClass.keyHashHex.length != keyHashLength) {
             throw ValidationException("Key hash hex must be exactly $keyHashLength characters long.");

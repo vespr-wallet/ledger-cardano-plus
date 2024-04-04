@@ -19,25 +19,6 @@ mixin _$TxInput {
   String get txHashHex => throw _privateConstructorUsedError;
   int get outputIndex => throw _privateConstructorUsedError;
   List<int>? get path => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, int outputIndex, List<int>? path)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, int outputIndex, List<int>? path)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, int outputIndex, List<int>? path)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TxInputCopyWith<TxInput> get copyWith => throw _privateConstructorUsedError;
@@ -177,37 +158,6 @@ class _$TxInputImpl extends _TxInput {
   @pragma('vm:prefer-inline')
   _$$TxInputImplCopyWith<_$TxInputImpl> get copyWith =>
       __$$TxInputImplCopyWithImpl<_$TxInputImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, int outputIndex, List<int>? path)
-        $default,
-  ) {
-    return $default(txHashHex, outputIndex, path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, int outputIndex, List<int>? path)?
-        $default,
-  ) {
-    return $default?.call(txHashHex, outputIndex, path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, int outputIndex, List<int>? path)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(txHashHex, outputIndex, path);
-    }
-    return orElse();
-  }
 }
 
 abstract class _TxInput extends TxInput {

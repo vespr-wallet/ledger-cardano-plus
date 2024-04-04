@@ -17,42 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddressParamsBase {
   SpendingParams get spendingParams => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            SpendingParams spendingParams, List<int> stakingPath)
-        stakingPath,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingKeyHashHex)
-        stakingKeyHash,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)
-        stakingScriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult? Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult? Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressParamsBaseCopyWith<AddressParamsBase> get copyWith =>
@@ -191,54 +155,6 @@ class _$AddressParamsBaseStakingPathImpl extends AddressParamsBaseStakingPath {
           _$AddressParamsBaseStakingPathImpl>
       get copyWith => __$$AddressParamsBaseStakingPathImplCopyWithImpl<
           _$AddressParamsBaseStakingPathImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            SpendingParams spendingParams, List<int> stakingPath)
-        stakingPath,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingKeyHashHex)
-        stakingKeyHash,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)
-        stakingScriptHash,
-  }) {
-    return stakingPath(spendingParams, this.stakingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult? Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult? Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-  }) {
-    return stakingPath?.call(spendingParams, this.stakingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-    required TResult orElse(),
-  }) {
-    if (stakingPath != null) {
-      return stakingPath(spendingParams, this.stakingPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class AddressParamsBaseStakingPath extends AddressParamsBase {
@@ -342,54 +258,6 @@ class _$AddressParamsBaseStakingKeyHashImpl
           _$AddressParamsBaseStakingKeyHashImpl>
       get copyWith => __$$AddressParamsBaseStakingKeyHashImplCopyWithImpl<
           _$AddressParamsBaseStakingKeyHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            SpendingParams spendingParams, List<int> stakingPath)
-        stakingPath,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingKeyHashHex)
-        stakingKeyHash,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)
-        stakingScriptHash,
-  }) {
-    return stakingKeyHash(spendingParams, stakingKeyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult? Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult? Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-  }) {
-    return stakingKeyHash?.call(spendingParams, stakingKeyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-    required TResult orElse(),
-  }) {
-    if (stakingKeyHash != null) {
-      return stakingKeyHash(spendingParams, stakingKeyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class AddressParamsBaseStakingKeyHash extends AddressParamsBase {
@@ -493,54 +361,6 @@ class _$AddressParamsBaseStakingScriptHashImpl
           _$AddressParamsBaseStakingScriptHashImpl>
       get copyWith => __$$AddressParamsBaseStakingScriptHashImplCopyWithImpl<
           _$AddressParamsBaseStakingScriptHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            SpendingParams spendingParams, List<int> stakingPath)
-        stakingPath,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingKeyHashHex)
-        stakingKeyHash,
-    required TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)
-        stakingScriptHash,
-  }) {
-    return stakingScriptHash(spendingParams, stakingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult? Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult? Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-  }) {
-    return stakingScriptHash?.call(spendingParams, stakingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SpendingParams spendingParams, List<int> stakingPath)?
-        stakingPath,
-    TResult Function(SpendingParams spendingParams, String stakingKeyHashHex)?
-        stakingKeyHash,
-    TResult Function(
-            SpendingParams spendingParams, String stakingScriptHashHex)?
-        stakingScriptHash,
-    required TResult orElse(),
-  }) {
-    if (stakingScriptHash != null) {
-      return stakingScriptHash(spendingParams, stakingScriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class AddressParamsBaseStakingScriptHash extends AddressParamsBase {

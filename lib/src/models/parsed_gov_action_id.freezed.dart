@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedGovActionId {
   String get txHashHex => throw _privateConstructorUsedError;
   int get govActionIndex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, int govActionIndex) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, int govActionIndex)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, int govActionIndex)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedGovActionIdCopyWith<ParsedGovActionId> get copyWith =>
@@ -153,34 +137,6 @@ class _$ParsedGovActionIdImpl extends _ParsedGovActionId {
   _$$ParsedGovActionIdImplCopyWith<_$ParsedGovActionIdImpl> get copyWith =>
       __$$ParsedGovActionIdImplCopyWithImpl<_$ParsedGovActionIdImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, int govActionIndex) $default,
-  ) {
-    return $default(txHashHex, govActionIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, int govActionIndex)? $default,
-  ) {
-    return $default?.call(txHashHex, govActionIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, int govActionIndex)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(txHashHex, govActionIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedGovActionId extends ParsedGovActionId {

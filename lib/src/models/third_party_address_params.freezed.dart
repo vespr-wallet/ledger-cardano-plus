@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ThirdPartyAddressParams {
   String get addressHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String addressHex) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String addressHex)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String addressHex)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ThirdPartyAddressParamsCopyWith<ThirdPartyAddressParams> get copyWith =>
@@ -140,34 +124,6 @@ class _$ThirdPartyAddressParamsImpl extends _ThirdPartyAddressParams {
   _$$ThirdPartyAddressParamsImplCopyWith<_$ThirdPartyAddressParamsImpl>
       get copyWith => __$$ThirdPartyAddressParamsImplCopyWithImpl<
           _$ThirdPartyAddressParamsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String addressHex) $default,
-  ) {
-    return $default(addressHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String addressHex)? $default,
-  ) {
-    return $default?.call(addressHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String addressHex)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(addressHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ThirdPartyAddressParams extends ThirdPartyAddressParams {

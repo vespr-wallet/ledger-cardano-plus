@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedRequiredSigner {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedRequiredSigner {}
 
 /// @nodoc
 abstract class $ParsedRequiredSignerCopyWith<$Res> {
@@ -117,37 +97,6 @@ class _$RequiredSignerHashImpl extends RequiredSignerHash {
   _$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith =>
       __$$RequiredSignerHashImplCopyWithImpl<_$RequiredSignerHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
-  }) {
-    return hash(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
-  }) {
-    return hash?.call(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
-    required TResult orElse(),
-  }) {
-    if (hash != null) {
-      return hash(hashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class RequiredSignerHash extends ParsedRequiredSigner {
@@ -230,37 +179,6 @@ class _$RequiredSignerPathImpl extends RequiredSignerPath {
   _$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith =>
       __$$RequiredSignerPathImplCopyWithImpl<_$RequiredSignerPathImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) hash,
-    required TResult Function(List<int> path) path,
-  }) {
-    return path(this.path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? hash,
-    TResult? Function(List<int> path)? path,
-  }) {
-    return path?.call(this.path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? hash,
-    TResult Function(List<int> path)? path,
-    required TResult orElse(),
-  }) {
-    if (path != null) {
-      return path(this.path);
-    }
-    return orElse();
-  }
 }
 
 abstract class RequiredSignerPath extends ParsedRequiredSigner {

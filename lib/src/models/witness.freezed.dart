@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Witness {
   List<int> get path => throw _privateConstructorUsedError;
   String get witnessSignatureHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<int> path, String witnessSignatureHex) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<int> path, String witnessSignatureHex)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<int> path, String witnessSignatureHex)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $WitnessCopyWith<Witness> get copyWith => throw _privateConstructorUsedError;
@@ -156,34 +140,6 @@ class _$WitnessImpl extends _Witness {
   @pragma('vm:prefer-inline')
   _$$WitnessImplCopyWith<_$WitnessImpl> get copyWith =>
       __$$WitnessImplCopyWithImpl<_$WitnessImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(List<int> path, String witnessSignatureHex) $default,
-  ) {
-    return $default(path, witnessSignatureHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(List<int> path, String witnessSignatureHex)? $default,
-  ) {
-    return $default?.call(path, witnessSignatureHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(List<int> path, String witnessSignatureHex)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(path, witnessSignatureHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Witness extends Witness {

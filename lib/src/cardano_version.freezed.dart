@@ -22,28 +22,6 @@ mixin _$CardanoVersion {
   int get versionPatch => throw _privateConstructorUsedError;
   bool get locked => throw _privateConstructorUsedError;
   Flags get flags => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $CardanoVersionCopyWith<CardanoVersion> get copyWith =>
@@ -262,43 +240,6 @@ class _$CardanoVersionImpl extends _CardanoVersion
   _$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith =>
       __$$CardanoVersionImplCopyWithImpl<_$CardanoVersionImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)
-        $default,
-  ) {
-    return $default(
-        testMode, versionMajor, versionMinor, versionPatch, locked, flags);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)?
-        $default,
-  ) {
-    return $default?.call(
-        testMode, versionMajor, versionMinor, versionPatch, locked, flags);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool testMode, int versionMajor, int versionMinor,
-            int versionPatch, bool locked, Flags flags)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(
-          testMode, versionMajor, versionMinor, versionPatch, locked, flags);
-    }
-    return orElse();
-  }
 }
 
 abstract class _CardanoVersion extends CardanoVersion {

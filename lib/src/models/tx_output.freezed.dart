@@ -20,49 +20,6 @@ mixin _$TxOutput {
   BigInt get amount =>
       throw _privateConstructorUsedError; // Using String to represent bigint_like
   List<AssetGroup>? get tokenBundle => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)
-        alonzo,
-    required TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)
-        babbage,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult? Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TxOutputCopyWith<TxOutput> get copyWith =>
@@ -239,61 +196,6 @@ class _$TxOutputAlonzoImpl extends TxOutputAlonzo {
   _$$TxOutputAlonzoImplCopyWith<_$TxOutputAlonzoImpl> get copyWith =>
       __$$TxOutputAlonzoImplCopyWithImpl<_$TxOutputAlonzoImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)
-        alonzo,
-    required TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)
-        babbage,
-  }) {
-    return alonzo(destination, amount, tokenBundle, datumHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult? Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-  }) {
-    return alonzo?.call(destination, amount, tokenBundle, datumHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-    required TResult orElse(),
-  }) {
-    if (alonzo != null) {
-      return alonzo(destination, amount, tokenBundle, datumHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class TxOutputAlonzo extends TxOutput {
@@ -460,63 +362,6 @@ class _$TxOutputBabbageImpl extends TxOutputBabbage {
   _$$TxOutputBabbageImplCopyWith<_$TxOutputBabbageImpl> get copyWith =>
       __$$TxOutputBabbageImplCopyWithImpl<_$TxOutputBabbageImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)
-        alonzo,
-    required TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)
-        babbage,
-  }) {
-    return babbage(destination, amount, tokenBundle, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult? Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-  }) {
-    return babbage?.call(
-        destination, amount, tokenBundle, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(TxOutputDestination destination, BigInt amount,
-            List<AssetGroup>? tokenBundle, String? datumHashHex)?
-        alonzo,
-    TResult Function(
-            TxOutputDestination destination,
-            BigInt amount,
-            List<AssetGroup>? tokenBundle,
-            Datum? datum,
-            String? referenceScriptHex)?
-        babbage,
-    required TResult orElse(),
-  }) {
-    if (babbage != null) {
-      return babbage(
-          destination, amount, tokenBundle, datum, referenceScriptHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class TxOutputBabbage extends TxOutput {

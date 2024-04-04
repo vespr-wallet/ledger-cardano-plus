@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$AddressParamsEnterprise {
   SpendingParams get spendingPath => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(SpendingParams spendingPath) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(SpendingParams spendingPath)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(SpendingParams spendingPath)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressParamsEnterpriseCopyWith<AddressParamsEnterprise> get copyWith =>
@@ -153,34 +137,6 @@ class _$AddressParamsEnterpriseImpl extends _AddressParamsEnterprise {
   _$$AddressParamsEnterpriseImplCopyWith<_$AddressParamsEnterpriseImpl>
       get copyWith => __$$AddressParamsEnterpriseImplCopyWithImpl<
           _$AddressParamsEnterpriseImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(SpendingParams spendingPath) $default,
-  ) {
-    return $default(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(SpendingParams spendingPath)? $default,
-  ) {
-    return $default?.call(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(SpendingParams spendingPath)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(spendingPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class _AddressParamsEnterprise extends AddressParamsEnterprise {

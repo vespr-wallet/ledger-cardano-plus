@@ -26,52 +26,6 @@ mixin _$ParsedPoolParams {
   List<ParsedPoolOwner> get owners => throw _privateConstructorUsedError;
   List<ParsedPoolRelay> get relays => throw _privateConstructorUsedError;
   ParsedPoolMetadata? get metadata => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedPoolParamsCopyWith<ParsedPoolParams> get copyWith =>
@@ -384,67 +338,6 @@ class _$ParsedPoolParamsImpl extends _ParsedPoolParams {
   _$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith =>
       __$$ParsedPoolParamsImplCopyWithImpl<_$ParsedPoolParamsImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)
-        $default,
-  ) {
-    return $default(poolKey, vrfHashHex, pledge, cost, margin, rewardAccount,
-        owners, relays, metadata);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)?
-        $default,
-  ) {
-    return $default?.call(poolKey, vrfHashHex, pledge, cost, margin,
-        rewardAccount, owners, relays, metadata);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            ParsedPoolKey poolKey,
-            String vrfHashHex,
-            BigInt pledge,
-            BigInt cost,
-            ParsedMargin margin,
-            ParsedPoolRewardAccount rewardAccount,
-            List<ParsedPoolOwner> owners,
-            List<ParsedPoolRelay> relays,
-            ParsedPoolMetadata? metadata)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(poolKey, vrfHashHex, pledge, cost, margin, rewardAccount,
-          owners, relays, metadata);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedPoolParams extends ParsedPoolParams {

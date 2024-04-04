@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$Flags {
   bool get isDebug => throw _privateConstructorUsedError;
   bool get isAppXS => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isDebug, bool isAppXS) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool isDebug, bool isAppXS)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isDebug, bool isAppXS)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $FlagsCopyWith<Flags> get copyWith => throw _privateConstructorUsedError;
@@ -145,34 +129,6 @@ class _$FlagsImpl extends _Flags {
   @pragma('vm:prefer-inline')
   _$$FlagsImplCopyWith<_$FlagsImpl> get copyWith =>
       __$$FlagsImplCopyWithImpl<_$FlagsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool isDebug, bool isAppXS) $default,
-  ) {
-    return $default(isDebug, isAppXS);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool isDebug, bool isAppXS)? $default,
-  ) {
-    return $default?.call(isDebug, isAppXS);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool isDebug, bool isAppXS)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(isDebug, isAppXS);
-    }
-    return orElse();
-  }
 }
 
 abstract class _Flags extends Flags {

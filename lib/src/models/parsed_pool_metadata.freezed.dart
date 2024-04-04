@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedPoolMetadata {
   String get url => throw _privateConstructorUsedError;
   String get hashHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String url, String hashHex) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String url, String hashHex)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String url, String hashHex)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedPoolMetadataCopyWith<ParsedPoolMetadata> get copyWith =>
@@ -150,34 +134,6 @@ class _$ParsedPoolMetadataImpl extends _ParsedPoolMetadata {
   _$$ParsedPoolMetadataImplCopyWith<_$ParsedPoolMetadataImpl> get copyWith =>
       __$$ParsedPoolMetadataImplCopyWithImpl<_$ParsedPoolMetadataImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String url, String hashHex) $default,
-  ) {
-    return $default(url, hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String url, String hashHex)? $default,
-  ) {
-    return $default?.call(url, hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String url, String hashHex)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(url, hashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedPoolMetadata extends ParsedPoolMetadata {

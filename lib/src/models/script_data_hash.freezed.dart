@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ScriptDataHash {
   String get hexString => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String hexString) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String hexString)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String hexString)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ScriptDataHashCopyWith<ScriptDataHash> get copyWith =>
@@ -136,34 +120,6 @@ class _$ScriptDataHashImpl extends _ScriptDataHash {
   _$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith =>
       __$$ScriptDataHashImplCopyWithImpl<_$ScriptDataHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String hexString) $default,
-  ) {
-    return $default(hexString);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String hexString)? $default,
-  ) {
-    return $default?.call(hexString);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String hexString)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(hexString);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ScriptDataHash extends ScriptDataHash {

@@ -19,28 +19,6 @@ mixin _$AddressParamsPointer {
   SpendingParams get spendingParams => throw _privateConstructorUsedError;
   BlockchainPointer get stakingBlockchainPointer =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AddressParamsPointerCopyWith<AddressParamsPointer> get copyWith =>
@@ -193,40 +171,6 @@ class _$AddressParamsPointerImpl extends _AddressParamsPointer {
       get copyWith =>
           __$$AddressParamsPointerImplCopyWithImpl<_$AddressParamsPointerImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)
-        $default,
-  ) {
-    return $default(spendingParams, stakingBlockchainPointer);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)?
-        $default,
-  ) {
-    return $default?.call(spendingParams, stakingBlockchainPointer);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(SpendingParams spendingParams,
-            BlockchainPointer stakingBlockchainPointer)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(spendingParams, stakingBlockchainPointer);
-    }
-    return orElse();
-  }
 }
 
 abstract class _AddressParamsPointer extends AddressParamsPointer {

@@ -15,31 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedPoolRelay {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int? port, String? ipv4, String? ipv6)
-        singleHostIpAddr,
-    required TResult Function(int? port, String dnsName) singletHostname,
-    required TResult Function(String dnsName) multiHost,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult? Function(int? port, String dnsName)? singletHostname,
-    TResult? Function(String dnsName)? multiHost,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult Function(int? port, String dnsName)? singletHostname,
-    TResult Function(String dnsName)? multiHost,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedPoolRelay {}
 
 /// @nodoc
 abstract class $ParsedPoolRelayCopyWith<$Res> {
@@ -136,41 +112,6 @@ class _$SingleHostIpAddrImpl extends SingleHostIpAddr {
   _$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith =>
       __$$SingleHostIpAddrImplCopyWithImpl<_$SingleHostIpAddrImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int? port, String? ipv4, String? ipv6)
-        singleHostIpAddr,
-    required TResult Function(int? port, String dnsName) singletHostname,
-    required TResult Function(String dnsName) multiHost,
-  }) {
-    return singleHostIpAddr(port, ipv4, ipv6);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult? Function(int? port, String dnsName)? singletHostname,
-    TResult? Function(String dnsName)? multiHost,
-  }) {
-    return singleHostIpAddr?.call(port, ipv4, ipv6);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult Function(int? port, String dnsName)? singletHostname,
-    TResult Function(String dnsName)? multiHost,
-    required TResult orElse(),
-  }) {
-    if (singleHostIpAddr != null) {
-      return singleHostIpAddr(port, ipv4, ipv6);
-    }
-    return orElse();
-  }
 }
 
 abstract class SingleHostIpAddr extends ParsedPoolRelay {
@@ -257,41 +198,6 @@ class _$SingleHostNameImpl extends SingleHostName {
   _$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith =>
       __$$SingleHostNameImplCopyWithImpl<_$SingleHostNameImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int? port, String? ipv4, String? ipv6)
-        singleHostIpAddr,
-    required TResult Function(int? port, String dnsName) singletHostname,
-    required TResult Function(String dnsName) multiHost,
-  }) {
-    return singletHostname(port, dnsName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult? Function(int? port, String dnsName)? singletHostname,
-    TResult? Function(String dnsName)? multiHost,
-  }) {
-    return singletHostname?.call(port, dnsName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult Function(int? port, String dnsName)? singletHostname,
-    TResult Function(String dnsName)? multiHost,
-    required TResult orElse(),
-  }) {
-    if (singletHostname != null) {
-      return singletHostname(port, dnsName);
-    }
-    return orElse();
-  }
 }
 
 abstract class SingleHostName extends ParsedPoolRelay {
@@ -366,41 +272,6 @@ class _$MultiHostImpl extends MultiHost {
   @pragma('vm:prefer-inline')
   _$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith =>
       __$$MultiHostImplCopyWithImpl<_$MultiHostImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int? port, String? ipv4, String? ipv6)
-        singleHostIpAddr,
-    required TResult Function(int? port, String dnsName) singletHostname,
-    required TResult Function(String dnsName) multiHost,
-  }) {
-    return multiHost(dnsName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult? Function(int? port, String dnsName)? singletHostname,
-    TResult? Function(String dnsName)? multiHost,
-  }) {
-    return multiHost?.call(dnsName);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int? port, String? ipv4, String? ipv6)? singleHostIpAddr,
-    TResult Function(int? port, String dnsName)? singletHostname,
-    TResult Function(String dnsName)? multiHost,
-    required TResult orElse(),
-  }) {
-    if (multiHost != null) {
-      return multiHost(dnsName);
-    }
-    return orElse();
-  }
 }
 
 abstract class MultiHost extends ParsedPoolRelay {

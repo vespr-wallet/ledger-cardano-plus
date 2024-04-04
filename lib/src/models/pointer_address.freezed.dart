@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$PointerAddress {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() pointerKey,
-    required TResult Function() pointerScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pointerKey,
-    TResult? Function()? pointerScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pointerKey,
-    TResult Function()? pointerScript,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$PointerAddress {}
 
 /// @nodoc
 abstract class $PointerAddressCopyWith<$Res> {
@@ -89,37 +69,6 @@ class _$PointerKeyImpl extends PointerKey {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() pointerKey,
-    required TResult Function() pointerScript,
-  }) {
-    return pointerKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pointerKey,
-    TResult? Function()? pointerScript,
-  }) {
-    return pointerKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pointerKey,
-    TResult Function()? pointerScript,
-    required TResult orElse(),
-  }) {
-    if (pointerKey != null) {
-      return pointerKey();
-    }
-    return orElse();
-  }
 }
 
 abstract class PointerKey extends PointerAddress {
@@ -161,37 +110,6 @@ class _$PointerScriptImpl extends PointerScript {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() pointerKey,
-    required TResult Function() pointerScript,
-  }) {
-    return pointerScript();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? pointerKey,
-    TResult? Function()? pointerScript,
-  }) {
-    return pointerScript?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? pointerKey,
-    TResult Function()? pointerScript,
-    required TResult orElse(),
-  }) {
-    if (pointerScript != null) {
-      return pointerScript();
-    }
-    return orElse();
-  }
 }
 
 abstract class PointerScript extends PointerAddress {

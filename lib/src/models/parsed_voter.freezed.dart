@@ -15,45 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedVoter {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedVoter {}
 
 /// @nodoc
 abstract class $ParsedVoterCopyWith<$Res> {
@@ -135,55 +97,6 @@ class _$CommitteeKeyHashImpl extends CommitteeKeyHash {
   _$$CommitteeKeyHashImplCopyWith<_$CommitteeKeyHashImpl> get copyWith =>
       __$$CommitteeKeyHashImplCopyWithImpl<_$CommitteeKeyHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return committeeKeyHash(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return committeeKeyHash?.call(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (committeeKeyHash != null) {
-      return committeeKeyHash(keyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class CommitteeKeyHash extends ParsedVoter {
@@ -266,55 +179,6 @@ class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
   _$$CommitteeKeyPathImplCopyWith<_$CommitteeKeyPathImpl> get copyWith =>
       __$$CommitteeKeyPathImplCopyWithImpl<_$CommitteeKeyPathImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return committeeKeyPath(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return committeeKeyPath?.call(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (committeeKeyPath != null) {
-      return committeeKeyPath(keyPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class CommitteeKeyPath extends ParsedVoter {
@@ -390,55 +254,6 @@ class _$CommitteeScriptHashImpl extends CommitteeScriptHash {
   _$$CommitteeScriptHashImplCopyWith<_$CommitteeScriptHashImpl> get copyWith =>
       __$$CommitteeScriptHashImplCopyWithImpl<_$CommitteeScriptHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return committeeScriptHash(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return committeeScriptHash?.call(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (committeeScriptHash != null) {
-      return committeeScriptHash(scriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class CommitteeScriptHash extends ParsedVoter {
@@ -513,55 +328,6 @@ class _$DrepKeyHashImpl extends DrepKeyHash {
   @pragma('vm:prefer-inline')
   _$$DrepKeyHashImplCopyWith<_$DrepKeyHashImpl> get copyWith =>
       __$$DrepKeyHashImplCopyWithImpl<_$DrepKeyHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return drepKeyHash(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return drepKeyHash?.call(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (drepKeyHash != null) {
-      return drepKeyHash(keyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class DrepKeyHash extends ParsedVoter {
@@ -642,55 +408,6 @@ class _$DrepKeyPathImpl extends DrepKeyPath {
   @pragma('vm:prefer-inline')
   _$$DrepKeyPathImplCopyWith<_$DrepKeyPathImpl> get copyWith =>
       __$$DrepKeyPathImplCopyWithImpl<_$DrepKeyPathImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return drepKeyPath(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return drepKeyPath?.call(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (drepKeyPath != null) {
-      return drepKeyPath(keyPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class DrepKeyPath extends ParsedVoter {
@@ -765,55 +482,6 @@ class _$DrepScriptHashImpl extends DrepScriptHash {
   _$$DrepScriptHashImplCopyWith<_$DrepScriptHashImpl> get copyWith =>
       __$$DrepScriptHashImplCopyWithImpl<_$DrepScriptHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return drepScriptHash(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return drepScriptHash?.call(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (drepScriptHash != null) {
-      return drepScriptHash(scriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class DrepScriptHash extends ParsedVoter {
@@ -889,55 +557,6 @@ class _$StakePoolKeyHashImpl extends StakePoolKeyHash {
   _$$StakePoolKeyHashImplCopyWith<_$StakePoolKeyHashImpl> get copyWith =>
       __$$StakePoolKeyHashImplCopyWithImpl<_$StakePoolKeyHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return stakePoolKeyHash(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return stakePoolKeyHash?.call(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (stakePoolKeyHash != null) {
-      return stakePoolKeyHash(keyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakePoolKeyHash extends ParsedVoter {
@@ -1020,55 +639,6 @@ class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
   _$$StakePoolKeyPathImplCopyWith<_$StakePoolKeyPathImpl> get copyWith =>
       __$$StakePoolKeyPathImplCopyWithImpl<_$StakePoolKeyPathImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String keyHashHex) committeeKeyHash,
-    required TResult Function(List<int> keyPath) committeeKeyPath,
-    required TResult Function(String scriptHashHex) committeeScriptHash,
-    required TResult Function(String keyHashHex) drepKeyHash,
-    required TResult Function(List<int> keyPath) drepKeyPath,
-    required TResult Function(String scriptHashHex) drepScriptHash,
-    required TResult Function(String keyHashHex) stakePoolKeyHash,
-    required TResult Function(List<int> keyPath) stakePoolKeyPath,
-  }) {
-    return stakePoolKeyPath(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String keyHashHex)? committeeKeyHash,
-    TResult? Function(List<int> keyPath)? committeeKeyPath,
-    TResult? Function(String scriptHashHex)? committeeScriptHash,
-    TResult? Function(String keyHashHex)? drepKeyHash,
-    TResult? Function(List<int> keyPath)? drepKeyPath,
-    TResult? Function(String scriptHashHex)? drepScriptHash,
-    TResult? Function(String keyHashHex)? stakePoolKeyHash,
-    TResult? Function(List<int> keyPath)? stakePoolKeyPath,
-  }) {
-    return stakePoolKeyPath?.call(keyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String keyHashHex)? committeeKeyHash,
-    TResult Function(List<int> keyPath)? committeeKeyPath,
-    TResult Function(String scriptHashHex)? committeeScriptHash,
-    TResult Function(String keyHashHex)? drepKeyHash,
-    TResult Function(List<int> keyPath)? drepKeyPath,
-    TResult Function(String scriptHashHex)? drepScriptHash,
-    TResult Function(String keyHashHex)? stakePoolKeyHash,
-    TResult Function(List<int> keyPath)? stakePoolKeyPath,
-    required TResult orElse(),
-  }) {
-    if (stakePoolKeyPath != null) {
-      return stakePoolKeyPath(keyPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakePoolKeyPath extends ParsedVoter {

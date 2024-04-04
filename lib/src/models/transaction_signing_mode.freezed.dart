@@ -15,36 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$TransactionSigningModes {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$TransactionSigningModes {}
 
 /// @nodoc
 abstract class $TransactionSigningModesCopyWith<$Res> {
@@ -101,46 +72,6 @@ class _$OrdinaryTransactionImpl extends OrdinaryTransaction {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) {
-    return ordinaryTransaction();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) {
-    return ordinaryTransaction?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) {
-    if (ordinaryTransaction != null) {
-      return ordinaryTransaction();
-    }
-    return orElse();
-  }
 }
 
 abstract class OrdinaryTransaction extends TransactionSigningModes {
@@ -184,46 +115,6 @@ class _$MultisigTransactionImpl extends MultisigTransaction {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) {
-    return multisigTransaction();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) {
-    return multisigTransaction?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) {
-    if (multisigTransaction != null) {
-      return multisigTransaction();
-    }
-    return orElse();
-  }
 }
 
 abstract class MultisigTransaction extends TransactionSigningModes {
@@ -269,46 +160,6 @@ class _$PoolRegistrationAsOwnerImpl extends PoolRegistrationAsOwner {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) {
-    return poolRegistrationAsOwner();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) {
-    return poolRegistrationAsOwner?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) {
-    if (poolRegistrationAsOwner != null) {
-      return poolRegistrationAsOwner();
-    }
-    return orElse();
-  }
 }
 
 abstract class PoolRegistrationAsOwner extends TransactionSigningModes {
@@ -354,46 +205,6 @@ class _$PoolRegistrationAsOperatorImpl extends PoolRegistrationAsOperator {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) {
-    return poolRegistrationAsOperator();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) {
-    return poolRegistrationAsOperator?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) {
-    if (poolRegistrationAsOperator != null) {
-      return poolRegistrationAsOperator();
-    }
-    return orElse();
-  }
 }
 
 abstract class PoolRegistrationAsOperator extends TransactionSigningModes {
@@ -435,46 +246,6 @@ class _$PlutusTransactionImpl extends PlutusTransaction {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() ordinaryTransaction,
-    required TResult Function() multisigTransaction,
-    required TResult Function() poolRegistrationAsOwner,
-    required TResult Function() poolRegistrationAsOperator,
-    required TResult Function() plutusTransaction,
-  }) {
-    return plutusTransaction();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? ordinaryTransaction,
-    TResult? Function()? multisigTransaction,
-    TResult? Function()? poolRegistrationAsOwner,
-    TResult? Function()? poolRegistrationAsOperator,
-    TResult? Function()? plutusTransaction,
-  }) {
-    return plutusTransaction?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? ordinaryTransaction,
-    TResult Function()? multisigTransaction,
-    TResult Function()? poolRegistrationAsOwner,
-    TResult Function()? poolRegistrationAsOperator,
-    TResult Function()? plutusTransaction,
-    required TResult orElse(),
-  }) {
-    if (plutusTransaction != null) {
-      return plutusTransaction();
-    }
-    return orElse();
-  }
 }
 
 abstract class PlutusTransaction extends TransactionSigningModes {

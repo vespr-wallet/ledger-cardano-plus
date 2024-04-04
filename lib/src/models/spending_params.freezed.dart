@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$SpendingParams {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> spendingPath) path,
-    required TResult Function(String spendingScriptHashHex) scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> spendingPath)? path,
-    TResult? Function(String spendingScriptHashHex)? scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> spendingPath)? path,
-    TResult Function(String spendingScriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SpendingParams {}
 
 /// @nodoc
 abstract class $SpendingParamsCopyWith<$Res> {
@@ -125,37 +105,6 @@ class _$SpendingParamsPathImpl extends SpendingParamsPath {
   _$$SpendingParamsPathImplCopyWith<_$SpendingParamsPathImpl> get copyWith =>
       __$$SpendingParamsPathImplCopyWithImpl<_$SpendingParamsPathImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> spendingPath) path,
-    required TResult Function(String spendingScriptHashHex) scriptHash,
-  }) {
-    return path(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> spendingPath)? path,
-    TResult? Function(String spendingScriptHashHex)? scriptHash,
-  }) {
-    return path?.call(spendingPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> spendingPath)? path,
-    TResult Function(String spendingScriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (path != null) {
-      return path(spendingPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class SpendingParamsPath extends SpendingParams {
@@ -234,37 +183,6 @@ class _$SpendingParamsScriptHashImpl extends SpendingParamsScriptHash {
   _$$SpendingParamsScriptHashImplCopyWith<_$SpendingParamsScriptHashImpl>
       get copyWith => __$$SpendingParamsScriptHashImplCopyWithImpl<
           _$SpendingParamsScriptHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> spendingPath) path,
-    required TResult Function(String spendingScriptHashHex) scriptHash,
-  }) {
-    return scriptHash(spendingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> spendingPath)? path,
-    TResult? Function(String spendingScriptHashHex)? scriptHash,
-  }) {
-    return scriptHash?.call(spendingScriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> spendingPath)? path,
-    TResult Function(String spendingScriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (scriptHash != null) {
-      return scriptHash(spendingScriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class SpendingParamsScriptHash extends SpendingParams {

@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$RewardAddress {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() rewardKey,
-    required TResult Function() rewardScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardKey,
-    TResult? Function()? rewardScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardKey,
-    TResult Function()? rewardScript,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$RewardAddress {}
 
 /// @nodoc
 abstract class $RewardAddressCopyWith<$Res> {
@@ -89,37 +69,6 @@ class _$RewardKeyImpl extends RewardKey {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() rewardKey,
-    required TResult Function() rewardScript,
-  }) {
-    return rewardKey();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardKey,
-    TResult? Function()? rewardScript,
-  }) {
-    return rewardKey?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardKey,
-    TResult Function()? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (rewardKey != null) {
-      return rewardKey();
-    }
-    return orElse();
-  }
 }
 
 abstract class RewardKey extends RewardAddress {
@@ -161,37 +110,6 @@ class _$RewardScriptImpl extends RewardScript {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() rewardKey,
-    required TResult Function() rewardScript,
-  }) {
-    return rewardScript();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? rewardKey,
-    TResult? Function()? rewardScript,
-  }) {
-    return rewardScript?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? rewardKey,
-    TResult Function()? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (rewardScript != null) {
-      return rewardScript();
-    }
-    return orElse();
-  }
 }
 
 abstract class RewardScript extends RewardAddress {

@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedNetwork {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() testnet,
-    required TResult Function() mainnet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? testnet,
-    TResult? Function()? mainnet,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? testnet,
-    TResult Function()? mainnet,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedNetwork {}
 
 /// @nodoc
 abstract class $ParsedNetworkCopyWith<$Res> {
@@ -90,37 +70,6 @@ class _$ParsedNetworkTestnetImpl extends ParsedNetworkTestnet {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() testnet,
-    required TResult Function() mainnet,
-  }) {
-    return testnet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? testnet,
-    TResult? Function()? mainnet,
-  }) {
-    return testnet?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? testnet,
-    TResult Function()? mainnet,
-    required TResult orElse(),
-  }) {
-    if (testnet != null) {
-      return testnet();
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedNetworkTestnet extends ParsedNetwork {
@@ -163,37 +112,6 @@ class _$ParsedNetworkMainnetImpl extends ParsedNetworkMainnet {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() testnet,
-    required TResult Function() mainnet,
-  }) {
-    return mainnet();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? testnet,
-    TResult? Function()? mainnet,
-  }) {
-    return mainnet?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? testnet,
-    TResult Function()? mainnet,
-    required TResult orElse(),
-  }) {
-    if (mainnet != null) {
-      return mainnet();
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedNetworkMainnet extends ParsedNetwork {

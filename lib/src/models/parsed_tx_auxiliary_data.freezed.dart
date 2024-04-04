@@ -15,28 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedTxAuxiliaryData {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) arbitraryHash,
-    required TResult Function(ParsedCVoteRegistrationParams params)
-        cip36Registration,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? arbitraryHash,
-    TResult? Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? arbitraryHash,
-    TResult Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedTxAuxiliaryData {}
 
 /// @nodoc
 abstract class $ParsedTxAuxiliaryDataCopyWith<$Res> {
@@ -117,38 +96,6 @@ class _$ArbitraryHashImpl extends ArbitraryHash {
   @pragma('vm:prefer-inline')
   _$$ArbitraryHashImplCopyWith<_$ArbitraryHashImpl> get copyWith =>
       __$$ArbitraryHashImplCopyWithImpl<_$ArbitraryHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) arbitraryHash,
-    required TResult Function(ParsedCVoteRegistrationParams params)
-        cip36Registration,
-  }) {
-    return arbitraryHash(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? arbitraryHash,
-    TResult? Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-  }) {
-    return arbitraryHash?.call(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? arbitraryHash,
-    TResult Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-    required TResult orElse(),
-  }) {
-    if (arbitraryHash != null) {
-      return arbitraryHash(hashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ArbitraryHash extends ParsedTxAuxiliaryData {
@@ -232,38 +179,6 @@ class _$CIP36RegistrationImpl extends CIP36Registration {
   _$$CIP36RegistrationImplCopyWith<_$CIP36RegistrationImpl> get copyWith =>
       __$$CIP36RegistrationImplCopyWithImpl<_$CIP36RegistrationImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String hashHex) arbitraryHash,
-    required TResult Function(ParsedCVoteRegistrationParams params)
-        cip36Registration,
-  }) {
-    return cip36Registration(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String hashHex)? arbitraryHash,
-    TResult? Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-  }) {
-    return cip36Registration?.call(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String hashHex)? arbitraryHash,
-    TResult Function(ParsedCVoteRegistrationParams params)? cip36Registration,
-    required TResult orElse(),
-  }) {
-    if (cip36Registration != null) {
-      return cip36Registration(params);
-    }
-    return orElse();
-  }
 }
 
 abstract class CIP36Registration extends ParsedTxAuxiliaryData {

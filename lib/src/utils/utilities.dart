@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
@@ -16,7 +17,7 @@ Uint8List ipStringToBytes(String ipString) {
       if (parts.length != 4) {
         throw ValidationException('Invalid IPv4 string format');
       }
-      
+
       Uint8List bytes = Uint8List(4);
       for (int i = 0; i < 4; i++) {
         int part = int.parse(parts[i]);
@@ -25,7 +26,7 @@ Uint8List ipStringToBytes(String ipString) {
         }
         bytes[i] = part;
       }
-      
+
       return bytes;
     } else if (ipString.contains(':')) {
       // IPv6 address
@@ -33,14 +34,14 @@ Uint8List ipStringToBytes(String ipString) {
       if (parts.length != 8) {
         throw ValidationException('Invalid IPv6 string format');
       }
-      
+
       Uint8List bytes = Uint8List(16);
       for (int i = 0; i < 8; i++) {
         int part = int.parse(parts[i], radix: 16);
         bytes[i * 2] = (part >> 8) & 0xFF;
         bytes[i * 2 + 1] = part & 0xFF;
       }
-      
+
       return bytes;
     } else {
       throw ValidationException('Invalid IP address format');
@@ -56,3 +57,46 @@ void validate(bool condition, String reason) {
   }
 }
 
+void validateUint64(BigInt? value, String fieldName) {
+  print("validateUint64 $fieldName: $value ${value?.bitLength}, ${value?.sign}");
+  if (value != null && (value.bitLength > 64 || value.sign == -1)) {
+    throw ValidationException('$fieldName must be positive and max 64 bits.');
+  }
+}
+
+void validateInt64(BigInt? value, String fieldName) {
+  if (value != null && value.bitLength > 63) {
+    throw ValidationException('$fieldName must have max 64 bits (including sign bit).');
+  }
+}
+
+void validateBIP32Path(List<int>? path, String fieldName) {
+  if (path != null) {
+    if (path.isEmpty || path.length > maxBIP32PathLength) {
+      throw ValidationException('$fieldName must contain between 1 and $maxBIP32PathLength indices');
+    }
+    for (int index in path) {
+      if (index < 0 || index > max32BitValue) {
+        throw ValidationException('$fieldName contains an index out of the valid unsigned 32-bit integer range');
+      }
+    }
+  }
+}
+
+void validateMaxHexString(String? value, String fieldName, int maxLength) {
+  if (value != null && value.length > maxLength) {
+    throw ValidationException('$fieldName must be maximum $maxLength characters long');
+  }
+}
+
+void validate32bitUnsignedInteger(int value, String fieldName) {
+  if (value < 0 || value > max32BitValue) {
+    throw ValidationException('$fieldName must be an unsigned 32-bit integer');
+  }
+}
+
+void validateUrl(String? value, String fieldName) {
+  if (value != null && value.length > maxUrlLength) {
+    throw ValidationException('$fieldName must be maximum $maxUrlLength characters long');
+  }
+}

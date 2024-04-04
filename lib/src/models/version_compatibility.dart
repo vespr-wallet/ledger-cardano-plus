@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
-import 'package:ledger_cardano/src/models/conway_and_special_certificates.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
@@ -133,9 +132,7 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasConwayCertificates = request.tx.certificates?.any((c) {
-      final isConwayCertificate = c.certificateType is ConwayAndSpecialCertificates;
-
-      if (isConwayCertificate) {
+      if (c.isConway) {
         return true;
       }
       return false;

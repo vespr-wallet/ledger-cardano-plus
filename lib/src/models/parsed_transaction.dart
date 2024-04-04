@@ -9,12 +9,20 @@ import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
 import 'package:ledger_cardano/src/models/parsed_voter_votes.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/script_data_hash.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'parsed_transaction.freezed.dart';
 
 @freezed
-sealed class ParsedTransaction with _$ParsedTransaction {
-  ParsedTransaction._();
+class ParsedTransaction with _$ParsedTransaction {
+  ParsedTransaction._() {
+    validateUint64(fee, 'fee');
+    validateUint64(ttl, 'ttl');
+    validateUint64(validityIntervalStart, 'validityIntervalStart');
+    validateUint64(totalCollateral, 'totalCollateral');
+    validateUint64(treasury, 'treasury');
+    validateUint64(donation, 'donation');
+  }
 
   factory ParsedTransaction({
     required ParsedNetwork network,

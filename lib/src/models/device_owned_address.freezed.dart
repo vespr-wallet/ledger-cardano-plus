@@ -17,41 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$DeviceOwnedAddress {
   Object get params => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -146,53 +111,6 @@ class _$DeviceOwnedAddressByronImpl extends DeviceOwnedAddressByron {
   _$$DeviceOwnedAddressByronImplCopyWith<_$DeviceOwnedAddressByronImpl>
       get copyWith => __$$DeviceOwnedAddressByronImplCopyWithImpl<
           _$DeviceOwnedAddressByronImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) {
-    return byron(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) {
-    return byron?.call(params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) {
-    if (byron != null) {
-      return byron(params);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedAddressByron extends DeviceOwnedAddress {
@@ -298,53 +216,6 @@ class _$DeviceOwnedAddressBaseImpl extends DeviceOwnedAddressBase {
   _$$DeviceOwnedAddressBaseImplCopyWith<_$DeviceOwnedAddressBaseImpl>
       get copyWith => __$$DeviceOwnedAddressBaseImplCopyWithImpl<
           _$DeviceOwnedAddressBaseImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) {
-    return base(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) {
-    return base?.call(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) {
-    if (base != null) {
-      return base(type, params);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedAddressBase extends DeviceOwnedAddress {
@@ -454,53 +325,6 @@ class _$DeviceOwnedAddressEnterpriseImpl extends DeviceOwnedAddressEnterprise {
           _$DeviceOwnedAddressEnterpriseImpl>
       get copyWith => __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<
           _$DeviceOwnedAddressEnterpriseImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) {
-    return enterprise(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) {
-    return enterprise?.call(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) {
-    if (enterprise != null) {
-      return enterprise(type, params);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedAddressEnterprise extends DeviceOwnedAddress {
@@ -611,53 +435,6 @@ class _$DeviceOwnedAddressPointerImpl extends DeviceOwnedAddressPointer {
   _$$DeviceOwnedAddressPointerImplCopyWith<_$DeviceOwnedAddressPointerImpl>
       get copyWith => __$$DeviceOwnedAddressPointerImplCopyWithImpl<
           _$DeviceOwnedAddressPointerImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) {
-    return pointer(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) {
-    return pointer?.call(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) {
-    if (pointer != null) {
-      return pointer(type, params);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedAddressPointer extends DeviceOwnedAddress {
@@ -767,53 +544,6 @@ class _$DeviceOwnedAddressRewardImpl extends DeviceOwnedAddressReward {
   _$$DeviceOwnedAddressRewardImplCopyWith<_$DeviceOwnedAddressRewardImpl>
       get copyWith => __$$DeviceOwnedAddressRewardImplCopyWithImpl<
           _$DeviceOwnedAddressRewardImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(AddressParamsByron params) byron,
-    required TResult Function(BaseAddress type, AddressParamsBase params) base,
-    required TResult Function(
-            EnterpriseAddress type, AddressParamsEnterprise params)
-        enterprise,
-    required TResult Function(PointerAddress type, AddressParamsPointer params)
-        pointer,
-    required TResult Function(RewardAddress type, AddressParamsReward params)
-        reward,
-  }) {
-    return reward(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AddressParamsByron params)? byron,
-    TResult? Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult? Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult? Function(PointerAddress type, AddressParamsPointer params)?
-        pointer,
-    TResult? Function(RewardAddress type, AddressParamsReward params)? reward,
-  }) {
-    return reward?.call(type, params);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AddressParamsByron params)? byron,
-    TResult Function(BaseAddress type, AddressParamsBase params)? base,
-    TResult Function(EnterpriseAddress type, AddressParamsEnterprise params)?
-        enterprise,
-    TResult Function(PointerAddress type, AddressParamsPointer params)? pointer,
-    TResult Function(RewardAddress type, AddressParamsReward params)? reward,
-    required TResult orElse(),
-  }) {
-    if (reward != null) {
-      return reward(type, params);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedAddressReward extends DeviceOwnedAddress {

@@ -22,43 +22,6 @@ mixin _$ParsedOutput {
   ParsedOutputDestination get destination => throw _privateConstructorUsedError;
   ParsedDatum? get datum => throw _privateConstructorUsedError;
   String? get referenceScriptHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedOutputCopyWith<ParsedOutput> get copyWith =>
@@ -289,58 +252,6 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   @pragma('vm:prefer-inline')
   _$$ParsedOutputImplCopyWith<_$ParsedOutputImpl> get copyWith =>
       __$$ParsedOutputImplCopyWithImpl<_$ParsedOutputImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)
-        $default,
-  ) {
-    return $default(
-        format, amount, tokenBundle, destination, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default,
-  ) {
-    return $default?.call(
-        format, amount, tokenBundle, destination, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(
-          format, amount, tokenBundle, destination, datum, referenceScriptHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedOutput extends ParsedOutput {

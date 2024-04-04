@@ -21,37 +21,6 @@ mixin _$SignTransactionRequest {
   List<List<int>>? get additionalWitnessPaths =>
       throw _privateConstructorUsedError;
   ParsedTransactionOptions? get options => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignTransactionRequestCopyWith<SignTransactionRequest> get copyWith =>
@@ -262,49 +231,6 @@ class _$SignTransactionRequestImpl extends _SignTransactionRequest {
   _$$SignTransactionRequestImplCopyWith<_$SignTransactionRequestImpl>
       get copyWith => __$$SignTransactionRequestImplCopyWithImpl<
           _$SignTransactionRequestImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)
-        $default,
-  ) {
-    return $default(tx, signingMode, additionalWitnessPaths, options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)?
-        $default,
-  ) {
-    return $default?.call(tx, signingMode, additionalWitnessPaths, options);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            Transaction tx,
-            TransactionSigningModes signingMode,
-            List<List<int>>? additionalWitnessPaths,
-            ParsedTransactionOptions? options)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(tx, signingMode, additionalWitnessPaths, options);
-    }
-    return orElse();
-  }
 }
 
 abstract class _SignTransactionRequest extends SignTransactionRequest {

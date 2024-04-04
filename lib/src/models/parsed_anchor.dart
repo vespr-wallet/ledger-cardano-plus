@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 part 'parsed_anchor.freezed.dart';
@@ -9,6 +10,7 @@ sealed class ParsedAnchor with _$ParsedAnchor {
     if (hashHex.length != 64) {
       throw ValidationException("Hash hex must be exactly 64 characters long.");
     }
+    validateUrl(url, 'url');
   }
   factory ParsedAnchor({
     required String url,

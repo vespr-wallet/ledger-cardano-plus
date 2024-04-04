@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'parsed_credential.freezed.dart';
 
@@ -10,16 +10,14 @@ sealed class ParsedCredential with _$ParsedCredential {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       CredentialKeyHash() => () {
-          if (thisClass.keyHashHex.length != keyHashLength) {
-            throw ValidationException("Key hash hex must be exactly $keyHashLength characters long.");
-          }
+        validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
         },
       CredentialScriptHash() => () {
-          if (thisClass.scriptHashHex.length != scriptHashLength) {
-            throw ValidationException("Script hash hex must be exactly $scriptHashLength characters long.");
-          }
+        validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
         },
-      CredentialKeyPath() => () {},
+      CredentialKeyPath() => () {
+        validateBIP32Path(thisClass.path, 'path');
+        },
     };
 
     assertInvoker();

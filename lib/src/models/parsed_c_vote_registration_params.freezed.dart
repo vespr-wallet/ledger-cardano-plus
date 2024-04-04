@@ -223,7 +223,7 @@ class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>
 
 class _$ParsedCVoteRegistrationParamsImpl
     extends _ParsedCVoteRegistrationParams {
-  const _$ParsedCVoteRegistrationParamsImpl(
+  _$ParsedCVoteRegistrationParamsImpl(
       {required this.format,
       required this.votePublicKey,
       required final List<int>? votePublicKeyPath,
@@ -326,7 +326,7 @@ class _$ParsedCVoteRegistrationParamsImpl
 
 abstract class _ParsedCVoteRegistrationParams
     extends ParsedCVoteRegistrationParams {
-  const factory _ParsedCVoteRegistrationParams(
+  factory _ParsedCVoteRegistrationParams(
           {required final CIP36VoteRegistrationFormat format,
           required final CVotePublicKey? votePublicKey,
           required final List<int>? votePublicKeyPath,
@@ -336,7 +336,7 @@ abstract class _ParsedCVoteRegistrationParams
           required final BigInt nonce,
           required final BigInt? votingPurpose}) =
       _$ParsedCVoteRegistrationParamsImpl;
-  const _ParsedCVoteRegistrationParams._() : super._();
+  _ParsedCVoteRegistrationParams._() : super._();
 
   @override
   CIP36VoteRegistrationFormat get format;

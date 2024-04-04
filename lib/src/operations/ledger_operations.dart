@@ -26,10 +26,10 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
 
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
-        writer.writeUint8(claCardano); // CLA
-        writer.writeUint8(ins); // INS for Derive Address
-        writer.writeUint8(p1); // P1: request type
-        writer.writeUint8(p2); // P2: unused
+        writer.writeUint8(claCardano);
+        writer.writeUint8(ins);
+        writer.writeUint8(p1);
+        writer.writeUint8(p2);
         if (prependDataLength) {
           writer.writeUint8(data.length);
         }
@@ -55,8 +55,7 @@ class ResetOperation extends LedgerOperation<ByteDataReader> {
         if (CardanoLedgerApp.debugPrintEnabled) {
           print("ResetOperation command sent to ledger");
         }
-
-        // TODO do we need to write anything to binaryWriter?
+        writer.writeUint8(claCardano);
         return [writer.toBytes()];
       });
 

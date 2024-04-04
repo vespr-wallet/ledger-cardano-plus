@@ -15,14 +15,14 @@ extension LedgerX on Ledger {
     LedgerDevice device,
     ComplexLedgerOperation<T> operation, {
     LedgerTransformer? transformer,
-  }) {
+  }) async {
     Future<Y> send<Y>(LedgerOperation<Y> simpleOp) => sendOperation(device, simpleOp, transformer: transformer);
-
     try {
-      return operation.invoke(send);
-    } on ValidationException catch (_) {
-      // TODO use `send` function to send some kind of termination command to release ledger
-      send(ResetOperation());
+      return await operation.invoke(send);
+    } catch (e) {
+      if (e is ValidationException) {
+        await send(ResetOperation());
+      }
       rethrow;
     }
   }

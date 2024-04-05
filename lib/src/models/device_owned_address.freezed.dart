@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DeviceOwnedAddress {
+  Object get type => throw _privateConstructorUsedError;
   Object get params => throw _privateConstructorUsedError;
 }
 
@@ -44,7 +45,7 @@ abstract class _$$DeviceOwnedAddressByronImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedAddressByronImpl) then) =
       __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AddressParamsByron params});
+  $Res call({AddressByron type, AddressParamsByron params});
 
   $AddressParamsByronCopyWith<$Res> get params;
 }
@@ -62,9 +63,14 @@ class __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? params = null,
   }) {
     return _then(_$DeviceOwnedAddressByronImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as AddressByron,
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
@@ -84,14 +90,17 @@ class __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$DeviceOwnedAddressByronImpl extends DeviceOwnedAddressByron {
-  _$DeviceOwnedAddressByronImpl({required this.params}) : super._();
+  _$DeviceOwnedAddressByronImpl({required this.type, required this.params})
+      : super._();
 
+  @override
+  final AddressByron type;
   @override
   final AddressParamsByron params;
 
   @override
   String toString() {
-    return 'DeviceOwnedAddress.byron(params: $params)';
+    return 'DeviceOwnedAddress.byron(type: $type, params: $params)';
   }
 
   @override
@@ -99,11 +108,12 @@ class _$DeviceOwnedAddressByronImpl extends DeviceOwnedAddressByron {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedAddressByronImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.params, params) || other.params == params));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, params);
+  int get hashCode => Object.hash(runtimeType, type, params);
 
   @JsonKey(ignore: true)
   @override
@@ -114,10 +124,14 @@ class _$DeviceOwnedAddressByronImpl extends DeviceOwnedAddressByron {
 }
 
 abstract class DeviceOwnedAddressByron extends DeviceOwnedAddress {
-  factory DeviceOwnedAddressByron({required final AddressParamsByron params}) =
+  factory DeviceOwnedAddressByron(
+          {required final AddressByron type,
+          required final AddressParamsByron params}) =
       _$DeviceOwnedAddressByronImpl;
   DeviceOwnedAddressByron._() : super._();
 
+  @override
+  AddressByron get type;
   @override
   AddressParamsByron get params;
   @JsonKey(ignore: true)
@@ -132,9 +146,8 @@ abstract class _$$DeviceOwnedAddressBaseImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedAddressBaseImpl) then) =
       __$$DeviceOwnedAddressBaseImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({BaseAddress type, AddressParamsBase params});
+  $Res call({AddressBase type, AddressParamsBase params});
 
-  $BaseAddressCopyWith<$Res> get type;
   $AddressParamsBaseCopyWith<$Res> get params;
 }
 
@@ -157,20 +170,12 @@ class __$$DeviceOwnedAddressBaseImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as BaseAddress,
+              as AddressBase,
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as AddressParamsBase,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $BaseAddressCopyWith<$Res> get type {
-    return $BaseAddressCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value));
-    });
   }
 
   @override
@@ -189,7 +194,7 @@ class _$DeviceOwnedAddressBaseImpl extends DeviceOwnedAddressBase {
       : super._();
 
   @override
-  final BaseAddress type;
+  final AddressBase type;
   @override
   final AddressParamsBase params;
 
@@ -220,11 +225,12 @@ class _$DeviceOwnedAddressBaseImpl extends DeviceOwnedAddressBase {
 
 abstract class DeviceOwnedAddressBase extends DeviceOwnedAddress {
   factory DeviceOwnedAddressBase(
-      {required final BaseAddress type,
+      {required final AddressBase type,
       required final AddressParamsBase params}) = _$DeviceOwnedAddressBaseImpl;
   DeviceOwnedAddressBase._() : super._();
 
-  BaseAddress get type;
+  @override
+  AddressBase get type;
   @override
   AddressParamsBase get params;
   @JsonKey(ignore: true)
@@ -239,9 +245,8 @@ abstract class _$$DeviceOwnedAddressEnterpriseImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedAddressEnterpriseImpl) then) =
       __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({EnterpriseAddress type, AddressParamsEnterprise params});
+  $Res call({AddressEnterprise type, AddressParamsEnterprise params});
 
-  $EnterpriseAddressCopyWith<$Res> get type;
   $AddressParamsEnterpriseCopyWith<$Res> get params;
 }
 
@@ -265,20 +270,12 @@ class __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as EnterpriseAddress,
+              as AddressEnterprise,
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as AddressParamsEnterprise,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $EnterpriseAddressCopyWith<$Res> get type {
-    return $EnterpriseAddressCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value));
-    });
   }
 
   @override
@@ -297,7 +294,7 @@ class _$DeviceOwnedAddressEnterpriseImpl extends DeviceOwnedAddressEnterprise {
       : super._();
 
   @override
-  final EnterpriseAddress type;
+  final AddressEnterprise type;
   @override
   final AddressParamsEnterprise params;
 
@@ -329,12 +326,13 @@ class _$DeviceOwnedAddressEnterpriseImpl extends DeviceOwnedAddressEnterprise {
 
 abstract class DeviceOwnedAddressEnterprise extends DeviceOwnedAddress {
   factory DeviceOwnedAddressEnterprise(
-          {required final EnterpriseAddress type,
+          {required final AddressEnterprise type,
           required final AddressParamsEnterprise params}) =
       _$DeviceOwnedAddressEnterpriseImpl;
   DeviceOwnedAddressEnterprise._() : super._();
 
-  EnterpriseAddress get type;
+  @override
+  AddressEnterprise get type;
   @override
   AddressParamsEnterprise get params;
   @JsonKey(ignore: true)
@@ -350,9 +348,8 @@ abstract class _$$DeviceOwnedAddressPointerImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedAddressPointerImpl) then) =
       __$$DeviceOwnedAddressPointerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PointerAddress type, AddressParamsPointer params});
+  $Res call({AddressPointer type, AddressParamsPointer params});
 
-  $PointerAddressCopyWith<$Res> get type;
   $AddressParamsPointerCopyWith<$Res> get params;
 }
 
@@ -376,20 +373,12 @@ class __$$DeviceOwnedAddressPointerImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as PointerAddress,
+              as AddressPointer,
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as AddressParamsPointer,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $PointerAddressCopyWith<$Res> get type {
-    return $PointerAddressCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value));
-    });
   }
 
   @override
@@ -408,7 +397,7 @@ class _$DeviceOwnedAddressPointerImpl extends DeviceOwnedAddressPointer {
       : super._();
 
   @override
-  final PointerAddress type;
+  final AddressPointer type;
   @override
   final AddressParamsPointer params;
 
@@ -439,12 +428,13 @@ class _$DeviceOwnedAddressPointerImpl extends DeviceOwnedAddressPointer {
 
 abstract class DeviceOwnedAddressPointer extends DeviceOwnedAddress {
   factory DeviceOwnedAddressPointer(
-          {required final PointerAddress type,
+          {required final AddressPointer type,
           required final AddressParamsPointer params}) =
       _$DeviceOwnedAddressPointerImpl;
   DeviceOwnedAddressPointer._() : super._();
 
-  PointerAddress get type;
+  @override
+  AddressPointer get type;
   @override
   AddressParamsPointer get params;
   @JsonKey(ignore: true)
@@ -459,9 +449,8 @@ abstract class _$$DeviceOwnedAddressRewardImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedAddressRewardImpl) then) =
       __$$DeviceOwnedAddressRewardImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RewardAddress type, AddressParamsReward params});
+  $Res call({AddressReward type, AddressParamsReward params});
 
-  $RewardAddressCopyWith<$Res> get type;
   $AddressParamsRewardCopyWith<$Res> get params;
 }
 
@@ -485,20 +474,12 @@ class __$$DeviceOwnedAddressRewardImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as RewardAddress,
+              as AddressReward,
       params: null == params
           ? _value.params
           : params // ignore: cast_nullable_to_non_nullable
               as AddressParamsReward,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $RewardAddressCopyWith<$Res> get type {
-    return $RewardAddressCopyWith<$Res>(_value.type, (value) {
-      return _then(_value.copyWith(type: value));
-    });
   }
 
   @override
@@ -517,7 +498,7 @@ class _$DeviceOwnedAddressRewardImpl extends DeviceOwnedAddressReward {
       : super._();
 
   @override
-  final RewardAddress type;
+  final AddressReward type;
   @override
   final AddressParamsReward params;
 
@@ -548,12 +529,13 @@ class _$DeviceOwnedAddressRewardImpl extends DeviceOwnedAddressReward {
 
 abstract class DeviceOwnedAddressReward extends DeviceOwnedAddress {
   factory DeviceOwnedAddressReward(
-          {required final RewardAddress type,
+          {required final AddressReward type,
           required final AddressParamsReward params}) =
       _$DeviceOwnedAddressRewardImpl;
   DeviceOwnedAddressReward._() : super._();
 
-  RewardAddress get type;
+  @override
+  AddressReward get type;
   @override
   AddressParamsReward get params;
   @JsonKey(ignore: true)

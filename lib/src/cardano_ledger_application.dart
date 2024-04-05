@@ -31,7 +31,8 @@ import 'package:ledger_flutter/ledger_flutter.dart';
 /// https://github.com/cardano-foundation/ledger-app-cardano/blob/master/doc/design_doc.md
 /// https://github.com/cardano-foundation/ledgerjs-hw-app-cardano
 class CardanoLedgerApp {
-  static bool debugPrintEnabled = true;
+  static bool debugPrintEnabled = false;
+
   final Ledger ledger;
   final int accountIndex;
   final LedgerTransformer? transformer;

@@ -31,9 +31,9 @@ sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
     required int weight,
   }) = KeyDelegation;
   
-  late final CIP36VoteDelegationType cVoteDelegationType = switch (this) {
-    PathDelegation() => CIP36VoteDelegationType.path,
-    KeyDelegation() => CIP36VoteDelegationType.key,
+  late final int cVoteDelegationValue = switch (this) {
+    PathDelegation() => 0x01,
+    KeyDelegation() => 0x02,
   };
 
 }

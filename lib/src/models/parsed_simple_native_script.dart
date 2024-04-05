@@ -38,4 +38,18 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
   factory ParsedSimpleNativeScript.invalidHereafter({
     required BigInt slot,
   }) = ParsedSimpleNativeScript_InvalidHereafter;
+  
+  late final int nativeScriptSerializationValue = switch (this) {
+    ParsedSimpleNativeScript_PubKeyDeviceOwned() => 0,
+    ParsedSimpleNativeScript_PubKeyThirdParty() => 0,
+    ParsedSimpleNativeScript_InvalidBefore() => 4,
+    ParsedSimpleNativeScript_InvalidHereafter() => 5,
+  };
+  
+  late final int pubkeyType = switch (this) {
+    ParsedSimpleNativeScript_PubKeyDeviceOwned() => 1,
+    ParsedSimpleNativeScript_PubKeyThirdParty() => 2,
+    ParsedSimpleNativeScript_InvalidBefore() => 0,
+    ParsedSimpleNativeScript_InvalidHereafter() => 0,
+  };
 }

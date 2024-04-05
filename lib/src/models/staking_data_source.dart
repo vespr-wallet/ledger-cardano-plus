@@ -48,11 +48,11 @@ sealed class StakingDataSource with _$StakingDataSource {
     required String scriptHashHex,
   }) = StakingDataSourceScriptHash;
 
-  late final StakingDataSourceType stakingDataSourceType = switch (this) {
-    StakingDataSourceNone() => StakingDataSourceType.none,
-    StakingDataSourceKeyPath() => StakingDataSourceType.keyPath,
-    StakingDataSourceKeyHash() => StakingDataSourceType.keyHash,
-    StakingDataSourceBlockchainPointer() => StakingDataSourceType.blockchainPointer,
-    StakingDataSourceScriptHash() => StakingDataSourceType.scriptHash,
+  late final int stakingDataSourceValue = switch (this) {
+    StakingDataSourceNone() => 0x11,
+    StakingDataSourceKeyPath() => 0x22,
+    StakingDataSourceKeyHash() => 0x33,
+    StakingDataSourceBlockchainPointer() => 0x44,
+    StakingDataSourceScriptHash() => 0x55,
   };
 }

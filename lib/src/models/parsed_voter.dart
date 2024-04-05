@@ -53,14 +53,14 @@ sealed class ParsedVoter with _$ParsedVoter {
     required List<int> keyPath,
   }) = StakePoolKeyPath;
 
-  late final VoterType voterType = switch (this) {
-    CommitteeKeyHash() => VoterType.committeeKeyHash,
-    CommitteeKeyPath() => VoterType.committeeKeyPath,
-    CommitteeScriptHash() => VoterType.committeeScriptHash,
-    DrepKeyHash() => VoterType.drepKeyHash,
-    DrepKeyPath() => VoterType.drepKeyPath,
-    DrepScriptHash() => VoterType.drepScriptHash,
-    StakePoolKeyHash() => VoterType.stakePoolKeyHash,
-    StakePoolKeyPath() => VoterType.stakePoolKeyPath,
+  late final int voterValue = switch (this) {
+    CommitteeKeyHash() => 0,
+    CommitteeKeyPath() => 100,
+    CommitteeScriptHash() => 1,
+    DrepKeyHash() => 2,
+    DrepKeyPath() => 102,
+    DrepScriptHash() => 3,
+    StakePoolKeyHash() => 4,
+    StakePoolKeyPath() => 104,
   };
 }

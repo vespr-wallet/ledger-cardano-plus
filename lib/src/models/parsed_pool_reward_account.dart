@@ -15,8 +15,8 @@ sealed class ParsedPoolRewardAccount with _$ParsedPoolRewardAccount {
     required String rewardAccountHex,
   }) = ThirdPartyPoolRewardAccount;
 
-  late final PoolRewardAccountType poolRewardAccountType = switch (this) {
-    DeviceOwnedPoolRewardAccount() => PoolRewardAccountType.deviceOwned,
-    ThirdPartyPoolRewardAccount() => PoolRewardAccountType.thirdParty,
+  late final int poolRewardAccountValue = switch (this) {
+    DeviceOwnedPoolRewardAccount() => 1,
+    ThirdPartyPoolRewardAccount() => 2,
   };
 }

@@ -15,8 +15,8 @@ sealed class ParsedPoolOwner with _$ParsedPoolOwner {
     required String hashHex,
   }) = ThirdPartyPoolOwner;
 
-  late final PoolOwnerType poolOwnerType = switch (this) {
-    DeviceOwnedPoolOwner() => PoolOwnerType.deviceOwned,
-    ThirdPartyPoolOwner() => PoolOwnerType.thirdParty,
+  late final int poolOwnerValue = switch (this) {
+    DeviceOwnedPoolOwner() => 1,
+    ThirdPartyPoolOwner() => 2,
   };
 }

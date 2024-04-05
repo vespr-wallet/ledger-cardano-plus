@@ -110,27 +110,6 @@ const int poolRegistrationRelaysMax = 1000;
 const int assetGroupsMax = 1000;
 const int tokensInGroupMax = 1000;
 
-enum NativeScriptType {
-  pubkeyDeviceOwned(0),
-  pubkeyThirdParty(0),
-  all(1),
-  any(2),
-  nOfK(3),
-  invalidBefore(4),
-  invalidHereafter(5);
-
-  final int encoding;
-  const NativeScriptType(this.encoding);
-}
-
-enum PubkeyType {
-  deviceOwned(1),
-  thirdParty(2);
-
-  final int encoding;
-  const PubkeyType(this.encoding);
-}
-
 enum NativeScriptHashDisplayFormat {
   bech32(1),
   policyId(2);
@@ -181,17 +160,6 @@ enum SpendingDataSourceType {
 
   final String value;
   const SpendingDataSourceType(this.value);
-}
-
-enum StakingDataSourceType {
-  none(0x11),
-  keyPath(0x22),
-  keyHash(0x33),
-  blockchainPointer(0x44),
-  scriptHash(0x55);
-
-  final int encoding;
-  const StakingDataSourceType(this.encoding);
 }
 
 enum AddressType {
@@ -245,61 +213,12 @@ enum TxOutputDestinationType {
   const TxOutputDestinationType(this.encodingValue);
 }
 
-enum DatumType {
-  hash(0),
-  inline(1);
-
-  final int value;
-  const DatumType(this.value);
-}
-
-enum DRepType {
-  keyHash(0),
-  keyPath(100),
-  scriptHash(1),
-  abstain(2),
-  noConfidence(3);
-
-  final int value;
-  const DRepType(this.value);
-}
-
-enum TxAuxiliaryDataType {
-  arbitraryHash(0),
-  cip36Registration(1);
-
-  final int value;
-  const TxAuxiliaryDataType(this.value);
-}
-
 enum CIP36VoteDelegationType {
   path(0x01),
   key(0x02);
 
   final int encodingValue;
   const CIP36VoteDelegationType(this.encodingValue);
-}
-
-enum RequiredSignerType {
-  hash(1),
-  path(0);
-
-  final int value;
-  const RequiredSignerType(this.value);
-}
-
-enum VoterType {
-  committeeKeyHash(0),
-  committeeKeyPath(100),
-  committeeScriptHash(1),
-  drepKeyHash(2),
-  drepKeyPath(102),
-  drepScriptHash(3),
-  stakePoolKeyHash(4),
-  stakePoolKeyPath(104);
-
-  final int value;
-  const VoterType(this.value);
 }
 
 enum VoteOption {
@@ -324,58 +243,6 @@ enum CIP36VoteRegistrationFormat {
 
   final int encodingValue;
   const CIP36VoteRegistrationFormat(this.encodingValue);
-}
-
-enum CertificateType {
-  stakeRegistration(0),
-  stakeDeregistration(1),
-  stakeDelegation(2),
-  stakePoolRegistration(3),
-  stakePoolRetirement(4),
-  stakeRegistrationConway(7),
-  stakeDeregistrationConway(8),
-  voteDelegation(9),
-  authorizeCommitteeHot(14),
-  resignCommitteeCold(15),
-  dRepRegistration(16),
-  dRepDeregistration(17),
-  dRepUpdate(18);
-
-  final int value;
-  const CertificateType(this.value);
-}
-
-enum CredentialType {
-  keyPath(0),
-  keyHash(2),
-  scriptHash(1);
-
-  final int value;
-  const CredentialType(this.value);
-}
-
-enum PoolKeyType {
-  deviceOwned(1),
-  thirdParty(2);
-
-  final int encodingValue;
-  const PoolKeyType(this.encodingValue);
-}
-
-enum PoolRewardAccountType {
-  deviceOwned(1),
-  thirdParty(2);
-
-  final int encodingValue;
-  const PoolRewardAccountType(this.encodingValue);
-}
-
-enum PoolOwnerType {
-  deviceOwned(1),
-  thirdParty(2);
-
-  final int encodingValue;
-  const PoolOwnerType(this.encodingValue);
 }
 
 enum RelayType {

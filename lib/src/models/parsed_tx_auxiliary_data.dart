@@ -24,8 +24,8 @@ sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
     required ParsedCVoteRegistrationParams params,
   }) = CIP36Registration;
 
-  late final TxAuxiliaryDataType txAuxiliaryDataType = switch (this) {
-    ArbitraryHash() => TxAuxiliaryDataType.arbitraryHash,
-    CIP36Registration() => TxAuxiliaryDataType.cip36Registration,
+  late final int txAuxiliaryDataValue = switch (this) {
+    ArbitraryHash() => 0,
+    CIP36Registration() => 1,
   };
 }

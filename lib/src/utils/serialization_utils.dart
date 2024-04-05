@@ -253,19 +253,19 @@ class SerializationUtils {
         final void Function() invoker = switch (dataSource) {
           StakingDataSourceNone() => () {},
           StakingDataSourceKeyPath() => () {
-              writer.writeUint8(StakingDataSourceType.keyPath.encoding);
+              writer.writeUint8(dataSource.stakingDataSourceValue);
               writerSerializedPath(writer, dataSource.path);
             },
           StakingDataSourceKeyHash() => () {
-              writer.writeUint8(StakingDataSourceType.keyHash.encoding);
+              writer.writeUint8(dataSource.stakingDataSourceValue);
               writeSerializedHex(writer, dataSource.keyHashHex);
             },
           StakingDataSourceScriptHash() => () {
-              writer.writeUint8(StakingDataSourceType.scriptHash.encoding);
+              writer.writeUint8(dataSource.stakingDataSourceValue);
               writeSerializedHex(writer, dataSource.scriptHashHex);
             },
           StakingDataSourceBlockchainPointer() => () {
-              writer.writeUint8(StakingDataSourceType.blockchainPointer.encoding);
+              writer.writeUint8(dataSource.stakingDataSourceValue);
               writer.writeUint32(dataSource.blockIndex);
               writer.writeUint32(dataSource.txIndex);
               writer.writeUint32(dataSource.certificateIndex);
@@ -290,11 +290,11 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (auxiliaryData) {
         ArbitraryHash() => () {
-            writer.writeUint8(auxiliaryData.txAuxiliaryDataType.value);
+            writer.writeUint8(auxiliaryData.txAuxiliaryDataValue);
             writeSerializedHex(writer, auxiliaryData.hashHex);
           },
         CIP36Registration() => () {
-            writer.writeUint8(auxiliaryData.txAuxiliaryDataType.value);
+            writer.writeUint8(auxiliaryData.txAuxiliaryDataValue);
           },
       };
       invoker();
@@ -342,7 +342,7 @@ class SerializationUtils {
 
   static Uint8List serializeCVoteRegistrationDelegation(ParsedCVoteDelegation delegation) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writer.write(serializeDelegationType(delegation.cVoteDelegationType));
+      writer.writeUint8(delegation.cVoteDelegationValue);
       writer.writeUint32(delegation.weight);
 
       final void Function() invoker = switch (delegation) {
@@ -557,15 +557,15 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (credential) {
         CredentialKeyPath() => () => {
-              writer.writeUint8(credential.credentialType.value),
+              writer.writeUint8(credential.credentialValue),
               writerSerializedPath(writer, credential.path),
             },
         CredentialKeyHash() => () => {
-              writer.writeUint8(credential.credentialType.value),
+              writer.writeUint8(credential.credentialValue),
               writeSerializedHex(writer, credential.keyHashHex),
             },
         CredentialScriptHash() => () => {
-              writer.writeUint8(credential.credentialType.value),
+              writer.writeUint8(credential.credentialValue),
               writeSerializedHex(writer, credential.scriptHashHex),
             },
       };
@@ -582,19 +582,19 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (dRep) {
         DRepKeyPath() => () => {
-              writer.writeUint8(dRep.dRepType.value),
+              writer.writeUint8(dRep.dRepValue),
               writerSerializedPath(writer, dRep.path),
             },
         DRepKeyHash() => () => {
-              writer.writeUint8(dRep.dRepType.value),
+              writer.writeUint8(dRep.dRepValue),
               writeSerializedHex(writer, dRep.keyHashHex),
             },
         DRepScriptHash() => () => {
-              writer.writeUint8(dRep.dRepType.value),
+              writer.writeUint8(dRep.dRepValue),
               writeSerializedHex(writer, dRep.scriptHashHex),
             },
-        DRepAbstain() => () => writer.writeUint8(dRep.dRepType.value),
-        DRepNoConfidence() => () => writer.writeUint8(dRep.dRepType.value),
+        DRepAbstain() => () => writer.writeUint8(dRep.dRepValue),
+        DRepNoConfidence() => () => writer.writeUint8(dRep.dRepValue),
       };
       invoker();
       return writer.toBytes();
@@ -675,11 +675,11 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (key) {
         DeviceOwnedPoolKey() => () {
-            writer.writeUint8(key.poolKeyType.encodingValue);
+            writer.writeUint8(key.poolKeyValue);
             writerSerializedPath(writer, key.path);
           },
         ThirdPartyPoolKey() => () {
-            writer.writeUint8(key.poolKeyType.encodingValue);
+            writer.writeUint8(key.poolKeyValue);
             writeSerializedHex(writer, key.hashHex);
           },
       };
@@ -702,11 +702,11 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (rewardAccount) {
         DeviceOwnedPoolRewardAccount() => () {
-            writer.writeUint8(rewardAccount.poolRewardAccountType.encodingValue);
+            writer.writeUint8(rewardAccount.poolRewardAccountValue);
             writerSerializedPath(writer, rewardAccount.path);
           },
         ThirdPartyPoolRewardAccount() => () {
-            writer.writeUint8(rewardAccount.poolRewardAccountType.encodingValue);
+            writer.writeUint8(rewardAccount.poolRewardAccountValue);
             writeSerializedHex(writer, rewardAccount.rewardAccountHex);
           },
       };
@@ -719,11 +719,11 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (owner) {
         DeviceOwnedPoolOwner() => () {
-            writer.writeUint8(owner.poolOwnerType.encodingValue);
+            writer.writeUint8(owner.poolOwnerValue);
             writerSerializedPath(writer, owner.path);
           },
         ThirdPartyPoolOwner() => () {
-            writer.writeUint8(owner.poolOwnerType.encodingValue);
+            writer.writeUint8(owner.poolOwnerValue);
             writeSerializedHex(writer, owner.hashHex);
           },
       };
@@ -846,11 +846,11 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (requiredSigner) {
         RequiredSignerPath() => () {
-            writer.writeUint8(requiredSigner.requiredSignerType.value);
+            writer.writeUint8(requiredSigner.requiredSignerValue);
             writerSerializedPath(writer, requiredSigner.path);
           },
         RequiredSignerHash() => () {
-            writer.writeUint8(requiredSigner.requiredSignerType.value);
+            writer.writeUint8(requiredSigner.requiredSignerValue);
             writeSerializedHex(writer, requiredSigner.hashHex);
           },
       };
@@ -917,7 +917,7 @@ class SerializationUtils {
 
   static Uint8List serializeVoter(ParsedVoter voter) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writer.writeUint8(voter.voterType.value);
+      writer.writeUint8(voter.voterValue);
       final void Function() invoker = switch (voter) {
         CommitteeKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
         CommitteeKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
@@ -947,7 +947,7 @@ class SerializationUtils {
       final void Function() invoker = switch (datum) {
         ParsedDatumHash() => () {
             if (compatibility.supportsBabbage) {
-              writer.writeUint8(datum.datumType.value);
+              writer.writeUint8(datum.datumValue);
             }
             writeSerializedHex(writer, datum.datumHashHex);
           },
@@ -962,7 +962,7 @@ class SerializationUtils {
             }
             final chunkSize = chunkHex.length ~/ 2;
 
-            writer.writeUint8(datum.datumType.value);
+            writer.writeUint8(datum.datumValue);
             writeSerializedUint64(writer, BigInt.from(totalDatumSize));
             writeSerializedUint64(writer, BigInt.from(chunkSize));
             writeSerializedHex(writer, chunkHex);
@@ -1086,9 +1086,7 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
             }
           },
         StakePoolRetirement() => () => witnessPaths.add(cert.path),
-        // TODO: Handle this case.
         Object() => throw UnimplementedError(),
-        // TODO: Handle this case.
         null => throw UnimplementedError(),
       };
       invoker();
@@ -1096,14 +1094,14 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
 
     // Withdrawal witnesses
     for (final withdrawal in tx.withdrawals ?? []) {
-      if (withdrawal.stakeCredential.type == CredentialType.keyPath) {
+      if (withdrawal.stakeCredential is CredentialKeyPath) {
         witnessPaths.add(withdrawal.stakeCredential.path);
       }
     }
 
     // Required signers witnesses
     for (final signer in tx.requiredSigners ?? []) {
-      if (signer.type == RequiredSignerType.path) {
+      if (signer is RequiredSignerPath) {
         witnessPaths.add(signer.path);
       }
     }

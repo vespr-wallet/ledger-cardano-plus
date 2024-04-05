@@ -31,8 +31,8 @@ sealed class ParsedDatum with _$ParsedDatum {
     required String datumHex,
   }) = ParsedDatumInline;
 
-  late final DatumType datumType = switch (this) {
-    ParsedDatumHash() => DatumType.hash,
-    ParsedDatumInline() => DatumType.inline,
+  late final int datumValue = switch (this) {
+    ParsedDatumHash() => 0,
+    ParsedDatumInline() => 1,
   };
 }

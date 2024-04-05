@@ -884,11 +884,11 @@ class SerializationUtils {
     }
 
     if (compatibility.supportsAlonzo) {
-      serializeOptionFlag(writer, output.datum != null);
+      serializeOptionFlag(writer, output.outputDatum != null);
     }
 
     if (compatibility.supportsBabbage) {
-      serializeOptionFlag(writer, output.referenceScriptHex != null);
+      serializeOptionFlag(writer, output.referenceScriptHash != null);
     }
 
     writer.write(serializeTxOutputDestination(output.destination, version));

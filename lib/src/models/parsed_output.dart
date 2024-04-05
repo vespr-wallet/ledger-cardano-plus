@@ -13,12 +13,33 @@ sealed class ParsedOutput with _$ParsedOutput {
     validateUint64(amount, 'amount');
   }
 
-  factory ParsedOutput({
-    required TxOutputFormat format,
-    required BigInt amount,
-    required List<ParsedAssetGroup> tokenBundle,
+  factory ParsedOutput.alonzo({
     required ParsedOutputDestination destination,
+    required BigInt amount,
+    @Default([]) List<ParsedAssetGroup> tokenBundle,
+    ParsedDatumHash? datumHashHex,
+  }) = ParsedOutputAlonzo;
+
+  factory ParsedOutput.babbage({
+    required ParsedOutputDestination destination,
+    required BigInt amount,
+    @Default([]) List<ParsedAssetGroup> tokenBundle,
     ParsedDatum? datum,
     String? referenceScriptHex,
-  }) = _ParsedOutput;
+  }) = ParsedOutputBabbage;
+
+  late final TxOutputFormat format = switch (this) {
+    ParsedOutputAlonzo() => TxOutputFormat.arrayLegacy,
+    ParsedOutputBabbage() => TxOutputFormat.mapBabbage,
+  };
+  
+  late final ParsedDatum? outputDatum = switch (this) {
+    ParsedOutputAlonzo(datumHashHex: final datumHashHex) => datumHashHex,
+    ParsedOutputBabbage(datum: final datum) => datum,
+  };
+  
+  late final String? referenceScriptHash = switch (this) {
+    ParsedOutputAlonzo() => null,
+    ParsedOutputBabbage(referenceScriptHex: final referenceScriptHex) => referenceScriptHex,
+  };
 }

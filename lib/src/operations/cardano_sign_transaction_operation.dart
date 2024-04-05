@@ -802,7 +802,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
     await signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send, SerializationUtils.int64ToBuf);
 
-    final outputDatum = output.datum;
+    final outputDatum = output.outputDatum;
     // Datum
     if (outputDatum != null) {
       await send(SendOperation(
@@ -821,19 +821,22 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       }
     }
 
+    final outputReferenceScriptHash = output.referenceScriptHash;
+
     // Reference Script
-    if (output.referenceScriptHex != null) {
+    if (outputReferenceScriptHash != null) {
       await send(SendOperation(
         ins: InstructionType.signTransaction.insValue,
         p1: p1StageOutputs,
         p2: p2OutputScript,
-        data: SerializationUtils.serializeTxOutputRefScript(output.referenceScriptHex!),
+        data: SerializationUtils.serializeTxOutputRefScript(outputReferenceScriptHash),
         prependDataLength: true,
         debugName: 'Sign Transaction Output Reference Script',
       ));
+
       // Script chunks
-      if (output.referenceScriptHex!.length / 2 > maxChunkSize) {
-        await signTxAddOutputSendChunks(output.referenceScriptHex!, p2OutputScriptChunk, send);
+      if (outputReferenceScriptHash.length / 2 > maxChunkSize) {
+        await signTxAddOutputSendChunks(outputReferenceScriptHash, p2OutputScriptChunk, send);
       }
     }
 

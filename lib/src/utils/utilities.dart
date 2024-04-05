@@ -58,7 +58,6 @@ void validate(bool condition, String reason) {
 }
 
 void validateUint64(BigInt? value, String fieldName) {
-  print("validateUint64 $fieldName: $value ${value?.bitLength}, ${value?.sign}");
   if (value != null && (value.bitLength > 64 || value.sign == -1)) {
     throw ValidationException('$fieldName must be positive and max 64 bits.');
   }

@@ -42,8 +42,6 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'dart:convert';
 
-typedef SerializeTokenAmountFn = Uint8List Function(BigInt value);
-
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
   static final BigInt optionFlagsTagCborSets = BigInt.from(OptionFlags.tagCborSets.value);
@@ -102,13 +100,13 @@ class SerializationUtils {
     invoker();
   }
 
-  static Uint8List serializeTxInit(
-    ParsedTransaction tx,
-    TransactionSigningModes signingMode,
-    int numWitnesses,
-    ParsedTransactionOptions? options,
-    CardanoVersion version,
-  ) {
+  static Uint8List serializeTxInit({
+    required ParsedTransaction tx,
+    required TransactionSigningModes signingMode,
+    required int numWitnesses,
+    required ParsedTransactionOptions? options,
+    required CardanoVersion version,
+  }) {
     return useBinaryWriter((ByteDataWriter writer) {
       final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
@@ -832,12 +830,12 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeToken(ParsedToken token, Uint8List Function(BigInt) serializeTokenAmountFn) {
+  static Uint8List serializeToken(ParsedToken token) {
     return useBinaryWriter((ByteDataWriter writer) {
       final assetNameBytes = hex.decode(token.assetNameHex);
       writer.writeUint32(assetNameBytes.length);
       writer.write(assetNameBytes);
-      writer.write(serializeTokenAmountFn(token.amount));
+      writer.write(int64ToBuf(token.amount));
       return writer.toBytes();
     });
   }

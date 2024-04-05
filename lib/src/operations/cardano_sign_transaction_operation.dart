@@ -44,7 +44,6 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
     final witnessPaths = gatherWitnessPaths(signingRequest);
 
-    print('witnessPaths: $witnessPaths');
 
     // init
     await signTxInit(send, witnessPaths);
@@ -167,16 +166,13 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     // confirm
     final txHashHex = await signTxAwaitConfirm(send);
 
-    print('signingRequest: ${signingRequest.additionalWitnessPaths}');
 
     // witnesses
     final witnesses = <Witness>[];
     for (final path in witnessPaths) {
-      print('path: $path');
       final witness = await signTxGetWitness(path, send);
       witnesses.add(witness);
     }
-    print('witnesses: $witnesses');
 
     return SignedTransactionData(
       txHashHex: txHashHex,
@@ -187,11 +183,11 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
   Future<void> signTxInit(LedgerSendFct send, List<List<int>> witnessPaths) async {
     final data = SerializationUtils.serializeTxInit(
-      signingRequest.tx,
-      signingRequest.signingMode,
-      witnessPaths.length,
-      signingRequest.options,
-      cardanoVersion,
+      tx: signingRequest.tx,
+      signingMode: signingRequest.signingMode,
+      numWitnesses: witnessPaths.length,
+      options: signingRequest.options,
+      version: cardanoVersion,
     );
 
     await send(
@@ -562,7 +558,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Set Mint Basic Data',
     ));
 
-    await signTxAddTokenBundle(mint, p1StageMint, send, SerializationUtils.int64ToBuf);
+    await signTxAddTokenBundle(mint, p1StageMint, send);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -578,7 +574,6 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     List<ParsedAssetGroup> tokenBundle,
     int p1,
     LedgerSendFct send,
-    SerializeTokenAmountFn serializeTokenAmountFn,
   ) async {
     for (final assetGroup in tokenBundle) {
       final Uint8List assetGroupData = SerializationUtils.serializeAssetGroup(assetGroup);
@@ -592,7 +587,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ));
 
       for (final token in assetGroup.tokens) {
-        final Uint8List tokenData = SerializationUtils.serializeToken(token, serializeTokenAmountFn);
+        final Uint8List tokenData = SerializationUtils.serializeToken(token);
         await send(SendOperation(
           ins: InstructionType.signTransaction.insValue,
           p1: p1,
@@ -657,8 +652,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Collateral Output Basic Data',
     ));
 
-    await signTxAddTokenBundle(
-        collateralOutput.tokenBundle, p1StageCollateralOutput, send, SerializationUtils.int64ToBuf);
+    await signTxAddTokenBundle(collateralOutput.tokenBundle, p1StageCollateralOutput, send);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -762,7 +756,6 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       throw ValidationException('Unexpected response length for witness signature');
     }
 
-    print('response: ${response.remainingLength}');
     final witnessSignature = response.read(response.remainingLength);
     final witnessSignatureHex = hex.encode(witnessSignature);
 
@@ -800,7 +793,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Output Basic Data',
     ));
 
-    await signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send, SerializationUtils.int64ToBuf);
+    await signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send);
 
     final outputDatum = output.outputDatum;
     // Datum

@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:collection/collection.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/cvote_public_key.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
@@ -364,10 +365,13 @@ class SerializationUtils {
       ParsedOutputDestination paymentDestination, CardanoVersion version) {
     if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
       return serializeTxOutputDestination(paymentDestination, version);
-    } else if (paymentDestination is DeviceOwned) {
-      return serializeAddressParams(paymentDestination.addressParams, version);
+    } else {
+      final Uint8List Function() invoker = switch (paymentDestination) {
+        DeviceOwned() => () => serializeAddressParams(paymentDestination.addressParams, version),
+        _ => () => throw ValidationException('Invalid payment destination'),
+      };
+      return invoker();
     }
-    throw ValidationException('Invalid payment destination');
   }
 
   static Uint8List serializeCVoteRegistrationNonce(BigInt nonce) {
@@ -1014,74 +1018,98 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
       final void Function() invoker = switch (cert) {
         StakeRegistrationConway() => () {
             final credential = cert.stakeCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         StakeDeregistration() => () {
             final credential = cert.stakeCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         StakeDeregistrationConway() => () {
             final credential = cert.stakeCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         StakeDelegation() => () {
             final credential = cert.stakeCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         VoteDelegation() => () {
             final credential = cert.stakeCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         AuthorizeCommitteeHot() => () {
             final credential = cert.coldCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         ResignCommitteeCold() => () {
             final credential = cert.coldCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         DRepRegistration() => () {
             final credential = cert.dRepCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         DRepDeregistration() => () {
             final credential = cert.dRepCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         DRepUpdate() => () {
             final credential = cert.dRepCredential;
-            if (credential is CredentialKeyPath) {
-              witnessPaths.add(credential.path);
-            }
+            final void Function() invoker = switch (credential) {
+              CredentialKeyPath() => () => witnessPaths.add(credential.path),
+              _ => () => (),
+            };
+            invoker();
           },
         StakePoolRegistration() => () {
             for (var owner in cert.pool.owners) {
-              if (owner is DeviceOwnedPoolOwner) {
-                witnessPaths.add(owner.path);
-              }
+              final void Function() invoker = switch (owner) {
+                DeviceOwnedPoolOwner() => () => witnessPaths.add(owner.path),
+                _ => () => (),
+              };
+              invoker();
             }
             final poolKey = cert.pool.poolKey;
-            if (poolKey is DeviceOwnedPoolKey) {
-              witnessPaths.add(poolKey.path);
-            }
+            final void Function() invoker = switch (poolKey) {
+              DeviceOwnedPoolKey() => () => witnessPaths.add(poolKey.path),
+              _ => () => (),
+            };
+            invoker();
           },
         StakePoolRetirement() => () => witnessPaths.add(cert.path),
         Object() => throw UnimplementedError(),
@@ -1092,16 +1120,20 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
 
     // Withdrawal witnesses
     for (final withdrawal in tx.withdrawals ?? []) {
-      if (withdrawal.stakeCredential is CredentialKeyPath) {
-        witnessPaths.add(withdrawal.stakeCredential.path);
-      }
+      final void Function() invoker = switch (withdrawal.stakeCredential) {
+        CredentialKeyPath() => () => witnessPaths.add(withdrawal.stakeCredential.path),
+        _ => () => (),
+      };
+      invoker();
     }
 
     // Required signers witnesses
     for (final signer in tx.requiredSigners ?? []) {
-      if (signer is RequiredSignerPath) {
-        witnessPaths.add(signer.path);
-      }
+      final void Function() invoker = switch (signer) {
+        RequiredSignerPath() => () => witnessPaths.add(signer.path),
+        _ => () => (),
+      };
+      invoker();
     }
 
     // Collateral inputs witnesses
@@ -1132,5 +1164,13 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
 }
 
 List<List<int>> uniquify(List<List<int>> paths) {
-  return paths.toSet().toList();
+  const eq = DeepCollectionEquality();
+  final List<List<int>> finalPaths = [];
+  for (final path in paths) {
+    if (finalPaths.none((addedPath) => eq.equals(addedPath, path))) {
+      finalPaths.add(path);
+    }
+  }
+
+  return finalPaths;
 }

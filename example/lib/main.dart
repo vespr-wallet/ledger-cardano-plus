@@ -236,8 +236,8 @@ class _MyAppState extends State<MyApp> {
             ),
           ],
           outputs: [],
-          fee: BigInt.parse('20000000'),
-          ttl: BigInt.parse('2312'),
+          fee: BigInt.parse('42'),
+          ttl: BigInt.parse('10'),
         ),
         additionalWitnessPaths: [],
       );

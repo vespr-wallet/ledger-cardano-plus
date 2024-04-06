@@ -17,8 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedOutput {
   ParsedOutputDestination get destination => throw _privateConstructorUsedError;
-  BigInt get amount =>
-      throw _privateConstructorUsedError; // Using String to represent bigint_like
+  BigInt get amount => throw _privateConstructorUsedError;
   List<ParsedAssetGroup> get tokenBundle => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -152,9 +151,7 @@ class _$ParsedOutputAlonzoImpl extends ParsedOutputAlonzo {
   final ParsedOutputDestination destination;
   @override
   final BigInt amount;
-// Using String to represent bigint_like
   final List<ParsedAssetGroup> _tokenBundle;
-// Using String to represent bigint_like
   @override
   @JsonKey()
   List<ParsedAssetGroup> get tokenBundle {
@@ -213,7 +210,7 @@ abstract class ParsedOutputAlonzo extends ParsedOutput {
   ParsedOutputDestination get destination;
   @override
   BigInt get amount;
-  @override // Using String to represent bigint_like
+  @override
   List<ParsedAssetGroup> get tokenBundle;
   ParsedDatumHash? get datumHashHex;
   @override
@@ -312,9 +309,7 @@ class _$ParsedOutputBabbageImpl extends ParsedOutputBabbage {
   final ParsedOutputDestination destination;
   @override
   final BigInt amount;
-// Using String to represent bigint_like
   final List<ParsedAssetGroup> _tokenBundle;
-// Using String to represent bigint_like
   @override
   @JsonKey()
   List<ParsedAssetGroup> get tokenBundle {
@@ -378,7 +373,7 @@ abstract class ParsedOutputBabbage extends ParsedOutput {
   ParsedOutputDestination get destination;
   @override
   BigInt get amount;
-  @override // Using String to represent bigint_like
+  @override
   List<ParsedAssetGroup> get tokenBundle;
   ParsedDatum? get datum;
   String? get referenceScriptHex;

@@ -14,7 +14,7 @@ sealed class StakingDataSource with _$StakingDataSource {
         validateBIP32Path(thisClass.path, 'path');
       },
       StakingDataSourceKeyHash() => () {
-        validateMaxHexString(thisClass.keyHashHex, 'keyHashHex', maxHexStringLength);
+        validateMaxStringLength(thisClass.keyHashHex, 'keyHashHex', stringLength64Bytes);
       },
       StakingDataSourceBlockchainPointer() => () {
         validate32bitUnsignedInteger(thisClass.blockIndex, 'blockIndex');
@@ -22,7 +22,7 @@ sealed class StakingDataSource with _$StakingDataSource {
         validate32bitUnsignedInteger(thisClass.certificateIndex, 'certificateIndex');
       },
       StakingDataSourceScriptHash() => () {
-        validateMaxHexString(thisClass.scriptHashHex, 'scriptHashHex', maxHexStringLength);
+        validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
       },
     };
     assertinvoker();

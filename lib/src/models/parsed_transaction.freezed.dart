@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedTransaction {
-  ParsedNetwork get network => throw _privateConstructorUsedError;
+  CardanoNetwork get network => throw _privateConstructorUsedError;
   List<ParsedInput> get inputs => throw _privateConstructorUsedError;
   List<ParsedOutput> get outputs => throw _privateConstructorUsedError;
   BigInt get fee => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       _$ParsedTransactionCopyWithImpl<$Res, ParsedTransaction>;
   @useResult
   $Res call(
-      {ParsedNetwork network,
+      {CardanoNetwork network,
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
       BigInt fee,
@@ -74,7 +74,6 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       BigInt? treasury,
       BigInt? donation});
 
-  $ParsedNetworkCopyWith<$Res> get network;
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
   $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex;
   $ParsedOutputCopyWith<$Res>? get collateralOutput;
@@ -118,7 +117,7 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as ParsedNetwork,
+              as CardanoNetwork,
       inputs: null == inputs
           ? _value.inputs
           : inputs // ignore: cast_nullable_to_non_nullable
@@ -200,14 +199,6 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
 
   @override
   @pragma('vm:prefer-inline')
-  $ParsedNetworkCopyWith<$Res> get network {
-    return $ParsedNetworkCopyWith<$Res>(_value.network, (value) {
-      return _then(_value.copyWith(network: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData {
     if (_value.auxiliaryData == null) {
       return null;
@@ -252,7 +243,7 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ParsedNetwork network,
+      {CardanoNetwork network,
       List<ParsedInput> inputs,
       List<ParsedOutput> outputs,
       BigInt fee,
@@ -273,8 +264,6 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
       BigInt? treasury,
       BigInt? donation});
 
-  @override
-  $ParsedNetworkCopyWith<$Res> get network;
   @override
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
   @override
@@ -319,7 +308,7 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res>
       network: null == network
           ? _value.network
           : network // ignore: cast_nullable_to_non_nullable
-              as ParsedNetwork,
+              as CardanoNetwork,
       inputs: null == inputs
           ? _value._inputs
           : inputs // ignore: cast_nullable_to_non_nullable
@@ -436,7 +425,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
         super._();
 
   @override
-  final ParsedNetwork network;
+  final CardanoNetwork network;
   final List<ParsedInput> _inputs;
   @override
   List<ParsedInput> get inputs {
@@ -627,7 +616,7 @@ class _$ParsedTransactionImpl extends _ParsedTransaction {
 
 abstract class _ParsedTransaction extends ParsedTransaction {
   factory _ParsedTransaction(
-      {required final ParsedNetwork network,
+      {required final CardanoNetwork network,
       required final List<ParsedInput> inputs,
       required final List<ParsedOutput> outputs,
       required final BigInt fee,
@@ -650,7 +639,7 @@ abstract class _ParsedTransaction extends ParsedTransaction {
   _ParsedTransaction._() : super._();
 
   @override
-  ParsedNetwork get network;
+  CardanoNetwork get network;
   @override
   List<ParsedInput> get inputs;
   @override

@@ -8,7 +8,7 @@ part 'parsed_token.freezed.dart';
 sealed class ParsedToken with _$ParsedToken {
   ParsedToken._() {
     validateInt64(amount, 'amount');
-    validateMaxHexString(assetNameHex, 'assetNameHex', maxHexStringLength);
+    validateMaxStringLength(assetNameHex, 'assetNameHex', stringLength64Bytes);
   }
 
   factory ParsedToken({

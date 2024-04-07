@@ -66,7 +66,7 @@ const int kesPublicKeyLength = 64;
 
 const int cvotePublicKeyLength = 32;
 
-const int maxHexStringLength = 64;
+const int stringLength64Bytes = 64;
 
 const int p2Unused = 0x00;
 

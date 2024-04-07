@@ -120,25 +120,26 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasPoolRetirement = request.tx.certificates?.any((c) {
-      final bool Function() invoker = switch (c) {
-        StakePoolRetirement() => () => true,
-        _ => () => false,
-      };
-      return invoker();
-    });
-    if (hasPoolRetirement != null && !compatibility.supportsPoolRetirement) {
+          return switch (c) {
+            StakePoolRetirement() => true,
+            _ => false,
+          };
+        }) ??
+        false;
+    if (hasPoolRetirement && !compatibility.supportsPoolRetirement) {
       throw ValidationException(
         'Pool retirement certificate not supported by Ledger app version ${version.versionName}.',
       );
     }
 
     final hasConwayCertificates = request.tx.certificates?.any((c) {
-      if (c.isConway) {
-        return true;
-      }
-      return false;
-    });
-    if (hasConwayCertificates != null && !compatibility.supportsConway) {
+          if (c.isConway) {
+            return true;
+          }
+          return false;
+        }) ??
+        false;
+    if (hasConwayCertificates && !compatibility.supportsConway) {
       throw ValidationException(
         'Conway era certificates not supported by Ledger app version ${version.versionName}.',
       );

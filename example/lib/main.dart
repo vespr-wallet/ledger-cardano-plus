@@ -14,8 +14,8 @@ import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_input.dart';
-import 'package:ledger_cardano/src/models/parsed_network.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
@@ -221,7 +221,7 @@ class _MyAppState extends State<MyApp> {
       final txToSign = ParsedSigningRequest(
         signingMode: OrdinaryTransaction(),
         tx: ParsedTransaction(
-          network: ParsedNetworkMainnet(),
+          network: CardanoNetwork.mainnet,
           inputs: [
             ParsedInput(
               txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',

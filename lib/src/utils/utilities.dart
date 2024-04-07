@@ -82,7 +82,7 @@ void validateBIP32Path(List<int>? path, String fieldName) {
   }
 }
 
-void validateMaxHexString(String? value, String fieldName, int maxLength) {
+void validateMaxStringLength(String? value, String fieldName, int maxLength) {
   if (value != null && value.length > maxLength) {
     throw ValidationException('$fieldName must be maximum $maxLength characters long');
   }
@@ -101,6 +101,7 @@ void validateUrl(String? value, String fieldName) {
 }
 
 void validateExactHexString(String? value, String fieldName, int length) {
+  validateHexString(value, fieldName);
   if (value != null && value.length != length) {
     throw ValidationException('$fieldName must be exactly $length characters long');
   }
@@ -109,5 +110,14 @@ void validateExactHexString(String? value, String fieldName, int length) {
 void validateUint32(int? value, String fieldName) {
   if (value != null && (value.bitLength > 31 || value.sign == -1)) {
     throw ValidationException('$fieldName must be an unsigned 32-bit integer');
+  }
+}
+
+void validateHexString(String? value, String fieldName) {
+  if (value != null) {
+    final hexRegex = RegExp(r'^[0-9a-fA-F]+$');
+    if (!hexRegex.hasMatch(value)) {
+      throw ValidationException('$fieldName must be a valid hex string containing only characters 0-9 or a-f');
+    }
   }
 }

@@ -14,6 +14,7 @@ sealed class SpendingDataSource with _$SpendingDataSource {
         validateBIP32Path(thisClass.path, 'path');
       },
       SpendingDataSourceScriptHash() => () {
+        validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
         validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
       },
     };

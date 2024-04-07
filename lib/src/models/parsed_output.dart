@@ -10,7 +10,15 @@ part 'parsed_output.freezed.dart';
 @freezed
 sealed class ParsedOutput with _$ParsedOutput {
   ParsedOutput._() {
-    validateUint64(amount, 'amount');
+    final thisClass = this;
+    final void Function() assertInvoker = switch (thisClass) {
+      ParsedOutputAlonzo() => () => validateUint64(thisClass.amount, 'amount'),
+      ParsedOutputBabbage() => () => {
+            validateHexString(thisClass.referenceScriptHex, 'referenceScriptHex'),
+            validateUint64(thisClass.amount, 'amount'),
+          },
+    };
+    assertInvoker();
   }
 
   factory ParsedOutput.alonzo({
@@ -32,12 +40,12 @@ sealed class ParsedOutput with _$ParsedOutput {
     ParsedOutputAlonzo() => TxOutputFormat.arrayLegacy,
     ParsedOutputBabbage() => TxOutputFormat.mapBabbage,
   };
-  
+
   late final ParsedDatum? outputDatum = switch (this) {
     ParsedOutputAlonzo(datumHashHex: final datumHashHex) => datumHashHex,
     ParsedOutputBabbage(datum: final datum) => datum,
   };
-  
+
   late final String? referenceScriptHash = switch (this) {
     ParsedOutputAlonzo() => null,
     ParsedOutputBabbage(referenceScriptHex: final referenceScriptHex) => referenceScriptHex,

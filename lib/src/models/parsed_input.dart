@@ -7,7 +7,6 @@ part 'parsed_input.freezed.dart';
 @freezed
 sealed class ParsedInput with _$ParsedInput {
   ParsedInput._() {
-    validateHexString(txHashHex, 'txHashHex');
     validateExactHexString(txHashHex, 'txHashHex', txHashHexMaxLength);
     validateUint32(outputIndex, 'outputIndex');
     validateBIP32Path(path, 'path');

@@ -1,10 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'third_party_address_params.freezed.dart';
 
 @freezed
 class ThirdPartyAddressParams with _$ThirdPartyAddressParams {
-  ThirdPartyAddressParams._();
+  ThirdPartyAddressParams._() {
+    validateHexString(addressHex, 'addressHex');
+  }
 
   factory ThirdPartyAddressParams({
     required String addressHex,

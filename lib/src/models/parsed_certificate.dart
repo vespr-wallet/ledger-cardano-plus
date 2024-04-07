@@ -20,7 +20,9 @@ sealed class ParsedCertificate with _$ParsedCertificate {
       StakeDeregistrationConway() => () {
           validateUint64(thisClass.deposit, 'deposit');
         },
-      StakeDelegation() => () {},
+      StakeDelegation() => () {
+        validateHexString(thisClass.poolKeyHashHex, 'poolKeyHashHex');
+      },
       VoteDelegation() => () {},
       AuthorizeCommitteeHot() => () {},
       ResignCommitteeCold() => () {},

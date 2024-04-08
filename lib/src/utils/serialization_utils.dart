@@ -1016,6 +1016,8 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
     if (certificates != null) {
       // Certificate witnesses
       for (final cert in certificates) {
+        // for CertificateType.STAKE_REGISTRATION, we do not provide the witness automatically
+        // it can be obtained via SignTransactionRequest.additionalWitnessPaths
         final void Function() invoker = switch (cert) {
           StakeRegistrationConway() => () {
               final credential = cert.stakeCredential;
@@ -1113,7 +1115,7 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
               invoker();
             },
           StakePoolRetirement() => () => witnessPaths.add(cert.path),
-          StakeRegistration() => throw ValidationException('No witness paths for this certificate type.'),
+          StakeRegistration() => () {},
         };
         invoker();
       }

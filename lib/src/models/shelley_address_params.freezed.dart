@@ -1163,7 +1163,7 @@ abstract class _$$RewardScriptImplCopyWith<$Res>
       __$$RewardScriptImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int networkId});
+  $Res call({int networkId, String stakingScriptHashHex});
 }
 
 /// @nodoc
@@ -1178,12 +1178,17 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? networkId = null,
+    Object? stakingScriptHashHex = null,
   }) {
     return _then(_$RewardScriptImpl(
       networkId: null == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int,
+      stakingScriptHashHex: null == stakingScriptHashHex
+          ? _value.stakingScriptHashHex
+          : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -1191,14 +1196,18 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RewardScriptImpl extends RewardScript {
-  _$RewardScriptImpl({required this.networkId}) : super._();
+  _$RewardScriptImpl(
+      {required this.networkId, required this.stakingScriptHashHex})
+      : super._();
 
   @override
   final int networkId;
+  @override
+  final String stakingScriptHashHex;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardScript(networkId: $networkId)';
+    return 'ShelleyAddressParamsData.rewardScript(networkId: $networkId, stakingScriptHashHex: $stakingScriptHashHex)';
   }
 
   @override
@@ -1207,11 +1216,13 @@ class _$RewardScriptImpl extends RewardScript {
         (other.runtimeType == runtimeType &&
             other is _$RewardScriptImpl &&
             (identical(other.networkId, networkId) ||
-                other.networkId == networkId));
+                other.networkId == networkId) &&
+            (identical(other.stakingScriptHashHex, stakingScriptHashHex) ||
+                other.stakingScriptHashHex == stakingScriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId);
+  int get hashCode => Object.hash(runtimeType, networkId, stakingScriptHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -1221,11 +1232,14 @@ class _$RewardScriptImpl extends RewardScript {
 }
 
 abstract class RewardScript extends ShelleyAddressParamsData {
-  factory RewardScript({required final int networkId}) = _$RewardScriptImpl;
+  factory RewardScript(
+      {required final int networkId,
+      required final String stakingScriptHashHex}) = _$RewardScriptImpl;
   RewardScript._() : super._();
 
   @override
   int get networkId;
+  String get stakingScriptHashHex;
   @override
   @JsonKey(ignore: true)
   _$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith =>

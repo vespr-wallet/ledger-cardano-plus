@@ -22,6 +22,7 @@ import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
@@ -171,7 +172,10 @@ class CardanoLedgerApp {
       transformer: transformer,
     );
 
-    return addressResult;
+    Uint8List addressBytes = hexToBytes(addressResult);
+    final result = bech32EncodeAddress('addr', addressBytes);
+
+    return result;
   }
 
   Future<Uint8List> signOperationalCertificate(

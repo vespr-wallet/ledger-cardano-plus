@@ -121,6 +121,8 @@ void validateHexString(String? value, String fieldName) {
       throw ValidationException('$fieldName must be a valid hex string containing only characters 0-9 or a-f');
     }
   }
+}
+
 Uint8List bech32DecodeAddress(String data) {
   final Bech32 decoded = bech32.decode(data);
   final bytes = fromWords(decoded.data);

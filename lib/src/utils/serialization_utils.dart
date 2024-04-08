@@ -1011,111 +1011,112 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
         witnessPaths.add(path);
       }
     }
-
     final certificates = tx.certificates;
-    // Certificate witnesses
-    for (final cert in certificates ?? []) {
-      final void Function() invoker = switch (cert) {
-        StakeRegistrationConway() => () {
-            final credential = cert.stakeCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        StakeDeregistration() => () {
-            final credential = cert.stakeCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        StakeDeregistrationConway() => () {
-            final credential = cert.stakeCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        StakeDelegation() => () {
-            final credential = cert.stakeCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        VoteDelegation() => () {
-            final credential = cert.stakeCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        AuthorizeCommitteeHot() => () {
-            final credential = cert.coldCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        ResignCommitteeCold() => () {
-            final credential = cert.coldCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        DRepRegistration() => () {
-            final credential = cert.dRepCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        DRepDeregistration() => () {
-            final credential = cert.dRepCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        DRepUpdate() => () {
-            final credential = cert.dRepCredential;
-            final void Function() invoker = switch (credential) {
-              CredentialKeyPath() => () => witnessPaths.add(credential.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        StakePoolRegistration() => () {
-            for (var owner in cert.pool.owners) {
-              final void Function() invoker = switch (owner) {
-                DeviceOwnedPoolOwner() => () => witnessPaths.add(owner.path),
+
+    if (certificates != null) {
+      // Certificate witnesses
+      for (final cert in certificates) {
+        final void Function() invoker = switch (cert) {
+          StakeRegistrationConway() => () {
+              final credential = cert.stakeCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
                 _ => () => (),
               };
               invoker();
-            }
-            final poolKey = cert.pool.poolKey;
-            final void Function() invoker = switch (poolKey) {
-              DeviceOwnedPoolKey() => () => witnessPaths.add(poolKey.path),
-              _ => () => (),
-            };
-            invoker();
-          },
-        StakePoolRetirement() => () => witnessPaths.add(cert.path),
-        Object() => throw UnimplementedError(),
-        null => throw UnimplementedError(),
-      };
-      invoker();
+            },
+          StakeDeregistration() => () {
+              final credential = cert.stakeCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          StakeDeregistrationConway() => () {
+              final credential = cert.stakeCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          StakeDelegation() => () {
+              final credential = cert.stakeCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          VoteDelegation() => () {
+              final credential = cert.stakeCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          AuthorizeCommitteeHot() => () {
+              final credential = cert.coldCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          ResignCommitteeCold() => () {
+              final credential = cert.coldCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          DRepRegistration() => () {
+              final credential = cert.dRepCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          DRepDeregistration() => () {
+              final credential = cert.dRepCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          DRepUpdate() => () {
+              final credential = cert.dRepCredential;
+              final void Function() invoker = switch (credential) {
+                CredentialKeyPath() => () => witnessPaths.add(credential.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          StakePoolRegistration() => () {
+              for (var owner in cert.pool.owners) {
+                final void Function() invoker = switch (owner) {
+                  DeviceOwnedPoolOwner() => () => witnessPaths.add(owner.path),
+                  _ => () => (),
+                };
+                invoker();
+              }
+              final poolKey = cert.pool.poolKey;
+              final void Function() invoker = switch (poolKey) {
+                DeviceOwnedPoolKey() => () => witnessPaths.add(poolKey.path),
+                _ => () => (),
+              };
+              invoker();
+            },
+          StakePoolRetirement() => () => witnessPaths.add(cert.path),
+          StakeRegistration() => throw ValidationException('No witness paths for this certificate type.'),
+        };
+        invoker();
+      }
     }
 
     // Withdrawal witnesses

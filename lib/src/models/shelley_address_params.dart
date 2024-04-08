@@ -57,6 +57,7 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
 
   factory ShelleyAddressParamsData.rewardKey({
     required int networkId,
+    required StakingDataSource stakingDataSource,
   }) = RewardKey;
 
   factory ShelleyAddressParamsData.rewardScript({

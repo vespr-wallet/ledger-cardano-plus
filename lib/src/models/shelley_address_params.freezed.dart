@@ -1063,7 +1063,9 @@ abstract class _$$RewardKeyImplCopyWith<$Res>
       __$$RewardKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int networkId});
+  $Res call({int networkId, StakingDataSource stakingDataSource});
+
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
@@ -1078,27 +1080,43 @@ class __$$RewardKeyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? networkId = null,
+    Object? stakingDataSource = null,
   }) {
     return _then(_$RewardKeyImpl(
       networkId: null == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int,
+      stakingDataSource: null == stakingDataSource
+          ? _value.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSource,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
+    return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
+      return _then(_value.copyWith(stakingDataSource: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$RewardKeyImpl extends RewardKey {
-  _$RewardKeyImpl({required this.networkId}) : super._();
+  _$RewardKeyImpl({required this.networkId, required this.stakingDataSource})
+      : super._();
 
   @override
   final int networkId;
+  @override
+  final StakingDataSource stakingDataSource;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardKey(networkId: $networkId)';
+    return 'ShelleyAddressParamsData.rewardKey(networkId: $networkId, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -1107,11 +1125,13 @@ class _$RewardKeyImpl extends RewardKey {
         (other.runtimeType == runtimeType &&
             other is _$RewardKeyImpl &&
             (identical(other.networkId, networkId) ||
-                other.networkId == networkId));
+                other.networkId == networkId) &&
+            (identical(other.stakingDataSource, stakingDataSource) ||
+                other.stakingDataSource == stakingDataSource));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId);
+  int get hashCode => Object.hash(runtimeType, networkId, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -1121,11 +1141,14 @@ class _$RewardKeyImpl extends RewardKey {
 }
 
 abstract class RewardKey extends ShelleyAddressParamsData {
-  factory RewardKey({required final int networkId}) = _$RewardKeyImpl;
+  factory RewardKey(
+      {required final int networkId,
+      required final StakingDataSource stakingDataSource}) = _$RewardKeyImpl;
   RewardKey._() : super._();
 
   @override
   int get networkId;
+  StakingDataSource get stakingDataSource;
   @override
   @JsonKey(ignore: true)
   _$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith =>

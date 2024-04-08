@@ -197,11 +197,19 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _fetchAccount(LedgerDevice device) async {
     try {
-      final derivedAddress = await cardanoApp.deriveAddress(device);
+      final receiveAddress = await cardanoApp.deriveReceiveAddress(device);
+      final changeAddress = await cardanoApp.deriveChangeAddress(device);
+      final spendAddress = await cardanoApp.deriveSpendAddress(device);
+      final stakingAddress = await cardanoApp.deriveStakingAddress(device);
 
       setState(() {
-        accounts = ['Address: $derivedAddress'];
-        accountsInfo = 'Derived address:\n${accounts.join('\n')}';
+        accounts = [
+          'Receive Address: $receiveAddress',
+          'Change Address: $changeAddress',
+          'Spend Address: $spendAddress',
+          'Staking Address: $stakingAddress',
+        ];
+        accountsInfo = 'Derived addresses:\n${accounts.join('\n')}';
       });
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
@@ -346,105 +354,105 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
- @override
-Widget build(BuildContext context) {
-  return MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Cardano Ledger Test'),
-      ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: _scanForDevices,
-                child: const Text('Scan for Devices'),
-              ),
-              const SizedBox(height: 20),
-              const Text('Available Devices:'),
-              ...devices.map((device) => ListTile(
-                    title: Text(device.name),
-                    onTap: () async {
-                      setState(() {
-                        versionInfo = 'Connecting...';
-                        accountsInfo = '';
-                        scriptHashInfo = '';
-                        signatureHex = '';
-                        serialInfo = '';
-                        publicKeyInfo = '';
-                      });
-                      await ledger.connect(device);
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Cardano Ledger Test'),
+        ),
+        body: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                ElevatedButton(
+                  onPressed: _scanForDevices,
+                  child: const Text('Scan for Devices'),
+                ),
+                const SizedBox(height: 20),
+                const Text('Available Devices:'),
+                ...devices.map((device) => ListTile(
+                      title: Text(device.name),
+                      onTap: () async {
+                        setState(() {
+                          versionInfo = 'Connecting...';
+                          accountsInfo = '';
+                          scriptHashInfo = '';
+                          signatureHex = '';
+                          serialInfo = '';
+                          publicKeyInfo = '';
+                        });
+                        await ledger.connect(device);
 
-                      // Read the serial number of the ledger device
-                      await _fetchSerial(device);
+                        // Read the serial number of the ledger device
+                        await _fetchSerial(device);
 
-                      // Read Ledger's Cardano app version
-                      await _fetchVersion(device);
+                        // Read Ledger's Cardano app version
+                        await _fetchVersion(device);
 
-                      // Fetch extended public key for the wallet
-                      await _fetchPublicKey(device);
+                        // Fetch extended public key for the wallet
+                        await _fetchPublicKey(device);
 
-                      // Fetch receive/change/staking addresses for the wallet
-                      await _fetchAccount(device);
+                        // Fetch receive/change/staking addresses for the wallet
+                        await _fetchAccount(device);
 
-                      // Approve/sign transactions (and return witnesses)
-                      await _testSignTransactionWithoutOutputs(device);
-                    },
-                  )),
-              const SizedBox(height: 20),
-              if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(accountsInfo),
-                ),
+                        // Approve/sign transactions (and return witnesses)
+                        await _testSignTransactionWithoutOutputs(device);
+                      },
+                    )),
+                const SizedBox(height: 20),
+                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(accountsInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (publicKeyInfo.isNotEmpty) ...[
+                  const Text('Public Key Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(publicKeyInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (versionInfo.isNotEmpty) ...[
+                  const Text('Version Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(versionInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (serialInfo.isNotEmpty) ...[
+                  const Text('Serial Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(serialInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (scriptHashInfo.isNotEmpty) ...[
+                  const Text('Script Hash Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(scriptHashInfo),
+                  ),
+                ],
+                const SizedBox(height: 20),
+                if (signatureHex.isNotEmpty) ...[
+                  const Text('Signature Info:'),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Text(signatureHex),
+                  ),
+                ],
               ],
-              const SizedBox(height: 20),
-              if (publicKeyInfo.isNotEmpty) ...[
-                const Text('Public Key Info:'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(publicKeyInfo),
-                ),
-              ],
-              const SizedBox(height: 20),
-              if (versionInfo.isNotEmpty) ...[
-                const Text('Version Info:'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(versionInfo),
-                ),
-              ],
-              const SizedBox(height: 20),
-              if (serialInfo.isNotEmpty) ...[
-                const Text('Serial Info:'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(serialInfo),
-                ),
-              ],
-              const SizedBox(height: 20),
-              if (scriptHashInfo.isNotEmpty) ...[
-                const Text('Script Hash Info:'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(scriptHashInfo),
-                ),
-              ],
-              const SizedBox(height: 20),
-              if (signatureHex.isNotEmpty) ...[
-                const Text('Signature Info:'),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(signatureHex),
-                ),
-              ],
-            ],
+            ),
           ),
         ),
       ),
-    ),
-  );
-}
+    );
+  }
 }

@@ -86,7 +86,7 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
                   writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
                 },
               RewardKey() => () {
-                  // No spending or staking data source for reward addresses
+                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
                 },
               RewardScript() => () {
                   // No spending or staking data source for reward addresses

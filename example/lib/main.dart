@@ -40,6 +40,8 @@ class _MyAppState extends State<MyApp> {
   String accountsInfo = '';
   String scriptHashInfo = '';
   String signatureHex = '';
+  String serialInfo = '';
+  String publicKeyInfo = '';
 
   void _scanForDevices() async {
     devices.clear();
@@ -177,19 +179,19 @@ class _MyAppState extends State<MyApp> {
           'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
               'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
         ];
-        accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
+        publicKeyInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
       });
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        publicKeyInfo = 'Error fetching public key: ${e.message}, Code: ${e.errorCode}';
       });
-      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
+      print('Error fetching public key: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
       setState(() {
-        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+        publicKeyInfo = 'Generic Error fetching public key: ${e.toString()}';
       });
-      print('Generic Error fetching accounts: ${e.toString()}');
+      print('Generic Error fetching public key: ${e.toString()}');
     }
   }
 
@@ -280,14 +282,14 @@ class _MyAppState extends State<MyApp> {
     try {
       final serial = await cardanoApp.getSerialNumber(device);
       setState(() {
-        versionInfo = 'Device: ${device.name}\n'
+        serialInfo = 'Device: ${device.name}\n'
             'Serial: $serial\n';
       });
 
       print('Serial: $serial');
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+        serialInfo = 'Error fetching serial: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
@@ -344,88 +346,105 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Cardano Ledger Test'),
-        ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: _scanForDevices,
-                  child: const Text('Scan for Devices'),
+ @override
+Widget build(BuildContext context) {
+  return MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: const Text('Cardano Ledger Test'),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              ElevatedButton(
+                onPressed: _scanForDevices,
+                child: const Text('Scan for Devices'),
+              ),
+              const SizedBox(height: 20),
+              const Text('Available Devices:'),
+              ...devices.map((device) => ListTile(
+                    title: Text(device.name),
+                    onTap: () async {
+                      setState(() {
+                        versionInfo = 'Connecting...';
+                        accountsInfo = '';
+                        scriptHashInfo = '';
+                        signatureHex = '';
+                        serialInfo = '';
+                        publicKeyInfo = '';
+                      });
+                      await ledger.connect(device);
+
+                      // Read the serial number of the ledger device
+                      await _fetchSerial(device);
+
+                      // Read Ledger's Cardano app version
+                      await _fetchVersion(device);
+
+                      // Fetch extended public key for the wallet
+                      await _fetchPublicKey(device);
+
+                      // Fetch receive/change/staking addresses for the wallet
+                      await _fetchAccount(device);
+
+                      // Approve/sign transactions (and return witnesses)
+                      await _testSignTransactionWithoutOutputs(device);
+                    },
+                  )),
+              const SizedBox(height: 20),
+              if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(accountsInfo),
                 ),
-                const SizedBox(height: 20),
-                const Text('Available Devices:'),
-                ...devices.map((device) => ListTile(
-                      title: Text(device.name),
-                      onTap: () async {
-                        setState(() {
-                          versionInfo = 'Connecting...';
-                          accountsInfo = '';
-                          scriptHashInfo = '';
-                          signatureHex = '';
-                        });
-                        await ledger.connect(device);
-
-                        // await _fetchSerial(device);
-                        // await _fetchAccount(device);
-                        // await _fetchVersion(device);
-
-                        // await _testSignOperationalCertificate(device);
-
-                        await _testSignTransactionWithoutOutputs(device);
-
-                        // await _testDeriveNativeScriptHash(device);
-                        // await _testDeriveComplexNativeScriptHash(device);
-
-                        // await _fetchAccountV2(device);
-                        // await _fetchPublicKey(device);
-
-                        // await _testDeriveNativeScriptHash(device);
-                      },
-                    )),
-                const SizedBox(height: 20),
-                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(accountsInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (versionInfo.isNotEmpty) ...[
-                  const Text('Version Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(versionInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (scriptHashInfo.isNotEmpty) ...[
-                  const Text('Script Hash Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(scriptHashInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (signatureHex.isNotEmpty) ...[
-                  const Text('Signature Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(signatureHex),
-                  ),
-                ],
               ],
-            ),
+              const SizedBox(height: 20),
+              if (publicKeyInfo.isNotEmpty) ...[
+                const Text('Public Key Info:'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(publicKeyInfo),
+                ),
+              ],
+              const SizedBox(height: 20),
+              if (versionInfo.isNotEmpty) ...[
+                const Text('Version Info:'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(versionInfo),
+                ),
+              ],
+              const SizedBox(height: 20),
+              if (serialInfo.isNotEmpty) ...[
+                const Text('Serial Info:'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(serialInfo),
+                ),
+              ],
+              const SizedBox(height: 20),
+              if (scriptHashInfo.isNotEmpty) ...[
+                const Text('Script Hash Info:'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(scriptHashInfo),
+                ),
+              ],
+              const SizedBox(height: 20),
+              if (signatureHex.isNotEmpty) ...[
+                const Text('Signature Info:'),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(signatureHex),
+                ),
+              ],
+            ],
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }

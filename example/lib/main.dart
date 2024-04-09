@@ -19,7 +19,23 @@ import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
-  runApp(const MyApp());
+  runApp(const MainWidget());
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Cardano Ledger Test'),
+        ),
+        body: const MyApp(),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {
@@ -197,20 +213,96 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _fetchAccount(LedgerDevice device) async {
     try {
-      final receiveAddress = await cardanoApp.deriveReceiveAddress(device);
-      final changeAddress = await cardanoApp.deriveChangeAddress(device);
-      final spendAddress = await cardanoApp.deriveSpendAddress(device);
-      final stakingAddress = await cardanoApp.deriveStakingAddress(device);
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Staking Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
 
+      final stakingAddress = await cardanoApp.deriveStakingAddress(device);
       setState(() {
         accounts = [
-          'Receive Address: $receiveAddress',
-          'Change Address: $changeAddress',
-          'Spend Address: $spendAddress',
-          'Staking Address: $stakingAddress',
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
         ];
-        accountsInfo = 'Derived addresses:\n${accounts.join('\n')}';
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
       });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting First Receive Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final firstReceiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: 0);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting First Change Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final firstChangeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: 0);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Second Receive Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final secondReceiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: 1);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+          "Second Receive Address (1852'/1815'/0'/1/1)\n$secondReceiveAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Second Change Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final secondChangeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: 1);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+          "Second Receive Address (1852'/1815'/0'/1/1)\n$secondReceiveAddress",
+          "Second Change Address (1852'/1815'/0'/2/1)\n$secondChangeAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
@@ -356,101 +448,126 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Cardano Ledger Test'),
-        ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: _scanForDevices,
-                  child: const Text('Scan for Devices'),
-                ),
-                const SizedBox(height: 20),
-                const Text('Available Devices:'),
-                ...devices.map((device) => ListTile(
-                      title: Text(device.name),
-                      onTap: () async {
-                        setState(() {
-                          versionInfo = 'Connecting...';
-                          accountsInfo = '';
-                          scriptHashInfo = '';
-                          signatureHex = '';
-                          serialInfo = '';
-                          publicKeyInfo = '';
-                        });
-                        await ledger.connect(device);
-
-                        // Read the serial number of the ledger device
-                        await _fetchSerial(device);
-
-                        // Read Ledger's Cardano app version
-                        await _fetchVersion(device);
-
-                        // Fetch extended public key for the wallet
-                        await _fetchPublicKey(device);
-
-                        // Fetch receive/change/staking addresses for the wallet
-                        await _fetchAccount(device);
-
-                        // Approve/sign transactions (and return witnesses)
-                        await _testSignTransactionWithoutOutputs(device);
-                      },
-                    )),
-                const SizedBox(height: 20),
-                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(accountsInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (publicKeyInfo.isNotEmpty) ...[
-                  const Text('Public Key Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(publicKeyInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (versionInfo.isNotEmpty) ...[
-                  const Text('Version Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(versionInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (serialInfo.isNotEmpty) ...[
-                  const Text('Serial Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(serialInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (scriptHashInfo.isNotEmpty) ...[
-                  const Text('Script Hash Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(scriptHashInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (signatureHex.isNotEmpty) ...[
-                  const Text('Signature Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(signatureHex),
-                  ),
-                ],
-              ],
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: _scanForDevices,
+              child: const Text('Scan for Devices'),
             ),
-          ),
+            const SizedBox(height: 20),
+            const Text('Available Devices:'),
+            ...devices.map((device) => ListTile(
+                  title: Text(device.name),
+                  onTap: () async {
+                    setState(() {
+                      versionInfo = '';
+                      accountsInfo = '';
+                      scriptHashInfo = '';
+                      signatureHex = '';
+                      serialInfo = '';
+                      publicKeyInfo = '';
+                    });
+
+                    await ledger.connect(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Connected to Ledger Device"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 1));
+                    // Read the serial number of the ledger device
+                    await _fetchSerial(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetched Serial Number from Ledger"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Read Ledger's Cardano app version
+                    await _fetchVersion(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetched Cardano App Version from Ledger"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetching Cardano Wallet Public Key"),
+                      ),
+                    );
+                    // Fetch extended public key for the wallet
+                    await _fetchPublicKey(device);
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Fetch receive/change/staking addresses for the wallet
+                    await _fetchAccount(device);
+
+                    await Future.delayed(const Duration(seconds: 2));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Signing Cardano Transaction"),
+                      ),
+                    );
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Approve/sign transactions (and return witnesses)
+                    await _testSignTransactionWithoutOutputs(device);
+                  },
+                )),
+            const SizedBox(height: 20),
+            if (serialInfo.isNotEmpty && versionInfo.isEmpty) ...[
+              const Text('Serial Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(serialInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (versionInfo.isNotEmpty && publicKeyInfo.isEmpty) ...[
+              const Text('App Version Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(versionInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (publicKeyInfo.isNotEmpty && accountsInfo.isEmpty) ...[
+              const Text('Public Key Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(publicKeyInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (accountsInfo.isNotEmpty && signatureHex.isEmpty) ...[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(accountsInfo),
+              ),
+            ],
+            // const SizedBox(height: 20),
+            // if (scriptHashInfo.isNotEmpty) ...[
+            //   const Text('Script Hash Info:'),
+            //   Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: Text(scriptHashInfo),
+            //   ),
+            // ],
+            const SizedBox(height: 20),
+            if (signatureHex.isNotEmpty) ...[
+              const Text('Signature Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(signatureHex),
+              ),
+            ],
+          ],
         ),
       ),
     );

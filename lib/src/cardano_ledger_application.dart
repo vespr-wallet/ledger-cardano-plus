@@ -35,12 +35,10 @@ class CardanoLedgerApp {
   static bool debugPrintEnabled = false;
 
   final Ledger ledger;
-  final int accountIndex;
   final LedgerTransformer? transformer;
 
   const CardanoLedgerApp(
     this.ledger, {
-    this.accountIndex = 0,
     this.transformer = const CardanoTransformer(),
   });
 
@@ -137,7 +135,12 @@ class CardanoLedgerApp {
     return xPubKeys;
   }
 
-  Future<String> deriveChangeAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
+  Future<String> deriveChangeAddress(
+    LedgerDevice device, {
+    int accountIndex = 0,
+    int addressIndex = 0,
+    bool displayOnDevice = false,
+  }) async {
     final bip32StakePath = [
       harden + 1852,
       harden + 1815,
@@ -151,7 +154,7 @@ class CardanoLedgerApp {
       harden + 1815,
       harden + accountIndex,
       1,
-      0,
+      addressIndex,
     ];
 
     final params = ParsedAddressParams.shelley(
@@ -178,8 +181,13 @@ class CardanoLedgerApp {
 
     return result;
   }
-  
-  Future<String> deriveReceiveAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
+
+  Future<String> deriveReceiveAddress(
+    LedgerDevice device, {
+    int accountIndex = 0,
+    int addressIndex = 0,
+    bool displayOnDevice = false,
+  }) async {
     final bip32StakePath = [
       harden + 1852,
       harden + 1815,
@@ -193,7 +201,7 @@ class CardanoLedgerApp {
       harden + 1815,
       harden + accountIndex,
       0,
-      0,
+      addressIndex,
     ];
 
     final params = ParsedAddressParams.shelley(
@@ -221,14 +229,11 @@ class CardanoLedgerApp {
     return result;
   }
 
-  Future<String> deriveSpendAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
-    final bip32PaymentPath = [
-      harden + 1852,
-      harden + 1815,
-      harden + accountIndex,
-      0,
-      1,
-    ];
+  Future<String> deriveStakingAddress(
+    LedgerDevice device, {
+    int accountIndex = 0,
+    bool displayOnDevice = false,
+  }) async {
     final bip32StakePath = [
       harden + 1852,
       harden + 1815,
@@ -238,9 +243,8 @@ class CardanoLedgerApp {
     ];
 
     final params = ParsedAddressParams.shelley(
-      shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
+      shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: CardanoNetwork.mainnet.networkId,
-        spendingDataSource: SpendingDataSource.path(path: bip32PaymentPath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
@@ -257,43 +261,10 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    final result = bech32EncodeAddress('addr', addressBytes);
+    final result = bech32EncodeAddress('stake', addressBytes);
 
     return result;
   }
-  
-  Future<String> deriveStakingAddress(LedgerDevice device, {bool displayOnDevice = false}) async {
-  final bip32StakePath = [
-    harden + 1852,
-    harden + 1815,
-    harden + accountIndex,
-    2,
-    0,
-  ];
-
-  final params = ParsedAddressParams.shelley(
-    shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-      networkId: CardanoNetwork.mainnet.networkId,
-      stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
-    ),
-  );
-
-  final operation = CardanoDeriveAddressOperation(
-    params: params,
-    network: CardanoNetwork.mainnet,
-  );
-
-  final addressResult = await ledger.sendComplexOperation<String>(
-    device,
-    operation,
-    transformer: transformer,
-  );
-
-  Uint8List addressBytes = hexToBytes(addressResult);
-  final result = bech32EncodeAddress('stake', addressBytes);
-
-  return result;
-}
 
   Future<Uint8List> signOperationalCertificate(
     LedgerDevice device,

@@ -19,28 +19,6 @@ mixin _$TxAuxiliaryDataSupplement {
   String get auxiliaryDataHashHex => throw _privateConstructorUsedError;
   String get cip36VoteRegistrationSignatureHex =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $TxAuxiliaryDataSupplementCopyWith<TxAuxiliaryDataSupplement> get copyWith =>
@@ -174,41 +152,6 @@ class _$TxAuxiliaryDataSupplementDataImpl
           _$TxAuxiliaryDataSupplementDataImpl>
       get copyWith => __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<
           _$TxAuxiliaryDataSupplementDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)
-        $default,
-  ) {
-    return $default(auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)?
-        $default,
-  ) {
-    return $default?.call(
-        auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String auxiliaryDataHashHex,
-            String cip36VoteRegistrationSignatureHex)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _TxAuxiliaryDataSupplementData

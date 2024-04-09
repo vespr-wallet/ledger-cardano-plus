@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedMargin {
   String get numerator => throw _privateConstructorUsedError;
   String get denominator => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String numerator, String denominator) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String numerator, String denominator)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String numerator, String denominator)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedMarginCopyWith<ParsedMargin> get copyWith =>
@@ -151,34 +135,6 @@ class _$ParsedMarginImpl extends _ParsedMargin {
   @pragma('vm:prefer-inline')
   _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith =>
       __$$ParsedMarginImplCopyWithImpl<_$ParsedMarginImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String numerator, String denominator) $default,
-  ) {
-    return $default(numerator, denominator);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String numerator, String denominator)? $default,
-  ) {
-    return $default?.call(numerator, denominator);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String numerator, String denominator)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(numerator, denominator);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedMargin extends ParsedMargin {

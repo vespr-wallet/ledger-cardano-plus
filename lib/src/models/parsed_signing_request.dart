@@ -13,6 +13,6 @@ sealed class ParsedSigningRequest with _$ParsedSigningRequest {
     required ParsedTransaction tx,
     required TransactionSigningModes signingMode,
     required List<List<int>> additionalWitnessPaths,
-    required ParsedTransactionOptions options,
+    ParsedTransactionOptions? options,
   }) = _ParsedSigningRequest;
 }

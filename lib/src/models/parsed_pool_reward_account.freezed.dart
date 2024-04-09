@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedPoolRewardAccount {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedPoolRewardAccount {}
 
 /// @nodoc
 abstract class $ParsedPoolRewardAccountCopyWith<$Res> {
@@ -129,37 +109,6 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
           _$DeviceOwnedPoolRewardAccountImpl>
       get copyWith => __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<
           _$DeviceOwnedPoolRewardAccountImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
-  }) {
-    return deviceOwned(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
-  }) {
-    return deviceOwned?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
-    required TResult orElse(),
-  }) {
-    if (deviceOwned != null) {
-      return deviceOwned(path);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
@@ -240,37 +189,6 @@ class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount {
   _$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl>
       get copyWith => __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<
           _$ThirdPartyPoolRewardAccountImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String rewardAccountHex) thirdParty,
-  }) {
-    return thirdParty(rewardAccountHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String rewardAccountHex)? thirdParty,
-  }) {
-    return thirdParty?.call(rewardAccountHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String rewardAccountHex)? thirdParty,
-    required TResult orElse(),
-  }) {
-    if (thirdParty != null) {
-      return thirdParty(rewardAccountHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {

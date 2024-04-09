@@ -17,25 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedCVoteDelegation {
   int get weight => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> voteKeyPath, int weight) path,
-    required TResult Function(String voteKey, int weight) key,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> voteKeyPath, int weight)? path,
-    TResult? Function(String voteKey, int weight)? key,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> voteKeyPath, int weight)? path,
-    TResult Function(String voteKey, int weight)? key,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedCVoteDelegationCopyWith<ParsedCVoteDelegation> get copyWith =>
@@ -158,37 +139,6 @@ class _$PathDelegationImpl extends PathDelegation {
   _$$PathDelegationImplCopyWith<_$PathDelegationImpl> get copyWith =>
       __$$PathDelegationImplCopyWithImpl<_$PathDelegationImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> voteKeyPath, int weight) path,
-    required TResult Function(String voteKey, int weight) key,
-  }) {
-    return path(voteKeyPath, weight);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> voteKeyPath, int weight)? path,
-    TResult? Function(String voteKey, int weight)? key,
-  }) {
-    return path?.call(voteKeyPath, weight);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> voteKeyPath, int weight)? path,
-    TResult Function(String voteKey, int weight)? key,
-    required TResult orElse(),
-  }) {
-    if (path != null) {
-      return path(voteKeyPath, weight);
-    }
-    return orElse();
-  }
 }
 
 abstract class PathDelegation extends ParsedCVoteDelegation {
@@ -277,37 +227,6 @@ class _$KeyDelegationImpl extends KeyDelegation {
   @pragma('vm:prefer-inline')
   _$$KeyDelegationImplCopyWith<_$KeyDelegationImpl> get copyWith =>
       __$$KeyDelegationImplCopyWithImpl<_$KeyDelegationImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> voteKeyPath, int weight) path,
-    required TResult Function(String voteKey, int weight) key,
-  }) {
-    return key(voteKey, weight);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> voteKeyPath, int weight)? path,
-    TResult? Function(String voteKey, int weight)? key,
-  }) {
-    return key?.call(voteKey, weight);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> voteKeyPath, int weight)? path,
-    TResult Function(String voteKey, int weight)? key,
-    required TResult orElse(),
-  }) {
-    if (key != null) {
-      return key(voteKey, weight);
-    }
-    return orElse();
-  }
 }
 
 abstract class KeyDelegation extends ParsedCVoteDelegation {

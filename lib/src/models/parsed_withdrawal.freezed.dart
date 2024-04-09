@@ -18,24 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedWithdrawal {
   BigInt get amount => throw _privateConstructorUsedError;
   ParsedCredential get stakeCredential => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(BigInt amount, ParsedCredential stakeCredential) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BigInt amount, ParsedCredential stakeCredential)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BigInt amount, ParsedCredential stakeCredential)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedWithdrawalCopyWith<ParsedWithdrawal> get copyWith =>
@@ -166,36 +148,6 @@ class _$ParsedWithdrawalImpl extends _ParsedWithdrawal {
   _$$ParsedWithdrawalImplCopyWith<_$ParsedWithdrawalImpl> get copyWith =>
       __$$ParsedWithdrawalImplCopyWithImpl<_$ParsedWithdrawalImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(BigInt amount, ParsedCredential stakeCredential) $default,
-  ) {
-    return $default(amount, stakeCredential);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(BigInt amount, ParsedCredential stakeCredential)?
-        $default,
-  ) {
-    return $default?.call(amount, stakeCredential);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(BigInt amount, ParsedCredential stakeCredential)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(amount, stakeCredential);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedWithdrawal extends ParsedWithdrawal {

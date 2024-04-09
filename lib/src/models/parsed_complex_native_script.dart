@@ -5,15 +5,21 @@ part 'parsed_complex_native_script.freezed.dart';
 
 @freezed
 sealed class ParsedComplexNativeScript with _$ParsedComplexNativeScript {
-  const ParsedComplexNativeScript._();
-  const factory ParsedComplexNativeScript.all({
+  ParsedComplexNativeScript._();
+  factory ParsedComplexNativeScript.all({
     required List<ParsedNativeScript> scripts,
   }) = ParsedComplexNativeScript_All;
-  const factory ParsedComplexNativeScript.any({
+  factory ParsedComplexNativeScript.any({
     required List<ParsedNativeScript> scripts,
   }) = ParsedComplexNativeScript_Any;
-  const factory ParsedComplexNativeScript.nOfK({
+  factory ParsedComplexNativeScript.nOfK({
     required int requiredCount,
     required List<ParsedNativeScript> scripts,
   }) = ParsedComplexNativeScript_NOfK;
+  
+  late final int nativeScriptSerializationValue = switch (this) {
+    ParsedComplexNativeScript_All() => 1,
+    ParsedComplexNativeScript_Any() => 2,
+    ParsedComplexNativeScript_NOfK() => 3,
+  };
 }

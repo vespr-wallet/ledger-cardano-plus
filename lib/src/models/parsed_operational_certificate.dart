@@ -1,15 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'parsed_operational_certificate.freezed.dart';
 
 @freezed
 sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
   ParsedOperationalCertificate._() {
-    if (kesPublicKeyHex.length != kesPublicKeyLength) {
-      throw ValidationException("KES public key hex must be exactly $kesPublicKeyLength characters long.");
-    }
+    validateExactHexString(kesPublicKeyHex, 'kesPublicKeyHex', kesPublicKeyLength);
   }
 
   factory ParsedOperationalCertificate({

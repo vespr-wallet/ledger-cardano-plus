@@ -15,36 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedAddressParams {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        byron,
-    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
-        shelley,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedAddressParams {}
 
 /// @nodoc
 abstract class $ParsedAddressParamsCopyWith<$Res> {
@@ -172,46 +143,6 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
   _$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith =>
       __$$ByronAddressParamsImplCopyWithImpl<_$ByronAddressParamsImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        byron,
-    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
-        shelley,
-  }) {
-    return byron(protocolMagic, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-  }) {
-    return byron?.call(protocolMagic, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-    required TResult orElse(),
-  }) {
-    if (byron != null) {
-      return byron(protocolMagic, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class ByronAddressParams extends ParsedAddressParams {
@@ -304,46 +235,6 @@ class _$ShelleyAddressParamsImpl extends ShelleyAddressParams {
       get copyWith =>
           __$$ShelleyAddressParamsImplCopyWithImpl<_$ShelleyAddressParamsImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int protocolMagic,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        byron,
-    required TResult Function(ShelleyAddressParamsData shelleyAddressParams)
-        shelley,
-  }) {
-    return shelley(shelleyAddressParams);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult? Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-  }) {
-    return shelley?.call(shelleyAddressParams);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int protocolMagic, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        byron,
-    TResult Function(ShelleyAddressParamsData shelleyAddressParams)? shelley,
-    required TResult orElse(),
-  }) {
-    if (shelley != null) {
-      return shelley(shelleyAddressParams);
-    }
-    return orElse();
-  }
 }
 
 abstract class ShelleyAddressParams extends ParsedAddressParams {

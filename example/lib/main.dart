@@ -10,10 +10,32 @@ import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
+import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
+import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
+import 'package:ledger_cardano/src/models/parsed_transaction.dart';
+import 'package:ledger_cardano/src/models/parsed_input.dart';
+import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 void main() {
   CardanoLedgerApp.debugPrintEnabled = true;
-  runApp(const MyApp());
+  runApp(const MainWidget());
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Cardano Ledger Test'),
+        ),
+        body: const MyApp(),
+      ),
+    );
+  }
 }
 
 class MyApp extends StatefulWidget {
@@ -33,6 +55,9 @@ class _MyAppState extends State<MyApp> {
   String versionInfo = '';
   String accountsInfo = '';
   String scriptHashInfo = '';
+  String signatureHex = '';
+  String serialInfo = '';
+  String publicKeyInfo = '';
 
   void _scanForDevices() async {
     devices.clear();
@@ -170,8 +195,114 @@ class _MyAppState extends State<MyApp> {
           'publicKeyHex: \'${fetchedAccounts.publicKeyHex}\',\n'
               'chainCodeHex: \'${fetchedAccounts.chainCodeHex}\''
         ];
-        accountsInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
+        publicKeyInfo = 'Fetched Accounts:\n${accounts.join('\n')}';
       });
+      print('Fetched Accounts: ${accounts.join('\n')}');
+    } on LedgerException catch (e) {
+      setState(() {
+        publicKeyInfo = 'Error fetching public key: ${e.message}, Code: ${e.errorCode}';
+      });
+      print('Error fetching public key: ${e.message}, Code: ${e.errorCode}');
+    } catch (e) {
+      setState(() {
+        publicKeyInfo = 'Generic Error fetching public key: ${e.toString()}';
+      });
+      print('Generic Error fetching public key: ${e.toString()}');
+    }
+  }
+
+  Future<void> _fetchAccount(LedgerDevice device) async {
+    try {
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Staking Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final stakingAddress = await cardanoApp.deriveStakingAddress(device);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting First Receive Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final firstReceiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: 0);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting First Change Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final firstChangeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: 0);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Second Receive Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final secondReceiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: 1);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+          "Second Receive Address (1852'/1815'/0'/1/1)\n$secondReceiveAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
+      await Future.delayed(const Duration(seconds: 1));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Requesting Second Change Address from Ledger"),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 1));
+
+      final secondChangeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: 1);
+      setState(() {
+        accounts = [
+          "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress",
+          "First Receive Address (1852'/1815'/0'/1/0)\n$firstReceiveAddress",
+          "First Change Address (1852'/1815'/0'/2/0)\n$firstChangeAddress",
+          "Second Receive Address (1852'/1815'/0'/1/1)\n$secondReceiveAddress",
+          "Second Change Address (1852'/1815'/0'/2/1)\n$secondChangeAddress",
+        ];
+        accountsInfo = 'Derived addresses:\n\n${accounts.join('\n\n')}';
+      });
+
       print('Fetched Accounts: ${accounts.join('\n')}');
     } on LedgerException catch (e) {
       setState(() {
@@ -186,25 +317,64 @@ class _MyAppState extends State<MyApp> {
     }
   }
 
-  Future<void> _fetchAccount(LedgerDevice device) async {
+  Future<void> _testSignTransactionWithoutOutputs(LedgerDevice device) async {
     try {
-      final derivedAddress = await cardanoApp.deriveAddress(device);
+      // Constructing the transaction to sign
+      final txToSign = ParsedSigningRequest(
+        signingMode: OrdinaryTransaction(),
+        tx: ParsedTransaction(
+          network: CardanoNetwork.mainnet,
+          inputs: [
+            ParsedInput(
+              txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+              outputIndex: 0,
+              path: [
+                harden + 1852,
+                harden + 1815,
+                harden + 0,
+                0,
+                0,
+              ],
+            ),
+          ],
+          outputs: [],
+          fee: BigInt.parse('42'),
+          ttl: BigInt.parse('10'),
+        ),
+        additionalWitnessPaths: [],
+      );
 
+      // Signing the transaction
+      final SignedTransactionData signedTx = await cardanoApp.signTransaction(
+        device,
+        txToSign,
+      );
+
+      // Updating the UI state with the signed transaction data
       setState(() {
-        accounts = ['Address: $derivedAddress'];
-        accountsInfo = 'Derived address:\n${accounts.join('\n')}';
+        signatureHex = 'Signed Transaction: {\n'
+            '  txHashHex: \'${signedTx.txHashHex}\',\n'
+            '  witnesses: [\n'
+            '    {\n'
+            '      path: ${signedTx.witnesses.first.path},\n' // Assuming path is an array you'd like to display differently
+            '      witnessSignatureHex: \'${signedTx.witnesses.first.witnessSignatureHex}\'\n'
+            '    }\n'
+            '  ],\n'
+            '}';
       });
-      print('Fetched Accounts: ${accounts.join('\n')}');
+
+      // Logging the signed transaction data
+      print('Signed Transaction: ${signedTx.txHashHex}');
     } on LedgerException catch (e) {
       setState(() {
-        accountsInfo = 'Error fetching accounts: ${e.message}, Code: ${e.errorCode}';
+        signatureHex = 'Error signing transaction: ${e.message}, Code: ${e.errorCode}';
       });
-      print('Error fetching accounts: ${e.message}, Code: ${e.errorCode}');
+      print('Error signing transaction: ${e.message}, Code: ${e.errorCode}');
     } catch (e) {
       setState(() {
-        accountsInfo = 'Generic Error fetching accounts: ${e.toString()}';
+        signatureHex = 'Error signing transaction: ${e.toString()}';
       });
-      print('Generic Error fetching accounts: ${e.toString()}');
+      print('Error signing transaction: ${e.toString()}');
     }
   }
 
@@ -212,14 +382,14 @@ class _MyAppState extends State<MyApp> {
     try {
       final serial = await cardanoApp.getSerialNumber(device);
       setState(() {
-        versionInfo = 'Device: ${device.name}\n'
+        serialInfo = 'Device: ${device.name}\n'
             'Serial: $serial\n';
       });
 
       print('Serial: $serial');
     } on LedgerException catch (e) {
       setState(() {
-        versionInfo = 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
+        serialInfo = 'Error fetching serial: ${e.message}, Code: ${e.errorCode}';
       });
     }
   }
@@ -243,8 +413,8 @@ class _MyAppState extends State<MyApp> {
     try {
       final operationalCertificate = ParsedOperationalCertificate(
         kesPublicKeyHex: '3d24bc547388cf2403fd978fc3d3a93d1f39acf68a9c00e40512084dc05f2822',
-        kesPeriod: '47',
-        issueCounter: '42',
+        kesPeriod: BigInt.from(47),
+        issueCounter: BigInt.from(42),
         coldKeyPath: [
           harden + 1853,
           harden + 1815,
@@ -262,6 +432,10 @@ class _MyAppState extends State<MyApp> {
       // Convert the signature to a hex string for comparison
       final String signatureHex = hex.encode(signature);
 
+      setState(() {
+        this.signatureHex = 'Operational Certificate Signature: $signatureHex';
+      });
+
       // Log the result
       print('Operational Certificate Signature: $signatureHex');
 
@@ -274,73 +448,126 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Cardano Ledger Test'),
-        ),
-        body: Center(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                ElevatedButton(
-                  onPressed: _scanForDevices,
-                  child: const Text('Scan for Devices'),
-                ),
-                const SizedBox(height: 20),
-                const Text('Available Devices:'),
-                ...devices.map((device) => ListTile(
-                      title: Text(device.name),
-                      onTap: () async {
-                        setState(() {
-                          versionInfo = 'Connecting...';
-                          accountsInfo = '';
-                          scriptHashInfo = '';
-                        });
-                        await ledger.connect(device);
-
-                        // await _fetchSerial(device);
-                        // await _fetchAccount(device);
-                        // await _fetchVersion(device);
-
-                        await _testSignOperationalCertificate(device);
-
-                        // await _testDeriveNativeScriptHash(device);
-                        // await _testDeriveComplexNativeScriptHash(device);
-
-                        // await _fetchAccountV2(device);
-                        // await _fetchPublicKey(device);
-
-                        // await _testDeriveNativeScriptHash(device);
-                      },
-                    )),
-                const SizedBox(height: 20),
-                if (accounts.isNotEmpty || accountsInfo.isNotEmpty) ...[
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(accountsInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (versionInfo.isNotEmpty) ...[
-                  const Text('Version Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(versionInfo),
-                  ),
-                ],
-                const SizedBox(height: 20),
-                if (scriptHashInfo.isNotEmpty) ...[
-                  const Text('Script Hash Info:'),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(scriptHashInfo),
-                  ),
-                ],
-              ],
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton(
+              onPressed: _scanForDevices,
+              child: const Text('Scan for Devices'),
             ),
-          ),
+            const SizedBox(height: 20),
+            const Text('Available Devices:'),
+            ...devices.map((device) => ListTile(
+                  title: Text(device.name),
+                  onTap: () async {
+                    setState(() {
+                      versionInfo = '';
+                      accountsInfo = '';
+                      scriptHashInfo = '';
+                      signatureHex = '';
+                      serialInfo = '';
+                      publicKeyInfo = '';
+                    });
+
+                    await ledger.connect(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Connected to Ledger Device"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 1));
+                    // Read the serial number of the ledger device
+                    await _fetchSerial(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetched Serial Number from Ledger"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Read Ledger's Cardano app version
+                    await _fetchVersion(device);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetched Cardano App Version from Ledger"),
+                      ),
+                    );
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Fetching Cardano Wallet Public Key"),
+                      ),
+                    );
+                    // Fetch extended public key for the wallet
+                    await _fetchPublicKey(device);
+
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Fetch receive/change/staking addresses for the wallet
+                    await _fetchAccount(device);
+
+                    await Future.delayed(const Duration(seconds: 2));
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        content: Text("Signing Cardano Transaction"),
+                      ),
+                    );
+                    await Future.delayed(const Duration(seconds: 3));
+                    // Approve/sign transactions (and return witnesses)
+                    await _testSignTransactionWithoutOutputs(device);
+                  },
+                )),
+            const SizedBox(height: 20),
+            if (serialInfo.isNotEmpty && versionInfo.isEmpty) ...[
+              const Text('Serial Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(serialInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (versionInfo.isNotEmpty && publicKeyInfo.isEmpty) ...[
+              const Text('App Version Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(versionInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (publicKeyInfo.isNotEmpty && accountsInfo.isEmpty) ...[
+              const Text('Public Key Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(publicKeyInfo),
+              ),
+            ],
+            const SizedBox(height: 20),
+            if (accountsInfo.isNotEmpty && signatureHex.isEmpty) ...[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(accountsInfo),
+              ),
+            ],
+            // const SizedBox(height: 20),
+            // if (scriptHashInfo.isNotEmpty) ...[
+            //   const Text('Script Hash Info:'),
+            //   Padding(
+            //     padding: const EdgeInsets.all(8.0),
+            //     child: Text(scriptHashInfo),
+            //   ),
+            // ],
+            const SizedBox(height: 20),
+            if (signatureHex.isNotEmpty) ...[
+              const Text('Signature Info:'),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(signatureHex),
+              ),
+            ],
+          ],
         ),
       ),
     );

@@ -42,122 +42,133 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCatalystRegistration ||
             VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCIP36;
 
+    final witnessPaths = gatherWitnessPaths(signingRequest);
+
     // init
-    await signTxInit(send);
+    await _signTxInit(send, witnessPaths);
 
     final auxiliaryData = signingRequest.tx.auxiliaryData;
     // auxiliary data
     TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
     if (auxDataBeforeTxBody && auxiliaryData != null) {
-      auxiliaryDataSupplement = await signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send);
+      auxiliaryDataSupplement = await _signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send);
     }
 
+    final inputs = signingRequest.tx.inputs;
     // inputs
-    for (final input in signingRequest.tx.inputs) {
-      await signTxAddInput(input, send);
+    for (final input in inputs) {
+      await _signTxAddInput(input, send);
     }
 
+    final outputs = signingRequest.tx.outputs;
     // outputs
-    for (final output in signingRequest.tx.outputs) {
-      await signTxAddOutput(output, cardanoVersion, send);
+    for (final output in outputs) {
+      await _signTxAddOutput(output, cardanoVersion, send);
     }
 
+    final fee = signingRequest.tx.fee;
     // fee
-    await signTxSetFee(signingRequest.tx.fee, send);
+    await _signTxSetFee(fee, send);
 
     final ttl = signingRequest.tx.ttl;
     // ttl
     if (ttl != null) {
-      await signTxSetTtl(ttl, send);
+      await _signTxSetTtl(ttl, send);
     }
 
+    final certificates = signingRequest.tx.certificates;
     // certificates
-    for (final certificate in signingRequest.tx.certificates) {
-      await signTxAddCertificate(certificate, cardanoVersion, send);
+    for (final certificate in certificates ?? []) {
+      await _signTxAddCertificate(certificate, cardanoVersion, send);
     }
 
+    final withdrawals = signingRequest.tx.withdrawals;
     // withdrawals
-    for (final withdrawal in signingRequest.tx.withdrawals) {
-      await signTxAddWithdrawal(withdrawal, cardanoVersion, send);
+    for (final withdrawal in withdrawals ?? []) {
+      await _signTxAddWithdrawal(withdrawal, cardanoVersion, send);
     }
 
     final auxiliarydata = signingRequest.tx.auxiliaryData;
     // auxiliary data before Ledger app version 2.3.x
     if (!auxDataBeforeTxBody && auxiliarydata != null) {
-      auxiliaryDataSupplement = await signTxSetAuxiliaryDatabBeforev2_3(auxiliarydata, send);
+      auxiliaryDataSupplement = await _signTxSetAuxiliaryDatabBeforev2_3(auxiliarydata, send);
     }
 
     final validityStart = signingRequest.tx.validityIntervalStart;
 
     // validity start
     if (validityStart != null) {
-      await signTxSetValidityIntervalStart(validityStart, send);
+      await _signTxSetValidityIntervalStart(validityStart, send);
     }
 
     final mint = signingRequest.tx.mint;
     // mint
     if (mint != null) {
-      await signTxSetMint(mint, send);
+      await _signTxSetMint(mint, send);
     }
 
     final scriptDataHashHex = signingRequest.tx.scriptDataHashHex;
     // script data hash
     if (scriptDataHashHex != null) {
-      await signTxSetScriptDataHash(scriptDataHashHex, send);
+      await _signTxSetScriptDataHash(scriptDataHashHex, send);
     }
 
+    final collateralInputs = signingRequest.tx.collateralInputs;
     // collateral inputs
-    for (final input in signingRequest.tx.collateralInputs) {
-      await signTxAddCollateralInput(input, send);
+    for (final input in collateralInputs ?? []) {
+      await _signTxAddCollateralInput(input, send);
     }
 
+    final requiredSigners = signingRequest.tx.requiredSigners;
     // required signers
-    for (final requiredSigner in signingRequest.tx.requiredSigners) {
-      await signTxAddRequiredSigner(requiredSigner, send);
+    for (final requiredSigner in requiredSigners ?? []) {
+      await _signTxAddRequiredSigner(requiredSigner, send);
     }
 
     final collateralOutput = signingRequest.tx.collateralOutput;
     // collateral output
     if (collateralOutput != null) {
-      await signTxAddCollateralOutput(collateralOutput, cardanoVersion, send);
+      await _signTxAddCollateralOutput(collateralOutput, cardanoVersion, send);
     }
 
     final totalCollateral = signingRequest.tx.totalCollateral;
     // totalCollateral
     if (totalCollateral != null) {
-      await signTxAddTotalCollateral(totalCollateral, send);
+      await _signTxAddTotalCollateral(totalCollateral, send);
     }
 
+    final referenceInputs = signingRequest.tx.referenceInputs;
     // reference inputs
-    for (final referenceInput in signingRequest.tx.referenceInputs) {
-      await signTxAddReferenceInput(referenceInput, send);
+    for (final referenceInput in referenceInputs ?? []) {
+      await _signTxAddReferenceInput(referenceInput, send);
     }
 
+    final votingProcedures = signingRequest.tx.votingProcedures;
     // voting procedures
-    for (final voterVotes in signingRequest.tx.votingProcedures) {
-      await signTxAddVoterVotes(voterVotes, send);
+    for (final voterVotes in votingProcedures ?? []) {
+      await _signTxAddVoterVotes(voterVotes, send);
     }
 
     final treasury = signingRequest.tx.treasury;
 
     // treasury
     if (treasury != null) {
-      await signTxAddTreasury(treasury, send);
+      await _signTxAddTreasury(treasury, send);
     }
 
     final donation = signingRequest.tx.donation;
     // donation
     if (donation != null) {
-      await signTxAddDonation(donation, send);
+      await _signTxAddDonation(donation, send);
     }
 
     // confirm
-    final txHashHex = await signTxAwaitConfirm(send);
+    final txHashHex = await _signTxAwaitConfirm(send);
 
     // witnesses
     final witnesses = <Witness>[];
-    for (final path in signingRequest.additionalWitnessPaths) {
-      final witness = await signTxGetWitness(path, send);
+    for (final path in witnessPaths) {
+      final witness = await _signTxGetWitness(path, send);
       witnesses.add(witness);
     }
 
@@ -168,9 +179,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> signTxInit(LedgerSendFct send) async {
-    final data = SerializationUtils.serializeTxInit(signingRequest.tx, signingRequest.signingMode,
-        signingRequest.additionalWitnessPaths.length, signingRequest.options, cardanoVersion);
+  Future<void> _signTxInit(LedgerSendFct send, List<List<int>> witnessPaths) async {
+    final data = SerializationUtils.serializeTxInit(
+      tx: signingRequest.tx,
+      signingMode: signingRequest.signingMode,
+      numWitnesses: witnessPaths.length,
+      options: signingRequest.options,
+      version: cardanoVersion,
+    );
 
     await send(
       SendOperation(
@@ -184,7 +200,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> signTxSetFee(BigInt fee, LedgerSendFct send) async {
+  Future<void> _signTxSetFee(BigInt fee, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageFee,
@@ -195,7 +211,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxSetTtl(BigInt ttl, LedgerSendFct send) async {
+  Future<void> _signTxSetTtl(BigInt ttl, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageTtl,
@@ -206,7 +222,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddCertificate(
+  Future<void> _signTxAddCertificate(
     ParsedCertificate certificate,
     CardanoVersion version,
     LedgerSendFct send,
@@ -222,14 +238,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Add Certificate',
     ));
 
-    if (certificate is StakePoolRegistration) {
-      if (VersionCompatibility.checkVersionCompatibility(version).supportsPoolRegistrationAsOperator) {
-        await signTxAddStakePoolRegistrationCertificate(certificate, send);
-      }
-    }
+    final void Function() invoker = switch (certificate) {
+      StakePoolRegistration() => () => _signTxAddStakePoolRegistrationCertificate(certificate, send),
+      _ => () => throw ValidationException('Invalid certificate type'),
+    };
+    invoker();
   }
 
-  Future<void> signTxAddStakePoolRegistrationCertificate(
+  Future<void> _signTxAddStakePoolRegistrationCertificate(
     ParsedCertificate certificate,
     LedgerSendFct send,
   ) async {
@@ -323,15 +339,11 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<TxAuxiliaryDataSupplement?> signTxSetAuxiliaryData(
+  Future<TxAuxiliaryDataSupplement?> _signTxSetAuxiliaryData(
     ParsedTxAuxiliaryData auxiliaryData,
     CardanoVersion version,
     LedgerSendFct send,
   ) async {
-    if (!(auxiliaryData is CIP36Registration || auxiliaryData is ArbitraryHash)) {
-      throw ValidationException('Auxiliary data type not implemented');
-    }
-
     final serializedAuxData = SerializationUtils.serializeTxAuxiliaryData(auxiliaryData);
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -342,120 +354,122 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Set Auxiliary Data',
     ));
 
-    if (auxiliaryData is CIP36Registration) {
-      final params = auxiliaryData.params;
+    final Future<TxAuxiliaryDataSupplement?>? Function() invoker = switch (auxiliaryData) {
+      CIP36Registration() => () async {
+          final params = auxiliaryData.params;
 
-      if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
-        final serializedInitData = SerializationUtils.serializeCVoteRegistrationInit(params);
-        await send(SendOperation(
-          ins: InstructionType.signTransaction.insValue,
-          p1: p1StageAuxData,
-          p2: p2Init,
-          data: serializedInitData,
-          prependDataLength: true,
-          debugName: 'Sign Transaction Set CVote Registration Init',
-        ));
-      }
+          if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
+            final serializedInitData = SerializationUtils.serializeCVoteRegistrationInit(params);
+            await send(SendOperation(
+              ins: InstructionType.signTransaction.insValue,
+              p1: p1StageAuxData,
+              p2: p2Init,
+              data: serializedInitData,
+              prependDataLength: true,
+              debugName: 'Sign Transaction Set CVote Registration Init',
+            ));
+          }
 
-      if (params.votePublicKey != null || params.votePublicKeyPath != null) {
-        final serializedVoteKeyData = SerializationUtils.serializeCVoteRegistrationVoteKey(
-            params.votePublicKey, params.votePublicKeyPath, version);
-        await send(SendOperation(
-          ins: InstructionType.signTransaction.insValue,
-          p1: p1StageAuxData,
-          p2: p2VoteKey,
-          data: serializedVoteKeyData,
-          prependDataLength: true,
-          debugName: 'Sign Transaction Set CVote Registration Vote Key',
-        ));
-      }
+          if (params.votePublicKey != null || params.votePublicKeyPath != null) {
+            final serializedVoteKeyData = SerializationUtils.serializeCVoteRegistrationVoteKey(
+                params.votePublicKey, params.votePublicKeyPath, version);
+            await send(SendOperation(
+              ins: InstructionType.signTransaction.insValue,
+              p1: p1StageAuxData,
+              p2: p2VoteKey,
+              data: serializedVoteKeyData,
+              prependDataLength: true,
+              debugName: 'Sign Transaction Set CVote Registration Vote Key',
+            ));
+          }
 
-      if (params.delegations != null) {
-        for (final delegation in params.delegations!) {
-          final serializedDelegationData = SerializationUtils.serializeCVoteRegistrationDelegation(delegation);
+          if (params.delegations != null) {
+            for (final delegation in params.delegations!) {
+              final serializedDelegationData = SerializationUtils.serializeCVoteRegistrationDelegation(delegation);
+              await send(SendOperation(
+                ins: InstructionType.signTransaction.insValue,
+                p1: p1StageAuxData,
+                p2: p2Delegation,
+                data: serializedDelegationData,
+                prependDataLength: true,
+                debugName: 'Sign Transaction Set CVote Registration Delegation',
+              ));
+            }
+          }
+
+          final serializedStakingKeyData = SerializationUtils.serializeCVoteRegistrationStakingPath(params.stakingPath);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
-            p2: p2Delegation,
-            data: serializedDelegationData,
+            p2: p2StakingKey,
+            data: serializedStakingKeyData,
             prependDataLength: true,
-            debugName: 'Sign Transaction Set CVote Registration Delegation',
+            debugName: 'Sign Transaction Set CVote Registration Staking Key',
           ));
-        }
-      }
 
-      final serializedStakingKeyData = SerializationUtils.serializeCVoteRegistrationStakingPath(params.stakingPath);
-      await send(SendOperation(
-        ins: InstructionType.signTransaction.insValue,
-        p1: p1StageAuxData,
-        p2: p2StakingKey,
-        data: serializedStakingKeyData,
-        prependDataLength: true,
-        debugName: 'Sign Transaction Set CVote Registration Staking Key',
-      ));
+          final serializedPaymentAddressData =
+              SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version);
+          await send(SendOperation(
+            ins: InstructionType.signTransaction.insValue,
+            p1: p1StageAuxData,
+            p2: p2PaymentAddress,
+            data: serializedPaymentAddressData,
+            prependDataLength: true,
+            debugName: 'Sign Transaction Set CVote Registration Payment Address',
+          ));
+          final serializedNonceData = SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
+          await send(SendOperation(
+            ins: InstructionType.signTransaction.insValue,
+            p1: p1StageAuxData,
+            p2: p2Nonce,
+            data: serializedNonceData,
+            prependDataLength: true,
+            debugName: 'Sign Transaction Set CVote Registration Nonce',
+          ));
 
-      final serializedPaymentAddressData =
-          SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version);
-      await send(SendOperation(
-        ins: InstructionType.signTransaction.insValue,
-        p1: p1StageAuxData,
-        p2: p2PaymentAddress,
-        data: serializedPaymentAddressData,
-        prependDataLength: true,
-        debugName: 'Sign Transaction Set CVote Registration Payment Address',
-      ));
-      final serializedNonceData = SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
-      await send(SendOperation(
-        ins: InstructionType.signTransaction.insValue,
-        p1: p1StageAuxData,
-        p2: p2Nonce,
-        data: serializedNonceData,
-        prependDataLength: true,
-        debugName: 'Sign Transaction Set CVote Registration Nonce',
-      ));
+          if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
+            final serializedVotingPurposeData =
+                SerializationUtils.serializeCVoteRegistrationVotingPurpose(params.votingPurpose);
+            await send(SendOperation(
+              ins: InstructionType.signTransaction.insValue,
+              p1: p1StageAuxData,
+              p2: p2VotingPurpose,
+              data: serializedVotingPurposeData,
+              prependDataLength: true,
+              debugName: 'Sign Transaction Set CVote Registration Voting Purpose',
+            ));
+          }
 
-      if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
-        final serializedVotingPurposeData =
-            SerializationUtils.serializeCVoteRegistrationVotingPurpose(params.votingPurpose);
-        await send(SendOperation(
-          ins: InstructionType.signTransaction.insValue,
-          p1: p1StageAuxData,
-          p2: p2VotingPurpose,
-          data: serializedVotingPurposeData,
-          prependDataLength: true,
-          debugName: 'Sign Transaction Set CVote Registration Voting Purpose',
-        ));
-      }
+          final response = await send(SendOperation(
+            ins: InstructionType.signTransaction.insValue,
+            p1: p1StageAuxData,
+            p2: p2Confirm,
+            data: Uint8List(0),
+            prependDataLength: true,
+            debugName: 'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
+          ));
 
-      final response = await send(SendOperation(
-        ins: InstructionType.signTransaction.insValue,
-        p1: p1StageAuxData,
-        p2: p2Confirm,
-        data: Uint8List(0),
-        prependDataLength: true,
-        debugName: 'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
-      ));
+          if (response.remainingLength != auxiliaryDataHashLength + ed25519SignatureLength) {
+            throw Exception('Unexpected response length for auxiliary data hash and signature');
+          }
 
-      if (response.remainingLength != auxiliaryDataHashLength + ed25519SignatureLength) {
-        throw Exception('Unexpected response length for auxiliary data hash and signature');
-      }
+          final auxDataHash = response.read(auxiliaryDataHashLength);
+          final signature = response.read(ed25519SignatureLength);
 
-      final auxDataHash = response.read(auxiliaryDataHashLength);
-      final signature = response.read(ed25519SignatureLength);
+          final auxDataHashHex = hex.encode(auxDataHash);
+          final signatureHex = hex.encode(signature);
 
-      final auxDataHashHex = hex.encode(auxDataHash);
-      final signatureHex = hex.encode(signature);
-
-      return TxAuxiliaryDataSupplement(
-        auxiliaryDataHashHex: auxDataHashHex,
-        cip36VoteRegistrationSignatureHex: signatureHex,
-      );
-    }
-
-    return null;
+          return TxAuxiliaryDataSupplement(
+            auxiliaryDataHashHex: auxDataHashHex,
+            cip36VoteRegistrationSignatureHex: signatureHex,
+          );
+        },
+      ArbitraryHash() => () => null,
+    };
+    return invoker();
   }
 
-  Future<void> signTxAddOutputSendChunks(String hexString, int p2, LedgerSendFct send) async {
+  Future<void> _signTxAddOutputSendChunks(String hexString, int p2, LedgerSendFct send) async {
     var start = maxChunkSize * 2;
 
     while (start < hexString.length) {
@@ -479,7 +493,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
   }
 
-  Future<void> signTxAddWithdrawal(
+  Future<void> _signTxAddWithdrawal(
     ParsedWithdrawal withdrawal,
     CardanoVersion version,
     LedgerSendFct send,
@@ -494,7 +508,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<TxAuxiliaryDataSupplement?> signTxSetAuxiliaryDatabBeforev2_3(
+  Future<TxAuxiliaryDataSupplement?> _signTxSetAuxiliaryDatabBeforev2_3(
     ParsedTxAuxiliaryData auxiliaryData,
     LedgerSendFct send,
   ) async {
@@ -514,7 +528,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return null;
   }
 
-  Future<void> signTxSetValidityIntervalStart(BigInt validityIntervalStart, LedgerSendFct send) async {
+  Future<void> _signTxSetValidityIntervalStart(BigInt validityIntervalStart, LedgerSendFct send) async {
     final Uint8List data = SerializationUtils.serializeTxValidityStart(validityIntervalStart);
 
     await send(SendOperation(
@@ -527,7 +541,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxSetMint(
+  Future<void> _signTxSetMint(
     List<ParsedAssetGroup> mint,
     LedgerSendFct send,
   ) async {
@@ -540,7 +554,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Set Mint Basic Data',
     ));
 
-    await signTxAddTokenBundle(mint, p1StageMint, send, SerializationUtils.int64ToBuf);
+    await _signTxAddTokenBundle(mint, p1StageMint, send);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -552,11 +566,10 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddTokenBundle<T>(
+  Future<void> _signTxAddTokenBundle(
     List<ParsedAssetGroup> tokenBundle,
     int p1,
     LedgerSendFct send,
-    SerializeTokenAmountFn<T> serializeTokenAmountFn,
   ) async {
     for (final assetGroup in tokenBundle) {
       final Uint8List assetGroupData = SerializationUtils.serializeAssetGroup(assetGroup);
@@ -570,7 +583,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ));
 
       for (final token in assetGroup.tokens) {
-        final Uint8List tokenData = SerializationUtils.serializeToken<T>(token, serializeTokenAmountFn);
+        final Uint8List tokenData = SerializationUtils.serializeToken(token);
         await send(SendOperation(
           ins: InstructionType.signTransaction.insValue,
           p1: p1,
@@ -583,7 +596,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
   }
 
-  Future<void> signTxSetScriptDataHash(ScriptDataHash scriptDataHash, LedgerSendFct send) async {
+  Future<void> _signTxSetScriptDataHash(ScriptDataHash scriptDataHash, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageScriptDataHash,
@@ -594,7 +607,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddCollateralInput(ParsedInput collateralInput, LedgerSendFct send) async {
+  Future<void> _signTxAddCollateralInput(ParsedInput collateralInput, LedgerSendFct send) async {
     final data = SerializationUtils.serializeTxInput(collateralInput);
 
     await send(SendOperation(
@@ -607,7 +620,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddRequiredSigner(ParsedRequiredSigner requiredSigner, LedgerSendFct send) async {
+  Future<void> _signTxAddRequiredSigner(ParsedRequiredSigner requiredSigner, LedgerSendFct send) async {
     final data = SerializationUtils.serializeRequiredSigner(requiredSigner);
 
     await send(SendOperation(
@@ -620,7 +633,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddCollateralOutput(
+  Future<void> _signTxAddCollateralOutput(
     ParsedOutput collateralOutput,
     CardanoVersion version,
     LedgerSendFct send,
@@ -635,8 +648,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Collateral Output Basic Data',
     ));
 
-    await signTxAddTokenBundle(
-        collateralOutput.tokenBundle, p1StageCollateralOutput, send, SerializationUtils.int64ToBuf);
+    await _signTxAddTokenBundle(collateralOutput.tokenBundle, p1StageCollateralOutput, send);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -648,7 +660,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddTotalCollateral(
+  Future<void> _signTxAddTotalCollateral(
     BigInt totalCollateral,
     LedgerSendFct send,
   ) async {
@@ -662,7 +674,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddReferenceInput(ParsedInput referenceInput, LedgerSendFct send) async {
+  Future<void> _signTxAddReferenceInput(ParsedInput referenceInput, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageReferenceInputs,
@@ -673,7 +685,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddVoterVotes(ParsedVoterVotes voterVotes, LedgerSendFct send) async {
+  Future<void> _signTxAddVoterVotes(ParsedVoterVotes voterVotes, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageVotingProcedures,
@@ -684,7 +696,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddTreasury(BigInt treasury, LedgerSendFct send) async {
+  Future<void> _signTxAddTreasury(BigInt treasury, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageTreasury,
@@ -695,7 +707,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddDonation(BigInt donation, LedgerSendFct send) async {
+  Future<void> _signTxAddDonation(BigInt donation, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageDonation,
@@ -706,7 +718,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<String> signTxAwaitConfirm(LedgerSendFct send) async {
+  Future<String> _signTxAwaitConfirm(LedgerSendFct send) async {
     final response = await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageConfirm,
@@ -724,8 +736,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return txHashHex;
   }
 
-  Future<Witness> signTxGetWitness(List<int> path, LedgerSendFct send) async {
-    final Uint8List data = SerializationUtils.serializeTxWitnessRequest(path);
+  Future<Witness> _signTxGetWitness(List<int> path, LedgerSendFct send) async {
+    final Uint8List data = SerializationUtils.pathToBuf(path);
 
     final response = await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -749,7 +761,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> signTxAddInput(ParsedInput input, LedgerSendFct send) async {
+  Future<void> _signTxAddInput(ParsedInput input, LedgerSendFct send) async {
     final data = SerializationUtils.serializeTxInput(input);
 
     await send(SendOperation(
@@ -762,7 +774,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> signTxAddOutput(
+  Future<void> _signTxAddOutput(
     ParsedOutput output,
     CardanoVersion version,
     LedgerSendFct send,
@@ -777,9 +789,9 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Output Basic Data',
     ));
 
-    await signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send, SerializationUtils.int64ToBuf);
+    await _signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send);
 
-    final outputDatum = output.datum;
+    final outputDatum = output.outputDatum;
     // Datum
     if (outputDatum != null) {
       await send(SendOperation(
@@ -791,26 +803,33 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         debugName: 'Sign Transaction Output Datum',
       ));
       // Datum Chunks
-      if (outputDatum is ParsedDatumInline) {
-        if (outputDatum.datumHex.length / 2 > maxChunkSize) {
-          await signTxAddOutputSendChunks(outputDatum.datumHex, p2OutputDatumChunk, send);
-        }
-      }
+      final void Function() invoker = switch (outputDatum) {
+        ParsedDatumInline() => () async {
+            if (outputDatum.datumHex.length / 2 > maxChunkSize) {
+              await _signTxAddOutputSendChunks(outputDatum.datumHex, p2OutputDatumChunk, send);
+            }
+          },
+        _ => () => (),
+      };
+      invoker();
     }
 
+    final outputReferenceScriptHash = output.referenceScriptHash;
+
     // Reference Script
-    if (output.referenceScriptHex != null) {
+    if (outputReferenceScriptHash != null) {
       await send(SendOperation(
         ins: InstructionType.signTransaction.insValue,
         p1: p1StageOutputs,
         p2: p2OutputScript,
-        data: SerializationUtils.serializeTxOutputRefScript(output.referenceScriptHex!),
+        data: SerializationUtils.serializeTxOutputRefScript(outputReferenceScriptHash),
         prependDataLength: true,
         debugName: 'Sign Transaction Output Reference Script',
       ));
+
       // Script chunks
-      if (output.referenceScriptHex!.length / 2 > maxChunkSize) {
-        await signTxAddOutputSendChunks(output.referenceScriptHex!, p2OutputScriptChunk, send);
+      if (outputReferenceScriptHash.length / 2 > maxChunkSize) {
+        await _signTxAddOutputSendChunks(outputReferenceScriptHash, p2OutputScriptChunk, send);
       }
     }
 

@@ -17,105 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ShelleyAddressParamsData {
   int get networkId => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ShelleyAddressParamsDataCopyWith<ShelleyAddressParamsData> get copyWith =>
@@ -269,120 +170,6 @@ class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
   _$$BasePaymentKeyStakeKeyImplCopyWith<_$BasePaymentKeyStakeKeyImpl>
       get copyWith => __$$BasePaymentKeyStakeKeyImplCopyWithImpl<
           _$BasePaymentKeyStakeKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return basePaymentKeyStakeKey(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return basePaymentKeyStakeKey?.call(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (basePaymentKeyStakeKey != null) {
-      return basePaymentKeyStakeKey(
-          networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class BasePaymentKeyStakeKey extends ShelleyAddressParamsData {
@@ -516,120 +303,6 @@ class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
   _$$BasePaymentScriptStakeKeyImplCopyWith<_$BasePaymentScriptStakeKeyImpl>
       get copyWith => __$$BasePaymentScriptStakeKeyImplCopyWithImpl<
           _$BasePaymentScriptStakeKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return basePaymentScriptStakeKey(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return basePaymentScriptStakeKey?.call(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (basePaymentScriptStakeKey != null) {
-      return basePaymentScriptStakeKey(
-          networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class BasePaymentScriptStakeKey extends ShelleyAddressParamsData {
@@ -763,120 +436,6 @@ class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
   _$$BasePaymentKeyStakeScriptImplCopyWith<_$BasePaymentKeyStakeScriptImpl>
       get copyWith => __$$BasePaymentKeyStakeScriptImplCopyWithImpl<
           _$BasePaymentKeyStakeScriptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return basePaymentKeyStakeScript(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return basePaymentKeyStakeScript?.call(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (basePaymentKeyStakeScript != null) {
-      return basePaymentKeyStakeScript(
-          networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class BasePaymentKeyStakeScript extends ShelleyAddressParamsData {
@@ -1011,120 +570,6 @@ class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
           _$BasePaymentScriptStakeScriptImpl>
       get copyWith => __$$BasePaymentScriptStakeScriptImplCopyWithImpl<
           _$BasePaymentScriptStakeScriptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return basePaymentScriptStakeScript(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return basePaymentScriptStakeScript?.call(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (basePaymentScriptStakeScript != null) {
-      return basePaymentScriptStakeScript(
-          networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class BasePaymentScriptStakeScript extends ShelleyAddressParamsData {
@@ -1231,117 +676,6 @@ class _$EnterpriseKeyImpl extends EnterpriseKey {
   @pragma('vm:prefer-inline')
   _$$EnterpriseKeyImplCopyWith<_$EnterpriseKeyImpl> get copyWith =>
       __$$EnterpriseKeyImplCopyWithImpl<_$EnterpriseKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return enterpriseKey(networkId, spendingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return enterpriseKey?.call(networkId, spendingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (enterpriseKey != null) {
-      return enterpriseKey(networkId, spendingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class EnterpriseKey extends ShelleyAddressParamsData {
@@ -1446,117 +780,6 @@ class _$EnterpriseScriptImpl extends EnterpriseScript {
   _$$EnterpriseScriptImplCopyWith<_$EnterpriseScriptImpl> get copyWith =>
       __$$EnterpriseScriptImplCopyWithImpl<_$EnterpriseScriptImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return enterpriseScript(networkId, spendingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return enterpriseScript?.call(networkId, spendingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (enterpriseScript != null) {
-      return enterpriseScript(networkId, spendingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class EnterpriseScript extends ShelleyAddressParamsData {
@@ -1684,117 +907,6 @@ class _$PointerKeyImpl extends PointerKey {
   @pragma('vm:prefer-inline')
   _$$PointerKeyImplCopyWith<_$PointerKeyImpl> get copyWith =>
       __$$PointerKeyImplCopyWithImpl<_$PointerKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return pointerKey(networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return pointerKey?.call(networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (pointerKey != null) {
-      return pointerKey(networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class PointerKey extends ShelleyAddressParamsData {
@@ -1923,118 +1035,6 @@ class _$PointerScriptImpl extends PointerScript {
   @pragma('vm:prefer-inline')
   _$$PointerScriptImplCopyWith<_$PointerScriptImpl> get copyWith =>
       __$$PointerScriptImplCopyWithImpl<_$PointerScriptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return pointerScript(networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return pointerScript?.call(
-        networkId, spendingDataSource, stakingDataSource);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (pointerScript != null) {
-      return pointerScript(networkId, spendingDataSource, stakingDataSource);
-    }
-    return orElse();
-  }
 }
 
 abstract class PointerScript extends ShelleyAddressParamsData {
@@ -2063,7 +1063,9 @@ abstract class _$$RewardKeyImplCopyWith<$Res>
       __$$RewardKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int networkId});
+  $Res call({int networkId, StakingDataSource stakingDataSource});
+
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
@@ -2078,27 +1080,43 @@ class __$$RewardKeyImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? networkId = null,
+    Object? stakingDataSource = null,
   }) {
     return _then(_$RewardKeyImpl(
       networkId: null == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int,
+      stakingDataSource: null == stakingDataSource
+          ? _value.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSource,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
+    return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
+      return _then(_value.copyWith(stakingDataSource: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$RewardKeyImpl extends RewardKey {
-  _$RewardKeyImpl({required this.networkId}) : super._();
+  _$RewardKeyImpl({required this.networkId, required this.stakingDataSource})
+      : super._();
 
   @override
   final int networkId;
+  @override
+  final StakingDataSource stakingDataSource;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardKey(networkId: $networkId)';
+    return 'ShelleyAddressParamsData.rewardKey(networkId: $networkId, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -2107,136 +1125,30 @@ class _$RewardKeyImpl extends RewardKey {
         (other.runtimeType == runtimeType &&
             other is _$RewardKeyImpl &&
             (identical(other.networkId, networkId) ||
-                other.networkId == networkId));
+                other.networkId == networkId) &&
+            (identical(other.stakingDataSource, stakingDataSource) ||
+                other.stakingDataSource == stakingDataSource));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId);
+  int get hashCode => Object.hash(runtimeType, networkId, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith =>
       __$$RewardKeyImplCopyWithImpl<_$RewardKeyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return rewardKey(networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return rewardKey?.call(networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (rewardKey != null) {
-      return rewardKey(networkId);
-    }
-    return orElse();
-  }
 }
 
 abstract class RewardKey extends ShelleyAddressParamsData {
-  factory RewardKey({required final int networkId}) = _$RewardKeyImpl;
+  factory RewardKey(
+      {required final int networkId,
+      required final StakingDataSource stakingDataSource}) = _$RewardKeyImpl;
   RewardKey._() : super._();
 
   @override
   int get networkId;
+  StakingDataSource get stakingDataSource;
   @override
   @JsonKey(ignore: true)
   _$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith =>
@@ -2251,7 +1163,7 @@ abstract class _$$RewardScriptImplCopyWith<$Res>
       __$$RewardScriptImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int networkId});
+  $Res call({int networkId, String stakingScriptHashHex});
 }
 
 /// @nodoc
@@ -2266,12 +1178,17 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? networkId = null,
+    Object? stakingScriptHashHex = null,
   }) {
     return _then(_$RewardScriptImpl(
       networkId: null == networkId
           ? _value.networkId
           : networkId // ignore: cast_nullable_to_non_nullable
               as int,
+      stakingScriptHashHex: null == stakingScriptHashHex
+          ? _value.stakingScriptHashHex
+          : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -2279,14 +1196,18 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RewardScriptImpl extends RewardScript {
-  _$RewardScriptImpl({required this.networkId}) : super._();
+  _$RewardScriptImpl(
+      {required this.networkId, required this.stakingScriptHashHex})
+      : super._();
 
   @override
   final int networkId;
+  @override
+  final String stakingScriptHashHex;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardScript(networkId: $networkId)';
+    return 'ShelleyAddressParamsData.rewardScript(networkId: $networkId, stakingScriptHashHex: $stakingScriptHashHex)';
   }
 
   @override
@@ -2295,136 +1216,30 @@ class _$RewardScriptImpl extends RewardScript {
         (other.runtimeType == runtimeType &&
             other is _$RewardScriptImpl &&
             (identical(other.networkId, networkId) ||
-                other.networkId == networkId));
+                other.networkId == networkId) &&
+            (identical(other.stakingScriptHashHex, stakingScriptHashHex) ||
+                other.stakingScriptHashHex == stakingScriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId);
+  int get hashCode => Object.hash(runtimeType, networkId, stakingScriptHashHex);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
   _$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith =>
       __$$RewardScriptImplCopyWithImpl<_$RewardScriptImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentKeyStakeScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        basePaymentScriptStakeScript,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseKey,
-    required TResult Function(
-            int networkId, SpendingDataSource spendingDataSource)
-        enterpriseScript,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerKey,
-    required TResult Function(
-            int networkId,
-            SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)
-        pointerScript,
-    required TResult Function(int networkId) rewardKey,
-    required TResult Function(int networkId) rewardScript,
-  }) {
-    return rewardScript(networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult? Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult? Function(int networkId)? rewardKey,
-    TResult? Function(int networkId)? rewardScript,
-  }) {
-    return rewardScript?.call(networkId);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentKeyStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        basePaymentScriptStakeScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource)?
-        enterpriseScript,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerKey,
-    TResult Function(int networkId, SpendingDataSource spendingDataSource,
-            StakingDataSource stakingDataSource)?
-        pointerScript,
-    TResult Function(int networkId)? rewardKey,
-    TResult Function(int networkId)? rewardScript,
-    required TResult orElse(),
-  }) {
-    if (rewardScript != null) {
-      return rewardScript(networkId);
-    }
-    return orElse();
-  }
 }
 
 abstract class RewardScript extends ShelleyAddressParamsData {
-  factory RewardScript({required final int networkId}) = _$RewardScriptImpl;
+  factory RewardScript(
+      {required final int networkId,
+      required final String stakingScriptHashHex}) = _$RewardScriptImpl;
   RewardScript._() : super._();
 
   @override
   int get networkId;
+  String get stakingScriptHashHex;
   @override
   @JsonKey(ignore: true)
   _$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith =>

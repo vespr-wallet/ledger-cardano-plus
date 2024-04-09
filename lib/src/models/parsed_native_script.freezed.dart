@@ -17,25 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedNativeScript {
   Object get script => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ParsedComplexNativeScript script) complex,
-    required TResult Function(ParsedSimpleNativeScript script) simple,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ParsedComplexNativeScript script)? complex,
-    TResult? Function(ParsedSimpleNativeScript script)? simple,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ParsedComplexNativeScript script)? complex,
-    TResult Function(ParsedSimpleNativeScript script)? simple,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -130,37 +111,6 @@ class _$ParsedNativeScript_ComplexImpl extends ParsedNativeScript_Complex {
   _$$ParsedNativeScript_ComplexImplCopyWith<_$ParsedNativeScript_ComplexImpl>
       get copyWith => __$$ParsedNativeScript_ComplexImplCopyWithImpl<
           _$ParsedNativeScript_ComplexImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ParsedComplexNativeScript script) complex,
-    required TResult Function(ParsedSimpleNativeScript script) simple,
-  }) {
-    return complex(script);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ParsedComplexNativeScript script)? complex,
-    TResult? Function(ParsedSimpleNativeScript script)? simple,
-  }) {
-    return complex?.call(script);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ParsedComplexNativeScript script)? complex,
-    TResult Function(ParsedSimpleNativeScript script)? simple,
-    required TResult orElse(),
-  }) {
-    if (complex != null) {
-      return complex(script);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedNativeScript_Complex extends ParsedNativeScript {
@@ -250,37 +200,6 @@ class _$ParsedNativeScript_SimpleImpl extends ParsedNativeScript_Simple {
   _$$ParsedNativeScript_SimpleImplCopyWith<_$ParsedNativeScript_SimpleImpl>
       get copyWith => __$$ParsedNativeScript_SimpleImplCopyWithImpl<
           _$ParsedNativeScript_SimpleImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(ParsedComplexNativeScript script) complex,
-    required TResult Function(ParsedSimpleNativeScript script) simple,
-  }) {
-    return simple(script);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ParsedComplexNativeScript script)? complex,
-    TResult? Function(ParsedSimpleNativeScript script)? simple,
-  }) {
-    return simple?.call(script);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ParsedComplexNativeScript script)? complex,
-    TResult Function(ParsedSimpleNativeScript script)? simple,
-    required TResult orElse(),
-  }) {
-    if (simple != null) {
-      return simple(script);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedNativeScript_Simple extends ParsedNativeScript {

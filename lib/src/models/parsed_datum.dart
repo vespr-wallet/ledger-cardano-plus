@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'parsed_datum.freezed.dart';
 
@@ -10,13 +10,12 @@ sealed class ParsedDatum with _$ParsedDatum {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       ParsedDatumHash() => () {
-          if (thisClass.datumHashHex.length != datumHashLength) {
-            throw ValidationException("Datum hash hex must be exactly $datumHashLength characters long.");
-          }
+          validateExactHexString(thisClass.datumHashHex, 'Datum hash hex', datumHashLength);
         },
-      ParsedDatumInline() => () {},
+      ParsedDatumInline() => () {
+          validateHexString(thisClass.datumHex, 'Datum hex');
+        },
     };
-
     assertInvoker();
   }
 
@@ -27,9 +26,9 @@ sealed class ParsedDatum with _$ParsedDatum {
   factory ParsedDatum.inline({
     required String datumHex,
   }) = ParsedDatumInline;
-  
-  late final DatumType datumType = switch (this) {
-    ParsedDatumHash() => DatumType.hash,
-    ParsedDatumInline() => DatumType.inline,
+
+  late final int datumValue = switch (this) {
+    ParsedDatumHash() => 0,
+    ParsedDatumInline() => 1,
   };
 }

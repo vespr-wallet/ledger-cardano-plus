@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'parsed_credential.dart';
 import 'parsed_drep.dart';
 import 'parsed_anchor.dart';
@@ -9,7 +9,38 @@ part 'parsed_certificate.freezed.dart';
 
 @freezed
 sealed class ParsedCertificate with _$ParsedCertificate {
-  ParsedCertificate._();
+  ParsedCertificate._() {
+    final thisClass = this;
+    final void Function() assertinvoker = switch (thisClass) {
+      StakeRegistration() => () {},
+      StakeRegistrationConway() => () {
+          validateUint64(thisClass.deposit, 'deposit');
+        },
+      StakeDeregistration() => () {},
+      StakeDeregistrationConway() => () {
+          validateUint64(thisClass.deposit, 'deposit');
+        },
+      StakeDelegation() => () {
+        validateHexString(thisClass.poolKeyHashHex, 'poolKeyHashHex');
+      },
+      VoteDelegation() => () {},
+      AuthorizeCommitteeHot() => () {},
+      ResignCommitteeCold() => () {},
+      DRepRegistration() => () {
+          validateUint64(thisClass.deposit, 'deposit');
+        },
+      DRepDeregistration() => () {
+          validateUint64(thisClass.deposit, 'deposit');
+        },
+      DRepUpdate() => () {},
+      StakePoolRegistration() => () {},
+      StakePoolRetirement() => () {
+          validateUint64(thisClass.retirementEpoch, 'retirementEpoch');
+          validateBIP32Path(thisClass.path, 'path');
+        },
+    };
+    assertinvoker();
+  }
 
   factory ParsedCertificate.stakeRegistration({
     required ParsedCredential stakeCredential,
@@ -74,19 +105,35 @@ sealed class ParsedCertificate with _$ParsedCertificate {
     required BigInt retirementEpoch,
   }) = StakePoolRetirement;
 
-  late final CertificateType certificateType = switch (this) {
-    StakeRegistration() => CertificateType.stakeRegistration,
-    StakeRegistrationConway() => CertificateType.stakeRegistrationConway,
-    StakeDeregistration() => CertificateType.stakeDeregistration,
-    StakeDeregistrationConway() => CertificateType.stakeDeregistrationConway,
-    StakeDelegation() => CertificateType.stakeDelegation,
-    VoteDelegation() => CertificateType.voteDelegation,
-    AuthorizeCommitteeHot() => CertificateType.authorizeCommitteeHot,
-    ResignCommitteeCold() => CertificateType.resignCommitteeCold,
-    DRepRegistration() => CertificateType.dRepRegistration,
-    DRepDeregistration() => CertificateType.dRepDeregistration,
-    DRepUpdate() => CertificateType.dRepUpdate,
-    StakePoolRegistration() => CertificateType.stakePoolRegistration,
-    StakePoolRetirement() => CertificateType.stakePoolRetirement,
+  late final bool isConway = switch (this) {
+    StakeRegistration() => false,
+    StakeDeregistration() => false,
+    StakeDelegation() => false,
+    StakePoolRegistration() => false,
+    StakePoolRetirement() => false,
+    StakeRegistrationConway() => true,
+    StakeDeregistrationConway() => true,
+    VoteDelegation() => true,
+    AuthorizeCommitteeHot() => true,
+    ResignCommitteeCold() => true,
+    DRepRegistration() => true,
+    DRepDeregistration() => true,
+    DRepUpdate() => true,
+  };
+
+  late final int certificateTypeSerializationValue = switch (this) {
+    StakeRegistration() => 0,
+    StakeDeregistration() => 1,
+    StakeDelegation() => 2,
+    StakePoolRegistration() => 3,
+    StakePoolRetirement() => 4,
+    StakeRegistrationConway() => 7,
+    StakeDeregistrationConway() => 8,
+    VoteDelegation() => 9,
+    AuthorizeCommitteeHot() => 14,
+    ResignCommitteeCold() => 15,
+    DRepRegistration() => 16,
+    DRepDeregistration() => 17,
+    DRepUpdate() => 18,
   };
 }

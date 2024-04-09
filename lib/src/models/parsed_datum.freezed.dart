@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedDatum {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String datumHashHex) hash,
-    required TResult Function(String datumHex) inline,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String datumHashHex)? hash,
-    TResult? Function(String datumHex)? inline,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String datumHashHex)? hash,
-    TResult Function(String datumHex)? inline,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedDatum {}
 
 /// @nodoc
 abstract class $ParsedDatumCopyWith<$Res> {
@@ -117,37 +97,6 @@ class _$ParsedDatumHashImpl extends ParsedDatumHash {
   _$$ParsedDatumHashImplCopyWith<_$ParsedDatumHashImpl> get copyWith =>
       __$$ParsedDatumHashImplCopyWithImpl<_$ParsedDatumHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String datumHashHex) hash,
-    required TResult Function(String datumHex) inline,
-  }) {
-    return hash(datumHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String datumHashHex)? hash,
-    TResult? Function(String datumHex)? inline,
-  }) {
-    return hash?.call(datumHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String datumHashHex)? hash,
-    TResult Function(String datumHex)? inline,
-    required TResult orElse(),
-  }) {
-    if (hash != null) {
-      return hash(datumHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedDatumHash extends ParsedDatum {
@@ -223,37 +172,6 @@ class _$ParsedDatumInlineImpl extends ParsedDatumInline {
   _$$ParsedDatumInlineImplCopyWith<_$ParsedDatumInlineImpl> get copyWith =>
       __$$ParsedDatumInlineImplCopyWithImpl<_$ParsedDatumInlineImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String datumHashHex) hash,
-    required TResult Function(String datumHex) inline,
-  }) {
-    return inline(datumHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String datumHashHex)? hash,
-    TResult? Function(String datumHex)? inline,
-  }) {
-    return inline?.call(datumHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String datumHashHex)? hash,
-    TResult Function(String datumHex)? inline,
-    required TResult orElse(),
-  }) {
-    if (inline != null) {
-      return inline(datumHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedDatumInline extends ParsedDatum {

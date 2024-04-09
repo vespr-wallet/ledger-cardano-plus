@@ -17,31 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedComplexNativeScript {
   List<ParsedNativeScript> get scripts => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<ParsedNativeScript> scripts) all,
-    required TResult Function(List<ParsedNativeScript> scripts) any,
-    required TResult Function(
-            int requiredCount, List<ParsedNativeScript> scripts)
-        nOfK,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ParsedNativeScript> scripts)? all,
-    TResult? Function(List<ParsedNativeScript> scripts)? any,
-    TResult? Function(int requiredCount, List<ParsedNativeScript> scripts)?
-        nOfK,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ParsedNativeScript> scripts)? all,
-    TResult Function(List<ParsedNativeScript> scripts)? any,
-    TResult Function(int requiredCount, List<ParsedNativeScript> scripts)? nOfK,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedComplexNativeScriptCopyWith<ParsedComplexNativeScript> get copyWith =>
@@ -122,7 +97,7 @@ class __$$ParsedComplexNativeScript_AllImplCopyWithImpl<$Res>
 
 class _$ParsedComplexNativeScript_AllImpl
     extends ParsedComplexNativeScript_All {
-  const _$ParsedComplexNativeScript_AllImpl(
+  _$ParsedComplexNativeScript_AllImpl(
       {required final List<ParsedNativeScript> scripts})
       : _scripts = scripts,
         super._();
@@ -159,50 +134,13 @@ class _$ParsedComplexNativeScript_AllImpl
           _$ParsedComplexNativeScript_AllImpl>
       get copyWith => __$$ParsedComplexNativeScript_AllImplCopyWithImpl<
           _$ParsedComplexNativeScript_AllImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<ParsedNativeScript> scripts) all,
-    required TResult Function(List<ParsedNativeScript> scripts) any,
-    required TResult Function(
-            int requiredCount, List<ParsedNativeScript> scripts)
-        nOfK,
-  }) {
-    return all(scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ParsedNativeScript> scripts)? all,
-    TResult? Function(List<ParsedNativeScript> scripts)? any,
-    TResult? Function(int requiredCount, List<ParsedNativeScript> scripts)?
-        nOfK,
-  }) {
-    return all?.call(scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ParsedNativeScript> scripts)? all,
-    TResult Function(List<ParsedNativeScript> scripts)? any,
-    TResult Function(int requiredCount, List<ParsedNativeScript> scripts)? nOfK,
-    required TResult orElse(),
-  }) {
-    if (all != null) {
-      return all(scripts);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedComplexNativeScript_All extends ParsedComplexNativeScript {
-  const factory ParsedComplexNativeScript_All(
+  factory ParsedComplexNativeScript_All(
           {required final List<ParsedNativeScript> scripts}) =
       _$ParsedComplexNativeScript_AllImpl;
-  const ParsedComplexNativeScript_All._() : super._();
+  ParsedComplexNativeScript_All._() : super._();
 
   @override
   List<ParsedNativeScript> get scripts;
@@ -253,7 +191,7 @@ class __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<$Res>
 
 class _$ParsedComplexNativeScript_AnyImpl
     extends ParsedComplexNativeScript_Any {
-  const _$ParsedComplexNativeScript_AnyImpl(
+  _$ParsedComplexNativeScript_AnyImpl(
       {required final List<ParsedNativeScript> scripts})
       : _scripts = scripts,
         super._();
@@ -290,50 +228,13 @@ class _$ParsedComplexNativeScript_AnyImpl
           _$ParsedComplexNativeScript_AnyImpl>
       get copyWith => __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<
           _$ParsedComplexNativeScript_AnyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<ParsedNativeScript> scripts) all,
-    required TResult Function(List<ParsedNativeScript> scripts) any,
-    required TResult Function(
-            int requiredCount, List<ParsedNativeScript> scripts)
-        nOfK,
-  }) {
-    return any(scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ParsedNativeScript> scripts)? all,
-    TResult? Function(List<ParsedNativeScript> scripts)? any,
-    TResult? Function(int requiredCount, List<ParsedNativeScript> scripts)?
-        nOfK,
-  }) {
-    return any?.call(scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ParsedNativeScript> scripts)? all,
-    TResult Function(List<ParsedNativeScript> scripts)? any,
-    TResult Function(int requiredCount, List<ParsedNativeScript> scripts)? nOfK,
-    required TResult orElse(),
-  }) {
-    if (any != null) {
-      return any(scripts);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedComplexNativeScript_Any extends ParsedComplexNativeScript {
-  const factory ParsedComplexNativeScript_Any(
+  factory ParsedComplexNativeScript_Any(
           {required final List<ParsedNativeScript> scripts}) =
       _$ParsedComplexNativeScript_AnyImpl;
-  const ParsedComplexNativeScript_Any._() : super._();
+  ParsedComplexNativeScript_Any._() : super._();
 
   @override
   List<ParsedNativeScript> get scripts;
@@ -389,7 +290,7 @@ class __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<$Res>
 
 class _$ParsedComplexNativeScript_NOfKImpl
     extends ParsedComplexNativeScript_NOfK {
-  const _$ParsedComplexNativeScript_NOfKImpl(
+  _$ParsedComplexNativeScript_NOfKImpl(
       {required this.requiredCount,
       required final List<ParsedNativeScript> scripts})
       : _scripts = scripts,
@@ -431,52 +332,15 @@ class _$ParsedComplexNativeScript_NOfKImpl
           _$ParsedComplexNativeScript_NOfKImpl>
       get copyWith => __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<
           _$ParsedComplexNativeScript_NOfKImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<ParsedNativeScript> scripts) all,
-    required TResult Function(List<ParsedNativeScript> scripts) any,
-    required TResult Function(
-            int requiredCount, List<ParsedNativeScript> scripts)
-        nOfK,
-  }) {
-    return nOfK(requiredCount, scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ParsedNativeScript> scripts)? all,
-    TResult? Function(List<ParsedNativeScript> scripts)? any,
-    TResult? Function(int requiredCount, List<ParsedNativeScript> scripts)?
-        nOfK,
-  }) {
-    return nOfK?.call(requiredCount, scripts);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ParsedNativeScript> scripts)? all,
-    TResult Function(List<ParsedNativeScript> scripts)? any,
-    TResult Function(int requiredCount, List<ParsedNativeScript> scripts)? nOfK,
-    required TResult orElse(),
-  }) {
-    if (nOfK != null) {
-      return nOfK(requiredCount, scripts);
-    }
-    return orElse();
-  }
 }
 
 abstract class ParsedComplexNativeScript_NOfK
     extends ParsedComplexNativeScript {
-  const factory ParsedComplexNativeScript_NOfK(
+  factory ParsedComplexNativeScript_NOfK(
           {required final int requiredCount,
           required final List<ParsedNativeScript> scripts}) =
       _$ParsedComplexNativeScript_NOfKImpl;
-  const ParsedComplexNativeScript_NOfK._() : super._();
+  ParsedComplexNativeScript_NOfK._() : super._();
 
   int get requiredCount;
   @override

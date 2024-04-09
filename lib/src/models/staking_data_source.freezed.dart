@@ -15,39 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$StakingDataSource {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$StakingDataSource {}
 
 /// @nodoc
 abstract class $StakingDataSourceCopyWith<$Res> {
@@ -103,49 +71,6 @@ class _$StakingDataSourceNoneImpl extends StakingDataSourceNone {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return none();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return none?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none();
-    }
-    return orElse();
-  }
 }
 
 abstract class StakingDataSourceNone extends StakingDataSource {
@@ -225,49 +150,6 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
   _$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl>
       get copyWith => __$$StakingDataSourceKeyPathImplCopyWithImpl<
           _$StakingDataSourceKeyPathImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return keyPath(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return keyPath?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (keyPath != null) {
-      return keyPath(path);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakingDataSourceKeyPath extends StakingDataSource {
@@ -346,49 +228,6 @@ class _$StakingDataSourceKeyHashImpl extends StakingDataSourceKeyHash {
   _$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl>
       get copyWith => __$$StakingDataSourceKeyHashImplCopyWithImpl<
           _$StakingDataSourceKeyHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return keyHash(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return keyHash?.call(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (keyHash != null) {
-      return keyHash(keyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakingDataSourceKeyHash extends StakingDataSource {
@@ -491,49 +330,6 @@ class _$StakingDataSourceBlockchainPointerImpl
           _$StakingDataSourceBlockchainPointerImpl>
       get copyWith => __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<
           _$StakingDataSourceBlockchainPointerImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return blockchainPointer(blockIndex, txIndex, certificateIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return blockchainPointer?.call(blockIndex, txIndex, certificateIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (blockchainPointer != null) {
-      return blockchainPointer(blockIndex, txIndex, certificateIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakingDataSourceBlockchainPointer extends StakingDataSource {
@@ -618,49 +414,6 @@ class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash {
   _$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl>
       get copyWith => __$$StakingDataSourceScriptHashImplCopyWithImpl<
           _$StakingDataSourceScriptHashImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(int blockIndex, int txIndex, int certificateIndex)
-        blockchainPointer,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return scriptHash(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return scriptHash?.call(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(int blockIndex, int txIndex, int certificateIndex)?
-        blockchainPointer,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (scriptHash != null) {
-      return scriptHash(scriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class StakingDataSourceScriptHash extends StakingDataSource {

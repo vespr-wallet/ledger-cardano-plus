@@ -20,28 +20,6 @@ mixin _$SignedTransactionData {
   List<Witness> get witnesses => throw _privateConstructorUsedError;
   TxAuxiliaryDataSupplement? get auxiliaryDataSupplement =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SignedTransactionDataCopyWith<SignedTransactionData> get copyWith =>
@@ -213,40 +191,6 @@ class _$SignedTransactionDataImpl extends _SignedTransactionData {
   _$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl>
       get copyWith => __$$SignedTransactionDataImplCopyWithImpl<
           _$SignedTransactionDataImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)
-        $default,
-  ) {
-    return $default(txHashHex, witnesses, auxiliaryDataSupplement);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)?
-        $default,
-  ) {
-    return $default?.call(txHashHex, witnesses, auxiliaryDataSupplement);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String txHashHex, List<Witness> witnesses,
-            TxAuxiliaryDataSupplement? auxiliaryDataSupplement)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(txHashHex, witnesses, auxiliaryDataSupplement);
-    }
-    return orElse();
-  }
 }
 
 abstract class _SignedTransactionData extends SignedTransactionData {

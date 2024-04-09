@@ -19,28 +19,6 @@ mixin _$ParsedVote {
   ParsedGovActionId get govActionId => throw _privateConstructorUsedError;
   ParsedVotingProcedure get votingProcedure =>
       throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedVoteCopyWith<ParsedVote> get copyWith =>
@@ -185,40 +163,6 @@ class _$ParsedVoteImpl extends _ParsedVote {
   @pragma('vm:prefer-inline')
   _$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith =>
       __$$ParsedVoteImplCopyWithImpl<_$ParsedVoteImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)
-        $default,
-  ) {
-    return $default(govActionId, votingProcedure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)?
-        $default,
-  ) {
-    return $default?.call(govActionId, votingProcedure);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(ParsedGovActionId govActionId,
-            ParsedVotingProcedure votingProcedure)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(govActionId, votingProcedure);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedVote extends ParsedVote {

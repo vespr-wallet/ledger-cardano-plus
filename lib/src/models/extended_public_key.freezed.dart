@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ExtendedPublicKey {
   String get publicKeyHex => throw _privateConstructorUsedError;
   String get chainCodeHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String publicKeyHex, String chainCodeHex) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String publicKeyHex, String chainCodeHex)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String publicKeyHex, String chainCodeHex)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ExtendedPublicKeyCopyWith<ExtendedPublicKey> get copyWith =>
@@ -153,34 +137,6 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
   _$$ExtendedPublicKeyImplCopyWith<_$ExtendedPublicKeyImpl> get copyWith =>
       __$$ExtendedPublicKeyImplCopyWithImpl<_$ExtendedPublicKeyImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String publicKeyHex, String chainCodeHex) $default,
-  ) {
-    return $default(publicKeyHex, chainCodeHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String publicKeyHex, String chainCodeHex)? $default,
-  ) {
-    return $default?.call(publicKeyHex, chainCodeHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String publicKeyHex, String chainCodeHex)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(publicKeyHex, chainCodeHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ExtendedPublicKey extends ExtendedPublicKey {
@@ -200,36 +156,7 @@ abstract class _ExtendedPublicKey extends ExtendedPublicKey {
 }
 
 /// @nodoc
-mixin _$ExtendedPublicKeyRequest {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ExtendedPublicKeyRequest {}
 
 /// @nodoc
 abstract class $ExtendedPublicKeyRequestCopyWith<$Res> {
@@ -318,46 +245,6 @@ class _$ExtendedPublicKeyRequest_ShelleyImpl
           _$ExtendedPublicKeyRequest_ShelleyImpl>
       get copyWith => __$$ExtendedPublicKeyRequest_ShelleyImplCopyWithImpl<
           _$ExtendedPublicKeyRequest_ShelleyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) {
-    return shelley(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) {
-    return shelley?.call(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) {
-    if (shelley != null) {
-      return shelley(accountIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ExtendedPublicKeyRequest_Shelley
@@ -412,46 +299,6 @@ class _$ExtendedPublicKeyRequest_ByronImpl
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) {
-    return byron();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) {
-    return byron?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) {
-    if (byron != null) {
-      return byron();
-    }
-    return orElse();
-  }
 }
 
 abstract class ExtendedPublicKeyRequest_Byron extends ExtendedPublicKeyRequest {
@@ -528,46 +375,6 @@ class _$ExtendedPublicKeyRequest_StakeImpl
           _$ExtendedPublicKeyRequest_StakeImpl>
       get copyWith => __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<
           _$ExtendedPublicKeyRequest_StakeImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) {
-    return stake(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) {
-    return stake?.call(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) {
-    if (stake != null) {
-      return stake(accountIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ExtendedPublicKeyRequest_Stake extends ExtendedPublicKeyRequest {
@@ -650,46 +457,6 @@ class _$ExtendedPublicKeyRequest_CIP36Impl
           _$ExtendedPublicKeyRequest_CIP36Impl>
       get copyWith => __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<
           _$ExtendedPublicKeyRequest_CIP36Impl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) {
-    return cip36(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) {
-    return cip36?.call(accountIndex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) {
-    if (cip36 != null) {
-      return cip36(accountIndex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ExtendedPublicKeyRequest_CIP36 extends ExtendedPublicKeyRequest {
@@ -779,46 +546,6 @@ class _$ExtendedPublicKeyRequest_CustomImpl
           _$ExtendedPublicKeyRequest_CustomImpl>
       get copyWith => __$$ExtendedPublicKeyRequest_CustomImplCopyWithImpl<
           _$ExtendedPublicKeyRequest_CustomImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountIndex) shelley,
-    required TResult Function() byron,
-    required TResult Function(int accountIndex) stake,
-    required TResult Function(int accountIndex) cip36,
-    required TResult Function(List<int> customPath) custom,
-  }) {
-    return custom(customPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountIndex)? shelley,
-    TResult? Function()? byron,
-    TResult? Function(int accountIndex)? stake,
-    TResult? Function(int accountIndex)? cip36,
-    TResult? Function(List<int> customPath)? custom,
-  }) {
-    return custom?.call(customPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountIndex)? shelley,
-    TResult Function()? byron,
-    TResult Function(int accountIndex)? stake,
-    TResult Function(int accountIndex)? cip36,
-    TResult Function(List<int> customPath)? custom,
-    required TResult orElse(),
-  }) {
-    if (custom != null) {
-      return custom(customPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class ExtendedPublicKeyRequest_Custom

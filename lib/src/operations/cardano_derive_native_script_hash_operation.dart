@@ -50,11 +50,15 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
 
     await send(sendOperation);
 
-    if (script is ParsedNativeScript_Complex) {
-      for (final subscript in script.script.scripts) {
-        await _deriveNativeScriptHashAddScript(send, subscript);
-      }
-    }
+    final void Function() invoker = switch (script) {
+      ParsedNativeScript_Complex() => () async {
+          for (final subscript in script.script.scripts) {
+            await _deriveNativeScriptHashAddScript(send, subscript);
+          }
+        },
+      ParsedNativeScript_Simple() => () => (),
+    };
+    invoker();
   }
 
   Future<String> _deriveNativeScriptHashFinishWholeNativeScript(
@@ -78,15 +82,15 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
   Uint8List serializeComplexNativeScriptStart(ParsedComplexNativeScript script) => useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedComplexNativeScript_All() => () {
-              writer.writeUint8(NativeScriptType.all.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
               writer.writeUint32(script.scripts.length);
             },
           ParsedComplexNativeScript_Any() => () {
-              writer.writeUint8(NativeScriptType.any.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
               writer.writeUint32(script.scripts.length);
             },
           ParsedComplexNativeScript_NOfK() => () {
-              writer.writeUint8(NativeScriptType.nOfK.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
               writer.writeUint32(script.scripts.length);
               writer.writeUint32(script.requiredCount);
             },
@@ -98,21 +102,21 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
   Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) => useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
-              writer.writeUint8(NativeScriptType.pubkeyDeviceOwned.encoding);
-              writer.writeUint8(PubkeyType.deviceOwned.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
+              writer.writeUint8(script.pubkeyType);
               SerializationUtils.writerSerializedPath(writer, script.path);
             },
           ParsedSimpleNativeScript_PubKeyThirdParty() => () {
-              writer.writeUint8(NativeScriptType.pubkeyThirdParty.encoding);
-              writer.writeUint8(PubkeyType.thirdParty.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
+              writer.writeUint8(script.pubkeyType);
               SerializationUtils.writeSerializedHex(writer, script.keyHashHex);
             },
           ParsedSimpleNativeScript_InvalidBefore() => () {
-              writer.writeUint8(NativeScriptType.invalidBefore.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
               SerializationUtils.writeSerializedUint64(writer, script.slot);
             },
           ParsedSimpleNativeScript_InvalidHereafter() => () {
-              writer.writeUint8(NativeScriptType.invalidHereafter.encoding);
+              writer.writeUint8(script.nativeScriptSerializationValue);
               SerializationUtils.writeSerializedUint64(writer, script.slot);
             },
         };

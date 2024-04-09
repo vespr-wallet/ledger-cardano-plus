@@ -17,22 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ParsedTransactionOptions {
   bool get tagCborSets => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool tagCborSets) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool tagCborSets)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool tagCborSets)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith =>
@@ -140,34 +124,6 @@ class _$ParsedTransactionOptionsImpl extends _ParsedTransactionOptions {
   _$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl>
       get copyWith => __$$ParsedTransactionOptionsImplCopyWithImpl<
           _$ParsedTransactionOptionsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(bool tagCborSets) $default,
-  ) {
-    return $default(tagCborSets);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(bool tagCborSets)? $default,
-  ) {
-    return $default?.call(tagCborSets);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(bool tagCborSets)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(tagCborSets);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedTransactionOptions extends ParsedTransactionOptions {

@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedOutputDestination {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedOutputDestination {}
 
 /// @nodoc
 abstract class $ParsedOutputDestinationCopyWith<$Res> {
@@ -117,37 +97,6 @@ class _$ThirdPartyImpl extends ThirdParty {
   @pragma('vm:prefer-inline')
   _$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith =>
       __$$ThirdPartyImplCopyWithImpl<_$ThirdPartyImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
-  }) {
-    return thirdParty(addressHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
-  }) {
-    return thirdParty?.call(addressHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
-    required TResult orElse(),
-  }) {
-    if (thirdParty != null) {
-      return thirdParty(addressHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ThirdParty extends ParsedOutputDestination {
@@ -231,37 +180,6 @@ class _$DeviceOwnedImpl extends DeviceOwned {
   @pragma('vm:prefer-inline')
   _$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith =>
       __$$DeviceOwnedImplCopyWithImpl<_$DeviceOwnedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String addressHex) thirdParty,
-    required TResult Function(ParsedAddressParams addressParams) deviceOwned,
-  }) {
-    return deviceOwned(addressParams);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String addressHex)? thirdParty,
-    TResult? Function(ParsedAddressParams addressParams)? deviceOwned,
-  }) {
-    return deviceOwned?.call(addressParams);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String addressHex)? thirdParty,
-    TResult Function(ParsedAddressParams addressParams)? deviceOwned,
-    required TResult orElse(),
-  }) {
-    if (deviceOwned != null) {
-      return deviceOwned(addressParams);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwned extends ParsedOutputDestination {

@@ -16,49 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedOutput {
-  TxOutputFormat get format => throw _privateConstructorUsedError;
+  ParsedOutputDestination get destination => throw _privateConstructorUsedError;
   BigInt get amount => throw _privateConstructorUsedError;
   List<ParsedAssetGroup> get tokenBundle => throw _privateConstructorUsedError;
-  ParsedOutputDestination get destination => throw _privateConstructorUsedError;
-  ParsedDatum? get datum => throw _privateConstructorUsedError;
-  String? get referenceScriptHex => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedOutputCopyWith<ParsedOutput> get copyWith =>
@@ -72,15 +32,11 @@ abstract class $ParsedOutputCopyWith<$Res> {
       _$ParsedOutputCopyWithImpl<$Res, ParsedOutput>;
   @useResult
   $Res call(
-      {TxOutputFormat format,
+      {ParsedOutputDestination destination,
       BigInt amount,
-      List<ParsedAssetGroup> tokenBundle,
-      ParsedOutputDestination destination,
-      ParsedDatum? datum,
-      String? referenceScriptHex});
+      List<ParsedAssetGroup> tokenBundle});
 
   $ParsedOutputDestinationCopyWith<$Res> get destination;
-  $ParsedDatumCopyWith<$Res>? get datum;
 }
 
 /// @nodoc
@@ -96,18 +52,15 @@ class _$ParsedOutputCopyWithImpl<$Res, $Val extends ParsedOutput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? format = null,
+    Object? destination = null,
     Object? amount = null,
     Object? tokenBundle = null,
-    Object? destination = null,
-    Object? datum = freezed,
-    Object? referenceScriptHex = freezed,
   }) {
     return _then(_value.copyWith(
-      format: null == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as TxOutputFormat,
+      destination: null == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as ParsedOutputDestination,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -116,18 +69,6 @@ class _$ParsedOutputCopyWithImpl<$Res, $Val extends ParsedOutput>
           ? _value.tokenBundle
           : tokenBundle // ignore: cast_nullable_to_non_nullable
               as List<ParsedAssetGroup>,
-      destination: null == destination
-          ? _value.destination
-          : destination // ignore: cast_nullable_to_non_nullable
-              as ParsedOutputDestination,
-      datum: freezed == datum
-          ? _value.datum
-          : datum // ignore: cast_nullable_to_non_nullable
-              as ParsedDatum?,
-      referenceScriptHex: freezed == referenceScriptHex
-          ? _value.referenceScriptHex
-          : referenceScriptHex // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 
@@ -138,65 +79,47 @@ class _$ParsedOutputCopyWithImpl<$Res, $Val extends ParsedOutput>
       return _then(_value.copyWith(destination: value) as $Val);
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ParsedDatumCopyWith<$Res>? get datum {
-    if (_value.datum == null) {
-      return null;
-    }
-
-    return $ParsedDatumCopyWith<$Res>(_value.datum!, (value) {
-      return _then(_value.copyWith(datum: value) as $Val);
-    });
-  }
 }
 
 /// @nodoc
-abstract class _$$ParsedOutputImplCopyWith<$Res>
+abstract class _$$ParsedOutputAlonzoImplCopyWith<$Res>
     implements $ParsedOutputCopyWith<$Res> {
-  factory _$$ParsedOutputImplCopyWith(
-          _$ParsedOutputImpl value, $Res Function(_$ParsedOutputImpl) then) =
-      __$$ParsedOutputImplCopyWithImpl<$Res>;
+  factory _$$ParsedOutputAlonzoImplCopyWith(_$ParsedOutputAlonzoImpl value,
+          $Res Function(_$ParsedOutputAlonzoImpl) then) =
+      __$$ParsedOutputAlonzoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {TxOutputFormat format,
+      {ParsedOutputDestination destination,
       BigInt amount,
       List<ParsedAssetGroup> tokenBundle,
-      ParsedOutputDestination destination,
-      ParsedDatum? datum,
-      String? referenceScriptHex});
+      ParsedDatumHash? datumHashHex});
 
   @override
   $ParsedOutputDestinationCopyWith<$Res> get destination;
-  @override
-  $ParsedDatumCopyWith<$Res>? get datum;
 }
 
 /// @nodoc
-class __$$ParsedOutputImplCopyWithImpl<$Res>
-    extends _$ParsedOutputCopyWithImpl<$Res, _$ParsedOutputImpl>
-    implements _$$ParsedOutputImplCopyWith<$Res> {
-  __$$ParsedOutputImplCopyWithImpl(
-      _$ParsedOutputImpl _value, $Res Function(_$ParsedOutputImpl) _then)
+class __$$ParsedOutputAlonzoImplCopyWithImpl<$Res>
+    extends _$ParsedOutputCopyWithImpl<$Res, _$ParsedOutputAlonzoImpl>
+    implements _$$ParsedOutputAlonzoImplCopyWith<$Res> {
+  __$$ParsedOutputAlonzoImplCopyWithImpl(_$ParsedOutputAlonzoImpl _value,
+      $Res Function(_$ParsedOutputAlonzoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? format = null,
+    Object? destination = null,
     Object? amount = null,
     Object? tokenBundle = null,
-    Object? destination = null,
-    Object? datum = freezed,
-    Object? referenceScriptHex = freezed,
+    Object? datumHashHex = freezed,
   }) {
-    return _then(_$ParsedOutputImpl(
-      format: null == format
-          ? _value.format
-          : format // ignore: cast_nullable_to_non_nullable
-              as TxOutputFormat,
+    return _then(_$ParsedOutputAlonzoImpl(
+      destination: null == destination
+          ? _value.destination
+          : destination // ignore: cast_nullable_to_non_nullable
+              as ParsedOutputDestination,
       amount: null == amount
           ? _value.amount
           : amount // ignore: cast_nullable_to_non_nullable
@@ -205,10 +128,147 @@ class __$$ParsedOutputImplCopyWithImpl<$Res>
           ? _value._tokenBundle
           : tokenBundle // ignore: cast_nullable_to_non_nullable
               as List<ParsedAssetGroup>,
+      datumHashHex: freezed == datumHashHex
+          ? _value.datumHashHex
+          : datumHashHex // ignore: cast_nullable_to_non_nullable
+              as ParsedDatumHash?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ParsedOutputAlonzoImpl extends ParsedOutputAlonzo {
+  _$ParsedOutputAlonzoImpl(
+      {required this.destination,
+      required this.amount,
+      final List<ParsedAssetGroup> tokenBundle = const [],
+      this.datumHashHex})
+      : _tokenBundle = tokenBundle,
+        super._();
+
+  @override
+  final ParsedOutputDestination destination;
+  @override
+  final BigInt amount;
+  final List<ParsedAssetGroup> _tokenBundle;
+  @override
+  @JsonKey()
+  List<ParsedAssetGroup> get tokenBundle {
+    if (_tokenBundle is EqualUnmodifiableListView) return _tokenBundle;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tokenBundle);
+  }
+
+  @override
+  final ParsedDatumHash? datumHashHex;
+
+  @override
+  String toString() {
+    return 'ParsedOutput.alonzo(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datumHashHex: $datumHashHex)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ParsedOutputAlonzoImpl &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
+            (identical(other.amount, amount) || other.amount == amount) &&
+            const DeepCollectionEquality()
+                .equals(other._tokenBundle, _tokenBundle) &&
+            const DeepCollectionEquality()
+                .equals(other.datumHashHex, datumHashHex));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      destination,
+      amount,
+      const DeepCollectionEquality().hash(_tokenBundle),
+      const DeepCollectionEquality().hash(datumHashHex));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ParsedOutputAlonzoImplCopyWith<_$ParsedOutputAlonzoImpl> get copyWith =>
+      __$$ParsedOutputAlonzoImplCopyWithImpl<_$ParsedOutputAlonzoImpl>(
+          this, _$identity);
+}
+
+abstract class ParsedOutputAlonzo extends ParsedOutput {
+  factory ParsedOutputAlonzo(
+      {required final ParsedOutputDestination destination,
+      required final BigInt amount,
+      final List<ParsedAssetGroup> tokenBundle,
+      final ParsedDatumHash? datumHashHex}) = _$ParsedOutputAlonzoImpl;
+  ParsedOutputAlonzo._() : super._();
+
+  @override
+  ParsedOutputDestination get destination;
+  @override
+  BigInt get amount;
+  @override
+  List<ParsedAssetGroup> get tokenBundle;
+  ParsedDatumHash? get datumHashHex;
+  @override
+  @JsonKey(ignore: true)
+  _$$ParsedOutputAlonzoImplCopyWith<_$ParsedOutputAlonzoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ParsedOutputBabbageImplCopyWith<$Res>
+    implements $ParsedOutputCopyWith<$Res> {
+  factory _$$ParsedOutputBabbageImplCopyWith(_$ParsedOutputBabbageImpl value,
+          $Res Function(_$ParsedOutputBabbageImpl) then) =
+      __$$ParsedOutputBabbageImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {ParsedOutputDestination destination,
+      BigInt amount,
+      List<ParsedAssetGroup> tokenBundle,
+      ParsedDatum? datum,
+      String? referenceScriptHex});
+
+  @override
+  $ParsedOutputDestinationCopyWith<$Res> get destination;
+  $ParsedDatumCopyWith<$Res>? get datum;
+}
+
+/// @nodoc
+class __$$ParsedOutputBabbageImplCopyWithImpl<$Res>
+    extends _$ParsedOutputCopyWithImpl<$Res, _$ParsedOutputBabbageImpl>
+    implements _$$ParsedOutputBabbageImplCopyWith<$Res> {
+  __$$ParsedOutputBabbageImplCopyWithImpl(_$ParsedOutputBabbageImpl _value,
+      $Res Function(_$ParsedOutputBabbageImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? destination = null,
+    Object? amount = null,
+    Object? tokenBundle = null,
+    Object? datum = freezed,
+    Object? referenceScriptHex = freezed,
+  }) {
+    return _then(_$ParsedOutputBabbageImpl(
       destination: null == destination
           ? _value.destination
           : destination // ignore: cast_nullable_to_non_nullable
               as ParsedOutputDestination,
+      amount: null == amount
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      tokenBundle: null == tokenBundle
+          ? _value._tokenBundle
+          : tokenBundle // ignore: cast_nullable_to_non_nullable
+              as List<ParsedAssetGroup>,
       datum: freezed == datum
           ? _value.datum
           : datum // ignore: cast_nullable_to_non_nullable
@@ -219,27 +279,39 @@ class __$$ParsedOutputImplCopyWithImpl<$Res>
               as String?,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedDatumCopyWith<$Res>? get datum {
+    if (_value.datum == null) {
+      return null;
+    }
+
+    return $ParsedDatumCopyWith<$Res>(_value.datum!, (value) {
+      return _then(_value.copyWith(datum: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$ParsedOutputImpl extends _ParsedOutput {
-  _$ParsedOutputImpl(
-      {required this.format,
+class _$ParsedOutputBabbageImpl extends ParsedOutputBabbage {
+  _$ParsedOutputBabbageImpl(
+      {required this.destination,
       required this.amount,
-      required final List<ParsedAssetGroup> tokenBundle,
-      required this.destination,
+      final List<ParsedAssetGroup> tokenBundle = const [],
       this.datum,
       this.referenceScriptHex})
       : _tokenBundle = tokenBundle,
         super._();
 
   @override
-  final TxOutputFormat format;
+  final ParsedOutputDestination destination;
   @override
   final BigInt amount;
   final List<ParsedAssetGroup> _tokenBundle;
   @override
+  @JsonKey()
   List<ParsedAssetGroup> get tokenBundle {
     if (_tokenBundle is EqualUnmodifiableListView) return _tokenBundle;
     // ignore: implicit_dynamic_type
@@ -247,28 +319,25 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   }
 
   @override
-  final ParsedOutputDestination destination;
-  @override
   final ParsedDatum? datum;
   @override
   final String? referenceScriptHex;
 
   @override
   String toString() {
-    return 'ParsedOutput(format: $format, amount: $amount, tokenBundle: $tokenBundle, destination: $destination, datum: $datum, referenceScriptHex: $referenceScriptHex)';
+    return 'ParsedOutput.babbage(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datum: $datum, referenceScriptHex: $referenceScriptHex)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ParsedOutputImpl &&
-            (identical(other.format, format) || other.format == format) &&
+            other is _$ParsedOutputBabbageImpl &&
+            (identical(other.destination, destination) ||
+                other.destination == destination) &&
             (identical(other.amount, amount) || other.amount == amount) &&
             const DeepCollectionEquality()
                 .equals(other._tokenBundle, _tokenBundle) &&
-            (identical(other.destination, destination) ||
-                other.destination == destination) &&
             (identical(other.datum, datum) || other.datum == datum) &&
             (identical(other.referenceScriptHex, referenceScriptHex) ||
                 other.referenceScriptHex == referenceScriptHex));
@@ -277,96 +346,39 @@ class _$ParsedOutputImpl extends _ParsedOutput {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      format,
+      destination,
       amount,
       const DeepCollectionEquality().hash(_tokenBundle),
-      destination,
       datum,
       referenceScriptHex);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ParsedOutputImplCopyWith<_$ParsedOutputImpl> get copyWith =>
-      __$$ParsedOutputImplCopyWithImpl<_$ParsedOutputImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)
-        $default,
-  ) {
-    return $default(
-        format, amount, tokenBundle, destination, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default,
-  ) {
-    return $default?.call(
-        format, amount, tokenBundle, destination, datum, referenceScriptHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            TxOutputFormat format,
-            BigInt amount,
-            List<ParsedAssetGroup> tokenBundle,
-            ParsedOutputDestination destination,
-            ParsedDatum? datum,
-            String? referenceScriptHex)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(
-          format, amount, tokenBundle, destination, datum, referenceScriptHex);
-    }
-    return orElse();
-  }
+  _$$ParsedOutputBabbageImplCopyWith<_$ParsedOutputBabbageImpl> get copyWith =>
+      __$$ParsedOutputBabbageImplCopyWithImpl<_$ParsedOutputBabbageImpl>(
+          this, _$identity);
 }
 
-abstract class _ParsedOutput extends ParsedOutput {
-  factory _ParsedOutput(
-      {required final TxOutputFormat format,
+abstract class ParsedOutputBabbage extends ParsedOutput {
+  factory ParsedOutputBabbage(
+      {required final ParsedOutputDestination destination,
       required final BigInt amount,
-      required final List<ParsedAssetGroup> tokenBundle,
-      required final ParsedOutputDestination destination,
+      final List<ParsedAssetGroup> tokenBundle,
       final ParsedDatum? datum,
-      final String? referenceScriptHex}) = _$ParsedOutputImpl;
-  _ParsedOutput._() : super._();
+      final String? referenceScriptHex}) = _$ParsedOutputBabbageImpl;
+  ParsedOutputBabbage._() : super._();
 
   @override
-  TxOutputFormat get format;
+  ParsedOutputDestination get destination;
   @override
   BigInt get amount;
   @override
   List<ParsedAssetGroup> get tokenBundle;
-  @override
-  ParsedOutputDestination get destination;
-  @override
   ParsedDatum? get datum;
-  @override
   String? get referenceScriptHex;
   @override
   @JsonKey(ignore: true)
-  _$$ParsedOutputImplCopyWith<_$ParsedOutputImpl> get copyWith =>
+  _$$ParsedOutputBabbageImplCopyWith<_$ParsedOutputBabbageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

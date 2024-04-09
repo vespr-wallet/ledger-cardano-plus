@@ -20,28 +20,6 @@ mixin _$ParsedOperationalCertificate {
   BigInt get kesPeriod => throw _privateConstructorUsedError;
   BigInt get issueCounter => throw _privateConstructorUsedError;
   List<int> get coldKeyPath => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedOperationalCertificateCopyWith<ParsedOperationalCertificate>
@@ -214,41 +192,6 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
           _$ParsedOperationalCertificateImpl>
       get copyWith => __$$ParsedOperationalCertificateImplCopyWithImpl<
           _$ParsedOperationalCertificateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)
-        $default,
-  ) {
-    return $default(kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)?
-        $default,
-  ) {
-    return $default?.call(
-        kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(String kesPublicKeyHex, BigInt kesPeriod,
-            BigInt issueCounter, List<int> coldKeyPath)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedOperationalCertificate

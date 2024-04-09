@@ -26,49 +26,6 @@ mixin _$ParsedCVoteRegistrationParams {
       throw _privateConstructorUsedError;
   BigInt get nonce => throw _privateConstructorUsedError;
   BigInt? get votingPurpose => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)?
-        $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)?
-        $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedCVoteRegistrationParamsCopyWith<ParsedCVoteRegistrationParams>
@@ -266,7 +223,7 @@ class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>
 
 class _$ParsedCVoteRegistrationParamsImpl
     extends _ParsedCVoteRegistrationParams {
-  const _$ParsedCVoteRegistrationParamsImpl(
+  _$ParsedCVoteRegistrationParamsImpl(
       {required this.format,
       required this.votePublicKey,
       required final List<int>? votePublicKeyPath,
@@ -365,69 +322,11 @@ class _$ParsedCVoteRegistrationParamsImpl
           _$ParsedCVoteRegistrationParamsImpl>
       get copyWith => __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<
           _$ParsedCVoteRegistrationParamsImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)
-        $default,
-  ) {
-    return $default(format, votePublicKey, votePublicKeyPath, delegations,
-        stakingPath, paymentDestination, nonce, votingPurpose);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)?
-        $default,
-  ) {
-    return $default?.call(format, votePublicKey, votePublicKeyPath, delegations,
-        stakingPath, paymentDestination, nonce, votingPurpose);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(
-            CIP36VoteRegistrationFormat format,
-            CVotePublicKey? votePublicKey,
-            List<int>? votePublicKeyPath,
-            List<ParsedCVoteDelegation>? delegations,
-            List<int> stakingPath,
-            ParsedOutputDestination paymentDestination,
-            BigInt nonce,
-            BigInt? votingPurpose)?
-        $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(format, votePublicKey, votePublicKeyPath, delegations,
-          stakingPath, paymentDestination, nonce, votingPurpose);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedCVoteRegistrationParams
     extends ParsedCVoteRegistrationParams {
-  const factory _ParsedCVoteRegistrationParams(
+  factory _ParsedCVoteRegistrationParams(
           {required final CIP36VoteRegistrationFormat format,
           required final CVotePublicKey? votePublicKey,
           required final List<int>? votePublicKeyPath,
@@ -437,7 +336,7 @@ abstract class _ParsedCVoteRegistrationParams
           required final BigInt nonce,
           required final BigInt? votingPurpose}) =
       _$ParsedCVoteRegistrationParamsImpl;
-  const _ParsedCVoteRegistrationParams._() : super._();
+  _ParsedCVoteRegistrationParams._() : super._();
 
   @override
   CIP36VoteRegistrationFormat get format;

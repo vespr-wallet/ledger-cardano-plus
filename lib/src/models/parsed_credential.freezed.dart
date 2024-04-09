@@ -15,30 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedCredential {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedCredential {}
 
 /// @nodoc
 abstract class $ParsedCredentialCopyWith<$Res> {
@@ -127,40 +104,6 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
   _$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith =>
       __$$CredentialKeyPathImplCopyWithImpl<_$CredentialKeyPathImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return keyPath(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return keyPath?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (keyPath != null) {
-      return keyPath(path);
-    }
-    return orElse();
-  }
 }
 
 abstract class CredentialKeyPath extends ParsedCredential {
@@ -236,40 +179,6 @@ class _$CredentialKeyHashImpl extends CredentialKeyHash {
   _$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith =>
       __$$CredentialKeyHashImplCopyWithImpl<_$CredentialKeyHashImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return keyHash(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return keyHash?.call(keyHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (keyHash != null) {
-      return keyHash(keyHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class CredentialKeyHash extends ParsedCredential {
@@ -346,40 +255,6 @@ class _$CredentialScriptHashImpl extends CredentialScriptHash {
       get copyWith =>
           __$$CredentialScriptHashImplCopyWithImpl<_$CredentialScriptHashImpl>(
               this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) keyPath,
-    required TResult Function(String keyHashHex) keyHash,
-    required TResult Function(String scriptHashHex) scriptHash,
-  }) {
-    return scriptHash(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? keyPath,
-    TResult? Function(String keyHashHex)? keyHash,
-    TResult? Function(String scriptHashHex)? scriptHash,
-  }) {
-    return scriptHash?.call(scriptHashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? keyPath,
-    TResult Function(String keyHashHex)? keyHash,
-    TResult Function(String scriptHashHex)? scriptHash,
-    required TResult orElse(),
-  }) {
-    if (scriptHash != null) {
-      return scriptHash(scriptHashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class CredentialScriptHash extends ParsedCredential {

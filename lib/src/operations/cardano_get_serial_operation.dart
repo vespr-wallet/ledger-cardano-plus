@@ -13,7 +13,6 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
   @override
   Future<String> invoke(LedgerSendFct send) async {
     final Uint8List data = useBinaryWriter((ByteDataWriter writer) {
-      writer.writeUint8(0x00);
       return writer.toBytes();
     });
 

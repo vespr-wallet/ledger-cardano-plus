@@ -1,15 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'script_data_hash.freezed.dart';
 
 @freezed
 sealed class ScriptDataHash with _$ScriptDataHash {
   ScriptDataHash._() {
-    if (hexString.length != scriptDataHashLength) {
-      throw ValidationException('ScriptDataHash must be a $scriptDataHashLength-byte hex string.');
-    }
+    validateExactHexString(hexString, 'ScriptDataHash', scriptDataHashLength);
   }
 
   factory ScriptDataHash({

@@ -1,11 +1,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'tx_auxiliary_data_supplement.freezed.dart';
 
 @freezed
 sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
-  TxAuxiliaryDataSupplement._();
+  TxAuxiliaryDataSupplement._(){
+    validateHexString(auxiliaryDataHashHex, 'auxiliaryDataHashHex');
+    validateHexString(cip36VoteRegistrationSignatureHex, 'cip36VoteRegistrationSignatureHex');
+  }
 
   factory TxAuxiliaryDataSupplement({
     required String auxiliaryDataHashHex,

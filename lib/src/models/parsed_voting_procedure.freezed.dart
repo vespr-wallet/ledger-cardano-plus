@@ -18,22 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedVotingProcedure {
   VoteOption get vote => throw _privateConstructorUsedError;
   ParsedAnchor? get anchor => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(VoteOption vote, ParsedAnchor? anchor) $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(VoteOption vote, ParsedAnchor? anchor)? $default,
-  ) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(VoteOption vote, ParsedAnchor? anchor)? $default, {
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedVotingProcedureCopyWith<ParsedVotingProcedure> get copyWith =>
@@ -169,34 +153,6 @@ class _$ParsedVotingProcedureImpl extends _ParsedVotingProcedure {
   _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl>
       get copyWith => __$$ParsedVotingProcedureImplCopyWithImpl<
           _$ParsedVotingProcedureImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(VoteOption vote, ParsedAnchor? anchor) $default,
-  ) {
-    return $default(vote, anchor);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(VoteOption vote, ParsedAnchor? anchor)? $default,
-  ) {
-    return $default?.call(vote, anchor);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(VoteOption vote, ParsedAnchor? anchor)? $default, {
-    required TResult orElse(),
-  }) {
-    if ($default != null) {
-      return $default(vote, anchor);
-    }
-    return orElse();
-  }
 }
 
 abstract class _ParsedVotingProcedure extends ParsedVotingProcedure {

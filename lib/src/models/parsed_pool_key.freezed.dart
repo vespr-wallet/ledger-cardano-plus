@@ -15,27 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedPoolKey {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String hashHex) thirdParty,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String hashHex)? thirdParty,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String hashHex)? thirdParty,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ParsedPoolKey {}
 
 /// @nodoc
 abstract class $ParsedPoolKeyCopyWith<$Res> {
@@ -124,37 +104,6 @@ class _$DeviceOwnedPoolKeyImpl extends DeviceOwnedPoolKey {
   _$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith =>
       __$$DeviceOwnedPoolKeyImplCopyWithImpl<_$DeviceOwnedPoolKeyImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String hashHex) thirdParty,
-  }) {
-    return deviceOwned(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String hashHex)? thirdParty,
-  }) {
-    return deviceOwned?.call(path);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String hashHex)? thirdParty,
-    required TResult orElse(),
-  }) {
-    if (deviceOwned != null) {
-      return deviceOwned(path);
-    }
-    return orElse();
-  }
 }
 
 abstract class DeviceOwnedPoolKey extends ParsedPoolKey {
@@ -229,37 +178,6 @@ class _$ThirdPartyPoolKeyImpl extends ThirdPartyPoolKey {
   _$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith =>
       __$$ThirdPartyPoolKeyImplCopyWithImpl<_$ThirdPartyPoolKeyImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(List<int> path) deviceOwned,
-    required TResult Function(String hashHex) thirdParty,
-  }) {
-    return thirdParty(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<int> path)? deviceOwned,
-    TResult? Function(String hashHex)? thirdParty,
-  }) {
-    return thirdParty?.call(hashHex);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<int> path)? deviceOwned,
-    TResult Function(String hashHex)? thirdParty,
-    required TResult orElse(),
-  }) {
-    if (thirdParty != null) {
-      return thirdParty(hashHex);
-    }
-    return orElse();
-  }
 }
 
 abstract class ThirdPartyPoolKey extends ParsedPoolKey {

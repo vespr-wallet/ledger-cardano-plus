@@ -29,6 +29,7 @@ class GetExtendedPublicKeyOperation extends ComplexLedgerOperation<ExtendedPubli
       p1: p1Unused,
       p2: p2Unused,
       data: data,
+      prependDataLength: false,
       debugName: 'Get Extended Public Key',
     );
 

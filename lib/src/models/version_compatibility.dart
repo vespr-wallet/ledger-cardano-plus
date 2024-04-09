@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
-import 'package:ledger_cardano/src/models/conway_and_special_certificates.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
+import 'package:ledger_cardano/src/models/parsed_c_vote_registration_params.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
 import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
@@ -98,15 +98,14 @@ class VersionCompatibility with _$VersionCompatibility {
     };
     invoker();
     final hasByronAddressParam = request.tx.outputs.any((o) {
-      final destination = o.destination;
-      final dest = request.tx.collateralOutput?.destination;
-
-      if (destination is DeviceOwned) {
-        return destination.addressParams is ByronAddressParams;
-      } else if (dest is DeviceOwned) {
-        return dest.addressParams is ByronAddressParams;
-      }
-      return false;
+      final bool Function() invoker = switch (o.destination) {
+        DeviceOwned(addressParams: ByronAddressParams()) => () => true,
+        _ => switch (request.tx.collateralOutput?.destination) {
+            DeviceOwned(addressParams: ByronAddressParams()) => () => true,
+            _ => () => false,
+          },
+      };
+      return invoker();
     });
     if (hasByronAddressParam && !compatibility.supportsByronAddressDerivation) {
       throw ValidationException(
@@ -120,26 +119,26 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasPoolRetirement = request.tx.certificates.any((c) {
-      if (c is StakePoolRetirement) {
-        return true;
-      }
-      return false;
-    });
+    final hasPoolRetirement = request.tx.certificates?.any((c) {
+          return switch (c) {
+            StakePoolRetirement() => true,
+            _ => false,
+          };
+        }) ??
+        false;
     if (hasPoolRetirement && !compatibility.supportsPoolRetirement) {
       throw ValidationException(
         'Pool retirement certificate not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    final hasConwayCertificates = request.tx.certificates.any((c) {
-      final isConwayCertificate = c.certificateType is ConwayAndSpecialCertificates;
-
-      if (isConwayCertificate) {
-        return true;
-      }
-      return false;
-    });
+    final hasConwayCertificates = request.tx.certificates?.any((c) {
+          if (c.isConway) {
+            return true;
+          }
+          return false;
+        }) ??
+        false;
     if (hasConwayCertificates && !compatibility.supportsConway) {
       throw ValidationException(
         'Conway era certificates not supported by Ledger app version ${version.versionName}.',
@@ -171,13 +170,13 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.referenceInputs.isNotEmpty && !compatibility.supportsBabbage) {
+    if (request.tx.referenceInputs?.isNotEmpty == true && !compatibility.supportsBabbage) {
       throw ValidationException(
         'Reference inputs not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    if (request.tx.requiredSigners.isNotEmpty && !compatibility.supportsAlonzo) {
+    if (request.tx.requiredSigners?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Required signers not supported by Ledger app version ${version.versionName}.',
       );
@@ -195,38 +194,47 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.collateralInputs.isNotEmpty && !compatibility.supportsAlonzo) {
+    if (request.tx.collateralInputs?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Collateral inputs not supported by Ledger app version ${version.versionName}.',
       );
     }
 
     final auxiliaryData = request.tx.auxiliaryData;
-    final hasCIP15Registration =
-        auxiliaryData is CIP36Registration && auxiliaryData.params.format == CIP36VoteRegistrationFormat.cip15;
+    final hasCIP15Registration = switch (auxiliaryData) {
+      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip15)) => true,
+      _ => false,
+    };
     if (hasCIP15Registration && !compatibility.supportsCatalystRegistration) {
       throw ValidationException(
         'Catalyst registration not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    final hasCIP36Registration =
-        auxiliaryData is CIP36Registration && auxiliaryData.params.format == CIP36VoteRegistrationFormat.cip36;
+    final hasCIP36Registration = switch (auxiliaryData) {
+      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip36)) => true,
+      _ => false,
+    };
     if (hasCIP36Registration && !compatibility.supportsCIP36) {
       throw ValidationException(
         'CIP36 registration not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    final hasKeyPath = auxiliaryData is CIP36Registration && auxiliaryData.params.votePublicKeyPath != null;
+    final hasKeyPath = switch (auxiliaryData) {
+      CIP36Registration(params: ParsedCVoteRegistrationParams(votePublicKeyPath: _)) => true,
+      _ => false,
+    };
     if (hasKeyPath && !compatibility.supportsCIP36Vote) {
       throw ValidationException(
         'Vote key derivation path in CIP15/CIP36 registration not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    final thirdPartyPayment = auxiliaryData is CIP36Registration &&
-        auxiliaryData.params.paymentDestination.outputDestinationType is! DeviceOwned;
+    final thirdPartyPayment = switch (auxiliaryData) {
+      CIP36Registration(params: ParsedCVoteRegistrationParams(paymentDestination: ThirdParty(addressHex: _))) => true,
+      _ => false,
+    };
     if (thirdPartyPayment && !compatibility.supportsCIP36) {
       throw ValidationException(
         'CIP36 payment addresses not owned by the device not supported by Ledger app version ${version.versionName}.',

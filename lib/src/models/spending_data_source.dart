@@ -1,11 +1,25 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'spending_data_source.freezed.dart';
 
 @freezed
 sealed class SpendingDataSource with _$SpendingDataSource {
-   SpendingDataSource._();
+   SpendingDataSource._() {
+    final thisClass = this;
+    final void Function() assertinvoker = switch (thisClass) {
+      SpendingDataSourceNone() => () {},
+      SpendingDataSourcePath() => () {
+        validateBIP32Path(thisClass.path, 'path');
+      },
+      SpendingDataSourceScriptHash() => () {
+        validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
+        validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+      },
+    };
+    assertinvoker();
+   }
 
    factory SpendingDataSource.none() = SpendingDataSourceNone;
 

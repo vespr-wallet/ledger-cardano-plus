@@ -1,5 +1,7 @@
 import 'dart:typed_data';
 
+import 'package:example/widgets/available_devices.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -32,7 +34,10 @@ class MainWidget extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Cardano Ledger Test'),
         ),
-        body: const MyApp(),
+        body: const SizedBox(
+          width: double.infinity,
+          child: MyApp(),
+        ),
       ),
     );
   }
@@ -50,6 +55,9 @@ class _MyAppState extends State<MyApp> {
     options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)),
   );
   late final CardanoLedgerApp cardanoApp = CardanoLedgerApp(ledger);
+
+  LedgerDevice? selectedDevice;
+
   List<LedgerDevice> devices = [];
   List<String> accounts = [];
   String versionInfo = '';
@@ -58,6 +66,154 @@ class _MyAppState extends State<MyApp> {
   String signatureHex = '';
   String serialInfo = '';
   String publicKeyInfo = '';
+
+  @override
+  Widget build(BuildContext context) {
+    if (selectedDevice == null) {
+      return Center(
+        child: ElevatedButton(
+          onPressed: () async {
+            final selectedLedgerDevice = await showAdaptiveDialog<LedgerDevice>(
+              context: context,
+              barrierDismissible: true,
+              builder: (context) => AlertDialog(content: AvailableDevices(ledger: ledger)),
+            );
+            if (selectedLedgerDevice != null) {
+              if (context.mounted) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text("Connected to Ledger ${selectedLedgerDevice.name}\n${selectedLedgerDevice.id}"),
+                  ),
+                );
+              }
+              setState(() => selectedDevice = selectedLedgerDevice);
+            }
+          },
+          child: const Text('Scan for Ledger Devices'),
+        ),
+      );
+    }
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        ElevatedButton(
+          onPressed: _scanForDevices,
+          child: const Text('Scan for Devices'),
+        ),
+        const SizedBox(height: 20),
+        const Text('Available Devices:'),
+        ...devices.map((device) => ListTile(
+              title: Text(device.name),
+              onTap: () async {
+                setState(() {
+                  versionInfo = '';
+                  accountsInfo = '';
+                  scriptHashInfo = '';
+                  signatureHex = '';
+                  serialInfo = '';
+                  publicKeyInfo = '';
+                });
+
+                await ledger.connect(device);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Connected to Ledger Device"),
+                  ),
+                );
+
+                await Future.delayed(const Duration(seconds: 1));
+                // Read the serial number of the ledger device
+                await _fetchSerial(device);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Fetched Serial Number from Ledger"),
+                  ),
+                );
+
+                await Future.delayed(const Duration(seconds: 3));
+                // Read Ledger's Cardano app version
+                await _fetchVersion(device);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Fetched Cardano App Version from Ledger"),
+                  ),
+                );
+
+                await Future.delayed(const Duration(seconds: 3));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Fetching Cardano Wallet Public Key"),
+                  ),
+                );
+                // Fetch extended public key for the wallet
+                await _fetchPublicKey(device);
+
+                await Future.delayed(const Duration(seconds: 3));
+                // Fetch receive/change/staking addresses for the wallet
+                await _fetchAccount(device);
+
+                await Future.delayed(const Duration(seconds: 2));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Signing Cardano Transaction"),
+                  ),
+                );
+                await Future.delayed(const Duration(seconds: 3));
+                // Approve/sign transactions (and return witnesses)
+                await _testSignTransactionWithoutOutputs(device);
+              },
+            )),
+        const SizedBox(height: 20),
+        if (serialInfo.isNotEmpty && versionInfo.isEmpty) ...[
+          const Text('Serial Info:'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(serialInfo),
+          ),
+        ],
+        const SizedBox(height: 20),
+        if (versionInfo.isNotEmpty && publicKeyInfo.isEmpty) ...[
+          const Text('App Version Info:'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(versionInfo),
+          ),
+        ],
+        const SizedBox(height: 20),
+        if (publicKeyInfo.isNotEmpty && accountsInfo.isEmpty) ...[
+          const Text('Public Key Info:'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(publicKeyInfo),
+          ),
+        ],
+        const SizedBox(height: 20),
+        if (accountsInfo.isNotEmpty && signatureHex.isEmpty) ...[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(accountsInfo),
+          ),
+        ],
+        // const SizedBox(height: 20),
+        // if (scriptHashInfo.isNotEmpty) ...[
+        //   const Text('Script Hash Info:'),
+        //   Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: Text(scriptHashInfo),
+        //   ),
+        // ],
+        const SizedBox(height: 20),
+        if (signatureHex.isNotEmpty) ...[
+          const Text('Signature Info:'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(signatureHex),
+          ),
+        ],
+      ],
+    );
+  }
 
   void _scanForDevices() async {
     devices.clear();
@@ -444,132 +600,5 @@ class _MyAppState extends State<MyApp> {
     } catch (e) {
       print('Error signing operational certificate: $e');
     }
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            ElevatedButton(
-              onPressed: _scanForDevices,
-              child: const Text('Scan for Devices'),
-            ),
-            const SizedBox(height: 20),
-            const Text('Available Devices:'),
-            ...devices.map((device) => ListTile(
-                  title: Text(device.name),
-                  onTap: () async {
-                    setState(() {
-                      versionInfo = '';
-                      accountsInfo = '';
-                      scriptHashInfo = '';
-                      signatureHex = '';
-                      serialInfo = '';
-                      publicKeyInfo = '';
-                    });
-
-                    await ledger.connect(device);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Connected to Ledger Device"),
-                      ),
-                    );
-
-                    await Future.delayed(const Duration(seconds: 1));
-                    // Read the serial number of the ledger device
-                    await _fetchSerial(device);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Fetched Serial Number from Ledger"),
-                      ),
-                    );
-
-                    await Future.delayed(const Duration(seconds: 3));
-                    // Read Ledger's Cardano app version
-                    await _fetchVersion(device);
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Fetched Cardano App Version from Ledger"),
-                      ),
-                    );
-
-                    await Future.delayed(const Duration(seconds: 3));
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Fetching Cardano Wallet Public Key"),
-                      ),
-                    );
-                    // Fetch extended public key for the wallet
-                    await _fetchPublicKey(device);
-
-                    await Future.delayed(const Duration(seconds: 3));
-                    // Fetch receive/change/staking addresses for the wallet
-                    await _fetchAccount(device);
-
-                    await Future.delayed(const Duration(seconds: 2));
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("Signing Cardano Transaction"),
-                      ),
-                    );
-                    await Future.delayed(const Duration(seconds: 3));
-                    // Approve/sign transactions (and return witnesses)
-                    await _testSignTransactionWithoutOutputs(device);
-                  },
-                )),
-            const SizedBox(height: 20),
-            if (serialInfo.isNotEmpty && versionInfo.isEmpty) ...[
-              const Text('Serial Info:'),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(serialInfo),
-              ),
-            ],
-            const SizedBox(height: 20),
-            if (versionInfo.isNotEmpty && publicKeyInfo.isEmpty) ...[
-              const Text('App Version Info:'),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(versionInfo),
-              ),
-            ],
-            const SizedBox(height: 20),
-            if (publicKeyInfo.isNotEmpty && accountsInfo.isEmpty) ...[
-              const Text('Public Key Info:'),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(publicKeyInfo),
-              ),
-            ],
-            const SizedBox(height: 20),
-            if (accountsInfo.isNotEmpty && signatureHex.isEmpty) ...[
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(accountsInfo),
-              ),
-            ],
-            // const SizedBox(height: 20),
-            // if (scriptHashInfo.isNotEmpty) ...[
-            //   const Text('Script Hash Info:'),
-            //   Padding(
-            //     padding: const EdgeInsets.all(8.0),
-            //     child: Text(scriptHashInfo),
-            //   ),
-            // ],
-            const SizedBox(height: 20),
-            if (signatureHex.isNotEmpty) ...[
-              const Text('Signature Info:'),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Text(signatureHex),
-              ),
-            ],
-          ],
-        ),
-      ),
-    );
   }
 }

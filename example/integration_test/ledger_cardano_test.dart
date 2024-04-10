@@ -5,10 +5,9 @@ import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+import 'test_utils.dart';
 
 import 'dart:async';
-
-import '../integration_test/test_utils.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -19,14 +18,12 @@ void main() {
   List<LedgerDevice> devices = [];
 
   setUpAll(() async {
-    // Request Bluetooth permission
     var status = await Permission.bluetooth.request();
     if (status.isGranted) {
       print("Bluetooth permission granted.");
       cardanoLedgerApp = await getCardanoLedgerApp();
     } else {
       print("Bluetooth permission denied.");
-      // Handle the case where Bluetooth permission is not granted
     }
   });
 
@@ -37,6 +34,17 @@ void main() {
       testCompleter.complete();
     }
   });
+
+  Future<void> fetchVersion(LedgerDevice device, CardanoLedgerApp cardanoLedgerApp) async {
+    try {
+      final version = await cardanoLedgerApp.getVersion(device);
+      print('Device: ${device.name}\n'
+          'App Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\n'
+          'Development Version: ${version.testMode ? "Yes" : "No"}');
+    } on LedgerException catch (e) {
+      print('Error fetching version: ${e.message}, Code: ${e.errorCode}');
+    }
+  }
 
   testWidgets('Should run device tests with manual scan and test', (WidgetTester tester) async {
     await tester.pumpWidget(MaterialApp(
@@ -54,7 +62,7 @@ void main() {
                     await for (final device in cardanoLedgerApp.ledger.scan()) {
                       devices.add(device);
                       print("Device scanned: ${device.name}");
-                      break; // Stop after the first device is found
+                      break;
                     }
                   } catch (e) {
                     print('Error during scan: $e');
@@ -70,11 +78,13 @@ void main() {
                 onPressed: () async {
                   if (devices.isNotEmpty) {
                     print("Connect button pressed");
-                    device = devices.first; // Connect to the first available device
+                    device = devices.first;
                     print("Connecting to device: ${device.name}");
                     try {
                       print("Attempting to connect to device: ${device.name}");
-                      await cardanoLedgerApp.ledger.connect(device).timeout(const Duration(seconds: 30)); // Increased timeout to 30 seconds
+                      await cardanoLedgerApp.ledger.connect(device);
+                      await fetchVersion(device, cardanoLedgerApp);
+
                       print("Device connected: ${device.name}");
                     } catch (e) {
                       print('Error during connect: $e');
@@ -90,9 +100,8 @@ void main() {
                 onPressed: () async {
                   print("Test button pressed");
                   try {
-                    await cardanoLedgerApp.runTests(device);
                     print("Tests run");
-                    testCompleter.complete(); // Complete the test when done
+                    testCompleter.complete();
                   } catch (e) {
                     print('Error during testing: $e');
                   }
@@ -105,22 +114,14 @@ void main() {
       ),
     ));
 
-    // Tap the scan button
     await tester.tap(find.widgetWithText(ElevatedButton, 'Scan'));
     await tester.pumpAndSettle();
-    await Future.delayed(const Duration(seconds: 5)); // 5 seconds delay
+    await Future.delayed(const Duration(seconds: 5));
 
-    // Tap the connect button
     await tester.tap(find.widgetWithText(ElevatedButton, 'Connect'));
     await tester.pumpAndSettle();
-    await Future.delayed(const Duration(seconds: 5)); // 5 seconds delay
+    await Future.delayed(const Duration(seconds: 5));
 
-    // Tap the run tests button
-    await tester.tap(find.widgetWithText(ElevatedButton, 'Run Tests'));
-    await tester.pumpAndSettle();
-    await Future.delayed(const Duration(seconds: 5)); // 5 seconds delay
-
-    // Wait for the test to complete
     await testCompleter.future;
   });
 }

@@ -16,6 +16,7 @@ import 'package:ledger_cardano/src/operations/cardano_derive_address_operation.d
 import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_run_tests_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_operational_certificate_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -368,5 +369,27 @@ class CardanoLedgerApp {
     );
 
     return signedTransactionData;
+  }
+  
+  Future<void> runTests(LedgerDevice device) async {
+    // Ensure the device's Cardano app version supports the requested operation
+    final CardanoVersion deviceVersion = await getVersion(device);
+    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+
+    if (!compatibility.isCompatible) {
+      throw ValidationException(
+        "Running tests not supported by the device's Cardano app version. "
+        "Required minimum version: ${compatibility.recommendedVersion}, "
+        "Device version: ${deviceVersion.versionName}",
+      );
+    }
+
+    const operation = CardanoRunTestsOperation();
+
+    await ledger.sendComplexOperation<void>(
+      device,
+      operation,
+      transformer: transformer,
+    );
   }
 }

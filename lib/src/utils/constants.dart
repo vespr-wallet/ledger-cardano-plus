@@ -148,7 +148,8 @@ enum InstructionType {
   getSerial(insValue: 0x01),
   deriveNativeScriptHash(insValue: 0x12),
   signOperationalCertificate(insValue: 0x22),
-  signTransaction(insValue: 0x21);
+  signTransaction(insValue: 0x21),
+  runTests(insValue: 0xF0);
 
   final int insValue;
 

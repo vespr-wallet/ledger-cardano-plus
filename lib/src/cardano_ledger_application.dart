@@ -20,6 +20,7 @@ import 'package:ledger_cardano/src/operations/cardano_sign_operational_certifica
 import 'package:ledger_cardano/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
@@ -41,6 +42,14 @@ class CardanoLedgerApp {
     this.ledger, {
     this.transformer = const CardanoTransformer(),
   });
+
+  Future<void> reset(LedgerDevice device) {
+    return ledger.sendOperation(
+      device,
+      ResetOperation(),
+      transformer: transformer,
+    );
+  }
 
   Future<CardanoVersion> getVersion(LedgerDevice device) {
     return ledger.sendComplexOperation<CardanoVersion>(

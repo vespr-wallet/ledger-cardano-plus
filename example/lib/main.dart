@@ -2,7 +2,6 @@ import 'dart:async';
 import 'dart:typed_data';
 
 import 'package:example/widgets/available_devices.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -58,6 +57,8 @@ class _MyAppState extends State<MyApp> {
   );
   late final CardanoLedgerApp cardanoApp = CardanoLedgerApp(ledger);
 
+  bool connecting = false;
+  String? error;
   LedgerDevice? selectedDevice;
   String? resultTitle;
   String? resultData;
@@ -90,32 +91,48 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     final selectedDevice = this.selectedDevice;
-    if (selectedDevice == null) {
-      return Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            final selectedLedgerDevice = await showAdaptiveDialog<LedgerDevice>(
-              context: context,
-              barrierDismissible: true,
-              builder: (context) => AlertDialog(content: AvailableDevices(ledger: ledger)),
-            );
-            if (selectedLedgerDevice != null) {
-              await ledger.connect(selectedLedgerDevice);
-              if (context.mounted) {
-                ScaffoldMessenger.of(context).showSnackBar(
-                  const SnackBar(
-                    content: Text("Connected"),
-                    duration: Duration(seconds: 1),
-                  ),
-                );
-              }
-              setState(() => this.selectedDevice = selectedLedgerDevice);
-            }
-          },
-          child: const Text('Scan for Ledger Devices'),
+    final error = this.error;
+
+    if (connecting) {
+      return const Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Connecting to Ledger Device...',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 32),
+            CircularProgressIndicator(),
+          ],
         ),
       );
     }
+
+    if (selectedDevice == null || error != null) {
+      return Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            ElevatedButton(
+              onPressed: _onScanForLedgerDevicesPressed,
+              child: const Text('Scan for Ledger Devices'),
+            ),
+            if (error != null)
+              Text(
+                'Error connecting to selected device\n$error',
+                textAlign: TextAlign.center,
+                style: const TextStyle(
+                  fontSize: 14,
+                  color: Colors.redAccent,
+                  fontWeight: FontWeight.bold,
+                ),
+              )
+          ],
+        ),
+      );
+    }
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -138,7 +155,17 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Reset",
-                invoker: () => _reset(cardanoApp, selectedDevice),
+                invoker: () async {
+                  final result = _reset(cardanoApp, selectedDevice);
+                  await ledger.disconnect(selectedDevice);
+                  setState(() {
+                    this.selectedDevice = null;
+                    this.error = null;
+                    connecting = false;
+                  });
+
+                  return result;
+                },
               ),
               child: const Text('Reset'),
             ),
@@ -181,6 +208,10 @@ class _MyAppState extends State<MyApp> {
                   const Divider(),
                   const SizedBox(height: 4),
                   Text(resultData ?? "[Ledger Result]"),
+                  if (resultData == _awaitingLedgerResponse) ...[
+                    const SizedBox(height: 16),
+                    const CircularProgressIndicator(),
+                  ]
                 ],
               ),
             ),
@@ -281,6 +312,45 @@ class _MyAppState extends State<MyApp> {
         // ],
       ],
     );
+  }
+
+  void _onScanForLedgerDevicesPressed() async {
+    final selectedLedgerDevice = await showAdaptiveDialog<LedgerDevice>(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) => AlertDialog(content: AvailableDevices(ledger: ledger)),
+    );
+    if (selectedLedgerDevice != null) {
+      setState(() => connecting = true);
+      try {
+        await ledger.connect(selectedLedgerDevice);
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Connected"),
+            duration: Duration(seconds: 1),
+          ),
+        );
+        setState(() {
+          connecting = false;
+          error = null;
+          selectedDevice = selectedLedgerDevice;
+        });
+      } catch (e) {
+        setState(() {
+          connecting = false;
+          error = e.toString();
+          selectedDevice = null;
+        });
+        // ignore: use_build_context_synchronously
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text("Failed to connect"),
+            duration: Duration(seconds: 1),
+          ),
+        );
+      }
+    }
   }
 
   Future<void> _testDeriveNativeScriptHash(LedgerDevice device) async {

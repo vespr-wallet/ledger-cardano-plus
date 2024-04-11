@@ -43,12 +43,15 @@ class CardanoLedgerApp {
     this.transformer = const CardanoTransformer(),
   });
 
-  Future<void> reset(LedgerDevice device) {
-    return ledger.sendOperation(
-      device,
-      ResetOperation(),
-      transformer: transformer,
-    );
+  Future<void> reset(LedgerDevice device) async {
+    // await ledger.connect(device);
+    return ledger
+        .sendOperation(
+          device,
+          ResetOperation(),
+          transformer: transformer,
+        )
+        .ignore();
   }
 
   Future<CardanoVersion> getVersion(LedgerDevice device) {

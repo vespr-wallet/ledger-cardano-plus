@@ -16,6 +16,12 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ExtendedPublicKey {
+// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  String get xPub =>
+      throw _privateConstructorUsedError; // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  String get acctXvk =>
+      throw _privateConstructorUsedError; // bech32 public key ; ED25519-BIP32 public key (32 bytes)
+  String get acctVk => throw _privateConstructorUsedError;
   String get publicKeyHex => throw _privateConstructorUsedError;
   String get chainCodeHex => throw _privateConstructorUsedError;
 
@@ -30,7 +36,12 @@ abstract class $ExtendedPublicKeyCopyWith<$Res> {
           ExtendedPublicKey value, $Res Function(ExtendedPublicKey) then) =
       _$ExtendedPublicKeyCopyWithImpl<$Res, ExtendedPublicKey>;
   @useResult
-  $Res call({String publicKeyHex, String chainCodeHex});
+  $Res call(
+      {String xPub,
+      String acctXvk,
+      String acctVk,
+      String publicKeyHex,
+      String chainCodeHex});
 }
 
 /// @nodoc
@@ -46,10 +57,25 @@ class _$ExtendedPublicKeyCopyWithImpl<$Res, $Val extends ExtendedPublicKey>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? xPub = null,
+    Object? acctXvk = null,
+    Object? acctVk = null,
     Object? publicKeyHex = null,
     Object? chainCodeHex = null,
   }) {
     return _then(_value.copyWith(
+      xPub: null == xPub
+          ? _value.xPub
+          : xPub // ignore: cast_nullable_to_non_nullable
+              as String,
+      acctXvk: null == acctXvk
+          ? _value.acctXvk
+          : acctXvk // ignore: cast_nullable_to_non_nullable
+              as String,
+      acctVk: null == acctVk
+          ? _value.acctVk
+          : acctVk // ignore: cast_nullable_to_non_nullable
+              as String,
       publicKeyHex: null == publicKeyHex
           ? _value.publicKeyHex
           : publicKeyHex // ignore: cast_nullable_to_non_nullable
@@ -70,7 +96,12 @@ abstract class _$$ExtendedPublicKeyImplCopyWith<$Res>
       __$$ExtendedPublicKeyImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String publicKeyHex, String chainCodeHex});
+  $Res call(
+      {String xPub,
+      String acctXvk,
+      String acctVk,
+      String publicKeyHex,
+      String chainCodeHex});
 }
 
 /// @nodoc
@@ -84,10 +115,25 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? xPub = null,
+    Object? acctXvk = null,
+    Object? acctVk = null,
     Object? publicKeyHex = null,
     Object? chainCodeHex = null,
   }) {
     return _then(_$ExtendedPublicKeyImpl(
+      xPub: null == xPub
+          ? _value.xPub
+          : xPub // ignore: cast_nullable_to_non_nullable
+              as String,
+      acctXvk: null == acctXvk
+          ? _value.acctXvk
+          : acctXvk // ignore: cast_nullable_to_non_nullable
+              as String,
+      acctVk: null == acctVk
+          ? _value.acctVk
+          : acctVk // ignore: cast_nullable_to_non_nullable
+              as String,
       publicKeyHex: null == publicKeyHex
           ? _value.publicKeyHex
           : publicKeyHex // ignore: cast_nullable_to_non_nullable
@@ -104,9 +150,22 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res>
 
 class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
   const _$ExtendedPublicKeyImpl(
-      {required this.publicKeyHex, required this.chainCodeHex})
+      {required this.xPub,
+      required this.acctXvk,
+      required this.acctVk,
+      required this.publicKeyHex,
+      required this.chainCodeHex})
       : super._();
 
+// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  @override
+  final String xPub;
+// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  @override
+  final String acctXvk;
+// bech32 public key ; ED25519-BIP32 public key (32 bytes)
+  @override
+  final String acctVk;
   @override
   final String publicKeyHex;
   @override
@@ -114,7 +173,7 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
 
   @override
   String toString() {
-    return 'ExtendedPublicKey(publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
+    return 'ExtendedPublicKey(xPub: $xPub, acctXvk: $acctXvk, acctVk: $acctVk, publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
   }
 
   @override
@@ -122,6 +181,9 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExtendedPublicKeyImpl &&
+            (identical(other.xPub, xPub) || other.xPub == xPub) &&
+            (identical(other.acctXvk, acctXvk) || other.acctXvk == acctXvk) &&
+            (identical(other.acctVk, acctVk) || other.acctVk == acctVk) &&
             (identical(other.publicKeyHex, publicKeyHex) ||
                 other.publicKeyHex == publicKeyHex) &&
             (identical(other.chainCodeHex, chainCodeHex) ||
@@ -129,7 +191,8 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, publicKeyHex, chainCodeHex);
+  int get hashCode => Object.hash(
+      runtimeType, xPub, acctXvk, acctVk, publicKeyHex, chainCodeHex);
 
   @JsonKey(ignore: true)
   @override
@@ -141,10 +204,19 @@ class _$ExtendedPublicKeyImpl extends _ExtendedPublicKey {
 
 abstract class _ExtendedPublicKey extends ExtendedPublicKey {
   const factory _ExtendedPublicKey(
-      {required final String publicKeyHex,
+      {required final String xPub,
+      required final String acctXvk,
+      required final String acctVk,
+      required final String publicKeyHex,
       required final String chainCodeHex}) = _$ExtendedPublicKeyImpl;
   const _ExtendedPublicKey._() : super._();
 
+  @override // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  String get xPub;
+  @override // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+  String get acctXvk;
+  @override // bech32 public key ; ED25519-BIP32 public key (32 bytes)
+  String get acctVk;
   @override
   String get publicKeyHex;
   @override

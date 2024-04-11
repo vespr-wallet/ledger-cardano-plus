@@ -9,12 +9,12 @@ class CardanoTransformer extends LedgerTransformer {
   @override
   Future<Uint8List> onTransform(List<Uint8List> transform) async {
     if (transform.isEmpty) {
-      throw LedgerException(message: 'No response data from Ledger.');
+      throw LedgerException(message: 'No response data from Ledger.', errorCode: -10);
     }
 
     final lastItem = transform.last;
     if (lastItem.length < 2) {
-      throw LedgerException(message: 'Response data from Ledger is too short.');
+      throw LedgerException(message: 'Response data from Ledger is too short.', errorCode: -11);
     }
 
     final statusCode = (lastItem[lastItem.length - 2] << 8) | lastItem[lastItem.length - 1];

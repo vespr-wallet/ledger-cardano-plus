@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -21,7 +23,7 @@ extension LedgerX on Ledger {
       return await operation.invoke(send);
     } catch (e) {
       if (e is ValidationException) {
-        await send(ResetOperation());
+        unawaited(send(ResetOperation()));
       }
       rethrow;
     }

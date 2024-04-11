@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
 
 part 'transaction_signing_mode.freezed.dart';
 
@@ -14,11 +13,11 @@ sealed class TransactionSigningModes with _$TransactionSigningModes {
   factory TransactionSigningModes.plutusTransaction() = PlutusTransaction;
   
   late final int value = switch (this) {
-    OrdinaryTransaction() => TransactionSigningMode.ordinaryTransaction.value,
-    MultisigTransaction() => TransactionSigningMode.multisigTransaction.value,
-    PoolRegistrationAsOwner() => TransactionSigningMode.poolRegistrationAsOwner.value,
-    PoolRegistrationAsOperator() => TransactionSigningMode.poolRegistrationAsOperator.value,
-    PlutusTransaction() => TransactionSigningMode.plutusTransaction.value,
+    OrdinaryTransaction() => 3,
+    PoolRegistrationAsOwner() => 4,
+    PoolRegistrationAsOperator() => 5,
+    MultisigTransaction() => 6,
+    PlutusTransaction() => 7,
   };
 }
 

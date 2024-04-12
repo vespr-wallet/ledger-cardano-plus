@@ -5,7 +5,7 @@ part 'parsed_pool_key.freezed.dart';
 
 @freezed
 sealed class ParsedPoolKey with _$ParsedPoolKey {
-  ParsedPoolKey._(){
+  ParsedPoolKey._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DeviceOwnedPoolKey() => () => validateBIP32Path(thisClass.path, 'path'),

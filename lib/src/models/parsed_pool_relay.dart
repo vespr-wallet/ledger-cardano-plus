@@ -28,4 +28,3 @@ sealed class ParsedPoolRelay with _$ParsedPoolRelay {
     MultiHost() => RelayType.multiHost,
   };
 }
- 

@@ -7,4 +7,3 @@ export 'src/operations/cardano_public_key_operation.dart';
 export 'src/operations/cardano_sign_msgpack_operation.dart';
 export 'src/operations/cardano_version_operation.dart';
 export 'src/operations/cardano_derive_address_operation.dart';
-

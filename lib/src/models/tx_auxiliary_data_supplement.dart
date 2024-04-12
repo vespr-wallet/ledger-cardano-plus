@@ -6,7 +6,7 @@ part 'tx_auxiliary_data_supplement.freezed.dart';
 
 @freezed
 sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
-  TxAuxiliaryDataSupplement._(){
+  TxAuxiliaryDataSupplement._() {
     validateHexString(auxiliaryDataHashHex, 'auxiliaryDataHashHex');
     validateHexString(cip36VoteRegistrationSignatureHex, 'cip36VoteRegistrationSignatureHex');
   }

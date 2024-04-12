@@ -10,13 +10,13 @@ sealed class ParsedCredential with _$ParsedCredential {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       CredentialKeyHash() => () {
-        validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
+          validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
         },
       CredentialScriptHash() => () {
-        validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
+          validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
         },
       CredentialKeyPath() => () {
-        validateBIP32Path(thisClass.path, 'path');
+          validateBIP32Path(thisClass.path, 'path');
         },
     };
 

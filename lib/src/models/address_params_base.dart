@@ -7,17 +7,17 @@ part 'address_params_base.freezed.dart';
 @freezed
 sealed class AddressParamsBase with _$AddressParamsBase {
   AddressParamsBase._() {
-     final thisClass = this;
+    final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       AddressParamsBaseStakingPath() => () {
-        validateBIP32Path(thisClass.stakingPath, 'stakingPath');
-      },
+          validateBIP32Path(thisClass.stakingPath, 'stakingPath');
+        },
       AddressParamsBaseStakingKeyHash() => () {
-        validateHexString(thisClass.stakingKeyHashHex, 'stakingKeyHashHex');
-      },
+          validateHexString(thisClass.stakingKeyHashHex, 'stakingKeyHashHex');
+        },
       AddressParamsBaseStakingScriptHash() => () {
-        validateHexString(thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
-      },
+          validateHexString(thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
+        },
     };
     assertinvoker();
   }

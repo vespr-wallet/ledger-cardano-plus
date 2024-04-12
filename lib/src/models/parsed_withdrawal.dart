@@ -6,7 +6,7 @@ part 'parsed_withdrawal.freezed.dart';
 
 @freezed
 sealed class ParsedWithdrawal with _$ParsedWithdrawal {
-  ParsedWithdrawal._(){
+  ParsedWithdrawal._() {
     validateUint64(amount, 'amount');
   }
 

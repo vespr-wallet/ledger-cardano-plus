@@ -5,15 +5,15 @@ part 'address_params_reward.freezed.dart';
 
 @freezed
 sealed class AddressParamsReward with _$AddressParamsReward {
-  AddressParamsReward._(){
+  AddressParamsReward._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       AddressParamsRewardStakingPath() => () {
-        validateBIP32Path(thisClass.stakingPath, 'stakingPath');
-      },
+          validateBIP32Path(thisClass.stakingPath, 'stakingPath');
+        },
       AddressParamsRewardStakingScriptHashHex() => () {
-        validateHexString(thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
-      },
+          validateHexString(thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
+        },
     };
     assertInvoker();
   }
@@ -25,5 +25,4 @@ sealed class AddressParamsReward with _$AddressParamsReward {
   factory AddressParamsReward.stakingScriptHashHex({
     required String stakingScriptHashHex,
   }) = AddressParamsRewardStakingScriptHashHex;
-
 }

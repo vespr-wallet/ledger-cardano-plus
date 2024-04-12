@@ -44,15 +44,12 @@ class GetExtendedPublicKeyOperation extends ComplexLedgerOperation<ExtendedPubli
     final publicKeyBytes = Uint8List.sublistView(keyAndChainCode, 0, 32);
     final chainCodeBytes = Uint8List.sublistView(keyAndChainCode, 32, 64);
 
-    
-
     return ExtendedPublicKey(
       publicKeyHex: hex.encode(publicKeyBytes),
       chainCodeHex: hex.encode(chainCodeBytes),
       xPub: bech32EncodeAddress("xpub", keyAndChainCode),
       acctXvk: bech32EncodeAddress("acct_xvk", keyAndChainCode),
       acctVk: bech32EncodeAddress("acct_vk", publicKeyBytes),
-
     );
   }
 }

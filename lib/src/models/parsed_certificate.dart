@@ -21,8 +21,8 @@ sealed class ParsedCertificate with _$ParsedCertificate {
           validateUint64(thisClass.deposit, 'deposit');
         },
       StakeDelegation() => () {
-        validateHexString(thisClass.poolKeyHashHex, 'poolKeyHashHex');
-      },
+          validateHexString(thisClass.poolKeyHashHex, 'poolKeyHashHex');
+        },
       VoteDelegation() => () {},
       AuthorizeCommitteeHot() => () {},
       ResignCommitteeCold() => () {},

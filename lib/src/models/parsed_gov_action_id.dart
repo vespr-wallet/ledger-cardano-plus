@@ -10,9 +10,9 @@ sealed class ParsedGovActionId with _$ParsedGovActionId {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       _ParsedGovActionId() => () {
-        validateExactHexString(thisClass.txHashHex, 'txHashHex', txHashLength * 2);
-        validateUint32(thisClass.govActionIndex, 'govActionIndex');
-      },
+          validateExactHexString(thisClass.txHashHex, 'txHashHex', txHashLength * 2);
+          validateUint32(thisClass.govActionIndex, 'govActionIndex');
+        },
     };
     assertinvoker();
   }

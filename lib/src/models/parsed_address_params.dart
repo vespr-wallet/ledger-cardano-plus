@@ -1,4 +1,3 @@
-
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
@@ -21,7 +20,7 @@ sealed class ParsedAddressParams with _$ParsedAddressParams {
   }) = ShelleyAddressParams;
 
   AddressType get addressType => switch (this) {
-    ByronAddressParams() => AddressType.byron,
-    ShelleyAddressParams(shelleyAddressParams: final shelleyparams) => shelleyparams.addressType,
-  };
+        ByronAddressParams() => AddressType.byron,
+        ShelleyAddressParams(shelleyAddressParams: final shelleyparams) => shelleyparams.addressType,
+      };
 }

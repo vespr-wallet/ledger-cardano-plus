@@ -839,7 +839,9 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeRequiredSigner(ParsedRequiredSigner requiredSigner) {
+  static Uint8List serializeRequiredSigner(
+    ParsedRequiredSigner requiredSigner,
+  ) {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (requiredSigner) {
         RequiredSignerPath() => () {

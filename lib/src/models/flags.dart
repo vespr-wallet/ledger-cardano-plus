@@ -11,4 +11,3 @@ class Flags with _$Flags {
     required bool isAppXS,
   }) = _Flags;
 }
-

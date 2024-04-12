@@ -6,26 +6,26 @@ part 'staking_data_source.freezed.dart';
 
 @freezed
 sealed class StakingDataSource with _$StakingDataSource {
-  StakingDataSource._(){
+  StakingDataSource._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       StakingDataSourceNone() => () {},
       StakingDataSourceKeyPath() => () {
-        validateBIP32Path(thisClass.path, 'path');
-      },
+          validateBIP32Path(thisClass.path, 'path');
+        },
       StakingDataSourceKeyHash() => () {
-        validateHexString(thisClass.keyHashHex, 'keyHashHex');
-        validateMaxStringLength(thisClass.keyHashHex, 'keyHashHex', stringLength64Bytes);
-      },
+          validateHexString(thisClass.keyHashHex, 'keyHashHex');
+          validateMaxStringLength(thisClass.keyHashHex, 'keyHashHex', stringLength64Bytes);
+        },
       StakingDataSourceBlockchainPointer() => () {
-        validate32bitUnsignedInteger(thisClass.blockIndex, 'blockIndex');
-        validate32bitUnsignedInteger(thisClass.txIndex, 'txIndex');
-        validate32bitUnsignedInteger(thisClass.certificateIndex, 'certificateIndex');
-      },
+          validate32bitUnsignedInteger(thisClass.blockIndex, 'blockIndex');
+          validate32bitUnsignedInteger(thisClass.txIndex, 'txIndex');
+          validate32bitUnsignedInteger(thisClass.certificateIndex, 'certificateIndex');
+        },
       StakingDataSourceScriptHash() => () {
-        validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
-        validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
-      },
+          validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
+          validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+        },
     };
     assertinvoker();
   }

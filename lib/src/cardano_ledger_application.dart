@@ -171,7 +171,7 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ChangePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -179,7 +179,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -218,7 +218,7 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -226,7 +226,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -256,14 +256,14 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -274,6 +274,44 @@ class CardanoLedgerApp {
 
     Uint8List addressBytes = hexToBytes(addressResult);
     final result = bech32EncodeAddress('stake', addressBytes);
+
+    return result;
+  }
+
+  Future<String> deriveEnterpriseAddress(
+    LedgerDevice device, {
+    int accountIndex = 0,
+    int addressIndex = 0,
+    bool displayOnDevice = false,
+  }) async {
+    final bip32StakePath = [
+      harden + 1852,
+      harden + 1815,
+      harden + accountIndex,
+      0,
+      addressIndex,
+    ];
+
+    final params = ParsedAddressParams.shelley(
+      shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
+        networkId: CardanoNetwork.mainnet().networkId,
+        spendingDataSource: SpendingDataSource.path(path: bip32StakePath),
+      ),
+    );
+
+    final operation = CardanoDeriveAddressOperation(
+      params: params,
+      network: CardanoNetwork.mainnet(),
+    );
+
+    final addressResult = await ledger.sendComplexOperation<String>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    Uint8List addressBytes = hexToBytes(addressResult);
+    final result = bech32EncodeAddress('addr', addressBytes);
 
     return result;
   }

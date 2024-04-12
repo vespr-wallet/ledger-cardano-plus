@@ -45,7 +45,7 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
 
       final void Function() invoker = switch (params) {
         ByronAddressParams() => () {
-            writer.writeUint32(network.protocolMagic);
+            writer.writeUint32(network.networkMagic);
             writer.write(SerializationUtils.serializeSpendingDataSource(params.spendingDataSource));
             writer.write(SerializationUtils.serializeStakingDataSource(params.stakingDataSource));
           },

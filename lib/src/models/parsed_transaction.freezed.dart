@@ -74,6 +74,7 @@ abstract class $ParsedTransactionCopyWith<$Res> {
       BigInt? treasury,
       BigInt? donation});
 
+  $CardanoNetworkCopyWith<$Res> get network;
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
   $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex;
   $ParsedOutputCopyWith<$Res>? get collateralOutput;
@@ -199,6 +200,14 @@ class _$ParsedTransactionCopyWithImpl<$Res, $Val extends ParsedTransaction>
 
   @override
   @pragma('vm:prefer-inline')
+  $CardanoNetworkCopyWith<$Res> get network {
+    return $CardanoNetworkCopyWith<$Res>(_value.network, (value) {
+      return _then(_value.copyWith(network: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData {
     if (_value.auxiliaryData == null) {
       return null;
@@ -264,6 +273,8 @@ abstract class _$$ParsedTransactionImplCopyWith<$Res>
       BigInt? treasury,
       BigInt? donation});
 
+  @override
+  $CardanoNetworkCopyWith<$Res> get network;
   @override
   $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData;
   @override

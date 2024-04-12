@@ -13,10 +13,10 @@ sealed class ParsedOutput with _$ParsedOutput {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       ParsedOutputAlonzo() => () => validateUint64(thisClass.amount, 'amount'),
-      ParsedOutputBabbage() => () => {
-            validateHexString(thisClass.referenceScriptHex, 'referenceScriptHex'),
-            validateUint64(thisClass.amount, 'amount'),
-          },
+      ParsedOutputBabbage() => () {
+          validateHexString(thisClass.referenceScriptHex, 'referenceScriptHex');
+          validateUint64(thisClass.amount, 'amount');
+        },
     };
     assertInvoker();
   }

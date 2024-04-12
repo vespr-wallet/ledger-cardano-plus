@@ -26,7 +26,7 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
     final txToSign = ParsedSigningRequest(
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet,
+        network: CardanoNetwork.mainnet(),
         inputs: [
           ParsedInput(
             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',

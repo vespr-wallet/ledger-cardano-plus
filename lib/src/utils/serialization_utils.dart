@@ -126,7 +126,7 @@ class SerializationUtils {
       }
 
       writer.writeUint8(tx.network.networkId);
-      writer.writeUint32(tx.network.protocolMagic);
+      writer.writeUint32(tx.network.networkMagic);
 
       serializeOptionFlag(writer, tx.ttl != null);
       serializeOptionFlag(writer, tx.auxiliaryData != null);

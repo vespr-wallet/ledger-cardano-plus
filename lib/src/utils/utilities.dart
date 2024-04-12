@@ -116,6 +116,9 @@ void validateUint32(int? value, String fieldName) {
 
 void validateHexString(String? value, String fieldName) {
   if (value != null) {
+    if (value.length % 2 != 0) {
+      throw ValidationException('$fieldName must be a valid hex string with an even number of characters');
+    }
     final hexRegex = RegExp(r'^[0-9a-fA-F]+$');
     if (!hexRegex.hasMatch(value)) {
       throw ValidationException('$fieldName must be a valid hex string containing only characters 0-9 or a-f');

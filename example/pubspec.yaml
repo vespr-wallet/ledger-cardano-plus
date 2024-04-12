@@ -42,6 +42,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  
+  base_x: ^2.0.1
     
   integration_test:
     sdk: flutter

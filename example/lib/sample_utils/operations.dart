@@ -2,23 +2,6 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
-import 'package:ledger_cardano/src/models/extended_public_key.dart';
-import 'package:ledger_cardano/src/models/parsed_native_script.dart';
-import 'package:ledger_cardano/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/models/parsed_complex_native_script.dart';
-import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
-import 'package:ledger_cardano/src/utils/hex_utils.dart';
-import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
-import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
-import 'package:ledger_cardano/src/models/parsed_transaction.dart';
-import 'package:ledger_cardano/src/models/parsed_input.dart';
-import 'package:ledger_cardano/src/models/parsed_asset_group.dart';
-import 'package:ledger_cardano/src/models/parsed_token.dart';
-import 'package:ledger_cardano/src/models/parsed_output.dart';
-import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
-import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 
 Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
   try {

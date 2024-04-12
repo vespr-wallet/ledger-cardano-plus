@@ -22,7 +22,9 @@ extension LedgerX on Ledger {
     try {
       return await operation.invoke(send);
     } catch (e) {
-      if (e is ValidationException) {
+      if (e is GenericFailure && e.message == "connectionLost") {
+        throw LedgerException(message: 'Connection lost.', errorCode: -99);
+      } else if (e is ValidationException) {
         unawaited(send(ResetOperation()));
       }
       rethrow;

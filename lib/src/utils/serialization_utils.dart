@@ -67,14 +67,21 @@ class SerializationUtils {
     writer.write(hex.decode(hexString));
   }
 
+  @Deprecated('Use directly serializedUint64 instead')
   static void writeSerializedUint64(ByteDataWriter writer, BigInt value) {
+    writer.write(serializedUint64(value));
+  }
+
+  static Uint8List serializedUint64(BigInt value) {
     if (value.isNegative) {
       throw ValidationException("writeSerializedUint64 - Value is negative");
     } else if (value.bitLength > 64) {
       throw ValidationException("writeSerializedUint64 - Value is too large");
     }
-    writer.writeUint32((value >> 32).toInt());
-    writer.writeUint32((value & maxUint32).toInt());
+    final ByteData data = ByteData(8);
+    data.setUint32(0, (value >> 32).toInt());
+    data.setUint32(4, (value & maxUint32).toInt());
+    return data.buffer.asUint8List();
   }
 
   static void serializeOptionFlag(ByteDataWriter writer, bool included) {
@@ -87,7 +94,7 @@ class SerializationUtils {
     if (options.tagCborSets) {
       optionFlags += optionFlagsTagCborSets;
     }
-    writeSerializedUint64(writer, optionFlags);
+    writer.write(serializedUint64(optionFlags));
   }
 
   static void _serializeSigningMode(ByteDataWriter writer, TransactionSigningModes mode) {
@@ -220,19 +227,9 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCoin(BigInt coin) {
-    return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, coin);
-      return writer.toBytes();
-    });
-  }
+  static Uint8List serializeCoin(BigInt coin) => serializedUint64(coin);
 
-  static Uint8List serializeTxTtl(BigInt ttl) {
-    return useBinaryWriter((ByteDataWriter writer) {
-      writeSerializedUint64(writer, ttl);
-      return writer.toBytes();
-    });
-  }
+  static Uint8List serializeTxTtl(BigInt ttl) => serializedUint64(ttl);
 
   static Uint8List serializeSpendingDataSource(SpendingDataSource dataSource) => useBinaryWriter((writer) {
         final void Function() invoker = switch (dataSource) {
@@ -391,26 +388,24 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version) {
-    return useBinaryWriter((ByteDataWriter writer) {
-      writer.writeUint8(destination.outputDestinationType.encodingValue);
-      final void Function() invoker = switch (destination) {
-        ThirdParty() => () {
-            final addressBytes = hex.decode(destination.addressHex);
-            writer.writeUint32(addressBytes.length);
-            writer.write(addressBytes);
-          },
-        DeviceOwned() => () {
-            final addressParamsBytes = serializeAddressParams(destination.addressParams, version);
-            writer.write(addressParamsBytes);
-          },
-      };
+  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version) =>
+      useBinaryWriter((ByteDataWriter writer) {
+        writer.writeUint8(destination.typeEncoding);
+        final void Function() invoker = switch (destination) {
+          ThirdParty() => () {
+              writer.writeUint32(destination.addressHex.length ~/ 2);
+              writer.write(hex.decode(destination.addressHex));
+            },
+          DeviceOwned() => () {
+              final addressParamsBytes = serializeAddressParams(destination.addressParams, version);
+              writer.write(addressParamsBytes);
+            },
+        };
 
-      invoker();
+        invoker();
 
-      return writer.toBytes();
-    });
-  }
+        return writer.toBytes();
+      });
 
   static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version) {
     return useBinaryWriter((ByteDataWriter writer) {
@@ -885,6 +880,12 @@ class SerializationUtils {
       writer.writeUint8(output.format.value);
     }
 
+    writer.write(serializeTxOutputDestination(output.destination, version));
+
+    writer.write(serializeCoin(output.amount));
+
+    writer.writeUint32(output.tokenBundle.length);
+
     if (compatibility.supportsAlonzo) {
       serializeOptionFlag(writer, output.outputDatum != null);
     }
@@ -892,12 +893,6 @@ class SerializationUtils {
     if (compatibility.supportsBabbage) {
       serializeOptionFlag(writer, output.referenceScriptHash != null);
     }
-
-    writer.write(serializeTxOutputDestination(output.destination, version));
-
-    writer.write(serializeCoin(output.amount));
-
-    writer.writeUint32(output.tokenBundle.length);
 
     return writer.toBytes();
   }

@@ -196,14 +196,6 @@ enum TxOutputFormat {
   const TxOutputFormat(this.value);
 }
 
-enum TxOutputDestinationType {
-  thirdParty(0x01),
-  deviceOwned(0x02);
-
-  final int encodingValue;
-  const TxOutputDestinationType(this.encodingValue);
-}
-
 enum CIP36VoteDelegationType {
   path(0x01),
   key(0x02);

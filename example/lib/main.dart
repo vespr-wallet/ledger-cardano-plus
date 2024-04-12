@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:example/sample_utils/operations.dart';
 import 'package:example/widgets/available_devices.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
@@ -62,7 +63,7 @@ class _MyAppState extends State<MyApp> {
 
       resultData = await invoker();
     } catch (e) {
-      resultData = 'Not Handled Error: ${e.toString()}';
+      resultData = 'Unhandled Error: ${e.toString()}';
     }
     setState(() {});
   }
@@ -176,7 +177,7 @@ class _MyAppState extends State<MyApp> {
                 operation: "Fetch Cardano Wallet Public Key",
                 invoker: () => fetchPublicKey(cardanoApp, selectedDevice),
               ),
-              child: const Text('Fetch Cardano Wallet Public Key'),
+              child: const Text('Fetch Public Key'),
             ),
 
             ElevatedButton(
@@ -189,66 +190,71 @@ class _MyAppState extends State<MyApp> {
 
             ElevatedButton(
               onPressed: () => _onOperationRequested(
-                operation: "Fetch First Receive and Change Addresses",
-                invoker: () => fetchReceiveAndChangeAddress(
+                operation: "Fetch Receive Addresses",
+                invoker: () => fetchReceiveAddresses(
                   cardanoApp,
                   selectedDevice,
-                  addressIndex: 0,
+                  addressIndices: [0, 1, 2, 3],
                 ),
               ),
-              child: const Text('Fetch First Receive and Change Addresses'),
+              child: const Text('Fetch Receive Addresses'),
             ),
             ElevatedButton(
               onPressed: () => _onOperationRequested(
-                operation: "Fetch Second Receive and Change Addresses",
-                invoker: () => fetchReceiveAndChangeAddress(
+                operation: "Fetch Change Addresses",
+                invoker: () => fetchChangeAddresses(
                   cardanoApp,
                   selectedDevice,
-                  addressIndex: 1,
+                  addressIndices: [0, 1, 2, 3],
                 ),
               ),
-              child: const Text('Fetch Second Receive and Change Addresses'),
+              child: const Text('Fetch Change Addresses'),
             ),
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Sign Transaction",
-                invoker: () => signTransactionWithoutOutputs(
+                invoker: () => signTransaction(
                   cardanoApp,
                   selectedDevice,
                 ),
               ),
-              child: const Text('Fetch Second Receive and Change Addresses'),
+              child: const Text('Sign Transaction'),
             ),
           ],
         ),
-        const Spacer(),
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Container(
-            padding: const EdgeInsets.all(8.0),
-            constraints: const BoxConstraints(
-              minWidth: double.infinity,
-            ),
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: AnimatedSize(
-              duration: const Duration(milliseconds: 300),
-              // clipBehavior: Clip.none,
-              alignment: Alignment.topCenter,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(resultTitle ?? "[Operation]", style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
-                  const Divider(),
-                  const SizedBox(height: 4),
-                  Text(resultData ?? "[Ledger Result]"),
-                  if (resultData == _awaitingLedgerResponse) ...[
-                    const SizedBox(height: 16),
-                    const CircularProgressIndicator(),
-                  ]
-                ],
+        const SizedBox(height: 16),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Container(
+              padding: const EdgeInsets.all(8.0),
+              constraints: const BoxConstraints(
+                minWidth: double.infinity,
+              ),
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.grey),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: AnimatedSize(
+                duration: const Duration(milliseconds: 300),
+                // clipBehavior: Clip.none,
+                alignment: Alignment.topCenter,
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(resultTitle ?? "[Operation]",
+                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      const Divider(),
+                      const SizedBox(height: 4),
+                      Text(resultData ?? "[Ledger Result]"),
+                      if (resultData == _awaitingLedgerResponse) ...[
+                        const SizedBox(height: 16),
+                        const CircularProgressIndicator(),
+                      ]
+                    ],
+                  ),
+                ),
               ),
             ),
           ),

@@ -27,8 +27,9 @@ sealed class ParsedOutputDestination with _$ParsedOutputDestination {
     required ParsedAddressParams addressParams,
   }) = DeviceOwned;
 
-  late final TxOutputDestinationType outputDestinationType = switch (this) {
-    ThirdParty() => TxOutputDestinationType.thirdParty,
-    DeviceOwned() => TxOutputDestinationType.deviceOwned,
+  // uint8
+  late final int typeEncoding = switch (this) {
+    ThirdParty() => 1,
+    DeviceOwned() => 2,
   };
 }

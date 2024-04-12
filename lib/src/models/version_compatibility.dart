@@ -113,7 +113,7 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.ttl == '0' && !compatibility.supportsZeroTtl) {
+    if (request.tx.ttl == BigInt.zero && !compatibility.supportsZeroTtl) {
       throw ValidationException(
         'Zero TTL not supported by Ledger app version ${version.versionName}.',
       );

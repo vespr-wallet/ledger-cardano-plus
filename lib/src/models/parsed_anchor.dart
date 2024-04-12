@@ -15,4 +15,3 @@ sealed class ParsedAnchor with _$ParsedAnchor {
     required String hashHex,
   }) = _ParsedAnchor;
 }
-

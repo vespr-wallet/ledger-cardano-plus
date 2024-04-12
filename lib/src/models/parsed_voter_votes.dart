@@ -6,11 +6,10 @@ part 'parsed_voter_votes.freezed.dart';
 
 @freezed
 sealed class ParsedVoterVotes with _$ParsedVoterVotes {
-   ParsedVoterVotes._();
+  ParsedVoterVotes._();
 
-   factory ParsedVoterVotes({
+  factory ParsedVoterVotes({
     required ParsedVoter voter,
     required List<ParsedVote> votes,
   }) = _ParsedVoterVotes;
 }
-

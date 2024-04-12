@@ -7,7 +7,7 @@ part 'parsed_tx_auxiliary_data.freezed.dart';
 
 @freezed
 sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
-  ParsedTxAuxiliaryData._(){
+  ParsedTxAuxiliaryData._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       ArbitraryHash() => () => validateExactHexString(thisClass.hashHex, 'hashHex', auxiliaryDataHashHexLength),

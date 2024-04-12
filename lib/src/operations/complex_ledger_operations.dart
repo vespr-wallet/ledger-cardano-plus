@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
@@ -20,8 +22,10 @@ extension LedgerX on Ledger {
     try {
       return await operation.invoke(send);
     } catch (e) {
-      if (e is ValidationException) {
-        await send(ResetOperation());
+      if (e is GenericFailure && e.message == "connectionLost") {
+        throw LedgerException(message: 'Connection lost.', errorCode: -99);
+      } else if (e is ValidationException) {
+        unawaited(send(ResetOperation()));
       }
       rethrow;
     }

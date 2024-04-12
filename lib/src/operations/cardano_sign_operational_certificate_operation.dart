@@ -28,7 +28,7 @@ class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<
         debugName: 'Sign Operational Certificate',
       ),
     );
-    
+
     if (response.remainingLength != ed25519SignatureLength) {
       throw ValidationException(
           'Response data length does not match expected ed25519 signature length of $ed25519SignatureLength bytes');

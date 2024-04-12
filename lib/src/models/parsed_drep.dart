@@ -10,8 +10,8 @@ sealed class ParsedDRep with _$ParsedDRep {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DRepKeyPath() => () {
-        validateBIP32Path(thisClass.path, 'path');
-      },
+          validateBIP32Path(thisClass.path, 'path');
+        },
       DRepKeyHash() => () {
           validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
         },

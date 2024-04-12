@@ -188,31 +188,12 @@ enum OptionFlags {
   const OptionFlags(this.value);
 }
 
-enum TransactionSigningMode {
-  ordinaryTransaction(3),
-  poolRegistrationAsOwner(4),
-  poolRegistrationAsOperator(5),
-  multisigTransaction(6),
-  plutusTransaction(7);
-
-  final int value;
-  const TransactionSigningMode(this.value);
-}
-
 enum TxOutputFormat {
   arrayLegacy(0),
   mapBabbage(1);
 
   final int value;
   const TxOutputFormat(this.value);
-}
-
-enum TxOutputDestinationType {
-  thirdParty(0x01),
-  deviceOwned(0x02);
-
-  final int encodingValue;
-  const TxOutputDestinationType(this.encodingValue);
 }
 
 enum CIP36VoteDelegationType {

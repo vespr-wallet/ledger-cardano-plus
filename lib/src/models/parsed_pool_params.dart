@@ -11,7 +11,7 @@ part 'parsed_pool_params.freezed.dart';
 
 @freezed
 sealed class ParsedPoolParams with _$ParsedPoolParams {
-  ParsedPoolParams._(){
+  ParsedPoolParams._() {
     validateHexString(vrfHashHex, 'vrfHashHex');
   }
 

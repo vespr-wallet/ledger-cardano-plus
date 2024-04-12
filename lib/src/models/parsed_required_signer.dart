@@ -6,7 +6,7 @@ part 'parsed_required_signer.freezed.dart';
 
 @freezed
 sealed class ParsedRequiredSigner with _$ParsedRequiredSigner {
-  ParsedRequiredSigner._(){
+  ParsedRequiredSigner._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       RequiredSignerHash() => () => validateExactHexString(thisClass.hashHex, 'hashHex', keyHashLength),

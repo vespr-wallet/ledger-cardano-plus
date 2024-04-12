@@ -8,6 +8,12 @@ sealed class ExtendedPublicKey with _$ExtendedPublicKey {
   const ExtendedPublicKey._();
 
   const factory ExtendedPublicKey({
+    // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+    required String xPub,
+    // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+    required String acctXvk,
+    // bech32 public key ; ED25519-BIP32 public key (32 bytes)
+    required String acctVk,
     required String publicKeyHex,
     required String chainCodeHex,
   }) = _ExtendedPublicKey;
@@ -65,12 +71,9 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
 
   late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20002, // Version 2.2.0
-    ExtendedPublicKeyRequest_Byron() =>
-      20002, // Version 2.2.0, supportsByronAddressDerivation
-    ExtendedPublicKeyRequest_Custom() =>
-      70000, // Version 7.0.0, assuming highest compatibility required
-    ExtendedPublicKeyRequest_Stake() =>
-      20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
+    ExtendedPublicKeyRequest_Byron() => 20002, // Version 2.2.0, supportsByronAddressDerivation
+    ExtendedPublicKeyRequest_Custom() => 70000, // Version 7.0.0, assuming highest compatibility required
+    ExtendedPublicKeyRequest_Stake() => 20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
     ExtendedPublicKeyRequest_CIP36() => 60000, // Version 6.0.0, supportsCIP36
   };
 }

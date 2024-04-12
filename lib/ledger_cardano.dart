@@ -1,10 +1,30 @@
 library ledger_cardano;
 
+// main
 export 'src/cardano_ledger_application.dart';
 export 'src/cardano_transformer.dart';
 export 'src/cardano_version.dart';
+// models
+export 'src/models/extended_public_key.dart';
+export 'src/models/parsed_asset_group.dart';
+export 'src/models/parsed_complex_native_script.dart';
+export 'src/models/parsed_input.dart';
+export 'src/models/parsed_native_script.dart';
+export 'src/models/parsed_operational_certificate.dart';
+export 'src/models/parsed_output.dart';
+export 'src/models/parsed_output_destination.dart';
+export 'src/models/parsed_simple_native_script.dart';
+export 'src/models/parsed_signing_request.dart';
+export 'src/models/signed_transaction_data.dart';
+export 'src/models/parsed_transaction.dart';
+export 'src/models/parsed_token.dart';
+export 'src/models/transaction_signing_mode.dart';
+// operations
+export 'src/operations/cardano_derive_address_operation.dart';
 export 'src/operations/cardano_public_key_operation.dart';
 export 'src/operations/cardano_sign_msgpack_operation.dart';
 export 'src/operations/cardano_version_operation.dart';
-export 'src/operations/cardano_derive_address_operation.dart';
-
+// utils
+export 'src/utils/constants.dart';
+export 'src/utils/hex_utils.dart';
+export 'src/utils/cardano_networks.dart';

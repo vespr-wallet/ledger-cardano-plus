@@ -7,15 +7,15 @@ enum DatumType { hash, inline }
 
 @freezed
 sealed class Datum with _$Datum {
-  Datum._(){
+  Datum._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DatumHash() => () {
-        validateHexString(thisClass.datumHashHex, 'datumHashHex');
-      },
+          validateHexString(thisClass.datumHashHex, 'datumHashHex');
+        },
       DatumInline() => () {
-        validateHexString(thisClass.datumHex, 'datumHex');
-      },
+          validateHexString(thisClass.datumHex, 'datumHex');
+        },
     };
     assertInvoker();
   }
@@ -33,4 +33,3 @@ sealed class Datum with _$Datum {
     DatumInline() => DatumType.inline,
   };
 }
-

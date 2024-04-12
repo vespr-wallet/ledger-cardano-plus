@@ -275,8 +275,8 @@ packages:
     dependency: transitive
     description:
       path: "."
-      ref: f9dfd3d4f457daa3da760a788cd4dd319096891b
-      resolved-ref: f9dfd3d4f457daa3da760a788cd4dd319096891b
+      ref: "97e5b9c84db51e77794f2d7102f037f7ea9bb43e"
+      resolved-ref: "97e5b9c84db51e77794f2d7102f037f7ea9bb43e"
       url: "https://github.com/vespr-wallet/ledger-flutter"
     source: git
     version: "1.0.1"

@@ -30,4 +30,3 @@ class CardanoVersion with _$CardanoVersion {
         flags: const Flags(isDebug: false, isAppXS: false),
       );
 }
-

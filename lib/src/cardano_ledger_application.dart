@@ -20,6 +20,7 @@ import 'package:ledger_cardano/src/operations/cardano_sign_operational_certifica
 import 'package:ledger_cardano/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
@@ -41,6 +42,17 @@ class CardanoLedgerApp {
     this.ledger, {
     this.transformer = const CardanoTransformer(),
   });
+
+  Future<void> reset(LedgerDevice device) async {
+    // await ledger.connect(device);
+    return ledger
+        .sendOperation(
+          device,
+          ResetOperation(),
+          transformer: transformer,
+        )
+        .ignore();
+  }
 
   Future<CardanoVersion> getVersion(LedgerDevice device) {
     return ledger.sendComplexOperation<CardanoVersion>(
@@ -159,7 +171,7 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ChangePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -167,7 +179,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -206,7 +218,7 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -214,7 +226,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -244,14 +256,14 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: CardanoNetwork.mainnet.networkId,
+        networkId: CardanoNetwork.mainnet().networkId,
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet,
+      network: CardanoNetwork.mainnet(),
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -262,6 +274,44 @@ class CardanoLedgerApp {
 
     Uint8List addressBytes = hexToBytes(addressResult);
     final result = bech32EncodeAddress('stake', addressBytes);
+
+    return result;
+  }
+
+  Future<String> deriveEnterpriseAddress(
+    LedgerDevice device, {
+    int accountIndex = 0,
+    int addressIndex = 0,
+    bool displayOnDevice = false,
+  }) async {
+    final bip32StakePath = [
+      harden + 1852,
+      harden + 1815,
+      harden + accountIndex,
+      0,
+      addressIndex,
+    ];
+
+    final params = ParsedAddressParams.shelley(
+      shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
+        networkId: CardanoNetwork.mainnet().networkId,
+        spendingDataSource: SpendingDataSource.path(path: bip32StakePath),
+      ),
+    );
+
+    final operation = CardanoDeriveAddressOperation(
+      params: params,
+      network: CardanoNetwork.mainnet(),
+    );
+
+    final addressResult = await ledger.sendComplexOperation<String>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    Uint8List addressBytes = hexToBytes(addressResult);
+    final result = bech32EncodeAddress('addr', addressBytes);
 
     return result;
   }

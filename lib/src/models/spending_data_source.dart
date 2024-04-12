@@ -6,31 +6,31 @@ part 'spending_data_source.freezed.dart';
 
 @freezed
 sealed class SpendingDataSource with _$SpendingDataSource {
-   SpendingDataSource._() {
+  SpendingDataSource._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       SpendingDataSourceNone() => () {},
       SpendingDataSourcePath() => () {
-        validateBIP32Path(thisClass.path, 'path');
-      },
+          validateBIP32Path(thisClass.path, 'path');
+        },
       SpendingDataSourceScriptHash() => () {
-        validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
-        validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
-      },
+          validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
+          validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+        },
     };
     assertinvoker();
-   }
+  }
 
-   factory SpendingDataSource.none() = SpendingDataSourceNone;
+  factory SpendingDataSource.none() = SpendingDataSourceNone;
 
-   factory SpendingDataSource.path({
+  factory SpendingDataSource.path({
     required List<int> path,
   }) = SpendingDataSourcePath;
 
-   factory SpendingDataSource.scriptHash({
+  factory SpendingDataSource.scriptHash({
     required String scriptHashHex,
   }) = SpendingDataSourceScriptHash;
-  
+
   late final SpendingDataSourceType spendingDataSourceType = switch (this) {
     SpendingDataSourceNone() => SpendingDataSourceType.none,
     SpendingDataSourcePath() => SpendingDataSourceType.path,

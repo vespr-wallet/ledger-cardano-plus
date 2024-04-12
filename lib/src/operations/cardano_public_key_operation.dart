@@ -1,3 +1,6 @@
+import 'dart:typed_data';
+
+import 'package:flutter/services.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
@@ -35,15 +38,17 @@ class GetExtendedPublicKeyOperation extends ComplexLedgerOperation<ExtendedPubli
 
     final readerResponse = await send(sendOperation);
 
-    final publicKeyBytes = readerResponse.read(32);
-    final chainCodeBytes = readerResponse.read(32);
+    final keyAndChainCode = readerResponse.read(64);
 
-    final publicKeyHex = hex.encode(publicKeyBytes);
-    final chainCodeHex = hex.encode(chainCodeBytes);
+    final publicKeyBytes = Uint8List.sublistView(keyAndChainCode, 0, 32);
+    final chainCodeBytes = Uint8List.sublistView(keyAndChainCode, 32, 64);
 
     return ExtendedPublicKey(
-      publicKeyHex: publicKeyHex,
-      chainCodeHex: chainCodeHex,
+      publicKeyHex: hex.encode(publicKeyBytes),
+      chainCodeHex: hex.encode(chainCodeBytes),
+      xPub: bech32EncodeAddress("xpub", keyAndChainCode),
+      acctXvk: bech32EncodeAddress("acct_xvk", keyAndChainCode),
+      acctVk: bech32EncodeAddress("acct_vk", publicKeyBytes),
     );
   }
 }

@@ -25,9 +25,10 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
         ],
         outputs: [
           ParsedOutput.babbage(
-            amount: BigInt.two,
+            amount: BigInt.from(5000000),
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: '82d818582183581c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+              addressHex:
+                  '012a6a6953dd9e0fb944267e883b68be35024ac7e482b1b2194fb73e03261a359e4502059a395dde7c396132fbe7ae903587b470cd7329019f',
             ),
             tokenBundle: [
               ParsedAssetGroup(
@@ -59,7 +60,7 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
         '  txHashHex: \'${signedTx.txHashHex}\',\n'
         '  witnesses: [\n'
         '    {\n'
-        '      path: ${signedTx.witnesses.first.path},\n' // Assuming path is an array you'd like to display differently
+        '      path: 1852\'/1815\'/0\'/0/0,\n' // Assuming path is an array you'd like to display differently
         '      witnessSignatureHex: \'${signedTx.witnesses.first.witnessSignatureHex}\'\n'
         '    }\n'
         '  ],\n'
@@ -207,10 +208,10 @@ Future<String> fetchPublicKey(CardanoLedgerApp cardanoApp, LedgerDevice device) 
       request: ExtendedPublicKeyRequest_Shelley(accountIndex: 0),
     );
 
-    return "publicKeyHex: ${fetchedAccounts.publicKeyHex},\n"
-        "chainCodeHex: ${fetchedAccounts.chainCodeHex}\n"
-        "xPub: ${fetchedAccounts.xPub}\n"
-        "acctXvk: ${fetchedAccounts.acctXvk}\n"
+    return "publicKeyHex: ${fetchedAccounts.publicKeyHex},\n\n"
+        "chainCodeHex: ${fetchedAccounts.chainCodeHex}\n\n"
+        "xPub: ${fetchedAccounts.xPub}\n\n"
+        "acctXvk: ${fetchedAccounts.acctXvk}\n\n"
         "acctVk: ${fetchedAccounts.acctVk}";
   } on LedgerException catch (e) {
     return 'Error fetching public key: ${e.message}, Code: ${e.errorCode}';

@@ -208,7 +208,10 @@ Future<String> fetchPublicKey(CardanoLedgerApp cardanoApp, LedgerDevice device) 
     );
 
     return "publicKeyHex: ${fetchedAccounts.publicKeyHex},\n"
-        "chainCodeHex: ${fetchedAccounts.chainCodeHex}";
+        "chainCodeHex: ${fetchedAccounts.chainCodeHex}\n"
+        "xPub: ${fetchedAccounts.xPub}\n"
+        "acctXvk: ${fetchedAccounts.acctXvk}\n"
+        "acctVk: ${fetchedAccounts.acctVk}";
   } on LedgerException catch (e) {
     return 'Error fetching public key: ${e.message}, Code: ${e.errorCode}';
   } catch (e) {

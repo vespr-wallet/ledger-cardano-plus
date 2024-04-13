@@ -1,3 +1,4 @@
+import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
@@ -25,11 +26,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
-    expectedResult: 'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vcayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwqdquehe',
+    expectedResult:
+        'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vcayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwqdquehe',
   ),
   ShelleyTestCase(
     testName: 'base address path/path 2',
@@ -37,8 +41,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
     expectedResult:
@@ -50,11 +56,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 101, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
-    expectedResult: 'addr1qv6dcymepkghuyt0za9jxg5hn89art9y8yjcvhxclxdhndsayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwqdqq9xn',
+    expectedResult:
+        'addr1qv6dcymepkghuyt0za9jxg5hn89art9y8yjcvhxclxdhndsayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwqdqq9xn',
   ),
   ShelleyTestCase(
     testName: 'base address path/path unusual spending path address index',
@@ -62,11 +71,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 1, 0, 1000001]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1, harden + 0, harden + 1000001]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
-    expectedResult: 'addr1q08rwk27cdm6vcp272pqcwq3t3gzea0q5xws2z84zzejrkcayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq2cxp3q',
+    expectedResult:
+        'addr1q08rwk27cdm6vcp272pqcwq3t3gzea0q5xws2z84zzejrkcayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq2cxp3q',
   ),
   ShelleyTestCase(
     testName: 'base address path/path unusual staking path account',
@@ -74,11 +86,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 10, 0, 4]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 101, 2, 0]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 10, harden + 0, harden + 4]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 0]),
       ),
     ),
-    expectedResult: 'addr1qwpug24twgud02405vncq9gmthq3r8e3a6l3855r8jpkgjnfwjwuljn5a0p37d4yvxevnte42mffrpmf4823vcdq62xqm8xq3j',
+    expectedResult:
+        'addr1qwpug24twgud02405vncq9gmthq3r8e3a6l3855r8jpkgjnfwjwuljn5a0p37d4yvxevnte42mffrpmf4823vcdq62xqm8xq3j',
   ),
   ShelleyTestCase(
     testName: 'base address path/path multidelegation stake key usual',
@@ -86,8 +101,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 60]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60]),
       ),
     ),
     expectedResult:
@@ -99,11 +116,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 101, 2, 60]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60]),
       ),
     ),
-    expectedResult: 'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vmugd5zn06wnjkd3e4gz260kt832axwmcruch85mkpqnv2qzt38al',
+    expectedResult:
+        'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vmugd5zn06wnjkd3e4gz260kt832axwmcruch85mkpqnv2qzt38al',
   ),
   ShelleyTestCase(
     testName: 'base address path/path multidelegation stake key unusual index',
@@ -111,11 +131,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 1000001]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1000001]),
       ),
     ),
-    expectedResult: 'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63v7z7lu6g8ncaa9ksx9q5lg2676a59a93y6fv86qzzdx4k5qjp9hw2',
+    expectedResult:
+        'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63v7z7lu6g8ncaa9ksx9q5lg2676a59a93y6fv86qzzdx4k5qjp9hw2',
   ),
   ShelleyTestCase(
     testName: 'base address path/keyHash 1',
@@ -123,7 +146,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -137,12 +161,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
     ),
-    expectedResult: 'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vcj922xhxkn6twlq2wn4q50q352annk3903tj00h45mgfmswz93l5',
+    expectedResult:
+        'addr1qdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vcj922xhxkn6twlq2wn4q50q352annk3903tj00h45mgfmswz93l5',
   ),
   ShelleyTestCase(
     testName: 'base address path/keyHash unusual account',
@@ -150,7 +176,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 101, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -164,7 +191,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 2147483648]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -180,10 +208,12 @@ List<ShelleyTestCase> shelleyTestCases = [
         networkId: 0,
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
-    expectedResult: 'addr1zvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yacayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq8dxrpu',
+    expectedResult:
+        'addr1zvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yacayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq8dxrpu',
   ),
   ShelleyTestCase(
     testName: 'base address scriptHash/path multidelegation',
@@ -193,10 +223,12 @@ List<ShelleyTestCase> shelleyTestCases = [
         networkId: 0,
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 3]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 3]),
       ),
     ),
-    expectedResult: 'addr1zvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yauc4nklr34kj8uk8kfgz3lkv6tu0ndr3x0rp3snqdayaxgqwrgxu2',
+    expectedResult:
+        'addr1zvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yauc4nklr34kj8uk8kfgz3lkv6tu0ndr3x0rp3snqdayaxgqwrgxu2',
   ),
   ShelleyTestCase(
     testName: 'base address scriptHash/path unusual account',
@@ -206,7 +238,8 @@ List<ShelleyTestCase> shelleyTestCases = [
         networkId: 0,
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 200, 2, 0]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
     expectedResult:
@@ -218,12 +251,14 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeScript(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
             StakingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
     ),
-    expectedResult: 'addr1xvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yacj922xhxkn6twlq2wn4q50q352annk3903tj00h45mgfms63y5us',
+    expectedResult:
+        'addr1xvfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yacj922xhxkn6twlq2wn4q50q352annk3903tj00h45mgfms63y5us',
   ),
   ShelleyTestCase(
     testName: 'enterprise path 1',
@@ -231,7 +266,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
       ),
     ),
     expectedResult: 'addr_test1vpd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vc7t2fks',
@@ -242,7 +278,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
       ),
     ),
     expectedResult: 'addr1vdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vc9wh7em',
@@ -253,7 +290,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 101, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
       ),
     ),
     expectedResult: 'addr1vv6dcymepkghuyt0za9jxg5hn89art9y8yjcvhxclxdhnds25ctky',
@@ -288,7 +326,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 2, certificateIndex: 3),
       ),
     ),
@@ -300,7 +339,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 24157, txIndex: 177, certificateIndex: 42),
       ),
     ),
@@ -312,7 +352,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 0, certificateIndex: 0),
       ),
     ),
@@ -324,7 +365,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 1000, 0, 1]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1000, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 0, certificateIndex: 0),
       ),
     ),
@@ -336,7 +378,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         networkId: 0,
-        spendingDataSource: SpendingDataSource.path(path: [1852, 1815, 0, 0, 2147483648]),
+        spendingDataSource:
+            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 7, certificateIndex: 0),
       ),
     ),
@@ -387,7 +430,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
     expectedResult: 'stake_test1uqwjy7h05jmhx9y3wzy94td6xz4txynuccgam0zfn800v8q8mmqwc',
@@ -398,7 +442,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 0]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
     ),
     expectedResult: 'stake1uvwjy7h05jmhx9y3wzy94td6xz4txynuccgam0zfn800v8qqucf2t',
@@ -409,7 +454,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1]),
       ),
     ),
     expectedResult: 'stake_test1uqktgr9psuz0fxggkx9ald8wu8kgpckr2d9kjfxrum6sm3qp87652',
@@ -420,7 +466,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 101, 2, 1]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 1]),
       ),
     ),
     expectedResult: 'stake_test1up0umv478zejdvynrddaddjzcztnmm2phsqs77cghyuah6qnjw5hh',
@@ -431,7 +478,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 0, 2, 20000000]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 20000000]),
       ),
     ),
     expectedResult: 'stake_test1urgn94qu0ewtt6f7l4sp6jm5vjv5u3gktevzy46s2qn92yshap4ze',
@@ -442,7 +490,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         networkId: 0,
-        stakingDataSource: StakingDataSource.keyPath(path: [1852, 1815, 300, 2, 0]),
+        stakingDataSource:
+            StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 300, harden + 2, harden + 0]),
       ),
     ),
     expectedResult: 'stake1u08h6dxajsaatnakylrd4pdhfrv7z3lkzgsq60fhvejux0gpcrd2j',

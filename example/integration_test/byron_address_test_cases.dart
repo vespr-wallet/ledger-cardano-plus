@@ -1,3 +1,4 @@
+import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
@@ -23,7 +24,8 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       protocolMagic: 764824073,
-      spendingDataSource: SpendingDataSource.path(path: [44, 1815, 1, 0, 55]),
+      spendingDataSource:
+          SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 55]),
       stakingDataSource: StakingDataSource.none(),
     ),
     expectedResult: 'Ae2tdPwUPEZELF6oijm8VFmhWpujnNzyG2zCf4RxfhmWqQKHo2drRD5Uhah',
@@ -33,7 +35,8 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       protocolMagic: 764824073,
-      spendingDataSource: SpendingDataSource.path(path: [44, 1815, 1, 0, 12]),
+      spendingDataSource:
+          SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),
     ),
     expectedResult: 'Ae2tdPwUPEYyiPZzoMSN9GJMNZnn3S6ZAErrezee9s1bH6tjaX6m9Cyf3Wy',
@@ -43,7 +46,8 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       protocolMagic: 764824073,
-      spendingDataSource: SpendingDataSource.path(path: [44, 1815, 101, 0, 12]),
+      spendingDataSource:
+          SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 101, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),
     ),
     expectedResult: 'Ae2tdPwUPEZ8DtpNK9twc8YXCoJ39Uwzc2FWqo1KvGsB8Kvhk14buuESy6g',
@@ -53,7 +57,8 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       protocolMagic: 764824073,
-      spendingDataSource: SpendingDataSource.path(path: [44, 1815, 0, 0, 1000001]),
+      spendingDataSource:
+          SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 0, harden + 0, harden + 1000001]),
       stakingDataSource: StakingDataSource.none(),
     ),
     expectedResult: 'Ae2tdPwUPEZFxaTJw6iova9Crfc3QuoRJSdudsp5z5a9Ee7gQH7oNKrM6cW',
@@ -63,7 +68,8 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.byron(
       protocolMagic: 1097911063,
-      spendingDataSource: SpendingDataSource.path(path: [44, 1815, 1, 0, 12]),
+      spendingDataSource:
+          SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),
     ),
     expectedResult: '2657WMsDfac5GGdHMD6sR22tyhmFvuPrBZ79hvEvuisyUK9XCcB3nu8JecKuCXEkr',

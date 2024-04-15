@@ -245,6 +245,7 @@ class CardanoLedgerApp {
   Future<String> deriveStakingAddress(
     LedgerDevice device, {
     int accountIndex = 0,
+    int addressIndex = 0,
     bool displayOnDevice = false,
   }) async {
     final bip32StakePath = [
@@ -252,7 +253,7 @@ class CardanoLedgerApp {
       harden + 1815,
       harden + accountIndex,
       2,
-      0,
+      addressIndex,
     ];
 
     final params = ParsedAddressParams.shelley(

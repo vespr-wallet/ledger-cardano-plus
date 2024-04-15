@@ -69,5 +69,26 @@ void main() {
         });
       }
     });
+    
+     group('Should successfully derive stake addresses', () {
+      final testCases = [
+        {'accountIndex': 0, 'addressIndex': 0},
+        {'accountIndex': 10, 'addressIndex': 0},
+      ];
+
+      for (final testCase in testCases) {
+        test(
+            'Derive address for account index ${testCase['accountIndex']} and address index ${testCase['addressIndex']}',
+            () async {
+          final result = await cardanoApp.deriveStakingAddress(
+            device,
+            accountIndex: testCase['accountIndex'] as int,
+            addressIndex: testCase['addressIndex'] as int,
+          );
+          print('Derived address: $result');
+        });
+      }
+    });
+    
   });
 }

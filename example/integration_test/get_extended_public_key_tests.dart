@@ -18,7 +18,9 @@ void main() {
       ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
       cardanoApp = CardanoLedgerApp(ledger);
       device = await ledger.scan().first;
+      print('device: ${device.id}');
       await ledger.connect(device);
+      print('connected device: ${device.name}');
     });
 
     group('Should successfully get a single extended public key', () {

@@ -127,7 +127,7 @@ void validateHexString(String? value, String fieldName) {
 }
 
 Uint8List bech32DecodeAddress(String data) {
-  final Bech32 decoded = bech32.decode(data);
+  final Bech32 decoded = bech32.decode(data, 1000);
   final bytes = fromWords(decoded.data);
   return Uint8List.fromList(bytes);
 }

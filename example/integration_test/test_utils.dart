@@ -15,6 +15,12 @@ String addressHexToBase58(String addressHex) {
   return base58.encode(Uint8List.fromList(bytes));
 }
 
+String base58ToHex(String base58Address) {
+  final base58 = BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
+  final bytes = base58.decode(base58Address);
+  return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
+}
+
 Future<String> deriveAddress(
     CardanoLedgerApp cardanoApp, LedgerDevice device, CardanoNetwork network, ParsedAddressParams params) async {
   final operation = CardanoDeriveAddressOperation(
@@ -38,6 +44,11 @@ Future<String> deriveAddress(
     NetworkCustom() => 'addr',
   };
   return bech32EncodeAddress(prefix, addressBytes);
+}
+
+String bech32ToHex(String bech32Address) {
+  Uint8List addressBytes = bech32DecodeAddress(bech32Address);
+  return addressBytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
 }
 
 Future<void> testSingleKey(

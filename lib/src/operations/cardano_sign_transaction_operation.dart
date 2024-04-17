@@ -232,19 +232,77 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
 
     final void Function() invoker = switch (certificate) {
-      StakePoolRegistration() => () => _signTxAddStakePoolRegistrationCertificate(certificate, send),
-      _ => () => throw ValidationException('Invalid certificate type'),
+      StakePoolRegistration() => () {
+          if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsPoolRegistrationAsOperator) {
+            _signTxAddStakePoolRegistrationCertificate(certificate, send);
+          } else {
+            _signTxAddStakePoolRegistrationCertificateLegacy(certificate, send);
+          }
+        },
+      _ => () {},
     };
     invoker();
   }
 
-  Future<void> _signTxAddStakePoolRegistrationCertificate(
-    ParsedCertificate certificate,
+  Future<void> _signTxAddStakePoolRegistrationCertificateLegacy(
+    StakePoolRegistration certificate,
     LedgerSendFct send,
   ) async {
-    if (certificate is! StakePoolRegistration) {
-      throw ValidationException('Invalid certificate type');
+
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageCertificates,
+      p2: p2PoolParamsLegacy,
+      data: SerializationUtils.serializePoolInitialParamsLegacy(certificate.pool),
+      prependDataLength: true,
+      debugName: 'Sign Transaction Stake Pool Registration Init Legacy',
+    ));
+
+    for (final owner in certificate.pool.owners) {
+      await send(SendOperation(
+        ins: InstructionType.signTransaction.insValue,
+        p1: p1StageCertificates,
+        p2: p2OwnersLegacy,
+        data: SerializationUtils.serializePoolOwner(owner),
+        prependDataLength: true,
+        debugName: 'Sign Transaction Stake Pool Registration Owner',
+      ));
     }
+
+    for (final relay in certificate.pool.relays) {
+      await send(SendOperation(
+        ins: InstructionType.signTransaction.insValue,
+        p1: p1StageCertificates,
+        p2: p2RelaysLegacy,
+        data: SerializationUtils.serializePoolRelay(relay),
+        prependDataLength: true,
+        debugName: 'Sign Transaction Stake Pool Registration Relay',
+      ));
+    }
+
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageCertificates,
+      p2: p2MetadataLegacy,
+      data: SerializationUtils.serializePoolMetadata(certificate.pool.metadata),
+      prependDataLength: true,
+      debugName: 'Sign Transaction Stake Pool Registration Metadata',
+    ));
+
+    await send(SendOperation(
+      ins: InstructionType.signTransaction.insValue,
+      p1: p1StageCertificates,
+      p2: p2ConfirmationLegacy,
+      data: Uint8List(0),
+      prependDataLength: true,
+      debugName: 'Sign Transaction Stake Pool Registration Confirmation',
+    ));
+  }
+
+  Future<void> _signTxAddStakePoolRegistrationCertificate(
+    StakePoolRegistration certificate,
+    LedgerSendFct send,
+  ) async {
     final poolParams = certificate;
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,

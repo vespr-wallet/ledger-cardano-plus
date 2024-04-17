@@ -20,6 +20,12 @@ const int p2MintConfirm = 0x33;
 const int p2AssetGroup = 0x31;
 const int p2Token = 0x32;
 
+const p2PoolParamsLegacy = 0x30;
+const p2OwnersLegacy = 0x31;
+const p2RelaysLegacy = 0x32;
+const p2MetadataLegacy = 0x33;
+const p2ConfirmationLegacy = 0x34;
+
 const int txHashLength = 32;
 
 const int addressHexLength = 256;

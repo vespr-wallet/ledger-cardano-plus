@@ -16,8 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ParsedMargin {
-  String get numerator => throw _privateConstructorUsedError;
-  String get denominator => throw _privateConstructorUsedError;
+  BigInt get numerator => throw _privateConstructorUsedError;
+  BigInt get denominator => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedMarginCopyWith<ParsedMargin> get copyWith =>
@@ -30,7 +30,7 @@ abstract class $ParsedMarginCopyWith<$Res> {
           ParsedMargin value, $Res Function(ParsedMargin) then) =
       _$ParsedMarginCopyWithImpl<$Res, ParsedMargin>;
   @useResult
-  $Res call({String numerator, String denominator});
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
 /// @nodoc
@@ -53,11 +53,11 @@ class _$ParsedMarginCopyWithImpl<$Res, $Val extends ParsedMargin>
       numerator: null == numerator
           ? _value.numerator
           : numerator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       denominator: null == denominator
           ? _value.denominator
           : denominator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ) as $Val);
   }
 }
@@ -70,7 +70,7 @@ abstract class _$$ParsedMarginImplCopyWith<$Res>
       __$$ParsedMarginImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String numerator, String denominator});
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
 /// @nodoc
@@ -91,11 +91,11 @@ class __$$ParsedMarginImplCopyWithImpl<$Res>
       numerator: null == numerator
           ? _value.numerator
           : numerator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
       denominator: null == denominator
           ? _value.denominator
           : denominator // ignore: cast_nullable_to_non_nullable
-              as String,
+              as BigInt,
     ));
   }
 }
@@ -107,9 +107,9 @@ class _$ParsedMarginImpl extends _ParsedMargin {
       : super._();
 
   @override
-  final String numerator;
+  final BigInt numerator;
   @override
-  final String denominator;
+  final BigInt denominator;
 
   @override
   String toString() {
@@ -139,14 +139,14 @@ class _$ParsedMarginImpl extends _ParsedMargin {
 
 abstract class _ParsedMargin extends ParsedMargin {
   factory _ParsedMargin(
-      {required final String numerator,
-      required final String denominator}) = _$ParsedMarginImpl;
+      {required final BigInt numerator,
+      required final BigInt denominator}) = _$ParsedMarginImpl;
   _ParsedMargin._() : super._();
 
   @override
-  String get numerator;
+  BigInt get numerator;
   @override
-  String get denominator;
+  BigInt get denominator;
   @override
   @JsonKey(ignore: true)
   _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith =>

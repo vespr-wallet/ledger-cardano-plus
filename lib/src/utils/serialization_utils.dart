@@ -118,7 +118,6 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
-      // Serialize transaction options or write an empty buffer
       if (compatibility.supportsConway) {
         serializeTxOptions(writer, options ?? ParsedTransactionOptions(tagCborSets: false));
       } else {
@@ -132,49 +131,42 @@ class SerializationUtils {
       serializeOptionFlag(writer, tx.auxiliaryData != null);
       serializeOptionFlag(writer, tx.validityIntervalStart != null);
 
-      // Serialize mint flag or write an empty buffer
       if (compatibility.supportsMint || version.flags.isAppXS) {
         serializeOptionFlag(writer, tx.mint != null);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize script data hash flag or write an empty buffer
       if (compatibility.supportsAlonzo) {
         serializeOptionFlag(writer, tx.scriptDataHashHex != null);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize include network ID flag or write an empty buffer
       if (compatibility.supportsAlonzo) {
         serializeOptionFlag(writer, tx.includeNetworkId ?? false);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize collateral output flag or write an empty buffer
       if (compatibility.supportsBabbage) {
         serializeOptionFlag(writer, tx.collateralOutput != null);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize total collateral flag or write an empty buffer
       if (compatibility.supportsBabbage) {
         serializeOptionFlag(writer, tx.totalCollateral != null);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize treasury flag or write an empty buffer
       if (compatibility.supportsConway) {
         serializeOptionFlag(writer, tx.treasury != null);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize donation flag or write an empty buffer
       if (compatibility.supportsConway) {
         serializeOptionFlag(writer, tx.donation != null);
       } else {
@@ -188,35 +180,30 @@ class SerializationUtils {
       writer.writeUint32(tx.certificates?.length ?? 0);
       writer.writeUint32(tx.withdrawals?.length ?? 0);
 
-      // Serialize collateral inputs count or write an empty buffer
       if (compatibility.supportsAlonzo) {
         writer.writeUint32(tx.collateralInputs?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize required signers count or write an empty buffer
       if (compatibility.supportsAlonzo) {
         writer.writeUint32(tx.requiredSigners?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize reference inputs count or write an empty buffer
       if (compatibility.supportsBabbage) {
         writer.writeUint32(tx.referenceInputs?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize voting procedures count or write an empty buffer
       if (compatibility.supportsConway) {
         writer.writeUint32(tx.votingProcedures?.length ?? 0);
       } else {
         writer.write(Uint8List(0));
       }
 
-      // Serialize number of witnesses or write an empty buffer based on Babbage support
       if (compatibility.supportsBabbage) {
         writer.writeUint32(numWitnesses);
       } else {
@@ -332,6 +319,49 @@ class SerializationUtils {
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
         writerSerializedPath(writer, votePublicKeyPath);
       }
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializePoolInitialParamsLegacy(ParsedPoolParams pool) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      final poolkey = pool.poolKey;
+      final void Function() poolKeyInvoker = switch (poolkey) {
+        ThirdPartyPoolKey() => () => writer.write(serializePoolKeyLegacy(poolkey)),
+        _ => () {},
+      };
+      poolKeyInvoker();
+
+      writeSerializedHex(writer, pool.vrfHashHex);
+      writer.write(serializeCoin(pool.pledge));
+      writer.write(serializeCoin(pool.cost));
+      writeSerializedUint64(writer, pool.margin.numerator);
+      writeSerializedUint64(writer, pool.margin.denominator);
+
+      final rewardAccount = pool.rewardAccount;
+      final void Function() rewardAccountInvoker = switch (rewardAccount) {
+        ThirdPartyPoolRewardAccount() => () => writer.write(serializePoolRewardAccountLegacy(rewardAccount)),
+        _ => () {},
+      };
+      rewardAccountInvoker();
+
+      writer.writeUint32(pool.owners.length);
+      writer.writeUint32(pool.relays.length);
+
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializePoolKeyLegacy(ThirdPartyPoolKey key) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writeSerializedHex(writer, key.hashHex);
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializePoolRewardAccountLegacy(ThirdPartyPoolRewardAccount rewardAccount) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      writeSerializedHex(writer, rewardAccount.rewardAccountHex);
       return writer.toBytes();
     });
   }
@@ -689,8 +719,8 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.write(serializeCoin(pool.pledge));
       writer.write(serializeCoin(pool.cost));
-      writeSerializedUint64(writer, BigInt.from(int.parse(pool.margin.numerator)));
-      writeSerializedUint64(writer, BigInt.from(int.parse(pool.margin.denominator)));
+      writeSerializedUint64(writer, pool.margin.numerator);
+      writeSerializedUint64(writer, pool.margin.denominator);
       return writer.toBytes();
     });
   }
@@ -1001,7 +1031,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
   final List<List<int>> witnessPaths = [];
 
   if (signingMode is! MultisigTransaction) {
-    // Input witnesses
     for (final input in tx.inputs) {
       final path = input.path;
       if (path != null) {
@@ -1011,10 +1040,7 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
     final certificates = tx.certificates;
 
     if (certificates != null) {
-      // Certificate witnesses
       for (final cert in certificates) {
-        // for CertificateType.STAKE_REGISTRATION, we do not provide the witness automatically
-        // it can be obtained via SignTransactionRequest.additionalWitnessPaths
         final void Function() invoker = switch (cert) {
           StakeRegistrationConway() => () {
               final credential = cert.stakeCredential;
@@ -1118,7 +1144,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
       }
     }
 
-    // Withdrawal witnesses
     for (final withdrawal in tx.withdrawals ?? []) {
       final void Function() invoker = switch (withdrawal.stakeCredential) {
         CredentialKeyPath() => () => witnessPaths.add(withdrawal.stakeCredential.path),
@@ -1127,7 +1152,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
       invoker();
     }
 
-    // Required signers witnesses
     for (final signer in tx.requiredSigners ?? []) {
       final void Function() invoker = switch (signer) {
         RequiredSignerPath() => () => witnessPaths.add(signer.path),
@@ -1136,7 +1160,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
       invoker();
     }
 
-    // Collateral inputs witnesses
     for (final collateral in tx.collateralInputs ?? []) {
       if (collateral.path != null) {
         witnessPaths.add(collateral.path);
@@ -1144,7 +1167,6 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
     }
 
     final votingProcedures = tx.votingProcedures;
-    // Voting procedures witnesses
     for (final votingProcedure in votingProcedures ?? []) {
       final void Function() invoker = switch (votingProcedure.voter.type) {
         CommitteeKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
@@ -1156,10 +1178,8 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
     }
   }
 
-  // Add additionalWitnessPaths
   witnessPaths.addAll(additionalWitnessPaths);
 
-  // Remove duplicates
   return uniquify(witnessPaths);
 }
 

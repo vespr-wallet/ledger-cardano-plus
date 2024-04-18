@@ -172,7 +172,6 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ChangePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -219,7 +218,6 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath),
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
@@ -258,7 +256,6 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: CardanoNetwork.mainnet().networkId,
         stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
@@ -296,7 +293,6 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        networkId: CardanoNetwork.mainnet().networkId,
         spendingDataSource: SpendingDataSource.path(path: bip32StakePath),
       ),
     );
@@ -360,6 +356,7 @@ class CardanoLedgerApp {
     final operation = CardanoSignTransactionOperation(
       signingRequest: signingRequest,
       cardanoVersion: deviceVersion,
+      network: CardanoNetwork.mainnet(),
     );
 
     // Send the operation to the ledger device

@@ -23,7 +23,7 @@ List<ByronTestCase> byronTestCases = [
     testName: 'mainnet 1',
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
-      protocolMagic: 764824073,
+      
       spendingDataSource:
           SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 55]),
       stakingDataSource: StakingDataSource.none(),
@@ -34,7 +34,7 @@ List<ByronTestCase> byronTestCases = [
     testName: 'mainnet 2',
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
-      protocolMagic: 764824073,
+      
       spendingDataSource:
           SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),
@@ -45,7 +45,7 @@ List<ByronTestCase> byronTestCases = [
     testName: 'mainnet 3',
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
-      protocolMagic: 764824073,
+      
       spendingDataSource:
           SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 101, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),
@@ -56,7 +56,7 @@ List<ByronTestCase> byronTestCases = [
     testName: 'mainnet 4',
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
-      protocolMagic: 764824073,
+      
       spendingDataSource:
           SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 0, harden + 0, harden + 1000001]),
       stakingDataSource: StakingDataSource.none(),
@@ -67,7 +67,6 @@ List<ByronTestCase> byronTestCases = [
     testName: 'testnet 1',
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.byron(
-      protocolMagic: 1097911063,
       spendingDataSource:
           SpendingDataSource.path(path: [harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12]),
       stakingDataSource: StakingDataSource.none(),

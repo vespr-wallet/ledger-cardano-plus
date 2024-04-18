@@ -20,10 +20,12 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTransactionData> {
   final ParsedSigningRequest signingRequest;
   final CardanoVersion cardanoVersion;
+  final CardanoNetwork network;
 
   const CardanoSignTransactionOperation({
     required this.signingRequest,
     required this.cardanoVersion,
+    required this.network,
   });
 
   @override
@@ -44,7 +46,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     // auxiliary data
     TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
     if (auxDataBeforeTxBody && auxiliaryData != null) {
-      auxiliaryDataSupplement = await _signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send);
+      auxiliaryDataSupplement = await _signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send, network);
     }
 
     final inputs = signingRequest.tx.inputs;
@@ -394,6 +396,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ParsedTxAuxiliaryData auxiliaryData,
     CardanoVersion version,
     LedgerSendFct send,
+    CardanoNetwork network,
   ) async {
     final serializedAuxData = SerializationUtils.serializeTxAuxiliaryData(auxiliaryData);
     await send(SendOperation(
@@ -459,7 +462,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
           ));
 
           final serializedPaymentAddressData =
-              SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version);
+              SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version, network);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
@@ -694,7 +697,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageCollateralOutput,
       p2: p2CollateralOutputBasicData,
-      data: SerializationUtils.serializeTxOutputBasicParams(collateralOutput, version),
+      data: SerializationUtils.serializeTxOutputBasicParams(collateralOutput, version, network),
       prependDataLength: true,
       debugName: 'Sign Transaction Collateral Output Basic Data',
     ));
@@ -835,7 +838,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageOutputs,
       p2: p2OutputBasicData,
-      data: SerializationUtils.serializeTxOutputBasicParams(output, version),
+      data: SerializationUtils.serializeTxOutputBasicParams(output, version, network),
       prependDataLength: true,
       debugName: 'Sign Transaction Output Basic Data',
     ));

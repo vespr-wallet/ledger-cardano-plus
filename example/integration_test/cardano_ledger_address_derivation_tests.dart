@@ -14,6 +14,7 @@ void main() {
     late Ledger ledger;
     late CardanoLedgerApp cardanoApp;
     late LedgerDevice device;
+    bool? isAppXS;
 
     setUpAll(() async {
       ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
@@ -21,74 +22,161 @@ void main() {
       device = await ledger.scan().first;
       print("Connecting to device: ${device.id}");
       await ledger.connect(device);
-      print("Connected to device: ${device.name}");
+      isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
     });
 
-    group('Should successfully derive Byron address', () {
+    group('Should successfully derive Byron address - isAppXS true', () {
       for (var testCase in byronTestCases) {
         test(testCase.testName, () async {
-          final isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
-          if (isAppXS) {
+          if (isAppXS == true) {
             expect(() => deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams),
                 throwsA(isA<LedgerException>()));
           } else {
-            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-            expect(addressHexToBase58(result), equals(testCase.expectedResult));
+            print('Skipping test as isAppXS is not true');
           }
         });
       }
     });
 
-    group('Should successfully derive Shelley address', () {
+    group('Should successfully derive Byron address - isAppXS false', () {
+      for (var testCase in byronTestCases) {
+        test(testCase.testName, () async {
+          if (isAppXS == false) {
+            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+            expect(addressHexToBase58(result), equals(testCase.expectedResult));
+          } else {
+            print('Skipping test as isAppXS is not false');
+          }
+        });
+      }
+    });
+
+    group('Should successfully derive Shelley address - isAppXS true', () {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
-          final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-          expect(result, equals(testCase.expectedResult));
+          if (isAppXS == true) {
+            expect(() => deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams),
+                throwsA(isA<LedgerException>()));
+          } else {
+            print('Skipping test as isAppXS is not true');
+          }
         });
       }
     });
 
-    group('Should successfully derive change addresses', () {
+    group('Should successfully derive Shelley address - isAppXS false', () {
+      for (var testCase in shelleyTestCases) {
+        test(testCase.testName, () async {
+          if (isAppXS == false) {
+            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+            expect(result, equals(testCase.expectedResult));
+          } else {
+            print('Skipping test as isAppXS is not false');
+          }
+        });
+      }
+    });
+
+    group('Should successfully derive change addresses - isAppXS true', () {
       final testCases = [
-        {'accountIndex': 0, 'addressIndex': 0},
-        {'accountIndex': 0, 'addressIndex': 10},
-        {'accountIndex': 10, 'addressIndex': 0},
-        {'accountIndex': 10, 'addressIndex': 10},
+        (accountIndex: 0, addressIndex: 0),
+        (accountIndex: 0, addressIndex: 10),
+        (accountIndex: 10, addressIndex: 0),
+        (accountIndex: 10, addressIndex: 10),
       ];
 
       for (final testCase in testCases) {
         test(
-            'Derive address for account index ${testCase['accountIndex']} and address index ${testCase['addressIndex']}',
+            'Derive address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS true',
             () async {
-          final result = await cardanoApp.deriveChangeAddress(
-            device,
-            accountIndex: testCase['accountIndex'] as int,
-            addressIndex: testCase['addressIndex'] as int,
-          );
-          print('Derived address: $result');
+          if (isAppXS == true) {
+            expect(
+                () => cardanoApp.deriveChangeAddress(
+                      device,
+                      accountIndex: testCase.accountIndex,
+                      addressIndex: testCase.addressIndex,
+                    ),
+                throwsA(isA<LedgerException>()));
+          } else {
+            print('Skipping test as isAppXS is not true');
+          }
         });
       }
     });
-    
-     group('Should successfully derive stake addresses', () {
+
+    group('Should successfully derive change addresses - isAppXS false', () {
       final testCases = [
-        {'accountIndex': 0, 'addressIndex': 0},
-        {'accountIndex': 10, 'addressIndex': 0},
+        (accountIndex: 0, addressIndex: 0),
+        (accountIndex: 0, addressIndex: 10),
+        (accountIndex: 10, addressIndex: 0),
+        (accountIndex: 10, addressIndex: 10),
       ];
 
       for (final testCase in testCases) {
         test(
-            'Derive address for account index ${testCase['accountIndex']} and address index ${testCase['addressIndex']}',
+            'Derive address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS false',
             () async {
-          final result = await cardanoApp.deriveStakingAddress(
-            device,
-            accountIndex: testCase['accountIndex'] as int,
-            addressIndex: testCase['addressIndex'] as int,
-          );
-          print('Derived address: $result');
+          if (isAppXS == false) {
+            final result = await cardanoApp.deriveChangeAddress(
+              device,
+              accountIndex: testCase.accountIndex,
+              addressIndex: testCase.addressIndex,
+            );
+            print('Derived address: $result');
+          } else {
+            print('Skipping test as isAppXS is not false');
+          }
         });
       }
     });
-    
+
+    group('Should successfully derive stake addresses - isAppXS true', () {
+      final testCases = [
+        (accountIndex: 0, addressIndex: 0),
+        (accountIndex: 10, addressIndex: 0),
+      ];
+
+      for (final testCase in testCases) {
+        test(
+            'Derive stake address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS true',
+            () async {
+          if (isAppXS == true) {
+            expect(
+                () => cardanoApp.deriveStakingAddress(
+                      device,
+                      accountIndex: testCase.accountIndex,
+                      addressIndex: testCase.addressIndex,
+                    ),
+                throwsA(isA<LedgerException>()));
+          } else {
+            print('Skipping test as isAppXS is not true');
+          }
+        });
+      }
+    });
+
+    group('Should successfully derive stake addresses - isAppXS false', () {
+      final testCases = [
+        (accountIndex: 0, addressIndex: 0),
+        (accountIndex: 10, addressIndex: 0),
+      ];
+
+      for (final testCase in testCases) {
+        test(
+            'Derive stake address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS false',
+            () async {
+          if (isAppXS == false) {
+            final result = await cardanoApp.deriveStakingAddress(
+              device,
+              accountIndex: testCase.accountIndex,
+              addressIndex: testCase.addressIndex,
+            );
+            print('Derived address: $result');
+          } else {
+            print('Skipping test as isAppXS is not false');
+          }
+        });
+      }
+    });
   });
 }

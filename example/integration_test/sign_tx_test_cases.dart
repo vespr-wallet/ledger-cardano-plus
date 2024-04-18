@@ -14,7 +14,6 @@ import 'package:ledger_cardano/src/models/parsed_credential.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 
 import 'test_utils.dart';
-import 'tx_elements.dart';
 
 class SignTxTestCase {
   final String testName;
@@ -81,7 +80,6 @@ final testsAlonzo = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  networkId: 0x01,
                   spendingDataSource: SpendingDataSource.path(
                     path: [harden + 1852, harden + 1815, harden + 0, 0, 0],
                   ),

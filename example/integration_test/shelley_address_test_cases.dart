@@ -25,7 +25,6 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -40,7 +39,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -55,7 +54,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
         stakingDataSource:
@@ -70,7 +69,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1, harden + 0, harden + 1000001]),
         stakingDataSource:
@@ -85,7 +84,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 10, harden + 0, harden + 4]),
         stakingDataSource:
@@ -100,7 +99,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -115,7 +114,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -130,7 +129,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -145,7 +144,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -160,7 +159,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -175,7 +174,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
         stakingDataSource:
@@ -190,7 +189,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
         stakingDataSource:
@@ -205,7 +204,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource:
@@ -220,7 +219,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource:
@@ -235,7 +234,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource:
@@ -250,7 +249,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource:
@@ -265,7 +264,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
       ),
@@ -277,7 +276,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
       ),
@@ -289,7 +288,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
       ),
@@ -301,7 +300,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
@@ -313,7 +312,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
@@ -325,7 +324,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 2, certificateIndex: 3),
@@ -338,7 +337,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 24157, txIndex: 177, certificateIndex: 42),
@@ -351,7 +350,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 0, certificateIndex: 0),
@@ -364,7 +363,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1000, harden + 0, harden + 1]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 0, certificateIndex: 0),
@@ -377,7 +376,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 7, certificateIndex: 0),
@@ -390,7 +389,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 2, certificateIndex: 3),
@@ -403,7 +402,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 24157, txIndex: 177, certificateIndex: 42),
@@ -416,7 +415,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerScript(
-        networkId: 0,
+        
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 0, certificateIndex: 0),
@@ -429,7 +428,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
@@ -441,7 +440,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
       ),
@@ -453,7 +452,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1]),
       ),
@@ -465,7 +464,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 1]),
       ),
@@ -477,7 +476,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 20000000]),
       ),
@@ -489,7 +488,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        networkId: 0,
+        
         stakingDataSource:
             StakingDataSource.keyPath(path: [harden + 1852, harden + 1815, harden + 300, harden + 2, harden + 0]),
       ),
@@ -501,7 +500,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardScript(
-        networkId: 0,
+        
         stakingScriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277',
       ),
     ),
@@ -512,7 +511,7 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardScript(
-        networkId: 0,
+        
         stakingScriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277',
       ),
     ),

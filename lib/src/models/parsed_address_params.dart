@@ -10,7 +10,6 @@ part 'parsed_address_params.freezed.dart';
 sealed class ParsedAddressParams with _$ParsedAddressParams {
   ParsedAddressParams._();
   factory ParsedAddressParams.byron({
-    required int protocolMagic,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = ByronAddressParams;

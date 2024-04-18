@@ -15,21 +15,13 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ShelleyAddressParamsData {
-  int get networkId => throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $ShelleyAddressParamsDataCopyWith<ShelleyAddressParamsData> get copyWith =>
-      throw _privateConstructorUsedError;
-}
+mixin _$ShelleyAddressParamsData {}
 
 /// @nodoc
 abstract class $ShelleyAddressParamsDataCopyWith<$Res> {
   factory $ShelleyAddressParamsDataCopyWith(ShelleyAddressParamsData value,
           $Res Function(ShelleyAddressParamsData) then) =
       _$ShelleyAddressParamsDataCopyWithImpl<$Res, ShelleyAddressParamsData>;
-  @useResult
-  $Res call({int networkId});
 }
 
 /// @nodoc
@@ -42,33 +34,17 @@ class _$ShelleyAddressParamsDataCopyWithImpl<$Res,
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? networkId = null,
-  }) {
-    return _then(_value.copyWith(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$BasePaymentKeyStakeKeyImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$BasePaymentKeyStakeKeyImplCopyWith<$Res> {
   factory _$$BasePaymentKeyStakeKeyImplCopyWith(
           _$BasePaymentKeyStakeKeyImpl value,
           $Res Function(_$BasePaymentKeyStakeKeyImpl) then) =
       __$$BasePaymentKeyStakeKeyImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -88,15 +64,10 @@ class __$$BasePaymentKeyStakeKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$BasePaymentKeyStakeKeyImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -130,13 +101,9 @@ class __$$BasePaymentKeyStakeKeyImplCopyWithImpl<$Res>
 
 class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
   _$BasePaymentKeyStakeKeyImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -144,7 +111,7 @@ class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -152,8 +119,6 @@ class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BasePaymentKeyStakeKeyImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -161,8 +126,8 @@ class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -174,34 +139,27 @@ class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey {
 
 abstract class BasePaymentKeyStakeKey extends ShelleyAddressParamsData {
   factory BasePaymentKeyStakeKey(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$BasePaymentKeyStakeKeyImpl;
   BasePaymentKeyStakeKey._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$BasePaymentKeyStakeKeyImplCopyWith<_$BasePaymentKeyStakeKeyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BasePaymentScriptStakeKeyImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$BasePaymentScriptStakeKeyImplCopyWith<$Res> {
   factory _$$BasePaymentScriptStakeKeyImplCopyWith(
           _$BasePaymentScriptStakeKeyImpl value,
           $Res Function(_$BasePaymentScriptStakeKeyImpl) then) =
       __$$BasePaymentScriptStakeKeyImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -221,15 +179,10 @@ class __$$BasePaymentScriptStakeKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$BasePaymentScriptStakeKeyImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -263,13 +216,9 @@ class __$$BasePaymentScriptStakeKeyImplCopyWithImpl<$Res>
 
 class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
   _$BasePaymentScriptStakeKeyImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -277,7 +226,7 @@ class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -285,8 +234,6 @@ class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BasePaymentScriptStakeKeyImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -294,8 +241,8 @@ class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -307,34 +254,27 @@ class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey {
 
 abstract class BasePaymentScriptStakeKey extends ShelleyAddressParamsData {
   factory BasePaymentScriptStakeKey(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$BasePaymentScriptStakeKeyImpl;
   BasePaymentScriptStakeKey._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$BasePaymentScriptStakeKeyImplCopyWith<_$BasePaymentScriptStakeKeyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BasePaymentKeyStakeScriptImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$BasePaymentKeyStakeScriptImplCopyWith<$Res> {
   factory _$$BasePaymentKeyStakeScriptImplCopyWith(
           _$BasePaymentKeyStakeScriptImpl value,
           $Res Function(_$BasePaymentKeyStakeScriptImpl) then) =
       __$$BasePaymentKeyStakeScriptImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -354,15 +294,10 @@ class __$$BasePaymentKeyStakeScriptImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$BasePaymentKeyStakeScriptImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -396,13 +331,9 @@ class __$$BasePaymentKeyStakeScriptImplCopyWithImpl<$Res>
 
 class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
   _$BasePaymentKeyStakeScriptImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -410,7 +341,7 @@ class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -418,8 +349,6 @@ class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BasePaymentKeyStakeScriptImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -427,8 +356,8 @@ class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -440,34 +369,27 @@ class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript {
 
 abstract class BasePaymentKeyStakeScript extends ShelleyAddressParamsData {
   factory BasePaymentKeyStakeScript(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$BasePaymentKeyStakeScriptImpl;
   BasePaymentKeyStakeScript._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$BasePaymentKeyStakeScriptImplCopyWith<_$BasePaymentKeyStakeScriptImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$BasePaymentScriptStakeScriptImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$BasePaymentScriptStakeScriptImplCopyWith<$Res> {
   factory _$$BasePaymentScriptStakeScriptImplCopyWith(
           _$BasePaymentScriptStakeScriptImpl value,
           $Res Function(_$BasePaymentScriptStakeScriptImpl) then) =
       __$$BasePaymentScriptStakeScriptImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -487,15 +409,10 @@ class __$$BasePaymentScriptStakeScriptImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$BasePaymentScriptStakeScriptImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -529,13 +446,9 @@ class __$$BasePaymentScriptStakeScriptImplCopyWithImpl<$Res>
 
 class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
   _$BasePaymentScriptStakeScriptImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -543,7 +456,7 @@ class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -551,8 +464,6 @@ class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BasePaymentScriptStakeScriptImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -560,8 +471,8 @@ class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -574,17 +485,13 @@ class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript {
 
 abstract class BasePaymentScriptStakeScript extends ShelleyAddressParamsData {
   factory BasePaymentScriptStakeScript(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$BasePaymentScriptStakeScriptImpl;
   BasePaymentScriptStakeScript._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$BasePaymentScriptStakeScriptImplCopyWith<
           _$BasePaymentScriptStakeScriptImpl>
@@ -592,14 +499,12 @@ abstract class BasePaymentScriptStakeScript extends ShelleyAddressParamsData {
 }
 
 /// @nodoc
-abstract class _$$EnterpriseKeyImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$EnterpriseKeyImplCopyWith<$Res> {
   factory _$$EnterpriseKeyImplCopyWith(
           _$EnterpriseKeyImpl value, $Res Function(_$EnterpriseKeyImpl) then) =
       __$$EnterpriseKeyImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({int networkId, SpendingDataSource spendingDataSource});
+  $Res call({SpendingDataSource spendingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
 }
@@ -615,14 +520,9 @@ class __$$EnterpriseKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
   }) {
     return _then(_$EnterpriseKeyImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -643,18 +543,14 @@ class __$$EnterpriseKeyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EnterpriseKeyImpl extends EnterpriseKey {
-  _$EnterpriseKeyImpl(
-      {required this.networkId, required this.spendingDataSource})
-      : super._();
+  _$EnterpriseKeyImpl({required this.spendingDataSource}) : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.enterpriseKey(networkId: $networkId, spendingDataSource: $spendingDataSource)';
+    return 'ShelleyAddressParamsData.enterpriseKey(spendingDataSource: $spendingDataSource)';
   }
 
   @override
@@ -662,14 +558,12 @@ class _$EnterpriseKeyImpl extends EnterpriseKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EnterpriseKeyImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId, spendingDataSource);
+  int get hashCode => Object.hash(runtimeType, spendingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -680,29 +574,23 @@ class _$EnterpriseKeyImpl extends EnterpriseKey {
 
 abstract class EnterpriseKey extends ShelleyAddressParamsData {
   factory EnterpriseKey(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource}) =
+          {required final SpendingDataSource spendingDataSource}) =
       _$EnterpriseKeyImpl;
   EnterpriseKey._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$EnterpriseKeyImplCopyWith<_$EnterpriseKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$EnterpriseScriptImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$EnterpriseScriptImplCopyWith<$Res> {
   factory _$$EnterpriseScriptImplCopyWith(_$EnterpriseScriptImpl value,
           $Res Function(_$EnterpriseScriptImpl) then) =
       __$$EnterpriseScriptImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({int networkId, SpendingDataSource spendingDataSource});
+  $Res call({SpendingDataSource spendingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
 }
@@ -718,14 +606,9 @@ class __$$EnterpriseScriptImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
   }) {
     return _then(_$EnterpriseScriptImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -746,18 +629,14 @@ class __$$EnterpriseScriptImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$EnterpriseScriptImpl extends EnterpriseScript {
-  _$EnterpriseScriptImpl(
-      {required this.networkId, required this.spendingDataSource})
-      : super._();
+  _$EnterpriseScriptImpl({required this.spendingDataSource}) : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.enterpriseScript(networkId: $networkId, spendingDataSource: $spendingDataSource)';
+    return 'ShelleyAddressParamsData.enterpriseScript(spendingDataSource: $spendingDataSource)';
   }
 
   @override
@@ -765,14 +644,12 @@ class _$EnterpriseScriptImpl extends EnterpriseScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EnterpriseScriptImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId, spendingDataSource);
+  int get hashCode => Object.hash(runtimeType, spendingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -784,31 +661,24 @@ class _$EnterpriseScriptImpl extends EnterpriseScript {
 
 abstract class EnterpriseScript extends ShelleyAddressParamsData {
   factory EnterpriseScript(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource}) =
+          {required final SpendingDataSource spendingDataSource}) =
       _$EnterpriseScriptImpl;
   EnterpriseScript._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$EnterpriseScriptImplCopyWith<_$EnterpriseScriptImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PointerKeyImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$PointerKeyImplCopyWith<$Res> {
   factory _$$PointerKeyImplCopyWith(
           _$PointerKeyImpl value, $Res Function(_$PointerKeyImpl) then) =
       __$$PointerKeyImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -826,15 +696,10 @@ class __$$PointerKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$PointerKeyImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -868,13 +733,9 @@ class __$$PointerKeyImplCopyWithImpl<$Res>
 
 class _$PointerKeyImpl extends PointerKey {
   _$PointerKeyImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -882,7 +743,7 @@ class _$PointerKeyImpl extends PointerKey {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.pointerKey(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.pointerKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -890,8 +751,6 @@ class _$PointerKeyImpl extends PointerKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PointerKeyImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -899,8 +758,8 @@ class _$PointerKeyImpl extends PointerKey {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -911,32 +770,25 @@ class _$PointerKeyImpl extends PointerKey {
 
 abstract class PointerKey extends ShelleyAddressParamsData {
   factory PointerKey(
-      {required final int networkId,
-      required final SpendingDataSource spendingDataSource,
+      {required final SpendingDataSource spendingDataSource,
       required final StakingDataSource stakingDataSource}) = _$PointerKeyImpl;
   PointerKey._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$PointerKeyImplCopyWith<_$PointerKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$PointerScriptImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$PointerScriptImplCopyWith<$Res> {
   factory _$$PointerScriptImplCopyWith(
           _$PointerScriptImpl value, $Res Function(_$PointerScriptImpl) then) =
       __$$PointerScriptImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call(
-      {int networkId,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -954,15 +806,10 @@ class __$$PointerScriptImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$PointerScriptImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -996,13 +843,9 @@ class __$$PointerScriptImplCopyWithImpl<$Res>
 
 class _$PointerScriptImpl extends PointerScript {
   _$PointerScriptImpl(
-      {required this.networkId,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int networkId;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -1010,7 +853,7 @@ class _$PointerScriptImpl extends PointerScript {
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.pointerScript(networkId: $networkId, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.pointerScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -1018,8 +861,6 @@ class _$PointerScriptImpl extends PointerScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PointerScriptImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -1027,8 +868,8 @@ class _$PointerScriptImpl extends PointerScript {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, networkId, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -1039,31 +880,25 @@ class _$PointerScriptImpl extends PointerScript {
 
 abstract class PointerScript extends ShelleyAddressParamsData {
   factory PointerScript(
-          {required final int networkId,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$PointerScriptImpl;
   PointerScript._() : super._();
 
-  @override
-  int get networkId;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$PointerScriptImplCopyWith<_$PointerScriptImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RewardKeyImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$RewardKeyImplCopyWith<$Res> {
   factory _$$RewardKeyImplCopyWith(
           _$RewardKeyImpl value, $Res Function(_$RewardKeyImpl) then) =
       __$$RewardKeyImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({int networkId, StakingDataSource stakingDataSource});
+  $Res call({StakingDataSource stakingDataSource});
 
   $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
@@ -1079,14 +914,9 @@ class __$$RewardKeyImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$RewardKeyImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       stakingDataSource: null == stakingDataSource
           ? _value.stakingDataSource
           : stakingDataSource // ignore: cast_nullable_to_non_nullable
@@ -1106,17 +936,14 @@ class __$$RewardKeyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RewardKeyImpl extends RewardKey {
-  _$RewardKeyImpl({required this.networkId, required this.stakingDataSource})
-      : super._();
+  _$RewardKeyImpl({required this.stakingDataSource}) : super._();
 
-  @override
-  final int networkId;
   @override
   final StakingDataSource stakingDataSource;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardKey(networkId: $networkId, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.rewardKey(stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -1124,14 +951,12 @@ class _$RewardKeyImpl extends RewardKey {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RewardKeyImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
                 other.stakingDataSource == stakingDataSource));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId, stakingDataSource);
+  int get hashCode => Object.hash(runtimeType, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -1141,29 +966,23 @@ class _$RewardKeyImpl extends RewardKey {
 }
 
 abstract class RewardKey extends ShelleyAddressParamsData {
-  factory RewardKey(
-      {required final int networkId,
-      required final StakingDataSource stakingDataSource}) = _$RewardKeyImpl;
+  factory RewardKey({required final StakingDataSource stakingDataSource}) =
+      _$RewardKeyImpl;
   RewardKey._() : super._();
 
-  @override
-  int get networkId;
   StakingDataSource get stakingDataSource;
-  @override
   @JsonKey(ignore: true)
   _$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$RewardScriptImplCopyWith<$Res>
-    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+abstract class _$$RewardScriptImplCopyWith<$Res> {
   factory _$$RewardScriptImplCopyWith(
           _$RewardScriptImpl value, $Res Function(_$RewardScriptImpl) then) =
       __$$RewardScriptImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({int networkId, String stakingScriptHashHex});
+  $Res call({String stakingScriptHashHex});
 }
 
 /// @nodoc
@@ -1177,14 +996,9 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? networkId = null,
     Object? stakingScriptHashHex = null,
   }) {
     return _then(_$RewardScriptImpl(
-      networkId: null == networkId
-          ? _value.networkId
-          : networkId // ignore: cast_nullable_to_non_nullable
-              as int,
       stakingScriptHashHex: null == stakingScriptHashHex
           ? _value.stakingScriptHashHex
           : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -1196,18 +1010,14 @@ class __$$RewardScriptImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$RewardScriptImpl extends RewardScript {
-  _$RewardScriptImpl(
-      {required this.networkId, required this.stakingScriptHashHex})
-      : super._();
+  _$RewardScriptImpl({required this.stakingScriptHashHex}) : super._();
 
-  @override
-  final int networkId;
   @override
   final String stakingScriptHashHex;
 
   @override
   String toString() {
-    return 'ShelleyAddressParamsData.rewardScript(networkId: $networkId, stakingScriptHashHex: $stakingScriptHashHex)';
+    return 'ShelleyAddressParamsData.rewardScript(stakingScriptHashHex: $stakingScriptHashHex)';
   }
 
   @override
@@ -1215,14 +1025,12 @@ class _$RewardScriptImpl extends RewardScript {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RewardScriptImpl &&
-            (identical(other.networkId, networkId) ||
-                other.networkId == networkId) &&
             (identical(other.stakingScriptHashHex, stakingScriptHashHex) ||
                 other.stakingScriptHashHex == stakingScriptHashHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, networkId, stakingScriptHashHex);
+  int get hashCode => Object.hash(runtimeType, stakingScriptHashHex);
 
   @JsonKey(ignore: true)
   @override
@@ -1232,15 +1040,11 @@ class _$RewardScriptImpl extends RewardScript {
 }
 
 abstract class RewardScript extends ShelleyAddressParamsData {
-  factory RewardScript(
-      {required final int networkId,
-      required final String stakingScriptHashHex}) = _$RewardScriptImpl;
+  factory RewardScript({required final String stakingScriptHashHex}) =
+      _$RewardScriptImpl;
   RewardScript._() : super._();
 
-  @override
-  int get networkId;
   String get stakingScriptHashHex;
-  @override
   @JsonKey(ignore: true)
   _$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith =>
       throw _privateConstructorUsedError;

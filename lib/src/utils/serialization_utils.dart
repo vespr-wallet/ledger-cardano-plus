@@ -36,6 +36,7 @@ import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
 import 'package:ledger_cardano/src/models/version_compatibility.dart';
+import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
@@ -389,12 +390,12 @@ class SerializationUtils {
   }
 
   static Uint8List serializeCVoteRegistrationPaymentDestination(
-      ParsedOutputDestination paymentDestination, CardanoVersion version) {
+      ParsedOutputDestination paymentDestination, CardanoVersion version, CardanoNetwork network) {
     if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
-      return serializeTxOutputDestination(paymentDestination, version);
+      return serializeTxOutputDestination(paymentDestination, version, network);
     } else {
       final Uint8List Function() invoker = switch (paymentDestination) {
-        DeviceOwned() => () => serializeAddressParams(paymentDestination.addressParams, version),
+        DeviceOwned() => () => serializeAddressParams(paymentDestination.addressParams, version, network),
         _ => () => throw ValidationException('Invalid payment destination'),
       };
       return invoker();
@@ -418,7 +419,7 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version) =>
+  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
       useBinaryWriter((ByteDataWriter writer) {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
@@ -427,7 +428,7 @@ class SerializationUtils {
               writer.write(hex.decode(destination.addressHex));
             },
           DeviceOwned() => () {
-              final addressParamsBytes = serializeAddressParams(destination.addressParams, version);
+              final addressParamsBytes = serializeAddressParams(destination.addressParams, version, network);
               writer.write(addressParamsBytes);
             },
         };
@@ -437,18 +438,18 @@ class SerializationUtils {
         return writer.toBytes();
       });
 
-  static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version) {
+  static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version, CardanoNetwork network) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(params.addressType.value);
 
       final void Function() invoker = switch (params) {
         ByronAddressParams() => () {
-            writer.writeUint32(params.protocolMagic);
+            writer.writeUint32(network.networkMagic);
             writer.write(serializeSpendingDataSource(params.spendingDataSource));
             writer.write(serializeStakingDataSource(params.stakingDataSource));
           },
         ShelleyAddressParams() => () {
-            writer.writeUint8(params.shelleyAddressParams.networkId);
+            writer.writeUint8(network.networkId);
             final newparams = params.shelleyAddressParams;
 
             final void Function() shelleyInvoker = switch (newparams) {
@@ -903,7 +904,7 @@ class SerializationUtils {
     return data;
   }
 
-  static Uint8List serializeTxOutputBasicParams(ParsedOutput output, CardanoVersion version) {
+  static Uint8List serializeTxOutputBasicParams(ParsedOutput output, CardanoVersion version, CardanoNetwork network) {
     final ByteDataWriter writer = ByteDataWriter();
 
     final compatibility = VersionCompatibility.checkVersionCompatibility(version);
@@ -912,7 +913,7 @@ class SerializationUtils {
       writer.writeUint8(output.format.value);
     }
 
-    writer.write(serializeTxOutputDestination(output.destination, version));
+    writer.write(serializeTxOutputDestination(output.destination, version, network));
 
     writer.write(serializeCoin(output.amount));
 

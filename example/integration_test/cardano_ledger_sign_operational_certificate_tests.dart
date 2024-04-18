@@ -13,27 +13,40 @@ void main() {
     late Ledger ledger;
     late CardanoLedgerApp cardanoApp;
     late LedgerDevice device;
+    bool? isAppXS;
 
     setUpAll(() async {
       ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
       cardanoApp = CardanoLedgerApp(ledger);
       device = await ledger.scan().first;
       await ledger.connect(device);
+      isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
     });
 
-    for (final testCase in signOperationalCertificateTests) {
-      test(testCase.testName, () async {
-        final isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
-        final promise = cardanoApp.signOperationalCertificate(device, testCase.operationalCertificate);
+    group('Should successfully sign operational certificate - isAppXS true', () {
+      for (final testCase in signOperationalCertificateTests) {
+        test(testCase.testName, () async {
+          if (isAppXS == true) {
+            expect(cardanoApp.signOperationalCertificate(device, testCase.operationalCertificate), throwsA(isA<LedgerException>()));
+          } else {
+            print('Skipping test as isAppXS is not true');
+          }
+        });
+      }
+    });
 
-        if (isAppXS) {
-          expect(promise, throwsA(isA<LedgerException>()));
-        } else {
-          final Uint8List signatureBytes = await promise;
-          final String signatureHex = hex.encode(signatureBytes);
-          expect(signatureHex, equals(testCase.expected));
-        }
-      });
-    }
+    group('Should successfully sign operational certificate - isAppXS false', () {
+      for (final testCase in signOperationalCertificateTests) {
+        test(testCase.testName, () async {
+          if (isAppXS == false) {
+            final Uint8List signatureBytes = await cardanoApp.signOperationalCertificate(device, testCase.operationalCertificate);
+            final String signatureHex = hex.encode(signatureBytes);
+            expect(signatureHex, equals(testCase.expected));
+          } else {
+            print('Skipping test as isAppXS is not false');
+          }
+        });
+      }
+    });
   });
 }

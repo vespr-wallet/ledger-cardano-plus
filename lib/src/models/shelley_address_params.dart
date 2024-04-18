@@ -18,58 +18,48 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
   }
 
   factory ShelleyAddressParamsData.basePaymentKeyStakeKey({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = BasePaymentKeyStakeKey;
 
   factory ShelleyAddressParamsData.basePaymentScriptStakeKey({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = BasePaymentScriptStakeKey;
 
   factory ShelleyAddressParamsData.basePaymentKeyStakeScript({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = BasePaymentKeyStakeScript;
 
   factory ShelleyAddressParamsData.basePaymentScriptStakeScript({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = BasePaymentScriptStakeScript;
 
   factory ShelleyAddressParamsData.enterpriseKey({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
   }) = EnterpriseKey;
 
   factory ShelleyAddressParamsData.enterpriseScript({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
   }) = EnterpriseScript;
 
   factory ShelleyAddressParamsData.pointerKey({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = PointerKey;
 
   factory ShelleyAddressParamsData.pointerScript({
-    required int networkId,
     required SpendingDataSource spendingDataSource,
     required StakingDataSource stakingDataSource,
   }) = PointerScript;
 
   factory ShelleyAddressParamsData.rewardKey({
-    required int networkId,
     required StakingDataSource stakingDataSource,
   }) = RewardKey;
 
   factory ShelleyAddressParamsData.rewardScript({
-    required int networkId,
     required String stakingScriptHashHex,
   }) = RewardScript;
 

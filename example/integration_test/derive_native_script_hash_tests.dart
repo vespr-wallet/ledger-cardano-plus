@@ -45,18 +45,12 @@ void main() {
     group('Invalid scripts', () {
       for (final testCase in invalidOnLedgerScriptTestCases) {
         test(testCase.testName, () async {
-          final isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
           final promise = cardanoApp.deriveNativeScriptHash(
             device,
             testCase.script,
             NativeScriptHashDisplayFormat.bech32,
           );
-
-          if (isAppXS) {
-            expect(promise, throwsA(isA<LedgerException>()));
-          } else {
-            expect(promise, throwsA(isA<LedgerException>()));
-          }
+          expect(promise, throwsA(isA<LedgerException>()));
         });
       }
     });

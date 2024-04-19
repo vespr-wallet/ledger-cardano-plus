@@ -4,6 +4,7 @@ import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
 class ShelleyTestCase {
   final String testName;
@@ -25,10 +26,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -39,10 +40,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -53,10 +54,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -67,10 +68,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1, harden + 0, harden + 1000001]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 1, harden + 0, harden + 1000001])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -81,10 +82,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 10, harden + 0, harden + 4]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 0]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 10, harden + 0, harden + 4])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -95,10 +96,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60])),
       ),
     ),
     expectedResult:
@@ -109,10 +110,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 60])),
       ),
     ),
     expectedResult:
@@ -123,10 +124,10 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1000001]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1000001])),
       ),
     ),
     expectedResult:
@@ -137,8 +138,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -151,8 +152,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
@@ -165,8 +166,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1])),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -179,8 +180,9 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
+        spendingDataSource: SpendingDataSource.path(
+            path:
+                LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648])),
         stakingDataSource:
             StakingDataSource.keyHash(keyHashHex: '1d227aefa4b773149170885aadba30aab3127cc611ddbc4999def61c'),
       ),
@@ -195,8 +197,8 @@ List<ShelleyTestCase> shelleyTestCases = [
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -209,8 +211,8 @@ List<ShelleyTestCase> shelleyTestCases = [
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 3]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 3])),
       ),
     ),
     expectedResult:
@@ -223,8 +225,8 @@ List<ShelleyTestCase> shelleyTestCases = [
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
         spendingDataSource:
             SpendingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult:
@@ -235,8 +237,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeScript(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource:
             StakingDataSource.scriptHash(scriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277'),
       ),
@@ -249,8 +251,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
       ),
     ),
     expectedResult: 'addr_test1vpd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vc7t2fks',
@@ -260,8 +262,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
       ),
     ),
     expectedResult: 'addr1vdd9xypc9xnnstp2kas3r7mf7ylxn4sksfxxypvwgnc63vc9wh7em',
@@ -271,8 +273,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 101, harden + 0, harden + 1])),
       ),
     ),
     expectedResult: 'addr1vv6dcymepkghuyt0za9jxg5hn89art9y8yjcvhxclxdhnds25ctky',
@@ -304,8 +306,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 2, certificateIndex: 3),
       ),
     ),
@@ -316,8 +318,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 24157, txIndex: 177, certificateIndex: 42),
       ),
     ),
@@ -328,8 +330,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 1])),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 0, certificateIndex: 0),
       ),
     ),
@@ -340,8 +342,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 1000, harden + 0, harden + 1]),
+        spendingDataSource: SpendingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 1000, harden + 0, harden + 1])),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 1, txIndex: 0, certificateIndex: 0),
       ),
     ),
@@ -352,8 +354,9 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-        spendingDataSource:
-            SpendingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648]),
+        spendingDataSource: SpendingDataSource.path(
+            path:
+                LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 0, harden + 2147483648])),
         stakingDataSource: StakingDataSource.blockchainPointer(blockIndex: 0, txIndex: 7, certificateIndex: 0),
       ),
     ),
@@ -400,8 +403,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult: 'stake_test1uqwjy7h05jmhx9y3wzy94td6xz4txynuccgam0zfn800v8q8mmqwc',
@@ -411,8 +414,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 0])),
       ),
     ),
     expectedResult: 'stake1uvwjy7h05jmhx9y3wzy94td6xz4txynuccgam0zfn800v8qqucf2t',
@@ -422,8 +425,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 1])),
       ),
     ),
     expectedResult: 'stake_test1uqktgr9psuz0fxggkx9ald8wu8kgpckr2d9kjfxrum6sm3qp87652',
@@ -433,8 +436,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 1]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 101, harden + 2, harden + 1])),
       ),
     ),
     expectedResult: 'stake_test1up0umv478zejdvynrddaddjzcztnmm2phsqs77cghyuah6qnjw5hh',
@@ -444,8 +447,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 20000000]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, harden + 2, harden + 20000000])),
       ),
     ),
     expectedResult: 'stake_test1urgn94qu0ewtt6f7l4sp6jm5vjv5u3gktevzy46s2qn92yshap4ze',
@@ -455,8 +458,8 @@ List<ShelleyTestCase> shelleyTestCases = [
     network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource:
-            StakingDataSource.path(path: [harden + 1852, harden + 1815, harden + 300, harden + 2, harden + 0]),
+        stakingDataSource: StakingDataSource.path(
+            path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 300, harden + 2, harden + 0])),
       ),
     ),
     expectedResult: 'stake1u08h6dxajsaatnakylrd4pdhfrv7z3lkzgsq60fhvejux0gpcrd2j',

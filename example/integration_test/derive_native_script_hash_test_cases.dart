@@ -1,4 +1,5 @@
 import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
 class ValidNativeScriptTestCase {
   final String testName;
@@ -19,7 +20,7 @@ final validNativeScriptTestCases = [
     testName: 'PUBKEY - device owned',
     script: ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyDeviceOwned(
-        path: [harden + 2147483692, harden + 2147485463, harden + 2147483648, harden + 0, harden + 0],
+        path: LedgerSigningPath.custom([harden + 2147483692, harden + 2147485463, harden + 2147483648, harden + 0, harden + 0]),
       ),
     ),
     displayFormat: NativeScriptHashDisplayFormat.bech32,
@@ -292,7 +293,7 @@ final invalidOnLedgerScriptTestCases = [
     testName: 'PUBKEY - invalid key path',
     script: ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyDeviceOwned(
-          path: [harden + 0, harden + 0, harden + 0, harden + 0, harden + 0, harden + 0]),
+          path: LedgerSigningPath.custom([harden + 0, harden + 0, harden + 0, harden + 0, harden + 0, harden + 0])),
     ),
   ),
   InvalidOnLedgerScriptTestCase(

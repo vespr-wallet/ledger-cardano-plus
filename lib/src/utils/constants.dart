@@ -251,3 +251,9 @@ enum RelayType {
   final int value;
   const RelayType(this.value);
 }
+
+enum ShelleyAddressRole {
+  payment,
+  change,
+  stake
+}

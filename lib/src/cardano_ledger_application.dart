@@ -153,6 +153,7 @@ class CardanoLedgerApp {
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
+    required CardanoNetwork network,
   }) async {
     final bip32StakePath = [
       harden + 1852,
@@ -179,7 +180,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet(),
+      network: network,
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -199,6 +200,7 @@ class CardanoLedgerApp {
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
+    required CardanoNetwork network,
   }) async {
     final bip32StakePath = [
       harden + 1852,
@@ -225,7 +227,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet(),
+      network: network,
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(
@@ -245,6 +247,7 @@ class CardanoLedgerApp {
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
+    required CardanoNetwork network,
   }) async {
     final bip32StakePath = [
       harden + 1852,
@@ -262,7 +265,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet(),
+      network: network,
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(

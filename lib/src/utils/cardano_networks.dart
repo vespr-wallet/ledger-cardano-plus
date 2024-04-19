@@ -19,6 +19,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
   factory CardanoNetwork.custom({
     required int customNetworkId,
     required int customNetworkMagic,
+    required String customBech32Hrp,
   }) = NetworkCustom;
 
   late final int networkMagic = switch (this) {
@@ -37,5 +38,14 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkPreview() => 0,
     NetworkConway() => 0,
     NetworkCustom(customNetworkId: final customNetworkId) => customNetworkId,
+  };
+
+  late final String bech32Hrp = switch (this) {
+    NetworkMainnet() => 'addr',
+    NetworkLegacyTestnet() => 'addr_test',
+    NetworkPreProd() => 'addr',
+    NetworkPreview() => 'addr',
+    NetworkConway() => 'addr',
+    NetworkCustom(customBech32Hrp: final customBech32Hrp) => customBech32Hrp,
   };
 }

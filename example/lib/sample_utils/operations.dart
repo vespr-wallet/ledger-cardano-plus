@@ -133,7 +133,7 @@ Future<String> signOperationalCertificate(CardanoLedgerApp cardanoApp, LedgerDev
 
 Future<String> fetchStakeAddress(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
   try {
-    final stakingAddress = await cardanoApp.deriveStakingAddress(device);
+    final stakingAddress = await cardanoApp.deriveStakingAddress(device, network: CardanoNetwork.mainnet());
 
     return "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress";
   } on LedgerException catch (e) {
@@ -151,7 +151,7 @@ Future<String> fetchReceiveAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex);
+      final address = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Receive Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -171,7 +171,7 @@ Future<String> fetchChangeAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex);
+      final address = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Change Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -189,8 +189,8 @@ Future<String> fetchReceiveAndChangeAddress(
   required int addressIndex,
 }) async {
   try {
-    final receiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex);
-    final changeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex);
+    final receiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+    final changeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
 
     return "Receive Address (1852'/1815'/0'/0/$addressIndex)\n$receiveAddress"
         "\n\nChange Address (1852'/1815'/0'/1/$addressIndex)\n$changeAddress";

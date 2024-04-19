@@ -35,15 +35,8 @@ Future<String> deriveAddress(
   );
 
   Uint8List addressBytes = hexToBytes(addressResult);
-  String prefix = switch (network) {
-    NetworkMainnet() => 'addr',
-    NetworkLegacyTestnet() => 'addr_test',
-    NetworkPreProd() => 'addr',
-    NetworkPreview() => 'addr',
-    NetworkConway() => 'addr',
-    NetworkCustom() => 'addr',
-  };
-  return bech32EncodeAddress(prefix, addressBytes);
+  String bech32Hrp = network.bech32Hrp;
+  return bech32EncodeAddress(bech32Hrp, addressBytes);
 }
 
 String bech32ToHex(String bech32Address) {

@@ -95,6 +95,7 @@ void main() {
                       device,
                       accountIndex: testCase.accountIndex,
                       addressIndex: testCase.addressIndex,
+                      network: CardanoNetwork.mainnet(),
                     ),
                 throwsA(isA<LedgerException>()));
           } else {
@@ -121,6 +122,7 @@ void main() {
               device,
               accountIndex: testCase.accountIndex,
               addressIndex: testCase.addressIndex,
+              network: CardanoNetwork.mainnet(),
             );
             print('Derived address: $result');
           } else {
@@ -146,6 +148,7 @@ void main() {
                       device,
                       accountIndex: testCase.accountIndex,
                       addressIndex: testCase.addressIndex,
+                      network: CardanoNetwork.mainnet(),
                     ),
                 throwsA(isA<LedgerException>()));
           } else {
@@ -170,6 +173,7 @@ void main() {
               device,
               accountIndex: testCase.accountIndex,
               addressIndex: testCase.addressIndex,
+              network: CardanoNetwork.mainnet(),
             );
             print('Derived address: $result');
           } else {

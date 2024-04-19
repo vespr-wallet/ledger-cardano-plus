@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/models/spending_params.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -24,7 +25,7 @@ sealed class AddressParamsBase with _$AddressParamsBase {
 
   factory AddressParamsBase.stakingPath({
     required SpendingParams spendingParams,
-    required List<int> stakingPath,
+    required LedgerSigningPath stakingPath,
   }) = AddressParamsBaseStakingPath;
 
   factory AddressParamsBase.stakingKeyHash({

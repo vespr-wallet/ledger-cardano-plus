@@ -18,10 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedCVoteRegistrationParams {
   CIP36VoteRegistrationFormat get format => throw _privateConstructorUsedError;
   CVotePublicKey? get votePublicKey => throw _privateConstructorUsedError;
-  List<int>? get votePublicKeyPath => throw _privateConstructorUsedError;
+  LedgerSigningPath? get votePublicKeyPath =>
+      throw _privateConstructorUsedError;
   List<ParsedCVoteDelegation>? get delegations =>
       throw _privateConstructorUsedError;
-  List<int> get stakingPath => throw _privateConstructorUsedError;
+  LedgerSigningPath get stakingPath => throw _privateConstructorUsedError;
   ParsedOutputDestination get paymentDestination =>
       throw _privateConstructorUsedError;
   BigInt get nonce => throw _privateConstructorUsedError;
@@ -43,14 +44,16 @@ abstract class $ParsedCVoteRegistrationParamsCopyWith<$Res> {
   $Res call(
       {CIP36VoteRegistrationFormat format,
       CVotePublicKey? votePublicKey,
-      List<int>? votePublicKeyPath,
+      LedgerSigningPath? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
-      List<int> stakingPath,
+      LedgerSigningPath stakingPath,
       ParsedOutputDestination paymentDestination,
       BigInt nonce,
       BigInt? votingPurpose});
 
   $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
+  $LedgerSigningPathCopyWith<$Res>? get votePublicKeyPath;
+  $LedgerSigningPathCopyWith<$Res> get stakingPath;
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination;
 }
 
@@ -89,7 +92,7 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
       votePublicKeyPath: freezed == votePublicKeyPath
           ? _value.votePublicKeyPath
           : votePublicKeyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as LedgerSigningPath?,
       delegations: freezed == delegations
           ? _value.delegations
           : delegations // ignore: cast_nullable_to_non_nullable
@@ -97,7 +100,7 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
       stakingPath: null == stakingPath
           ? _value.stakingPath
           : stakingPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
       paymentDestination: null == paymentDestination
           ? _value.paymentDestination
           : paymentDestination // ignore: cast_nullable_to_non_nullable
@@ -127,6 +130,26 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res>? get votePublicKeyPath {
+    if (_value.votePublicKeyPath == null) {
+      return null;
+    }
+
+    return $LedgerSigningPathCopyWith<$Res>(_value.votePublicKeyPath!, (value) {
+      return _then(_value.copyWith(votePublicKeyPath: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get stakingPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.stakingPath, (value) {
+      return _then(_value.copyWith(stakingPath: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination {
     return $ParsedOutputDestinationCopyWith<$Res>(_value.paymentDestination,
         (value) {
@@ -147,15 +170,19 @@ abstract class _$$ParsedCVoteRegistrationParamsImplCopyWith<$Res>
   $Res call(
       {CIP36VoteRegistrationFormat format,
       CVotePublicKey? votePublicKey,
-      List<int>? votePublicKeyPath,
+      LedgerSigningPath? votePublicKeyPath,
       List<ParsedCVoteDelegation>? delegations,
-      List<int> stakingPath,
+      LedgerSigningPath stakingPath,
       ParsedOutputDestination paymentDestination,
       BigInt nonce,
       BigInt? votingPurpose});
 
   @override
   $CVotePublicKeyCopyWith<$Res>? get votePublicKey;
+  @override
+  $LedgerSigningPathCopyWith<$Res>? get votePublicKeyPath;
+  @override
+  $LedgerSigningPathCopyWith<$Res> get stakingPath;
   @override
   $ParsedOutputDestinationCopyWith<$Res> get paymentDestination;
 }
@@ -192,17 +219,17 @@ class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res>
           : votePublicKey // ignore: cast_nullable_to_non_nullable
               as CVotePublicKey?,
       votePublicKeyPath: freezed == votePublicKeyPath
-          ? _value._votePublicKeyPath
+          ? _value.votePublicKeyPath
           : votePublicKeyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as LedgerSigningPath?,
       delegations: freezed == delegations
           ? _value._delegations
           : delegations // ignore: cast_nullable_to_non_nullable
               as List<ParsedCVoteDelegation>?,
       stakingPath: null == stakingPath
-          ? _value._stakingPath
+          ? _value.stakingPath
           : stakingPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
       paymentDestination: null == paymentDestination
           ? _value.paymentDestination
           : paymentDestination // ignore: cast_nullable_to_non_nullable
@@ -226,32 +253,21 @@ class _$ParsedCVoteRegistrationParamsImpl
   _$ParsedCVoteRegistrationParamsImpl(
       {required this.format,
       required this.votePublicKey,
-      required final List<int>? votePublicKeyPath,
+      required this.votePublicKeyPath,
       required final List<ParsedCVoteDelegation>? delegations,
-      required final List<int> stakingPath,
+      required this.stakingPath,
       required this.paymentDestination,
       required this.nonce,
       required this.votingPurpose})
-      : _votePublicKeyPath = votePublicKeyPath,
-        _delegations = delegations,
-        _stakingPath = stakingPath,
+      : _delegations = delegations,
         super._();
 
   @override
   final CIP36VoteRegistrationFormat format;
   @override
   final CVotePublicKey? votePublicKey;
-  final List<int>? _votePublicKeyPath;
   @override
-  List<int>? get votePublicKeyPath {
-    final value = _votePublicKeyPath;
-    if (value == null) return null;
-    if (_votePublicKeyPath is EqualUnmodifiableListView)
-      return _votePublicKeyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
-
+  final LedgerSigningPath? votePublicKeyPath;
   final List<ParsedCVoteDelegation>? _delegations;
   @override
   List<ParsedCVoteDelegation>? get delegations {
@@ -262,14 +278,8 @@ class _$ParsedCVoteRegistrationParamsImpl
     return EqualUnmodifiableListView(value);
   }
 
-  final List<int> _stakingPath;
   @override
-  List<int> get stakingPath {
-    if (_stakingPath is EqualUnmodifiableListView) return _stakingPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stakingPath);
-  }
-
+  final LedgerSigningPath stakingPath;
   @override
   final ParsedOutputDestination paymentDestination;
   @override
@@ -290,12 +300,12 @@ class _$ParsedCVoteRegistrationParamsImpl
             (identical(other.format, format) || other.format == format) &&
             (identical(other.votePublicKey, votePublicKey) ||
                 other.votePublicKey == votePublicKey) &&
-            const DeepCollectionEquality()
-                .equals(other._votePublicKeyPath, _votePublicKeyPath) &&
+            (identical(other.votePublicKeyPath, votePublicKeyPath) ||
+                other.votePublicKeyPath == votePublicKeyPath) &&
             const DeepCollectionEquality()
                 .equals(other._delegations, _delegations) &&
-            const DeepCollectionEquality()
-                .equals(other._stakingPath, _stakingPath) &&
+            (identical(other.stakingPath, stakingPath) ||
+                other.stakingPath == stakingPath) &&
             (identical(other.paymentDestination, paymentDestination) ||
                 other.paymentDestination == paymentDestination) &&
             (identical(other.nonce, nonce) || other.nonce == nonce) &&
@@ -308,9 +318,9 @@ class _$ParsedCVoteRegistrationParamsImpl
       runtimeType,
       format,
       votePublicKey,
-      const DeepCollectionEquality().hash(_votePublicKeyPath),
+      votePublicKeyPath,
       const DeepCollectionEquality().hash(_delegations),
-      const DeepCollectionEquality().hash(_stakingPath),
+      stakingPath,
       paymentDestination,
       nonce,
       votingPurpose);
@@ -329,9 +339,9 @@ abstract class _ParsedCVoteRegistrationParams
   factory _ParsedCVoteRegistrationParams(
           {required final CIP36VoteRegistrationFormat format,
           required final CVotePublicKey? votePublicKey,
-          required final List<int>? votePublicKeyPath,
+          required final LedgerSigningPath? votePublicKeyPath,
           required final List<ParsedCVoteDelegation>? delegations,
-          required final List<int> stakingPath,
+          required final LedgerSigningPath stakingPath,
           required final ParsedOutputDestination paymentDestination,
           required final BigInt nonce,
           required final BigInt? votingPurpose}) =
@@ -343,11 +353,11 @@ abstract class _ParsedCVoteRegistrationParams
   @override
   CVotePublicKey? get votePublicKey;
   @override
-  List<int>? get votePublicKeyPath;
+  LedgerSigningPath? get votePublicKeyPath;
   @override
   List<ParsedCVoteDelegation>? get delegations;
   @override
-  List<int> get stakingPath;
+  LedgerSigningPath get stakingPath;
   @override
   ParsedOutputDestination get paymentDestination;
   @override

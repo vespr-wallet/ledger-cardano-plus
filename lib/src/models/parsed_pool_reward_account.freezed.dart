@@ -43,7 +43,9 @@ abstract class _$$DeviceOwnedPoolRewardAccountImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedPoolRewardAccountImpl) then) =
       __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -63,27 +65,28 @@ class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>
   }) {
     return _then(_$DeviceOwnedPoolRewardAccountImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
-  _$DeviceOwnedPoolRewardAccountImpl({required final List<int> path})
-      : _path = path,
-        super._();
+  _$DeviceOwnedPoolRewardAccountImpl({required this.path}) : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -95,12 +98,11 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedPoolRewardAccountImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -112,11 +114,12 @@ class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount {
 }
 
 abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
-  factory DeviceOwnedPoolRewardAccount({required final List<int> path}) =
+  factory DeviceOwnedPoolRewardAccount(
+          {required final LedgerSigningPath path}) =
       _$DeviceOwnedPoolRewardAccountImpl;
   DeviceOwnedPoolRewardAccount._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$DeviceOwnedPoolRewardAccountImplCopyWith<
           _$DeviceOwnedPoolRewardAccountImpl>

@@ -41,7 +41,9 @@ abstract class _$$DeviceOwnedPoolOwnerImplCopyWith<$Res> {
           $Res Function(_$DeviceOwnedPoolOwnerImpl) then) =
       __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -59,27 +61,28 @@ class __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res>
   }) {
     return _then(_$DeviceOwnedPoolOwnerImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
-  _$DeviceOwnedPoolOwnerImpl({required final List<int> path})
-      : _path = path,
-        super._();
+  _$DeviceOwnedPoolOwnerImpl({required this.path}) : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -91,12 +94,11 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeviceOwnedPoolOwnerImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -108,11 +110,11 @@ class _$DeviceOwnedPoolOwnerImpl extends DeviceOwnedPoolOwner {
 }
 
 abstract class DeviceOwnedPoolOwner extends ParsedPoolOwner {
-  factory DeviceOwnedPoolOwner({required final List<int> path}) =
+  factory DeviceOwnedPoolOwner({required final LedgerSigningPath path}) =
       _$DeviceOwnedPoolOwnerImpl;
   DeviceOwnedPoolOwner._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$DeviceOwnedPoolOwnerImplCopyWith<_$DeviceOwnedPoolOwnerImpl>
       get copyWith => throw _privateConstructorUsedError;

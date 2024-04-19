@@ -2,6 +2,7 @@ import 'dart:math';
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_datum.dart';
 import 'package:ledger_cardano/src/models/parsed_required_signer.dart';
@@ -174,7 +175,7 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> _signTxInit(LedgerSendFct send, List<List<int>> witnessPaths) async {
+  Future<void> _signTxInit(LedgerSendFct send, List<LedgerSigningPath> witnessPaths) async {
     final data = SerializationUtils.serializeTxInit(
       tx: signingRequest.tx,
       signingMode: signingRequest.signingMode,
@@ -790,8 +791,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return txHashHex;
   }
 
-  Future<Witness> _signTxGetWitness(List<int> path, LedgerSendFct send) async {
-    final Uint8List data = SerializationUtils.pathToBuf(path);
+  Future<Witness> _signTxGetWitness(LedgerSigningPath path, LedgerSendFct send) async {
+    final Uint8List data = SerializationUtils.pathToBuf(path.signingPath);
 
     final response = await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,

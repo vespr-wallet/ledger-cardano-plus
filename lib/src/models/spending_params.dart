@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'spending_params.freezed.dart';
@@ -15,7 +16,7 @@ sealed class SpendingParams with _$SpendingParams {
   }
 
   factory SpendingParams.path({
-    required List<int> spendingPath,
+    required LedgerSigningPath spendingPath,
   }) = SpendingParamsPath;
 
   factory SpendingParams.scriptHash({

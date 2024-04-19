@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'parsed_pool_key.freezed.dart';
@@ -15,7 +16,7 @@ sealed class ParsedPoolKey with _$ParsedPoolKey {
   }
 
   factory ParsedPoolKey.deviceOwned({
-    required List<int> path,
+    required LedgerSigningPath path,
   }) = DeviceOwnedPoolKey;
 
   factory ParsedPoolKey.thirdParty({

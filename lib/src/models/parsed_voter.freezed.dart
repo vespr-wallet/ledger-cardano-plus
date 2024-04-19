@@ -116,7 +116,9 @@ abstract class _$$CommitteeKeyPathImplCopyWith<$Res> {
           $Res Function(_$CommitteeKeyPathImpl) then) =
       __$$CommitteeKeyPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> keyPath});
+  $Res call({LedgerSigningPath keyPath});
+
+  $LedgerSigningPathCopyWith<$Res> get keyPath;
 }
 
 /// @nodoc
@@ -134,27 +136,28 @@ class __$$CommitteeKeyPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$CommitteeKeyPathImpl(
       keyPath: null == keyPath
-          ? _value._keyPath
+          ? _value.keyPath
           : keyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get keyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
+      return _then(_value.copyWith(keyPath: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
-  _$CommitteeKeyPathImpl({required final List<int> keyPath})
-      : _keyPath = keyPath,
-        super._();
+  _$CommitteeKeyPathImpl({required this.keyPath}) : super._();
 
-  final List<int> _keyPath;
   @override
-  List<int> get keyPath {
-    if (_keyPath is EqualUnmodifiableListView) return _keyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_keyPath);
-  }
+  final LedgerSigningPath keyPath;
 
   @override
   String toString() {
@@ -166,12 +169,11 @@ class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CommitteeKeyPathImpl &&
-            const DeepCollectionEquality().equals(other._keyPath, _keyPath));
+            (identical(other.keyPath, keyPath) || other.keyPath == keyPath));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keyPath));
+  int get hashCode => Object.hash(runtimeType, keyPath);
 
   @JsonKey(ignore: true)
   @override
@@ -182,11 +184,11 @@ class _$CommitteeKeyPathImpl extends CommitteeKeyPath {
 }
 
 abstract class CommitteeKeyPath extends ParsedVoter {
-  factory CommitteeKeyPath({required final List<int> keyPath}) =
+  factory CommitteeKeyPath({required final LedgerSigningPath keyPath}) =
       _$CommitteeKeyPathImpl;
   CommitteeKeyPath._() : super._();
 
-  List<int> get keyPath;
+  LedgerSigningPath get keyPath;
   @JsonKey(ignore: true)
   _$$CommitteeKeyPathImplCopyWith<_$CommitteeKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -346,7 +348,9 @@ abstract class _$$DrepKeyPathImplCopyWith<$Res> {
           _$DrepKeyPathImpl value, $Res Function(_$DrepKeyPathImpl) then) =
       __$$DrepKeyPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> keyPath});
+  $Res call({LedgerSigningPath keyPath});
+
+  $LedgerSigningPathCopyWith<$Res> get keyPath;
 }
 
 /// @nodoc
@@ -364,27 +368,28 @@ class __$$DrepKeyPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$DrepKeyPathImpl(
       keyPath: null == keyPath
-          ? _value._keyPath
+          ? _value.keyPath
           : keyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get keyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
+      return _then(_value.copyWith(keyPath: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$DrepKeyPathImpl extends DrepKeyPath {
-  _$DrepKeyPathImpl({required final List<int> keyPath})
-      : _keyPath = keyPath,
-        super._();
+  _$DrepKeyPathImpl({required this.keyPath}) : super._();
 
-  final List<int> _keyPath;
   @override
-  List<int> get keyPath {
-    if (_keyPath is EqualUnmodifiableListView) return _keyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_keyPath);
-  }
+  final LedgerSigningPath keyPath;
 
   @override
   String toString() {
@@ -396,12 +401,11 @@ class _$DrepKeyPathImpl extends DrepKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DrepKeyPathImpl &&
-            const DeepCollectionEquality().equals(other._keyPath, _keyPath));
+            (identical(other.keyPath, keyPath) || other.keyPath == keyPath));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keyPath));
+  int get hashCode => Object.hash(runtimeType, keyPath);
 
   @JsonKey(ignore: true)
   @override
@@ -411,10 +415,11 @@ class _$DrepKeyPathImpl extends DrepKeyPath {
 }
 
 abstract class DrepKeyPath extends ParsedVoter {
-  factory DrepKeyPath({required final List<int> keyPath}) = _$DrepKeyPathImpl;
+  factory DrepKeyPath({required final LedgerSigningPath keyPath}) =
+      _$DrepKeyPathImpl;
   DrepKeyPath._() : super._();
 
-  List<int> get keyPath;
+  LedgerSigningPath get keyPath;
   @JsonKey(ignore: true)
   _$$DrepKeyPathImplCopyWith<_$DrepKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -576,7 +581,9 @@ abstract class _$$StakePoolKeyPathImplCopyWith<$Res> {
           $Res Function(_$StakePoolKeyPathImpl) then) =
       __$$StakePoolKeyPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> keyPath});
+  $Res call({LedgerSigningPath keyPath});
+
+  $LedgerSigningPathCopyWith<$Res> get keyPath;
 }
 
 /// @nodoc
@@ -594,27 +601,28 @@ class __$$StakePoolKeyPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$StakePoolKeyPathImpl(
       keyPath: null == keyPath
-          ? _value._keyPath
+          ? _value.keyPath
           : keyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get keyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
+      return _then(_value.copyWith(keyPath: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
-  _$StakePoolKeyPathImpl({required final List<int> keyPath})
-      : _keyPath = keyPath,
-        super._();
+  _$StakePoolKeyPathImpl({required this.keyPath}) : super._();
 
-  final List<int> _keyPath;
   @override
-  List<int> get keyPath {
-    if (_keyPath is EqualUnmodifiableListView) return _keyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_keyPath);
-  }
+  final LedgerSigningPath keyPath;
 
   @override
   String toString() {
@@ -626,12 +634,11 @@ class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakePoolKeyPathImpl &&
-            const DeepCollectionEquality().equals(other._keyPath, _keyPath));
+            (identical(other.keyPath, keyPath) || other.keyPath == keyPath));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_keyPath));
+  int get hashCode => Object.hash(runtimeType, keyPath);
 
   @JsonKey(ignore: true)
   @override
@@ -642,11 +649,11 @@ class _$StakePoolKeyPathImpl extends StakePoolKeyPath {
 }
 
 abstract class StakePoolKeyPath extends ParsedVoter {
-  factory StakePoolKeyPath({required final List<int> keyPath}) =
+  factory StakePoolKeyPath({required final LedgerSigningPath keyPath}) =
       _$StakePoolKeyPathImpl;
   StakePoolKeyPath._() : super._();
 
-  List<int> get keyPath;
+  LedgerSigningPath get keyPath;
   @JsonKey(ignore: true)
   _$$StakePoolKeyPathImplCopyWith<_$StakePoolKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;

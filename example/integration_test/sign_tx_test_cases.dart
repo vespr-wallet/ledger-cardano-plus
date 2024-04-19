@@ -12,6 +12,7 @@ import 'package:ledger_cardano/src/models/parsed_required_signer.dart';
 import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_credential.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
 import 'test_utils.dart';
 
@@ -39,7 +40,11 @@ final testsAlonzo = [
           ParsedInput(
             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
-            path: [harden + 1852, harden + 1815, harden + 0, 0, 0],
+            path: LedgerSigningPath.shelley(
+              account: 0,
+              address: 0,
+              role: ShelleyAddressRole.payment,
+            ),
           )
         ],
         outputs: [],

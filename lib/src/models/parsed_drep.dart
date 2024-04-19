@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -26,7 +27,7 @@ sealed class ParsedDRep with _$ParsedDRep {
   }
 
   factory ParsedDRep.keyPath({
-    required List<int> path,
+    required LedgerSigningPath path,
   }) = DRepKeyPath;
 
   factory ParsedDRep.keyHash({

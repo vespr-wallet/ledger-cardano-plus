@@ -85,7 +85,9 @@ abstract class _$$StakingDataSourceKeyPathImplCopyWith<$Res> {
           $Res Function(_$StakingDataSourceKeyPathImpl) then) =
       __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -105,27 +107,28 @@ class __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$StakingDataSourceKeyPathImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
-  _$StakingDataSourceKeyPathImpl({required final List<int> path})
-      : _path = path,
-        super._();
+  _$StakingDataSourceKeyPathImpl({required this.path}) : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -137,12 +140,11 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StakingDataSourceKeyPathImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -153,11 +155,11 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
 }
 
 abstract class StakingDataSourceKeyPath extends StakingDataSource {
-  factory StakingDataSourceKeyPath({required final List<int> path}) =
+  factory StakingDataSourceKeyPath({required final LedgerSigningPath path}) =
       _$StakingDataSourceKeyPathImpl;
   StakingDataSourceKeyPath._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl>
       get copyWith => throw _privateConstructorUsedError;

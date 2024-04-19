@@ -150,7 +150,7 @@ class CardanoLedgerApp {
   }) async {
     final bip32StakePath = LedgerSigningPath.shelley(
       account: accountIndex,
-      address: addressIndex,
+      address: 0,
       role: ShelleyAddressRole.stake,
     );
 
@@ -162,8 +162,8 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource: SpendingDataSource.path(path: bip32ChangePath.signingPath),
-        stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath.signingPath),
+        spendingDataSource: SpendingDataSource.path(path: bip32ChangePath),
+        stakingDataSource: StakingDataSource.path(path: bip32StakePath),
       ),
     );
 
@@ -193,7 +193,7 @@ class CardanoLedgerApp {
   }) async {
     final bip32StakePath = LedgerSigningPath.shelley(
       account: accountIndex,
-      address: addressIndex,
+      address: 0,
       role: ShelleyAddressRole.stake,
     );
 
@@ -202,11 +202,14 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.payment,
     );
+    
+    print(bip32StakePath.signingPath);
+    print(bip32ReceivePath.signingPath);
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath.signingPath),
-        stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath.signingPath),
+        spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath),
+        stakingDataSource: StakingDataSource.path(path: bip32StakePath),
       ),
     );
 
@@ -239,10 +242,12 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.stake,
     );
+    
+    print(path.signingPath);
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource: StakingDataSource.keyPath(path: path.signingPath),
+        stakingDataSource: StakingDataSource.path(path: path),
       ),
     );
 
@@ -277,7 +282,7 @@ class CardanoLedgerApp {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        spendingDataSource: SpendingDataSource.path(path: path.signingPath),
+        spendingDataSource: SpendingDataSource.path(path: path),
       ),
     );
 

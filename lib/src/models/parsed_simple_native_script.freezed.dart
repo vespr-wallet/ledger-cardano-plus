@@ -44,7 +44,9 @@ abstract class _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<$Res> {
               then) =
       __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -64,10 +66,18 @@ class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>
   }) {
     return _then(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
@@ -75,18 +85,11 @@ class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>
 
 class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
     extends ParsedSimpleNativeScript_PubKeyDeviceOwned {
-  _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
-      {required final List<int> path})
-      : _path = path,
-        super._();
+  _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl({required this.path})
+      : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -98,12 +101,11 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -119,11 +121,11 @@ class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl
 abstract class ParsedSimpleNativeScript_PubKeyDeviceOwned
     extends ParsedSimpleNativeScript {
   factory ParsedSimpleNativeScript_PubKeyDeviceOwned(
-          {required final List<int> path}) =
+          {required final LedgerSigningPath path}) =
       _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl;
   ParsedSimpleNativeScript_PubKeyDeviceOwned._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<
           _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>

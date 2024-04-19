@@ -3,6 +3,7 @@ import 'dart:typed_data';
 import 'package:collection/collection.dart';
 import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/cvote_public_key.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/parsed_anchor.dart';
 import 'package:ledger_cardano/src/models/parsed_asset_group.dart';
@@ -48,9 +49,9 @@ class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
   static final BigInt optionFlagsTagCborSets = BigInt.from(OptionFlags.tagCborSets.value);
 
-  static void writerSerializedPath(ByteDataWriter writer, List<int> path) {
-    writer.writeUint8(path.length);
-    for (var index in path) {
+  static void writerSerializedPath(ByteDataWriter writer, LedgerSigningPath path) {
+    writer.writeUint8(path.signingPath.length);
+    for (var index in path.signingPath) {
       writer.writeUint32(index);
     }
   }
@@ -299,7 +300,7 @@ class SerializationUtils {
   static Uint8List serializeDelegationType(CIP36VoteDelegationType type) => Uint8List.fromList([type.encodingValue]);
 
   static Uint8List serializeCVoteRegistrationVoteKey(
-      CVotePublicKey? votePublicKey, List<int>? votePublicKeyPath, CardanoVersion version) {
+      CVotePublicKey? votePublicKey, LedgerSigningPath? votePublicKeyPath, CardanoVersion version) {
     return useBinaryWriter((ByteDataWriter writer) {
       if (votePublicKey != null) {
         if (votePublicKeyPath == null) {
@@ -382,7 +383,7 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCVoteRegistrationStakingPath(List<int> stakingPath) {
+  static Uint8List serializeCVoteRegistrationStakingPath(LedgerSigningPath stakingPath) {
     return useBinaryWriter((ByteDataWriter writer) {
       writerSerializedPath(writer, stakingPath);
       return writer.toBytes();
@@ -963,7 +964,7 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxWitnessRequest(List<int> path) {
+  static Uint8List serializeTxWitnessRequest(LedgerSigningPath path) {
     return useBinaryWriter((ByteDataWriter writer) {
       writerSerializedPath(writer, path);
       return writer.toBytes();
@@ -1025,11 +1026,11 @@ class SerializationUtils {
   }
 }
 
-List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
+List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
   final tx = request.tx;
   final signingMode = request.signingMode;
   final additionalWitnessPaths = request.additionalWitnessPaths;
-  final List<List<int>> witnessPaths = [];
+  final List<LedgerSigningPath> witnessPaths = [];
 
   if (signingMode is! MultisigTransaction) {
     for (final input in tx.inputs) {
@@ -1184,9 +1185,9 @@ List<List<int>> gatherWitnessPaths(ParsedSigningRequest request) {
   return uniquify(witnessPaths);
 }
 
-List<List<int>> uniquify(List<List<int>> paths) {
+List<LedgerSigningPath> uniquify(List<LedgerSigningPath> paths) {
   const eq = DeepCollectionEquality();
-  final List<List<int>> finalPaths = [];
+  final List<LedgerSigningPath> finalPaths = [];
   for (final path in paths) {
     if (finalPaths.none((addedPath) => eq.equals(addedPath, path))) {
       finalPaths.add(path);

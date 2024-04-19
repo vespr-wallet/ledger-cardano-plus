@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
 Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
   try {
@@ -14,13 +15,11 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
           ParsedInput(
             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
-            path: [
-              harden + 1852,
-              harden + 1815,
-              harden + 0,
-              0,
-              0,
-            ],
+            path: LedgerSigningPath.shelley(
+              account: 0,
+              address: 0,
+              role: ShelleyAddressRole.payment,
+            ),
           ),
         ],
         outputs: [
@@ -105,12 +104,12 @@ Future<String> signOperationalCertificate(CardanoLedgerApp cardanoApp, LedgerDev
       kesPublicKeyHex: '3d24bc547388cf2403fd978fc3d3a93d1f39acf68a9c00e40512084dc05f2822',
       kesPeriod: BigInt.from(47),
       issueCounter: BigInt.from(42),
-      coldKeyPath: [
+      coldKeyPath: LedgerSigningPath.custom([
         harden + 1853,
         harden + 1815,
         harden + 0,
         harden + 0,
-      ],
+      ]),
     );
 
     // Attempt to sign the operational certificate
@@ -151,7 +150,8 @@ Future<String> fetchReceiveAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+      final address =
+          await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Receive Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -171,7 +171,8 @@ Future<String> fetchChangeAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+      final address =
+          await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Change Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -189,8 +190,10 @@ Future<String> fetchReceiveAndChangeAddress(
   required int addressIndex,
 }) async {
   try {
-    final receiveAddress = await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
-    final changeAddress = await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+    final receiveAddress =
+        await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+    final changeAddress =
+        await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
 
     return "Receive Address (1852'/1815'/0'/0/$addressIndex)\n$receiveAddress"
         "\n\nChange Address (1852'/1815'/0'/1/$addressIndex)\n$changeAddress";
@@ -294,13 +297,11 @@ Future<String> deriveComplexNativeScriptHash(CardanoLedgerApp cardanoApp, Ledger
 Future<String> deriveNativeScriptHash(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
   try {
     final simpleScript = ParsedSimpleNativeScript.pubKeyDeviceOwned(
-      path: [
-        0x80000000 + 1852,
-        0x80000000 + 1815,
-        0x80000000 + 0,
-        0,
-        0,
-      ],
+      path: LedgerSigningPath.shelley(
+        account: 0,
+        address: 0,
+        role: ShelleyAddressRole.payment,
+      ),
     );
 
     final script = ParsedNativeScript.simple(simpleScript);

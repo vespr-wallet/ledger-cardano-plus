@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Witness {
-  List<int> get path => throw _privateConstructorUsedError;
+  LedgerSigningPath get path => throw _privateConstructorUsedError;
   String get witnessSignatureHex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -28,7 +28,9 @@ abstract class $WitnessCopyWith<$Res> {
   factory $WitnessCopyWith(Witness value, $Res Function(Witness) then) =
       _$WitnessCopyWithImpl<$Res, Witness>;
   @useResult
-  $Res call({List<int> path, String witnessSignatureHex});
+  $Res call({LedgerSigningPath path, String witnessSignatureHex});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -51,12 +53,20 @@ class _$WitnessCopyWithImpl<$Res, $Val extends Witness>
       path: null == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
       witnessSignatureHex: null == witnessSignatureHex
           ? _value.witnessSignatureHex
           : witnessSignatureHex // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value) as $Val);
+    });
   }
 }
 
@@ -67,7 +77,10 @@ abstract class _$$WitnessImplCopyWith<$Res> implements $WitnessCopyWith<$Res> {
       __$$WitnessImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int> path, String witnessSignatureHex});
+  $Res call({LedgerSigningPath path, String witnessSignatureHex});
+
+  @override
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -86,9 +99,9 @@ class __$$WitnessImplCopyWithImpl<$Res>
   }) {
     return _then(_$WitnessImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
       witnessSignatureHex: null == witnessSignatureHex
           ? _value.witnessSignatureHex
           : witnessSignatureHex // ignore: cast_nullable_to_non_nullable
@@ -100,19 +113,11 @@ class __$$WitnessImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$WitnessImpl extends _Witness {
-  _$WitnessImpl(
-      {required final List<int> path, required this.witnessSignatureHex})
-      : _path = path,
-        super._();
+  _$WitnessImpl({required this.path, required this.witnessSignatureHex})
+      : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
-
+  final LedgerSigningPath path;
   @override
   final String witnessSignatureHex;
 
@@ -126,14 +131,13 @@ class _$WitnessImpl extends _Witness {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$WitnessImpl &&
-            const DeepCollectionEquality().equals(other._path, _path) &&
+            (identical(other.path, path) || other.path == path) &&
             (identical(other.witnessSignatureHex, witnessSignatureHex) ||
                 other.witnessSignatureHex == witnessSignatureHex));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_path), witnessSignatureHex);
+  int get hashCode => Object.hash(runtimeType, path, witnessSignatureHex);
 
   @JsonKey(ignore: true)
   @override
@@ -144,12 +148,12 @@ class _$WitnessImpl extends _Witness {
 
 abstract class _Witness extends Witness {
   factory _Witness(
-      {required final List<int> path,
+      {required final LedgerSigningPath path,
       required final String witnessSignatureHex}) = _$WitnessImpl;
   _Witness._() : super._();
 
   @override
-  List<int> get path;
+  LedgerSigningPath get path;
   @override
   String get witnessSignatureHex;
   @override

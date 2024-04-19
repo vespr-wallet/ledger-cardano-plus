@@ -41,7 +41,9 @@ abstract class _$$SpendingParamsPathImplCopyWith<$Res> {
           $Res Function(_$SpendingParamsPathImpl) then) =
       __$$SpendingParamsPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> spendingPath});
+  $Res call({LedgerSigningPath spendingPath});
+
+  $LedgerSigningPathCopyWith<$Res> get spendingPath;
 }
 
 /// @nodoc
@@ -59,27 +61,28 @@ class __$$SpendingParamsPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$SpendingParamsPathImpl(
       spendingPath: null == spendingPath
-          ? _value._spendingPath
+          ? _value.spendingPath
           : spendingPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get spendingPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.spendingPath, (value) {
+      return _then(_value.copyWith(spendingPath: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$SpendingParamsPathImpl extends SpendingParamsPath {
-  _$SpendingParamsPathImpl({required final List<int> spendingPath})
-      : _spendingPath = spendingPath,
-        super._();
+  _$SpendingParamsPathImpl({required this.spendingPath}) : super._();
 
-  final List<int> _spendingPath;
   @override
-  List<int> get spendingPath {
-    if (_spendingPath is EqualUnmodifiableListView) return _spendingPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_spendingPath);
-  }
+  final LedgerSigningPath spendingPath;
 
   @override
   String toString() {
@@ -91,13 +94,12 @@ class _$SpendingParamsPathImpl extends SpendingParamsPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SpendingParamsPathImpl &&
-            const DeepCollectionEquality()
-                .equals(other._spendingPath, _spendingPath));
+            (identical(other.spendingPath, spendingPath) ||
+                other.spendingPath == spendingPath));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_spendingPath));
+  int get hashCode => Object.hash(runtimeType, spendingPath);
 
   @JsonKey(ignore: true)
   @override
@@ -108,11 +110,11 @@ class _$SpendingParamsPathImpl extends SpendingParamsPath {
 }
 
 abstract class SpendingParamsPath extends SpendingParams {
-  factory SpendingParamsPath({required final List<int> spendingPath}) =
+  factory SpendingParamsPath({required final LedgerSigningPath spendingPath}) =
       _$SpendingParamsPathImpl;
   SpendingParamsPath._() : super._();
 
-  List<int> get spendingPath;
+  LedgerSigningPath get spendingPath;
   @JsonKey(ignore: true)
   _$$SpendingParamsPathImplCopyWith<_$SpendingParamsPathImpl> get copyWith =>
       throw _privateConstructorUsedError;

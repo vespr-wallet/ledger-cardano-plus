@@ -129,7 +129,7 @@ class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath {
 
   @override
   String toString() {
-    return 'StakingDataSource.keyPath(path: $path)';
+    return 'StakingDataSource.path(path: $path)';
   }
 
   @override

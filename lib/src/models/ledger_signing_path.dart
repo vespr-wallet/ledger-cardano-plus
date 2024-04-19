@@ -4,9 +4,34 @@ part 'ledger_signing_path.freezed.dart';
 
 @freezed
 sealed class LedgerSigningPath with _$LedgerSigningPath {
-  const LedgerSigningPath._();
-  
-  const factory LedgerSigningPath.byron({required int account, required int address}) = LedgerSigningPath_Byron;
-  const factory LedgerSigningPath.shelley({required int account, required int address, required ShelleyAddressRole role}) = LedgerSigningPath_Shelley;
-  const factory LedgerSigningPath.custom(List<int> path) = LedgerSigningPath_Custom;
+  LedgerSigningPath._();
+
+  factory LedgerSigningPath.byron({
+    required int account,
+    required int address,
+  }) = LedgerSigningPath_Byron;
+  factory LedgerSigningPath.shelley({
+    required int account,
+    required int address,
+    required ShelleyAddressRole role,
+  }) = LedgerSigningPath_Shelley;
+  factory LedgerSigningPath.custom(List<int> path) = LedgerSigningPath_Custom;
+
+  late final List<int> signingPath = switch (this) {
+    LedgerSigningPath_Byron(account: final account, address: final address) => [
+        harden + 44,
+        harden + 1815,
+        harden + account,
+        0,
+        address
+      ],
+    LedgerSigningPath_Shelley(account: final account, role: ShelleyAddressRole role, address: final address) => [
+        harden + 1852,
+        harden + 1815,
+        harden + account,
+        role.index,
+        address
+      ],
+    LedgerSigningPath_Custom(path: final path) => path,
+  };
 }

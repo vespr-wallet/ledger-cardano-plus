@@ -76,8 +76,7 @@ class __$$LedgerSigningPath_ByronImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LedgerSigningPath_ByronImpl extends LedgerSigningPath_Byron {
-  const _$LedgerSigningPath_ByronImpl(
-      {required this.account, required this.address})
+  _$LedgerSigningPath_ByronImpl({required this.account, required this.address})
       : super._();
 
   @override
@@ -111,10 +110,10 @@ class _$LedgerSigningPath_ByronImpl extends LedgerSigningPath_Byron {
 }
 
 abstract class LedgerSigningPath_Byron extends LedgerSigningPath {
-  const factory LedgerSigningPath_Byron(
+  factory LedgerSigningPath_Byron(
       {required final int account,
       required final int address}) = _$LedgerSigningPath_ByronImpl;
-  const LedgerSigningPath_Byron._() : super._();
+  LedgerSigningPath_Byron._() : super._();
 
   int get account;
   int get address;
@@ -170,7 +169,7 @@ class __$$LedgerSigningPath_ShelleyImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LedgerSigningPath_ShelleyImpl extends LedgerSigningPath_Shelley {
-  const _$LedgerSigningPath_ShelleyImpl(
+  _$LedgerSigningPath_ShelleyImpl(
       {required this.account, required this.address, required this.role})
       : super._();
 
@@ -208,12 +207,12 @@ class _$LedgerSigningPath_ShelleyImpl extends LedgerSigningPath_Shelley {
 }
 
 abstract class LedgerSigningPath_Shelley extends LedgerSigningPath {
-  const factory LedgerSigningPath_Shelley(
+  factory LedgerSigningPath_Shelley(
           {required final int account,
           required final int address,
           required final ShelleyAddressRole role}) =
       _$LedgerSigningPath_ShelleyImpl;
-  const LedgerSigningPath_Shelley._() : super._();
+  LedgerSigningPath_Shelley._() : super._();
 
   int get account;
   int get address;
@@ -260,7 +259,7 @@ class __$$LedgerSigningPath_CustomImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$LedgerSigningPath_CustomImpl extends LedgerSigningPath_Custom {
-  const _$LedgerSigningPath_CustomImpl(final List<int> path)
+  _$LedgerSigningPath_CustomImpl(final List<int> path)
       : _path = path,
         super._();
 
@@ -298,9 +297,9 @@ class _$LedgerSigningPath_CustomImpl extends LedgerSigningPath_Custom {
 }
 
 abstract class LedgerSigningPath_Custom extends LedgerSigningPath {
-  const factory LedgerSigningPath_Custom(final List<int> path) =
+  factory LedgerSigningPath_Custom(final List<int> path) =
       _$LedgerSigningPath_CustomImpl;
-  const LedgerSigningPath_Custom._() : super._();
+  LedgerSigningPath_Custom._() : super._();
 
   List<int> get path;
   @JsonKey(ignore: true)

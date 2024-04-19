@@ -32,7 +32,7 @@ sealed class StakingDataSource with _$StakingDataSource {
 
   factory StakingDataSource.none() = StakingDataSourceNone;
 
-  factory StakingDataSource.keyPath({
+  factory StakingDataSource.path({
     required List<int> path,
   }) = StakingDataSourceKeyPath;
 

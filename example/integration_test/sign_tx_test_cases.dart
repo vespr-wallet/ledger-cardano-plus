@@ -83,7 +83,7 @@ final testsAlonzo = [
                   spendingDataSource: SpendingDataSource.path(
                     path: [harden + 1852, harden + 1815, harden + 0, 0, 0],
                   ),
-                  stakingDataSource: StakingDataSource.keyPath(
+                  stakingDataSource: StakingDataSource.path(
                     path: [harden + 1852, harden + 1815, harden + 0, 2, 0],
                   ),
                 ),

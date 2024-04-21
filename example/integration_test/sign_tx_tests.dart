@@ -41,14 +41,14 @@ void main() {
       });
     });
 
-    // group('signTxBabbage', () {
-    //   for (final testCase in testsBabbage) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxBabbage', () {
+      for (final testCase in testsBabbage) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
     // group('signTxByron', () {
     //   for (final testCase in testsByron) {

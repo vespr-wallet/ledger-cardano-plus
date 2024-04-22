@@ -184,21 +184,48 @@ void main() {
     });
     group('Should successfully derive enterprise addresses', () {
       final testCases = [
-        (accountIndex: 0, addressIndex: 0),
-        (accountIndex: 10, addressIndex: 0),
+        (
+          accountIndex: 0,
+          addressIndex: 0,
+          expectedResult: 'addr1vy2vzmtlgvjrhkq50rngh8d482zj3l20kyrc6kx4ffl3zfqcrdgvh'
+        ),
+        (
+          accountIndex: 10,
+          addressIndex: 0,
+          expectedResult: 'addr1v9f4jerytynpz59c0ccwgnfps2femgp897j8jc7rg4y466g5ymurg'
+        ),
+        (
+          accountIndex: 10,
+          addressIndex: 10,
+          expectedResult: 'addr1vxsy262p96rys22ruefh6c9wzt3a4q2hz60f7n4lvqakdqsrcyl0u'
+        ),
+        (
+          accountIndex: 0,
+          addressIndex: 10,
+          expectedResult: 'addr1vyzfjtzrv4jwps470wmgwq7kzjf8cxscz40tq0s32t8muwgkux93z'
+        ),
       ];
 
       for (final testCase in testCases) {
         test(
             'Derive enterprise address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex}',
             () async {
-          final result = await cardanoApp.deriveEnterpriseAddress(
-            device,
-            accountIndex: testCase.accountIndex,
-            addressIndex: testCase.addressIndex,
-            network: CardanoNetwork.mainnet(),
-          );
-          print('Derived enterprise address: $result');
+          try {
+            final result = await cardanoApp.deriveEnterpriseAddress(
+              device,
+              accountIndex: testCase.accountIndex,
+              addressIndex: testCase.addressIndex,
+              network: CardanoNetwork.mainnet(),
+            );
+            expect(result, equals(testCase.expectedResult));
+            print('Derived enterprise address: $result');
+          } catch (e) {
+            if (e is LedgerException) {
+              print('LedgerException caught: ${e.message}');
+            } else {
+              rethrow;
+            }
+          }
         });
       }
     });

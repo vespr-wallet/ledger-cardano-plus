@@ -253,7 +253,16 @@ enum RelayType {
 }
 
 enum ShelleyAddressRole {
-  payment,
-  change,
-  stake
+  payment(0), // external/payments
+  change(1), // internal/change
+  stake(2),
+  drepCredential(3),
+  constitutionalCommitteeCold(4),
+  constitutionalCommitteeHot(5);
+
+  final int derivationIndex;
+
+  const ShelleyAddressRole(this.derivationIndex);
+
+  static ShelleyAddressRole fromDerivationIndex(int index) => ShelleyAddressRole.values.firstWhere((e) => e.derivationIndex == index);
 }

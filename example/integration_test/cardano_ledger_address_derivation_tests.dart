@@ -182,5 +182,25 @@ void main() {
         });
       }
     });
+    group('Should successfully derive enterprise addresses', () {
+      final testCases = [
+        (accountIndex: 0, addressIndex: 0),
+        (accountIndex: 10, addressIndex: 0),
+      ];
+
+      for (final testCase in testCases) {
+        test(
+            'Derive enterprise address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex}',
+            () async {
+          final result = await cardanoApp.deriveEnterpriseAddress(
+            device,
+            accountIndex: testCase.accountIndex,
+            addressIndex: testCase.addressIndex,
+            network: CardanoNetwork.mainnet(),
+          );
+          print('Derived enterprise address: $result');
+        });
+      }
+    });
   });
 }

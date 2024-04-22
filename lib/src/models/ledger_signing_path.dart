@@ -29,7 +29,7 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
         harden + 1852,
         harden + 1815,
         harden + account,
-        role.index,
+        role.derivationIndex,
         address
       ],
     LedgerSigningPath_Custom(path: final path) => path,

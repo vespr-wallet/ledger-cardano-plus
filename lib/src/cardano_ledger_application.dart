@@ -273,11 +273,12 @@ class CardanoLedgerApp {
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
+    required CardanoNetwork network,
   }) async {
     final path = LedgerSigningPath.shelley(
       account: accountIndex,
       address: addressIndex,
-      role: ShelleyAddressRole.stake,
+      role: ShelleyAddressRole.payment,
     );
 
     final params = ParsedAddressParams.shelley(
@@ -288,7 +289,7 @@ class CardanoLedgerApp {
 
     final operation = CardanoDeriveAddressOperation(
       params: params,
-      network: CardanoNetwork.mainnet(),
+      network: network,
     );
 
     final addressResult = await ledger.sendComplexOperation<String>(

@@ -65,7 +65,9 @@ abstract class _$$PathDelegationImplCopyWith<$Res>
       __$$PathDelegationImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<int> voteKeyPath, int weight});
+  $Res call({LedgerSigningPath voteKeyPath, int weight});
+
+  $LedgerSigningPathCopyWith<$Res> get voteKeyPath;
 }
 
 /// @nodoc
@@ -84,33 +86,33 @@ class __$$PathDelegationImplCopyWithImpl<$Res>
   }) {
     return _then(_$PathDelegationImpl(
       voteKeyPath: null == voteKeyPath
-          ? _value._voteKeyPath
+          ? _value.voteKeyPath
           : voteKeyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
       weight: null == weight
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
     ));
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get voteKeyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.voteKeyPath, (value) {
+      return _then(_value.copyWith(voteKeyPath: value));
+    });
+  }
 }
 
 /// @nodoc
 
 class _$PathDelegationImpl extends PathDelegation {
-  _$PathDelegationImpl(
-      {required final List<int> voteKeyPath, required this.weight})
-      : _voteKeyPath = voteKeyPath,
-        super._();
+  _$PathDelegationImpl({required this.voteKeyPath, required this.weight})
+      : super._();
 
-  final List<int> _voteKeyPath;
   @override
-  List<int> get voteKeyPath {
-    if (_voteKeyPath is EqualUnmodifiableListView) return _voteKeyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_voteKeyPath);
-  }
-
+  final LedgerSigningPath voteKeyPath;
   @override
   final int weight;
 
@@ -124,14 +126,13 @@ class _$PathDelegationImpl extends PathDelegation {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PathDelegationImpl &&
-            const DeepCollectionEquality()
-                .equals(other._voteKeyPath, _voteKeyPath) &&
+            (identical(other.voteKeyPath, voteKeyPath) ||
+                other.voteKeyPath == voteKeyPath) &&
             (identical(other.weight, weight) || other.weight == weight));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_voteKeyPath), weight);
+  int get hashCode => Object.hash(runtimeType, voteKeyPath, weight);
 
   @JsonKey(ignore: true)
   @override
@@ -143,11 +144,11 @@ class _$PathDelegationImpl extends PathDelegation {
 
 abstract class PathDelegation extends ParsedCVoteDelegation {
   factory PathDelegation(
-      {required final List<int> voteKeyPath,
+      {required final LedgerSigningPath voteKeyPath,
       required final int weight}) = _$PathDelegationImpl;
   PathDelegation._() : super._();
 
-  List<int> get voteKeyPath;
+  LedgerSigningPath get voteKeyPath;
   @override
   int get weight;
   @override

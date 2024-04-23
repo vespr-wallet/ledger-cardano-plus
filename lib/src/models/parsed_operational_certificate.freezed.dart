@@ -19,7 +19,7 @@ mixin _$ParsedOperationalCertificate {
   String get kesPublicKeyHex => throw _privateConstructorUsedError;
   BigInt get kesPeriod => throw _privateConstructorUsedError;
   BigInt get issueCounter => throw _privateConstructorUsedError;
-  List<int> get coldKeyPath => throw _privateConstructorUsedError;
+  LedgerSigningPath get coldKeyPath => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedOperationalCertificateCopyWith<ParsedOperationalCertificate>
@@ -38,7 +38,9 @@ abstract class $ParsedOperationalCertificateCopyWith<$Res> {
       {String kesPublicKeyHex,
       BigInt kesPeriod,
       BigInt issueCounter,
-      List<int> coldKeyPath});
+      LedgerSigningPath coldKeyPath});
+
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath;
 }
 
 /// @nodoc
@@ -76,8 +78,16 @@ class _$ParsedOperationalCertificateCopyWithImpl<$Res,
       coldKeyPath: null == coldKeyPath
           ? _value.coldKeyPath
           : coldKeyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.coldKeyPath, (value) {
+      return _then(_value.copyWith(coldKeyPath: value) as $Val);
+    });
   }
 }
 
@@ -94,7 +104,10 @@ abstract class _$$ParsedOperationalCertificateImplCopyWith<$Res>
       {String kesPublicKeyHex,
       BigInt kesPeriod,
       BigInt issueCounter,
-      List<int> coldKeyPath});
+      LedgerSigningPath coldKeyPath});
+
+  @override
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath;
 }
 
 /// @nodoc
@@ -129,9 +142,9 @@ class __$$ParsedOperationalCertificateImplCopyWithImpl<$Res>
           : issueCounter // ignore: cast_nullable_to_non_nullable
               as BigInt,
       coldKeyPath: null == coldKeyPath
-          ? _value._coldKeyPath
+          ? _value.coldKeyPath
           : coldKeyPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
   }
 }
@@ -143,9 +156,8 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
       {required this.kesPublicKeyHex,
       required this.kesPeriod,
       required this.issueCounter,
-      required final List<int> coldKeyPath})
-      : _coldKeyPath = coldKeyPath,
-        super._();
+      required this.coldKeyPath})
+      : super._();
 
   @override
   final String kesPublicKeyHex;
@@ -153,13 +165,8 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
   final BigInt kesPeriod;
   @override
   final BigInt issueCounter;
-  final List<int> _coldKeyPath;
   @override
-  List<int> get coldKeyPath {
-    if (_coldKeyPath is EqualUnmodifiableListView) return _coldKeyPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_coldKeyPath);
-  }
+  final LedgerSigningPath coldKeyPath;
 
   @override
   String toString() {
@@ -177,13 +184,13 @@ class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate {
                 other.kesPeriod == kesPeriod) &&
             (identical(other.issueCounter, issueCounter) ||
                 other.issueCounter == issueCounter) &&
-            const DeepCollectionEquality()
-                .equals(other._coldKeyPath, _coldKeyPath));
+            (identical(other.coldKeyPath, coldKeyPath) ||
+                other.coldKeyPath == coldKeyPath));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, kesPublicKeyHex, kesPeriod,
-      issueCounter, const DeepCollectionEquality().hash(_coldKeyPath));
+  int get hashCode => Object.hash(
+      runtimeType, kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +207,7 @@ abstract class _ParsedOperationalCertificate
           {required final String kesPublicKeyHex,
           required final BigInt kesPeriod,
           required final BigInt issueCounter,
-          required final List<int> coldKeyPath}) =
+          required final LedgerSigningPath coldKeyPath}) =
       _$ParsedOperationalCertificateImpl;
   _ParsedOperationalCertificate._() : super._();
 
@@ -211,7 +218,7 @@ abstract class _ParsedOperationalCertificate
   @override
   BigInt get issueCounter;
   @override
-  List<int> get coldKeyPath;
+  LedgerSigningPath get coldKeyPath;
   @override
   @JsonKey(ignore: true)
   _$$ParsedOperationalCertificateImplCopyWith<

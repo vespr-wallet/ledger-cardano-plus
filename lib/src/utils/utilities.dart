@@ -1,5 +1,6 @@
 import 'dart:typed_data';
 
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:bech32/bech32.dart';
@@ -70,12 +71,12 @@ void validateInt64(BigInt? value, String fieldName) {
   }
 }
 
-void validateBIP32Path(List<int>? path, String fieldName) {
+void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
   if (path != null) {
-    if (path.isEmpty || path.length > maxBIP32PathLength) {
+    if (path.signingPath.isEmpty || path.signingPath.length > maxBIP32PathLength) {
       throw ValidationException('$fieldName must contain between 1 and $maxBIP32PathLength indices');
     }
-    for (int index in path) {
+    for (int index in path.signingPath) {
       if (index < 0 || index > max32BitValue) {
         throw ValidationException('$fieldName contains an index out of the valid unsigned 32-bit integer range');
       }
@@ -127,7 +128,7 @@ void validateHexString(String? value, String fieldName) {
 }
 
 Uint8List bech32DecodeAddress(String data) {
-  final Bech32 decoded = bech32.decode(data);
+  final Bech32 decoded = bech32.decode(data, 1000);
   final bytes = fromWords(decoded.data);
   return Uint8List.fromList(bytes);
 }

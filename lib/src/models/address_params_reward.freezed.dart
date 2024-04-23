@@ -42,7 +42,9 @@ abstract class _$$AddressParamsRewardStakingPathImplCopyWith<$Res> {
           $Res Function(_$AddressParamsRewardStakingPathImpl) then) =
       __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> stakingPath});
+  $Res call({LedgerSigningPath stakingPath});
+
+  $LedgerSigningPathCopyWith<$Res> get stakingPath;
 }
 
 /// @nodoc
@@ -62,10 +64,18 @@ class __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$AddressParamsRewardStakingPathImpl(
       stakingPath: null == stakingPath
-          ? _value._stakingPath
+          ? _value.stakingPath
           : stakingPath // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get stakingPath {
+    return $LedgerSigningPathCopyWith<$Res>(_value.stakingPath, (value) {
+      return _then(_value.copyWith(stakingPath: value));
+    });
   }
 }
 
@@ -73,17 +83,10 @@ class __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res>
 
 class _$AddressParamsRewardStakingPathImpl
     extends AddressParamsRewardStakingPath {
-  _$AddressParamsRewardStakingPathImpl({required final List<int> stakingPath})
-      : _stakingPath = stakingPath,
-        super._();
+  _$AddressParamsRewardStakingPathImpl({required this.stakingPath}) : super._();
 
-  final List<int> _stakingPath;
   @override
-  List<int> get stakingPath {
-    if (_stakingPath is EqualUnmodifiableListView) return _stakingPath;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_stakingPath);
-  }
+  final LedgerSigningPath stakingPath;
 
   @override
   String toString() {
@@ -95,13 +98,12 @@ class _$AddressParamsRewardStakingPathImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AddressParamsRewardStakingPathImpl &&
-            const DeepCollectionEquality()
-                .equals(other._stakingPath, _stakingPath));
+            (identical(other.stakingPath, stakingPath) ||
+                other.stakingPath == stakingPath));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_stakingPath));
+  int get hashCode => Object.hash(runtimeType, stakingPath);
 
   @JsonKey(ignore: true)
   @override
@@ -114,11 +116,11 @@ class _$AddressParamsRewardStakingPathImpl
 
 abstract class AddressParamsRewardStakingPath extends AddressParamsReward {
   factory AddressParamsRewardStakingPath(
-          {required final List<int> stakingPath}) =
+          {required final LedgerSigningPath stakingPath}) =
       _$AddressParamsRewardStakingPathImpl;
   AddressParamsRewardStakingPath._() : super._();
 
-  List<int> get stakingPath;
+  LedgerSigningPath get stakingPath;
   @JsonKey(ignore: true)
   _$$AddressParamsRewardStakingPathImplCopyWith<
           _$AddressParamsRewardStakingPathImpl>

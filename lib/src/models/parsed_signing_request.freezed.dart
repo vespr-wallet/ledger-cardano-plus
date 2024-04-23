@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedSigningRequest {
   ParsedTransaction get tx => throw _privateConstructorUsedError;
   TransactionSigningModes get signingMode => throw _privateConstructorUsedError;
-  List<List<int>> get additionalWitnessPaths =>
+  List<LedgerSigningPath> get additionalWitnessPaths =>
       throw _privateConstructorUsedError;
   ParsedTransactionOptions? get options => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $ParsedSigningRequestCopyWith<$Res> {
   $Res call(
       {ParsedTransaction tx,
       TransactionSigningModes signingMode,
-      List<List<int>> additionalWitnessPaths,
+      List<LedgerSigningPath> additionalWitnessPaths,
       ParsedTransactionOptions? options});
 
   $ParsedTransactionCopyWith<$Res> get tx;
@@ -75,7 +75,7 @@ class _$ParsedSigningRequestCopyWithImpl<$Res,
       additionalWitnessPaths: null == additionalWitnessPaths
           ? _value.additionalWitnessPaths
           : additionalWitnessPaths // ignore: cast_nullable_to_non_nullable
-              as List<List<int>>,
+              as List<LedgerSigningPath>,
       options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ abstract class _$$ParsedSigningRequestImplCopyWith<$Res>
   $Res call(
       {ParsedTransaction tx,
       TransactionSigningModes signingMode,
-      List<List<int>> additionalWitnessPaths,
+      List<LedgerSigningPath> additionalWitnessPaths,
       ParsedTransactionOptions? options});
 
   @override
@@ -162,7 +162,7 @@ class __$$ParsedSigningRequestImplCopyWithImpl<$Res>
       additionalWitnessPaths: null == additionalWitnessPaths
           ? _value._additionalWitnessPaths
           : additionalWitnessPaths // ignore: cast_nullable_to_non_nullable
-              as List<List<int>>,
+              as List<LedgerSigningPath>,
       options: freezed == options
           ? _value.options
           : options // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
   _$ParsedSigningRequestImpl(
       {required this.tx,
       required this.signingMode,
-      required final List<List<int>> additionalWitnessPaths,
+      required final List<LedgerSigningPath> additionalWitnessPaths,
       this.options})
       : _additionalWitnessPaths = additionalWitnessPaths,
         super._();
@@ -186,9 +186,9 @@ class _$ParsedSigningRequestImpl extends _ParsedSigningRequest {
   final ParsedTransaction tx;
   @override
   final TransactionSigningModes signingMode;
-  final List<List<int>> _additionalWitnessPaths;
+  final List<LedgerSigningPath> _additionalWitnessPaths;
   @override
-  List<List<int>> get additionalWitnessPaths {
+  List<LedgerSigningPath> get additionalWitnessPaths {
     if (_additionalWitnessPaths is EqualUnmodifiableListView)
       return _additionalWitnessPaths;
     // ignore: implicit_dynamic_type
@@ -233,7 +233,7 @@ abstract class _ParsedSigningRequest extends ParsedSigningRequest {
   factory _ParsedSigningRequest(
       {required final ParsedTransaction tx,
       required final TransactionSigningModes signingMode,
-      required final List<List<int>> additionalWitnessPaths,
+      required final List<LedgerSigningPath> additionalWitnessPaths,
       final ParsedTransactionOptions? options}) = _$ParsedSigningRequestImpl;
   _ParsedSigningRequest._() : super._();
 
@@ -242,7 +242,7 @@ abstract class _ParsedSigningRequest extends ParsedSigningRequest {
   @override
   TransactionSigningModes get signingMode;
   @override
-  List<List<int>> get additionalWitnessPaths;
+  List<LedgerSigningPath> get additionalWitnessPaths;
   @override
   ParsedTransactionOptions? get options;
   @override

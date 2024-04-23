@@ -42,8 +42,7 @@ abstract class _$$ByronAddressParamsImplCopyWith<$Res> {
       __$$ByronAddressParamsImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {int protocolMagic,
-      SpendingDataSource spendingDataSource,
+      {SpendingDataSource spendingDataSource,
       StakingDataSource stakingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
@@ -61,15 +60,10 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? protocolMagic = null,
     Object? spendingDataSource = null,
     Object? stakingDataSource = null,
   }) {
     return _then(_$ByronAddressParamsImpl(
-      protocolMagic: null == protocolMagic
-          ? _value.protocolMagic
-          : protocolMagic // ignore: cast_nullable_to_non_nullable
-              as int,
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -103,13 +97,9 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
 
 class _$ByronAddressParamsImpl extends ByronAddressParams {
   _$ByronAddressParamsImpl(
-      {required this.protocolMagic,
-      required this.spendingDataSource,
-      required this.stakingDataSource})
+      {required this.spendingDataSource, required this.stakingDataSource})
       : super._();
 
-  @override
-  final int protocolMagic;
   @override
   final SpendingDataSource spendingDataSource;
   @override
@@ -117,7 +107,7 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
 
   @override
   String toString() {
-    return 'ParsedAddressParams.byron(protocolMagic: $protocolMagic, spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ParsedAddressParams.byron(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
   }
 
   @override
@@ -125,8 +115,6 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ByronAddressParamsImpl &&
-            (identical(other.protocolMagic, protocolMagic) ||
-                other.protocolMagic == protocolMagic) &&
             (identical(other.spendingDataSource, spendingDataSource) ||
                 other.spendingDataSource == spendingDataSource) &&
             (identical(other.stakingDataSource, stakingDataSource) ||
@@ -134,8 +122,8 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, protocolMagic, spendingDataSource, stakingDataSource);
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -147,13 +135,11 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
 
 abstract class ByronAddressParams extends ParsedAddressParams {
   factory ByronAddressParams(
-          {required final int protocolMagic,
-          required final SpendingDataSource spendingDataSource,
+          {required final SpendingDataSource spendingDataSource,
           required final StakingDataSource stakingDataSource}) =
       _$ByronAddressParamsImpl;
   ByronAddressParams._() : super._();
 
-  int get protocolMagic;
   SpendingDataSource get spendingDataSource;
   StakingDataSource get stakingDataSource;
   @JsonKey(ignore: true)

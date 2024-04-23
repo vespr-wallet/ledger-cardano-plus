@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
+import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
@@ -71,11 +72,11 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
                 },
               EnterpriseKey() => () {
                   writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  // No staking data source for enterprise addresses
+                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
                 },
               EnterpriseScript() => () {
                   writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  // No staking data source for enterprise addresses
+                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
                 },
               PointerKey() => () {
                   writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));

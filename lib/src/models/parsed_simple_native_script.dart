@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 part 'parsed_simple_native_script.freezed.dart';
@@ -24,7 +25,7 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
   }
 
   factory ParsedSimpleNativeScript.pubKeyDeviceOwned({
-    required List<int> path,
+    required LedgerSigningPath path,
   }) = ParsedSimpleNativeScript_PubKeyDeviceOwned;
 
   factory ParsedSimpleNativeScript.pubKeyThirdParty({

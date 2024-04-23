@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction.dart';
 import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
 import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
@@ -12,7 +13,7 @@ sealed class ParsedSigningRequest with _$ParsedSigningRequest {
   factory ParsedSigningRequest({
     required ParsedTransaction tx,
     required TransactionSigningModes signingMode,
-    required List<List<int>> additionalWitnessPaths,
+    required List<LedgerSigningPath> additionalWitnessPaths,
     ParsedTransactionOptions? options,
   }) = _ParsedSigningRequest;
 }

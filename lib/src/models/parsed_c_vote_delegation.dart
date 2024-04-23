@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -22,7 +23,7 @@ sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
   }
 
   factory ParsedCVoteDelegation.path({
-    required List<int> voteKeyPath,
+    required LedgerSigningPath voteKeyPath,
     required int weight,
   }) = PathDelegation;
 

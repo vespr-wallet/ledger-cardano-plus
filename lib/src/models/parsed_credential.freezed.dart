@@ -41,7 +41,9 @@ abstract class _$$CredentialKeyPathImplCopyWith<$Res> {
           $Res Function(_$CredentialKeyPathImpl) then) =
       __$$CredentialKeyPathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -59,27 +61,28 @@ class __$$CredentialKeyPathImplCopyWithImpl<$Res>
   }) {
     return _then(_$CredentialKeyPathImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$CredentialKeyPathImpl extends CredentialKeyPath {
-  _$CredentialKeyPathImpl({required final List<int> path})
-      : _path = path,
-        super._();
+  _$CredentialKeyPathImpl({required this.path}) : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -91,12 +94,11 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CredentialKeyPathImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -107,11 +109,11 @@ class _$CredentialKeyPathImpl extends CredentialKeyPath {
 }
 
 abstract class CredentialKeyPath extends ParsedCredential {
-  factory CredentialKeyPath({required final List<int> path}) =
+  factory CredentialKeyPath({required final LedgerSigningPath path}) =
       _$CredentialKeyPathImpl;
   CredentialKeyPath._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith =>
       throw _privateConstructorUsedError;

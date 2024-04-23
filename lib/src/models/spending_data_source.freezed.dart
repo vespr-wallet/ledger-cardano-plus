@@ -86,7 +86,9 @@ abstract class _$$SpendingDataSourcePathImplCopyWith<$Res> {
           $Res Function(_$SpendingDataSourcePathImpl) then) =
       __$$SpendingDataSourcePathImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<int> path});
+  $Res call({LedgerSigningPath path});
+
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
@@ -105,27 +107,28 @@ class __$$SpendingDataSourcePathImplCopyWithImpl<$Res>
   }) {
     return _then(_$SpendingDataSourcePathImpl(
       path: null == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as LedgerSigningPath,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+      return _then(_value.copyWith(path: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$SpendingDataSourcePathImpl extends SpendingDataSourcePath {
-  _$SpendingDataSourcePathImpl({required final List<int> path})
-      : _path = path,
-        super._();
+  _$SpendingDataSourcePathImpl({required this.path}) : super._();
 
-  final List<int> _path;
   @override
-  List<int> get path {
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_path);
-  }
+  final LedgerSigningPath path;
 
   @override
   String toString() {
@@ -137,12 +140,11 @@ class _$SpendingDataSourcePathImpl extends SpendingDataSourcePath {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SpendingDataSourcePathImpl &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, path);
 
   @JsonKey(ignore: true)
   @override
@@ -153,11 +155,11 @@ class _$SpendingDataSourcePathImpl extends SpendingDataSourcePath {
 }
 
 abstract class SpendingDataSourcePath extends SpendingDataSource {
-  factory SpendingDataSourcePath({required final List<int> path}) =
+  factory SpendingDataSourcePath({required final LedgerSigningPath path}) =
       _$SpendingDataSourcePathImpl;
   SpendingDataSourcePath._() : super._();
 
-  List<int> get path;
+  LedgerSigningPath get path;
   @JsonKey(ignore: true)
   _$$SpendingDataSourcePathImplCopyWith<_$SpendingDataSourcePathImpl>
       get copyWith => throw _privateConstructorUsedError;

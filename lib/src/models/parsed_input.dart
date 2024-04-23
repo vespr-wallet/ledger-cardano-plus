@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -14,6 +15,6 @@ sealed class ParsedInput with _$ParsedInput {
   factory ParsedInput({
     required String txHashHex,
     required int outputIndex,
-    List<int>? path,
+    LedgerSigningPath? path,
   }) = _ParsedInput;
 }

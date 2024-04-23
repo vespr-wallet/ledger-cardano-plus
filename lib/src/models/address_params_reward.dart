@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'address_params_reward.freezed.dart';
@@ -19,7 +20,7 @@ sealed class AddressParamsReward with _$AddressParamsReward {
   }
 
   factory AddressParamsReward.stakingPath({
-    required List<int> stakingPath,
+    required LedgerSigningPath stakingPath,
   }) = AddressParamsRewardStakingPath;
 
   factory AddressParamsReward.stakingScriptHashHex({

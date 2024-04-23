@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ParsedInput {
   String get txHashHex => throw _privateConstructorUsedError;
   int get outputIndex => throw _privateConstructorUsedError;
-  List<int>? get path => throw _privateConstructorUsedError;
+  LedgerSigningPath? get path => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ParsedInputCopyWith<ParsedInput> get copyWith =>
@@ -31,7 +31,9 @@ abstract class $ParsedInputCopyWith<$Res> {
           ParsedInput value, $Res Function(ParsedInput) then) =
       _$ParsedInputCopyWithImpl<$Res, ParsedInput>;
   @useResult
-  $Res call({String txHashHex, int outputIndex, List<int>? path});
+  $Res call({String txHashHex, int outputIndex, LedgerSigningPath? path});
+
+  $LedgerSigningPathCopyWith<$Res>? get path;
 }
 
 /// @nodoc
@@ -63,8 +65,20 @@ class _$ParsedInputCopyWithImpl<$Res, $Val extends ParsedInput>
       path: freezed == path
           ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as LedgerSigningPath?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res>? get path {
+    if (_value.path == null) {
+      return null;
+    }
+
+    return $LedgerSigningPathCopyWith<$Res>(_value.path!, (value) {
+      return _then(_value.copyWith(path: value) as $Val);
+    });
   }
 }
 
@@ -76,7 +90,10 @@ abstract class _$$ParsedInputImplCopyWith<$Res>
       __$$ParsedInputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String txHashHex, int outputIndex, List<int>? path});
+  $Res call({String txHashHex, int outputIndex, LedgerSigningPath? path});
+
+  @override
+  $LedgerSigningPathCopyWith<$Res>? get path;
 }
 
 /// @nodoc
@@ -104,9 +121,9 @@ class __$$ParsedInputImplCopyWithImpl<$Res>
           : outputIndex // ignore: cast_nullable_to_non_nullable
               as int,
       path: freezed == path
-          ? _value._path
+          ? _value.path
           : path // ignore: cast_nullable_to_non_nullable
-              as List<int>?,
+              as LedgerSigningPath?,
     ));
   }
 }
@@ -115,25 +132,15 @@ class __$$ParsedInputImplCopyWithImpl<$Res>
 
 class _$ParsedInputImpl extends _ParsedInput {
   _$ParsedInputImpl(
-      {required this.txHashHex,
-      required this.outputIndex,
-      final List<int>? path})
-      : _path = path,
-        super._();
+      {required this.txHashHex, required this.outputIndex, this.path})
+      : super._();
 
   @override
   final String txHashHex;
   @override
   final int outputIndex;
-  final List<int>? _path;
   @override
-  List<int>? get path {
-    final value = _path;
-    if (value == null) return null;
-    if (_path is EqualUnmodifiableListView) return _path;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
+  final LedgerSigningPath? path;
 
   @override
   String toString() {
@@ -149,12 +156,11 @@ class _$ParsedInputImpl extends _ParsedInput {
                 other.txHashHex == txHashHex) &&
             (identical(other.outputIndex, outputIndex) ||
                 other.outputIndex == outputIndex) &&
-            const DeepCollectionEquality().equals(other._path, _path));
+            (identical(other.path, path) || other.path == path));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, txHashHex, outputIndex,
-      const DeepCollectionEquality().hash(_path));
+  int get hashCode => Object.hash(runtimeType, txHashHex, outputIndex, path);
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +173,7 @@ abstract class _ParsedInput extends ParsedInput {
   factory _ParsedInput(
       {required final String txHashHex,
       required final int outputIndex,
-      final List<int>? path}) = _$ParsedInputImpl;
+      final LedgerSigningPath? path}) = _$ParsedInputImpl;
   _ParsedInput._() : super._();
 
   @override
@@ -175,7 +181,7 @@ abstract class _ParsedInput extends ParsedInput {
   @override
   int get outputIndex;
   @override
-  List<int>? get path;
+  LedgerSigningPath? get path;
   @override
   @JsonKey(ignore: true)
   _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith =>

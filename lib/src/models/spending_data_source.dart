@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -24,7 +25,7 @@ sealed class SpendingDataSource with _$SpendingDataSource {
   factory SpendingDataSource.none() = SpendingDataSourceNone;
 
   factory SpendingDataSource.path({
-    required List<int> path,
+    required LedgerSigningPath path,
   }) = SpendingDataSourcePath;
 
   factory SpendingDataSource.scriptHash({

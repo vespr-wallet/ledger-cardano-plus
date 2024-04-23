@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
@@ -26,7 +27,7 @@ sealed class ParsedVoter with _$ParsedVoter {
   }) = CommitteeKeyHash;
 
   factory ParsedVoter.committeeKeyPath({
-    required List<int> keyPath,
+    required LedgerSigningPath keyPath,
   }) = CommitteeKeyPath;
 
   factory ParsedVoter.committeeScriptHash({
@@ -38,7 +39,7 @@ sealed class ParsedVoter with _$ParsedVoter {
   }) = DrepKeyHash;
 
   factory ParsedVoter.drepKeyPath({
-    required List<int> keyPath,
+    required LedgerSigningPath keyPath,
   }) = DrepKeyPath;
 
   factory ParsedVoter.drepScriptHash({
@@ -50,7 +51,7 @@ sealed class ParsedVoter with _$ParsedVoter {
   }) = StakePoolKeyHash;
 
   factory ParsedVoter.stakePoolKeyPath({
-    required List<int> keyPath,
+    required LedgerSigningPath keyPath,
   }) = StakePoolKeyPath;
 
   late final int voterValue = switch (this) {

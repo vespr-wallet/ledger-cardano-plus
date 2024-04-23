@@ -20,6 +20,12 @@ const int p2MintConfirm = 0x33;
 const int p2AssetGroup = 0x31;
 const int p2Token = 0x32;
 
+const p2PoolParamsLegacy = 0x30;
+const p2OwnersLegacy = 0x31;
+const p2RelaysLegacy = 0x32;
+const p2MetadataLegacy = 0x33;
+const p2ConfirmationLegacy = 0x34;
+
 const int txHashLength = 32;
 
 const int addressHexLength = 256;
@@ -148,7 +154,8 @@ enum InstructionType {
   getSerial(insValue: 0x01),
   deriveNativeScriptHash(insValue: 0x12),
   signOperationalCertificate(insValue: 0x22),
-  signTransaction(insValue: 0x21);
+  signTransaction(insValue: 0x21),
+  runTests(insValue: 0xF0);
 
   final int insValue;
 
@@ -243,4 +250,19 @@ enum RelayType {
 
   final int value;
   const RelayType(this.value);
+}
+
+enum ShelleyAddressRole {
+  payment(0), // external/payments
+  change(1), // internal/change
+  stake(2),
+  drepCredential(3),
+  constitutionalCommitteeCold(4),
+  constitutionalCommitteeHot(5);
+
+  final int derivationIndex;
+
+  const ShelleyAddressRole(this.derivationIndex);
+
+  static ShelleyAddressRole fromDerivationIndex(int index) => ShelleyAddressRole.values.firstWhere((e) => e.derivationIndex == index);
 }

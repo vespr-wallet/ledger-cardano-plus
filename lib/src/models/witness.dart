@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 
 part 'witness.freezed.dart';
@@ -11,7 +12,7 @@ sealed class Witness with _$Witness {
   }
 
   factory Witness({
-    required List<int> path,
+    required LedgerSigningPath path,
     required String witnessSignatureHex,
   }) = _Witness;
 }

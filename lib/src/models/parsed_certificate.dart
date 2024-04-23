@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'parsed_credential.dart';
 import 'parsed_drep.dart';
@@ -101,7 +102,7 @@ sealed class ParsedCertificate with _$ParsedCertificate {
   }) = StakePoolRegistration;
 
   factory ParsedCertificate.stakePoolRetirement({
-    required List<int> path,
+    required LedgerSigningPath path,
     required BigInt retirementEpoch,
   }) = StakePoolRetirement;
 

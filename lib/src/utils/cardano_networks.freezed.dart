@@ -247,7 +247,8 @@ abstract class _$$NetworkCustomImplCopyWith<$Res> {
           _$NetworkCustomImpl value, $Res Function(_$NetworkCustomImpl) then) =
       __$$NetworkCustomImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({int customNetworkId, int customNetworkMagic});
+  $Res call(
+      {int customNetworkId, int customNetworkMagic, String customBech32Hrp});
 }
 
 /// @nodoc
@@ -263,6 +264,7 @@ class __$$NetworkCustomImplCopyWithImpl<$Res>
   $Res call({
     Object? customNetworkId = null,
     Object? customNetworkMagic = null,
+    Object? customBech32Hrp = null,
   }) {
     return _then(_$NetworkCustomImpl(
       customNetworkId: null == customNetworkId
@@ -273,6 +275,10 @@ class __$$NetworkCustomImplCopyWithImpl<$Res>
           ? _value.customNetworkMagic
           : customNetworkMagic // ignore: cast_nullable_to_non_nullable
               as int,
+      customBech32Hrp: null == customBech32Hrp
+          ? _value.customBech32Hrp
+          : customBech32Hrp // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -281,17 +287,21 @@ class __$$NetworkCustomImplCopyWithImpl<$Res>
 
 class _$NetworkCustomImpl extends NetworkCustom {
   _$NetworkCustomImpl(
-      {required this.customNetworkId, required this.customNetworkMagic})
+      {required this.customNetworkId,
+      required this.customNetworkMagic,
+      required this.customBech32Hrp})
       : super._();
 
   @override
   final int customNetworkId;
   @override
   final int customNetworkMagic;
+  @override
+  final String customBech32Hrp;
 
   @override
   String toString() {
-    return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic)';
+    return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic, customBech32Hrp: $customBech32Hrp)';
   }
 
   @override
@@ -302,12 +312,14 @@ class _$NetworkCustomImpl extends NetworkCustom {
             (identical(other.customNetworkId, customNetworkId) ||
                 other.customNetworkId == customNetworkId) &&
             (identical(other.customNetworkMagic, customNetworkMagic) ||
-                other.customNetworkMagic == customNetworkMagic));
+                other.customNetworkMagic == customNetworkMagic) &&
+            (identical(other.customBech32Hrp, customBech32Hrp) ||
+                other.customBech32Hrp == customBech32Hrp));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, customNetworkId, customNetworkMagic);
+  int get hashCode => Object.hash(
+      runtimeType, customNetworkId, customNetworkMagic, customBech32Hrp);
 
   @JsonKey(ignore: true)
   @override
@@ -319,11 +331,13 @@ class _$NetworkCustomImpl extends NetworkCustom {
 abstract class NetworkCustom extends CardanoNetwork {
   factory NetworkCustom(
       {required final int customNetworkId,
-      required final int customNetworkMagic}) = _$NetworkCustomImpl;
+      required final int customNetworkMagic,
+      required final String customBech32Hrp}) = _$NetworkCustomImpl;
   NetworkCustom._() : super._();
 
   int get customNetworkId;
   int get customNetworkMagic;
+  String get customBech32Hrp;
   @JsonKey(ignore: true)
   _$$NetworkCustomImplCopyWith<_$NetworkCustomImpl> get copyWith =>
       throw _privateConstructorUsedError;

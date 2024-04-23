@@ -43,8 +43,8 @@ sealed class CardanoNetwork with _$CardanoNetwork {
   late final String bech32Hrp = switch (this) {
     NetworkMainnet() => 'addr',
     NetworkLegacyTestnet() => 'addr_test',
-    NetworkPreProd() => 'addr',
-    NetworkPreview() => 'addr',
+    NetworkPreProd() => 'addr_test',
+    NetworkPreview() => 'addr_test',
     NetworkConway() => 'addr',
     NetworkCustom(customBech32Hrp: final customBech32Hrp) => customBech32Hrp,
   };

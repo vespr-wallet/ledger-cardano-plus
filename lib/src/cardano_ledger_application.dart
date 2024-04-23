@@ -179,9 +179,8 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    final result = bech32EncodeAddress('addr', addressBytes);
-
-    return result;
+    String bech32Hrp = network.bech32Hrp;
+    return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
   Future<String> deriveReceiveAddress(
@@ -202,7 +201,7 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.payment,
     );
-    
+
     print(bip32StakePath.signingPath);
     print(bip32ReceivePath.signingPath);
 
@@ -225,9 +224,8 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    final result = bech32EncodeAddress('addr', addressBytes);
-
-    return result;
+    String bech32Hrp = network.bech32Hrp;
+    return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
   Future<String> deriveStakingAddress(
@@ -242,7 +240,7 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.stake,
     );
-    
+
     print(path.signingPath);
 
     final params = ParsedAddressParams.shelley(
@@ -299,9 +297,8 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    final result = bech32EncodeAddress('addr', addressBytes);
-
-    return result;
+    String bech32Hrp = network.bech32Hrp;
+    return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
   Future<Uint8List> signOperationalCertificate(

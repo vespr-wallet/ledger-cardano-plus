@@ -187,22 +187,26 @@ void main() {
         (
           accountIndex: 0,
           addressIndex: 0,
-          expectedResult: 'addr1vy2vzmtlgvjrhkq50rngh8d482zj3l20kyrc6kx4ffl3zfqcrdgvh'
+          expectedResult: 'addr1vy2vzmtlgvjrhkq50rngh8d482zj3l20kyrc6kx4ffl3zfqcrdgvh',
+          network: CardanoNetwork.mainnet()
         ),
         (
           accountIndex: 10,
           addressIndex: 0,
-          expectedResult: 'addr1v9f4jerytynpz59c0ccwgnfps2femgp897j8jc7rg4y466g5ymurg'
+          expectedResult: 'addr_test1vpf4jerytynpz59c0ccwgnfps2femgp897j8jc7rg4y466g0v0qvd',
+          network: CardanoNetwork.legacyTestnet()
         ),
         (
           accountIndex: 10,
           addressIndex: 10,
-          expectedResult: 'addr1vxsy262p96rys22ruefh6c9wzt3a4q2hz60f7n4lvqakdqsrcyl0u'
+          expectedResult: 'addr_test1vzsy262p96rys22ruefh6c9wzt3a4q2hz60f7n4lvqakdqscssrqe',
+          network: CardanoNetwork.preprod()
         ),
         (
           accountIndex: 0,
           addressIndex: 10,
-          expectedResult: 'addr1vyzfjtzrv4jwps470wmgwq7kzjf8cxscz40tq0s32t8muwgkux93z'
+          expectedResult: 'addr_test1vqzfjtzrv4jwps470wmgwq7kzjf8cxscz40tq0s32t8muwgd5je78',
+          network: CardanoNetwork.preview()
         ),
       ];
 
@@ -215,7 +219,7 @@ void main() {
               device,
               accountIndex: testCase.accountIndex,
               addressIndex: testCase.addressIndex,
-              network: CardanoNetwork.mainnet(),
+              network: testCase.network,
             );
             expect(result, equals(testCase.expectedResult));
             print('Derived enterprise address: $result');

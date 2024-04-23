@@ -45,7 +45,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkLegacyTestnet() => 'addr_test',
     NetworkPreProd() => 'addr_test',
     NetworkPreview() => 'addr_test',
-    NetworkConway() => 'addr',
+    NetworkConway() => 'addr_test',
     NetworkCustom(customBech32Hrp: final customBech32Hrp) => customBech32Hrp,
   };
 }

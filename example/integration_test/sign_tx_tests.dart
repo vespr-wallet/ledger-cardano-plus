@@ -3,8 +3,8 @@ import 'package:integration_test/integration_test.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
-import 'sign_tx_test_cases.dart'; 
- 
+import 'sign_tx_test_cases.dart';
+
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
@@ -18,28 +18,28 @@ void main() {
       cardanoApp = CardanoLedgerApp(ledger);
       print('scanning');
       device = await ledger.scan().first;
-      print('scanned device : ${device.id}'); 
+      print('scanned device : ${device.id}');
       await ledger.connect(device);
-      print('connected to device ${device.name}'); 
+      print('connected to device ${device.name}');
     });
 
-    // group('signTxAlonzo', () {
-    //   for (final testCase in testsAlonzo) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-    
-     group('Specific Test Case: Sign tx with mint path in a required signer', () {
-      test('Sign tx with mint path in a required signer', () async {
-        // Assuming testsAlonzo contains the specific test case
-        final testCase = testsAlonzo.firstWhere((test) => test.testName == 'Sign tx with mint path in a required signer');
-        final result = await cardanoApp.signTransaction(device, testCase.request);
-        expect(result, equals(testCase.expected));
-      });
+    group('signTxAlonzo', () {
+      for (final testCase in testsAlonzo) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
     });
+
+    //  group('Specific Test Case: Sign tx with mint path in a required signer', () {
+    //   test('Sign tx with mint path in a required signer', () async {
+    //     // Assuming testsAlonzo contains the specific test case
+    //     final testCase = testsAlonzo.firstWhere((test) => test.testName == 'Sign tx with mint path in a required signer');
+    //     final result = await cardanoApp.signTransaction(device, testCase.request);
+    //     expect(result, equals(testCase.expected));
+    //   });
+    // });
 
     group('signTxBabbage', () {
       for (final testCase in testsBabbage) {
@@ -50,113 +50,113 @@ void main() {
       }
     });
 
-    // group('signTxByron', () {
-    //   for (final testCase in testsByron) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxByron', () {
+      for (final testCase in testsByron) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxShelleyNoCertificates', () {
-    //   for (final testCase in testsShelleyNoCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxShelleyNoCertificates', () {
+      for (final testCase in testsShelleyNoCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxShelleyWithCertificates', () {
-    //   for (final testCase in testsShelleyWithCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxShelleyWithCertificates', () {
+      for (final testCase in testsShelleyWithCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxConwayWithoutCertificates', () {
-    //   for (final testCase in testsConwayWithoutCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxConwayWithoutCertificates', () {
+      for (final testCase in testsConwayWithoutCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxConwayWithCertificates', () {
-    //   for (final testCase in testsConwayWithCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxConwayWithCertificates', () {
+      for (final testCase in testsConwayWithCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
     // group('signTxConwayVotingProcedures', () {
     //   for (final testCase in testsConwayVotingProcedures) {
     //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //    }
-    // });
-
-    // group('signTxMultisig', () {
-    //   for (final testCase in testsMultisig) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
+    //       final result = await cardanoApp.signTransaction(device, testCase.request);
     //       expect(result, equals(testCase.expected));
     //     });
     //   }
     // });
 
-    // group('signTxAllegra', () {
-    //   for (final testCase in testsAllegra) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxMultisig', () {
+      for (final testCase in testsMultisig) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxMary', () {
-    //   for (final testCase in testsMary) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxAllegra', () {
+      for (final testCase in testsAllegra) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxTrezorComparison', () {
-    //   for (final testCase in testsAlonzoTrezorComparison) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxMary', () {
+      for (final testCase in testsMary) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxBabbageTrezorComparison', () {
-    //   for (final testCase in testsBabbageTrezorComparison) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxTrezorComparison', () {
+      for (final testCase in testsAlonzoTrezorComparison) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxMultidelegation', () {
-    //   for (final testCase in testsMultidelegation) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.transaction);
-    //       expect(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxBabbageTrezorComparison', () {
+      for (final testCase in testsBabbageTrezorComparison) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxMultidelegation', () {
+      for (final testCase in testsMultidelegation) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        });
+      }
+    });
 
     // group('signTxInitPolicyRejects', () {
     //   for (final testCase in transactionInitRejectTestCases) {

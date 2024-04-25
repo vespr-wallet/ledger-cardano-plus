@@ -6,6 +6,7 @@ import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 
 import 'get_extended_public_key_test_cases.dart';
 
@@ -35,7 +36,14 @@ Future<String> deriveAddress(
   );
 
   Uint8List addressBytes = hexToBytes(addressResult);
-  String bech32Hrp = network.bech32Hrp;
+  final String bech32Hrp = switch (params) {
+    ByronAddressParams() => network.paymentBech32Hrp,
+    ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => switch (shelleyParams) {
+        RewardKey() => network.stakeBech32Hrp,
+        RewardScript() => network.stakeBech32Hrp,
+        _ => network.paymentBech32Hrp
+      }
+  };
   return bech32EncodeAddress(bech32Hrp, addressBytes);
 }
 

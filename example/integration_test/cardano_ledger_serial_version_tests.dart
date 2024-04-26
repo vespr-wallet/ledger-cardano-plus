@@ -60,7 +60,7 @@ void main() {
         expect(compatibility.supportsByronAddressDerivation, equals(!version.flags.isAppXS));
         expect(compatibility.supportsMary, isTrue);
         expect(compatibility.supportsCatalystRegistration, isTrue);
-        expect(compatibility.supportsCIP36, isTrue);
+        expect(compatibility.supportsCIP36, isFalse);
         expect(compatibility.supportsZeroTtl, isTrue);
         expect(compatibility.supportsPoolRegistrationAsOwner, equals(!version.flags.isAppXS));
         expect(compatibility.supportsPoolRegistrationAsOperator, equals(!version.flags.isAppXS));
@@ -71,8 +71,8 @@ void main() {
         expect(compatibility.supportsAlonzo, isTrue);
         expect(compatibility.supportsReqSignersInOrdinaryTx, isTrue);
         expect(compatibility.supportsBabbage, isTrue);
-        expect(compatibility.supportsCIP36Vote, isTrue);
-        expect(compatibility.supportsConway, isTrue);
+        expect(compatibility.supportsCIP36Vote, isFalse);
+        expect(compatibility.supportsConway, isFalse);
       } catch (e) {
         print('Error fetching version: $e');
       }

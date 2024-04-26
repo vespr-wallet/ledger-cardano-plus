@@ -17,7 +17,7 @@ sealed class ParsedDRep with _$ParsedDRep {
           validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
         },
       DRepScriptHash() => () {
-          validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptDataHashLength);
+          validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
         },
       DRepAbstain() => () {},
       DRepNoConfidence() => () {},

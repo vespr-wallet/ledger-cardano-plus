@@ -20,7 +20,7 @@ final validNativeScriptTestCases = [
     testName: 'PUBKEY - device owned',
     script: ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyDeviceOwned(
-        path: LedgerSigningPath.custom([harden + 2147483692, harden + 2147485463, harden + 2147483648, harden + 0, harden + 0]),
+        path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0,  0,  0]),
       ),
     ),
     displayFormat: NativeScriptHashDisplayFormat.bech32,

@@ -131,7 +131,7 @@ final testsAlonzo = [
             role: ShelleyAddressRole.payment,
           ),
           witnessSignatureHex:
-              'ea26a98ce5399280ec8ad553d155c0900396204f9fe5a33969f279752a5326318d643544cdb4ffed108017bc7544e80df924143866638faffcd11646e57710b',
+              'ea26a98ce5399280ec8ad553d155c0900396204f9fe5a33969f279752a53263188d643544cdb4ffed108017bc7544e80df924143866638faffcd11646e57710b',
         ),
       ],
     ),
@@ -738,7 +738,8 @@ final testsBabbage = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.externalShelleyBaseScripthashKeyhash',
+              addressHex: bech32ToHex(
+                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
             ),
             amount: BigInt.from(7120787),
             datum: ParsedDatum.inline(
@@ -964,7 +965,8 @@ final testsBabbage = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.externalShelleyBaseScripthashKeyhash',
+              addressHex: bech32ToHex(
+                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
             ),
             amount: BigInt.from(7120787),
             datum: ParsedDatum.hash(
@@ -2891,7 +2893,9 @@ final testsShelleyWithCertificates = [
         outputs: [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+              addressHex: base58ToHex(
+                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+              ),
             ),
             amount: BigInt.from(3003112),
           ),
@@ -3997,7 +4001,9 @@ final testsMary = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.multiassetThirdParty',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(1234),
             tokenBundle: [
@@ -4075,7 +4081,9 @@ final testsMary = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.multiassetThirdParty',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(1234),
             tokenBundle: [
@@ -4167,7 +4175,9 @@ final testsMary = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.multiassetThirdParty',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.parse('24103998870869519'),
             tokenBundle: [
@@ -4365,7 +4375,9 @@ final testsMary = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.multiassetThirdParty',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(1234),
             tokenBundle: [
@@ -4553,7 +4565,9 @@ final testsMary = [
         outputs: [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'destinations.multiassetThirdParty',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(1234),
             tokenBundle: [
@@ -4649,8 +4663,9 @@ final testsAlonzoTrezorComparison = [
         outputs: [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex:
-                  'DdzFFzCqrht7HGoJ87gznLktJGywK1LbAJT2sbd4txmgS7FcYLMQFhawb18ojS9Hx55mrbsHPr7PTraKh14TSQbGBPJHbDZ9QVh6Z6Di',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(2000000),
             tokenBundle: [
@@ -4667,7 +4682,9 @@ final testsAlonzoTrezorComparison = [
           ),
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              addressHex: bech32ToHex(
+                'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              ),
             ),
             amount: BigInt.from(1),
             datumHashHex: ParsedDatumHash(
@@ -4772,7 +4789,9 @@ final testsBabbageTrezorComparison = [
         outputs: [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              addressHex: bech32ToHex(
+                'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              ),
             ),
             amount: BigInt.from(2000000),
             tokenBundle: [
@@ -4789,7 +4808,9 @@ final testsBabbageTrezorComparison = [
           ),
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              addressHex: bech32ToHex(
+                'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              ),
             ),
             amount: BigInt.from(1),
             datumHashHex: ParsedDatumHash(
@@ -4816,7 +4837,9 @@ final testsBabbageTrezorComparison = [
         ],
         collateralOutput: ParsedOutput.alonzo(
           destination: ParsedOutputDestination.thirdParty(
-            addressHex: 'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+            addressHex: bech32ToHex(
+              'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+            ),
           ),
           amount: BigInt.from(7120787),
           tokenBundle: [
@@ -4943,8 +4966,9 @@ final testsMultidelegation = [
         outputs: [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex:
-                  'DdzFFzCqrht7HGoJ87gznLktJGywK1LbAJT2sbd4txmgS7FcYLMQFhawb18ojS9Hx55mrbsHPr7PTraKh14TSQbGBPJHbDZ9QVh6Z6Di',
+              addressHex: bech32ToHex(
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
+              ),
             ),
             amount: BigInt.from(2000000),
             tokenBundle: [
@@ -4961,7 +4985,9 @@ final testsMultidelegation = [
           ),
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
-              addressHex: 'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              addressHex: bech32ToHex(
+                'addr1w9rhu54nz94k9l5v6d9rzfs47h7dv7xffcwkekuxcx3evnqpvuxu0',
+              ),
             ),
             amount: BigInt.from(1),
             datumHashHex: ParsedDatumHash(

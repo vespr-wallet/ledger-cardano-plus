@@ -228,7 +228,7 @@ class CardanoLedgerApp {
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
- Future<String> deriveStakingAddress(
+  Future<String> deriveStakingAddress(
     LedgerDevice device, {
     int accountIndex = 0,
     int addressIndex = 0,
@@ -240,8 +240,6 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.stake,
     );
-
-    print(path.signingPath);
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(

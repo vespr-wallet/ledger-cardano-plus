@@ -599,6 +599,7 @@ final testsBabbage = [
         network: CardanoNetwork.legacyTestnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
+        validityIntervalStart: BigInt.from(7),
         inputs: [
           ParsedInput(
             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
@@ -611,14 +612,14 @@ final testsBabbage = [
           ),
         ],
         outputs: [
-          ParsedOutput.alonzo(
+          ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: bech32ToHex(
                   'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
             ),
             amount: BigInt.from(7120787),
-            datumHashHex: ParsedDatumHash(
-              datumHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            datum: ParsedDatum.inline(
+              datumHex: '5579657420616e6f746865722063686f636f6c617465',
             ),
             tokenBundle: [
               ParsedAssetGroup(
@@ -640,13 +641,12 @@ final testsBabbage = [
         scriptDataHashHex: ScriptDataHash(
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex: '5dbfc21ef1c9cfcec97d81dbe5ad732cf8fe2237969321c830a9dd166172b649',
+      txHashHex: '4c3c5d5eb885006ec4e59feb6f2fe6fca57664c8a7b0c85582424cb5e24ec230',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -655,7 +655,7 @@ final testsBabbage = [
             role: ShelleyAddressRole.payment,
           ),
           witnessSignatureHex:
-              'c2842b7a30a09634201425f707085b8eef73343ed69298e4e5d3887af362c8b92ee8f6d2c6a04bc7bb66ddcef35c27feb0efd046f5183a02c2267ebedb09780c',
+              '8ffccc50b6db51b0f2b888ebadb61257fa02e7877c55a7b4ab694aeff62ebb9d492e3de4d8d4a57d11bcac289e961df7b2391cd634654af5d13ff60a9beb0707',
         ),
       ],
       auxiliaryDataSupplement: null,
@@ -695,7 +695,6 @@ final testsBabbage = [
         scriptDataHashHex: ScriptDataHash(
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -766,7 +765,6 @@ final testsBabbage = [
         scriptDataHashHex: ScriptDataHash(
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
     ),
@@ -923,7 +921,6 @@ final testsBabbage = [
             referenceScriptHex: 'deadbeef' * 38, // 304 B of 'deadbeef'
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -989,7 +986,6 @@ final testsBabbage = [
             ],
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -1032,7 +1028,7 @@ final testsBabbage = [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: bech32ToHex(
-                'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4',
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
               ),
             ),
             amount: BigInt.from(1234),
@@ -1190,7 +1186,6 @@ final testsBabbage = [
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -1257,7 +1252,6 @@ final testsBabbage = [
         scriptDataHashHex:
             ScriptDataHash(hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7'),
         totalCollateral: BigInt.from(10),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -1346,7 +1340,6 @@ final testsBabbage = [
           ),
           amount: BigInt.from(7120787),
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -1452,10 +1445,6 @@ final testsBabbage = [
                 ParsedToken(
                   assetNameHex: '7564247542686911',
                   amount: BigInt.from(47),
-                ),
-                ParsedToken(
-                  assetNameHex: '7564247542686912',
-                  amount: BigInt.from(7878754),
                 ),
               ],
             ),
@@ -1572,7 +1561,6 @@ final testsBabbage = [
           ],
         ),
         totalCollateral: BigInt.from(5),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -1674,7 +1662,6 @@ final testsBabbage = [
           ),
           amount: BigInt.from(7120787),
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],
@@ -1788,7 +1775,6 @@ final testsBabbage = [
           ],
         ),
         totalCollateral: BigInt.from(5),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
       additionalWitnessPaths: [],

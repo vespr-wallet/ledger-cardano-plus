@@ -420,7 +420,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
+  static Uint8List serializeTxOutputDestination(
+          ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
       useBinaryWriter((ByteDataWriter writer) {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
@@ -994,8 +995,8 @@ class SerializationUtils {
             final chunkSize = chunkHex.length ~/ 2;
 
             writer.writeUint8(datum.datumValue);
-            writeSerializedUint64(writer, BigInt.from(totalDatumSize));
-            writeSerializedUint64(writer, BigInt.from(chunkSize));
+            writer.writeUint32(totalDatumSize);
+            writer.writeUint32(chunkSize);
             writeSerializedHex(writer, chunkHex);
           },
       };

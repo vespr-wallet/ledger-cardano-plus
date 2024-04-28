@@ -161,7 +161,7 @@ void main() {
     //  group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
       test('Sign tx with short inline datum in output with tokens', () async {
         // Assuming testsMary contains the specific test case
-        final testCase = testsBabbage.firstWhere((test) => test.testName == 'Sign tx with third-party collateral output as map with total collateral');
+        final testCase = testsByron.firstWhere((test) => test.testName == 'Sign tx with third-party Byron testnet output');
         try {
           final result = await cardanoApp.signTransaction(device, testCase.request);
           expect(result, equals(testCase.expected));
@@ -177,8 +177,8 @@ void main() {
     // });
     
         // Test group for Byron transactions
-    // group('signTxBabbage', () {
-    //   for (final testCase in testsBabbage) {
+    // group('signTxByron', () {
+    //   for (final testCase in testsByron) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
     //       expect(result, equals(testCase.expected));

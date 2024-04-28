@@ -1809,16 +1809,15 @@ final testsByron = [
           ),
         ],
         outputs: [
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: base58ToHex(
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -1856,16 +1855,15 @@ final testsByron = [
           ),
         ],
         outputs: [
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: base58ToHex(
                 'DdzFFzCqrht7HGoJ87gznLktJGywK1LbAJT2sbd4txmgS7FcYLMQFhawb18ojS9Hx55mrbsHPr7PTraKh14TSQbGBPJHbDZ9QVh6Z6Di',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -1889,7 +1887,11 @@ final testsByron = [
     testName: 'Sign tx with third-party Byron testnet output',
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-        network: CardanoNetwork.legacyTestnet(),
+        network: CardanoNetwork.custom(
+          customNetworkId: 0,
+          customNetworkMagic: 42,
+          customBech32Hrp: 'addr_test',
+        ),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
         inputs: [
@@ -1903,16 +1905,15 @@ final testsByron = [
           ),
         ],
         outputs: [
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: base58ToHex(
                 '2657WMsDfac6Cmfg4Varph2qyLKGi2K9E8jrtvjHVzfSjmbTMGy5sY3HpxCKsmtDA',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],

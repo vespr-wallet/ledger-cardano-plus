@@ -917,7 +917,6 @@ class SerializationUtils {
       writer.write(Uint8List(0));
     }
 
-    print(hex.encode(writer.toBytes()));
     writer.write(serializeTxOutputDestination(output.destination, version, network));
 
     writer.write(serializeCoin(output.amount));

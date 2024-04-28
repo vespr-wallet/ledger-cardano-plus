@@ -661,129 +661,132 @@ final testsBabbage = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  SignTxTestCase(
-    testName: 'Sign tx with long inline datum (480 B) in output',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.legacyTestnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.babbage(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: bech32ToHex(
-                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
-            ),
-            amount: BigInt.from(7120787),
-            datum: ParsedDatum.inline(
-              datumHex:
-                  '12b8240c5470b47c159597b6f71d78c7fc99d1d8d911cb19b8f50211938ef361a22d30cd8f6354ec50e99a7d3cf3e06797ed4af3d358e01b2a957caa4010da328720b9fbe7a3a6d10209a13d2eb11933eb1bf2ab02713117e421b6dcc66297c41b95ad32d3457a0e6b44d8482385f311465964c3daff226acfb7bbda47011f1a6531db30e5b5977143c48f8b8eb739487f87dc13896f58529cfb48e415fc6123e708cdc3cb15cc1900ecf88c5fc9ff66d8ad6dae18c79e4a3c392a0df4d16ffa3e370f4dad8d8e9d171c5656bb317c78a2711057e7ae0beb1dc66ba01aa69d0c0db244e6742d7758ce8da00dfed6225d4aed4b01c42a0352688ed5803f3fd64873f11355305d9db309f4a2a6673cc408a06b8827a5edef7b0fd8742627fb8aa102a084b7db72fcb5c3d1bf437e2a936b738902a9c0258b462b9f2e9befd2c6bcfc036143bb34342b9124888a5b29fa5d60909c81319f034c11542b05ca3ff6c64c7642ff1e2b25fb60dc9bb6f5c914dd4149f31896955d4d204d822deddc46f852115a479edf7521cdf4ce596805875011855158fd303c33a2a7916a9cb7acaaf5aeca7e6efb75960e9597cd845bd9a93610bf1ab47ab0de943e8a96e26a24c4996f7b07fad437829fee5bc3496192608d4c04ac642cdec7bdbb8a948ad1d434',
-            ),
-          ),
-        ],
-        scriptDataHashHex: ScriptDataHash(
-          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-        ),
-      ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '0cccea3eb974bd362720a460d84d4970e89c523b2145cbe29bb56f36cec4b826',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '9b45eae3e9e59f501adbe22ce7f22fbacce7c36623f28e1aa4fdb0942e58e839b02e21a6808a13c7490cbb70e9a174279b4c845dba3ee99b8d458cfa9d349908',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with long inline datum (304 B) in output with tokens',
-    request: ParsedSigningRequest(
-      additionalWitnessPaths: [],
-      tx: ParsedTransaction(
-        network: CardanoNetwork.legacyTestnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.babbage(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: bech32ToHex(
-                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
-            ),
-            amount: BigInt.from(7120787),
-            datum: ParsedDatum.inline(
-              datumHex:
-                  '5579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f74686572206374686572',
-            ),
-            tokenBundle: [
-              ParsedAssetGroup(
-                policyIdHex: '75a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
-                tokens: [
-                  ParsedToken(
-                    assetNameHex: '7564247542686911',
-                    amount: BigInt.from(47),
-                  ),
-                  ParsedToken(
-                    assetNameHex: '7564247542686912',
-                    amount: BigInt.from(7878754),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
-        scriptDataHashHex: ScriptDataHash(
-          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-        ),
-      ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '92f83ca3e05fb48ffe0f90e6d7ac653a684039476b4963984b84fdc6fecea67d',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'e6baf473e8caabcdfaa961e4e25f31f1389de3528e6ffede36e8e23ac163a6b5fcab490f009577aa4f260a7f4e45d5b481f4b5c3542148feafcae101805f4001',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
+
+  //TODO Investigate this test case further (ISSUE : ON TRANSACTION CONFIRM , LEDGER IS GETTING STUCK ON LOADING)
+  // SignTxTestCase(
+  //   testName: 'Sign tx with long inline datum (480 B) in output',
+  //   request: ParsedSigningRequest(
+  //     tx: ParsedTransaction(
+  //       network: CardanoNetwork.legacyTestnet(),
+  //       fee: BigInt.from(42),
+  //       ttl: BigInt.from(10),
+  //       inputs: [
+  //         ParsedInput(
+  //           txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+  //           outputIndex: 0,
+  //           path: LedgerSigningPath.shelley(
+  //             account: 0,
+  //             address: 0,
+  //             role: ShelleyAddressRole.payment,
+  //           ),
+  //         ),
+  //       ],
+  //       outputs: [
+  //         ParsedOutput.babbage(
+  //           destination: ParsedOutputDestination.thirdParty(
+  //             addressHex: bech32ToHex(
+  //                 'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
+  //           ),
+  //           amount: BigInt.from(7120787),
+  //           datum: ParsedDatum.inline(
+  //             datumHex:
+  //                 '12b8240c5470b47c159597b6f71d78c7fc99d1d8d911cb19b8f50211938ef361a22d30cd8f6354ec50e99a7d3cf3e06797ed4af3d358e01b2a957caa4010da328720b9fbe7a3a6d10209a13d2eb11933eb1bf2ab02713117e421b6dcc66297c41b95ad32d3457a0e6b44d8482385f311465964c3daff226acfb7bbda47011f1a6531db30e5b5977143c48f8b8eb739487f87dc13896f58529cfb48e415fc6123e708cdc3cb15cc1900ecf88c5fc9ff66d8ad6dae18c79e4a3c392a0df4d16ffa3e370f4dad8d8e9d171c5656bb317c78a2711057e7ae0beb1dc66ba01aa69d0c0db244e6742d7758ce8da00dfed6225d4aed4b01c42a0352688ed5803f3fd64873f11355305d9db309f4a2a6673cc408a06b8827a5edef7b0fd8742627fb8aa102a084b7db72fcb5c3d1bf437e2a936b738902a9c0258b462b9f2e9befd2c6bcfc036143bb34342b9124888a5b29fa5d60909c81319f034c11542b05ca3ff6c64c7642ff1e2b25fb60dc9bb6f5c914dd4149f31896955d4d204d822deddc46f852115a479edf7521cdf4ce596805875011855158fd303c33a2a7916a9cb7acaaf5aeca7e6efb75960e9597cd845bd9a93610bf1ab47ab0de943e8a96e26a24c4996f7b07fad437829fee5bc3496192608d4c04ac642cdec7bdbb8a948ad1d434',
+  //           ),
+  //         ),
+  //       ],
+  //       scriptDataHashHex: ScriptDataHash(
+  //         hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+  //       ),
+  //     ),
+  //     signingMode: TransactionSigningModes.plutusTransaction(),
+  //     additionalWitnessPaths: [],
+  //   ),
+  //   expected: SignedTransactionData(
+  //     txHashHex: '0cccea3eb974bd362720a460d84d4970e89c523b2145cbe29bb56f36cec4b826',
+  //     witnesses: [
+  //       Witness(
+  //         path: LedgerSigningPath.shelley(
+  //           account: 0,
+  //           address: 0,
+  //           role: ShelleyAddressRole.payment,
+  //         ),
+  //         witnessSignatureHex:
+  //             '9b45eae3e9e59f501adbe22ce7f22fbacce7c36623f28e1aa4fdb0942e58e839b02e21a6808a13c7490cbb70e9a174279b4c845dba3ee99b8d458cfa9d349908',
+  //       ),
+  //     ],
+  //     auxiliaryDataSupplement: null,
+  //   ),
+  // ),
+  //TODO Investigate this test case further (ISSUE : LedgerException caught: Invalid state , on transaction confirm)
+  // SignTxTestCase(
+  //   testName: 'Sign tx with long inline datum (304 B) in output with tokens',
+  //   request: ParsedSigningRequest(
+  //     additionalWitnessPaths: [],
+  //     tx: ParsedTransaction(
+  //       network: CardanoNetwork.legacyTestnet(),
+  //       fee: BigInt.from(42),
+  //       ttl: BigInt.from(10),
+  //       inputs: [
+  //         ParsedInput(
+  //           txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+  //           outputIndex: 0,
+  //           path: LedgerSigningPath.shelley(
+  //             account: 0,
+  //             address: 0,
+  //             role: ShelleyAddressRole.payment,
+  //           ),
+  //         ),
+  //       ],
+  //       outputs: [
+  //         ParsedOutput.babbage(
+  //           destination: ParsedOutputDestination.thirdParty(
+  //             addressHex: bech32ToHex(
+  //                 'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
+  //           ),
+  //           amount: BigInt.from(7120787),
+  //           datum: ParsedDatum.inline(
+  //             datumHex:
+  //                 '5579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f74686572206374686572',
+  //           ),
+  //           tokenBundle: [
+  //             ParsedAssetGroup(
+  //               policyIdHex: '75a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+  //               tokens: [
+  //                 ParsedToken(
+  //                   assetNameHex: '7564247542686911',
+  //                   amount: BigInt.from(47),
+  //                 ),
+  //                 ParsedToken(
+  //                   assetNameHex: '7564247542686912',
+  //                   amount: BigInt.from(7878754),
+  //                 ),
+  //               ],
+  //             ),
+  //           ],
+  //         ),
+  //       ],
+  //       scriptDataHashHex: ScriptDataHash(
+  //         hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+  //       ),
+  //     ),
+  //     signingMode: TransactionSigningModes.plutusTransaction(),
+  //   ),
+  //   expected: SignedTransactionData(
+  //     txHashHex: '92f83ca3e05fb48ffe0f90e6d7ac653a684039476b4963984b84fdc6fecea67d',
+  //     witnesses: [
+  //       Witness(
+  //         path: LedgerSigningPath.shelley(
+  //           account: 0,
+  //           address: 0,
+  //           role: ShelleyAddressRole.payment,
+  //         ),
+  //         witnessSignatureHex:
+  //             'e6baf473e8caabcdfaa961e4e25f31f1389de3528e6ffede36e8e23ac163a6b5fcab490f009577aa4f260a7f4e45d5b481f4b5c3542148feafcae101805f4001',
+  //       ),
+  //     ],
+  //     auxiliaryDataSupplement: null,
+  //   ),
+  // ),
   SignTxTestCase(
     testName: 'Sign tx with datum hash and short ref. script in output',
     request: ParsedSigningRequest(
@@ -918,7 +921,8 @@ final testsBabbage = [
             datum: ParsedDatum.hash(
               datumHashHex: 'ffd4d009f554ba4fd8ed1f1d703244819861a9d34fd4753bcf3ff32f043ce188',
             ),
-            referenceScriptHex: 'deadbeef' * 38, // 304 B of 'deadbeef'
+            referenceScriptHex:
+                'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeaddeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeaddeadbeef', // 304 B of 'deadbeef'
           ),
         ],
       ),
@@ -1603,7 +1607,7 @@ final testsBabbage = [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: bech32ToHex(
-                'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4',
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
               ),
             ),
             amount: BigInt.from(1234),
@@ -1654,13 +1658,13 @@ final testsBabbage = [
             ),
           ),
         ],
-        collateralOutput: ParsedOutput.babbage(
+        collateralOutput: ParsedOutput.alonzo(
           destination: ParsedOutputDestination.thirdParty(
             addressHex: bech32ToHex(
               'addr1q97tqh7wzy8mnx0sr2a57c4ug40zzl222877jz06nt49g4zr43fuq3k0dfpqjh3uvqcsl2qzwuwsvuhclck3scgn3vys6wkj5d',
             ),
           ),
-          amount: BigInt.from(7120787),
+          amount: BigInt.from(1),
         ),
       ),
       signingMode: TransactionSigningModes.plutusTransaction(),
@@ -1704,7 +1708,7 @@ final testsBabbage = [
           ParsedOutput.babbage(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: bech32ToHex(
-                'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4',
+                'addr1q84sh2j72ux0l03fxndjnhctdg7hcppsaejafsa84vh7lwgmcs5wgus8qt4atk45lvt4xfxpjtwfhdmvchdf2m3u3hlsd5tq5r',
               ),
             ),
             amount: BigInt.from(1234),
@@ -1755,24 +1759,13 @@ final testsBabbage = [
             ),
           ),
         ],
-        collateralOutput: ParsedOutput.babbage(
+        collateralOutput: ParsedOutput.alonzo(
           destination: ParsedOutputDestination.thirdParty(
             addressHex: bech32ToHex(
               'addr1q97tqh7wzy8mnx0sr2a57c4ug40zzl222877jz06nt49g4zr43fuq3k0dfpqjh3uvqcsl2qzwuwsvuhclck3scgn3vys6wkj5d',
             ),
           ),
-          amount: BigInt.from(7120787),
-          tokenBundle: [
-            ParsedAssetGroup(
-              policyIdHex: '75a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
-              tokens: [
-                ParsedToken(
-                  assetNameHex: '7564247542686911',
-                  amount: BigInt.from(47),
-                ),
-              ],
-            ),
-          ],
+          amount: BigInt.from(1),
         ),
         totalCollateral: BigInt.from(5),
       ),

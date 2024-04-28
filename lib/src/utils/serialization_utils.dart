@@ -913,8 +913,11 @@ class SerializationUtils {
 
     if (compatibility.supportsBabbage) {
       writer.writeUint8(output.format.value);
+    } else {
+      writer.write(Uint8List(0));
     }
 
+    print(hex.encode(writer.toBytes()));
     writer.write(serializeTxOutputDestination(output.destination, version, network));
 
     writer.write(serializeCoin(output.amount));
@@ -923,10 +926,14 @@ class SerializationUtils {
 
     if (compatibility.supportsAlonzo) {
       serializeOptionFlag(writer, output.outputDatum != null);
+    } else {
+      writer.write(Uint8List(0));
     }
 
     if (compatibility.supportsBabbage) {
       serializeOptionFlag(writer, output.referenceScriptHash != null);
+    } else {
+      writer.write(Uint8List(0));
     }
 
     return writer.toBytes();
@@ -1018,8 +1025,8 @@ class SerializationUtils {
       }
       final chunkSize = chunkHex.length ~/ 2;
 
-      writeSerializedUint64(writer, BigInt.from(totalScriptSize));
-      writeSerializedUint64(writer, BigInt.from(chunkSize));
+      writer.writeUint32(totalScriptSize);
+      writer.writeUint32(chunkSize);
       writeSerializedHex(writer, chunkHex);
 
       return writer.toBytes();

@@ -426,8 +426,10 @@ class SerializationUtils {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
           ThirdParty() => () {
-              writer.writeUint32(destination.addressHex.length ~/ 2);
-              writer.write(hex.decode(destination.addressHex));
+            final addressHex = destination.addressHex;
+            final addressHexLength = addressHex.length / 2;
+              writer.writeUint32(addressHexLength.toInt());
+              writer.write(hex.decode(addressHex));
             },
           DeviceOwned() => () {
               final addressParamsBytes = serializeAddressParams(destination.addressParams, version, network);
@@ -984,7 +986,7 @@ class SerializationUtils {
             writeSerializedHex(writer, datum.datumHashHex);
           },
         ParsedDatumInline() => () {
-            final totalDatumSize = datum.datumHex.length ~/ 2;
+            final totalDatumSize = datum.datumHex.length / 2;
             String chunkHex;
 
             if (totalDatumSize > maxChunkSize) {
@@ -992,11 +994,11 @@ class SerializationUtils {
             } else {
               chunkHex = datum.datumHex;
             }
-            final chunkSize = chunkHex.length ~/ 2;
+            final chunkSize = chunkHex.length / 2;
 
             writer.writeUint8(datum.datumValue);
-            writer.writeUint32(totalDatumSize);
-            writer.writeUint32(chunkSize);
+            writer.writeUint32(totalDatumSize.toInt());
+            writer.writeUint32(chunkSize.toInt());
             writeSerializedHex(writer, chunkHex);
           },
       };
@@ -1008,7 +1010,7 @@ class SerializationUtils {
 
   static Uint8List serializeTxOutputRefScript(String referenceScriptHex) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final totalScriptSize = referenceScriptHex.length ~/ 2;
+      final totalScriptSize = referenceScriptHex.length / 2;
       String chunkHex;
 
       if (totalScriptSize > maxChunkSize) {
@@ -1016,10 +1018,10 @@ class SerializationUtils {
       } else {
         chunkHex = referenceScriptHex;
       }
-      final chunkSize = chunkHex.length ~/ 2;
+      final chunkSize = chunkHex.length / 2;
 
-      writer.writeUint32(totalScriptSize);
-      writer.writeUint32(chunkSize);
+      writer.writeUint32(totalScriptSize.toInt());
+      writer.writeUint32(chunkSize.toInt());
       writeSerializedHex(writer, chunkHex);
 
       return writer.toBytes();

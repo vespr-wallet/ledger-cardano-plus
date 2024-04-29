@@ -545,8 +545,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
   }
 
   Uint8List _createDataBuffer(String chunk) {
-    final chunkLength = chunk.length ~/ 2;
-    final lengthBuffer = _uint32ToBuf(chunkLength);
+    final chunkLength = chunk.length / 2;
+    final lengthBuffer = _uint32ToBuf(chunkLength.toInt());
     final chunkBuffer = _hexToBuf(chunk);
     return Uint8List.fromList([...lengthBuffer, ...chunkBuffer]);
   }

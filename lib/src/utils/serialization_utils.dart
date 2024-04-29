@@ -913,8 +913,6 @@ class SerializationUtils {
 
     if (compatibility.supportsBabbage) {
       writer.writeUint8(output.format.value);
-    } else {
-      writer.write(Uint8List(0));
     }
 
     writer.write(serializeTxOutputDestination(output.destination, version, network));
@@ -925,14 +923,10 @@ class SerializationUtils {
 
     if (compatibility.supportsAlonzo) {
       serializeOptionFlag(writer, output.outputDatum != null);
-    } else {
-      writer.write(Uint8List(0));
     }
 
     if (compatibility.supportsBabbage) {
       serializeOptionFlag(writer, output.referenceScriptHash != null);
-    } else {
-      writer.write(Uint8List(0));
     }
 
     return writer.toBytes();

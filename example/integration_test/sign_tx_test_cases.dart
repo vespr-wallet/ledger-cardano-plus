@@ -1955,7 +1955,6 @@ final testsShelleyNoCertificates = [
           ),
         ],
         outputs: [],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -1976,6 +1975,7 @@ final testsShelleyNoCertificates = [
       auxiliaryDataSupplement: null,
     ),
   ),
+  //TODO: CURRENTLY THE OFFICIAL VERSION DOESN'T SUPPORT CONWAY , SO WE CAN'T SERIALIZE TAGS
   SignTxTestCase(
     testName: 'Sign tx with 258 tag on inputs',
     request: ParsedSigningRequest(
@@ -1995,7 +1995,6 @@ final testsShelleyNoCertificates = [
           ),
         ],
         outputs: [],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2044,10 +2043,9 @@ final testsShelleyNoCertificates = [
                 'addr1q97tqh7wzy8mnx0sr2a57c4ug40zzl222877jz06nt49g4zr43fuq3k0dfpqjh3uvqcsl2qzwuwsvuhclck3scgn3vys6wkj5d',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(1),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2086,15 +2084,15 @@ final testsShelleyNoCertificates = [
           ),
         ],
         outputs: [
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: base58ToHex(
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
@@ -2118,7 +2116,6 @@ final testsShelleyNoCertificates = [
             amount: BigInt.from(7120787),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2157,15 +2154,15 @@ final testsShelleyNoCertificates = [
           ),
         ],
         outputs: [
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.thirdParty(
               addressHex: base58ToHex(
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
-          ParsedOutput.babbage(
+          ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
@@ -2185,7 +2182,6 @@ final testsShelleyNoCertificates = [
             amount: BigInt.from(7120787),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2206,6 +2202,8 @@ final testsShelleyNoCertificates = [
       auxiliaryDataSupplement: null,
     ),
   ),
+  //TODO: Investigate possible issue with serializeCoin method causing different tx hashes and LedgerException caught:
+  // "LedgerException caught: Invalid data"
   SignTxTestCase(
     testName: 'Sign tx with enterprise change address',
     request: ParsedSigningRequest(
@@ -2231,7 +2229,7 @@ final testsShelleyNoCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
@@ -2250,7 +2248,6 @@ final testsShelleyNoCertificates = [
             amount: BigInt.from(7120787),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2296,7 +2293,7 @@ final testsShelleyNoCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
@@ -2320,7 +2317,6 @@ final testsShelleyNoCertificates = [
             amount: BigInt.from(7120787),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2367,7 +2363,7 @@ final testsShelleyNoCertificates = [
                   spendingDataSource: SpendingDataSource.path(
                     path: LedgerSigningPath.shelley(
                       account: 456,
-                      address: 0,
+                      address: 5000000,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
@@ -2387,7 +2383,6 @@ final testsShelleyNoCertificates = [
         auxiliaryData: ParsedTxAuxiliaryData.arbitraryHash(
           hashHex: 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2433,7 +2428,7 @@ final testsShelleyNoCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
         withdrawals: [
@@ -2448,7 +2443,6 @@ final testsShelleyNoCertificates = [
             amount: BigInt.from(111),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2503,13 +2497,12 @@ final testsShelleyNoCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
         auxiliaryData: ParsedTxAuxiliaryData.arbitraryHash(
           hashHex: 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',
         ),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2530,7 +2523,6 @@ final testsShelleyNoCertificates = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  // ... define test cases for Shelley without certificates
 ];
 
 final testsShelleyWithCertificates = [
@@ -2559,7 +2551,7 @@ final testsShelleyWithCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
         certificates: [
@@ -2573,7 +2565,6 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2612,7 +2603,16 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        outputs: [],
+        outputs: [
+          ParsedOutput.alonzo(
+            destination: ParsedOutputDestination.thirdParty(
+              addressHex: base58ToHex(
+                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+              ),
+            ),
+            amount: BigInt.from(3003112),
+          ),
+        ],
         certificates: [
           ParsedCertificate.stakeDeregistration(
             stakeCredential: ParsedCredential.keyPath(
@@ -2624,7 +2624,6 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2672,7 +2671,16 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        outputs: [],
+        outputs: [
+          ParsedOutput.alonzo(
+            destination: ParsedOutputDestination.thirdParty(
+              addressHex: base58ToHex(
+                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+              ),
+            ),
+            amount: BigInt.from(3003112),
+          ),
+        ],
         certificates: [
           ParsedCertificate.stakeDelegation(
             stakeCredential: ParsedCredential.keyPath(
@@ -2685,7 +2693,6 @@ final testsShelleyWithCertificates = [
             poolKeyHashHex: 'f61c42cbf7c8c53af3f520508212ad3e72f674f957fe23ff0acb4973',
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2733,7 +2740,16 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        outputs: [],
+        outputs: [
+          ParsedOutput.alonzo(
+            destination: ParsedOutputDestination.thirdParty(
+              addressHex: base58ToHex(
+                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+              ),
+            ),
+            amount: BigInt.from(3003112),
+          ),
+        ],
         certificates: [
           ParsedCertificate.stakeDeregistration(
             stakeCredential: ParsedCredential.keyPath(
@@ -2754,7 +2770,6 @@ final testsShelleyWithCertificates = [
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],
@@ -2932,6 +2947,7 @@ final testsShelleyWithCertificates = [
 ];
 
 final testsConwayWithoutCertificates = [
+  //TODO: Check for serializeCoin method because it's the same recurring issue as before , causing Ledger to fail
   SignTxTestCase(
     testName: 'Sign tx with treasury',
     request: ParsedSigningRequest(
@@ -2957,11 +2973,10 @@ final testsConwayWithoutCertificates = [
                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
               ),
             ),
-            amount: BigInt.from(7120787),
+            amount: BigInt.from(3003112),
           ),
         ],
         treasury: BigInt.from(27),
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction(),
       additionalWitnessPaths: [],

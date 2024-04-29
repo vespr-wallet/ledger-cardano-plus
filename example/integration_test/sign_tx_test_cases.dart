@@ -663,6 +663,7 @@ final testsBabbage = [
   ),
 
   //TODO Investigate this test case further (ISSUE : ON TRANSACTION CONFIRM , LEDGER IS GETTING STUCK ON LOADING)
+  //EDIT : ERROR still persists , even with the new toInt() approach
   // SignTxTestCase(
   //   testName: 'Sign tx with long inline datum (480 B) in output',
   //   request: ParsedSigningRequest(

@@ -161,7 +161,7 @@ void main() {
     //  group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
       test('Sign tx with short inline datum in output with tokens', () async {
         // Assuming testsMary contains the specific test case
-        final testCase = testsConwayWithoutCertificates.firstWhere((test) => test.testName == 'Sign tx with treasury');
+        final testCase = testsMultidelegation.firstWhere((test) => test.testName == 'Sign tx with multidelegation keys in all tx elements');
         try {
           final result = await cardanoApp.signTransaction(device, testCase.request);
           expect(result, equals(testCase.expected));

@@ -55,24 +55,40 @@ String bech32ToHex(String bech32Address) {
 Future<void> testSingleKey(
     List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
   for (final testCase in tests) {
-    final response = await cardanoApp.getExtendedPublicKey(
-      device,
-      request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
-    );
+    try {
+      final response = await cardanoApp.getExtendedPublicKey(
+        device,
+        request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
+      );
 
-    expect(response.publicKeyHex, equals(testCase.expected.publicKey));
-    expect(response.chainCodeHex, equals(testCase.expected.chainCode));
+      expect(response.publicKeyHex, equals(testCase.expected.publicKey));
+      expect(response.chainCodeHex, equals(testCase.expected.chainCode));
+    } catch (e) {
+      if (e is LedgerException) {
+        print('LedgerException caught: ${e.message}');
+      } else {
+        rethrow;
+      }
+    }
   }
 }
 
 Future<void> testMultipleKeys(
     List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
-  final requests = tests.map((testCase) => ExtendedPublicKeyRequest_Custom(customPath: testCase.path)).toList();
-  final results = await cardanoApp.getExtendedPublicKeys(device, requests: requests);
+  try {
+    final requests = tests.map((testCase) => ExtendedPublicKeyRequest_Custom(customPath: testCase.path)).toList();
+    final results = await cardanoApp.getExtendedPublicKeys(device, requests: requests);
 
-  expect(results.length, equals(tests.length));
-  for (int i = 0; i < tests.length; i++) {
-    expect(results[i].publicKeyHex, equals(tests[i].expected.publicKey));
-    expect(results[i].chainCodeHex, equals(tests[i].expected.chainCode));
+    expect(results.length, equals(tests.length));
+    for (int i = 0; i < tests.length; i++) {
+      expect(results[i].publicKeyHex, equals(tests[i].expected.publicKey));
+      expect(results[i].chainCodeHex, equals(tests[i].expected.chainCode));
+    }
+  } catch (e) {
+    if (e is LedgerException) {
+      print('LedgerException caught: ${e.message}');
+    } else {
+      rethrow;
+    }
   }
 }

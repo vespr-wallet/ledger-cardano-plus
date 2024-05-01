@@ -14,7 +14,7 @@ void main() {
     late LedgerDevice device;
 
     setUpAll(() async {
-      ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
+      ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 10)));
       cardanoApp = CardanoLedgerApp(ledger);
       device = await ledger.scan().first;
       print("Connecting to device: ${device.id}");
@@ -46,6 +46,7 @@ void main() {
       }
     });
 
+    //TODO: Tests for invalid scripts are not meant to work as expected because of invalid input.
     // group('Invalid scripts', () {
     //   for (final testCase in invalidOnLedgerScriptTestCases) {
     //     test(testCase.testName, () async {

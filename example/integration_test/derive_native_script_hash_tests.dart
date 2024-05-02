@@ -46,18 +46,17 @@ void main() {
       }
     });
 
-    //TODO: Tests for invalid scripts are not meant to work as expected because of invalid input.
-    // group('Invalid scripts', () {
-    //   for (final testCase in invalidOnLedgerScriptTestCases) {
-    //     test(testCase.testName, () async {
-    //       final promise = cardanoApp.deriveNativeScriptHash(
-    //         device,
-    //         testCase.script,
-    //         NativeScriptHashDisplayFormat.bech32,
-    //       );
-    //       expect(promise, throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
+    group('Invalid scripts', () {
+      for (final testCase in invalidOnLedgerScriptTestCases) {
+        test(testCase.testName, () async {
+          final promise = cardanoApp.deriveNativeScriptHash(
+            device,
+            testCase.script,
+            NativeScriptHashDisplayFormat.bech32,
+          );
+          expect(promise, throwsA(isA<LedgerException>()));
+        });
+      }
+    });
   });
 }

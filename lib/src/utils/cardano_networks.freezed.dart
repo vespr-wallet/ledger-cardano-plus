@@ -248,7 +248,10 @@ abstract class _$$NetworkCustomImplCopyWith<$Res> {
       __$$NetworkCustomImplCopyWithImpl<$Res>;
   @useResult
   $Res call(
-      {int customNetworkId, int customNetworkMagic, String customBech32Hrp});
+      {int customNetworkId,
+      int customNetworkMagic,
+      String customPaymentBech32Hrp,
+      String customStakeBech32Hrp});
 }
 
 /// @nodoc
@@ -264,7 +267,8 @@ class __$$NetworkCustomImplCopyWithImpl<$Res>
   $Res call({
     Object? customNetworkId = null,
     Object? customNetworkMagic = null,
-    Object? customBech32Hrp = null,
+    Object? customPaymentBech32Hrp = null,
+    Object? customStakeBech32Hrp = null,
   }) {
     return _then(_$NetworkCustomImpl(
       customNetworkId: null == customNetworkId
@@ -275,9 +279,13 @@ class __$$NetworkCustomImplCopyWithImpl<$Res>
           ? _value.customNetworkMagic
           : customNetworkMagic // ignore: cast_nullable_to_non_nullable
               as int,
-      customBech32Hrp: null == customBech32Hrp
-          ? _value.customBech32Hrp
-          : customBech32Hrp // ignore: cast_nullable_to_non_nullable
+      customPaymentBech32Hrp: null == customPaymentBech32Hrp
+          ? _value.customPaymentBech32Hrp
+          : customPaymentBech32Hrp // ignore: cast_nullable_to_non_nullable
+              as String,
+      customStakeBech32Hrp: null == customStakeBech32Hrp
+          ? _value.customStakeBech32Hrp
+          : customStakeBech32Hrp // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -289,7 +297,8 @@ class _$NetworkCustomImpl extends NetworkCustom {
   _$NetworkCustomImpl(
       {required this.customNetworkId,
       required this.customNetworkMagic,
-      required this.customBech32Hrp})
+      required this.customPaymentBech32Hrp,
+      required this.customStakeBech32Hrp})
       : super._();
 
   @override
@@ -297,11 +306,13 @@ class _$NetworkCustomImpl extends NetworkCustom {
   @override
   final int customNetworkMagic;
   @override
-  final String customBech32Hrp;
+  final String customPaymentBech32Hrp;
+  @override
+  final String customStakeBech32Hrp;
 
   @override
   String toString() {
-    return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic, customBech32Hrp: $customBech32Hrp)';
+    return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic, customPaymentBech32Hrp: $customPaymentBech32Hrp, customStakeBech32Hrp: $customStakeBech32Hrp)';
   }
 
   @override
@@ -313,13 +324,15 @@ class _$NetworkCustomImpl extends NetworkCustom {
                 other.customNetworkId == customNetworkId) &&
             (identical(other.customNetworkMagic, customNetworkMagic) ||
                 other.customNetworkMagic == customNetworkMagic) &&
-            (identical(other.customBech32Hrp, customBech32Hrp) ||
-                other.customBech32Hrp == customBech32Hrp));
+            (identical(other.customPaymentBech32Hrp, customPaymentBech32Hrp) ||
+                other.customPaymentBech32Hrp == customPaymentBech32Hrp) &&
+            (identical(other.customStakeBech32Hrp, customStakeBech32Hrp) ||
+                other.customStakeBech32Hrp == customStakeBech32Hrp));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType, customNetworkId, customNetworkMagic, customBech32Hrp);
+  int get hashCode => Object.hash(runtimeType, customNetworkId,
+      customNetworkMagic, customPaymentBech32Hrp, customStakeBech32Hrp);
 
   @JsonKey(ignore: true)
   @override
@@ -332,12 +345,14 @@ abstract class NetworkCustom extends CardanoNetwork {
   factory NetworkCustom(
       {required final int customNetworkId,
       required final int customNetworkMagic,
-      required final String customBech32Hrp}) = _$NetworkCustomImpl;
+      required final String customPaymentBech32Hrp,
+      required final String customStakeBech32Hrp}) = _$NetworkCustomImpl;
   NetworkCustom._() : super._();
 
   int get customNetworkId;
   int get customNetworkMagic;
-  String get customBech32Hrp;
+  String get customPaymentBech32Hrp;
+  String get customStakeBech32Hrp;
   @JsonKey(ignore: true)
   _$$NetworkCustomImplCopyWith<_$NetworkCustomImpl> get copyWith =>
       throw _privateConstructorUsedError;

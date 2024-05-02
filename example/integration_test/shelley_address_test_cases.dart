@@ -23,7 +23,12 @@ class ShelleyTestCase {
 List<ShelleyTestCase> shelleyTestCases = [
   ShelleyTestCase(
     testName: 'base address path/path 1',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -51,7 +56,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/path unusual spending path account',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -65,7 +75,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/path unusual spending path address index',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource: SpendingDataSource.path(
@@ -79,7 +94,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/path unusual staking path account',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -107,7 +127,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/path multidelegation stake key unusual account',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -121,7 +146,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/path multidelegation stake key unusual index',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -149,7 +179,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/keyHash 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
         spendingDataSource:
@@ -191,7 +226,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address scriptHash/path',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
         spendingDataSource:
@@ -205,7 +245,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address scriptHash/path multidelegation',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentScriptStakeKey(
         spendingDataSource:
@@ -233,7 +278,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'base address path/scriptHash',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeScript(
         spendingDataSource:
@@ -258,7 +308,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'enterprise path 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
         spendingDataSource:
@@ -269,7 +324,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'enterprise path unusual account',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
         spendingDataSource:
@@ -291,7 +351,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'enterprise script 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseScript(
         spendingDataSource:
@@ -314,7 +379,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'pointer path 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         spendingDataSource:
@@ -326,7 +396,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'pointer path 3',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
         spendingDataSource:
@@ -374,7 +449,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'pointer script 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerScript(
         spendingDataSource:
@@ -386,7 +466,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'pointer script 3',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'addr'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.pointerScript(
         spendingDataSource:
@@ -409,7 +494,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'reward path 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'stake'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         stakingDataSource:
@@ -453,7 +543,12 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'reward path unusual account',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'stake'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
         stakingDataSource:
@@ -474,12 +569,17 @@ List<ShelleyTestCase> shelleyTestCases = [
   ),
   ShelleyTestCase(
     testName: 'reward script 2',
-    network: CardanoNetwork.custom(customNetworkId: 0x03, customNetworkMagic: 47, customBech32Hrp: 'stake'),
+    network: CardanoNetwork.custom(
+      customNetworkId: 0x03, 
+      customNetworkMagic: 47, 
+      customPaymentBech32Hrp: 'addr', 
+      customStakeBech32Hrp: 'stake'
+    ),
     addressParams: ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardScript(
         stakingScriptHashHex: '122a946b9ad3d2ddf029d3a828f0468aece76895f15c9efbd69b4277',
       ),
     ),
     expectedResult: 'stake17vfz49rtntfa9h0s98f6s28sg69weemgjhc4e8hm66d5yac56wtqn',
-  ),
+),
 ];

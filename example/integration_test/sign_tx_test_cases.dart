@@ -1891,7 +1891,8 @@ final testsByron = [
         network: CardanoNetwork.custom(
           customNetworkId: 0,
           customNetworkMagic: 42,
-          customBech32Hrp: 'addr_test',
+          customPaymentBech32Hrp: 'addr_test',
+          customStakeBech32Hrp: 'stake_test',
         ),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),

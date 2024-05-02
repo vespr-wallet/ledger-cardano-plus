@@ -50,15 +50,13 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
 
     await send(sendOperation);
 
-    final void Function() invoker = switch (script) {
-      ParsedNativeScript_Complex() => () async {
-          for (final subscript in script.script.scripts) {
-            await _deriveNativeScriptHashAddScript(send, subscript);
-          }
-        },
-      ParsedNativeScript_Simple() => () => (),
-    };
-    invoker();
+// Recursively add subscripts for complex native scripts
+    // This ensures that all scripts are added before calling Finish Whole Native Script
+    if (script is ParsedNativeScript_Complex) {
+      for (final subscript in script.script.scripts) {
+        await _deriveNativeScriptHashAddScript(send, subscript);
+      }
+    }
   }
 
   Future<String> _deriveNativeScriptHashFinishWholeNativeScript(

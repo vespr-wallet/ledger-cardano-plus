@@ -486,9 +486,11 @@ class SerializationUtils {
                 },
               EnterpriseKey() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
+                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
                 },
               EnterpriseScript() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
+                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
                 },
               PointerKey() => () {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
@@ -498,8 +500,14 @@ class SerializationUtils {
                   writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
                   writer.write(serializeStakingDataSource(newparams.stakingDataSource));
                 },
-              RewardKey() => () {},
-              RewardScript() => () {},
+              RewardKey() => () {
+                  writer.write(SerializationUtils.serializeStakingDataSource(newparams.stakingDataSource));
+                },
+              RewardScript() => () {
+                  writer.writeUint8(StakingDataSource.scriptHash(scriptHashHex: newparams.stakingScriptHashHex)
+                      .stakingDataSourceValue);
+                  SerializationUtils.writeSerializedHex(writer, newparams.stakingScriptHashHex);
+                },
             };
 
             shelleyInvoker();

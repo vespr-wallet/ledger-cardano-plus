@@ -661,133 +661,129 @@ final testsBabbage = [
       auxiliaryDataSupplement: null,
     ),
   ),
-
-  //TODO Investigate this test case further (ISSUE : ON TRANSACTION CONFIRM , LEDGER IS GETTING STUCK ON LOADING)
-  //EDIT : ERROR still persists , even with the new toInt() approach
-  // SignTxTestCase(
-  //   testName: 'Sign tx with long inline datum (480 B) in output',
-  //   request: ParsedSigningRequest(
-  //     tx: ParsedTransaction(
-  //       network: CardanoNetwork.legacyTestnet(),
-  //       fee: BigInt.from(42),
-  //       ttl: BigInt.from(10),
-  //       inputs: [
-  //         ParsedInput(
-  //           txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-  //           outputIndex: 0,
-  //           path: LedgerSigningPath.shelley(
-  //             account: 0,
-  //             address: 0,
-  //             role: ShelleyAddressRole.payment,
-  //           ),
-  //         ),
-  //       ],
-  //       outputs: [
-  //         ParsedOutput.babbage(
-  //           destination: ParsedOutputDestination.thirdParty(
-  //             addressHex: bech32ToHex(
-  //                 'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
-  //           ),
-  //           amount: BigInt.from(7120787),
-  //           datum: ParsedDatum.inline(
-  //             datumHex:
-  //                 '12b8240c5470b47c159597b6f71d78c7fc99d1d8d911cb19b8f50211938ef361a22d30cd8f6354ec50e99a7d3cf3e06797ed4af3d358e01b2a957caa4010da328720b9fbe7a3a6d10209a13d2eb11933eb1bf2ab02713117e421b6dcc66297c41b95ad32d3457a0e6b44d8482385f311465964c3daff226acfb7bbda47011f1a6531db30e5b5977143c48f8b8eb739487f87dc13896f58529cfb48e415fc6123e708cdc3cb15cc1900ecf88c5fc9ff66d8ad6dae18c79e4a3c392a0df4d16ffa3e370f4dad8d8e9d171c5656bb317c78a2711057e7ae0beb1dc66ba01aa69d0c0db244e6742d7758ce8da00dfed6225d4aed4b01c42a0352688ed5803f3fd64873f11355305d9db309f4a2a6673cc408a06b8827a5edef7b0fd8742627fb8aa102a084b7db72fcb5c3d1bf437e2a936b738902a9c0258b462b9f2e9befd2c6bcfc036143bb34342b9124888a5b29fa5d60909c81319f034c11542b05ca3ff6c64c7642ff1e2b25fb60dc9bb6f5c914dd4149f31896955d4d204d822deddc46f852115a479edf7521cdf4ce596805875011855158fd303c33a2a7916a9cb7acaaf5aeca7e6efb75960e9597cd845bd9a93610bf1ab47ab0de943e8a96e26a24c4996f7b07fad437829fee5bc3496192608d4c04ac642cdec7bdbb8a948ad1d434',
-  //           ),
-  //         ),
-  //       ],
-  //       scriptDataHashHex: ScriptDataHash(
-  //         hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-  //       ),
-  //     ),
-  //     signingMode: TransactionSigningModes.plutusTransaction(),
-  //     additionalWitnessPaths: [],
-  //   ),
-  //   expected: SignedTransactionData(
-  //     txHashHex: '0cccea3eb974bd362720a460d84d4970e89c523b2145cbe29bb56f36cec4b826',
-  //     witnesses: [
-  //       Witness(
-  //         path: LedgerSigningPath.shelley(
-  //           account: 0,
-  //           address: 0,
-  //           role: ShelleyAddressRole.payment,
-  //         ),
-  //         witnessSignatureHex:
-  //             '9b45eae3e9e59f501adbe22ce7f22fbacce7c36623f28e1aa4fdb0942e58e839b02e21a6808a13c7490cbb70e9a174279b4c845dba3ee99b8d458cfa9d349908',
-  //       ),
-  //     ],
-  //     auxiliaryDataSupplement: null,
-  //   ),
-  // ),
-  //TODO Investigate this test case further (ISSUE : LedgerException caught: Invalid state , on transaction confirm)
-  // SignTxTestCase(
-  //   testName: 'Sign tx with long inline datum (304 B) in output with tokens',
-  //   request: ParsedSigningRequest(
-  //     additionalWitnessPaths: [],
-  //     tx: ParsedTransaction(
-  //       network: CardanoNetwork.legacyTestnet(),
-  //       fee: BigInt.from(42),
-  //       ttl: BigInt.from(10),
-  //       inputs: [
-  //         ParsedInput(
-  //           txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-  //           outputIndex: 0,
-  //           path: LedgerSigningPath.shelley(
-  //             account: 0,
-  //             address: 0,
-  //             role: ShelleyAddressRole.payment,
-  //           ),
-  //         ),
-  //       ],
-  //       outputs: [
-  //         ParsedOutput.babbage(
-  //           destination: ParsedOutputDestination.thirdParty(
-  //             addressHex: bech32ToHex(
-  //                 'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
-  //           ),
-  //           amount: BigInt.from(7120787),
-  //           datum: ParsedDatum.inline(
-  //             datumHex:
-  //                 '5579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f74686572206374686572',
-  //           ),
-  //           tokenBundle: [
-  //             ParsedAssetGroup(
-  //               policyIdHex: '75a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
-  //               tokens: [
-  //                 ParsedToken(
-  //                   assetNameHex: '7564247542686911',
-  //                   amount: BigInt.from(47),
-  //                 ),
-  //                 ParsedToken(
-  //                   assetNameHex: '7564247542686912',
-  //                   amount: BigInt.from(7878754),
-  //                 ),
-  //               ],
-  //             ),
-  //           ],
-  //         ),
-  //       ],
-  //       scriptDataHashHex: ScriptDataHash(
-  //         hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-  //       ),
-  //     ),
-  //     signingMode: TransactionSigningModes.plutusTransaction(),
-  //   ),
-  //   expected: SignedTransactionData(
-  //     txHashHex: '92f83ca3e05fb48ffe0f90e6d7ac653a684039476b4963984b84fdc6fecea67d',
-  //     witnesses: [
-  //       Witness(
-  //         path: LedgerSigningPath.shelley(
-  //           account: 0,
-  //           address: 0,
-  //           role: ShelleyAddressRole.payment,
-  //         ),
-  //         witnessSignatureHex:
-  //             'e6baf473e8caabcdfaa961e4e25f31f1389de3528e6ffede36e8e23ac163a6b5fcab490f009577aa4f260a7f4e45d5b481f4b5c3542148feafcae101805f4001',
-  //       ),
-  //     ],
-  //     auxiliaryDataSupplement: null,
-  //   ),
-  // ),
+  SignTxTestCase(
+    testName: 'Sign tx with long inline datum (480 B) in output',
+    request: ParsedSigningRequest(
+      tx: ParsedTransaction(
+        network: CardanoNetwork.legacyTestnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: [
+          ParsedInput(
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            outputIndex: 0,
+            path: LedgerSigningPath.shelley(
+              account: 0,
+              address: 0,
+              role: ShelleyAddressRole.payment,
+            ),
+          ),
+        ],
+        outputs: [
+          ParsedOutput.babbage(
+            destination: ParsedOutputDestination.thirdParty(
+              addressHex: bech32ToHex(
+                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
+            ),
+            amount: BigInt.from(7120787),
+            datum: ParsedDatum.inline(
+              datumHex:
+                  '12b8240c5470b47c159597b6f71d78c7fc99d1d8d911cb19b8f50211938ef361a22d30cd8f6354ec50e99a7d3cf3e06797ed4af3d358e01b2a957caa4010da328720b9fbe7a3a6d10209a13d2eb11933eb1bf2ab02713117e421b6dcc66297c41b95ad32d3457a0e6b44d8482385f311465964c3daff226acfb7bbda47011f1a6531db30e5b5977143c48f8b8eb739487f87dc13896f58529cfb48e415fc6123e708cdc3cb15cc1900ecf88c5fc9ff66d8ad6dae18c79e4a3c392a0df4d16ffa3e370f4dad8d8e9d171c5656bb317c78a2711057e7ae0beb1dc66ba01aa69d0c0db244e6742d7758ce8da00dfed6225d4aed4b01c42a0352688ed5803f3fd64873f11355305d9db309f4a2a6673cc408a06b8827a5edef7b0fd8742627fb8aa102a084b7db72fcb5c3d1bf437e2a936b738902a9c0258b462b9f2e9befd2c6bcfc036143bb34342b9124888a5b29fa5d60909c81319f034c11542b05ca3ff6c64c7642ff1e2b25fb60dc9bb6f5c914dd4149f31896955d4d204d822deddc46f852115a479edf7521cdf4ce596805875011855158fd303c33a2a7916a9cb7acaaf5aeca7e6efb75960e9597cd845bd9a93610bf1ab47ab0de943e8a96e26a24c4996f7b07fad437829fee5bc3496192608d4c04ac642cdec7bdbb8a948ad1d434',
+            ),
+          ),
+        ],
+        scriptDataHashHex: ScriptDataHash(
+          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+        ),
+      ),
+      signingMode: TransactionSigningModes.plutusTransaction(),
+      additionalWitnessPaths: [],
+    ),
+    expected: SignedTransactionData(
+      txHashHex: '0cccea3eb974bd362720a460d84d4970e89c523b2145cbe29bb56f36cec4b826',
+      witnesses: [
+        Witness(
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.payment,
+          ),
+          witnessSignatureHex:
+              '9b45eae3e9e59f501adbe22ce7f22fbacce7c36623f28e1aa4fdb0942e58e839b02e21a6808a13c7490cbb70e9a174279b4c845dba3ee99b8d458cfa9d349908',
+        ),
+      ],
+      auxiliaryDataSupplement: null,
+    ),
+  ),
+  SignTxTestCase(
+    testName: 'Sign tx with long inline datum (304 B) in output with tokens',
+    request: ParsedSigningRequest(
+      additionalWitnessPaths: [],
+      tx: ParsedTransaction(
+        network: CardanoNetwork.legacyTestnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: [
+          ParsedInput(
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            outputIndex: 0,
+            path: LedgerSigningPath.shelley(
+              account: 0,
+              address: 0,
+              role: ShelleyAddressRole.payment,
+            ),
+          ),
+        ],
+        outputs: [
+          ParsedOutput.babbage(
+            destination: ParsedOutputDestination.thirdParty(
+              addressHex: bech32ToHex(
+                  'addr_test1zp0z7zqwhya6mpk5q929ur897g3pp9kkgalpreny8y304rfw6j2jxnwq6enuzvt0lp89wgcsufj7mvcnxpzgkd4hz70qe8ugl4'),
+            ),
+            amount: BigInt.from(7120787),
+            datum: ParsedDatum.inline(
+              datumHex:
+                  '5579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f746865722063686f636f6c6174655579657420616e6f74686572206374686572',
+            ),
+            tokenBundle: [
+              ParsedAssetGroup(
+                policyIdHex: '75a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                tokens: [
+                  ParsedToken(
+                    assetNameHex: '7564247542686911',
+                    amount: BigInt.from(47),
+                  ),
+                  ParsedToken(
+                    assetNameHex: '7564247542686912',
+                    amount: BigInt.from(7878754),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
+        scriptDataHashHex: ScriptDataHash(
+          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+        ),
+      ),
+      signingMode: TransactionSigningModes.plutusTransaction(),
+    ),
+    expected: SignedTransactionData(
+      txHashHex: '92f83ca3e05fb48ffe0f90e6d7ac653a684039476b4963984b84fdc6fecea67d',
+      witnesses: [
+        Witness(
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.payment,
+          ),
+          witnessSignatureHex:
+              'e6baf473e8caabcdfaa961e4e25f31f1389de3528e6ffede36e8e23ac163a6b5fcab490f009577aa4f260a7f4e45d5b481f4b5c3542148feafcae101805f4001',
+        ),
+      ],
+      auxiliaryDataSupplement: null,
+    ),
+  ),
   SignTxTestCase(
     testName: 'Sign tx with datum hash and short ref. script in output',
     request: ParsedSigningRequest(
@@ -1977,49 +1973,49 @@ final testsShelleyNoCertificates = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  //TODO: CURRENTLY THE OFFICIAL VERSION DOESN'T SUPPORT CONWAY , SO WE CAN'T SERIALIZE TAGS
-  SignTxTestCase(
-    testName: 'Sign tx with 258 tag on inputs',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-      options: ParsedTransactionOptions(
-        tagCborSets: true,
-      ),
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '063d3a3670a43699a2648df93eedc1f93e8fda898ab79d3a795142a4ad573b7b',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'b842908ce71f3ad1e1a1e2261c3bfdbfdb48c3fe58484c3e0521588e94e48fdb001f30908b0cd041e6c1b9d9400739ea52d0ca7289b3d807d26d06d73961f609',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
+  // Currently, the official version does not support Conway transactions, so we are not testing for Conway transactions.
+  // SignTxTestCase(
+  //   testName: 'Sign tx with 258 tag on inputs',
+  //   request: ParsedSigningRequest(
+  //     tx: ParsedTransaction(
+  //       network: CardanoNetwork.mainnet(),
+  //       fee: BigInt.from(42),
+  //       ttl: BigInt.from(10),
+  //       inputs: [
+  //         ParsedInput(
+  //           txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+  //           outputIndex: 0,
+  //           path: LedgerSigningPath.shelley(
+  //             account: 0,
+  //             address: 0,
+  //             role: ShelleyAddressRole.payment,
+  //           ),
+  //         ),
+  //       ],
+  //       outputs: [],
+  //     ),
+  //     signingMode: TransactionSigningModes.ordinaryTransaction(),
+  //     additionalWitnessPaths: [],
+  //     options: ParsedTransactionOptions(
+  //       tagCborSets: true,
+  //     ),
+  //   ),
+  //   expected: SignedTransactionData(
+  //     txHashHex: '063d3a3670a43699a2648df93eedc1f93e8fda898ab79d3a795142a4ad573b7b',
+  //     witnesses: [
+  //       Witness(
+  //         path: LedgerSigningPath.shelley(
+  //           account: 0,
+  //           address: 0,
+  //           role: ShelleyAddressRole.payment,
+  //         ),
+  //         witnessSignatureHex:
+  //             'b842908ce71f3ad1e1a1e2261c3bfdbfdb48c3fe58484c3e0521588e94e48fdb001f30908b0cd041e6c1b9d9400739ea52d0ca7289b3d807d26d06d73961f609',
+  //       ),
+  //     ],
+  //     auxiliaryDataSupplement: null,
+  //   ),
+  // ),
   SignTxTestCase(
     testName: 'Sign tx without change address',
     request: ParsedSigningRequest(
@@ -2204,8 +2200,6 @@ final testsShelleyNoCertificates = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  //TODO: Investigate possible issue with serializeCoin method causing different tx hashes and LedgerException caught:
-  // "LedgerException caught: Invalid data"
   SignTxTestCase(
     testName: 'Sign tx with enterprise change address',
     request: ParsedSigningRequest(
@@ -2948,699 +2942,699 @@ final testsShelleyWithCertificates = [
   ),
 ];
 
-final testsConwayWithoutCertificates = [
-  //TODO: Check for serializeCoin method because it's the same recurring issue as before , causing Ledger to fail
-  SignTxTestCase(
-    testName: 'Sign tx with treasury',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.alonzo(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: base58ToHex(
-                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
-              ),
-            ),
-            amount: BigInt.from(3003112),
-          ),
-        ],
-        treasury: BigInt.from(27),
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: 'c3fb3f4330d9f051b567db11d56ab8174cba081373936c9fde80d809b178326f',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'd709944dbc56080b194455a76474981e56c64715b8e5182a58f9f5bba20357f2e02945431145e6fe418b1953424ef1b88e3328f373da1d24cb164d6eb8e0a80f',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with donation',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.alonzo(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: base58ToHex(
-                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
-              ),
-            ),
-            amount: BigInt.from(7120787),
-          ),
-        ],
-        donation: BigInt.from(28),
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '618718225c0c876fd429ca25957a23ad894eaebc1831365c5b41cba50993a1bf',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'eef7538ecd01708a3483900155c3c1545188b671f626a4622864cbfe41a51bfd4c47ccb9ee8accd7891bd0291bce3e44c8363a30ffbe80864af1a29a74239c00',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with treasury and donation',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.alonzo(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: base58ToHex(
-                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
-              ),
-            ),
-            amount: BigInt.from(7120787),
-          ),
-        ],
-        treasury: BigInt.from(27),
-        donation: BigInt.from(28),
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '37e2cf72599186d1ec571af568ea0ab39f7f73ba2e8c5f4725bfd0d4fb8c58e7',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '90627003619a5512c5600542bfe5ece07909433948a601d599f51bc0b3d19b5c8084cf72d2b6ae6962918392c540d60105c32626804986e99364e6966f5e1504',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-];
+// Currently, the official version does not support Conway transactions, so we are not testing for Conway transactions.
+// final testsConwayWithoutCertificates = [
+//   SignTxTestCase(
+//     testName: 'Sign tx with treasury',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [
+//           ParsedOutput.alonzo(
+//             destination: ParsedOutputDestination.thirdParty(
+//               addressHex: base58ToHex(
+//                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+//               ),
+//             ),
+//             amount: BigInt.from(3003112),
+//           ),
+//         ],
+//         treasury: BigInt.from(27),
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: 'c3fb3f4330d9f051b567db11d56ab8174cba081373936c9fde80d809b178326f',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               'd709944dbc56080b194455a76474981e56c64715b8e5182a58f9f5bba20357f2e02945431145e6fe418b1953424ef1b88e3328f373da1d24cb164d6eb8e0a80f',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with donation',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [
+//           ParsedOutput.alonzo(
+//             destination: ParsedOutputDestination.thirdParty(
+//               addressHex: base58ToHex(
+//                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+//               ),
+//             ),
+//             amount: BigInt.from(7120787),
+//           ),
+//         ],
+//         donation: BigInt.from(28),
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '618718225c0c876fd429ca25957a23ad894eaebc1831365c5b41cba50993a1bf',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               'eef7538ecd01708a3483900155c3c1545188b671f626a4622864cbfe41a51bfd4c47ccb9ee8accd7891bd0291bce3e44c8363a30ffbe80864af1a29a74239c00',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with treasury and donation',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [
+//           ParsedOutput.alonzo(
+//             destination: ParsedOutputDestination.thirdParty(
+//               addressHex: base58ToHex(
+//                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+//               ),
+//             ),
+//             amount: BigInt.from(7120787),
+//           ),
+//         ],
+//         treasury: BigInt.from(27),
+//         donation: BigInt.from(28),
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.plutusTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '37e2cf72599186d1ec571af568ea0ab39f7f73ba2e8c5f4725bfd0d4fb8c58e7',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '90627003619a5512c5600542bfe5ece07909433948a601d599f51bc0b3d19b5c8084cf72d2b6ae6962918392c540d60105c32626804986e99364e6966f5e1504',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+// ];
 
-//TODO: Conway era certificates not supported by Ledger app version 5.0.1.
-final testsConwayWithCertificates = [
-  SignTxTestCase(
-    testName: 'Sign tx with a stake registration path certificate --- Conway',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.alonzo(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: base58ToHex(
-                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
-              ),
-            ),
-            amount: BigInt.from(7120787),
-          ),
-        ],
-        certificates: [
-          ParsedCertificate.stakeRegistrationConway(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
-            ),
-            deposit: BigInt.from(17),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '26ab8ebe60e70fffd59eb186ed6903ccd5a27c2468da72c5033b596dd41d1745',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '128c993b5873029f98df738191462c6e8903ec2a765f7ddcc3a5722b5555e4ef2cccc4464bbdfb606627fe48e97f2db94f68c9d71b4076c93db682bd357ffa0b',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
-          witnessSignatureHex:
-              'bf22ca4b78fa64692a8cfbc375611deb1d60043db880ff000aeba7e4970492daa4e814c79960977816a91f9dd179bec6f127d37b8955589674e385b9a757d507',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with a stake deregistration path certificate --- Conway',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.stakeDeregistrationConway(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
-            ),
-            deposit: BigInt.from(17),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '58dc7ddba14500538e5de842066bb3a1979687c6ae0c2472d8f1851b4f011e26',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'b0a196ce81930fedb90551d395f7ba2ff8671f1528d1eec85e3d2398174a1bf6c9bc2afc6c14891cf11a24e16c4a6d39f73689f5947170d0f0d9a53418c76400',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
-          witnessSignatureHex:
-              'c9ee07d3ee9ed1be5576e1ed371393335a98270f2a316ebec6c702e519db1b68a8cfb67039355a46a3f9d96051c74ae4e13e41d1ad05c3a401a8365369ea8407',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with vote delegation certificates',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.voteDelegation(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-            dRep: ParsedDRep.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-          ),
-          ParsedCertificate.voteDelegation(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-            dRep: ParsedDRep.keyHash(
-              keyHashHex: '7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
-            ),
-          ),
-          ParsedCertificate.voteDelegation(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-            dRep: ParsedDRep.scriptHash(
-              scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
-            ),
-          ),
-          ParsedCertificate.voteDelegation(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-            dRep: ParsedDRep.abstain(),
-          ),
-          ParsedCertificate.voteDelegation(
-            stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.shelley(
-                account: 0,
-                address: 0,
-                role: ShelleyAddressRole.stake,
-              ),
-            ),
-            dRep: ParsedDRep.noConfidence(),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: 'b65bfdff7d247058d60b55958111c5b45322fdb3806be0e86a09382bafce3457',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '1a9dd087bce2b189a1d2a3ff6e57017bf6cef86d51ca944a8faf9c04cddafd4336e4bdebc29450c82b766f766b4a7982b5cee9731edb85f9025c7826880de106',
-        ),
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.stake,
-          ),
-          witnessSignatureHex:
-              '8100907b358d25330003ea0f9606c031256f2ca060322138e3e118676cdea4e949b1a2217e714f6c5686a31fe70e80bcb2d460f8b7f12a7f5926c1211502c70f',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with AUTHORIZE_COMMITTEE_HOT certificates',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.authorizeCommitteeHot(
-            coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-            ),
-            hotCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 5 + harden, 0 + harden]),
-            ),
-          ),
-          ParsedCertificate.authorizeCommitteeHot(
-            coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-            ),
-            hotCredential: ParsedCredential.keyHash(
-              keyHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
-            ),
-          ),
-          ParsedCertificate.authorizeCommitteeHot(
-            coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-            ),
-            hotCredential: ParsedCredential.scriptHash(
-              scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
-            ),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: 'f39823031913a09286755ec2383da73a7248e36f6fc92685928296ec81e43b76',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '73e3c0105404e90f6cccebbd9a1e9bb119c4f0a3d5e489a52d15caa477db35802fefe83dbec748b2c388b9dc193821eac068f519edb89ed2c550bc28e51a7203',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-          witnessSignatureHex:
-              'b8075d9666648e02f3e2ab6355fd786b3864cfc18a0070beb60813745a36c68e03b9face68231efc0d13da11069f2b3c7ca9a2c7fbf2119970071607e5c18d01',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with RESIGN_COMMITTEE_COLD certificates',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.resignCommitteeCold(
-            coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-            ),
-            anchor: ParsedAnchor(
-              url: 'x' * 128, // max url length in anchor
-              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
-            ),
-          ),
-          ParsedCertificate.resignCommitteeCold(
-            coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-            ),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '5b6d2cc6f1401d783dd5012200337aa2df4407e28267c4ea7d39914adacde25d',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '82f826cea558d08e833e3657f6afaba0175813a7de5bda7c0e075f4b08a2833a6e61f7a2587d9b88e919b4b4aa465cc689a6a611c8cf96fe1249f47ffd22ba05',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
-          witnessSignatureHex:
-              '6eff66993a624cb218bf84dbdd3481212b4586bf1d8ef0a9c6e5bf32c977afbb1e09a1c0f3810f6828b17f9d4f3acee7d59af098e98d46d9a95d5d60fd9a8f07',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with DREP_REGISTRATION certificates',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.dRepRegistration(
-            dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-            ),
-            deposit: BigInt.from(19),
-            anchor: ParsedAnchor(
-              url: 'www.vacuumlabs.com',
-              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
-            ),
-          ),
-          ParsedCertificate.dRepRegistration(
-            dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-            ),
-            deposit: BigInt.from(19),
-            anchor: null,
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: 'd029be88cc6c18578cd49713438270d80b64c0c126b2ce90b8418d6b020e2395',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'ce8634b0306f71be765b655488276e86a56cbe6e77ffdd14e40851394cf6842d695f4184df0dcb8e76dd5918ec9b1b65976b31bf54c5621b34b1ff58d631540d',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-          witnessSignatureHex:
-              'd1600ce316bac100729207b08550d53f77834983fa4ae1285d8b8478d813cb8a9321588026e40521147718ba3708c533e4b37f890bc9b66ac0456534e926ce06',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with DREP_DEREGISTRATION certificate',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.dRepDeregistration(
-            dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-            ),
-            deposit: BigInt.from(19),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: 'ddac3d3a8a4554f7dd1797a7bfdd4ec19ddf13d20f3b9ea79ed37d5663b51497',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              '903e42d8f48c60d4bacc8aa953bff66c79ef8b48c2eece243f03d32146f9d213e6595809bc6c13e2ebb13f990ad0ef7bb937eab6a9d251c35aae7bafc2c51702',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-          witnessSignatureHex:
-              '56786aa0710832c8ef584ebe964473cd21eb15b4b60057a5d96973f6a4687176d1f7cbecde585f7b875fc75ad73a9404733219d61ee542363ef4baa8a1bb1504',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-  SignTxTestCase(
-    testName: 'Sign tx with DREP_UPDATE certificates',
-    request: ParsedSigningRequest(
-      tx: ParsedTransaction(
-        network: CardanoNetwork.mainnet(),
-        fee: BigInt.from(42),
-        ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
-        certificates: [
-          ParsedCertificate.dRepUpdate(
-            dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-            ),
-            anchor: ParsedAnchor(
-              url: 'www.vacuumlabs.com',
-              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
-            ),
-          ),
-          ParsedCertificate.dRepUpdate(
-            dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-            ),
-          ),
-        ],
-        includeNetworkId: true,
-      ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
-      additionalWitnessPaths: [],
-    ),
-    expected: SignedTransactionData(
-      txHashHex: '85b23eda26bd9f6f9f4ce80f7d1e9c0cf3afcb33a39c0102711a81a96715d2e6',
-      witnesses: [
-        Witness(
-          path: LedgerSigningPath.shelley(
-            account: 0,
-            address: 0,
-            role: ShelleyAddressRole.payment,
-          ),
-          witnessSignatureHex:
-              'e65f9e0d99db02f1a39b8af92b9f7e8f6509b24cbd6f4492e19d699f5f7e08d627a64def7408405ff0aadd7504bacfa279a2f1ba550a765f43d06fcac16f1009',
-        ),
-        Witness(
-          path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
-          witnessSignatureHex:
-              '88b20b4bc43f6d45981c658689e6d80886b6aeb02b654363c421462f855654039d5ff3595be6778934b4eff2a24c3a082789f95559bd6e8afa2e8bab339e910d',
-        ),
-      ],
-      auxiliaryDataSupplement: null,
-    ),
-  ),
-];
+// Currently, the official version does not support Conway transactions, so we are not testing for Conway transactions.
+// final testsConwayWithCertificates = [
+//   SignTxTestCase(
+//     testName: 'Sign tx with a stake registration path certificate --- Conway',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [
+//           ParsedOutput.alonzo(
+//             destination: ParsedOutputDestination.thirdParty(
+//               addressHex: base58ToHex(
+//                 'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+//               ),
+//             ),
+//             amount: BigInt.from(7120787),
+//           ),
+//         ],
+//         certificates: [
+//           ParsedCertificate.stakeRegistrationConway(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
+//             ),
+//             deposit: BigInt.from(17),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '26ab8ebe60e70fffd59eb186ed6903ccd5a27c2468da72c5033b596dd41d1745',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '128c993b5873029f98df738191462c6e8903ec2a765f7ddcc3a5722b5555e4ef2cccc4464bbdfb606627fe48e97f2db94f68c9d71b4076c93db682bd357ffa0b',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               'bf22ca4b78fa64692a8cfbc375611deb1d60043db880ff000aeba7e4970492daa4e814c79960977816a91f9dd179bec6f127d37b8955589674e385b9a757d507',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with a stake deregistration path certificate --- Conway',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.stakeDeregistrationConway(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
+//             ),
+//             deposit: BigInt.from(17),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '58dc7ddba14500538e5de842066bb3a1979687c6ae0c2472d8f1851b4f011e26',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               'b0a196ce81930fedb90551d395f7ba2ff8671f1528d1eec85e3d2398174a1bf6c9bc2afc6c14891cf11a24e16c4a6d39f73689f5947170d0f0d9a53418c76400',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 2 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               'c9ee07d3ee9ed1be5576e1ed371393335a98270f2a316ebec6c702e519db1b68a8cfb67039355a46a3f9d96051c74ae4e13e41d1ad05c3a401a8365369ea8407',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with vote delegation certificates',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.voteDelegation(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//             dRep: ParsedDRep.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//           ),
+//           ParsedCertificate.voteDelegation(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//             dRep: ParsedDRep.keyHash(
+//               keyHashHex: '7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+//             ),
+//           ),
+//           ParsedCertificate.voteDelegation(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//             dRep: ParsedDRep.scriptHash(
+//               scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+//             ),
+//           ),
+//           ParsedCertificate.voteDelegation(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//             dRep: ParsedDRep.abstain(),
+//           ),
+//           ParsedCertificate.voteDelegation(
+//             stakeCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.shelley(
+//                 account: 0,
+//                 address: 0,
+//                 role: ShelleyAddressRole.stake,
+//               ),
+//             ),
+//             dRep: ParsedDRep.noConfidence(),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: 'b65bfdff7d247058d60b55958111c5b45322fdb3806be0e86a09382bafce3457',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '1a9dd087bce2b189a1d2a3ff6e57017bf6cef86d51ca944a8faf9c04cddafd4336e4bdebc29450c82b766f766b4a7982b5cee9731edb85f9025c7826880de106',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.stake,
+//           ),
+//           witnessSignatureHex:
+//               '8100907b358d25330003ea0f9606c031256f2ca060322138e3e118676cdea4e949b1a2217e714f6c5686a31fe70e80bcb2d460f8b7f12a7f5926c1211502c70f',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with AUTHORIZE_COMMITTEE_HOT certificates',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.authorizeCommitteeHot(
+//             coldCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//             ),
+//             hotCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 5 + harden, 0 + harden]),
+//             ),
+//           ),
+//           ParsedCertificate.authorizeCommitteeHot(
+//             coldCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//             ),
+//             hotCredential: ParsedCredential.keyHash(
+//               keyHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+//             ),
+//           ),
+//           ParsedCertificate.authorizeCommitteeHot(
+//             coldCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//             ),
+//             hotCredential: ParsedCredential.scriptHash(
+//               scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+//             ),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: 'f39823031913a09286755ec2383da73a7248e36f6fc92685928296ec81e43b76',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '73e3c0105404e90f6cccebbd9a1e9bb119c4f0a3d5e489a52d15caa477db35802fefe83dbec748b2c388b9dc193821eac068f519edb89ed2c550bc28e51a7203',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               'b8075d9666648e02f3e2ab6355fd786b3864cfc18a0070beb60813745a36c68e03b9face68231efc0d13da11069f2b3c7ca9a2c7fbf2119970071607e5c18d01',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with RESIGN_COMMITTEE_COLD certificates',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.resignCommitteeCold(
+//             coldCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//             ),
+//             anchor: ParsedAnchor(
+//               url: 'x' * 128, // max url length in anchor
+//               hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+//             ),
+//           ),
+//           ParsedCertificate.resignCommitteeCold(
+//             coldCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//             ),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '5b6d2cc6f1401d783dd5012200337aa2df4407e28267c4ea7d39914adacde25d',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '82f826cea558d08e833e3657f6afaba0175813a7de5bda7c0e075f4b08a2833a6e61f7a2587d9b88e919b4b4aa465cc689a6a611c8cf96fe1249f47ffd22ba05',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 4 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               '6eff66993a624cb218bf84dbdd3481212b4586bf1d8ef0a9c6e5bf32c977afbb1e09a1c0f3810f6828b17f9d4f3acee7d59af098e98d46d9a95d5d60fd9a8f07',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with DREP_REGISTRATION certificates',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.dRepRegistration(
+//             dRepCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//             ),
+//             deposit: BigInt.from(19),
+//             anchor: ParsedAnchor(
+//               url: 'www.vacuumlabs.com',
+//               hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+//             ),
+//           ),
+//           ParsedCertificate.dRepRegistration(
+//             dRepCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//             ),
+//             deposit: BigInt.from(19),
+//             anchor: null,
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: 'd029be88cc6c18578cd49713438270d80b64c0c126b2ce90b8418d6b020e2395',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               'ce8634b0306f71be765b655488276e86a56cbe6e77ffdd14e40851394cf6842d695f4184df0dcb8e76dd5918ec9b1b65976b31bf54c5621b34b1ff58d631540d',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               'd1600ce316bac100729207b08550d53f77834983fa4ae1285d8b8478d813cb8a9321588026e40521147718ba3708c533e4b37f890bc9b66ac0456534e926ce06',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with DREP_DEREGISTRATION certificate',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.dRepDeregistration(
+//             dRepCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//             ),
+//             deposit: BigInt.from(19),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: 'ddac3d3a8a4554f7dd1797a7bfdd4ec19ddf13d20f3b9ea79ed37d5663b51497',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               '903e42d8f48c60d4bacc8aa953bff66c79ef8b48c2eece243f03d32146f9d213e6595809bc6c13e2ebb13f990ad0ef7bb937eab6a9d251c35aae7bafc2c51702',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               '56786aa0710832c8ef584ebe964473cd21eb15b4b60057a5d96973f6a4687176d1f7cbecde585f7b875fc75ad73a9404733219d61ee542363ef4baa8a1bb1504',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+//   SignTxTestCase(
+//     testName: 'Sign tx with DREP_UPDATE certificates',
+//     request: ParsedSigningRequest(
+//       tx: ParsedTransaction(
+//         network: CardanoNetwork.mainnet(),
+//         fee: BigInt.from(42),
+//         ttl: BigInt.from(10),
+//         inputs: [
+//           ParsedInput(
+//             txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+//             outputIndex: 0,
+//             path: LedgerSigningPath.shelley(
+//               account: 0,
+//               address: 0,
+//               role: ShelleyAddressRole.payment,
+//             ),
+//           ),
+//         ],
+//         outputs: [],
+//         certificates: [
+//           ParsedCertificate.dRepUpdate(
+//             dRepCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//             ),
+//             anchor: ParsedAnchor(
+//               url: 'www.vacuumlabs.com',
+//               hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+//             ),
+//           ),
+//           ParsedCertificate.dRepUpdate(
+//             dRepCredential: ParsedCredential.keyPath(
+//               path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//             ),
+//           ),
+//         ],
+//         includeNetworkId: true,
+//       ),
+//       signingMode: TransactionSigningModes.ordinaryTransaction(),
+//       additionalWitnessPaths: [],
+//     ),
+//     expected: SignedTransactionData(
+//       txHashHex: '85b23eda26bd9f6f9f4ce80f7d1e9c0cf3afcb33a39c0102711a81a96715d2e6',
+//       witnesses: [
+//         Witness(
+//           path: LedgerSigningPath.shelley(
+//             account: 0,
+//             address: 0,
+//             role: ShelleyAddressRole.payment,
+//           ),
+//           witnessSignatureHex:
+//               'e65f9e0d99db02f1a39b8af92b9f7e8f6509b24cbd6f4492e19d699f5f7e08d627a64def7408405ff0aadd7504bacfa279a2f1ba550a765f43d06fcac16f1009',
+//         ),
+//         Witness(
+//           path: LedgerSigningPath.custom([1852 + harden, 1815 + harden, 0 + harden, 3 + harden, 0 + harden]),
+//           witnessSignatureHex:
+//               '88b20b4bc43f6d45981c658689e6d80886b6aeb02b654363c421462f855654039d5ff3595be6778934b4eff2a24c3a082789f95559bd6e8afa2e8bab339e910d',
+//         ),
+//       ],
+//       auxiliaryDataSupplement: null,
+//     ),
+//   ),
+// ];
 
 final testsMultisig = [
   SignTxTestCase(

@@ -144,18 +144,21 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     for (final voterVotes in votingProcedures ?? []) {
       await _signTxAddVoterVotes(voterVotes, send);
     }
-
     final treasury = signingRequest.tx.treasury;
 
-    // treasury
-    if (treasury != null) {
+    if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && treasury != null) {
+      // treasury
       await _signTxAddTreasury(treasury, send);
+    } else {
+      throw ValidationException('Treasury donation not supported by Ledger app version ${cardanoVersion.versionName}');
     }
 
     final donation = signingRequest.tx.donation;
-    // donation
-    if (donation != null) {
+    if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && donation != null) {
+      // donation
       await _signTxAddDonation(donation, send);
+    } else {
+      throw ValidationException('Donation not supported by Ledger app version ${cardanoVersion.versionName}');
     }
 
     // confirm
@@ -870,20 +873,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         prependDataLength: true,
         debugName: 'Sign Transaction Output Datum',
       ));
-      // Datum Chunks
-      final void Function() invoker = switch (outputDatum) {
-        ParsedDatumInline() => () async {
-            if (outputDatum.datumHex.length / 2 > maxChunkSize) {
-              await _signTxAddOutputSendChunks(outputDatum.datumHex, p2OutputDatumChunk, send);
-            }
-          },
-        _ => () => (),
-      };
-      invoker();
+      if (outputDatum is ParsedDatumInline && outputDatum.datumHex.length / 2 > maxChunkSize) {
+        await _signTxAddOutputSendChunks(outputDatum.datumHex, p2OutputDatumChunk, send);
+      }
     }
 
     final outputReferenceScriptHash = output.referenceScriptHash;
-
     // Reference Script
     if (outputReferenceScriptHash != null) {
       await send(SendOperation(
@@ -894,8 +889,6 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         prependDataLength: true,
         debugName: 'Sign Transaction Output Reference Script',
       ));
-
-      // Script chunks
       if (outputReferenceScriptHash.length / 2 > maxChunkSize) {
         await _signTxAddOutputSendChunks(outputReferenceScriptHash, p2OutputScriptChunk, send);
       }

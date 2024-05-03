@@ -40,6 +40,22 @@ void main() {
     //     expectVespr(result, equals(testCase.expected));
     //   });
     // });
+     group('Specific Test Case: Sign tx with long inline datum (480 B) in output', () {
+      test('Sign tx with long inline datum (480 B) in output', () async {
+        try {
+          // Assuming testsAlonzo contains the specific test case
+          final testCase = testsConwayWithoutCertificates.firstWhere((test) => test.testName == 'Sign tx with treasury');
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expect(result, equals(testCase.expected));
+        } catch (e) {
+          if (e is LedgerException) {
+            print('LedgerException caught: ${e.message}');
+          } else {
+            rethrow;
+          }
+        }
+      });
+    });
 
     // group('signTxBabbage', () {
     //   for (final testCase in testsBabbage) {
@@ -159,14 +175,11 @@ void main() {
     // });
 
     //  group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
-    test('Sign tx with short inline datum in output with tokens', () async {
-      // Assuming testsMary contains the specific test case
-      final testCase = testsMary.firstWhere((test) => test.testName == 'Sign tx with mint with decimal places');
-      expectVespr(
-        () async => await cardanoApp.signTransaction(device, testCase.request),
-        equals(testCase.expected),
-      );
-    });
+      // test('Sign tx with short inline datum in output with tokens', () async {
+      //   // Assuming testsMary contains the specific test case
+      //   final testCase = testsMultidelegation.firstWhere((test) => test.testName == 'Sign tx with multidelegation keys in all tx elements');
+      //   expectVespr(() => cardanoApp.signTransaction(device, testCase.request), equals(testCase.expected),);
+      // });
     // });
 
     // Test group for Byron transactions

@@ -75,11 +75,20 @@ class SerializationUtils {
   }
 
   static Uint8List serializedUint64(BigInt value) {
-    //TODO: Should check because there are cases where values could be negative
-    // if (value.isNegative) {
-    //   throw ValidationException("writeSerializedUint64 - Value is negative");
-    // } 
+    if (value.isNegative) {
+      throw ValidationException("writeSerializedUint64 - Value is negative");
+    }
     if (value.bitLength > 64) {
+      throw ValidationException("writeSerializedUint64 - Value is too large");
+    }
+    final ByteData data = ByteData(8);
+    data.setUint32(0, (value >> 32).toInt());
+    data.setUint32(4, (value & maxUint32).toInt());
+    return data.buffer.asUint8List();
+  }
+
+  static Uint8List serializeInt64(BigInt value) {
+    if (value.bitLength > 63) {
       throw ValidationException("writeSerializedUint64 - Value is too large");
     }
     final ByteData data = ByteData(8);
@@ -428,8 +437,8 @@ class SerializationUtils {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
           ThirdParty() => () {
-            final addressHex = destination.addressHex;
-            final addressHexLength = addressHex.length / 2;
+              final addressHex = destination.addressHex;
+              final addressHexLength = addressHex.length / 2;
               writer.writeUint32(addressHexLength.toInt());
               writer.write(hex.decode(addressHex));
             },
@@ -871,7 +880,7 @@ class SerializationUtils {
       final assetNameBytes = hex.decode(token.assetNameHex);
       writer.writeUint32(assetNameBytes.length);
       writer.write(assetNameBytes);
-      writer.write(int64ToBuf(token.amount));
+      writer.write(serializedInt64(token.amount));
       return writer.toBytes();
     });
   }
@@ -895,16 +904,12 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List int64ToBuf(BigInt value) {
-    //TODO: Check if this is ok because there are cases where values could be negative
-    // if (value.isNegative) {
-    //   throw ValidationException("int64ToBuf - Value is negative");
-    // }
-    if (value.bitLength > 64) {
+  static Uint8List serializedInt64(BigInt value) {
+    if (value.bitLength > 63) {
       throw ValidationException("int64ToBuf - Value is too large");
     }
     ByteDataWriter writer = ByteDataWriter();
-    writeSerializedUint64(writer, value);
+    writer.write(serializeInt64(value));
     Uint8List data = writer.toBytes();
     if (data.length != 8) {
       throw ValidationException("int64ToBuf - Invalid data length");

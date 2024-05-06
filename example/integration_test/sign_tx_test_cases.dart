@@ -4472,7 +4472,6 @@ final testsMary = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  //TODO: Case where values could be negative
   SignTxTestCase(
     testName: 'Sign tx with mint fields with various amounts',
     request: ParsedSigningRequest(
@@ -4536,7 +4535,6 @@ final testsMary = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  //TODO : Case where values could be negative
   SignTxTestCase(
     testName: 'Sign tx with mint with decimal places',
     request: ParsedSigningRequest(
@@ -4608,7 +4606,6 @@ final testsMary = [
       auxiliaryDataSupplement: null,
     ),
   ),
-  //TODO: Case where values could be negative
   SignTxTestCase(
     testName: 'Sign tx with mint fields among other fields',
     request: ParsedSigningRequest(

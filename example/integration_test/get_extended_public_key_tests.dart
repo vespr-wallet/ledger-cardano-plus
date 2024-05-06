@@ -40,10 +40,9 @@ void main() {
         await testSingleKey(testsColdKeys, cardanoApp, device);
       });
 
-      //TODO: LedgerException caught: Rejected by policy
-      // test('get a single extended public key --- vote keys', () async {
-      //   await testSingleKey(testsCVoteKeys, cardanoApp, device);
-      // });
+      test('get a single extended public key --- vote keys', () async {
+        await testSingleKey(testsCVoteKeys, cardanoApp, device);
+      });
     });
 
     group('Should successfully get several extended public keys', () {
@@ -52,8 +51,7 @@ void main() {
           ...testsByron,
           ...testsShelleyUsual,
           ...testsColdKeys,
-          //TODO: LedgerException caught: Rejected by policy
-          // ...testsCVoteKeys,
+          ...testsCVoteKeys,
         ], cardanoApp, device);
       });
 
@@ -67,7 +65,6 @@ void main() {
       });
     });
 
-    //TODO: Invalid input tests, shouldn't be tested because of invalid input.
     group('Should reject invalid paths', () {
       test('path shorter than 3 indexes', () async {
         final promise = cardanoApp.getExtendedPublicKey(

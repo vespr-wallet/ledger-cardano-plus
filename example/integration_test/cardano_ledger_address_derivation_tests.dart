@@ -35,9 +35,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 expect(e, isA<LedgerException>());
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not true');
@@ -56,9 +55,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 print('LedgerException caught: ${e.message}');
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not false');
@@ -70,18 +68,18 @@ void main() {
     group('Should successfully derive Shelley address - isAppXS true', () {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
-          if (isAppXS == true) {
+          if (isAppXS == false) {
             try {
-              deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+              final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+              expect(result, equals(testCase.expectedResult));
             } catch (e) {
               if (e is LedgerException) {
-                expect(e, isA<LedgerException>());
-              } else {
-                rethrow;
+                print('LedgerException caught: ${e.message}');
               }
+              rethrow;
             }
           } else {
-            print('Skipping test as isAppXS is not true');
+            print('Skipping test as isAppXS is not false');
           }
         });
       }
@@ -97,9 +95,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 print('LedgerException caught: ${e.message}');
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not false');
@@ -131,9 +128,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 expect(e, isA<LedgerException>());
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not true');
@@ -166,9 +162,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 print('LedgerException caught: ${e.message}');
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not false');
@@ -198,9 +193,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 expect(e, isA<LedgerException>());
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not true');
@@ -231,9 +225,8 @@ void main() {
             } catch (e) {
               if (e is LedgerException) {
                 print('LedgerException caught: ${e.message}');
-              } else {
-                rethrow;
               }
+              rethrow;
             }
           } else {
             print('Skipping test as isAppXS is not false');

@@ -30,7 +30,7 @@ import 'package:ledger_cardano/src/utils/validation_exception.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 class CardanoLedgerApp {
-  static bool debugPrintEnabled = true;
+  static bool debugPrintEnabled = false;
 
   final Ledger ledger;
   final LedgerTransformer? transformer;

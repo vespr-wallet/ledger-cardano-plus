@@ -54,28 +54,42 @@ String bech32ToHex(String bech32Address) {
 
 Future<void> testSingleKey(
     List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+  final appVersion = await cardanoApp.getVersion(device);
   for (final testCase in tests) {
-    try {
-      final response = await cardanoApp.getExtendedPublicKey(
-        device,
-        request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
-      );
+    if ((testCase.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode) {
+      try {
+        final response = await cardanoApp.getExtendedPublicKey(
+          device,
+          request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
+        );
 
-      expect(response.publicKeyHex, equals(testCase.expected.publicKey));
-      expect(response.chainCodeHex, equals(testCase.expected.chainCode));
-    } catch (e) {
-      if (e is LedgerException) {
-        print('LedgerException caught: ${e.message}');
-      } else {
-        rethrow;
+        expect(response.publicKeyHex, equals(testCase.expected.publicKey));
+        expect(response.chainCodeHex, equals(testCase.expected.chainCode));
+      } catch (e) {
+        if (e is LedgerException) {
+          print('LedgerException caught: ${e.message}');
+        } else {
+          rethrow;
+        }
       }
+    } else {
+      print("Skipped test for ${testCase.path} due to unsupported version");
     }
   }
 }
 
 Future<void> testMultipleKeys(
-    List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+  List<ExtendedPublicKeyTestCase> allTests,
+  CardanoLedgerApp cardanoApp,
+  LedgerDevice device,
+) async {
   try {
+    final appVersion = await cardanoApp.getVersion(device);
+    final tests = allTests.where((t) => (t.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode).toList();
+    if (tests.length != allTests.length) {
+      print("Skipped ${allTests.length - tests.length} tests due to min cardano version");
+    }
+
     final requests = tests.map((testCase) => ExtendedPublicKeyRequest_Custom(customPath: testCase.path)).toList();
     final results = await cardanoApp.getExtendedPublicKeys(device, requests: requests);
 
@@ -87,8 +101,8 @@ Future<void> testMultipleKeys(
   } catch (e) {
     if (e is LedgerException) {
       print('LedgerException caught: ${e.message}');
-    } else {
-      rethrow;
     }
+
+    rethrow;
   }
 }

@@ -71,7 +71,7 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 44, harden + 1815]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('path not matching cold key structure', () async {
@@ -79,7 +79,7 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1853, harden + 1900, harden + 0, 0, 0]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 1', () async {
@@ -87,7 +87,7 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1, 0]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 2', () async {
@@ -95,7 +95,7 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, 17]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 3', () async {
@@ -103,7 +103,7 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
     });
   });

@@ -1,5 +1,4 @@
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';

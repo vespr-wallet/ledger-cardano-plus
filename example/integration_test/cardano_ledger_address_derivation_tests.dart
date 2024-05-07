@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
@@ -30,14 +32,10 @@ void main() {
       for (var testCase in byronTestCases) {
         test(testCase.testName, () async {
           if (isAppXS == true) {
-            try {
-              deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-            } catch (e) {
-              if (e is LedgerException) {
-                expect(e, isA<LedgerException>());
-              }
-              rethrow;
-            }
+            expectVespr(
+              () => deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams),
+              throwsA(isA<LedgerException>()),
+            );
           } else {
             print('Skipping test as isAppXS is not true');
           }
@@ -49,15 +47,8 @@ void main() {
       for (var testCase in byronTestCases) {
         test(testCase.testName, () async {
           if (isAppXS == false) {
-            try {
-              final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-              expect(addressHexToBase58(result), equals(testCase.expectedResult));
-            } catch (e) {
-              if (e is LedgerException) {
-                print('LedgerException caught: ${e.message}');
-              }
-              rethrow;
-            }
+            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+            expectVespr(addressHexToBase58(result), equals(testCase.expectedResult));
           } else {
             print('Skipping test as isAppXS is not false');
           }
@@ -69,15 +60,8 @@ void main() {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
           if (isAppXS == false) {
-            try {
-              final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-              expect(result, equals(testCase.expectedResult));
-            } catch (e) {
-              if (e is LedgerException) {
-                print('LedgerException caught: ${e.message}');
-              }
-              rethrow;
-            }
+            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+            expectVespr(result, equals(testCase.expectedResult));
           } else {
             print('Skipping test as isAppXS is not false');
           }
@@ -89,15 +73,8 @@ void main() {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
           if (isAppXS == false) {
-            try {
-              final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
-              expect(result, equals(testCase.expectedResult));
-            } catch (e) {
-              if (e is LedgerException) {
-                print('LedgerException caught: ${e.message}');
-              }
-              rethrow;
-            }
+            final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
+            expectVespr(result, equals(testCase.expectedResult));
           } else {
             print('Skipping test as isAppXS is not false');
           }
@@ -118,19 +95,15 @@ void main() {
             'Derive address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS true',
             () async {
           if (isAppXS == true) {
-            try {
-              cardanoApp.deriveChangeAddress(
+            expectVespr(
+              () => cardanoApp.deriveChangeAddress(
                 device,
                 accountIndex: testCase.accountIndex,
                 addressIndex: testCase.addressIndex,
                 network: CardanoNetwork.mainnet(),
-              );
-            } catch (e) {
-              if (e is LedgerException) {
-                expect(e, isA<LedgerException>());
-              }
-              rethrow;
-            }
+              ),
+              throwsA(isA<LedgerException>()),
+            );
           } else {
             print('Skipping test as isAppXS is not true');
           }
@@ -140,10 +113,10 @@ void main() {
 
     group('Should successfully derive change addresses - isAppXS false', () {
       final testCases = [
-        (accountIndex: 0, addressIndex: 0),
-        (accountIndex: 0, addressIndex: 10),
-        (accountIndex: 10, addressIndex: 0),
-        (accountIndex: 10, addressIndex: 10),
+        (accountIndex: 0, addressIndex: 0, expectedResult: 'todo'),
+        (accountIndex: 0, addressIndex: 10, expectedResult: 'todo'),
+        (accountIndex: 10, addressIndex: 0, expectedResult: 'todo'),
+        (accountIndex: 10, addressIndex: 10, expectedResult: 'todo'),
       ];
 
       for (final testCase in testCases) {
@@ -151,20 +124,15 @@ void main() {
             'Derive address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS false',
             () async {
           if (isAppXS == false) {
-            try {
-              final result = await cardanoApp.deriveChangeAddress(
+            expectVespr(
+              cardanoApp.deriveChangeAddress(
                 device,
                 accountIndex: testCase.accountIndex,
                 addressIndex: testCase.addressIndex,
                 network: CardanoNetwork.mainnet(),
-              );
-              print('Derived address: $result');
-            } catch (e) {
-              if (e is LedgerException) {
-                print('LedgerException caught: ${e.message}');
-              }
-              rethrow;
-            }
+              ),
+              equals(testCase.expectedResult),
+            );
           } else {
             print('Skipping test as isAppXS is not false');
           }
@@ -183,19 +151,15 @@ void main() {
             'Derive stake address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS true',
             () async {
           if (isAppXS == true) {
-            try {
-              cardanoApp.deriveStakingAddress(
+            expectVespr(
+              () => cardanoApp.deriveStakingAddress(
                 device,
                 accountIndex: testCase.accountIndex,
                 addressIndex: testCase.addressIndex,
                 network: CardanoNetwork.mainnet(),
-              );
-            } catch (e) {
-              if (e is LedgerException) {
-                expect(e, isA<LedgerException>());
-              }
-              rethrow;
-            }
+              ),
+              throwsA(isA<LedgerException>()),
+            );
           } else {
             print('Skipping test as isAppXS is not true');
           }
@@ -205,8 +169,8 @@ void main() {
 
     group('Should successfully derive stake addresses - isAppXS false', () {
       final testCases = [
-        (accountIndex: 0, addressIndex: 0),
-        (accountIndex: 10, addressIndex: 0),
+        (accountIndex: 0, addressIndex: 0, expectedResult: 'todo'),
+        (accountIndex: 10, addressIndex: 0, expectedResult: 'todo'),
       ];
 
       for (final testCase in testCases) {
@@ -214,20 +178,15 @@ void main() {
             'Derive stake address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex} - isAppXS false',
             () async {
           if (isAppXS == false) {
-            try {
-              final result = await cardanoApp.deriveStakingAddress(
+            expectVespr(
+              cardanoApp.deriveStakingAddress(
                 device,
                 accountIndex: testCase.accountIndex,
                 addressIndex: testCase.addressIndex,
                 network: CardanoNetwork.mainnet(),
-              );
-              print('Derived address: $result');
-            } catch (e) {
-              if (e is LedgerException) {
-                print('LedgerException caught: ${e.message}');
-              }
-              rethrow;
-            }
+              ),
+              equals(testCase.expectedResult),
+            );
           } else {
             print('Skipping test as isAppXS is not false');
           }
@@ -266,22 +225,15 @@ void main() {
         test(
             'Derive enterprise address for account index ${testCase.accountIndex} and address index ${testCase.addressIndex}',
             () async {
-          try {
-            final result = await cardanoApp.deriveEnterpriseAddress(
+          expectVespr(
+            cardanoApp.deriveEnterpriseAddress(
               device,
               accountIndex: testCase.accountIndex,
               addressIndex: testCase.addressIndex,
               network: testCase.network,
-            );
-            expect(result, equals(testCase.expectedResult));
-            print('Derived enterprise address: $result');
-          } catch (e) {
-            if (e is LedgerException) {
-              print('LedgerException caught: ${e.message}');
-            } else {
-              rethrow;
-            }
-          }
+            ),
+            equals(testCase.expectedResult),
+          );
         });
       }
     });

@@ -4,6 +4,7 @@ import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 
 import 'sign_tx_test_cases.dart';
+import 'test_utils.dart';
 
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
@@ -26,7 +27,7 @@ void main() {
     //   for (final testCase in testsAlonzo) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -36,7 +37,7 @@ void main() {
     //     // Assuming testsAlonzo contains the specific test case
     //     final testCase = testsAlonzo.firstWhere((test) => test.testName == 'Sign tx with mint path in a required signer');
     //     final result = await cardanoApp.signTransaction(device, testCase.request);
-    //     expect(result, equals(testCase.expected));
+    //     expectVespr(result, equals(testCase.expected));
     //   });
     // });
 
@@ -44,7 +45,7 @@ void main() {
     //   for (final testCase in testsBabbage) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -53,7 +54,7 @@ void main() {
     //   for (final testCase in testsByron) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -62,7 +63,7 @@ void main() {
     //   for (final testCase in testsShelleyNoCertificates) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -71,7 +72,7 @@ void main() {
     //   for (final testCase in testsShelleyWithCertificates) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -80,7 +81,7 @@ void main() {
     //   for (final testCase in testsConwayWithoutCertificates) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -89,7 +90,7 @@ void main() {
     //   for (final testCase in testsConwayWithCertificates) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -98,7 +99,7 @@ void main() {
     //   for (final testCase in testsConwayVotingProcedures) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -107,7 +108,7 @@ void main() {
     //   for (final testCase in testsMultisig) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -116,7 +117,7 @@ void main() {
     //   for (final testCase in testsAllegra) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -125,7 +126,7 @@ void main() {
     //   for (final testCase in testsMary) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -134,7 +135,7 @@ void main() {
     //   for (final testCase in testsAlonzoTrezorComparison) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -143,7 +144,7 @@ void main() {
     //   for (final testCase in testsBabbageTrezorComparison) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -152,36 +153,28 @@ void main() {
     //   for (final testCase in testsMultidelegation) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
-    
-    
+
     //  group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
-      test('Sign tx with short inline datum in output with tokens', () async {
-        // Assuming testsMary contains the specific test case
-        final testCase = testsMary.firstWhere((test) => test.testName == 'Sign tx with mint with decimal places');
-        try {
-          final result = await cardanoApp.signTransaction(device, testCase.request);
-          expect(result, equals(testCase.expected));
-        } catch (e) {
-          if (e is LedgerException) {
-            // Handle the LedgerException specifically
-            print('LedgerException caught: ${e.message}');
-          } else {
-            rethrow;
-          }
-        }
-      });
+    test('Sign tx with short inline datum in output with tokens', () async {
+      // Assuming testsMary contains the specific test case
+      final testCase = testsMary.firstWhere((test) => test.testName == 'Sign tx with mint with decimal places');
+      expectVespr(
+        () async => await cardanoApp.signTransaction(device, testCase.request),
+        equals(testCase.expected),
+      );
+    });
     // });
-    
-        // Test group for Byron transactions
+
+    // Test group for Byron transactions
     // group('signTxByron', () {
     //   for (final testCase in testsByron) {
     //     test(testCase.testName, () async {
     //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expect(result, equals(testCase.expected));
+    //       expectVespr(result, equals(testCase.expected));
     //     });
     //   }
     // });
@@ -189,7 +182,7 @@ void main() {
     // group('signTxInitPolicyRejects', () {
     //   for (final testCase in transactionInitRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -197,7 +190,7 @@ void main() {
     // group('signTxAddressParamsPolicyRejects', () {
     //   for (final testCase in addressParamsRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -205,7 +198,7 @@ void main() {
     // group('signTxCertificatePolicyRejects', () {
     //   for (final testCase in certificateRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -213,7 +206,7 @@ void main() {
     // group('signTxCertificateStakingPolicyRejects', () {
     //   for (final testCase in certificateStakingRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -221,7 +214,7 @@ void main() {
     // group('signTxCertificateStakePoolRetirementPolicyRejects', () {
     //   for (final testCase in certificateStakePoolRetirementRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //        });
     //   }
     // });
@@ -229,7 +222,7 @@ void main() {
     // group('signTxWithdrawalRejects', () {
     //   for (final testCase in withdrawalRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -237,7 +230,7 @@ void main() {
     // group('signTxWitnessRejects', () {
     //   for (final testCase in witnessRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -245,7 +238,7 @@ void main() {
     // group('signTxInvalidMultiassetRejects', () {
     //   for (final testCase in testsInvalidTokenBundleOrdering) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -253,7 +246,7 @@ void main() {
     // group('signTxSingleAccountRejects', () {
     //   for (final testCase in singleAccountRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });
@@ -261,7 +254,7 @@ void main() {
     // group('signTxCollateralOutputRejects', () {
     //   for (final testCase in collateralOutputRejectTestCases) {
     //     test(testCase.testName, () async {
-    //       expect(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
+    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
     //     });
     //   }
     // });

@@ -51,16 +51,14 @@ void main() {
       }
       for (final testCase in validNativeScriptTestCases) {
         test(testCase.testName, () async {
-          test(testCase.testName, () async {
-            expectVespr(
-              cardanoApp.deriveNativeScriptHash(
-                device,
-                testCase.script,
-                testCase.displayFormat,
-              ),
-              equals(testCase.expectedHash),
-            );
-          });
+          expectVespr(
+            cardanoApp.deriveNativeScriptHash(
+              device,
+              testCase.script,
+              testCase.displayFormat,
+            ),
+            equals(testCase.expectedHash),
+          );
         });
       }
     });

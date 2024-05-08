@@ -179,7 +179,7 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    String bech32Hrp = network.bech32Hrp;
+    String bech32Hrp = network.paymentBech32Hrp;
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
@@ -224,7 +224,7 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    String bech32Hrp = network.bech32Hrp;
+    String bech32Hrp = network.paymentBech32Hrp;
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
@@ -240,8 +240,6 @@ class CardanoLedgerApp {
       address: addressIndex,
       role: ShelleyAddressRole.stake,
     );
-
-    print(path.signingPath);
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
@@ -261,7 +259,7 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    final result = bech32EncodeAddress('stake', addressBytes);
+    final result = bech32EncodeAddress(network.stakeBech32Hrp, addressBytes);
 
     return result;
   }
@@ -297,7 +295,7 @@ class CardanoLedgerApp {
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
-    String bech32Hrp = network.bech32Hrp;
+    String bech32Hrp = network.paymentBech32Hrp;
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 

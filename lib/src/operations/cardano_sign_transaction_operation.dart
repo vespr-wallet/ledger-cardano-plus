@@ -251,7 +251,6 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     StakePoolRegistration certificate,
     LedgerSendFct send,
   ) async {
-
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageCertificates,
@@ -462,8 +461,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             debugName: 'Sign Transaction Set CVote Registration Staking Key',
           ));
 
-          final serializedPaymentAddressData =
-              SerializationUtils.serializeCVoteRegistrationPaymentDestination(params.paymentDestination, version, network);
+          final serializedPaymentAddressData = SerializationUtils.serializeCVoteRegistrationPaymentDestination(
+              params.paymentDestination, version, network);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
@@ -536,16 +535,30 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
           ins: InstructionType.signTransaction.insValue,
           p1: p1StageOutputs,
           p2: p2,
-          data: Uint8List.fromList([
-            ...Uint32List.fromList([chunk.length ~/ 2]).buffer.asUint8List(),
-            ...hex.decode(chunk),
-          ]),
+          data: _createDataBuffer(chunk),
           prependDataLength: true,
           debugName: 'Sign Transaction Add Output Chunk',
         ),
       );
       start = end;
     }
+  }
+
+  Uint8List _createDataBuffer(String chunk) {
+    final chunkLength = chunk.length / 2;
+    final lengthBuffer = _uint32ToBuf(chunkLength.toInt());
+    final chunkBuffer = _hexToBuf(chunk);
+    return Uint8List.fromList([...lengthBuffer, ...chunkBuffer]);
+  }
+
+  Uint8List _uint32ToBuf(int value) {
+    final buffer = ByteData(4);
+    buffer.setUint32(0, value, Endian.big);
+    return buffer.buffer.asUint8List();
+  }
+
+  Uint8List _hexToBuf(String hexString) {
+    return Uint8List.fromList(hex.decode(hexString));
   }
 
   Future<void> _signTxAddWithdrawal(

@@ -1,3 +1,6 @@
+// ignore: depend_on_referenced_packages
+import 'package:matcher/src/expect/async_matcher.dart';
+import 'dart:async';
 import 'dart:typed_data';
 import 'package:base_x/base_x.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -6,8 +9,39 @@ import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_flutter/ledger_flutter.dart';
 import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano/src/models/shelley_address_params.dart';
 
 import 'get_extended_public_key_test_cases.dart';
+
+FutureOr<void> expectVespr(dynamic actual, dynamic matcher) async {
+  switch (actual) {
+    case Function():
+      late dynamic result;
+      late bool resultIsError;
+      try {
+        result = actual();
+        resultIsError = false;
+      } catch (err) {
+        result = err;
+        resultIsError = true;
+      }
+      if (resultIsError) {
+        return expectLater(() => throw result, matcher, reason: StackTrace.current.toString());
+      } else if (result is Future && matcher is! AsyncMatcher) {
+        return expectLater(result, completion(matcher), reason: StackTrace.current.toString());
+      } else {
+        return expectLater(result, matcher, reason: StackTrace.current.toString());
+      }
+    case Future():
+      if (matcher is! AsyncMatcher) {
+        return expectLater(actual, completion(matcher), reason: StackTrace.current.toString());
+      } else {
+        return expectLater(actual, matcher, reason: StackTrace.current.toString());
+      }
+    default:
+      return expect(actual, matcher, reason: StackTrace.current.toString());
+  }
+}
 
 String addressHexToBase58(String addressHex) {
   final base58 = BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
@@ -35,7 +69,14 @@ Future<String> deriveAddress(
   );
 
   Uint8List addressBytes = hexToBytes(addressResult);
-  String bech32Hrp = network.bech32Hrp;
+  final String bech32Hrp = switch (params) {
+    ByronAddressParams() => network.paymentBech32Hrp,
+    ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => switch (shelleyParams) {
+        RewardKey() => network.stakeBech32Hrp,
+        RewardScript() => network.stakeBech32Hrp,
+        _ => network.paymentBech32Hrp
+      }
+  };
   return bech32EncodeAddress(bech32Hrp, addressBytes);
 }
 
@@ -46,25 +87,39 @@ String bech32ToHex(String bech32Address) {
 
 Future<void> testSingleKey(
     List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+  final appVersion = await cardanoApp.getVersion(device);
   for (final testCase in tests) {
-    final response = await cardanoApp.getExtendedPublicKey(
-      device,
-      request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
-    );
+    if ((testCase.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode) {
+      final response = await cardanoApp.getExtendedPublicKey(
+        device,
+        request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
+      );
 
-    expect(response.publicKeyHex, equals(testCase.expected.publicKey));
-    expect(response.chainCodeHex, equals(testCase.expected.chainCode));
+      expectVespr(response.publicKeyHex, equals(testCase.expected.publicKey));
+      expectVespr(response.chainCodeHex, equals(testCase.expected.chainCode));
+    } else {
+      print("Skipped test for ${testCase.path} due to unsupported version");
+    }
   }
 }
 
 Future<void> testMultipleKeys(
-    List<ExtendedPublicKeyTestCase> tests, CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+  List<ExtendedPublicKeyTestCase> allTests,
+  CardanoLedgerApp cardanoApp,
+  LedgerDevice device,
+) async {
+  final appVersion = await cardanoApp.getVersion(device);
+  final tests = allTests.where((t) => (t.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode).toList();
+  if (tests.length != allTests.length) {
+    print("Skipped ${allTests.length - tests.length} tests due to min cardano version");
+  }
+
   final requests = tests.map((testCase) => ExtendedPublicKeyRequest_Custom(customPath: testCase.path)).toList();
   final results = await cardanoApp.getExtendedPublicKeys(device, requests: requests);
 
-  expect(results.length, equals(tests.length));
+  expectVespr(results.length, equals(tests.length));
   for (int i = 0; i < tests.length; i++) {
-    expect(results[i].publicKeyHex, equals(tests[i].expected.publicKey));
-    expect(results[i].chainCodeHex, equals(tests[i].expected.chainCode));
+    expectVespr(results[i].publicKeyHex, equals(tests[i].expected.publicKey));
+    expectVespr(results[i].chainCodeHex, equals(tests[i].expected.chainCode));
   }
 }

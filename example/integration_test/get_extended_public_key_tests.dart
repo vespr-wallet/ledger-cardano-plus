@@ -71,41 +71,39 @@ void main() {
           device,
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 44, harden + 1815]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('path not matching cold key structure', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           device,
-          request: ExtendedPublicKeyRequest_Custom(
-              customPath: [harden + 1853, harden + 1900, harden + 0, harden + 0, harden + 0]),
+          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1853, harden + 1900, harden + 0, 0, 0]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 1', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           device,
-          request: ExtendedPublicKeyRequest_Custom(
-              customPath: [harden + 1694, harden + 1815, harden + 0, harden + 1, harden + 0]),
+          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1, 0]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 2', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           device,
-          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 17]),
+          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, 17]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
 
       test('invalid vote key path 3', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           device,
-          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, harden + 1]),
+          request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1]),
         );
-        expect(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<LedgerException>()));
       });
     });
   });

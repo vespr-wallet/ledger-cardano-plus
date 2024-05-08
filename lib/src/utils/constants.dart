@@ -2,7 +2,7 @@ const int harden = 0x80000000;
 
 const int claCardano = 0xD7;
 
-const int maxChunkSize = 255;
+const int maxChunkSize = 240;
 
 const int signTxIncludedNo = 1;
 const int signTxIncludedYes = 2;

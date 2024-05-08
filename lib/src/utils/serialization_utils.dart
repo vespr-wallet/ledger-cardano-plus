@@ -77,7 +77,18 @@ class SerializationUtils {
   static Uint8List serializedUint64(BigInt value) {
     if (value.isNegative) {
       throw ValidationException("writeSerializedUint64 - Value is negative");
-    } else if (value.bitLength > 64) {
+    }
+    if (value.bitLength > 64) {
+      throw ValidationException("writeSerializedUint64 - Value is too large");
+    }
+    final ByteData data = ByteData(8);
+    data.setUint32(0, (value >> 32).toInt());
+    data.setUint32(4, (value & maxUint32).toInt());
+    return data.buffer.asUint8List();
+  }
+
+  static Uint8List serializeInt64(BigInt value) {
+    if (value.bitLength > 63) {
       throw ValidationException("writeSerializedUint64 - Value is too large");
     }
     final ByteData data = ByteData(8);
@@ -420,13 +431,16 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxOutputDestination(ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
+  static Uint8List serializeTxOutputDestination(
+          ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
       useBinaryWriter((ByteDataWriter writer) {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
           ThirdParty() => () {
-              writer.writeUint32(destination.addressHex.length ~/ 2);
-              writer.write(hex.decode(destination.addressHex));
+              final addressHex = destination.addressHex;
+              final addressHexLength = addressHex.length / 2;
+              writer.writeUint32(addressHexLength.toInt());
+              writer.write(hex.decode(addressHex));
             },
           DeviceOwned() => () {
               final addressParamsBytes = serializeAddressParams(destination.addressParams, version, network);
@@ -866,7 +880,7 @@ class SerializationUtils {
       final assetNameBytes = hex.decode(token.assetNameHex);
       writer.writeUint32(assetNameBytes.length);
       writer.write(assetNameBytes);
-      writer.write(int64ToBuf(token.amount));
+      writer.write(serializedInt64(token.amount));
       return writer.toBytes();
     });
   }
@@ -890,14 +904,12 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List int64ToBuf(BigInt value) {
-    if (value.isNegative) {
-      throw ValidationException("int64ToBuf - Value is negative");
-    } else if (value.bitLength > 64) {
+  static Uint8List serializedInt64(BigInt value) {
+    if (value.bitLength > 63) {
       throw ValidationException("int64ToBuf - Value is too large");
     }
     ByteDataWriter writer = ByteDataWriter();
-    writeSerializedUint64(writer, value);
+    writer.write(serializeInt64(value));
     Uint8List data = writer.toBytes();
     if (data.length != 8) {
       throw ValidationException("int64ToBuf - Invalid data length");
@@ -983,7 +995,7 @@ class SerializationUtils {
             writeSerializedHex(writer, datum.datumHashHex);
           },
         ParsedDatumInline() => () {
-            final totalDatumSize = datum.datumHex.length ~/ 2;
+            final totalDatumSize = datum.datumHex.length / 2;
             String chunkHex;
 
             if (totalDatumSize > maxChunkSize) {
@@ -991,11 +1003,11 @@ class SerializationUtils {
             } else {
               chunkHex = datum.datumHex;
             }
-            final chunkSize = chunkHex.length ~/ 2;
+            final chunkSize = chunkHex.length / 2;
 
             writer.writeUint8(datum.datumValue);
-            writeSerializedUint64(writer, BigInt.from(totalDatumSize));
-            writeSerializedUint64(writer, BigInt.from(chunkSize));
+            writer.writeUint32(totalDatumSize.toInt());
+            writer.writeUint32(chunkSize.toInt());
             writeSerializedHex(writer, chunkHex);
           },
       };
@@ -1007,7 +1019,7 @@ class SerializationUtils {
 
   static Uint8List serializeTxOutputRefScript(String referenceScriptHex) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final totalScriptSize = referenceScriptHex.length ~/ 2;
+      final totalScriptSize = referenceScriptHex.length / 2;
       String chunkHex;
 
       if (totalScriptSize > maxChunkSize) {
@@ -1015,10 +1027,10 @@ class SerializationUtils {
       } else {
         chunkHex = referenceScriptHex;
       }
-      final chunkSize = chunkHex.length ~/ 2;
+      final chunkSize = chunkHex.length / 2;
 
-      writeSerializedUint64(writer, BigInt.from(totalScriptSize));
-      writeSerializedUint64(writer, BigInt.from(chunkSize));
+      writer.writeUint32(totalScriptSize.toInt());
+      writer.writeUint32(chunkSize.toInt());
       writeSerializedHex(writer, chunkHex);
 
       return writer.toBytes();

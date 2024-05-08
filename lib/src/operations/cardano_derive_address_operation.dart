@@ -90,6 +90,8 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
                   writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
                 },
               RewardScript() => () {
+                  writer.writeUint8(StakingDataSource.scriptHash(scriptHashHex: shelleyParams.stakingScriptHashHex)
+                      .stakingDataSourceValue);
                   SerializationUtils.writeSerializedHex(writer, shelleyParams.stakingScriptHashHex);
                 },
             };

@@ -13,10 +13,7 @@ import 'package:ledger_cardano/src/models/parsed_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_credential.dart';
 import 'package:ledger_cardano/src/models/parsed_withdrawal.dart';
 import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano/src/models/parsed_transaction_options.dart';
 import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano/src/models/parsed_drep.dart';
-import 'package:ledger_cardano/src/models/parsed_anchor.dart';
 
 import 'test_utils.dart';
 

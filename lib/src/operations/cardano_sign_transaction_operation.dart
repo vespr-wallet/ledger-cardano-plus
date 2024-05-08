@@ -149,16 +149,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && treasury != null) {
       // treasury
       await _signTxAddTreasury(treasury, send);
-    } else {
-      throw ValidationException('Treasury donation not supported by Ledger app version ${cardanoVersion.versionName}');
     }
 
     final donation = signingRequest.tx.donation;
     if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && donation != null) {
       // donation
       await _signTxAddDonation(donation, send);
-    } else {
-      throw ValidationException('Donation not supported by Ledger app version ${cardanoVersion.versionName}');
     }
 
     // confirm

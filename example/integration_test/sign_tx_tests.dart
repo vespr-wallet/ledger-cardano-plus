@@ -24,12 +24,23 @@ void main() {
     });
 
     group('signTxAlonzo', () {
-      for (final testCase in testsAlonzo) {
-        test(testCase.testName, () async {
-          final result = await cardanoApp.signTransaction(device, testCase.request);
-          expectVespr(result, equals(testCase.expected));
-        });
-      }
+      test('Alonzo transaction signing with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsAlonzo
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
+
+        if (filteredTests.length != testsAlonzo.length) {
+          print("Skipped ${testsAlonzo.length - filteredTests.length} tests due to min cardano version");
+        }
+
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
     });
 
     group('Specific Test Case: Sign tx with treasury', () {
@@ -79,23 +90,47 @@ void main() {
       }
     });
 
-    // group('signTxConwayWithoutCertificates', () {
-    //   for (final testCase in testsConwayWithoutCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxConwayWithoutCertificates', () {
+      test('Conway transaction signing without certificates with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsConwayWithoutCertificates
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
 
-    // group('signTxConwayWithCertificates', () {
-    //   for (final testCase in testsConwayWithCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+        if (filteredTests.length != testsConwayWithoutCertificates.length) {
+          print(
+              "Skipped ${testsConwayWithoutCertificates.length - filteredTests.length} tests due to min cardano version");
+        }
+
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
+    });
+
+    group('signTxConwayWithCertificates', () {
+      test('Conway transaction signing with certificates with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsConwayWithCertificates
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
+
+        if (filteredTests.length != testsConwayWithCertificates.length) {
+          print(
+              "Skipped ${testsConwayWithCertificates.length - filteredTests.length} tests due to min cardano version");
+        }
+
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
+    });
 
     // group('signTxConwayVotingProcedures', () {
     //   for (final testCase in testsConwayVotingProcedures) {

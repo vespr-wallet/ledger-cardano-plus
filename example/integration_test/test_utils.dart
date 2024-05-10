@@ -69,15 +69,18 @@ Future<String> deriveAddress(
   );
 
   Uint8List addressBytes = hexToBytes(addressResult);
-  final String bech32Hrp = switch (params) {
-    ByronAddressParams() => network.paymentBech32Hrp,
-    ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => switch (shelleyParams) {
-        RewardKey() => network.stakeBech32Hrp,
-        RewardScript() => network.stakeBech32Hrp,
-        _ => network.paymentBech32Hrp
-      }
+  final String Function() encoder = switch (params) {
+    ByronAddressParams() => () => addressHexToBase58(addressResult),
+    ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => () {
+        final String bech32Hrp = switch (shelleyParams) {
+          RewardKey() => network.stakeBech32Hrp,
+          RewardScript() => network.stakeBech32Hrp,
+          _ => network.paymentBech32Hrp,
+        };
+        return bech32EncodeAddress(bech32Hrp, addressBytes);
+      },
   };
-  return bech32EncodeAddress(bech32Hrp, addressBytes);
+  return encoder();
 }
 
 String bech32ToHex(String bech32Address) {

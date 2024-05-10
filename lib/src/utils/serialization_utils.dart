@@ -461,7 +461,7 @@ class SerializationUtils {
         ByronAddressParams() => () {
             writer.writeUint32(network.networkMagic);
             writer.write(serializeSpendingDataSource(params.spendingDataSource));
-            writer.write(serializeStakingDataSource(params.stakingDataSource));
+            writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
           },
         ShelleyAddressParams() => () {
             writer.writeUint8(network.networkId);

@@ -1,3 +1,3 @@
-## 1.0.0-pre.1
+## 0.1.0
 
-* Initial release with Algorand prerelease.
+* Initial release with Cardano prerelease.

@@ -24,7 +24,7 @@
 ## Overview
 
 Ledger Nano devices are the perfect hardware wallets for managing your crypto & NFTs on the go.
-This Flutter package is a plugin for the [ledger_flutter](https://pub.dev/packages/ledger_cardano) package to get accounts and sign transactions using the Algorand blockchain.
+This Flutter package is a plugin for the [ledger_flutter](https://pub.dev/packages/ledger_cardano) package to get accounts and sign transactions using the Cardano blockchain.
 
 ## Getting started
 
@@ -78,6 +78,53 @@ If you have a suggestion that would make this better, please fork the repo and c
 5. Open a Pull Request
 
 Please read our [Contributing guidelines](CONTRIBUTING.md) and try to follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+## Running Integration Tests
+
+To run the integration tests for the `ledger-cardano` SDK, follow these steps:
+
+1. **Set Up Your Environment:**
+
+   - Ensure that you have Flutter installed on your machine. You can download it from [Flutter's official site](https://flutter.dev/docs/get-started/install).
+
+2. **Clone the Repository:**
+
+   - If you haven't already, clone the `ledger-cardano` repository from GitHub:
+
+   ```bash
+   git clone https://github.com/vespr-wallet/ledger-cardano.git
+   cd ledger-cardano
+   ```
+
+3. **Navigate to the Integration Tests Directory:**
+
+   - Change to the directory containing the integration tests:
+
+   ```bash
+   cd example/integration_test
+   ```
+
+4. **Run the Tests:**
+
+   - Use the following Flutter command to execute the integration tests:
+
+   ```bash
+   flutter test integration_test
+   ```
+
+   - To run a specific integration test file, provide the path to the test file:
+
+   ```bash
+   flutter test integration_test/cardano_ledger_serial_version_tests.dart
+   ```
+
+   - To run a specific test case within a test file, use the `-n` flag followed by the test name:
+
+   ```bash
+   flutter test integration_test/cardano_ledger_serial_version_tests.dart -n "Should correctly get the serial number of the device"
+   ```
+
+   Make sure your development environment is properly set up to communicate with the Ledger device, and that the device is connected and unlocked before running the tests.
 
 ## License
 

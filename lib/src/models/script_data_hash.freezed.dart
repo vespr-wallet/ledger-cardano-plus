@@ -11,30 +11,39 @@ part of 'script_data_hash.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ScriptDataHash {
-  String get hexString => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $ScriptDataHashCopyWith<ScriptDataHash> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get hexString => throw _privateConstructorUsedError;
+
+
+
+
+
+
+
+@JsonKey(ignore: true)
+$ScriptDataHashCopyWith<ScriptDataHash> get copyWith => throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class $ScriptDataHashCopyWith<$Res> {
-  factory $ScriptDataHashCopyWith(
-          ScriptDataHash value, $Res Function(ScriptDataHash) then) =
-      _$ScriptDataHashCopyWithImpl<$Res, ScriptDataHash>;
-  @useResult
-  $Res call({String hexString});
+abstract class $ScriptDataHashCopyWith<$Res>  {
+  factory $ScriptDataHashCopyWith(ScriptDataHash value, $Res Function(ScriptDataHash) then) = _$ScriptDataHashCopyWithImpl<$Res, ScriptDataHash>;
+@useResult
+$Res call({
+ String hexString
+});
+
+
+
 }
 
 /// @nodoc
-class _$ScriptDataHashCopyWithImpl<$Res, $Val extends ScriptDataHash>
-    implements $ScriptDataHashCopyWith<$Res> {
+class _$ScriptDataHashCopyWithImpl<$Res,$Val extends ScriptDataHash> implements $ScriptDataHashCopyWith<$Res> {
   _$ScriptDataHashCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -42,95 +51,92 @@ class _$ScriptDataHashCopyWithImpl<$Res, $Val extends ScriptDataHash>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hexString = null,
-  }) {
-    return _then(_value.copyWith(
-      hexString: null == hexString
-          ? _value.hexString
-          : hexString // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+@pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
+  return _then(_value.copyWith(
+hexString: null == hexString ? _value.hexString : hexString // ignore: cast_nullable_to_non_nullable
+as String,
+  )as $Val);
+}
+
+}
+
+
+/// @nodoc
+abstract class _$$ScriptDataHashImplCopyWith<$Res> implements $ScriptDataHashCopyWith<$Res> {
+  factory _$$ScriptDataHashImplCopyWith(_$ScriptDataHashImpl value, $Res Function(_$ScriptDataHashImpl) then) = __$$ScriptDataHashImplCopyWithImpl<$Res>;
+@override @useResult
+$Res call({
+ String hexString
+});
+
+
+
 }
 
 /// @nodoc
-abstract class _$$ScriptDataHashImplCopyWith<$Res>
-    implements $ScriptDataHashCopyWith<$Res> {
-  factory _$$ScriptDataHashImplCopyWith(_$ScriptDataHashImpl value,
-          $Res Function(_$ScriptDataHashImpl) then) =
-      __$$ScriptDataHashImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String hexString});
-}
-
-/// @nodoc
-class __$$ScriptDataHashImplCopyWithImpl<$Res>
-    extends _$ScriptDataHashCopyWithImpl<$Res, _$ScriptDataHashImpl>
-    implements _$$ScriptDataHashImplCopyWith<$Res> {
-  __$$ScriptDataHashImplCopyWithImpl(
-      _$ScriptDataHashImpl _value, $Res Function(_$ScriptDataHashImpl) _then)
+class __$$ScriptDataHashImplCopyWithImpl<$Res> extends _$ScriptDataHashCopyWithImpl<$Res, _$ScriptDataHashImpl> implements _$$ScriptDataHashImplCopyWith<$Res> {
+  __$$ScriptDataHashImplCopyWithImpl(_$ScriptDataHashImpl _value, $Res Function(_$ScriptDataHashImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hexString = null,
-  }) {
-    return _then(_$ScriptDataHashImpl(
-      hexString: null == hexString
-          ? _value.hexString
-          : hexString // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+
+@pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
+  return _then(_$ScriptDataHashImpl(
+hexString: null == hexString ? _value.hexString : hexString // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
 
-class _$ScriptDataHashImpl extends _ScriptDataHash {
-  _$ScriptDataHashImpl({required this.hexString}) : super._();
 
-  @override
-  final String hexString;
+class _$ScriptDataHashImpl extends _ScriptDataHash  {
+   _$ScriptDataHashImpl({required this.hexString}): super._();
 
-  @override
-  String toString() {
-    return 'ScriptDataHash(hexString: $hexString)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ScriptDataHashImpl &&
-            (identical(other.hexString, hexString) ||
-                other.hexString == hexString));
-  }
+@override final  String hexString;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hexString);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith =>
-      __$$ScriptDataHashImplCopyWithImpl<_$ScriptDataHashImpl>(
-          this, _$identity);
+@override
+String toString() {
+  return 'ScriptDataHash(hexString: $hexString)';
 }
 
-abstract class _ScriptDataHash extends ScriptDataHash {
-  factory _ScriptDataHash({required final String hexString}) =
-      _$ScriptDataHashImpl;
-  _ScriptDataHash._() : super._();
 
-  @override
-  String get hexString;
-  @override
-  @JsonKey(ignore: true)
-  _$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ScriptDataHashImpl&&(identical(other.hexString, hexString) || other.hexString == hexString));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hexString);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith => __$$ScriptDataHashImplCopyWithImpl<_$ScriptDataHashImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class _ScriptDataHash extends ScriptDataHash {
+   factory _ScriptDataHash({required final  String hexString}) = _$ScriptDataHashImpl;
+   _ScriptDataHash._(): super._();
+
+  
+
+@override  String get hexString;
+@override @JsonKey(ignore: true)
+_$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith => throw _privateConstructorUsedError;
+
 }

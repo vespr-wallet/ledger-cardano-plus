@@ -11,184 +11,208 @@ part of 'parsed_pool_key.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ParsedPoolKey {}
+mixin _$ParsedPoolKey {
 
-/// @nodoc
-abstract class $ParsedPoolKeyCopyWith<$Res> {
-  factory $ParsedPoolKeyCopyWith(
-          ParsedPoolKey value, $Res Function(ParsedPoolKey) then) =
-      _$ParsedPoolKeyCopyWithImpl<$Res, ParsedPoolKey>;
+
+
+
+
+
+
+
+
+
 }
 
 /// @nodoc
-class _$ParsedPoolKeyCopyWithImpl<$Res, $Val extends ParsedPoolKey>
-    implements $ParsedPoolKeyCopyWith<$Res> {
+abstract class $ParsedPoolKeyCopyWith<$Res>  {
+  factory $ParsedPoolKeyCopyWith(ParsedPoolKey value, $Res Function(ParsedPoolKey) then) = _$ParsedPoolKeyCopyWithImpl<$Res, ParsedPoolKey>;
+
+
+
+}
+
+/// @nodoc
+class _$ParsedPoolKeyCopyWithImpl<$Res,$Val extends ParsedPoolKey> implements $ParsedPoolKeyCopyWith<$Res> {
   _$ParsedPoolKeyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
+
+
+
+}
+
+
+/// @nodoc
+abstract class _$$DeviceOwnedPoolKeyImplCopyWith<$Res>  {
+  factory _$$DeviceOwnedPoolKeyImplCopyWith(_$DeviceOwnedPoolKeyImpl value, $Res Function(_$DeviceOwnedPoolKeyImpl) then) = __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res>;
+@useResult
+$Res call({
+ LedgerSigningPath path
+});
+
+
+$LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedPoolKeyImplCopyWith<$Res> {
-  factory _$$DeviceOwnedPoolKeyImplCopyWith(_$DeviceOwnedPoolKeyImpl value,
-          $Res Function(_$DeviceOwnedPoolKeyImpl) then) =
-      __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({LedgerSigningPath path});
-
-  $LedgerSigningPathCopyWith<$Res> get path;
-}
-
-/// @nodoc
-class __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res>
-    extends _$ParsedPoolKeyCopyWithImpl<$Res, _$DeviceOwnedPoolKeyImpl>
-    implements _$$DeviceOwnedPoolKeyImplCopyWith<$Res> {
-  __$$DeviceOwnedPoolKeyImplCopyWithImpl(_$DeviceOwnedPoolKeyImpl _value,
-      $Res Function(_$DeviceOwnedPoolKeyImpl) _then)
+class __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res> extends _$ParsedPoolKeyCopyWithImpl<$Res, _$DeviceOwnedPoolKeyImpl> implements _$$DeviceOwnedPoolKeyImplCopyWith<$Res> {
+  __$$DeviceOwnedPoolKeyImplCopyWithImpl(_$DeviceOwnedPoolKeyImpl _value, $Res Function(_$DeviceOwnedPoolKeyImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? path = null,
-  }) {
-    return _then(_$DeviceOwnedPoolKeyImpl(
-      path: null == path
-          ? _value.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as LedgerSigningPath,
-    ));
-  }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $LedgerSigningPathCopyWith<$Res> get path {
-    return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-      return _then(_value.copyWith(path: value));
-    });
-  }
+@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
+  return _then(_$DeviceOwnedPoolKeyImpl(
+path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
+  ));
+}
+
+@override
+@pragma('vm:prefer-inline')
+$LedgerSigningPathCopyWith<$Res> get path {
+  
+  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
+    return _then(_value.copyWith(path: value) );
+  });
+}
 }
 
 /// @nodoc
 
-class _$DeviceOwnedPoolKeyImpl extends DeviceOwnedPoolKey {
-  _$DeviceOwnedPoolKeyImpl({required this.path}) : super._();
 
-  @override
-  final LedgerSigningPath path;
+class _$DeviceOwnedPoolKeyImpl extends DeviceOwnedPoolKey  {
+   _$DeviceOwnedPoolKeyImpl({required this.path}): super._();
 
-  @override
-  String toString() {
-    return 'ParsedPoolKey.deviceOwned(path: $path)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$DeviceOwnedPoolKeyImpl &&
-            (identical(other.path, path) || other.path == path));
-  }
+@override final  LedgerSigningPath path;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, path);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith =>
-      __$$DeviceOwnedPoolKeyImplCopyWithImpl<_$DeviceOwnedPoolKeyImpl>(
-          this, _$identity);
+@override
+String toString() {
+  return 'ParsedPoolKey.deviceOwned(path: $path)';
 }
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedPoolKeyImpl&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith => __$$DeviceOwnedPoolKeyImplCopyWithImpl<_$DeviceOwnedPoolKeyImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
 
 abstract class DeviceOwnedPoolKey extends ParsedPoolKey {
-  factory DeviceOwnedPoolKey({required final LedgerSigningPath path}) =
-      _$DeviceOwnedPoolKeyImpl;
-  DeviceOwnedPoolKey._() : super._();
+   factory DeviceOwnedPoolKey({required final  LedgerSigningPath path}) = _$DeviceOwnedPoolKeyImpl;
+   DeviceOwnedPoolKey._(): super._();
 
-  LedgerSigningPath get path;
-  @JsonKey(ignore: true)
-  _$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  
+
+ LedgerSigningPath get path;
+@JsonKey(ignore: true)
+_$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith => throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class _$$ThirdPartyPoolKeyImplCopyWith<$Res> {
-  factory _$$ThirdPartyPoolKeyImplCopyWith(_$ThirdPartyPoolKeyImpl value,
-          $Res Function(_$ThirdPartyPoolKeyImpl) then) =
-      __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({String hashHex});
+abstract class _$$ThirdPartyPoolKeyImplCopyWith<$Res>  {
+  factory _$$ThirdPartyPoolKeyImplCopyWith(_$ThirdPartyPoolKeyImpl value, $Res Function(_$ThirdPartyPoolKeyImpl) then) = __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res>;
+@useResult
+$Res call({
+ String hashHex
+});
+
+
+
 }
 
 /// @nodoc
-class __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res>
-    extends _$ParsedPoolKeyCopyWithImpl<$Res, _$ThirdPartyPoolKeyImpl>
-    implements _$$ThirdPartyPoolKeyImplCopyWith<$Res> {
-  __$$ThirdPartyPoolKeyImplCopyWithImpl(_$ThirdPartyPoolKeyImpl _value,
-      $Res Function(_$ThirdPartyPoolKeyImpl) _then)
+class __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res> extends _$ParsedPoolKeyCopyWithImpl<$Res, _$ThirdPartyPoolKeyImpl> implements _$$ThirdPartyPoolKeyImplCopyWith<$Res> {
+  __$$ThirdPartyPoolKeyImplCopyWithImpl(_$ThirdPartyPoolKeyImpl _value, $Res Function(_$ThirdPartyPoolKeyImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hashHex = null,
-  }) {
-    return _then(_$ThirdPartyPoolKeyImpl(
-      hashHex: null == hashHex
-          ? _value.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+
+@pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
+  return _then(_$ThirdPartyPoolKeyImpl(
+hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
 
-class _$ThirdPartyPoolKeyImpl extends ThirdPartyPoolKey {
-  _$ThirdPartyPoolKeyImpl({required this.hashHex}) : super._();
 
-  @override
-  final String hashHex;
+class _$ThirdPartyPoolKeyImpl extends ThirdPartyPoolKey  {
+   _$ThirdPartyPoolKeyImpl({required this.hashHex}): super._();
 
-  @override
-  String toString() {
-    return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ThirdPartyPoolKeyImpl &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
+@override final  String hashHex;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hashHex);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith =>
-      __$$ThirdPartyPoolKeyImplCopyWithImpl<_$ThirdPartyPoolKeyImpl>(
-          this, _$identity);
+@override
+String toString() {
+  return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
 }
 
-abstract class ThirdPartyPoolKey extends ParsedPoolKey {
-  factory ThirdPartyPoolKey({required final String hashHex}) =
-      _$ThirdPartyPoolKeyImpl;
-  ThirdPartyPoolKey._() : super._();
 
-  String get hashHex;
-  @JsonKey(ignore: true)
-  _$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ThirdPartyPoolKeyImpl&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hashHex);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith => __$$ThirdPartyPoolKeyImplCopyWithImpl<_$ThirdPartyPoolKeyImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class ThirdPartyPoolKey extends ParsedPoolKey {
+   factory ThirdPartyPoolKey({required final  String hashHex}) = _$ThirdPartyPoolKeyImpl;
+   ThirdPartyPoolKey._(): super._();
+
+  
+
+ String get hashHex;
+@JsonKey(ignore: true)
+_$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith => throw _privateConstructorUsedError;
+
 }

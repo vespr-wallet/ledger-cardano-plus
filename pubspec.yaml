@@ -1,13 +1,13 @@
 name: ledger_cardano
 description: A Ledger App Plugin for the Cardano blockchain
-version: 1.0.0-pre.1
+version: 0.1.0
 homepage: https://github.com/vespr-wallet/ledger-cardano
 repository: https://github.com/vespr-wallet/ledger-cardano
 issue_tracker: https://github.com/vespr-wallet/ledger-cardano/issues
 
 environment:
-  sdk: ">=3.2.0 <4.0.0"
-  # flutter: ">=1.17.0"
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.22.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -22,13 +22,16 @@ dependencies:
   collection: ^1.18.0
   bech32: ^0.2.2
 
+# dependency_overrides:
+#   meta: 1.14.0
+
 dev_dependencies:
-  integration_test:
-    sdk: flutter
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
-  freezed: ^2.4.7
+  # integration_test:
+  #   sdk: flutter
+  # flutter_test:
+  #   sdk: flutter
+  flutter_lints: ^4.0.0
+  freezed: ^2.5.2
   build_runner:
 
 flutter:

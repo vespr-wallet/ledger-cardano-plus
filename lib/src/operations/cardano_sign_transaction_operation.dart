@@ -144,17 +144,29 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     for (final voterVotes in votingProcedures ?? []) {
       await _signTxAddVoterVotes(voterVotes, send);
     }
-    final treasury = signingRequest.tx.treasury;
 
-    if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && treasury != null) {
-      // treasury
-      await _signTxAddTreasury(treasury, send);
+    // treasury - conway+
+    final treasury = signingRequest.tx.treasury;
+    if (treasury != null) {
+      if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway) {
+        await _signTxAddTreasury(treasury, send);
+      } else {
+        throw ValidationException(
+          'Treasury is not supported by Ledger Cardano app version ${cardanoVersion.versionName}',
+        );
+      }
     }
 
+    // donation - conway+
     final donation = signingRequest.tx.donation;
-    if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway && donation != null) {
-      // donation
-      await _signTxAddDonation(donation, send);
+    if (donation != null) {
+      if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway) {
+        await _signTxAddDonation(donation, send);
+      } else {
+        throw ValidationException(
+          'Donation is not supported by Ledger Cardano app version ${cardanoVersion.versionName}',
+        );
+      }
     }
 
     // confirm

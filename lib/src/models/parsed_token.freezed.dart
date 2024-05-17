@@ -11,31 +11,39 @@ part of 'parsed_token.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedToken {
-  String get assetNameHex => throw _privateConstructorUsedError;
-  BigInt get amount => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $ParsedTokenCopyWith<ParsedToken> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get assetNameHex => throw _privateConstructorUsedError; BigInt get amount => throw _privateConstructorUsedError;
+
+
+
+
+
+
+
+@JsonKey(ignore: true)
+$ParsedTokenCopyWith<ParsedToken> get copyWith => throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class $ParsedTokenCopyWith<$Res> {
-  factory $ParsedTokenCopyWith(
-          ParsedToken value, $Res Function(ParsedToken) then) =
-      _$ParsedTokenCopyWithImpl<$Res, ParsedToken>;
-  @useResult
-  $Res call({String assetNameHex, BigInt amount});
+abstract class $ParsedTokenCopyWith<$Res>  {
+  factory $ParsedTokenCopyWith(ParsedToken value, $Res Function(ParsedToken) then) = _$ParsedTokenCopyWithImpl<$Res, ParsedToken>;
+@useResult
+$Res call({
+ String assetNameHex, BigInt amount
+});
+
+
+
 }
 
 /// @nodoc
-class _$ParsedTokenCopyWithImpl<$Res, $Val extends ParsedToken>
-    implements $ParsedTokenCopyWith<$Res> {
+class _$ParsedTokenCopyWithImpl<$Res,$Val extends ParsedToken> implements $ParsedTokenCopyWith<$Res> {
   _$ParsedTokenCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -43,111 +51,95 @@ class _$ParsedTokenCopyWithImpl<$Res, $Val extends ParsedToken>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? assetNameHex = null,
-    Object? amount = null,
-  }) {
-    return _then(_value.copyWith(
-      assetNameHex: null == assetNameHex
-          ? _value.assetNameHex
-          : assetNameHex // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ) as $Val);
-  }
+@pragma('vm:prefer-inline') @override $Res call({Object? assetNameHex = null,Object? amount = null,}) {
+  return _then(_value.copyWith(
+assetNameHex: null == assetNameHex ? _value.assetNameHex : assetNameHex // ignore: cast_nullable_to_non_nullable
+as String,amount: null == amount ? _value.amount : amount // ignore: cast_nullable_to_non_nullable
+as BigInt,
+  )as $Val);
+}
+
+}
+
+
+/// @nodoc
+abstract class _$$ParsedTokenImplCopyWith<$Res> implements $ParsedTokenCopyWith<$Res> {
+  factory _$$ParsedTokenImplCopyWith(_$ParsedTokenImpl value, $Res Function(_$ParsedTokenImpl) then) = __$$ParsedTokenImplCopyWithImpl<$Res>;
+@override @useResult
+$Res call({
+ String assetNameHex, BigInt amount
+});
+
+
+
 }
 
 /// @nodoc
-abstract class _$$ParsedTokenImplCopyWith<$Res>
-    implements $ParsedTokenCopyWith<$Res> {
-  factory _$$ParsedTokenImplCopyWith(
-          _$ParsedTokenImpl value, $Res Function(_$ParsedTokenImpl) then) =
-      __$$ParsedTokenImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String assetNameHex, BigInt amount});
-}
-
-/// @nodoc
-class __$$ParsedTokenImplCopyWithImpl<$Res>
-    extends _$ParsedTokenCopyWithImpl<$Res, _$ParsedTokenImpl>
-    implements _$$ParsedTokenImplCopyWith<$Res> {
-  __$$ParsedTokenImplCopyWithImpl(
-      _$ParsedTokenImpl _value, $Res Function(_$ParsedTokenImpl) _then)
+class __$$ParsedTokenImplCopyWithImpl<$Res> extends _$ParsedTokenCopyWithImpl<$Res, _$ParsedTokenImpl> implements _$$ParsedTokenImplCopyWith<$Res> {
+  __$$ParsedTokenImplCopyWithImpl(_$ParsedTokenImpl _value, $Res Function(_$ParsedTokenImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? assetNameHex = null,
-    Object? amount = null,
-  }) {
-    return _then(_$ParsedTokenImpl(
-      assetNameHex: null == assetNameHex
-          ? _value.assetNameHex
-          : assetNameHex // ignore: cast_nullable_to_non_nullable
-              as String,
-      amount: null == amount
-          ? _value.amount
-          : amount // ignore: cast_nullable_to_non_nullable
-              as BigInt,
-    ));
-  }
+
+@pragma('vm:prefer-inline') @override $Res call({Object? assetNameHex = null,Object? amount = null,}) {
+  return _then(_$ParsedTokenImpl(
+assetNameHex: null == assetNameHex ? _value.assetNameHex : assetNameHex // ignore: cast_nullable_to_non_nullable
+as String,amount: null == amount ? _value.amount : amount // ignore: cast_nullable_to_non_nullable
+as BigInt,
+  ));
+}
+
+
 }
 
 /// @nodoc
 
-class _$ParsedTokenImpl extends _ParsedToken {
-  _$ParsedTokenImpl({required this.assetNameHex, required this.amount})
-      : super._();
 
-  @override
-  final String assetNameHex;
-  @override
-  final BigInt amount;
+class _$ParsedTokenImpl extends _ParsedToken  {
+   _$ParsedTokenImpl({required this.assetNameHex, required this.amount}): super._();
 
-  @override
-  String toString() {
-    return 'ParsedToken(assetNameHex: $assetNameHex, amount: $amount)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ParsedTokenImpl &&
-            (identical(other.assetNameHex, assetNameHex) ||
-                other.assetNameHex == assetNameHex) &&
-            (identical(other.amount, amount) || other.amount == amount));
-  }
+@override final  String assetNameHex;
+@override final  BigInt amount;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, assetNameHex, amount);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith =>
-      __$$ParsedTokenImplCopyWithImpl<_$ParsedTokenImpl>(this, _$identity);
+@override
+String toString() {
+  return 'ParsedToken(assetNameHex: $assetNameHex, amount: $amount)';
 }
 
-abstract class _ParsedToken extends ParsedToken {
-  factory _ParsedToken(
-      {required final String assetNameHex,
-      required final BigInt amount}) = _$ParsedTokenImpl;
-  _ParsedToken._() : super._();
 
-  @override
-  String get assetNameHex;
-  @override
-  BigInt get amount;
-  @override
-  @JsonKey(ignore: true)
-  _$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedTokenImpl&&(identical(other.assetNameHex, assetNameHex) || other.assetNameHex == assetNameHex)&&(identical(other.amount, amount) || other.amount == amount));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,assetNameHex,amount);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith => __$$ParsedTokenImplCopyWithImpl<_$ParsedTokenImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class _ParsedToken extends ParsedToken {
+   factory _ParsedToken({required final  String assetNameHex, required final  BigInt amount}) = _$ParsedTokenImpl;
+   _ParsedToken._(): super._();
+
+  
+
+@override  String get assetNameHex;@override  BigInt get amount;
+@override @JsonKey(ignore: true)
+_$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith => throw _privateConstructorUsedError;
+
 }

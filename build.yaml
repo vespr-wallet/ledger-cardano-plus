@@ -5,3 +5,4 @@ targets:
         options:
           map: false
           when: false
+          format: false

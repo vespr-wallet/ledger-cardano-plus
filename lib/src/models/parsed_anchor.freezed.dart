@@ -11,31 +11,39 @@ part of 'parsed_anchor.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedAnchor {
-  String get url => throw _privateConstructorUsedError;
-  String get hashHex => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $ParsedAnchorCopyWith<ParsedAnchor> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get url => throw _privateConstructorUsedError; String get hashHex => throw _privateConstructorUsedError;
+
+
+
+
+
+
+
+@JsonKey(ignore: true)
+$ParsedAnchorCopyWith<ParsedAnchor> get copyWith => throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class $ParsedAnchorCopyWith<$Res> {
-  factory $ParsedAnchorCopyWith(
-          ParsedAnchor value, $Res Function(ParsedAnchor) then) =
-      _$ParsedAnchorCopyWithImpl<$Res, ParsedAnchor>;
-  @useResult
-  $Res call({String url, String hashHex});
+abstract class $ParsedAnchorCopyWith<$Res>  {
+  factory $ParsedAnchorCopyWith(ParsedAnchor value, $Res Function(ParsedAnchor) then) = _$ParsedAnchorCopyWithImpl<$Res, ParsedAnchor>;
+@useResult
+$Res call({
+ String url, String hashHex
+});
+
+
+
 }
 
 /// @nodoc
-class _$ParsedAnchorCopyWithImpl<$Res, $Val extends ParsedAnchor>
-    implements $ParsedAnchorCopyWith<$Res> {
+class _$ParsedAnchorCopyWithImpl<$Res,$Val extends ParsedAnchor> implements $ParsedAnchorCopyWith<$Res> {
   _$ParsedAnchorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -43,109 +51,95 @@ class _$ParsedAnchorCopyWithImpl<$Res, $Val extends ParsedAnchor>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? hashHex = null,
-  }) {
-    return _then(_value.copyWith(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashHex: null == hashHex
-          ? _value.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
+  return _then(_value.copyWith(
+url: null == url ? _value.url : url // ignore: cast_nullable_to_non_nullable
+as String,hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  )as $Val);
+}
+
+}
+
+
+/// @nodoc
+abstract class _$$ParsedAnchorImplCopyWith<$Res> implements $ParsedAnchorCopyWith<$Res> {
+  factory _$$ParsedAnchorImplCopyWith(_$ParsedAnchorImpl value, $Res Function(_$ParsedAnchorImpl) then) = __$$ParsedAnchorImplCopyWithImpl<$Res>;
+@override @useResult
+$Res call({
+ String url, String hashHex
+});
+
+
+
 }
 
 /// @nodoc
-abstract class _$$ParsedAnchorImplCopyWith<$Res>
-    implements $ParsedAnchorCopyWith<$Res> {
-  factory _$$ParsedAnchorImplCopyWith(
-          _$ParsedAnchorImpl value, $Res Function(_$ParsedAnchorImpl) then) =
-      __$$ParsedAnchorImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String url, String hashHex});
-}
-
-/// @nodoc
-class __$$ParsedAnchorImplCopyWithImpl<$Res>
-    extends _$ParsedAnchorCopyWithImpl<$Res, _$ParsedAnchorImpl>
-    implements _$$ParsedAnchorImplCopyWith<$Res> {
-  __$$ParsedAnchorImplCopyWithImpl(
-      _$ParsedAnchorImpl _value, $Res Function(_$ParsedAnchorImpl) _then)
+class __$$ParsedAnchorImplCopyWithImpl<$Res> extends _$ParsedAnchorCopyWithImpl<$Res, _$ParsedAnchorImpl> implements _$$ParsedAnchorImplCopyWith<$Res> {
+  __$$ParsedAnchorImplCopyWithImpl(_$ParsedAnchorImpl _value, $Res Function(_$ParsedAnchorImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? hashHex = null,
-  }) {
-    return _then(_$ParsedAnchorImpl(
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashHex: null == hashHex
-          ? _value.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
+  return _then(_$ParsedAnchorImpl(
+url: null == url ? _value.url : url // ignore: cast_nullable_to_non_nullable
+as String,hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
 
-class _$ParsedAnchorImpl extends _ParsedAnchor {
-  _$ParsedAnchorImpl({required this.url, required this.hashHex}) : super._();
 
-  @override
-  final String url;
-  @override
-  final String hashHex;
+class _$ParsedAnchorImpl extends _ParsedAnchor  {
+   _$ParsedAnchorImpl({required this.url, required this.hashHex}): super._();
 
-  @override
-  String toString() {
-    return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ParsedAnchorImpl &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
+@override final  String url;
+@override final  String hashHex;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, url, hashHex);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith =>
-      __$$ParsedAnchorImplCopyWithImpl<_$ParsedAnchorImpl>(this, _$identity);
+@override
+String toString() {
+  return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
 }
 
-abstract class _ParsedAnchor extends ParsedAnchor {
-  factory _ParsedAnchor(
-      {required final String url,
-      required final String hashHex}) = _$ParsedAnchorImpl;
-  _ParsedAnchor._() : super._();
 
-  @override
-  String get url;
-  @override
-  String get hashHex;
-  @override
-  @JsonKey(ignore: true)
-  _$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedAnchorImpl&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,url,hashHex);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith => __$$ParsedAnchorImplCopyWithImpl<_$ParsedAnchorImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class _ParsedAnchor extends ParsedAnchor {
+   factory _ParsedAnchor({required final  String url, required final  String hashHex}) = _$ParsedAnchorImpl;
+   _ParsedAnchor._(): super._();
+
+  
+
+@override  String get url;@override  String get hashHex;
+@override @JsonKey(ignore: true)
+_$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith => throw _privateConstructorUsedError;
+
 }

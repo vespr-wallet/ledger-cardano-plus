@@ -11,36 +11,39 @@ part of 'parsed_vote.dart';
 
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedVote {
-  ParsedGovActionId get govActionId => throw _privateConstructorUsedError;
-  ParsedVotingProcedure get votingProcedure =>
-      throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
-  $ParsedVoteCopyWith<ParsedVote> get copyWith =>
-      throw _privateConstructorUsedError;
+ ParsedGovActionId get govActionId => throw _privateConstructorUsedError; ParsedVotingProcedure get votingProcedure => throw _privateConstructorUsedError;
+
+
+
+
+
+
+
+@JsonKey(ignore: true)
+$ParsedVoteCopyWith<ParsedVote> get copyWith => throw _privateConstructorUsedError;
+
 }
 
 /// @nodoc
-abstract class $ParsedVoteCopyWith<$Res> {
-  factory $ParsedVoteCopyWith(
-          ParsedVote value, $Res Function(ParsedVote) then) =
-      _$ParsedVoteCopyWithImpl<$Res, ParsedVote>;
-  @useResult
-  $Res call(
-      {ParsedGovActionId govActionId, ParsedVotingProcedure votingProcedure});
+abstract class $ParsedVoteCopyWith<$Res>  {
+  factory $ParsedVoteCopyWith(ParsedVote value, $Res Function(ParsedVote) then) = _$ParsedVoteCopyWithImpl<$Res, ParsedVote>;
+@useResult
+$Res call({
+ ParsedGovActionId govActionId, ParsedVotingProcedure votingProcedure
+});
 
-  $ParsedGovActionIdCopyWith<$Res> get govActionId;
-  $ParsedVotingProcedureCopyWith<$Res> get votingProcedure;
+
+$ParsedGovActionIdCopyWith<$Res> get govActionId;$ParsedVotingProcedureCopyWith<$Res> get votingProcedure;
 }
 
 /// @nodoc
-class _$ParsedVoteCopyWithImpl<$Res, $Val extends ParsedVote>
-    implements $ParsedVoteCopyWith<$Res> {
+class _$ParsedVoteCopyWithImpl<$Res,$Val extends ParsedVote> implements $ParsedVoteCopyWith<$Res> {
   _$ParsedVoteCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
@@ -48,135 +51,109 @@ class _$ParsedVoteCopyWithImpl<$Res, $Val extends ParsedVote>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? govActionId = null,
-    Object? votingProcedure = null,
-  }) {
-    return _then(_value.copyWith(
-      govActionId: null == govActionId
-          ? _value.govActionId
-          : govActionId // ignore: cast_nullable_to_non_nullable
-              as ParsedGovActionId,
-      votingProcedure: null == votingProcedure
-          ? _value.votingProcedure
-          : votingProcedure // ignore: cast_nullable_to_non_nullable
-              as ParsedVotingProcedure,
-    ) as $Val);
-  }
+@pragma('vm:prefer-inline') @override $Res call({Object? govActionId = null,Object? votingProcedure = null,}) {
+  return _then(_value.copyWith(
+govActionId: null == govActionId ? _value.govActionId : govActionId // ignore: cast_nullable_to_non_nullable
+as ParsedGovActionId,votingProcedure: null == votingProcedure ? _value.votingProcedure : votingProcedure // ignore: cast_nullable_to_non_nullable
+as ParsedVotingProcedure,
+  )as $Val);
+}
+@override
+@pragma('vm:prefer-inline')
+$ParsedGovActionIdCopyWith<$Res> get govActionId {
+  
+  return $ParsedGovActionIdCopyWith<$Res>(_value.govActionId, (value) {
+    return _then(_value.copyWith(govActionId: value) as $Val);
+  });
+}@override
+@pragma('vm:prefer-inline')
+$ParsedVotingProcedureCopyWith<$Res> get votingProcedure {
+  
+  return $ParsedVotingProcedureCopyWith<$Res>(_value.votingProcedure, (value) {
+    return _then(_value.copyWith(votingProcedure: value) as $Val);
+  });
+}
+}
 
-  @override
-  @pragma('vm:prefer-inline')
-  $ParsedGovActionIdCopyWith<$Res> get govActionId {
-    return $ParsedGovActionIdCopyWith<$Res>(_value.govActionId, (value) {
-      return _then(_value.copyWith(govActionId: value) as $Val);
-    });
-  }
 
-  @override
-  @pragma('vm:prefer-inline')
-  $ParsedVotingProcedureCopyWith<$Res> get votingProcedure {
-    return $ParsedVotingProcedureCopyWith<$Res>(_value.votingProcedure,
-        (value) {
-      return _then(_value.copyWith(votingProcedure: value) as $Val);
-    });
-  }
+/// @nodoc
+abstract class _$$ParsedVoteImplCopyWith<$Res> implements $ParsedVoteCopyWith<$Res> {
+  factory _$$ParsedVoteImplCopyWith(_$ParsedVoteImpl value, $Res Function(_$ParsedVoteImpl) then) = __$$ParsedVoteImplCopyWithImpl<$Res>;
+@override @useResult
+$Res call({
+ ParsedGovActionId govActionId, ParsedVotingProcedure votingProcedure
+});
+
+
+@override $ParsedGovActionIdCopyWith<$Res> get govActionId;@override $ParsedVotingProcedureCopyWith<$Res> get votingProcedure;
 }
 
 /// @nodoc
-abstract class _$$ParsedVoteImplCopyWith<$Res>
-    implements $ParsedVoteCopyWith<$Res> {
-  factory _$$ParsedVoteImplCopyWith(
-          _$ParsedVoteImpl value, $Res Function(_$ParsedVoteImpl) then) =
-      __$$ParsedVoteImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {ParsedGovActionId govActionId, ParsedVotingProcedure votingProcedure});
-
-  @override
-  $ParsedGovActionIdCopyWith<$Res> get govActionId;
-  @override
-  $ParsedVotingProcedureCopyWith<$Res> get votingProcedure;
-}
-
-/// @nodoc
-class __$$ParsedVoteImplCopyWithImpl<$Res>
-    extends _$ParsedVoteCopyWithImpl<$Res, _$ParsedVoteImpl>
-    implements _$$ParsedVoteImplCopyWith<$Res> {
-  __$$ParsedVoteImplCopyWithImpl(
-      _$ParsedVoteImpl _value, $Res Function(_$ParsedVoteImpl) _then)
+class __$$ParsedVoteImplCopyWithImpl<$Res> extends _$ParsedVoteCopyWithImpl<$Res, _$ParsedVoteImpl> implements _$$ParsedVoteImplCopyWith<$Res> {
+  __$$ParsedVoteImplCopyWithImpl(_$ParsedVoteImpl _value, $Res Function(_$ParsedVoteImpl) _then)
       : super(_value, _then);
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? govActionId = null,
-    Object? votingProcedure = null,
-  }) {
-    return _then(_$ParsedVoteImpl(
-      govActionId: null == govActionId
-          ? _value.govActionId
-          : govActionId // ignore: cast_nullable_to_non_nullable
-              as ParsedGovActionId,
-      votingProcedure: null == votingProcedure
-          ? _value.votingProcedure
-          : votingProcedure // ignore: cast_nullable_to_non_nullable
-              as ParsedVotingProcedure,
-    ));
-  }
+
+@pragma('vm:prefer-inline') @override $Res call({Object? govActionId = null,Object? votingProcedure = null,}) {
+  return _then(_$ParsedVoteImpl(
+govActionId: null == govActionId ? _value.govActionId : govActionId // ignore: cast_nullable_to_non_nullable
+as ParsedGovActionId,votingProcedure: null == votingProcedure ? _value.votingProcedure : votingProcedure // ignore: cast_nullable_to_non_nullable
+as ParsedVotingProcedure,
+  ));
+}
+
+
 }
 
 /// @nodoc
 
-class _$ParsedVoteImpl extends _ParsedVote {
-  _$ParsedVoteImpl({required this.govActionId, required this.votingProcedure})
-      : super._();
 
-  @override
-  final ParsedGovActionId govActionId;
-  @override
-  final ParsedVotingProcedure votingProcedure;
+class _$ParsedVoteImpl extends _ParsedVote  {
+   _$ParsedVoteImpl({required this.govActionId, required this.votingProcedure}): super._();
 
-  @override
-  String toString() {
-    return 'ParsedVote(govActionId: $govActionId, votingProcedure: $votingProcedure)';
-  }
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$ParsedVoteImpl &&
-            (identical(other.govActionId, govActionId) ||
-                other.govActionId == govActionId) &&
-            (identical(other.votingProcedure, votingProcedure) ||
-                other.votingProcedure == votingProcedure));
-  }
+@override final  ParsedGovActionId govActionId;
+@override final  ParsedVotingProcedure votingProcedure;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, govActionId, votingProcedure);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith =>
-      __$$ParsedVoteImplCopyWithImpl<_$ParsedVoteImpl>(this, _$identity);
+@override
+String toString() {
+  return 'ParsedVote(govActionId: $govActionId, votingProcedure: $votingProcedure)';
 }
 
-abstract class _ParsedVote extends ParsedVote {
-  factory _ParsedVote(
-      {required final ParsedGovActionId govActionId,
-      required final ParsedVotingProcedure votingProcedure}) = _$ParsedVoteImpl;
-  _ParsedVote._() : super._();
 
-  @override
-  ParsedGovActionId get govActionId;
-  @override
-  ParsedVotingProcedure get votingProcedure;
-  @override
-  @JsonKey(ignore: true)
-  _$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedVoteImpl&&(identical(other.govActionId, govActionId) || other.govActionId == govActionId)&&(identical(other.votingProcedure, votingProcedure) || other.votingProcedure == votingProcedure));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,govActionId,votingProcedure);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith => __$$ParsedVoteImplCopyWithImpl<_$ParsedVoteImpl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class _ParsedVote extends ParsedVote {
+   factory _ParsedVote({required final  ParsedGovActionId govActionId, required final  ParsedVotingProcedure votingProcedure}) = _$ParsedVoteImpl;
+   _ParsedVote._(): super._();
+
+  
+
+@override  ParsedGovActionId get govActionId;@override  ParsedVotingProcedure get votingProcedure;
+@override @JsonKey(ignore: true)
+_$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith => throw _privateConstructorUsedError;
+
 }

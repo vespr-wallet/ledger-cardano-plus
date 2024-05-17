@@ -41,12 +41,9 @@ abstract class _$$ByronAddressParamsImplCopyWith<$Res> {
           $Res Function(_$ByronAddressParamsImpl) then) =
       __$$ByronAddressParamsImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {SpendingDataSource spendingDataSource,
-      StakingDataSource stakingDataSource});
+  $Res call({SpendingDataSource spendingDataSource});
 
   $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
-  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
@@ -61,17 +58,12 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? spendingDataSource = null,
-    Object? stakingDataSource = null,
   }) {
     return _then(_$ByronAddressParamsImpl(
       spendingDataSource: null == spendingDataSource
           ? _value.spendingDataSource
           : spendingDataSource // ignore: cast_nullable_to_non_nullable
               as SpendingDataSource,
-      stakingDataSource: null == stakingDataSource
-          ? _value.stakingDataSource
-          : stakingDataSource // ignore: cast_nullable_to_non_nullable
-              as StakingDataSource,
     ));
   }
 
@@ -83,31 +75,19 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res>
       return _then(_value.copyWith(spendingDataSource: value));
     });
   }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
-    return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
-      return _then(_value.copyWith(stakingDataSource: value));
-    });
-  }
 }
 
 /// @nodoc
 
 class _$ByronAddressParamsImpl extends ByronAddressParams {
-  _$ByronAddressParamsImpl(
-      {required this.spendingDataSource, required this.stakingDataSource})
-      : super._();
+  _$ByronAddressParamsImpl({required this.spendingDataSource}) : super._();
 
   @override
   final SpendingDataSource spendingDataSource;
-  @override
-  final StakingDataSource stakingDataSource;
 
   @override
   String toString() {
-    return 'ParsedAddressParams.byron(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ParsedAddressParams.byron(spendingDataSource: $spendingDataSource)';
   }
 
   @override
@@ -116,14 +96,11 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
         (other.runtimeType == runtimeType &&
             other is _$ByronAddressParamsImpl &&
             (identical(other.spendingDataSource, spendingDataSource) ||
-                other.spendingDataSource == spendingDataSource) &&
-            (identical(other.stakingDataSource, stakingDataSource) ||
-                other.stakingDataSource == stakingDataSource));
+                other.spendingDataSource == spendingDataSource));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
+  int get hashCode => Object.hash(runtimeType, spendingDataSource);
 
   @JsonKey(ignore: true)
   @override
@@ -135,13 +112,11 @@ class _$ByronAddressParamsImpl extends ByronAddressParams {
 
 abstract class ByronAddressParams extends ParsedAddressParams {
   factory ByronAddressParams(
-          {required final SpendingDataSource spendingDataSource,
-          required final StakingDataSource stakingDataSource}) =
+          {required final SpendingDataSource spendingDataSource}) =
       _$ByronAddressParamsImpl;
   ByronAddressParams._() : super._();
 
   SpendingDataSource get spendingDataSource;
-  StakingDataSource get stakingDataSource;
   @JsonKey(ignore: true)
   _$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith =>
       throw _privateConstructorUsedError;

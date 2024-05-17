@@ -23,77 +23,114 @@ void main() {
       print('Connected to device: ${device.name}');
     });
 
-    // group('signTxAlonzo', () {
-    //   for (final testCase in testsAlonzo) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxAlonzo', () {
+      test('Alonzo transaction signing with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsAlonzo
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
 
-    //  group('Specific Test Case: Sign tx with mint path in a required signer', () {
-    //   test('Sign tx with mint path in a required signer', () async {
-    //     // Assuming testsAlonzo contains the specific test case
-    //     final testCase = testsAlonzo.firstWhere((test) => test.testName == 'Sign tx with mint path in a required signer');
-    //     final result = await cardanoApp.signTransaction(device, testCase.request);
-    //     expectVespr(result, equals(testCase.expected));
-    //   });
-    // });
+        if (filteredTests.length != testsAlonzo.length) {
+          print("Skipped ${testsAlonzo.length - filteredTests.length} tests due to min cardano version");
+        }
 
-    // group('signTxBabbage', () {
-    //   for (final testCase in testsBabbage) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
+    });
 
-    // group('signTxByron', () {
-    //   for (final testCase in testsByron) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('Specific Test Case: Sign tx with treasury', () {
+      test('Sign tx with treasury', () async {
+        // Assuming testsAlonzo contains the specific test case
+        final testCase = testsAlonzo.firstWhere((test) => test.testName == 'Sign tx with treasury');
+        expectVespr(
+          () => cardanoApp.signTransaction(device, testCase.request),
+          equals(testCase.expected),
+        );
+      });
+    });
 
-    // group('signTxShelleyNoCertificates', () {
-    //   for (final testCase in testsShelleyNoCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxBabbage', () {
+      for (final testCase in testsBabbage) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxShelleyWithCertificates', () {
-    //   for (final testCase in testsShelleyWithCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxByron', () {
+      for (final testCase in testsByron) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxConwayWithoutCertificates', () {
-    //   for (final testCase in testsConwayWithoutCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxShelleyNoCertificates', () {
+      for (final testCase in testsShelleyNoCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
 
-    // group('signTxConwayWithCertificates', () {
-    //   for (final testCase in testsConwayWithCertificates) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
+    group('signTxShelleyWithCertificates', () {
+      for (final testCase in testsShelleyWithCertificates) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxConwayWithoutCertificates', () {
+      test('Conway transaction signing without certificates with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsConwayWithoutCertificates
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
+
+        if (filteredTests.length != testsConwayWithoutCertificates.length) {
+          print(
+              "Skipped ${testsConwayWithoutCertificates.length - filteredTests.length} tests due to min cardano version");
+        }
+
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
+    });
+
+    group('signTxConwayWithCertificates', () {
+      test('Conway transaction signing with certificates with version check', () async {
+        final appVersion = await cardanoApp.getVersion(device);
+        final filteredTests = testsConwayWithCertificates
+            .where((test) => (test.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
+            .toList();
+
+        if (filteredTests.length != testsConwayWithCertificates.length) {
+          print(
+              "Skipped ${testsConwayWithCertificates.length - filteredTests.length} tests due to min cardano version");
+        }
+
+        for (final testCase in filteredTests) {
+          test(testCase.testName, () async {
+            final result = await cardanoApp.signTransaction(device, testCase.request);
+            expectVespr(result, equals(testCase.expected));
+          });
+        }
+      });
+    });
 
     // group('signTxConwayVotingProcedures', () {
     //   for (final testCase in testsConwayVotingProcedures) {
@@ -104,159 +141,80 @@ void main() {
     //   }
     // });
 
-    // group('signTxMultisig', () {
-    //   for (final testCase in testsMultisig) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxAllegra', () {
-    //   for (final testCase in testsAllegra) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxMary', () {
-    //   for (final testCase in testsMary) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxTrezorComparison', () {
-    //   for (final testCase in testsAlonzoTrezorComparison) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxBabbageTrezorComparison', () {
-    //   for (final testCase in testsBabbageTrezorComparison) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxMultidelegation', () {
-    //   for (final testCase in testsMultidelegation) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    //  group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
-    test('Sign tx with short inline datum in output with tokens', () async {
-      // Assuming testsMary contains the specific test case
-      final testCase = testsMary.firstWhere((test) => test.testName == 'Sign tx with mint with decimal places');
-      expectVespr(
-        () async => await cardanoApp.signTransaction(device, testCase.request),
-        equals(testCase.expected),
-      );
+    group('signTxMultisig', () {
+      for (final testCase in testsMultisig) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
     });
-    // });
+
+    group('signTxAllegra', () {
+      for (final testCase in testsAllegra) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxMary', () {
+      for (final testCase in testsMary) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxTrezorComparison', () {
+      for (final testCase in testsAlonzoTrezorComparison) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxBabbageTrezorComparison', () {
+      for (final testCase in testsBabbageTrezorComparison) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('signTxMultidelegation', () {
+      for (final testCase in testsMultidelegation) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
+
+    group('Specific Test Case: Sign tx with short inline datum in output with tokens', () {
+      test('Sign tx with short inline datum in output with tokens', () async {
+        // Assuming testsMary contains the specific test case
+        final testCase = testsMultidelegation
+            .firstWhere((test) => test.testName == 'Sign tx with multidelegation keys in all tx elements');
+        expectVespr(
+          () => cardanoApp.signTransaction(device, testCase.request),
+          equals(testCase.expected),
+        );
+      });
+    });
 
     // Test group for Byron transactions
-    // group('signTxByron', () {
-    //   for (final testCase in testsByron) {
-    //     test(testCase.testName, () async {
-    //       final result = await cardanoApp.signTransaction(device, testCase.request);
-    //       expectVespr(result, equals(testCase.expected));
-    //     });
-    //   }
-    // });
-
-    // group('signTxInitPolicyRejects', () {
-    //   for (final testCase in transactionInitRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxAddressParamsPolicyRejects', () {
-    //   for (final testCase in addressParamsRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxCertificatePolicyRejects', () {
-    //   for (final testCase in certificateRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxCertificateStakingPolicyRejects', () {
-    //   for (final testCase in certificateStakingRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxCertificateStakePoolRetirementPolicyRejects', () {
-    //   for (final testCase in certificateStakePoolRetirementRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //        });
-    //   }
-    // });
-
-    // group('signTxWithdrawalRejects', () {
-    //   for (final testCase in withdrawalRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxWitnessRejects', () {
-    //   for (final testCase in witnessRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxInvalidMultiassetRejects', () {
-    //   for (final testCase in testsInvalidTokenBundleOrdering) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxSingleAccountRejects', () {
-    //   for (final testCase in singleAccountRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
-
-    // group('signTxCollateralOutputRejects', () {
-    //   for (final testCase in collateralOutputRejectTestCases) {
-    //     test(testCase.testName, () async {
-    //       expectVespr(() => cardanoApp.signTransaction(device, testCase.transaction), throwsA(isA<LedgerException>()));
-    //     });
-    //   }
-    // });
+    group('signTxByron', () {
+      for (final testCase in testsByron) {
+        test(testCase.testName, () async {
+          final result = await cardanoApp.signTransaction(device, testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        });
+      }
+    });
   });
 }

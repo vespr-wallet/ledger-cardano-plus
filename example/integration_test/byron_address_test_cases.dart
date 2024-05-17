@@ -1,7 +1,6 @@
 import 'package:ledger_cardano/ledger_cardano.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
-import 'package:ledger_cardano/src/models/staking_data_source.dart';
 import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
 class ByronTestCase {
@@ -24,8 +23,7 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSource.path(
-          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, harden + 0, harden + 55])),
-      stakingDataSource: StakingDataSource.none(),
+          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, 0, harden + 55])),
     ),
     expectedResult: 'Ae2tdPwUPEZELF6oijm8VFmhWpujnNzyG2zCf4RxfhmWqQKHo2drRD5Uhah',
   ),
@@ -34,8 +32,7 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSource.path(
-          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12])),
-      stakingDataSource: StakingDataSource.none(),
+          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, 0, harden + 12])),
     ),
     expectedResult: 'Ae2tdPwUPEYyiPZzoMSN9GJMNZnn3S6ZAErrezee9s1bH6tjaX6m9Cyf3Wy',
   ),
@@ -44,8 +41,7 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSource.path(
-          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 101, harden + 0, harden + 12])),
-      stakingDataSource: StakingDataSource.none(),
+          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 101, 0, harden + 12])),
     ),
     expectedResult: 'Ae2tdPwUPEZ8DtpNK9twc8YXCoJ39Uwzc2FWqo1KvGsB8Kvhk14buuESy6g',
   ),
@@ -54,8 +50,7 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.mainnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSource.path(
-          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 0, harden + 0, harden + 1000001])),
-      stakingDataSource: StakingDataSource.none(),
+          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 0, 0, harden + 1000001])),
     ),
     expectedResult: 'Ae2tdPwUPEZFxaTJw6iova9Crfc3QuoRJSdudsp5z5a9Ee7gQH7oNKrM6cW',
   ),
@@ -64,8 +59,7 @@ List<ByronTestCase> byronTestCases = [
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSource.path(
-          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, harden + 0, harden + 12])),
-      stakingDataSource: StakingDataSource.none(),
+          path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, 0, harden + 12])),
     ),
     expectedResult: '2657WMsDfac5GGdHMD6sR22tyhmFvuPrBZ79hvEvuisyUK9XCcB3nu8JecKuCXEkr',
   ),

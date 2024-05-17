@@ -59,11 +59,11 @@ void main() {
     group('Should successfully derive Shelley address - isAppXS true', () {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
-          if (isAppXS == false) {
+          if (isAppXS == true) {
             final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
             expectVespr(result, equals(testCase.expectedResult));
           } else {
-            print('Skipping test as isAppXS is not false');
+            print('Skipping test as isAppXS is not true');
           }
         });
       }
@@ -73,6 +73,13 @@ void main() {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {
           if (isAppXS == false) {
+            final appVersion = await cardanoApp.getVersion(device);
+            if (testCase.minSupportedVersion != null &&
+                appVersion.versionCode < testCase.minSupportedVersion!.versionCode) {
+              print(
+                  'Skipping test as app version ${appVersion.versionName} is not supported for ${testCase.minSupportedVersion!.versionName}');
+              return;
+            }
             final result = await deriveAddress(cardanoApp, device, testCase.network, testCase.addressParams);
             expectVespr(result, equals(testCase.expectedResult));
           } else {
@@ -113,10 +120,10 @@ void main() {
 
     group('Should successfully derive change addresses - isAppXS false', () {
       final testCases = [
-        (accountIndex: 0, addressIndex: 0, expectedResult: 'todo'),
-        (accountIndex: 0, addressIndex: 10, expectedResult: 'todo'),
-        (accountIndex: 10, addressIndex: 0, expectedResult: 'todo'),
-        (accountIndex: 10, addressIndex: 10, expectedResult: 'todo'),
+        (accountIndex: 0, addressIndex: 0, expectedResult: 'addr1qx666n5qs5c8gjqjfr2v4c3ny209ng5s0rsthnuels0el0sayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq6avqke'),
+        (accountIndex: 0, addressIndex: 10, expectedResult: 'addr1qxc0k6hvzxus5hqeakxuu36enw9jmmhxpqwz7wq7masapnsayfawlf9hwv2fzuygt2km5v92kvf8e3s3mk7ynxw77cwq48vmjg'),
+        (accountIndex: 10, addressIndex: 0, expectedResult: 'addr1q80w2mc2r5wf2vxln90mkke9kd55qwlfrc3h8glnthncqtg72d76aeaa0d7ag4qrvn8gpcymlsg8fapzvcu3s6k7ncgq4eqdg4'),
+        (accountIndex: 10, addressIndex: 10, expectedResult: 'addr1q85rdqns5vnqyg7q7hvavs0n80geh78jygsn2f0mp23fv2c72d76aeaa0d7ag4qrvn8gpcymlsg8fapzvcu3s6k7ncgqjpxnv6'),
       ];
 
       for (final testCase in testCases) {
@@ -169,8 +176,8 @@ void main() {
 
     group('Should successfully derive stake addresses - isAppXS false', () {
       final testCases = [
-        (accountIndex: 0, addressIndex: 0, expectedResult: 'todo'),
-        (accountIndex: 10, addressIndex: 0, expectedResult: 'todo'),
+        (accountIndex: 0, addressIndex: 0, expectedResult: 'stake1uywjy7h05jmhx9y3wzy94td6xz4txynuccgam0zfn800v8qq33z29'),
+        (accountIndex: 10, addressIndex: 0, expectedResult: 'stake1uy09xldwu77hklw52spkfn5quzdlcyr57s3xvwgcdt0fuyq2c0hwn'),
       ];
 
       for (final testCase in testCases) {

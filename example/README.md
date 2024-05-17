@@ -1,43 +1,45 @@
-<br />
-<div align="center">
+## Running Integration Tests
 
-<h1 align="center">ledger-cardano</h1>
+To run the integration tests for the `ledger-cardano` SDK, follow these steps:
 
-<p align="center">
-    A Flutter Ledger App Plugin for the Cardano blockchain
-    <br />
-    <a href="https://pub.dev/documentation/ledger_algorand/latest/"><strong>« Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/vespr-wallet/ledger-cardano/issues">Report Bug</a>
-    · <a href="https://github.com/vespr-wallet/ledger-cardano/issues">Request Feature</a>
-    · <a href="https://pub.dev/packages/ledger_flutter">Ledger Flutter</a>
-  </p>
-</div>
-<br/>
+1. **Set Up Your Environment:**
+   - Ensure that you have Flutter installed on your machine. You can download it from [Flutter's official site](https://flutter.dev/docs/get-started/install).
 
----
+2. **Clone the Repository:**
+   - If you haven't already, clone the `ledger-cardano` repository from GitHub:
+   
+   ```bash
+   git clone https://github.com/vespr-wallet/ledger-cardano.git
+   cd ledger-cardano
+   ```
+   
+3. **Navigate to the Integration Tests Directory:**
+   - Change to the directory containing the integration tests:
+   
+   ```bash
+   cd example/integration_test
+   ```
+   
+4. **Run the Tests:**
+   - Use the following Flutter command to execute the integration tests:
+   
+   ```bash
+   flutter test integration_test
+   ```
+   
+   
+   - To run a specific integration test file, provide the path to the test file:
 
-```dart
-/// Create a new instance of LedgerOptions.
-final options = LedgerOptions(
-  maxScanDuration: const Duration(milliseconds: 5000),
-);
+   ```bash
+   flutter test integration_test/cardano_ledger_serial_version_tests.dart
+   ```
+   
+   
+   - To run a specific test case within a test file, use the `-n` flag followed by the test name:
 
-/// Create a new instance of Ledger.
-final ledger = Ledger(
-  options: options,
-);
-
-/// Create a new Cardano Ledger Plugin.
-final cardanoApp = CardanoLedgerApp(ledger);
-
-/// Scan for devices
-ledger.scan().listen((device) => print(device));
-
-/// or get a connected one
-final device = ledger.devices.firstOrNull;
-
-/// Fetch a list of accounts/public keys from your ledger.
-final accounts = await cardanoApp.getAccounts(device);
-```
+   ```bash
+   flutter test integration_test/cardano_ledger_serial_version_tests.dart -n "Should correctly get the serial number of the device"
+   ```
+   
+   
+   Make sure your development environment is properly set up to communicate with the Ledger device, and that the device is connected and unlocked before running the tests.

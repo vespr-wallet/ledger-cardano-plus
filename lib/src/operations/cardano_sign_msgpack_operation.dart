@@ -2,8 +2,6 @@ import 'dart:typed_data';
 
 import 'package:ledger_flutter/ledger_flutter.dart';
 
-/// APDU Protocol
-/// https://github.com/LedgerHQ/app-algorand/blob/develop/docs/APDUSPEC.md
 class CardanoSignMsgPackOperation extends LedgerOperation<Uint8List> {
   static const headerSize = 5;
   static const chunkSize = 0xFF;

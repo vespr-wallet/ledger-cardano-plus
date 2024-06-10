@@ -107,7 +107,7 @@ as LedgerSigningPath?,
 
 
 class _$ParsedInputImpl extends _ParsedInput  {
-   _$ParsedInputImpl({required this.txHashHex, required this.outputIndex, this.path}): super._();
+   _$ParsedInputImpl({required this.txHashHex, required this.outputIndex, required this.path}): super._();
 
   
 
@@ -146,7 +146,7 @@ _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith => __$$ParsedInputImp
 
 
 abstract class _ParsedInput extends ParsedInput {
-   factory _ParsedInput({required final  String txHashHex, required final  int outputIndex, final  LedgerSigningPath? path}) = _$ParsedInputImpl;
+   factory _ParsedInput({required final  String txHashHex, required final  int outputIndex, required final  LedgerSigningPath? path}) = _$ParsedInputImpl;
    _ParsedInput._(): super._();
 
   

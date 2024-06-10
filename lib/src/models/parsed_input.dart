@@ -15,6 +15,6 @@ sealed class ParsedInput with _$ParsedInput {
   factory ParsedInput({
     required String txHashHex,
     required int outputIndex,
-    LedgerSigningPath? path,
+    required LedgerSigningPath? path,
   }) = _ParsedInput;
 }

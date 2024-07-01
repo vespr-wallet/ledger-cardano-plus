@@ -4,6 +4,9 @@ const int claCardano = 0xD7;
 
 const int maxChunkSize = 240;
 
+const int maxVotecastChunkSize = 240;
+const int votecastHashLength = 32;
+
 const int signTxIncludedNo = 1;
 const int signTxIncludedYes = 2;
 
@@ -77,7 +80,8 @@ const int stringLength64Bytes = 64;
 const int maxHumanAddressLength = 150;
 
 const int p2Unused = 0x00;
-
+const int p1StageChunk = 0x02;
+const int p1StageWitness = 0x04;
 const int p1StageInit = 0x01;
 const int p1StageAuxData = 0x08;
 const int p1StageInputs = 0x02;
@@ -155,7 +159,8 @@ enum InstructionType {
   deriveNativeScriptHash(insValue: 0x12),
   signOperationalCertificate(insValue: 0x22),
   signTransaction(insValue: 0x21),
-  runTests(insValue: 0xF0);
+  runTests(insValue: 0xF0),
+  signCip36Vote(insValue: 0x23);
 
   final int insValue;
 
@@ -264,5 +269,6 @@ enum ShelleyAddressRole {
 
   const ShelleyAddressRole(this.derivationIndex);
 
-  static ShelleyAddressRole fromDerivationIndex(int index) => ShelleyAddressRole.values.firstWhere((e) => e.derivationIndex == index);
+  static ShelleyAddressRole fromDerivationIndex(int index) =>
+      ShelleyAddressRole.values.firstWhere((e) => e.derivationIndex == index);
 }

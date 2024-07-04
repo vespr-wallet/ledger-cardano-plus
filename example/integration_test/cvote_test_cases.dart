@@ -177,14 +177,7 @@ final testsCatalystRegistration = [
             format: CIP36VoteRegistrationFormat.cip15,
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
-                    path: LedgerSigningPath.shelley(
-                      account: 0,
-                      address: 0,
-                      role: ShelleyAddressRole.payment,
-                    ),
-                  ),
+                shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
                   stakingDataSource: StakingDataSource.path(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -276,7 +269,7 @@ final testsCVoteRegistrationCIP36 = [
             votePublicKey: CVotePublicKey(
               value: '4b19e27ffc006ace16592311c4d2f0cafc255eaa47a6178ff540c0a46d07027c',
             ),
-            format: CIP36VoteRegistrationFormat.cip15,
+            format: CIP36VoteRegistrationFormat.cip36,
             stakingPath: LedgerSigningPath.shelley(
               account: 0,
               address: 0,
@@ -284,14 +277,7 @@ final testsCVoteRegistrationCIP36 = [
             ),
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
-                    path: LedgerSigningPath.shelley(
-                      account: 0,
-                      address: 0,
-                      role: ShelleyAddressRole.payment,
-                    ),
-                  ),
+                shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
                   stakingDataSource: StakingDataSource.path(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -378,9 +364,7 @@ final testsCVoteRegistrationCIP36 = [
         validityIntervalStart: BigInt.from(7),
         auxiliaryData: ParsedTxAuxiliaryData.cip36Registration(
           params: ParsedCVoteRegistrationParams(
-            votePublicKey: CVotePublicKey(
-              value: '4b19e27ffc006ace16592311c4d2f0cafc255eaa47a6178ff540c0a46d07027c',
-            ),
+            votePublicKey: null,
             format: CIP36VoteRegistrationFormat.cip36,
             votePublicKeyPath: LedgerSigningPath.cip36(account: 0, address: 1),
             stakingPath: LedgerSigningPath.shelley(

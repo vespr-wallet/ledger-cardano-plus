@@ -102,6 +102,7 @@ const int p1StageVotingProcedures = 0x13;
 const int p1StageTreasury = 0x15;
 const int p1StageDonation = 0x16;
 const int p1StageConfirm = 0x0a;
+const int p1StageConfirmVote = 0x03;
 const int p1StageWitnesses = 0x0f;
 
 const String maxUint64Str = '18446744073709551615';

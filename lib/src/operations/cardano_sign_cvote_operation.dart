@@ -10,8 +10,6 @@ import 'package:ledger_cardano/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteData> {
-
-
   final ParsedCVote cVote;
   final CardanoVersion version;
 
@@ -19,6 +17,20 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
     required this.cVote,
     required this.version,
   });
+
+  SendOperation _createSendOperation({
+    required int p1,
+    required Uint8List data,
+  }) {
+    return SendOperation(
+      ins: InstructionType.signCip36Vote.insValue,
+      p1: p1,
+      p2: p2Unused,
+      data: data,
+      prependDataLength: true,
+      debugName: 'Sign CIP36 Vote',
+    );
+  }
 
   @override
   Future<SignedCIP36VoteData> invoke(LedgerSendFct send) async {
@@ -32,54 +44,31 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
     var start = 0;
     var end = votecastBytes.length < maxVotecastChunkSize ? votecastBytes.length : maxVotecastChunkSize;
 
-    // INIT
     final initDataBuffer = Uint8List.fromList([
       ...SerializationUtils.serializeUint32(votecastBytes.length),
       ...votecastBytes.sublist(start, end),
     ]);
-    await send(SendOperation(
-      ins: InstructionType.signCip36Vote.insValue,
-      p1: p1StageInit,
-      p2: p2Unused,
-      data: initDataBuffer,
-      prependDataLength: true,
-      debugName: 'Sign CIP36 Vote Init',
-    ));
+    await send(_createSendOperation(p1: p1StageInit, data: initDataBuffer));
     start = end;
 
-    // CHUNK
     while (start < votecastBytes.length) {
       end = votecastBytes.length < start + maxVotecastChunkSize ? votecastBytes.length : start + maxVotecastChunkSize;
 
-      await send(SendOperation(
-        ins: InstructionType.signCip36Vote.insValue,
+      await send(_createSendOperation(
         p1: p1StageChunk,
-        p2: p2Unused,
         data: Uint8List.fromList(votecastBytes.sublist(start, end)),
-        prependDataLength: true,
-        debugName: 'Sign CIP36 Vote Chunk',
       ));
       start = end;
     }
 
-    // CONFIRM
-    final confirmResponse = await send(SendOperation(
-      ins: InstructionType.signCip36Vote.insValue,
-      p1: p1StageConfirm,
-      p2: p2Unused,
+    final confirmResponse = await send(_createSendOperation(
+      p1: p1StageConfirmVote,
       data: Uint8List(0),
-      prependDataLength: true,
-      debugName: 'Sign CIP36 Vote Confirm',
     ));
 
-    // WITNESS
-    final witnessResponse = await send(SendOperation(
-      ins: InstructionType.signCip36Vote.insValue,
+    final witnessResponse = await send(_createSendOperation(
       p1: p1StageWitness,
-      p2: p2Unused,
       data: SerializationUtils.pathToBuf(cVote.witnessPath.signingPath),
-      prependDataLength: true,
-      debugName: 'Sign CIP36 Vote Witness',
     ));
 
     return SignedCIP36VoteData(

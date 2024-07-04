@@ -312,16 +312,14 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) {
-    final int value = switch (type) {
-      CIP36VoteDelegationType.key => 0x01,
-      CIP36VoteDelegationType.path => 0x02,
-    };
-    return Uint8List.fromList([value]);
-  }
+  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) => Uint8List.fromList([type.encodingValue]);
 
   static Uint8List serializeCVoteRegistrationVoteKey(
       CVotePublicKey? votePublicKey, LedgerSigningPath? votePublicKeyPath, CardanoVersion version) {
+    if (votePublicKey != null && votePublicKeyPath != null) {
+      throw ValidationException('Only one of votePublicKey or votePublicKeyPath should be provided');
+    }
+
     return useBinaryWriter((ByteDataWriter writer) {
       if (votePublicKey != null) {
         if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {

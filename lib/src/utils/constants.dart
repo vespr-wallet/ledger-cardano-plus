@@ -210,8 +210,8 @@ enum TxOutputFormat {
 }
 
 enum CIP36VoteDelegationType {
-  path(0x01),
-  key(0x02);
+  key(0x01),
+  path(0x02);
 
   final int encodingValue;
   const CIP36VoteDelegationType(this.encodingValue);

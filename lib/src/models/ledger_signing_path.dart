@@ -15,6 +15,10 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
     required int address,
     required ShelleyAddressRole role,
   }) = LedgerSigningPath_Shelley;
+  factory LedgerSigningPath.cip36({
+    required int account,
+    required int address,
+  }) = LedgerSigningPath_CIP36;
   factory LedgerSigningPath.custom(List<int> path) = LedgerSigningPath_Custom;
 
   late final List<int> signingPath = switch (this) {
@@ -30,6 +34,13 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
         harden + 1815,
         harden + account,
         role.derivationIndex,
+        address
+      ],
+    LedgerSigningPath_CIP36(account: final account, address: final address) => [
+        harden + 1694,
+        harden + 1815,
+        harden + account,
+        0,
         address
       ],
     LedgerSigningPath_Custom(path: final path) => path,

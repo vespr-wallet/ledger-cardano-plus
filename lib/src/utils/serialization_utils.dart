@@ -82,6 +82,15 @@ class SerializationUtils {
     return data.buffer.asUint8List();
   }
 
+  static Uint8List serializeUint32(int value) {
+    if (value < 0 || value > max32BitValue) {
+      throw ValidationException("serializeUint32 - Value out of range");
+    }
+    final ByteData data = ByteData(4);
+    data.setUint32(0, value, Endian.big);
+    return data.buffer.asUint8List();
+  }
+
   static Uint8List serializeInt64(BigInt value) {
     if (value.bitLength > 63) {
       throw ValidationException("serializeInt64 - Value is too large");
@@ -307,11 +316,12 @@ class SerializationUtils {
 
   static Uint8List serializeCVoteRegistrationVoteKey(
       CVotePublicKey? votePublicKey, LedgerSigningPath? votePublicKeyPath, CardanoVersion version) {
+    if (votePublicKey != null && votePublicKeyPath != null) {
+      throw ValidationException('Only one of votePublicKey or votePublicKeyPath should be provided');
+    }
+
     return useBinaryWriter((ByteDataWriter writer) {
       if (votePublicKey != null) {
-        if (votePublicKeyPath == null) {
-          throw ValidationException('Missing vote key');
-        }
         if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
           writer.write(serializeDelegationType(CIP36VoteDelegationType.key));
         }

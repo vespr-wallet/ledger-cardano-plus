@@ -5,10 +5,12 @@ import 'package:ledger_cardano/src/cardano_version.dart';
 import 'package:ledger_cardano/src/models/extended_public_key.dart';
 import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano/src/models/parsed_address_params.dart';
+import 'package:ledger_cardano/src/models/parsed_c_vote.dart';
 import 'package:ledger_cardano/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
 import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
 import 'package:ledger_cardano/src/models/shelley_address_params.dart';
+import 'package:ledger_cardano/src/models/signed_cip36_vote_data.dart';
 import 'package:ledger_cardano/src/models/signed_transaction_data.dart';
 import 'package:ledger_cardano/src/models/spending_data_source.dart';
 import 'package:ledger_cardano/src/models/staking_data_source.dart';
@@ -18,6 +20,7 @@ import 'package:ledger_cardano/src/operations/cardano_derive_native_script_hash_
 import 'package:ledger_cardano/src/operations/cardano_get_serial_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_public_key_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_run_tests_operation.dart';
+import 'package:ledger_cardano/src/operations/cardano_sign_cvote_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_operational_certificate_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano/src/operations/cardano_version_operation.dart';
@@ -348,6 +351,35 @@ class CardanoLedgerApp {
     );
 
     return signedTransactionData;
+  }
+
+  Future<SignedCIP36VoteData> signCIP36Vote(
+    LedgerDevice device,
+    ParsedCVote parsedCVote,
+  ) async {
+    final CardanoVersion deviceVersion = await getVersion(device);
+    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+
+    if (!compatibility.isCompatible || !compatibility.supportsCIP36Vote) {
+      throw ValidationException(
+        "CIP36 vote signing not supported by the device's Cardano app version. "
+        "Required minimum version: ${compatibility.recommendedVersion}, "
+        "Device version: ${deviceVersion.versionName}",
+      );
+    }
+
+    final operation = CardanoSignCVoteOperation(
+      cVote: parsedCVote,
+      version: deviceVersion,
+    );
+
+    final SignedCIP36VoteData signedCIP36VoteData = await ledger.sendComplexOperation<SignedCIP36VoteData>(
+      device,
+      operation,
+      transformer: transformer,
+    );
+
+    return signedCIP36VoteData;
   }
 
   Future<void> runTests(LedgerDevice device) async {

@@ -217,6 +217,88 @@ _$$LedgerSigningPath_ShelleyImplCopyWith<_$LedgerSigningPath_ShelleyImpl> get co
 }
 
 /// @nodoc
+abstract class _$$LedgerSigningPath_CIP36ImplCopyWith<$Res>  {
+  factory _$$LedgerSigningPath_CIP36ImplCopyWith(_$LedgerSigningPath_CIP36Impl value, $Res Function(_$LedgerSigningPath_CIP36Impl) then) = __$$LedgerSigningPath_CIP36ImplCopyWithImpl<$Res>;
+@useResult
+$Res call({
+ int account, int address
+});
+
+
+
+}
+
+/// @nodoc
+class __$$LedgerSigningPath_CIP36ImplCopyWithImpl<$Res> extends _$LedgerSigningPathCopyWithImpl<$Res, _$LedgerSigningPath_CIP36Impl> implements _$$LedgerSigningPath_CIP36ImplCopyWith<$Res> {
+  __$$LedgerSigningPath_CIP36ImplCopyWithImpl(_$LedgerSigningPath_CIP36Impl _value, $Res Function(_$LedgerSigningPath_CIP36Impl) _then)
+      : super(_value, _then);
+
+
+@pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,}) {
+  return _then(_$LedgerSigningPath_CIP36Impl(
+account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
+as int,address: null == address ? _value.address : address // ignore: cast_nullable_to_non_nullable
+as int,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class _$LedgerSigningPath_CIP36Impl extends LedgerSigningPath_CIP36  {
+   _$LedgerSigningPath_CIP36Impl({required this.account, required this.address}): super._();
+
+  
+
+@override final  int account;
+@override final  int address;
+
+@override
+String toString() {
+  return 'LedgerSigningPath.cip36(account: $account, address: $address)';
+}
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerSigningPath_CIP36Impl&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,account,address);
+
+@JsonKey(ignore: true)
+@override
+@pragma('vm:prefer-inline')
+_$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => __$$LedgerSigningPath_CIP36ImplCopyWithImpl<_$LedgerSigningPath_CIP36Impl>(this, _$identity);
+
+
+
+
+
+
+
+
+}
+
+
+abstract class LedgerSigningPath_CIP36 extends LedgerSigningPath {
+   factory LedgerSigningPath_CIP36({required final  int account, required final  int address}) = _$LedgerSigningPath_CIP36Impl;
+   LedgerSigningPath_CIP36._(): super._();
+
+  
+
+ int get account; int get address;
+@JsonKey(ignore: true)
+_$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => throw _privateConstructorUsedError;
+
+}
+
+/// @nodoc
 abstract class _$$LedgerSigningPath_CustomImplCopyWith<$Res>  {
   factory _$$LedgerSigningPath_CustomImplCopyWith(_$LedgerSigningPath_CustomImpl value, $Res Function(_$LedgerSigningPath_CustomImpl) then) = __$$LedgerSigningPath_CustomImplCopyWithImpl<$Res>;
 @useResult

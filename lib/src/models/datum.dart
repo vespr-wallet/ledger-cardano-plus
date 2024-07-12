@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 
 part 'datum.freezed.dart';
 

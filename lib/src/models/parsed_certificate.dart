@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'parsed_credential.dart';
 import 'parsed_drep.dart';
 import 'parsed_anchor.dart';

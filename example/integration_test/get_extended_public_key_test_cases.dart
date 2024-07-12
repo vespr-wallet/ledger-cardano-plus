@@ -1,4 +1,4 @@
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 
 class ExtendedPublicKeyTestCase {
   final List<int> path;

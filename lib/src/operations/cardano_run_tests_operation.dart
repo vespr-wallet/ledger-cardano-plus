@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 class CardanoRunTestsOperation extends ComplexLedgerOperation<void> {
   const CardanoRunTestsOperation() : super();

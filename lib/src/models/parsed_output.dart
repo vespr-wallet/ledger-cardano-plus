@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'parsed_asset_group.dart';
 import 'parsed_output_destination.dart';
 import 'parsed_datum.dart';

@@ -1,4 +1,4 @@
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 class ValidationException implements Exception {
   final String message;

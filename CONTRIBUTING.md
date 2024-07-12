@@ -1,8 +1,8 @@
-# Contributing to ledger-cardano
+# Contributing to ledger-cardano-plus
 
 👍🎉 First off, thanks for taking the time to contribute! 🎉👍
 
-The following is a set of guidelines for contributing to ledger-cardano.
+The following is a set of guidelines for contributing to ledger-cardano-plus.
 These are mostly guidelines, not rules. Use your best judgment,
 and feel free to propose changes to this document in a pull request.
 
@@ -56,5 +56,5 @@ on Discord.
 
 ## License
 
-By contributing to ledger-cardano, you agree that your contributions will be licensed
+By contributing to ledger-cardano-plus, you agree that your contributions will be licensed
 under its [MIT license](LICENSE).

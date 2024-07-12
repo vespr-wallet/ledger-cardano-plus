@@ -1,5 +1,5 @@
-import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
 
 class ValidNativeScriptTestCase {
   final String testName;
@@ -20,7 +20,7 @@ final validNativeScriptTestCases = [
     testName: 'PUBKEY - device owned',
     script: ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyDeviceOwned(
-        path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0,  0,  0]),
+        path: LedgerSigningPath.custom([harden + 1852, harden + 1815, harden + 0, 0, 0]),
       ),
     ),
     displayFormat: NativeScriptHashDisplayFormat.bech32,

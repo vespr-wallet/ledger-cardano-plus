@@ -1,14 +1,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/cardano_version.dart';
-import 'package:ledger_cardano/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano/src/models/parsed_c_vote_registration_params.dart';
-import 'package:ledger_cardano/src/models/parsed_certificate.dart';
-import 'package:ledger_cardano/src/models/parsed_output_destination.dart';
-import 'package:ledger_cardano/src/models/parsed_signing_request.dart';
-import 'package:ledger_cardano/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/src/cardano_version.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_c_vote_registration_params.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_certificate.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_output_destination.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_signing_request.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_tx_auxiliary_data.dart';
+import 'package:ledger_cardano_plus/src/models/transaction_signing_mode.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
 part 'version_compatibility.freezed.dart';
 

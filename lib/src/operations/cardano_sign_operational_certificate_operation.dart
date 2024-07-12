@@ -1,11 +1,11 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano/src/models/parsed_operational_certificate.dart';
-import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_operational_certificate.dart';
+import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
+import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
 class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<Uint8List> {
   final ParsedOperationalCertificate operationalCertificate;

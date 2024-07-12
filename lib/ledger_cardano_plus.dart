@@ -1,4 +1,4 @@
-library ledger_cardano;
+library ledger_cardano_plus;
 
 // main
 export 'src/cardano_ledger_application.dart';

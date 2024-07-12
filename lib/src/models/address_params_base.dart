@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano/src/models/spending_params.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/models/spending_params.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 
 part 'address_params_base.freezed.dart';
 

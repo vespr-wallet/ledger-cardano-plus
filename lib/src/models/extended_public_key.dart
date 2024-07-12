@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 part 'extended_public_key.freezed.dart';
 

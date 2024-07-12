@@ -1,9 +1,9 @@
 import 'dart:typed_data';
-import 'package:ledger_cardano/src/models/flags.dart';
-import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano/src/cardano_version.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/models/flags.dart';
+import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/cardano_version.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
   const CardanoVersionOperation() : super();

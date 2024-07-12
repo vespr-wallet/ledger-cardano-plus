@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
+import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {

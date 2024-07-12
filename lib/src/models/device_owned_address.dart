@@ -1,11 +1,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/address_params_base.dart';
-import 'package:ledger_cardano/src/models/address_params_byron.dart';
-import 'package:ledger_cardano/src/models/address_params_enterprise.dart';
-import 'package:ledger_cardano/src/models/address_params_pointer.dart';
-import 'package:ledger_cardano/src/models/address_params_reward.dart';
-import 'package:ledger_cardano/src/models/address.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/models/address_params_base.dart';
+import 'package:ledger_cardano_plus/src/models/address_params_byron.dart';
+import 'package:ledger_cardano_plus/src/models/address_params_enterprise.dart';
+import 'package:ledger_cardano_plus/src/models/address_params_pointer.dart';
+import 'package:ledger_cardano_plus/src/models/address_params_reward.dart';
+import 'package:ledger_cardano_plus/src/models/address.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 part 'device_owned_address.freezed.dart';
 

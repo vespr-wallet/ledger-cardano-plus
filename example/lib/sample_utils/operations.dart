@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' show LedgerDeviceException;
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
 
 Future<String> signTransaction(CardanoLedgerConnection cardanoApp) async {
   try {

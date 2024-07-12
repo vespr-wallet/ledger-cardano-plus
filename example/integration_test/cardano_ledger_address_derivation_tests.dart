@@ -2,7 +2,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 import 'byron_address_test_cases.dart';

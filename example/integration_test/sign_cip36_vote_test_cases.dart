@@ -1,6 +1,6 @@
-import 'package:ledger_cardano/src/models/parsed_c_vote.dart';
-import 'package:ledger_cardano/src/models/signed_cip36_vote_data.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_c_vote.dart';
+import 'package:ledger_cardano_plus/src/models/signed_cip36_vote_data.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
 
 class CIP36VoteTestCase {
   final String testName;

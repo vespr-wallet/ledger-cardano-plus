@@ -1,4 +1,4 @@
-import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
 
 abstract interface class AddressAbstract {
   AddressType get type;

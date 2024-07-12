@@ -1,8 +1,8 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
-import 'package:ledger_cardano/src/models/version_compatibility.dart';
+import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
 
 import 'test_utils.dart';
 

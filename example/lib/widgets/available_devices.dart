@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 class AvailableDevices extends StatefulWidget {

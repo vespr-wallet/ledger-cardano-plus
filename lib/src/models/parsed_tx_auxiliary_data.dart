@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'parsed_c_vote_registration_params.dart';
 
 part 'parsed_tx_auxiliary_data.freezed.dart';

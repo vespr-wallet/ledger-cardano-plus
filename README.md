@@ -4,17 +4,14 @@
     <img src="https://i.ibb.co/PMvdnnz/ledger-cardano.jpg" width="400"/>
   </a>
 
-<h1 align="center">ledger-cardano</h1>
+<h1 align="center">ledger-cardano-plus</h1>
 
 <p align="center">
     A Flutter Ledger App Plugin for the Cardano blockchain
     <br />
-    <a href="https://pub.dev/documentation/ledger_cardano/latest/"><strong>« Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/vespr-wallet/ledger-cardano/issues">Report Bug</a>
-    · <a href="https://github.com/vespr-wallet/ledger-cardano/issues">Request Feature</a>
-    · <a href="https://pub.dev/packages/ledger_cardano">Ledger Flutter</a>
+    <a href="https://github.com/vespr-wallet/ledger-cardano-plus/issues">Report Bug</a>
+    · <a href="https://github.com/vespr-wallet/ledger-cardano-plus/issues">Request Feature</a>
+    · <a href="https://pub.dev/packages/ledger-cardano-plus">Ledger Cardano Plus</a>
   </p>
 </div>
 <br/>
@@ -80,7 +77,7 @@ final receiveAddress = await cardanoApp.deriveReceiveAddress(
     );
 ```
 
-For moe in depth sample including device selection dialog, check out the [example](https://github.com/vespr-wallet/ledger-cardano/tree/master/example) project in this repo
+For moe in depth sample including device selection dialog, check out the [example](https://github.com/vespr-wallet/ledger-cardano-plus/tree/master/example) project in this repo
 
 ## Sponsors
 
@@ -113,7 +110,7 @@ Please read our [Contributing guidelines](CONTRIBUTING.md) and try to follow [Co
 
 ## Running Integration Tests
 
-To run the integration tests for the `ledger-cardano` SDK, follow these steps:
+To run the integration tests for the `ledger-cardano-plus` SDK, follow these steps:
 
 1. **Set Up Your Environment:**
 
@@ -121,11 +118,11 @@ To run the integration tests for the `ledger-cardano` SDK, follow these steps:
 
 2. **Clone the Repository:**
 
-   - If you haven't already, clone the `ledger-cardano` repository from GitHub:
+   - If you haven't already, clone the `ledger-cardano-plus` repository from GitHub:
 
    ```bash
-   git clone https://github.com/vespr-wallet/ledger-cardano.git
-   cd ledger-cardano
+   git clone https://github.com/vespr-wallet/ledger-cardano-plus.git
+   cd ledger-cardano-plus
    ```
 
 3. **Navigate to the Integration Tests Directory:**

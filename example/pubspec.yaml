@@ -32,7 +32,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ledger_cardano:
+  ledger_cardano_plus:
     path: ../
     
   # The following adds the Cupertino Icons font to your application.

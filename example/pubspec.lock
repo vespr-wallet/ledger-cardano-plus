@@ -215,7 +215,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
-  ledger_cardano:
+  ledger_cardano_plus:
     dependency: "direct main"
     description:
       path: ".."

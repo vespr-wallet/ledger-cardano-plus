@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/spending_params.dart';
+import 'package:ledger_cardano_plus/src/models/spending_params.dart';
 
 part 'address_params_enterprise.freezed.dart';
 

@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:ledger_cardano/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
+import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 abstract class ComplexLedgerOperation<T> {

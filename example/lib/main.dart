@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:example/sample_utils/operations.dart';
 import 'package:example/widgets/available_devices.dart';
 import 'package:flutter/material.dart';
-import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 

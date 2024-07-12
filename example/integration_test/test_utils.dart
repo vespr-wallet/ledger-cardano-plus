@@ -6,9 +6,9 @@ import 'package:matcher/src/expect/async_matcher.dart';
 import 'dart:async';
 import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_cardano/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
+import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'get_extended_public_key_test_cases.dart';

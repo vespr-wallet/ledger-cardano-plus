@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
 part 'parsed_simple_native_script.freezed.dart';
 

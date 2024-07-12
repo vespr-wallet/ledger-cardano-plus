@@ -1,8 +1,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano/src/models/cvote_public_key.dart';
-import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/models/cvote_public_key.dart';
+import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'parsed_c_vote_delegation.dart';
 import 'parsed_output_destination.dart';
 

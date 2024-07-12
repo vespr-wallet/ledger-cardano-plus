@@ -1,35 +1,29 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
 
 import 'sign_cip36_vote_test_cases.dart';
 import 'test_utils.dart';
 
 void main() {
+  // TODO update test to expect error on old version
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('signCIP36Vote', () {
-    late Ledger ledger;
-    late CardanoLedgerApp cardanoApp;
-    late LedgerDevice device;
+    late CardanoLedgerConnection cardanoApp;
 
     setUpAll(() async {
-      ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
-      cardanoApp = CardanoLedgerApp(ledger);
-      device = await ledger.scan().first;
-      print("Connecting to device: ${device.id}");
-      await ledger.connect(device);
-      print('Connected to device: ${device.name}');
+      cardanoApp = await establishCardanoConnection();
+      print('Connected to device: ${cardanoApp.device.name}');
     });
 
     tearDownAll(() async {
-      await ledger.disconnect(device);
+      await cardanoApp.disconnect();
     });
 
     for (final testCase in testsCIP36Vote) {
       test(testCase.testName, () async {
-        final response = await cardanoApp.signCIP36Vote(device, testCase.cVote);
+        final response = await cardanoApp.signCIP36Vote(testCase.cVote);
         expectVespr(response, equals(testCase.expected));
       });
     }

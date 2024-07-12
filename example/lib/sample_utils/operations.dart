@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' show LedgerDeviceException;
 import 'package:ledger_cardano/src/models/ledger_signing_path.dart';
 
-Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> signTransaction(CardanoLedgerConnection cardanoApp) async {
   try {
     // Constructing the transaction to sign
     final txToSign = ParsedSigningRequest(
@@ -49,10 +49,7 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
     );
 
     // Signing the transaction
-    final SignedTransactionData signedTx = await cardanoApp.signTransaction(
-      device,
-      txToSign,
-    );
+    final SignedTransactionData signedTx = await cardanoApp.signTransaction(txToSign);
 
     // Updating the UI state with the signed transaction data
     return 'Signed Transaction: {\n'
@@ -64,41 +61,41 @@ Future<String> signTransaction(CardanoLedgerApp cardanoApp, LedgerDevice device)
         '    }\n'
         '  ],\n'
         '}';
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error signing transaction: ${e.message}, Code: ${e.errorCode}';
   } catch (e) {
     return 'Error signing transaction: ${e.toString()}';
   }
 }
 
-Future<String> reset(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> reset(CardanoLedgerConnection cardanoApp) async {
   try {
-    await cardanoApp.reset(device);
+    await cardanoApp.reset();
     return "Successfully reset the ledger device";
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error fetching serial: ${e.message}, Code: ${e.errorCode}';
   }
 }
 
-Future<String> fetchSerial(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> fetchSerial(CardanoLedgerConnection cardanoApp) async {
   try {
-    return await cardanoApp.getSerialNumber(device);
-  } on LedgerException catch (e) {
+    return await cardanoApp.getSerialNumber();
+  } on LedgerDeviceException catch (e) {
     return 'Error fetching serial: ${e.message}, Code: ${e.errorCode}';
   }
 }
 
-Future<String> fetchVersion(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> fetchVersion(CardanoLedgerConnection cardanoApp) async {
   try {
-    final version = await cardanoApp.getVersion(device);
+    final version = await cardanoApp.getVersion();
     return 'App Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\n'
         'Development Version: ${version.testMode ? "Yes" : "No"}';
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error fetching version: ${e.message}, Code: ${e.errorCode}';
   }
 }
 
-Future<String> signOperationalCertificate(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> signOperationalCertificate(CardanoLedgerConnection cardanoApp) async {
   try {
     final operationalCertificate = ParsedOperationalCertificate(
       kesPublicKeyHex: '3d24bc547388cf2403fd978fc3d3a93d1f39acf68a9c00e40512084dc05f2822',
@@ -114,7 +111,6 @@ Future<String> signOperationalCertificate(CardanoLedgerApp cardanoApp, LedgerDev
 
     // Attempt to sign the operational certificate
     final Uint8List signature = await cardanoApp.signOperationalCertificate(
-      device,
       operationalCertificate,
     );
 
@@ -130,12 +126,12 @@ Future<String> signOperationalCertificate(CardanoLedgerApp cardanoApp, LedgerDev
   }
 }
 
-Future<String> fetchStakeAddress(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> fetchStakeAddress(CardanoLedgerConnection cardanoApp) async {
   try {
-    final stakingAddress = await cardanoApp.deriveStakingAddress(device, network: CardanoNetwork.mainnet());
+    final stakingAddress = await cardanoApp.deriveStakingAddress(network: CardanoNetwork.mainnet());
 
     return "Staking Address (1852'/1815'/0'/2/0)\n$stakingAddress";
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return "Error fetching Staking Address (1852'/1815'/0'/2/0): \n${e.message}, Code: ${e.errorCode}";
   } catch (e) {
     return "Generic Error fetching Staking Address (1852'/1815'/0'/2/0): \n${e.toString()}";
@@ -143,20 +139,19 @@ Future<String> fetchStakeAddress(CardanoLedgerApp cardanoApp, LedgerDevice devic
 }
 
 Future<String> fetchReceiveAddresses(
-  CardanoLedgerApp cardanoApp,
-  LedgerDevice device, {
+  CardanoLedgerConnection cardanoApp, {
   required List<int> addressIndices,
 }) async {
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
       final address =
-          await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+          await cardanoApp.deriveReceiveAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Receive Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
     return receiveAddress.join("\n\n");
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return "Error fetching Receive Addresses: \n${e.message}, Code: ${e.errorCode}";
   } catch (e) {
     return "Generic Error fetching Receive Addresses: \n${e.toString()}";
@@ -164,20 +159,19 @@ Future<String> fetchReceiveAddresses(
 }
 
 Future<String> fetchChangeAddresses(
-  CardanoLedgerApp cardanoApp,
-  LedgerDevice device, {
+  CardanoLedgerConnection cardanoApp, {
   required List<int> addressIndices,
 }) async {
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
       final address =
-          await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+          await cardanoApp.deriveChangeAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
       receiveAddress.add("Change Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
     return receiveAddress.join("\n\n");
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return "Error fetching Change Addresses: \n${e.message}, Code: ${e.errorCode}";
   } catch (e) {
     return "Generic Error fetching Change Addresses: \n${e.toString()}";
@@ -185,29 +179,27 @@ Future<String> fetchChangeAddresses(
 }
 
 Future<String> fetchReceiveAndChangeAddress(
-  CardanoLedgerApp cardanoApp,
-  LedgerDevice device, {
+  CardanoLedgerConnection cardanoApp, {
   required int addressIndex,
 }) async {
   try {
     final receiveAddress =
-        await cardanoApp.deriveReceiveAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+        await cardanoApp.deriveReceiveAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
     final changeAddress =
-        await cardanoApp.deriveChangeAddress(device, addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+        await cardanoApp.deriveChangeAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
 
     return "Receive Address (1852'/1815'/0'/0/$addressIndex)\n$receiveAddress"
         "\n\nChange Address (1852'/1815'/0'/1/$addressIndex)\n$changeAddress";
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return "Error fetching Receive/Change Addresses: \n${e.message}, Code: ${e.errorCode}";
   } catch (e) {
     return "Generic Error fetching Staking Address: \n${e.toString()}";
   }
 }
 
-Future<String> fetchPublicKey(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> fetchPublicKey(CardanoLedgerConnection cardanoApp) async {
   try {
     final fetchedAccounts = await cardanoApp.getExtendedPublicKey(
-      device,
       request: ExtendedPublicKeyRequest_Shelley(accountIndex: 0),
     );
 
@@ -216,14 +208,14 @@ Future<String> fetchPublicKey(CardanoLedgerApp cardanoApp, LedgerDevice device) 
         "xPub: ${fetchedAccounts.xPub}\n\n"
         "acctXvk: ${fetchedAccounts.acctXvk}\n\n"
         "acctVk: ${fetchedAccounts.acctVk}";
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error fetching public key: ${e.message}, Code: ${e.errorCode}';
   } catch (e) {
     return 'Generic Error fetching public key: ${e.toString()}';
   }
 }
 
-Future<String> deriveComplexNativeScriptHash(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> deriveComplexNativeScriptHash(CardanoLedgerConnection cardanoApp) async {
   try {
     // Constructing the complex script
     final complexScript = ParsedNativeScript.complex(
@@ -280,21 +272,20 @@ Future<String> deriveComplexNativeScriptHash(CardanoLedgerApp cardanoApp, Ledger
 
     // Deriving the script hash
     final hash = await cardanoApp.deriveNativeScriptHash(
-      device,
       complexScript,
       NativeScriptHashDisplayFormat.bech32,
     );
 
     // Updating the UI state with the derived script hash
     return 'Derived Complex Script Hash: $hash';
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error deriving complex script hash: ${e.message}, Code: ${e.errorCode}';
   } catch (e) {
     return 'Error deriving complex script hash: ${e.toString()}';
   }
 }
 
-Future<String> deriveNativeScriptHash(CardanoLedgerApp cardanoApp, LedgerDevice device) async {
+Future<String> deriveNativeScriptHash(CardanoLedgerConnection cardanoApp) async {
   try {
     final simpleScript = ParsedSimpleNativeScript.pubKeyDeviceOwned(
       path: LedgerSigningPath.shelley(
@@ -307,13 +298,12 @@ Future<String> deriveNativeScriptHash(CardanoLedgerApp cardanoApp, LedgerDevice 
     final script = ParsedNativeScript.simple(simpleScript);
 
     final hash = await cardanoApp.deriveNativeScriptHash(
-      device,
       script,
       NativeScriptHashDisplayFormat.bech32,
     );
 
     return 'Derived Script Hash: $hash';
-  } on LedgerException catch (e) {
+  } on LedgerDeviceException catch (e) {
     return 'Error deriving script hash: ${e.message}, Code: ${e.errorCode}';
   } catch (e) {
     return 'Error deriving script hash: ${e.toString()}';

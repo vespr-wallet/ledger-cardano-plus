@@ -4,12 +4,13 @@ import 'package:example/sample_utils/operations.dart';
 import 'package:example/widgets/available_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 const _awaitingLedgerResponse = '[Awaiting Ledger Response...]';
 
 void main() {
-  CardanoLedgerApp.debugPrintEnabled = true;
+  CardanoLedger.debugPrintEnabled = true;
   runApp(const MainWidget());
 }
 
@@ -39,14 +40,26 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final Ledger ledger = Ledger(
-    options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)),
-  );
-  late final CardanoLedgerApp cardanoApp = CardanoLedgerApp(ledger);
+  late final CardanoLedger cardanoLedgerConnector = CardanoLedger.ble(
+    onPermissionRequest: (status) async {
+      if ([AvailabilityState.unsupported].contains(status)) {
+        return false;
+      }
 
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.location,
+        Permission.bluetoothScan,
+        Permission.bluetoothConnect,
+        Permission.bluetoothAdvertise,
+      ].request();
+
+      return statuses.values.where((status) => status.isDenied).isEmpty;
+    },
+  );
   bool connecting = false;
+  CardanoLedgerConnection? cardanoLedgerConnection;
+
   String? error;
-  LedgerDevice? selectedDevice;
   String? resultTitle;
   String? resultData;
 
@@ -69,7 +82,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    final selectedDevice = this.selectedDevice;
+    final cardanoLedgerConnection = this.cardanoLedgerConnection;
     final error = this.error;
 
     if (connecting) {
@@ -88,7 +101,7 @@ class _MyAppState extends State<MyApp> {
       );
     }
 
-    if (selectedDevice == null || error != null) {
+    if (cardanoLedgerConnection == null || error != null) {
       return Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -112,6 +125,8 @@ class _MyAppState extends State<MyApp> {
       );
     }
 
+    final selectedDevice = cardanoLedgerConnection.device;
+
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
@@ -131,10 +146,10 @@ class _MyAppState extends State<MyApp> {
           onPressed: () => _onOperationRequested(
             operation: "Disconnect Device",
             invoker: () async {
-              final result = reset(cardanoApp, selectedDevice);
-              await ledger.disconnect(selectedDevice);
+              final result = reset(cardanoLedgerConnection);
+              await cardanoLedgerConnection.disconnect();
               setState(() {
-                this.selectedDevice = null;
+                this.cardanoLedgerConnection = null;
                 this.error = null;
                 connecting = false;
               });
@@ -160,21 +175,21 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Fetch Serial Number",
-                invoker: () => fetchSerial(cardanoApp, selectedDevice),
+                invoker: () => fetchSerial(cardanoLedgerConnection),
               ),
               child: const Text('Fetch Serial Number'),
             ),
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Fetch App Version",
-                invoker: () => fetchVersion(cardanoApp, selectedDevice),
+                invoker: () => fetchVersion(cardanoLedgerConnection),
               ),
               child: const Text('Fetch App Version'),
             ),
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Fetch Cardano Wallet Public Key",
-                invoker: () => fetchPublicKey(cardanoApp, selectedDevice),
+                invoker: () => fetchPublicKey(cardanoLedgerConnection),
               ),
               child: const Text('Fetch Public Key'),
             ),
@@ -182,7 +197,7 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Fetch Stake Address",
-                invoker: () => fetchStakeAddress(cardanoApp, selectedDevice),
+                invoker: () => fetchStakeAddress(cardanoLedgerConnection),
               ),
               child: const Text('Fetch Stake Address'),
             ),
@@ -191,8 +206,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () => _onOperationRequested(
                 operation: "Fetch Receive Addresses",
                 invoker: () => fetchReceiveAddresses(
-                  cardanoApp,
-                  selectedDevice,
+                  cardanoLedgerConnection,
                   addressIndices: [0, 1, 2, 3],
                 ),
               ),
@@ -202,8 +216,7 @@ class _MyAppState extends State<MyApp> {
               onPressed: () => _onOperationRequested(
                 operation: "Fetch Change Addresses",
                 invoker: () => fetchChangeAddresses(
-                  cardanoApp,
-                  selectedDevice,
+                  cardanoLedgerConnection,
                   addressIndices: [0, 1, 2, 3],
                 ),
               ),
@@ -212,10 +225,7 @@ class _MyAppState extends State<MyApp> {
             ElevatedButton(
               onPressed: () => _onOperationRequested(
                 operation: "Sign Transaction",
-                invoker: () => signTransaction(
-                  cardanoApp,
-                  selectedDevice,
-                ),
+                invoker: () => signTransaction(cardanoLedgerConnection),
               ),
               child: const Text('Sign Transaction'),
             ),
@@ -266,15 +276,12 @@ class _MyAppState extends State<MyApp> {
     final selectedLedgerDevice = await showAdaptiveDialog<LedgerDevice>(
       context: context,
       barrierDismissible: true,
-      builder: (context) => AlertDialog(content: AvailableDevices(ledger: ledger)),
+      builder: (context) => AlertDialog(content: AvailableDevices(ledger: cardanoLedgerConnector)),
     );
     if (selectedLedgerDevice != null) {
       setState(() => connecting = true);
       try {
-        await ledger.connect(selectedLedgerDevice,
-            options: LedgerOptions(
-                // requireLocationServicesEnabled: UniversalPlatform.isAndroid,
-                ));
+        final establishedConnection = await cardanoLedgerConnector.connect(selectedLedgerDevice);
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
@@ -285,13 +292,13 @@ class _MyAppState extends State<MyApp> {
         setState(() {
           connecting = false;
           error = null;
-          selectedDevice = selectedLedgerDevice;
+          cardanoLedgerConnection = establishedConnection;
         });
       } catch (e) {
         setState(() {
           connecting = false;
           error = e.toString();
-          selectedDevice = null;
+          cardanoLedgerConnection = null;
         });
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(

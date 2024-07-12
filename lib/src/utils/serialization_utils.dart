@@ -42,7 +42,7 @@ import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 import 'dart:convert';
 
 class SerializationUtils {
@@ -133,7 +133,7 @@ class SerializationUtils {
     required CardanoVersion version,
   }) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+      final compatibility = version.compatibility;
 
       if (compatibility.supportsConway) {
         serializeTxOptions(writer, options ?? ParsedTransactionOptions(tagCborSets: false));

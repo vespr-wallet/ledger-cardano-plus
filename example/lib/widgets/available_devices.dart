@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_cardano/ledger_cardano.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 class AvailableDevices extends StatefulWidget {
-  final Ledger ledger;
+  final CardanoLedger ledger;
   const AvailableDevices({super.key, required this.ledger});
 
   @override
@@ -26,7 +27,7 @@ class _AvailableDevicesState extends State<AvailableDevices> {
       setState(() {});
     }
 
-    widget.ledger.scan().listen(
+    widget.ledger.scanForDevices().listen(
       (device) => setState(() => devices.add(device)),
       onError: (obj) {
         setState(() => error = 'Failed to scan for devices');

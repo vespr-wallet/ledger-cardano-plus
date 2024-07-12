@@ -2,7 +2,7 @@ import 'dart:typed_data';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 import 'sign_operational_certificate_test_cases.dart';
 import 'test_utils.dart';
@@ -11,17 +11,13 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('signOperationalCertificate', () {
-    late Ledger ledger;
-    late CardanoLedgerApp cardanoApp;
-    late LedgerDevice device;
+    late CardanoLedgerConnection cardanoApp;
     late bool isAppXS;
 
     setUpAll(() async {
-      ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 5)));
-      cardanoApp = CardanoLedgerApp(ledger);
-      device = await ledger.scan().first;
-      await ledger.connect(device);
-      isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
+      cardanoApp = await establishCardanoConnection();
+      print('Connected to device: ${cardanoApp.device.name}');
+      isAppXS = (await cardanoApp.getVersion()).flags.isAppXS;
     });
 
     group('Should successfully sign operational certificate - isAppXS true', () {
@@ -29,11 +25,11 @@ void main() {
         test(testCase.testName, () async {
           if (isAppXS == true) {
             expectVespr(
-              () => cardanoApp.signOperationalCertificate(device, testCase.operationalCertificate),
+              () => cardanoApp.signOperationalCertificate(testCase.operationalCertificate),
               throwsA(isA<LedgerException>()),
             );
           } else {
-            print('Skipping test as isAppXS is not true');
+            markTestSkipped('Skipping test as isAppXS is not true');
           }
         });
       }
@@ -44,11 +40,11 @@ void main() {
         test(testCase.testName, () async {
           if (isAppXS == false) {
             final Uint8List signatureBytes =
-                await cardanoApp.signOperationalCertificate(device, testCase.operationalCertificate);
+                await cardanoApp.signOperationalCertificate(testCase.operationalCertificate);
             final String signatureHex = hex.encode(signatureBytes);
             expectVespr(signatureHex, equals(testCase.expected));
           } else {
-            print('Skipping test as isAppXS is not false');
+            markTestSkipped('Skipping test as isAppXS is not false');
           }
         });
       }

@@ -10,7 +10,7 @@ import 'package:ledger_cardano/src/utils/constants.dart';
 import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
   final ParsedAddressParams params;

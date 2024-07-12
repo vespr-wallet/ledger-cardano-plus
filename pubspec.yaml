@@ -13,12 +13,12 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ledger_flutter:
-    path: ../ledger-flutter
+  ledger_flutter_plus: ^1.0.7
 
   freezed_annotation: ^2.4.1
   collection: ^1.18.0
   bech32: ^0.2.2
+  base_x: ^2.0.1
 
 # dependency_overrides:
 #   meta: 1.14.0

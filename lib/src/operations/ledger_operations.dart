@@ -1,10 +1,8 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_cardano/src/utils/constants.dart';
-import 'package:ledger_cardano/src/utils/hex_utils.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 class SendOperation extends LedgerOperation<ByteDataReader> {
   final String debugName;
@@ -37,7 +35,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
           writer.write(data);
         }
 
-        if (CardanoLedgerApp.debugPrintEnabled) {
+        if (CardanoLedger.debugPrintEnabled) {
           print("$debugName: ${hex.encode(writer.toBytes())}");
         }
         return [writer.toBytes()];
@@ -52,7 +50,7 @@ class ResetOperation extends LedgerOperation<ByteDataReader> {
 
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
-        if (CardanoLedgerApp.debugPrintEnabled) {
+        if (CardanoLedger.debugPrintEnabled) {
           print("ResetOperation command sent to ledger");
         }
         writer.writeUint8(claCardano);

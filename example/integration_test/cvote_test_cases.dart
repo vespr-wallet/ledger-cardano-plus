@@ -120,6 +120,7 @@ final testsCatalystRegistration = [
             '0ca3bb69cad5f471ddd32097a8501e3956e4ae0c2bf523625d1686b123dcc04af240630eb93bf1069c607b59bbe7d521fb8dd14a4312788bc0b72b7473ee160e',
       ),
     ),
+    minSupportedVersion: CardanoVersion.fromVersionCode(60102),
   ),
   CVoteTestCase(
     testName: 'Sign tx with Catalyst registration metadata with stake address',
@@ -217,6 +218,7 @@ final testsCatalystRegistration = [
             '1514b6bbc582b33edcf5fa30ec04dcaa62128de8755c786768ae5922132c2aa50b9ba17be28072de979f45b0f429c7f5d489c549a1e22bc8e7d0b2445c103609',
       ),
     ),
+    minSupportedVersion: CardanoVersion.fromVersionCode(60102),
   ),
 ];
 
@@ -317,6 +319,7 @@ final testsCVoteRegistrationCIP36 = [
             'd07070f841e17f50139bfd6cadeaa89ce87474200db051f48d585cba52360f52444db9b4529e1721348763374f35fa8a054d5a3931fb3524484aa910cf465505',
       ),
     ),
+    minSupportedVersion: CardanoVersion.fromVersionCode(60102),
   ),
   CVoteTestCase(
     testName: 'Sign tx with CIP36 registration with vote key path',
@@ -420,5 +423,6 @@ final testsCVoteRegistrationCIP36 = [
             '0e42a6796426b14876d522a08ffff450971f15a61ee81ba7f34d55a51a43e3928b965fd12e3c0b6e35a8d887e3e9acce466e4069ee44ab250d9976c491978301',
       ),
     ),
+    minSupportedVersion: CardanoVersion.fromVersionCode(60102),
   ),
 ];

@@ -1,6 +1,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano/src/models/flags.dart';
+import 'package:ledger_cardano/src/models/version_compatibility.dart';
+import 'package:ledger_cardano/src/utils/exceptions.dart';
+import 'package:ledger_cardano/src/utils/validation_exception.dart';
 
 part 'cardano_version.freezed.dart';
 
@@ -21,6 +24,8 @@ class CardanoVersion with _$CardanoVersion {
 
   late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
 
+  late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
+
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
         testMode: false,
         versionMajor: versionCode ~/ 10000,
@@ -29,4 +34,28 @@ class CardanoVersion with _$CardanoVersion {
         locked: false,
         flags: const Flags(isDebug: false, isAppXS: false),
       );
+
+  void requireConway(String? caller) {
+    if (!compatibility.supportsConway) {
+      throw VersionNotSupported(caller ?? "Unknown operation", "Conway");
+    }
+  }
+
+  void requireBabbage(String? caller) {
+    if (!compatibility.supportsBabbage) {
+      throw VersionNotSupported(caller ?? "Unknown operation", "Babbage");
+    }
+  }
+
+  void requireAlonzo(String? caller) {
+    if (!compatibility.supportsAlonzo) {
+      throw VersionNotSupported(caller ?? "Unknown operation", "Alonzo");
+    }
+  }
+
+  void requireMary(String? caller) {
+    if (!compatibility.supportsMary) {
+      throw VersionNotSupported(caller ?? "Unknown operation", "Mary");
+    }
+  }
 }

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 abstract class ComplexLedgerOperation<T> {
   const ComplexLedgerOperation();
@@ -12,21 +12,16 @@ abstract class ComplexLedgerOperation<T> {
 
 typedef LedgerSendFct = Future<Y> Function<Y>(LedgerOperation<Y> operation);
 
-extension LedgerX on Ledger {
+extension LedgerX on LedgerConnection {
   Future<T> sendComplexOperation<T>(
-    LedgerDevice device,
     ComplexLedgerOperation<T> operation, {
-    LedgerTransformer? transformer,
+    required LedgerTransformer? transformer,
   }) async {
-    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) => sendOperation(device, simpleOp, transformer: transformer);
+    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) => sendOperation(simpleOp, transformer: transformer);
     try {
       return await operation.invoke(send);
-    } catch (e) {
-      if (e is LedgerException && e.message == "connectionLost") {
-        throw LedgerException(message: 'Connection lost.', errorCode: -99);
-      } else if (e is ValidationException) {
-        unawaited(send(ResetOperation()));
-      }
+    } on ValidationException {
+      unawaited(send(ResetOperation()));
       rethrow;
     }
   }

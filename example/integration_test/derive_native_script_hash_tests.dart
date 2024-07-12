@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:integration_test/integration_test.dart';
 import 'package:ledger_cardano/ledger_cardano.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
 import 'derive_native_script_hash_test_cases.dart';
 import 'test_utils.dart';
@@ -10,31 +10,24 @@ void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
   group('deriveNativeScriptHash', () {
-    late Ledger ledger;
-    late CardanoLedgerApp cardanoApp;
-    late LedgerDevice device;
+    late CardanoLedgerConnection cardanoApp;
     late bool isAppXS;
 
     setUpAll(() async {
-      ledger = Ledger(options: LedgerOptions(maxScanDuration: const Duration(seconds: 10)));
-      cardanoApp = CardanoLedgerApp(ledger);
-      device = await ledger.scan().first;
-      print("Connecting to device: ${device.id}");
-      await ledger.connect(device);
-      print("Connected to device: ${device.name}");
-      isAppXS = (await cardanoApp.getVersion(device)).flags.isAppXS;
+      cardanoApp = await establishCardanoConnection();
+      print('Connected to device: ${cardanoApp.device.name}');
+      isAppXS = (await cardanoApp.getVersion()).flags.isAppXS;
     });
 
-    group('Valid native scripts - isAppXs true', () async {
+    group('Valid native scripts - isAppXs true', () {
       if (!isAppXS) {
-        print('Skipping tests as Ledger isAppXS is false');
+        markTestSkipped('Skipping tests as Ledger isAppXS is false');
         return;
       }
       for (final testCase in validNativeScriptTestCases) {
         test(testCase.testName, () async {
           expectVespr(
             () => cardanoApp.deriveNativeScriptHash(
-              device,
               testCase.script,
               testCase.displayFormat,
             ),
@@ -44,16 +37,15 @@ void main() {
       }
     });
 
-    group('Valid native scripts - isAppXs false', () async {
+    group('Valid native scripts - isAppXs false', () {
       if (isAppXS) {
-        print('Skipping tests as Ledger isAppXS is true');
+        markTestSkipped('Skipping tests as Ledger isAppXS is true');
         return;
       }
       for (final testCase in validNativeScriptTestCases) {
         test(testCase.testName, () async {
           expectVespr(
             cardanoApp.deriveNativeScriptHash(
-              device,
               testCase.script,
               testCase.displayFormat,
             ),
@@ -68,7 +60,6 @@ void main() {
         test(testCase.testName, () async {
           expectVespr(
             () => cardanoApp.deriveNativeScriptHash(
-              device,
               testCase.script,
               NativeScriptHashDisplayFormat.bech32,
             ),

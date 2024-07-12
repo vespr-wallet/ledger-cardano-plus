@@ -28,53 +28,109 @@ import 'package:ledger_cardano/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano/src/utils/constants.dart';
+import 'package:ledger_cardano/src/utils/conversion_utils.dart';
 import 'package:ledger_cardano/src/utils/utilities.dart';
 import 'package:ledger_cardano/src/utils/validation_exception.dart';
-import 'package:ledger_flutter/ledger_flutter.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 
-class CardanoLedgerApp {
+CardanoLedger? _cardanoLedgerBle;
+CardanoLedger? _cardanoLedgerUsb;
+
+class CardanoLedger {
   static bool debugPrintEnabled = false;
 
-  final Ledger ledger;
+  final LedgerInterface ledger;
+  final ConnectionType connectionType;
   final LedgerTransformer? transformer;
 
-  const CardanoLedgerApp(
-    this.ledger, {
-    this.transformer = const CardanoTransformer(),
-  });
+  static CardanoLedger ble({
+    required PermissionRequestCallback onPermissionRequest,
+  }) =>
+      _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
 
-  Future<void> reset(LedgerDevice device) async {
-    return ledger
+  static CardanoLedger usb() => _cardanoLedgerUsb ??= CardanoLedger._usb();
+
+  CardanoLedger._ble(
+    PermissionRequestCallback onPermissionRequest,
+  )   : connectionType = ConnectionType.ble,
+        transformer = const CardanoTransformer(ConnectionType.ble),
+        ledger = LedgerInterface.ble(
+          onPermissionRequest: onPermissionRequest,
+        );
+
+  CardanoLedger._usb()
+      : connectionType = ConnectionType.usb,
+        transformer = const CardanoTransformer(ConnectionType.usb),
+        ledger = LedgerInterface.usb();
+
+  Stream<LedgerDevice> scanForDevices() => ledger.scan();
+
+  Future<CardanoLedgerConnection> connect(LedgerDevice device) async {
+    final ledgerConnection = await ledger.connect(device);
+    return CardanoLedgerConnection(
+      connectionType: connectionType,
+      ledgerConnection: ledgerConnection,
+    );
+  }
+
+  Future<void> dispose() async {
+    switch (connectionType) {
+      case ConnectionType.ble:
+        _cardanoLedgerBle = null;
+        break;
+      case ConnectionType.usb:
+        _cardanoLedgerUsb = null;
+        break;
+    }
+    ledger.dispose();
+  }
+}
+
+class CardanoLedgerConnection {
+  final LedgerConnection _ledgerConnection;
+  final LedgerTransformer _transformer;
+
+  final ConnectionType connectionType;
+
+  LedgerDevice get device => _ledgerConnection.device;
+  bool get isDisconnected => _ledgerConnection.isDisconnected;
+
+  CardanoLedgerConnection({
+    required this.connectionType,
+    required LedgerConnection ledgerConnection,
+  })  : _ledgerConnection = ledgerConnection,
+        _transformer = CardanoTransformer(connectionType);
+
+  Future<void> disconnect() async => _ledgerConnection.disconnect();
+
+  Future<void> reset() async {
+    return _ledgerConnection
         .sendOperation(
-          device,
           ResetOperation(),
-          transformer: transformer,
+          transformer: _transformer,
         )
         .ignore();
   }
 
-  Future<CardanoVersion> getVersion(LedgerDevice device) {
-    return ledger.sendComplexOperation<CardanoVersion>(
-      device,
+  Future<CardanoVersion> getVersion() {
+    return _ledgerConnection.sendComplexOperation<CardanoVersion>(
       const CardanoVersionOperation(),
-      transformer: transformer,
+      transformer: _transformer,
     );
   }
 
-  Future<String> getSerialNumber(LedgerDevice device) {
-    return ledger.sendComplexOperation<String>(
-      device,
+  Future<String> getSerialNumber() {
+    return _ledgerConnection.sendComplexOperation<String>(
       const CardanoGetSerialOperation(),
-      transformer: transformer,
+      transformer: _transformer,
     );
   }
 
   Future<String> deriveNativeScriptHash(
-    LedgerDevice device,
     ParsedNativeScript script,
     NativeScriptHashDisplayFormat displayFormat,
   ) async {
-    final CardanoVersion deviceVersion = await getVersion(device);
+    final CardanoVersion deviceVersion = await getVersion();
     final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
@@ -90,23 +146,20 @@ class CardanoLedgerApp {
       displayFormat: displayFormat,
     );
 
-    final String scriptHash = await ledger.sendComplexOperation<String>(
-      device,
+    final String scriptHash = await _ledgerConnection.sendComplexOperation<String>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     return scriptHash;
   }
 
-  Future<ExtendedPublicKey> getExtendedPublicKey(
-    LedgerDevice device, {
+  Future<ExtendedPublicKey> getExtendedPublicKey({
     required ExtendedPublicKeyRequest request,
   }) async =>
-      (await getExtendedPublicKeys(device, requests: [request]))[0];
+      (await getExtendedPublicKeys(requests: [request]))[0];
 
-  Future<List<ExtendedPublicKey>> getExtendedPublicKeys(
-    LedgerDevice device, {
+  Future<List<ExtendedPublicKey>> getExtendedPublicKeys({
     required List<ExtendedPublicKeyRequest> requests,
   }) async {
     final List<ExtendedPublicKey> xPubKeys = [];
@@ -114,7 +167,7 @@ class CardanoLedgerApp {
       final List<int> derivationPaths = request.derivationPath;
       final int minSupportedVersionCode = request.minSupportedVersionCode;
 
-      final CardanoVersion deviceVersion = await getVersion(device);
+      final CardanoVersion deviceVersion = await getVersion();
       if (deviceVersion.versionCode < minSupportedVersionCode) {
         throw ValidationException(
           "Operation not supported by the device's Cardano app version. "
@@ -127,10 +180,9 @@ class CardanoLedgerApp {
         bip32Path: derivationPaths,
       );
       xPubKeys.add(
-        await ledger.sendComplexOperation<ExtendedPublicKey>(
-          device,
+        await _ledgerConnection.sendComplexOperation<ExtendedPublicKey>(
           operation,
-          transformer: transformer,
+          transformer: _transformer,
         ),
       );
     }
@@ -144,8 +196,38 @@ class CardanoLedgerApp {
     return xPubKeys;
   }
 
-  Future<String> deriveChangeAddress(
-    LedgerDevice device, {
+  Future<String> deriveAddressGeneric({
+    // int accountIndex = 0,
+    // int addressIndex = 0,
+    required ParsedAddressParams params,
+    required CardanoNetwork network,
+  }) async {
+    final operation = CardanoDeriveAddressOperation(
+      params: params,
+      network: network,
+    );
+
+    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+      operation,
+      transformer: _transformer,
+    );
+
+    Uint8List addressBytes = hexToBytes(addressResult);
+    final String Function() encoder = switch (params) {
+      ByronAddressParams() => () => addressHexToBase58(addressResult),
+      ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => () {
+          final String bech32Hrp = switch (shelleyParams) {
+            RewardKey() => network.stakeBech32Hrp,
+            RewardScript() => network.stakeBech32Hrp,
+            _ => network.paymentBech32Hrp,
+          };
+          return bech32EncodeAddress(bech32Hrp, addressBytes);
+        },
+    };
+    return encoder();
+  }
+
+  Future<String> deriveChangeAddress({
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
@@ -175,10 +257,9 @@ class CardanoLedgerApp {
       network: network,
     );
 
-    final addressResult = await ledger.sendComplexOperation<String>(
-      device,
+    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
@@ -186,8 +267,7 @@ class CardanoLedgerApp {
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
-  Future<String> deriveReceiveAddress(
-    LedgerDevice device, {
+  Future<String> deriveReceiveAddress({
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
@@ -205,8 +285,8 @@ class CardanoLedgerApp {
       role: ShelleyAddressRole.payment,
     );
 
-    print(bip32StakePath.signingPath);
-    print(bip32ReceivePath.signingPath);
+    // print(bip32StakePath.signingPath);
+    // print(bip32ReceivePath.signingPath);
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
@@ -220,10 +300,9 @@ class CardanoLedgerApp {
       network: network,
     );
 
-    final addressResult = await ledger.sendComplexOperation<String>(
-      device,
+    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
@@ -231,8 +310,7 @@ class CardanoLedgerApp {
     return bech32EncodeAddress(bech32Hrp, addressBytes);
   }
 
-  Future<String> deriveStakingAddress(
-    LedgerDevice device, {
+  Future<String> deriveStakingAddress({
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
@@ -255,10 +333,9 @@ class CardanoLedgerApp {
       network: network,
     );
 
-    final addressResult = await ledger.sendComplexOperation<String>(
-      device,
+    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
@@ -267,8 +344,7 @@ class CardanoLedgerApp {
     return result;
   }
 
-  Future<String> deriveEnterpriseAddress(
-    LedgerDevice device, {
+  Future<String> deriveEnterpriseAddress({
     int accountIndex = 0,
     int addressIndex = 0,
     bool displayOnDevice = false,
@@ -291,10 +367,9 @@ class CardanoLedgerApp {
       network: network,
     );
 
-    final addressResult = await ledger.sendComplexOperation<String>(
-      device,
+    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     Uint8List addressBytes = hexToBytes(addressResult);
@@ -303,10 +378,9 @@ class CardanoLedgerApp {
   }
 
   Future<Uint8List> signOperationalCertificate(
-    LedgerDevice device,
     ParsedOperationalCertificate operationalCertificate,
   ) async {
-    final CardanoVersion deviceVersion = await getVersion(device);
+    final CardanoVersion deviceVersion = await getVersion();
     final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible || !compatibility.supportsOperationalCertificateSigning) {
@@ -321,20 +395,18 @@ class CardanoLedgerApp {
       operationalCertificate: operationalCertificate,
     );
 
-    final Uint8List signature = await ledger.sendComplexOperation<Uint8List>(
-      device,
+    final Uint8List signature = await _ledgerConnection.sendComplexOperation<Uint8List>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     return signature;
   }
 
   Future<SignedTransactionData> signTransaction(
-    LedgerDevice device,
     ParsedSigningRequest signingRequest,
   ) async {
-    final CardanoVersion deviceVersion = await getVersion(device);
+    final CardanoVersion deviceVersion = await getVersion();
     VersionCompatibility.checkVersionCompatibility(deviceVersion);
     VersionCompatibility.ensureRequestSupportedByAppVersion(deviceVersion, signingRequest);
 
@@ -344,20 +416,19 @@ class CardanoLedgerApp {
       network: CardanoNetwork.mainnet(),
     );
 
-    final SignedTransactionData signedTransactionData = await ledger.sendComplexOperation<SignedTransactionData>(
-      device,
+    final SignedTransactionData signedTransactionData =
+        await _ledgerConnection.sendComplexOperation<SignedTransactionData>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     return signedTransactionData;
   }
 
   Future<SignedCIP36VoteData> signCIP36Vote(
-    LedgerDevice device,
     ParsedCVote parsedCVote,
   ) async {
-    final CardanoVersion deviceVersion = await getVersion(device);
+    final CardanoVersion deviceVersion = await getVersion();
     final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible || !compatibility.supportsCIP36Vote) {
@@ -373,17 +444,16 @@ class CardanoLedgerApp {
       version: deviceVersion,
     );
 
-    final SignedCIP36VoteData signedCIP36VoteData = await ledger.sendComplexOperation<SignedCIP36VoteData>(
-      device,
+    final SignedCIP36VoteData signedCIP36VoteData = await _ledgerConnection.sendComplexOperation<SignedCIP36VoteData>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
 
     return signedCIP36VoteData;
   }
 
-  Future<void> runTests(LedgerDevice device) async {
-    final CardanoVersion deviceVersion = await getVersion(device);
+  Future<void> runTests() async {
+    final CardanoVersion deviceVersion = await getVersion();
     final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible) {
@@ -396,10 +466,11 @@ class CardanoLedgerApp {
 
     const operation = CardanoRunTestsOperation();
 
-    await ledger.sendComplexOperation<void>(
-      device,
+    await _ledgerConnection.sendComplexOperation<void>(
       operation,
-      transformer: transformer,
+      transformer: _transformer,
     );
   }
+
+  sendComplexOperation(device, CardanoDeriveAddressOperation operation, {required CardanoTransformer transformer}) {}
 }

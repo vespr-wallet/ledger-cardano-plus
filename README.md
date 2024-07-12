@@ -106,21 +106,24 @@ To run the integration tests for the `ledger-cardano` SDK, follow these steps:
 
 4. **Run the Tests:**
 
-   - Use the following Flutter command to execute the integration tests:
+   - Use the following Flutter command to execute all the integration tests:
 
    ```bash
-   flutter test integration_test
+   cd example
+   flutter test integration_test/*_tests.dart
    ```
 
    - To run a specific integration test file, provide the path to the test file:
 
    ```bash
+   cd example
    flutter test integration_test/cardano_ledger_serial_version_tests.dart
    ```
 
    - To run a specific test case within a test file, use the `-n` flag followed by the test name:
 
    ```bash
+   cd example
    flutter test integration_test/cardano_ledger_serial_version_tests.dart -n "Should correctly get the serial number of the device"
    ```
 

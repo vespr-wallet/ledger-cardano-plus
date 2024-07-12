@@ -47,7 +47,12 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     // auxiliary data
     TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
     if (auxDataBeforeTxBody && auxiliaryData != null) {
-      auxiliaryDataSupplement = await _signTxSetAuxiliaryData(auxiliaryData, cardanoVersion, send, network);
+      auxiliaryDataSupplement = await _signTxSetAuxiliaryData(
+        auxiliaryData,
+        cardanoVersion,
+        send,
+        network,
+      );
     }
 
     final inputs = signingRequest.tx.inputs;
@@ -121,52 +126,50 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       await _signTxAddRequiredSigner(requiredSigner, send);
     }
 
-    final collateralOutput = signingRequest.tx.collateralOutput;
     // collateral output
+    final collateralOutput = signingRequest.tx.collateralOutput;
     if (collateralOutput != null) {
+      cardanoVersion.requireBabbage("Collateral Output");
       await _signTxAddCollateralOutput(collateralOutput, cardanoVersion, send);
     }
 
-    final totalCollateral = signingRequest.tx.totalCollateral;
     // totalCollateral
+    final totalCollateral = signingRequest.tx.totalCollateral;
     if (totalCollateral != null) {
+      cardanoVersion.requireBabbage("Total Collateral");
       await _signTxAddTotalCollateral(totalCollateral, send);
     }
 
-    final referenceInputs = signingRequest.tx.referenceInputs;
     // reference inputs
-    for (final referenceInput in referenceInputs ?? []) {
-      await _signTxAddReferenceInput(referenceInput, send);
+    final referenceInputs = signingRequest.tx.referenceInputs;
+    if (referenceInputs != null && referenceInputs.isNotEmpty) {
+      cardanoVersion.requireBabbage("Reference Inputs");
+      for (final referenceInput in referenceInputs) {
+        await _signTxAddReferenceInput(referenceInput, send);
+      }
     }
 
+    // voting procedures - conway+
     final votingProcedures = signingRequest.tx.votingProcedures;
-    // voting procedures
-    for (final voterVotes in votingProcedures ?? []) {
-      await _signTxAddVoterVotes(voterVotes, send);
+    if (votingProcedures != null && votingProcedures.isNotEmpty) {
+      cardanoVersion.requireConway("Voting Procedures");
+      for (final voterVotes in votingProcedures) {
+        await _signTxAddVoterVotes(voterVotes, send);
+      }
     }
 
     // treasury - conway+
     final treasury = signingRequest.tx.treasury;
     if (treasury != null) {
-      if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway) {
-        await _signTxAddTreasury(treasury, send);
-      } else {
-        throw ValidationException(
-          'Treasury is not supported by Ledger Cardano app version ${cardanoVersion.versionName}',
-        );
-      }
+      cardanoVersion.requireConway("Treasury");
+      await _signTxAddTreasury(treasury, send);
     }
 
     // donation - conway+
     final donation = signingRequest.tx.donation;
     if (donation != null) {
-      if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsConway) {
-        await _signTxAddDonation(donation, send);
-      } else {
-        throw ValidationException(
-          'Donation is not supported by Ledger Cardano app version ${cardanoVersion.versionName}',
-        );
-      }
+      cardanoVersion.requireConway("Donation");
+      await _signTxAddDonation(donation, send);
     }
 
     // confirm

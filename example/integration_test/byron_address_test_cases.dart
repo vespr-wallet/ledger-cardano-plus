@@ -61,6 +61,7 @@ List<ByronTestCase> byronTestCases = [
       spendingDataSource: SpendingDataSource.path(
           path: LedgerSigningPath.custom([harden + 44, harden + 1815, harden + 1, 0, harden + 12])),
     ),
+    // TODO: Check against TS result ; Possibly wrong expected result?
     expectedResult: '2657WMsDfac5GGdHMD6sR22tyhmFvuPrBZ79hvEvuisyUK9XCcB3nu8JecKuCXEkr',
   ),
 ];

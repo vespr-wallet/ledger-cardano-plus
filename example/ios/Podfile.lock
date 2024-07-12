@@ -4,23 +4,15 @@ PODS:
     - Flutter
   - permission_handler_apple (9.3.0):
     - Flutter
-  - Protobuf (3.26.1)
-  - reactive_ble_mobile (0.0.1):
+  - universal_ble (0.0.1):
     - Flutter
-    - Protobuf (~> 3.5)
-    - SwiftProtobuf (~> 1.0)
-  - SwiftProtobuf (1.26.0)
+    - FlutterMacOS
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - integration_test (from `.symlinks/plugins/integration_test/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
-  - reactive_ble_mobile (from `.symlinks/plugins/reactive_ble_mobile/ios`)
-
-SPEC REPOS:
-  trunk:
-    - Protobuf
-    - SwiftProtobuf
+  - universal_ble (from `.symlinks/plugins/universal_ble/darwin`)
 
 EXTERNAL SOURCES:
   Flutter:
@@ -29,16 +21,14 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/integration_test/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
-  reactive_ble_mobile:
-    :path: ".symlinks/plugins/reactive_ble_mobile/ios"
+  universal_ble:
+    :path: ".symlinks/plugins/universal_ble/darwin"
 
 SPEC CHECKSUMS:
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
   integration_test: ce0a3ffa1de96d1a89ca0ac26fca7ea18a749ef4
   permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
-  Protobuf: a53f5173a603075b3522a5c50be63a67a5f3353a
-  reactive_ble_mobile: 9ce6723d37ccf701dbffd202d487f23f5de03b4c
-  SwiftProtobuf: 5e8349171e7c2f88f5b9e683cb3cb79d1dc780b3
+  universal_ble: cf52a7b3fd2e7c14d6d7262e9fdadb72ab6b88a6
 
 PODFILE CHECKSUM: 2723a82dcf49f0096d66d307d2ae8ef41e0f3b0d
 

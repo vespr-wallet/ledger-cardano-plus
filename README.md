@@ -30,7 +30,7 @@ This Flutter package is a plugin for the [ledger_flutter_plus](https://pub.dev/p
 Install the latest version of this package via pub.dev:
 
 ```yaml
-ledger_cardano: ^latest-version
+ledger_cardano_plus: ^latest-version
 ledger_flutter_plus: ^latest-version
 ```
 
@@ -160,4 +160,4 @@ To run the integration tests for the `ledger-cardano-plus` SDK, follow these ste
 
 ## License
 
-The ledger_cardano SDK is released under the MIT License (MIT). See LICENSE for details.
+The ledger_cardano_plus SDK is released under the MIT License (MIT). See LICENSE for details.

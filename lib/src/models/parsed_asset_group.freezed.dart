@@ -25,7 +25,9 @@ mixin _$ParsedAssetGroup {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAssetGroup
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedAssetGroupCopyWith<ParsedAssetGroup> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedAssetGroupCopyWithImpl<$Res,$Val extends ParsedAssetGroup> impleme
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedAssetGroup
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? policyIdHex = null,Object? tokens = null,}) {
   return _then(_value.copyWith(
 policyIdHex: null == policyIdHex ? _value.policyIdHex : policyIdHex // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$ParsedAssetGroupImplCopyWithImpl<$Res> extends _$ParsedAssetGroupCopyW
       : super(_value, _then);
 
 
+/// Create a copy of ParsedAssetGroup
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? policyIdHex = null,Object? tokens = null,}) {
   return _then(_$ParsedAssetGroupImpl(
 policyIdHex: null == policyIdHex ? _value.policyIdHex : policyIdHex // ignore: cast_nullable_to_non_nullable
@@ -123,7 +129,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,policyIdHex,const DeepCollectionEquality().hash(_tokens));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAssetGroup
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedAssetGroupImplCopyWith<_$ParsedAssetGroupImpl> get copyWith => __$$ParsedAssetGroupImplCopyWithImpl<_$ParsedAssetGroupImpl>(this, _$identity);
@@ -144,8 +152,10 @@ abstract class _ParsedAssetGroup extends ParsedAssetGroup {
 
   
 
-@override  String get policyIdHex;@override  List<ParsedToken> get tokens;
-@override @JsonKey(ignore: true)
+@override String get policyIdHex;@override List<ParsedToken> get tokens;
+/// Create a copy of ParsedAssetGroup
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedAssetGroupImplCopyWith<_$ParsedAssetGroupImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

@@ -25,7 +25,9 @@ mixin _$ParsedOperationalCertificate {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedOperationalCertificateCopyWith<ParsedOperationalCertificate> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedOperationalCertificateCopyWithImpl<$Res,$Val extends ParsedOperati
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? kesPublicKeyHex = null,Object? kesPeriod = null,Object? issueCounter = null,Object? coldKeyPath = null,}) {
   return _then(_value.copyWith(
 kesPublicKeyHex: null == kesPublicKeyHex ? _value.kesPublicKeyHex : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
@@ -60,6 +64,8 @@ as BigInt,coldKeyPath: null == coldKeyPath ? _value.coldKeyPath : coldKeyPath //
 as LedgerSigningPath,
   )as $Val);
 }
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get coldKeyPath {
@@ -89,6 +95,8 @@ class __$$ParsedOperationalCertificateImplCopyWithImpl<$Res> extends _$ParsedOpe
       : super(_value, _then);
 
 
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? kesPublicKeyHex = null,Object? kesPeriod = null,Object? issueCounter = null,Object? coldKeyPath = null,}) {
   return _then(_$ParsedOperationalCertificateImpl(
 kesPublicKeyHex: null == kesPublicKeyHex ? _value.kesPublicKeyHex : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
@@ -130,7 +138,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,kesPublicKeyHex,kesPeriod,issueCounter,coldKeyPath);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedOperationalCertificateImplCopyWith<_$ParsedOperationalCertificateImpl> get copyWith => __$$ParsedOperationalCertificateImplCopyWithImpl<_$ParsedOperationalCertificateImpl>(this, _$identity);
@@ -151,8 +161,10 @@ abstract class _ParsedOperationalCertificate extends ParsedOperationalCertificat
 
   
 
-@override  String get kesPublicKeyHex;@override  BigInt get kesPeriod;@override  BigInt get issueCounter;@override  LedgerSigningPath get coldKeyPath;
-@override @JsonKey(ignore: true)
+@override String get kesPublicKeyHex;@override BigInt get kesPeriod;@override BigInt get issueCounter;@override LedgerSigningPath get coldKeyPath;
+/// Create a copy of ParsedOperationalCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedOperationalCertificateImplCopyWith<_$ParsedOperationalCertificateImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

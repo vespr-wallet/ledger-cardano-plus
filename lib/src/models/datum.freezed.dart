@@ -45,6 +45,8 @@ class _$DatumCopyWithImpl<$Res,$Val extends Datum> implements $DatumCopyWith<$Re
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DatumHashImplCopyWithImpl<$Res> extends _$DatumCopyWithImpl<$Res, _$Da
       : super(_value, _then);
 
 
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? datumHashHex = null,}) {
   return _then(_$DatumHashImpl(
 datumHashHex: null == datumHashHex ? _value.datumHashHex : datumHashHex // ignore: cast_nullable_to_non_nullable
@@ -103,7 +107,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,datumHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DatumHashImplCopyWith<_$DatumHashImpl> get copyWith => __$$DatumHashImplCopyWithImpl<_$DatumHashImpl>(this, _$identity);
@@ -125,7 +131,9 @@ abstract class DatumHash extends Datum {
   
 
  String get datumHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DatumHashImplCopyWith<_$DatumHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -148,6 +156,8 @@ class __$$DatumInlineImplCopyWithImpl<$Res> extends _$DatumCopyWithImpl<$Res, _$
       : super(_value, _then);
 
 
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? datumHex = null,}) {
   return _then(_$DatumInlineImpl(
 datumHex: null == datumHex ? _value.datumHex : datumHex // ignore: cast_nullable_to_non_nullable
@@ -183,7 +193,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,datumHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DatumInlineImplCopyWith<_$DatumInlineImpl> get copyWith => __$$DatumInlineImplCopyWithImpl<_$DatumInlineImpl>(this, _$identity);
@@ -205,7 +217,9 @@ abstract class DatumInline extends Datum {
   
 
  String get datumHex;
-@JsonKey(ignore: true)
+/// Create a copy of Datum
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DatumInlineImplCopyWith<_$DatumInlineImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

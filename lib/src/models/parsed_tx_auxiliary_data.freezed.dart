@@ -45,6 +45,8 @@ class _$ParsedTxAuxiliaryDataCopyWithImpl<$Res,$Val extends ParsedTxAuxiliaryDat
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$ArbitraryHashImplCopyWithImpl<$Res> extends _$ParsedTxAuxiliaryDataCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
   return _then(_$ArbitraryHashImpl(
 hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
@@ -103,7 +107,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,hashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ArbitraryHashImplCopyWith<_$ArbitraryHashImpl> get copyWith => __$$ArbitraryHashImplCopyWithImpl<_$ArbitraryHashImpl>(this, _$identity);
@@ -125,7 +131,9 @@ abstract class ArbitraryHash extends ParsedTxAuxiliaryData {
   
 
  String get hashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ArbitraryHashImplCopyWith<_$ArbitraryHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -148,6 +156,8 @@ class __$$CIP36RegistrationImplCopyWithImpl<$Res> extends _$ParsedTxAuxiliaryDat
       : super(_value, _then);
 
 
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? params = null,}) {
   return _then(_$CIP36RegistrationImpl(
 params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
@@ -155,6 +165,8 @@ as ParsedCVoteRegistrationParams,
   ));
 }
 
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCVoteRegistrationParamsCopyWith<$Res> get params {
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CIP36RegistrationImplCopyWith<_$CIP36RegistrationImpl> get copyWith => __$$CIP36RegistrationImplCopyWithImpl<_$CIP36RegistrationImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class CIP36Registration extends ParsedTxAuxiliaryData {
   
 
  ParsedCVoteRegistrationParams get params;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTxAuxiliaryData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$CIP36RegistrationImplCopyWith<_$CIP36RegistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

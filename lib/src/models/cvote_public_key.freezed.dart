@@ -25,7 +25,9 @@ mixin _$CVotePublicKey {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of CVotePublicKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $CVotePublicKeyCopyWith<CVotePublicKey> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$CVotePublicKeyCopyWithImpl<$Res,$Val extends CVotePublicKey> implements 
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of CVotePublicKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
   return _then(_value.copyWith(
 value: null == value ? _value.value : value // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$CVotePublicKeyImplCopyWithImpl<$Res> extends _$CVotePublicKeyCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of CVotePublicKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
   return _then(_$CVotePublicKeyImpl(
 value: null == value ? _value.value : value // ignore: cast_nullable_to_non_nullable
@@ -114,7 +120,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,value);
 
-@JsonKey(ignore: true)
+/// Create a copy of CVotePublicKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith => __$$CVotePublicKeyImplCopyWithImpl<_$CVotePublicKeyImpl>(this, _$identity);
@@ -135,8 +143,10 @@ abstract class _CVotePublicKey extends CVotePublicKey {
 
   
 
-@override  String get value;
-@override @JsonKey(ignore: true)
+@override String get value;
+/// Create a copy of CVotePublicKey
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

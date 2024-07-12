@@ -25,7 +25,9 @@ mixin _$BlockchainPointer {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of BlockchainPointer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $BlockchainPointerCopyWith<BlockchainPointer> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$BlockchainPointerCopyWithImpl<$Res,$Val extends BlockchainPointer> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of BlockchainPointer
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
   return _then(_value.copyWith(
 blockIndex: null == blockIndex ? _value.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
@@ -81,6 +85,8 @@ class __$$BlockchainPointerImplCopyWithImpl<$Res> extends _$BlockchainPointerCop
       : super(_value, _then);
 
 
+/// Create a copy of BlockchainPointer
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
   return _then(_$BlockchainPointerImpl(
 blockIndex: null == blockIndex ? _value.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
@@ -120,7 +126,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of BlockchainPointer
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$BlockchainPointerImplCopyWith<_$BlockchainPointerImpl> get copyWith => __$$BlockchainPointerImplCopyWithImpl<_$BlockchainPointerImpl>(this, _$identity);
@@ -141,8 +149,10 @@ abstract class _BlockchainPointer extends BlockchainPointer {
 
   
 
-@override  int get blockIndex;@override  int get txIndex;@override  int get certificateIndex;
-@override @JsonKey(ignore: true)
+@override int get blockIndex;@override int get txIndex;@override int get certificateIndex;
+/// Create a copy of BlockchainPointer
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$BlockchainPointerImplCopyWith<_$BlockchainPointerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

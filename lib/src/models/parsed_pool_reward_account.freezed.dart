@@ -45,6 +45,8 @@ class _$ParsedPoolRewardAccountCopyWithImpl<$Res,$Val extends ParsedPoolRewardAc
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res> extends _$ParsedPoo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$DeviceOwnedPoolRewardAccountImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedPoolRewardAccountImplCopyWith<_$DeviceOwnedPoolRewardAccountImpl> get copyWith => __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<_$DeviceOwnedPoolRewardAccountImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedPoolRewardAccountImplCopyWith<_$DeviceOwnedPoolRewardAccountImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res> extends _$ParsedPool
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? rewardAccountHex = null,}) {
   return _then(_$ThirdPartyPoolRewardAccountImpl(
 rewardAccountHex: null == rewardAccountHex ? _value.rewardAccountHex : rewardAccountHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,rewardAccountHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl> get copyWith => __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<_$ThirdPartyPoolRewardAccountImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {
   
 
  String get rewardAccountHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRewardAccount
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

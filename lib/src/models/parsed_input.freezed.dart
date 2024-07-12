@@ -25,7 +25,9 @@ mixin _$ParsedInput {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedInputCopyWith<ParsedInput> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedInputCopyWithImpl<$Res,$Val extends ParsedInput> implements $Parse
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? outputIndex = null,Object? path = freezed,}) {
   return _then(_value.copyWith(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -59,6 +63,8 @@ as int,path: freezed == path ? _value.path : path // ignore: cast_nullable_to_no
 as LedgerSigningPath?,
   )as $Val);
 }
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res>? get path {
@@ -91,6 +97,8 @@ class __$$ParsedInputImplCopyWithImpl<$Res> extends _$ParsedInputCopyWithImpl<$R
       : super(_value, _then);
 
 
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? outputIndex = null,Object? path = freezed,}) {
   return _then(_$ParsedInputImpl(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -130,7 +138,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,txHashHex,outputIndex,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith => __$$ParsedInputImplCopyWithImpl<_$ParsedInputImpl>(this, _$identity);
@@ -151,8 +161,10 @@ abstract class _ParsedInput extends ParsedInput {
 
   
 
-@override  String get txHashHex;@override  int get outputIndex;@override  LedgerSigningPath? get path;
-@override @JsonKey(ignore: true)
+@override String get txHashHex;@override int get outputIndex;@override LedgerSigningPath? get path;
+/// Create a copy of ParsedInput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedInputImplCopyWith<_$ParsedInputImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

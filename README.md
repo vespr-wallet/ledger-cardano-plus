@@ -24,7 +24,7 @@
 ## Overview
 
 Ledger Nano devices are the perfect hardware wallets for managing your crypto & NFTs on the go.
-This Flutter package is a plugin for the [ledger_flutter](https://pub.dev/packages/ledger_cardano) package to get accounts and sign transactions using the Cardano blockchain.
+This Flutter package is a plugin for the [ledger_flutter_plus](https://pub.dev/packages/ledger_flutter_plus) package to get accounts and sign transactions using the Cardano blockchain.
 
 ## Getting started
 
@@ -34,21 +34,53 @@ Install the latest version of this package via pub.dev:
 
 ```yaml
 ledger_cardano: ^latest-version
+ledger_flutter_plus: ^latest-version
 ```
 
-For integration with the Ledger Flutter package, check out the documentation [here](https://pub.dev/packages/ledger_flutter).
+For integration with the Ledger Flutter Plus package, check out the documentation [here](https://pub.dev/packages/ledger_flutter_plus).
 
-### Setup
+### Setup and Usage
 
-Create a new instance of an `CardanoLedgerApp` and pass an instance of your `Ledger` object.
+Get an instance of an `CardanoLedger` and then use it to scan and connect to devices.
 
 ```dart
-final app = CardanoLedgerApp(ledger);
+final CardanoLedger cardanoLedgerConnector = CardanoLedger.ble(
+    onPermissionRequest: (status) async {
+      // if ([AvailabilityState.unsupported].contains(status)) {
+      //   return false;
+      // }
+
+      // this is using permission_handler package
+      Map<Permission, PermissionStatus> statuses = await [
+        Permission.location,
+        Permission.bluetoothScan,
+        Permission.bluetoothConnect,
+        Permission.bluetoothAdvertise,
+      ].request();
+
+      return statuses.values.where((status) => status.isDenied).isEmpty;
+    },
+  );
+
+// FOR USB
+// final CardanoLedger cardanoLedgerConnector = CardanoLedger.usb();
+
+final devicesStream = cardanoLedgerConnector.scanForDevices();
+
+// Best is to actually listen to the stream and then allow the user to select
+//  the wanted ledger device
+final firstLedgerDevice = await devicesStream.first;
+
+final cardanoApp = cardanoLedgerConnector.connect(firstLedgerDevice);
+
+// To derive receive address
+final receiveAddress = await cardanoApp.deriveReceiveAddress(
+      addressIndex: addressIndex,
+      network: CardanoNetwork.mainnet(),
+    );
 ```
 
-## Usage
-
-### TODO
+For moe in depth sample including device selection dialog, check out the [example](https://github.com/vespr-wallet/ledger-cardano/tree/master/example) project in this repo
 
 ## Sponsors
 

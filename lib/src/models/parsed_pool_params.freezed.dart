@@ -25,7 +25,9 @@ mixin _$ParsedPoolParams {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedPoolParamsCopyWith<ParsedPoolParams> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedPoolParamsCopyWithImpl<$Res,$Val extends ParsedPoolParams> impleme
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? poolKey = null,Object? vrfHashHex = null,Object? pledge = null,Object? cost = null,Object? margin = null,Object? rewardAccount = null,Object? owners = null,Object? relays = null,Object? metadata = freezed,}) {
   return _then(_value.copyWith(
 poolKey: null == poolKey ? _value.poolKey : poolKey // ignore: cast_nullable_to_non_nullable
@@ -65,6 +69,8 @@ as List<ParsedPoolRelay>,metadata: freezed == metadata ? _value.metadata : metad
 as ParsedPoolMetadata?,
   )as $Val);
 }
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedPoolKeyCopyWith<$Res> get poolKey {
@@ -72,21 +78,27 @@ $ParsedPoolKeyCopyWith<$Res> get poolKey {
   return $ParsedPoolKeyCopyWith<$Res>(_value.poolKey, (value) {
     return _then(_value.copyWith(poolKey: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedMarginCopyWith<$Res> get margin {
   
   return $ParsedMarginCopyWith<$Res>(_value.margin, (value) {
     return _then(_value.copyWith(margin: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount {
   
   return $ParsedPoolRewardAccountCopyWith<$Res>(_value.rewardAccount, (value) {
     return _then(_value.copyWith(rewardAccount: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedPoolMetadataCopyWith<$Res>? get metadata {
     if (_value.metadata == null) {
@@ -118,6 +130,8 @@ class __$$ParsedPoolParamsImplCopyWithImpl<$Res> extends _$ParsedPoolParamsCopyW
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? poolKey = null,Object? vrfHashHex = null,Object? pledge = null,Object? cost = null,Object? margin = null,Object? rewardAccount = null,Object? owners = null,Object? relays = null,Object? metadata = freezed,}) {
   return _then(_$ParsedPoolParamsImpl(
 poolKey: null == poolKey ? _value.poolKey : poolKey // ignore: cast_nullable_to_non_nullable
@@ -181,7 +195,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,poolKey,vrfHashHex,pledge,cost,margin,rewardAccount,const DeepCollectionEquality().hash(_owners),const DeepCollectionEquality().hash(_relays),metadata);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith => __$$ParsedPoolParamsImplCopyWithImpl<_$ParsedPoolParamsImpl>(this, _$identity);
@@ -202,8 +218,10 @@ abstract class _ParsedPoolParams extends ParsedPoolParams {
 
   
 
-@override  ParsedPoolKey get poolKey;@override  String get vrfHashHex;@override  BigInt get pledge;@override  BigInt get cost;@override  ParsedMargin get margin;@override  ParsedPoolRewardAccount get rewardAccount;@override  List<ParsedPoolOwner> get owners;@override  List<ParsedPoolRelay> get relays;@override  ParsedPoolMetadata? get metadata;
-@override @JsonKey(ignore: true)
+@override ParsedPoolKey get poolKey;@override String get vrfHashHex;@override BigInt get pledge;@override BigInt get cost;@override ParsedMargin get margin;@override ParsedPoolRewardAccount get rewardAccount;@override List<ParsedPoolOwner> get owners;@override List<ParsedPoolRelay> get relays;@override ParsedPoolMetadata? get metadata;
+/// Create a copy of ParsedPoolParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

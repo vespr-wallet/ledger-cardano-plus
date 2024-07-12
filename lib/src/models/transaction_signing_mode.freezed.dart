@@ -45,6 +45,8 @@ class _$TransactionSigningModesCopyWithImpl<$Res,$Val extends TransactionSigning
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -64,6 +66,8 @@ class __$$OrdinaryTransactionImplCopyWithImpl<$Res> extends _$TransactionSigning
       : super(_value, _then);
 
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -129,6 +133,8 @@ class __$$MultisigTransactionImplCopyWithImpl<$Res> extends _$TransactionSigning
       : super(_value, _then);
 
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -194,6 +200,8 @@ class __$$PoolRegistrationAsOwnerImplCopyWithImpl<$Res> extends _$TransactionSig
       : super(_value, _then);
 
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -259,6 +267,8 @@ class __$$PoolRegistrationAsOperatorImplCopyWithImpl<$Res> extends _$Transaction
       : super(_value, _then);
 
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -324,6 +334,8 @@ class __$$PlutusTransactionImplCopyWithImpl<$Res> extends _$TransactionSigningMo
       : super(_value, _then);
 
 
+/// Create a copy of TransactionSigningModes
+/// with the given fields replaced by the non-null parameter values.
 
 
 

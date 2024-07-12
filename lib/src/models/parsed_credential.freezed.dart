@@ -45,6 +45,8 @@ class _$ParsedCredentialCopyWithImpl<$Res,$Val extends ParsedCredential> impleme
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$CredentialKeyPathImplCopyWithImpl<$Res> extends _$ParsedCredentialCopy
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$CredentialKeyPathImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith => __$$CredentialKeyPathImplCopyWithImpl<_$CredentialKeyPathImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class CredentialKeyPath extends ParsedCredential {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$CredentialKeyHashImplCopyWithImpl<$Res> extends _$ParsedCredentialCopy
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
   return _then(_$CredentialKeyHashImpl(
 keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,keyHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith => __$$CredentialKeyHashImplCopyWithImpl<_$CredentialKeyHashImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class CredentialKeyHash extends ParsedCredential {
   
 
  String get keyHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -235,6 +251,8 @@ class __$$CredentialScriptHashImplCopyWithImpl<$Res> extends _$ParsedCredentialC
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
   return _then(_$CredentialScriptHashImpl(
 scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -270,7 +288,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CredentialScriptHashImplCopyWith<_$CredentialScriptHashImpl> get copyWith => __$$CredentialScriptHashImplCopyWithImpl<_$CredentialScriptHashImpl>(this, _$identity);
@@ -292,7 +312,9 @@ abstract class CredentialScriptHash extends ParsedCredential {
   
 
  String get scriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$CredentialScriptHashImplCopyWith<_$CredentialScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

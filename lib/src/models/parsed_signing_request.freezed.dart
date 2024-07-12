@@ -25,7 +25,9 @@ mixin _$ParsedSigningRequest {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedSigningRequestCopyWith<ParsedSigningRequest> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedSigningRequestCopyWithImpl<$Res,$Val extends ParsedSigningRequest>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tx = null,Object? signingMode = null,Object? additionalWitnessPaths = null,Object? options = freezed,}) {
   return _then(_value.copyWith(
 tx: null == tx ? _value.tx : tx // ignore: cast_nullable_to_non_nullable
@@ -60,6 +64,8 @@ as List<LedgerSigningPath>,options: freezed == options ? _value.options : option
 as ParsedTransactionOptions?,
   )as $Val);
 }
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedTransactionCopyWith<$Res> get tx {
@@ -67,14 +73,18 @@ $ParsedTransactionCopyWith<$Res> get tx {
   return $ParsedTransactionCopyWith<$Res>(_value.tx, (value) {
     return _then(_value.copyWith(tx: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $TransactionSigningModesCopyWith<$Res> get signingMode {
   
   return $TransactionSigningModesCopyWith<$Res>(_value.signingMode, (value) {
     return _then(_value.copyWith(signingMode: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedTransactionOptionsCopyWith<$Res>? get options {
     if (_value.options == null) {
@@ -106,6 +116,8 @@ class __$$ParsedSigningRequestImplCopyWithImpl<$Res> extends _$ParsedSigningRequ
       : super(_value, _then);
 
 
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tx = null,Object? signingMode = null,Object? additionalWitnessPaths = null,Object? options = freezed,}) {
   return _then(_$ParsedSigningRequestImpl(
 tx: null == tx ? _value.tx : tx // ignore: cast_nullable_to_non_nullable
@@ -153,7 +165,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,tx,signingMode,const DeepCollectionEquality().hash(_additionalWitnessPaths),options);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedSigningRequestImplCopyWith<_$ParsedSigningRequestImpl> get copyWith => __$$ParsedSigningRequestImplCopyWithImpl<_$ParsedSigningRequestImpl>(this, _$identity);
@@ -174,8 +188,10 @@ abstract class _ParsedSigningRequest extends ParsedSigningRequest {
 
   
 
-@override  ParsedTransaction get tx;@override  TransactionSigningModes get signingMode;@override  List<LedgerSigningPath> get additionalWitnessPaths;@override  ParsedTransactionOptions? get options;
-@override @JsonKey(ignore: true)
+@override ParsedTransaction get tx;@override TransactionSigningModes get signingMode;@override List<LedgerSigningPath> get additionalWitnessPaths;@override ParsedTransactionOptions? get options;
+/// Create a copy of ParsedSigningRequest
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedSigningRequestImplCopyWith<_$ParsedSigningRequestImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

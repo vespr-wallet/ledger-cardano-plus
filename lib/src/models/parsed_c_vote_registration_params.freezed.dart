@@ -25,7 +25,9 @@ mixin _$ParsedCVoteRegistrationParams {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedCVoteRegistrationParamsCopyWith<ParsedCVoteRegistrationParams> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res,$Val extends ParsedCVoteR
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? format = null,Object? votePublicKey = freezed,Object? votePublicKeyPath = freezed,Object? delegations = freezed,Object? stakingPath = null,Object? paymentDestination = null,Object? nonce = null,Object? votingPurpose = freezed,}) {
   return _then(_value.copyWith(
 format: null == format ? _value.format : format // ignore: cast_nullable_to_non_nullable
@@ -64,6 +68,8 @@ as BigInt,votingPurpose: freezed == votingPurpose ? _value.votingPurpose : votin
 as BigInt?,
   )as $Val);
 }
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $CVotePublicKeyCopyWith<$Res>? get votePublicKey {
@@ -74,7 +80,9 @@ $CVotePublicKeyCopyWith<$Res>? get votePublicKey {
   return $CVotePublicKeyCopyWith<$Res>(_value.votePublicKey!, (value) {
     return _then(_value.copyWith(votePublicKey: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res>? get votePublicKeyPath {
     if (_value.votePublicKeyPath == null) {
@@ -84,14 +92,18 @@ $LedgerSigningPathCopyWith<$Res>? get votePublicKeyPath {
   return $LedgerSigningPathCopyWith<$Res>(_value.votePublicKeyPath!, (value) {
     return _then(_value.copyWith(votePublicKeyPath: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get stakingPath {
   
   return $LedgerSigningPathCopyWith<$Res>(_value.stakingPath, (value) {
     return _then(_value.copyWith(stakingPath: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedOutputDestinationCopyWith<$Res> get paymentDestination {
   
@@ -120,6 +132,8 @@ class __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<$Res> extends _$ParsedCV
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? format = null,Object? votePublicKey = freezed,Object? votePublicKeyPath = freezed,Object? delegations = freezed,Object? stakingPath = null,Object? paymentDestination = null,Object? nonce = null,Object? votingPurpose = freezed,}) {
   return _then(_$ParsedCVoteRegistrationParamsImpl(
 format: null == format ? _value.format : format // ignore: cast_nullable_to_non_nullable
@@ -177,7 +191,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,format,votePublicKey,votePublicKeyPath,const DeepCollectionEquality().hash(_delegations),stakingPath,paymentDestination,nonce,votingPurpose);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedCVoteRegistrationParamsImplCopyWith<_$ParsedCVoteRegistrationParamsImpl> get copyWith => __$$ParsedCVoteRegistrationParamsImplCopyWithImpl<_$ParsedCVoteRegistrationParamsImpl>(this, _$identity);
@@ -198,8 +214,10 @@ abstract class _ParsedCVoteRegistrationParams extends ParsedCVoteRegistrationPar
 
   
 
-@override  CIP36VoteRegistrationFormat get format;@override  CVotePublicKey? get votePublicKey;@override  LedgerSigningPath? get votePublicKeyPath;@override  List<ParsedCVoteDelegation>? get delegations;@override  LedgerSigningPath get stakingPath;@override  ParsedOutputDestination get paymentDestination;@override  BigInt get nonce;@override  BigInt? get votingPurpose;
-@override @JsonKey(ignore: true)
+@override CIP36VoteRegistrationFormat get format;@override CVotePublicKey? get votePublicKey;@override LedgerSigningPath? get votePublicKeyPath;@override List<ParsedCVoteDelegation>? get delegations;@override LedgerSigningPath get stakingPath;@override ParsedOutputDestination get paymentDestination;@override BigInt get nonce;@override BigInt? get votingPurpose;
+/// Create a copy of ParsedCVoteRegistrationParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedCVoteRegistrationParamsImplCopyWith<_$ParsedCVoteRegistrationParamsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

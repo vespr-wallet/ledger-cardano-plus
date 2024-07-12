@@ -45,6 +45,8 @@ class _$ParsedOutputDestinationCopyWithImpl<$Res,$Val extends ParsedOutputDestin
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$ThirdPartyImplCopyWithImpl<$Res> extends _$ParsedOutputDestinationCopy
       : super(_value, _then);
 
 
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
   return _then(_$ThirdPartyImpl(
 addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
@@ -103,7 +107,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,addressHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith => __$$ThirdPartyImplCopyWithImpl<_$ThirdPartyImpl>(this, _$identity);
@@ -125,7 +131,9 @@ abstract class ThirdParty extends ParsedOutputDestination {
   
 
  String get addressHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -148,6 +156,8 @@ class __$$DeviceOwnedImplCopyWithImpl<$Res> extends _$ParsedOutputDestinationCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? addressParams = null,}) {
   return _then(_$DeviceOwnedImpl(
 addressParams: null == addressParams ? _value.addressParams : addressParams // ignore: cast_nullable_to_non_nullable
@@ -155,6 +165,8 @@ as ParsedAddressParams,
   ));
 }
 
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedAddressParamsCopyWith<$Res> get addressParams {
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,addressParams);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith => __$$DeviceOwnedImplCopyWithImpl<_$DeviceOwnedImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class DeviceOwned extends ParsedOutputDestination {
   
 
  ParsedAddressParams get addressParams;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutputDestination
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

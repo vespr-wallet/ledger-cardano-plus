@@ -45,6 +45,8 @@ class _$ParsedCertificateCopyWithImpl<$Res,$Val extends ParsedCertificate> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$StakeRegistrationImplCopyWithImpl<$Res> extends _$ParsedCertificateCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,}) {
   return _then(_$StakeRegistrationImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as ParsedCredential,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakeRegistrationImplCopyWith<_$StakeRegistrationImpl> get copyWith => __$$StakeRegistrationImplCopyWithImpl<_$StakeRegistrationImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class StakeRegistration extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakeRegistrationImplCopyWith<_$StakeRegistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$StakeRegistrationConwayImplCopyWithImpl<$Res> extends _$ParsedCertific
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,Object? deposit = null,}) {
   return _then(_$StakeRegistrationConwayImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -163,6 +175,8 @@ as BigInt,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -199,7 +213,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential,deposit);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakeRegistrationConwayImplCopyWith<_$StakeRegistrationConwayImpl> get copyWith => __$$StakeRegistrationConwayImplCopyWithImpl<_$StakeRegistrationConwayImpl>(this, _$identity);
@@ -221,7 +237,9 @@ abstract class StakeRegistrationConway extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential; BigInt get deposit;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakeRegistrationConwayImplCopyWith<_$StakeRegistrationConwayImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -244,6 +262,8 @@ class __$$StakeDeregistrationImplCopyWithImpl<$Res> extends _$ParsedCertificateC
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,}) {
   return _then(_$StakeDeregistrationImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -251,6 +271,8 @@ as ParsedCredential,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -286,7 +308,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakeDeregistrationImplCopyWith<_$StakeDeregistrationImpl> get copyWith => __$$StakeDeregistrationImplCopyWithImpl<_$StakeDeregistrationImpl>(this, _$identity);
@@ -308,7 +332,9 @@ abstract class StakeDeregistration extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakeDeregistrationImplCopyWith<_$StakeDeregistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -331,6 +357,8 @@ class __$$StakeDeregistrationConwayImplCopyWithImpl<$Res> extends _$ParsedCertif
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,Object? deposit = null,}) {
   return _then(_$StakeDeregistrationConwayImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -339,6 +367,8 @@ as BigInt,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -375,7 +405,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential,deposit);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakeDeregistrationConwayImplCopyWith<_$StakeDeregistrationConwayImpl> get copyWith => __$$StakeDeregistrationConwayImplCopyWithImpl<_$StakeDeregistrationConwayImpl>(this, _$identity);
@@ -397,7 +429,9 @@ abstract class StakeDeregistrationConway extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential; BigInt get deposit;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakeDeregistrationConwayImplCopyWith<_$StakeDeregistrationConwayImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -420,6 +454,8 @@ class __$$StakeDelegationImplCopyWithImpl<$Res> extends _$ParsedCertificateCopyW
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,Object? poolKeyHashHex = null,}) {
   return _then(_$StakeDelegationImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -428,6 +464,8 @@ as String,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -464,7 +502,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential,poolKeyHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakeDelegationImplCopyWith<_$StakeDelegationImpl> get copyWith => __$$StakeDelegationImplCopyWithImpl<_$StakeDelegationImpl>(this, _$identity);
@@ -486,7 +526,9 @@ abstract class StakeDelegation extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential; String get poolKeyHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakeDelegationImplCopyWith<_$StakeDelegationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -509,6 +551,8 @@ class __$$VoteDelegationImplCopyWithImpl<$Res> extends _$ParsedCertificateCopyWi
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakeCredential = null,Object? dRep = null,}) {
   return _then(_$VoteDelegationImpl(
 stakeCredential: null == stakeCredential ? _value.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
@@ -517,6 +561,8 @@ as ParsedDRep,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -524,7 +570,9 @@ $ParsedCredentialCopyWith<$Res> get stakeCredential {
   return $ParsedCredentialCopyWith<$Res>(_value.stakeCredential, (value) {
     return _then(_value.copyWith(stakeCredential: value) );
   });
-}@override
+}/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedDRepCopyWith<$Res> get dRep {
   
@@ -560,7 +608,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakeCredential,dRep);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$VoteDelegationImplCopyWith<_$VoteDelegationImpl> get copyWith => __$$VoteDelegationImplCopyWithImpl<_$VoteDelegationImpl>(this, _$identity);
@@ -582,7 +632,9 @@ abstract class VoteDelegation extends ParsedCertificate {
   
 
  ParsedCredential get stakeCredential; ParsedDRep get dRep;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$VoteDelegationImplCopyWith<_$VoteDelegationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -605,6 +657,8 @@ class __$$AuthorizeCommitteeHotImplCopyWithImpl<$Res> extends _$ParsedCertificat
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? coldCredential = null,Object? hotCredential = null,}) {
   return _then(_$AuthorizeCommitteeHotImpl(
 coldCredential: null == coldCredential ? _value.coldCredential : coldCredential // ignore: cast_nullable_to_non_nullable
@@ -613,6 +667,8 @@ as ParsedCredential,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get coldCredential {
@@ -620,7 +676,9 @@ $ParsedCredentialCopyWith<$Res> get coldCredential {
   return $ParsedCredentialCopyWith<$Res>(_value.coldCredential, (value) {
     return _then(_value.copyWith(coldCredential: value) );
   });
-}@override
+}/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get hotCredential {
   
@@ -656,7 +714,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,coldCredential,hotCredential);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$AuthorizeCommitteeHotImplCopyWith<_$AuthorizeCommitteeHotImpl> get copyWith => __$$AuthorizeCommitteeHotImplCopyWithImpl<_$AuthorizeCommitteeHotImpl>(this, _$identity);
@@ -678,7 +738,9 @@ abstract class AuthorizeCommitteeHot extends ParsedCertificate {
   
 
  ParsedCredential get coldCredential; ParsedCredential get hotCredential;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$AuthorizeCommitteeHotImplCopyWith<_$AuthorizeCommitteeHotImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -701,6 +763,8 @@ class __$$ResignCommitteeColdImplCopyWithImpl<$Res> extends _$ParsedCertificateC
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? coldCredential = null,Object? anchor = freezed,}) {
   return _then(_$ResignCommitteeColdImpl(
 coldCredential: null == coldCredential ? _value.coldCredential : coldCredential // ignore: cast_nullable_to_non_nullable
@@ -709,6 +773,8 @@ as ParsedAnchor?,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get coldCredential {
@@ -716,7 +782,9 @@ $ParsedCredentialCopyWith<$Res> get coldCredential {
   return $ParsedCredentialCopyWith<$Res>(_value.coldCredential, (value) {
     return _then(_value.copyWith(coldCredential: value) );
   });
-}@override
+}/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedAnchorCopyWith<$Res>? get anchor {
     if (_value.anchor == null) {
@@ -755,7 +823,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,coldCredential,anchor);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ResignCommitteeColdImplCopyWith<_$ResignCommitteeColdImpl> get copyWith => __$$ResignCommitteeColdImplCopyWithImpl<_$ResignCommitteeColdImpl>(this, _$identity);
@@ -777,7 +847,9 @@ abstract class ResignCommitteeCold extends ParsedCertificate {
   
 
  ParsedCredential get coldCredential; ParsedAnchor? get anchor;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ResignCommitteeColdImplCopyWith<_$ResignCommitteeColdImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -800,6 +872,8 @@ class __$$DRepRegistrationImplCopyWithImpl<$Res> extends _$ParsedCertificateCopy
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dRepCredential = null,Object? deposit = null,Object? anchor = freezed,}) {
   return _then(_$DRepRegistrationImpl(
 dRepCredential: null == dRepCredential ? _value.dRepCredential : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -809,6 +883,8 @@ as ParsedAnchor?,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get dRepCredential {
@@ -816,7 +892,9 @@ $ParsedCredentialCopyWith<$Res> get dRepCredential {
   return $ParsedCredentialCopyWith<$Res>(_value.dRepCredential, (value) {
     return _then(_value.copyWith(dRepCredential: value) );
   });
-}@override
+}/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedAnchorCopyWith<$Res>? get anchor {
     if (_value.anchor == null) {
@@ -856,7 +934,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,dRepCredential,deposit,anchor);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepRegistrationImplCopyWith<_$DRepRegistrationImpl> get copyWith => __$$DRepRegistrationImplCopyWithImpl<_$DRepRegistrationImpl>(this, _$identity);
@@ -878,7 +958,9 @@ abstract class DRepRegistration extends ParsedCertificate {
   
 
  ParsedCredential get dRepCredential; BigInt get deposit; ParsedAnchor? get anchor;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepRegistrationImplCopyWith<_$DRepRegistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -901,6 +983,8 @@ class __$$DRepDeregistrationImplCopyWithImpl<$Res> extends _$ParsedCertificateCo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dRepCredential = null,Object? deposit = null,}) {
   return _then(_$DRepDeregistrationImpl(
 dRepCredential: null == dRepCredential ? _value.dRepCredential : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -909,6 +993,8 @@ as BigInt,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get dRepCredential {
@@ -945,7 +1031,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,dRepCredential,deposit);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepDeregistrationImplCopyWith<_$DRepDeregistrationImpl> get copyWith => __$$DRepDeregistrationImplCopyWithImpl<_$DRepDeregistrationImpl>(this, _$identity);
@@ -967,7 +1055,9 @@ abstract class DRepDeregistration extends ParsedCertificate {
   
 
  ParsedCredential get dRepCredential; BigInt get deposit;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepDeregistrationImplCopyWith<_$DRepDeregistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -990,6 +1080,8 @@ class __$$DRepUpdateImplCopyWithImpl<$Res> extends _$ParsedCertificateCopyWithIm
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dRepCredential = null,Object? anchor = freezed,}) {
   return _then(_$DRepUpdateImpl(
 dRepCredential: null == dRepCredential ? _value.dRepCredential : dRepCredential // ignore: cast_nullable_to_non_nullable
@@ -998,6 +1090,8 @@ as ParsedAnchor?,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get dRepCredential {
@@ -1005,7 +1099,9 @@ $ParsedCredentialCopyWith<$Res> get dRepCredential {
   return $ParsedCredentialCopyWith<$Res>(_value.dRepCredential, (value) {
     return _then(_value.copyWith(dRepCredential: value) );
   });
-}@override
+}/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedAnchorCopyWith<$Res>? get anchor {
     if (_value.anchor == null) {
@@ -1044,7 +1140,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,dRepCredential,anchor);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepUpdateImplCopyWith<_$DRepUpdateImpl> get copyWith => __$$DRepUpdateImplCopyWithImpl<_$DRepUpdateImpl>(this, _$identity);
@@ -1066,7 +1164,9 @@ abstract class DRepUpdate extends ParsedCertificate {
   
 
  ParsedCredential get dRepCredential; ParsedAnchor? get anchor;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepUpdateImplCopyWith<_$DRepUpdateImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -1089,6 +1189,8 @@ class __$$StakePoolRegistrationImplCopyWithImpl<$Res> extends _$ParsedCertificat
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? pool = null,}) {
   return _then(_$StakePoolRegistrationImpl(
 pool: null == pool ? _value.pool : pool // ignore: cast_nullable_to_non_nullable
@@ -1096,6 +1198,8 @@ as ParsedPoolParams,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedPoolParamsCopyWith<$Res> get pool {
@@ -1131,7 +1235,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,pool);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakePoolRegistrationImplCopyWith<_$StakePoolRegistrationImpl> get copyWith => __$$StakePoolRegistrationImplCopyWithImpl<_$StakePoolRegistrationImpl>(this, _$identity);
@@ -1153,7 +1259,9 @@ abstract class StakePoolRegistration extends ParsedCertificate {
   
 
  ParsedPoolParams get pool;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakePoolRegistrationImplCopyWith<_$StakePoolRegistrationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -1176,6 +1284,8 @@ class __$$StakePoolRetirementImplCopyWithImpl<$Res> extends _$ParsedCertificateC
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,Object? retirementEpoch = null,}) {
   return _then(_$StakePoolRetirementImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -1184,6 +1294,8 @@ as BigInt,
   ));
 }
 
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -1220,7 +1332,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path,retirementEpoch);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakePoolRetirementImplCopyWith<_$StakePoolRetirementImpl> get copyWith => __$$StakePoolRetirementImplCopyWithImpl<_$StakePoolRetirementImpl>(this, _$identity);
@@ -1242,7 +1356,9 @@ abstract class StakePoolRetirement extends ParsedCertificate {
   
 
  LedgerSigningPath get path; BigInt get retirementEpoch;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCertificate
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakePoolRetirementImplCopyWith<_$StakePoolRetirementImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

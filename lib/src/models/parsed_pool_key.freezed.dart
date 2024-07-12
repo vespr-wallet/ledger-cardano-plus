@@ -45,6 +45,8 @@ class _$ParsedPoolKeyCopyWithImpl<$Res,$Val extends ParsedPoolKey> implements $P
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DeviceOwnedPoolKeyImplCopyWithImpl<$Res> extends _$ParsedPoolKeyCopyWi
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$DeviceOwnedPoolKeyImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith => __$$DeviceOwnedPoolKeyImplCopyWithImpl<_$DeviceOwnedPoolKeyImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class DeviceOwnedPoolKey extends ParsedPoolKey {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedPoolKeyImplCopyWith<_$DeviceOwnedPoolKeyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$ThirdPartyPoolKeyImplCopyWithImpl<$Res> extends _$ParsedPoolKeyCopyWit
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
   return _then(_$ThirdPartyPoolKeyImpl(
 hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,hashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith => __$$ThirdPartyPoolKeyImplCopyWithImpl<_$ThirdPartyPoolKeyImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class ThirdPartyPoolKey extends ParsedPoolKey {
   
 
  String get hashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ThirdPartyPoolKeyImplCopyWith<_$ThirdPartyPoolKeyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

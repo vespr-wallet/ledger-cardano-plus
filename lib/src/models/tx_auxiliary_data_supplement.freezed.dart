@@ -25,7 +25,9 @@ mixin _$TxAuxiliaryDataSupplement {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of TxAuxiliaryDataSupplement
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $TxAuxiliaryDataSupplementCopyWith<TxAuxiliaryDataSupplement> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$TxAuxiliaryDataSupplementCopyWithImpl<$Res,$Val extends TxAuxiliaryDataS
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of TxAuxiliaryDataSupplement
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? auxiliaryDataHashHex = null,Object? cip36VoteRegistrationSignatureHex = null,}) {
   return _then(_value.copyWith(
 auxiliaryDataHashHex: null == auxiliaryDataHashHex ? _value.auxiliaryDataHashHex : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res> extends _$TxAuxili
       : super(_value, _then);
 
 
+/// Create a copy of TxAuxiliaryDataSupplement
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? auxiliaryDataHashHex = null,Object? cip36VoteRegistrationSignatureHex = null,}) {
   return _then(_$TxAuxiliaryDataSupplementDataImpl(
 auxiliaryDataHashHex: null == auxiliaryDataHashHex ? _value.auxiliaryDataHashHex : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,auxiliaryDataHashHex,cip36VoteRegistrationSignatureHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of TxAuxiliaryDataSupplement
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$TxAuxiliaryDataSupplementDataImplCopyWith<_$TxAuxiliaryDataSupplementDataImpl> get copyWith => __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<_$TxAuxiliaryDataSupplementDataImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _TxAuxiliaryDataSupplementData extends TxAuxiliaryDataSupplement 
 
   
 
-@override  String get auxiliaryDataHashHex;@override  String get cip36VoteRegistrationSignatureHex;
-@override @JsonKey(ignore: true)
+@override String get auxiliaryDataHashHex;@override String get cip36VoteRegistrationSignatureHex;
+/// Create a copy of TxAuxiliaryDataSupplement
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$TxAuxiliaryDataSupplementDataImplCopyWith<_$TxAuxiliaryDataSupplementDataImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

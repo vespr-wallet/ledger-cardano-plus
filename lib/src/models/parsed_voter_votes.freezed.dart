@@ -25,7 +25,9 @@ mixin _$ParsedVoterVotes {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedVoterVotesCopyWith<ParsedVoterVotes> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedVoterVotesCopyWithImpl<$Res,$Val extends ParsedVoterVotes> impleme
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voter = null,Object? votes = null,}) {
   return _then(_value.copyWith(
 voter: null == voter ? _value.voter : voter // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as ParsedVoter,votes: null == votes ? _value.votes : votes // ignore: cast_nulla
 as List<ParsedVote>,
   )as $Val);
 }
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedVoterCopyWith<$Res> get voter {
@@ -87,6 +93,8 @@ class __$$ParsedVoterVotesImplCopyWithImpl<$Res> extends _$ParsedVoterVotesCopyW
       : super(_value, _then);
 
 
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voter = null,Object? votes = null,}) {
   return _then(_$ParsedVoterVotesImpl(
 voter: null == voter ? _value.voter : voter // ignore: cast_nullable_to_non_nullable
@@ -130,7 +138,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(_votes));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith => __$$ParsedVoterVotesImplCopyWithImpl<_$ParsedVoterVotesImpl>(this, _$identity);
@@ -151,8 +161,10 @@ abstract class _ParsedVoterVotes extends ParsedVoterVotes {
 
   
 
-@override  ParsedVoter get voter;@override  List<ParsedVote> get votes;
-@override @JsonKey(ignore: true)
+@override ParsedVoter get voter;@override List<ParsedVote> get votes;
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

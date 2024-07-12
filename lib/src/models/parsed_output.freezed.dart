@@ -25,7 +25,9 @@ mixin _$ParsedOutput {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedOutputCopyWith<ParsedOutput> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedOutputCopyWithImpl<$Res,$Val extends ParsedOutput> implements $Par
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? destination = null,Object? amount = null,Object? tokenBundle = null,}) {
   return _then(_value.copyWith(
 destination: null == destination ? _value.destination : destination // ignore: cast_nullable_to_non_nullable
@@ -59,6 +63,8 @@ as BigInt,tokenBundle: null == tokenBundle ? _value.tokenBundle : tokenBundle //
 as List<ParsedAssetGroup>,
   )as $Val);
 }
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedOutputDestinationCopyWith<$Res> get destination {
@@ -88,6 +94,8 @@ class __$$ParsedOutputAlonzoImplCopyWithImpl<$Res> extends _$ParsedOutputCopyWit
       : super(_value, _then);
 
 
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? destination = null,Object? amount = null,Object? tokenBundle = null,Object? datumHashHex = freezed,}) {
   return _then(_$ParsedOutputAlonzoImpl(
 destination: null == destination ? _value.destination : destination // ignore: cast_nullable_to_non_nullable
@@ -135,7 +143,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),const DeepCollectionEquality().hash(datumHashHex));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedOutputAlonzoImplCopyWith<_$ParsedOutputAlonzoImpl> get copyWith => __$$ParsedOutputAlonzoImplCopyWithImpl<_$ParsedOutputAlonzoImpl>(this, _$identity);
@@ -156,8 +166,10 @@ abstract class ParsedOutputAlonzo extends ParsedOutput {
 
   
 
-@override  ParsedOutputDestination get destination;@override  BigInt get amount;@override  List<ParsedAssetGroup> get tokenBundle; ParsedDatumHash? get datumHashHex;
-@override @JsonKey(ignore: true)
+@override ParsedOutputDestination get destination;@override BigInt get amount;@override List<ParsedAssetGroup> get tokenBundle; ParsedDatumHash? get datumHashHex;
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedOutputAlonzoImplCopyWith<_$ParsedOutputAlonzoImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -180,6 +192,8 @@ class __$$ParsedOutputBabbageImplCopyWithImpl<$Res> extends _$ParsedOutputCopyWi
       : super(_value, _then);
 
 
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? destination = null,Object? amount = null,Object? tokenBundle = null,Object? datum = freezed,Object? referenceScriptHex = freezed,}) {
   return _then(_$ParsedOutputBabbageImpl(
 destination: null == destination ? _value.destination : destination // ignore: cast_nullable_to_non_nullable
@@ -191,6 +205,8 @@ as String?,
   ));
 }
 
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedDatumCopyWith<$Res>? get datum {
@@ -239,7 +255,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),datum,referenceScriptHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedOutputBabbageImplCopyWith<_$ParsedOutputBabbageImpl> get copyWith => __$$ParsedOutputBabbageImplCopyWithImpl<_$ParsedOutputBabbageImpl>(this, _$identity);
@@ -260,8 +278,10 @@ abstract class ParsedOutputBabbage extends ParsedOutput {
 
   
 
-@override  ParsedOutputDestination get destination;@override  BigInt get amount;@override  List<ParsedAssetGroup> get tokenBundle; ParsedDatum? get datum; String? get referenceScriptHex;
-@override @JsonKey(ignore: true)
+@override ParsedOutputDestination get destination;@override BigInt get amount;@override List<ParsedAssetGroup> get tokenBundle; ParsedDatum? get datum; String? get referenceScriptHex;
+/// Create a copy of ParsedOutput
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedOutputBabbageImplCopyWith<_$ParsedOutputBabbageImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

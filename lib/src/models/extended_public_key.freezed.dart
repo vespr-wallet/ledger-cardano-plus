@@ -28,7 +28,9 @@ mixin _$ExtendedPublicKey {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ExtendedPublicKeyCopyWith<ExtendedPublicKey> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -54,6 +56,8 @@ class _$ExtendedPublicKeyCopyWithImpl<$Res,$Val extends ExtendedPublicKey> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ExtendedPublicKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? xPub = null,Object? acctXvk = null,Object? acctVk = null,Object? publicKeyHex = null,Object? chainCodeHex = null,}) {
   return _then(_value.copyWith(
 xPub: null == xPub ? _value.xPub : xPub // ignore: cast_nullable_to_non_nullable
@@ -86,6 +90,8 @@ class __$$ExtendedPublicKeyImplCopyWithImpl<$Res> extends _$ExtendedPublicKeyCop
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKey
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? xPub = null,Object? acctXvk = null,Object? acctVk = null,Object? publicKeyHex = null,Object? chainCodeHex = null,}) {
   return _then(_$ExtendedPublicKeyImpl(
 xPub: null == xPub ? _value.xPub : xPub // ignore: cast_nullable_to_non_nullable
@@ -132,7 +138,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,xPub,acctXvk,acctVk,publicKeyHex,chainCodeHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ExtendedPublicKeyImplCopyWith<_$ExtendedPublicKeyImpl> get copyWith => __$$ExtendedPublicKeyImplCopyWithImpl<_$ExtendedPublicKeyImpl>(this, _$identity);
@@ -153,11 +161,13 @@ abstract class _ExtendedPublicKey extends ExtendedPublicKey {
 
   
 
-@override // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
- String get xPub;@override // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
- String get acctXvk;@override // bech32 public key ; ED25519-BIP32 public key (32 bytes)
- String get acctVk;@override  String get publicKeyHex;@override  String get chainCodeHex;
-@override @JsonKey(ignore: true)
+// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+@override String get xPub;// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
+@override String get acctXvk;// bech32 public key ; ED25519-BIP32 public key (32 bytes)
+@override String get acctVk;@override String get publicKeyHex;@override String get chainCodeHex;
+/// Create a copy of ExtendedPublicKey
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ExtendedPublicKeyImplCopyWith<_$ExtendedPublicKeyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -193,6 +203,8 @@ class _$ExtendedPublicKeyRequestCopyWithImpl<$Res,$Val extends ExtendedPublicKey
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -216,6 +228,8 @@ class __$$ExtendedPublicKeyRequest_ShelleyImplCopyWithImpl<$Res> extends _$Exten
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? accountIndex = null,}) {
   return _then(_$ExtendedPublicKeyRequest_ShelleyImpl(
 accountIndex: null == accountIndex ? _value.accountIndex : accountIndex // ignore: cast_nullable_to_non_nullable
@@ -251,7 +265,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,accountIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ExtendedPublicKeyRequest_ShelleyImplCopyWith<_$ExtendedPublicKeyRequest_ShelleyImpl> get copyWith => __$$ExtendedPublicKeyRequest_ShelleyImplCopyWithImpl<_$ExtendedPublicKeyRequest_ShelleyImpl>(this, _$identity);
@@ -273,7 +289,9 @@ abstract class ExtendedPublicKeyRequest_Shelley extends ExtendedPublicKeyRequest
   
 
  int get accountIndex;
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ExtendedPublicKeyRequest_ShelleyImplCopyWith<_$ExtendedPublicKeyRequest_ShelleyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -292,6 +310,8 @@ class __$$ExtendedPublicKeyRequest_ByronImplCopyWithImpl<$Res> extends _$Extende
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -361,6 +381,8 @@ class __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<$Res> extends _$Extende
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? accountIndex = null,}) {
   return _then(_$ExtendedPublicKeyRequest_StakeImpl(
 accountIndex: null == accountIndex ? _value.accountIndex : accountIndex // ignore: cast_nullable_to_non_nullable
@@ -396,7 +418,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,accountIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ExtendedPublicKeyRequest_StakeImplCopyWith<_$ExtendedPublicKeyRequest_StakeImpl> get copyWith => __$$ExtendedPublicKeyRequest_StakeImplCopyWithImpl<_$ExtendedPublicKeyRequest_StakeImpl>(this, _$identity);
@@ -418,7 +442,9 @@ abstract class ExtendedPublicKeyRequest_Stake extends ExtendedPublicKeyRequest {
   
 
  int get accountIndex;
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ExtendedPublicKeyRequest_StakeImplCopyWith<_$ExtendedPublicKeyRequest_StakeImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -441,6 +467,8 @@ class __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<$Res> extends _$Extende
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? accountIndex = null,}) {
   return _then(_$ExtendedPublicKeyRequest_CIP36Impl(
 accountIndex: null == accountIndex ? _value.accountIndex : accountIndex // ignore: cast_nullable_to_non_nullable
@@ -476,7 +504,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,accountIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<_$ExtendedPublicKeyRequest_CIP36Impl> get copyWith => __$$ExtendedPublicKeyRequest_CIP36ImplCopyWithImpl<_$ExtendedPublicKeyRequest_CIP36Impl>(this, _$identity);
@@ -498,7 +528,9 @@ abstract class ExtendedPublicKeyRequest_CIP36 extends ExtendedPublicKeyRequest {
   
 
  int get accountIndex;
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ExtendedPublicKeyRequest_CIP36ImplCopyWith<_$ExtendedPublicKeyRequest_CIP36Impl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -521,6 +553,8 @@ class __$$ExtendedPublicKeyRequest_CustomImplCopyWithImpl<$Res> extends _$Extend
       : super(_value, _then);
 
 
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? customPath = null,}) {
   return _then(_$ExtendedPublicKeyRequest_CustomImpl(
 customPath: null == customPath ? _value._customPath : customPath // ignore: cast_nullable_to_non_nullable
@@ -562,7 +596,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_customPath));
 
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ExtendedPublicKeyRequest_CustomImplCopyWith<_$ExtendedPublicKeyRequest_CustomImpl> get copyWith => __$$ExtendedPublicKeyRequest_CustomImplCopyWithImpl<_$ExtendedPublicKeyRequest_CustomImpl>(this, _$identity);
@@ -584,7 +620,9 @@ abstract class ExtendedPublicKeyRequest_Custom extends ExtendedPublicKeyRequest 
   
 
  List<int> get customPath;
-@JsonKey(ignore: true)
+/// Create a copy of ExtendedPublicKeyRequest
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ExtendedPublicKeyRequest_CustomImplCopyWith<_$ExtendedPublicKeyRequest_CustomImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

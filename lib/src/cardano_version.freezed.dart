@@ -25,7 +25,9 @@ mixin _$CardanoVersion {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $CardanoVersionCopyWith<CardanoVersion> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$CardanoVersionCopyWithImpl<$Res,$Val extends CardanoVersion> implements 
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? testMode = null,Object? versionMajor = null,Object? versionMinor = null,Object? versionPatch = null,Object? locked = null,Object? flags = null,}) {
   return _then(_value.copyWith(
 testMode: null == testMode ? _value.testMode : testMode // ignore: cast_nullable_to_non_nullable
@@ -62,6 +66,8 @@ as bool,flags: null == flags ? _value.flags : flags // ignore: cast_nullable_to_
 as Flags,
   )as $Val);
 }
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $FlagsCopyWith<$Res> get flags {
@@ -91,6 +97,8 @@ class __$$CardanoVersionImplCopyWithImpl<$Res> extends _$CardanoVersionCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? testMode = null,Object? versionMajor = null,Object? versionMinor = null,Object? versionPatch = null,Object? locked = null,Object? flags = null,}) {
   return _then(_$CardanoVersionImpl(
 testMode: null == testMode ? _value.testMode : testMode // ignore: cast_nullable_to_non_nullable
@@ -143,7 +151,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,testMode,versionMajor,versionMinor,versionPatch,locked,flags);
 
-@JsonKey(ignore: true)
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith => __$$CardanoVersionImplCopyWithImpl<_$CardanoVersionImpl>(this, _$identity);
@@ -164,8 +174,10 @@ abstract class _CardanoVersion extends CardanoVersion {
 
   
 
-@override  bool get testMode;@override  int get versionMajor;@override  int get versionMinor;@override  int get versionPatch;@override  bool get locked;@override  Flags get flags;
-@override @JsonKey(ignore: true)
+@override bool get testMode;@override int get versionMajor;@override int get versionMinor;@override int get versionPatch;@override bool get locked;@override Flags get flags;
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

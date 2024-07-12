@@ -45,6 +45,8 @@ class _$ParsedSimpleNativeScriptCopyWithImpl<$Res,$Val extends ParsedSimpleNativ
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res> exten
       : super(_value, _then);
 
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl> get copyWith => __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class ParsedSimpleNativeScript_PubKeyDeviceOwned extends ParsedSimpleNa
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res> extend
       : super(_value, _then);
 
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
   return _then(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl(
 keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,keyHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl> get copyWith => __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class ParsedSimpleNativeScript_PubKeyThirdParty extends ParsedSimpleNat
   
 
  String get keyHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -235,6 +251,8 @@ class __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res> extends _
       : super(_value, _then);
 
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? slot = null,}) {
   return _then(_$ParsedSimpleNativeScript_InvalidBeforeImpl(
 slot: null == slot ? _value.slot : slot // ignore: cast_nullable_to_non_nullable
@@ -270,7 +288,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,slot);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<_$ParsedSimpleNativeScript_InvalidBeforeImpl> get copyWith => __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<_$ParsedSimpleNativeScript_InvalidBeforeImpl>(this, _$identity);
@@ -292,7 +312,9 @@ abstract class ParsedSimpleNativeScript_InvalidBefore extends ParsedSimpleNative
   
 
  BigInt get slot;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<_$ParsedSimpleNativeScript_InvalidBeforeImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -315,6 +337,8 @@ class __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res> extend
       : super(_value, _then);
 
 
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? slot = null,}) {
   return _then(_$ParsedSimpleNativeScript_InvalidHereafterImpl(
 slot: null == slot ? _value.slot : slot // ignore: cast_nullable_to_non_nullable
@@ -350,7 +374,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,slot);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<_$ParsedSimpleNativeScript_InvalidHereafterImpl> get copyWith => __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<_$ParsedSimpleNativeScript_InvalidHereafterImpl>(this, _$identity);
@@ -372,7 +398,9 @@ abstract class ParsedSimpleNativeScript_InvalidHereafter extends ParsedSimpleNat
   
 
  BigInt get slot;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedSimpleNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<_$ParsedSimpleNativeScript_InvalidHereafterImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

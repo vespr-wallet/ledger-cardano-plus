@@ -45,6 +45,8 @@ class _$ParsedPoolOwnerCopyWithImpl<$Res,$Val extends ParsedPoolOwner> implement
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DeviceOwnedPoolOwnerImplCopyWithImpl<$Res> extends _$ParsedPoolOwnerCo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$DeviceOwnedPoolOwnerImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedPoolOwnerImplCopyWith<_$DeviceOwnedPoolOwnerImpl> get copyWith => __$$DeviceOwnedPoolOwnerImplCopyWithImpl<_$DeviceOwnedPoolOwnerImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class DeviceOwnedPoolOwner extends ParsedPoolOwner {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedPoolOwnerImplCopyWith<_$DeviceOwnedPoolOwnerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$ThirdPartyPoolOwnerImplCopyWithImpl<$Res> extends _$ParsedPoolOwnerCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
   return _then(_$ThirdPartyPoolOwnerImpl(
 hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,hashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ThirdPartyPoolOwnerImplCopyWith<_$ThirdPartyPoolOwnerImpl> get copyWith => __$$ThirdPartyPoolOwnerImplCopyWithImpl<_$ThirdPartyPoolOwnerImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class ThirdPartyPoolOwner extends ParsedPoolOwner {
   
 
  String get hashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ThirdPartyPoolOwnerImplCopyWith<_$ThirdPartyPoolOwnerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

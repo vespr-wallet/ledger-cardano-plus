@@ -25,7 +25,9 @@ mixin _$ParsedVote {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedVoteCopyWith<ParsedVote> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedVoteCopyWithImpl<$Res,$Val extends ParsedVote> implements $ParsedV
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? govActionId = null,Object? votingProcedure = null,}) {
   return _then(_value.copyWith(
 govActionId: null == govActionId ? _value.govActionId : govActionId // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as ParsedGovActionId,votingProcedure: null == votingProcedure ? _value.votingPro
 as ParsedVotingProcedure,
   )as $Val);
 }
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedGovActionIdCopyWith<$Res> get govActionId {
@@ -65,7 +71,9 @@ $ParsedGovActionIdCopyWith<$Res> get govActionId {
   return $ParsedGovActionIdCopyWith<$Res>(_value.govActionId, (value) {
     return _then(_value.copyWith(govActionId: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedVotingProcedureCopyWith<$Res> get votingProcedure {
   
@@ -94,6 +102,8 @@ class __$$ParsedVoteImplCopyWithImpl<$Res> extends _$ParsedVoteCopyWithImpl<$Res
       : super(_value, _then);
 
 
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? govActionId = null,Object? votingProcedure = null,}) {
   return _then(_$ParsedVoteImpl(
 govActionId: null == govActionId ? _value.govActionId : govActionId // ignore: cast_nullable_to_non_nullable
@@ -131,7 +141,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,govActionId,votingProcedure);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith => __$$ParsedVoteImplCopyWithImpl<_$ParsedVoteImpl>(this, _$identity);
@@ -152,8 +164,10 @@ abstract class _ParsedVote extends ParsedVote {
 
   
 
-@override  ParsedGovActionId get govActionId;@override  ParsedVotingProcedure get votingProcedure;
-@override @JsonKey(ignore: true)
+@override ParsedGovActionId get govActionId;@override ParsedVotingProcedure get votingProcedure;
+/// Create a copy of ParsedVote
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedVoteImplCopyWith<_$ParsedVoteImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

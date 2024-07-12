@@ -25,7 +25,9 @@ mixin _$ThirdPartyAddressParams {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ThirdPartyAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ThirdPartyAddressParamsCopyWith<ThirdPartyAddressParams> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ThirdPartyAddressParamsCopyWithImpl<$Res,$Val extends ThirdPartyAddressP
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ThirdPartyAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
   return _then(_value.copyWith(
 addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$ThirdPartyAddressParamsImplCopyWithImpl<$Res> extends _$ThirdPartyAddr
       : super(_value, _then);
 
 
+/// Create a copy of ThirdPartyAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
   return _then(_$ThirdPartyAddressParamsImpl(
 addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
@@ -114,7 +120,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,addressHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ThirdPartyAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ThirdPartyAddressParamsImplCopyWith<_$ThirdPartyAddressParamsImpl> get copyWith => __$$ThirdPartyAddressParamsImplCopyWithImpl<_$ThirdPartyAddressParamsImpl>(this, _$identity);
@@ -135,8 +143,10 @@ abstract class _ThirdPartyAddressParams extends ThirdPartyAddressParams {
 
   
 
-@override  String get addressHex;
-@override @JsonKey(ignore: true)
+@override String get addressHex;
+/// Create a copy of ThirdPartyAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ThirdPartyAddressParamsImplCopyWith<_$ThirdPartyAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

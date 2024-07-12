@@ -25,7 +25,9 @@ mixin _$ScriptDataHash {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ScriptDataHashCopyWith<ScriptDataHash> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ScriptDataHashCopyWithImpl<$Res,$Val extends ScriptDataHash> implements 
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
   return _then(_value.copyWith(
 hexString: null == hexString ? _value.hexString : hexString // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$ScriptDataHashImplCopyWithImpl<$Res> extends _$ScriptDataHashCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
   return _then(_$ScriptDataHashImpl(
 hexString: null == hexString ? _value.hexString : hexString // ignore: cast_nullable_to_non_nullable
@@ -114,7 +120,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,hexString);
 
-@JsonKey(ignore: true)
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith => __$$ScriptDataHashImplCopyWithImpl<_$ScriptDataHashImpl>(this, _$identity);
@@ -135,8 +143,10 @@ abstract class _ScriptDataHash extends ScriptDataHash {
 
   
 
-@override  String get hexString;
-@override @JsonKey(ignore: true)
+@override String get hexString;
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ScriptDataHashImplCopyWith<_$ScriptDataHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

@@ -25,7 +25,9 @@ mixin _$VersionCompatibility {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of VersionCompatibility
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $VersionCompatibilityCopyWith<VersionCompatibility> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$VersionCompatibilityCopyWithImpl<$Res,$Val extends VersionCompatibility>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of VersionCompatibility
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? isCompatible = null,Object? recommendedVersion = freezed,Object? supportsNativeScriptHashDerivation = null,Object? supportsOperationalCertificateSigning = null,Object? supportsByronAddressDerivation = null,Object? supportsMary = null,Object? supportsCatalystRegistration = null,Object? supportsCIP36 = null,Object? supportsZeroTtl = null,Object? supportsPoolRegistrationAsOwner = null,Object? supportsPoolRegistrationAsOperator = null,Object? supportsPoolRetirement = null,Object? supportsMultisigTransaction = null,Object? supportsMint = null,Object? supportsAlonzo = null,Object? supportsReqSignersInOrdinaryTx = null,Object? supportsBabbage = null,Object? supportsCIP36Vote = null,Object? supportsConway = null,}) {
   return _then(_value.copyWith(
 isCompatible: null == isCompatible ? _value.isCompatible : isCompatible // ignore: cast_nullable_to_non_nullable
@@ -97,6 +101,8 @@ class __$$VersionCompatibilityImplCopyWithImpl<$Res> extends _$VersionCompatibil
       : super(_value, _then);
 
 
+/// Create a copy of VersionCompatibility
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? isCompatible = null,Object? recommendedVersion = freezed,Object? supportsNativeScriptHashDerivation = null,Object? supportsOperationalCertificateSigning = null,Object? supportsByronAddressDerivation = null,Object? supportsMary = null,Object? supportsCatalystRegistration = null,Object? supportsCIP36 = null,Object? supportsZeroTtl = null,Object? supportsPoolRegistrationAsOwner = null,Object? supportsPoolRegistrationAsOperator = null,Object? supportsPoolRetirement = null,Object? supportsMultisigTransaction = null,Object? supportsMint = null,Object? supportsAlonzo = null,Object? supportsReqSignersInOrdinaryTx = null,Object? supportsBabbage = null,Object? supportsCIP36Vote = null,Object? supportsConway = null,}) {
   return _then(_$VersionCompatibilityImpl(
 isCompatible: null == isCompatible ? _value.isCompatible : isCompatible // ignore: cast_nullable_to_non_nullable
@@ -168,7 +174,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hashAll([runtimeType,isCompatible,recommendedVersion,supportsNativeScriptHashDerivation,supportsOperationalCertificateSigning,supportsByronAddressDerivation,supportsMary,supportsCatalystRegistration,supportsCIP36,supportsZeroTtl,supportsPoolRegistrationAsOwner,supportsPoolRegistrationAsOperator,supportsPoolRetirement,supportsMultisigTransaction,supportsMint,supportsAlonzo,supportsReqSignersInOrdinaryTx,supportsBabbage,supportsCIP36Vote,supportsConway]);
 
-@JsonKey(ignore: true)
+/// Create a copy of VersionCompatibility
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$VersionCompatibilityImplCopyWith<_$VersionCompatibilityImpl> get copyWith => __$$VersionCompatibilityImplCopyWithImpl<_$VersionCompatibilityImpl>(this, _$identity);
@@ -189,8 +197,10 @@ abstract class _VersionCompatibility extends VersionCompatibility {
 
   
 
-@override  bool get isCompatible;@override  String? get recommendedVersion;@override  bool get supportsNativeScriptHashDerivation;@override  bool get supportsOperationalCertificateSigning;@override  bool get supportsByronAddressDerivation;@override  bool get supportsMary;@override  bool get supportsCatalystRegistration;@override  bool get supportsCIP36;@override  bool get supportsZeroTtl;@override  bool get supportsPoolRegistrationAsOwner;@override  bool get supportsPoolRegistrationAsOperator;@override  bool get supportsPoolRetirement;@override  bool get supportsMultisigTransaction;@override  bool get supportsMint;@override  bool get supportsAlonzo;@override  bool get supportsReqSignersInOrdinaryTx;@override  bool get supportsBabbage;@override  bool get supportsCIP36Vote;@override  bool get supportsConway;
-@override @JsonKey(ignore: true)
+@override bool get isCompatible;@override String? get recommendedVersion;@override bool get supportsNativeScriptHashDerivation;@override bool get supportsOperationalCertificateSigning;@override bool get supportsByronAddressDerivation;@override bool get supportsMary;@override bool get supportsCatalystRegistration;@override bool get supportsCIP36;@override bool get supportsZeroTtl;@override bool get supportsPoolRegistrationAsOwner;@override bool get supportsPoolRegistrationAsOperator;@override bool get supportsPoolRetirement;@override bool get supportsMultisigTransaction;@override bool get supportsMint;@override bool get supportsAlonzo;@override bool get supportsReqSignersInOrdinaryTx;@override bool get supportsBabbage;@override bool get supportsCIP36Vote;@override bool get supportsConway;
+/// Create a copy of VersionCompatibility
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$VersionCompatibilityImplCopyWith<_$VersionCompatibilityImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

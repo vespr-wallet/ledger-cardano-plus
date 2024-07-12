@@ -45,6 +45,8 @@ class _$DeviceOwnedAddressCopyWithImpl<$Res,$Val extends DeviceOwnedAddress> imp
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res> extends _$DeviceOwnedAdd
       : super(_value, _then);
 
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_$DeviceOwnedAddressByronImpl(
 type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
@@ -76,6 +80,8 @@ as AddressParamsByron,
   ));
 }
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $AddressParamsByronCopyWith<$Res> get params {
@@ -112,7 +118,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedAddressByronImplCopyWith<_$DeviceOwnedAddressByronImpl> get copyWith => __$$DeviceOwnedAddressByronImplCopyWithImpl<_$DeviceOwnedAddressByronImpl>(this, _$identity);
@@ -133,8 +141,10 @@ abstract class DeviceOwnedAddressByron extends DeviceOwnedAddress {
 
   
 
-@override  AddressByron get type;@override  AddressParamsByron get params;
-@JsonKey(ignore: true)
+@override AddressByron get type;@override AddressParamsByron get params;
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedAddressByronImplCopyWith<_$DeviceOwnedAddressByronImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -157,6 +167,8 @@ class __$$DeviceOwnedAddressBaseImplCopyWithImpl<$Res> extends _$DeviceOwnedAddr
       : super(_value, _then);
 
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_$DeviceOwnedAddressBaseImpl(
 type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
@@ -165,6 +177,8 @@ as AddressParamsBase,
   ));
 }
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $AddressParamsBaseCopyWith<$Res> get params {
@@ -201,7 +215,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedAddressBaseImplCopyWith<_$DeviceOwnedAddressBaseImpl> get copyWith => __$$DeviceOwnedAddressBaseImplCopyWithImpl<_$DeviceOwnedAddressBaseImpl>(this, _$identity);
@@ -222,8 +238,10 @@ abstract class DeviceOwnedAddressBase extends DeviceOwnedAddress {
 
   
 
-@override  AddressBase get type;@override  AddressParamsBase get params;
-@JsonKey(ignore: true)
+@override AddressBase get type;@override AddressParamsBase get params;
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedAddressBaseImplCopyWith<_$DeviceOwnedAddressBaseImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -246,6 +264,8 @@ class __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<$Res> extends _$DeviceOwn
       : super(_value, _then);
 
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_$DeviceOwnedAddressEnterpriseImpl(
 type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
@@ -254,6 +274,8 @@ as AddressParamsEnterprise,
   ));
 }
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $AddressParamsEnterpriseCopyWith<$Res> get params {
@@ -290,7 +312,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedAddressEnterpriseImplCopyWith<_$DeviceOwnedAddressEnterpriseImpl> get copyWith => __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<_$DeviceOwnedAddressEnterpriseImpl>(this, _$identity);
@@ -311,8 +335,10 @@ abstract class DeviceOwnedAddressEnterprise extends DeviceOwnedAddress {
 
   
 
-@override  AddressEnterprise get type;@override  AddressParamsEnterprise get params;
-@JsonKey(ignore: true)
+@override AddressEnterprise get type;@override AddressParamsEnterprise get params;
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedAddressEnterpriseImplCopyWith<_$DeviceOwnedAddressEnterpriseImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -335,6 +361,8 @@ class __$$DeviceOwnedAddressPointerImplCopyWithImpl<$Res> extends _$DeviceOwnedA
       : super(_value, _then);
 
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_$DeviceOwnedAddressPointerImpl(
 type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
@@ -343,6 +371,8 @@ as AddressParamsPointer,
   ));
 }
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $AddressParamsPointerCopyWith<$Res> get params {
@@ -379,7 +409,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedAddressPointerImplCopyWith<_$DeviceOwnedAddressPointerImpl> get copyWith => __$$DeviceOwnedAddressPointerImplCopyWithImpl<_$DeviceOwnedAddressPointerImpl>(this, _$identity);
@@ -400,8 +432,10 @@ abstract class DeviceOwnedAddressPointer extends DeviceOwnedAddress {
 
   
 
-@override  AddressPointer get type;@override  AddressParamsPointer get params;
-@JsonKey(ignore: true)
+@override AddressPointer get type;@override AddressParamsPointer get params;
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedAddressPointerImplCopyWith<_$DeviceOwnedAddressPointerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -424,6 +458,8 @@ class __$$DeviceOwnedAddressRewardImplCopyWithImpl<$Res> extends _$DeviceOwnedAd
       : super(_value, _then);
 
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
   return _then(_$DeviceOwnedAddressRewardImpl(
 type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
@@ -432,6 +468,8 @@ as AddressParamsReward,
   ));
 }
 
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $AddressParamsRewardCopyWith<$Res> get params {
@@ -468,7 +506,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-@JsonKey(ignore: true)
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DeviceOwnedAddressRewardImplCopyWith<_$DeviceOwnedAddressRewardImpl> get copyWith => __$$DeviceOwnedAddressRewardImplCopyWithImpl<_$DeviceOwnedAddressRewardImpl>(this, _$identity);
@@ -489,8 +529,10 @@ abstract class DeviceOwnedAddressReward extends DeviceOwnedAddress {
 
   
 
-@override  AddressReward get type;@override  AddressParamsReward get params;
-@JsonKey(ignore: true)
+@override AddressReward get type;@override AddressParamsReward get params;
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DeviceOwnedAddressRewardImplCopyWith<_$DeviceOwnedAddressRewardImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

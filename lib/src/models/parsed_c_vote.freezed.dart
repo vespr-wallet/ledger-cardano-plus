@@ -25,7 +25,9 @@ mixin _$ParsedCVote {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedCVoteCopyWith<ParsedCVote> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedCVoteCopyWithImpl<$Res,$Val extends ParsedCVote> implements $Parse
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voteCastDataHex = null,Object? witnessPath = null,}) {
   return _then(_value.copyWith(
 voteCastDataHex: null == voteCastDataHex ? _value.voteCastDataHex : voteCastDataHex // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as String,witnessPath: null == witnessPath ? _value.witnessPath : witnessPath //
 as LedgerSigningPath,
   )as $Val);
 }
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get witnessPath {
@@ -87,6 +93,8 @@ class __$$ParsedCVoteImplCopyWithImpl<$Res> extends _$ParsedCVoteCopyWithImpl<$R
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voteCastDataHex = null,Object? witnessPath = null,}) {
   return _then(_$ParsedCVoteImpl(
 voteCastDataHex: null == voteCastDataHex ? _value.voteCastDataHex : voteCastDataHex // ignore: cast_nullable_to_non_nullable
@@ -124,7 +132,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,voteCastDataHex,witnessPath);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedCVoteImplCopyWith<_$ParsedCVoteImpl> get copyWith => __$$ParsedCVoteImplCopyWithImpl<_$ParsedCVoteImpl>(this, _$identity);
@@ -145,8 +155,10 @@ abstract class _ParsedCVote extends ParsedCVote {
 
   
 
-@override  String get voteCastDataHex;@override  LedgerSigningPath get witnessPath;
-@override @JsonKey(ignore: true)
+@override String get voteCastDataHex;@override LedgerSigningPath get witnessPath;
+/// Create a copy of ParsedCVote
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedCVoteImplCopyWith<_$ParsedCVoteImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

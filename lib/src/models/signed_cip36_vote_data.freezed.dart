@@ -25,7 +25,9 @@ mixin _$SignedCIP36VoteData {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $SignedCIP36VoteDataCopyWith<SignedCIP36VoteData> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$SignedCIP36VoteDataCopyWithImpl<$Res,$Val extends SignedCIP36VoteData> i
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dataHashHex = null,Object? witnessPath = null,Object? witnessSignatureHex = null,}) {
   return _then(_value.copyWith(
 dataHashHex: null == dataHashHex ? _value.dataHashHex : dataHashHex // ignore: cast_nullable_to_non_nullable
@@ -59,6 +63,8 @@ as LedgerSigningPath,witnessSignatureHex: null == witnessSignatureHex ? _value.w
 as String,
   )as $Val);
 }
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get witnessPath {
@@ -88,6 +94,8 @@ class __$$SignedCIP36VoteDataImplCopyWithImpl<$Res> extends _$SignedCIP36VoteDat
       : super(_value, _then);
 
 
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dataHashHex = null,Object? witnessPath = null,Object? witnessSignatureHex = null,}) {
   return _then(_$SignedCIP36VoteDataImpl(
 dataHashHex: null == dataHashHex ? _value.dataHashHex : dataHashHex // ignore: cast_nullable_to_non_nullable
@@ -127,7 +135,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,dataHashHex,witnessPath,witnessSignatureHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SignedCIP36VoteDataImplCopyWith<_$SignedCIP36VoteDataImpl> get copyWith => __$$SignedCIP36VoteDataImplCopyWithImpl<_$SignedCIP36VoteDataImpl>(this, _$identity);
@@ -148,8 +158,10 @@ abstract class _SignedCIP36VoteData extends SignedCIP36VoteData {
 
   
 
-@override  String get dataHashHex;@override  LedgerSigningPath get witnessPath;@override  String get witnessSignatureHex;
-@override @JsonKey(ignore: true)
+@override String get dataHashHex;@override LedgerSigningPath get witnessPath;@override String get witnessSignatureHex;
+/// Create a copy of SignedCIP36VoteData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$SignedCIP36VoteDataImplCopyWith<_$SignedCIP36VoteDataImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

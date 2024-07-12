@@ -45,6 +45,8 @@ class _$SpendingDataSourceCopyWithImpl<$Res,$Val extends SpendingDataSource> imp
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -64,6 +66,8 @@ class __$$SpendingDataSourceNoneImplCopyWithImpl<$Res> extends _$SpendingDataSou
       : super(_value, _then);
 
 
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -133,6 +137,8 @@ class __$$SpendingDataSourcePathImplCopyWithImpl<$Res> extends _$SpendingDataSou
       : super(_value, _then);
 
 
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$SpendingDataSourcePathImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -140,6 +146,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -175,7 +183,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SpendingDataSourcePathImplCopyWith<_$SpendingDataSourcePathImpl> get copyWith => __$$SpendingDataSourcePathImplCopyWithImpl<_$SpendingDataSourcePathImpl>(this, _$identity);
@@ -197,7 +207,9 @@ abstract class SpendingDataSourcePath extends SpendingDataSource {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SpendingDataSourcePathImplCopyWith<_$SpendingDataSourcePathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -220,6 +232,8 @@ class __$$SpendingDataSourceScriptHashImplCopyWithImpl<$Res> extends _$SpendingD
       : super(_value, _then);
 
 
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
   return _then(_$SpendingDataSourceScriptHashImpl(
 scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -255,7 +269,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SpendingDataSourceScriptHashImplCopyWith<_$SpendingDataSourceScriptHashImpl> get copyWith => __$$SpendingDataSourceScriptHashImplCopyWithImpl<_$SpendingDataSourceScriptHashImpl>(this, _$identity);
@@ -277,7 +293,9 @@ abstract class SpendingDataSourceScriptHash extends SpendingDataSource {
   
 
  String get scriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SpendingDataSourceScriptHashImplCopyWith<_$SpendingDataSourceScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

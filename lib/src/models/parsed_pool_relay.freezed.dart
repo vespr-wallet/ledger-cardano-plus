@@ -45,6 +45,8 @@ class _$ParsedPoolRelayCopyWithImpl<$Res,$Val extends ParsedPoolRelay> implement
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$SingleHostIpAddrImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWi
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? port = freezed,Object? ipv4 = freezed,Object? ipv6 = freezed,}) {
   return _then(_$SingleHostIpAddrImpl(
 port: freezed == port ? _value.port : port // ignore: cast_nullable_to_non_nullable
@@ -107,7 +111,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,port,ipv4,ipv6);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith => __$$SingleHostIpAddrImplCopyWithImpl<_$SingleHostIpAddrImpl>(this, _$identity);
@@ -129,7 +135,9 @@ abstract class SingleHostIpAddr extends ParsedPoolRelay {
   
 
  int? get port; String? get ipv4; String? get ipv6;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -152,6 +160,8 @@ class __$$SingleHostNameImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWith
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? port = freezed,Object? dnsName = null,}) {
   return _then(_$SingleHostNameImpl(
 port: freezed == port ? _value.port : port // ignore: cast_nullable_to_non_nullable
@@ -189,7 +199,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,port,dnsName);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith => __$$SingleHostNameImplCopyWithImpl<_$SingleHostNameImpl>(this, _$identity);
@@ -211,7 +223,9 @@ abstract class SingleHostName extends ParsedPoolRelay {
   
 
  int? get port; String get dnsName;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -234,6 +248,8 @@ class __$$MultiHostImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWithImpl<
       : super(_value, _then);
 
 
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dnsName = null,}) {
   return _then(_$MultiHostImpl(
 dnsName: null == dnsName ? _value.dnsName : dnsName // ignore: cast_nullable_to_non_nullable
@@ -269,7 +285,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,dnsName);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith => __$$MultiHostImplCopyWithImpl<_$MultiHostImpl>(this, _$identity);
@@ -291,7 +309,9 @@ abstract class MultiHost extends ParsedPoolRelay {
   
 
  String get dnsName;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

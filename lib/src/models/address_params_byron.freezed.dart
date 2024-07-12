@@ -25,7 +25,9 @@ mixin _$AddressParamsByron {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $AddressParamsByronCopyWith<AddressParamsByron> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$AddressParamsByronCopyWithImpl<$Res,$Val extends AddressParamsByron> imp
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
   return _then(_value.copyWith(
 spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$AddressParamsByronImplCopyWithImpl<$Res> extends _$AddressParamsByronC
       : super(_value, _then);
 
 
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
   return _then(_$AddressParamsByronImpl(
 spendingPath: null == spendingPath ? _value._spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
@@ -120,7 +126,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_spendingPath));
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$AddressParamsByronImplCopyWith<_$AddressParamsByronImpl> get copyWith => __$$AddressParamsByronImplCopyWithImpl<_$AddressParamsByronImpl>(this, _$identity);
@@ -141,8 +149,10 @@ abstract class _AddressParamsByron extends AddressParamsByron {
 
   
 
-@override  List<int> get spendingPath;
-@override @JsonKey(ignore: true)
+@override List<int> get spendingPath;
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$AddressParamsByronImplCopyWith<_$AddressParamsByronImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

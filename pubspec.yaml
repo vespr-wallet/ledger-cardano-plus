@@ -7,7 +7,7 @@ issue_tracker: https://github.com/vespr-wallet/ledger-cardano/issues
 
 environment:
   sdk: ">=3.3.0 <4.0.0"
-  flutter: ">=3.22.0 <4.0.0"
+  flutter: ">=3.22.0"
 
 dependencies:
   flutter:
@@ -16,7 +16,6 @@ dependencies:
   ledger_flutter_plus: ^1.0.7
 
   freezed_annotation: ^2.4.1
-  collection: ^1.18.0
   bech32: ^0.2.2
   base_x: ^2.0.1
 

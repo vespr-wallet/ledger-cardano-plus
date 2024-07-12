@@ -25,7 +25,9 @@ mixin _$SignedTransactionData {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $SignedTransactionDataCopyWith<SignedTransactionData> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$SignedTransactionDataCopyWithImpl<$Res,$Val extends SignedTransactionDat
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? witnesses = null,Object? auxiliaryDataSupplement = freezed,}) {
   return _then(_value.copyWith(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -59,6 +63,8 @@ as List<Witness>,auxiliaryDataSupplement: freezed == auxiliaryDataSupplement ? _
 as TxAuxiliaryDataSupplement?,
   )as $Val);
 }
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement {
@@ -91,6 +97,8 @@ class __$$SignedTransactionDataImplCopyWithImpl<$Res> extends _$SignedTransactio
       : super(_value, _then);
 
 
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? witnesses = null,Object? auxiliaryDataSupplement = freezed,}) {
   return _then(_$SignedTransactionDataImpl(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -136,7 +144,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,txHashHex,const DeepCollectionEquality().hash(_witnesses),auxiliaryDataSupplement);
 
-@JsonKey(ignore: true)
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl> get copyWith => __$$SignedTransactionDataImplCopyWithImpl<_$SignedTransactionDataImpl>(this, _$identity);
@@ -157,8 +167,10 @@ abstract class _SignedTransactionData extends SignedTransactionData {
 
   
 
-@override  String get txHashHex;@override  List<Witness> get witnesses;@override  TxAuxiliaryDataSupplement? get auxiliaryDataSupplement;
-@override @JsonKey(ignore: true)
+@override String get txHashHex;@override List<Witness> get witnesses;@override TxAuxiliaryDataSupplement? get auxiliaryDataSupplement;
+/// Create a copy of SignedTransactionData
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

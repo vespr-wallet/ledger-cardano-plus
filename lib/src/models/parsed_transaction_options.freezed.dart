@@ -25,7 +25,9 @@ mixin _$ParsedTransactionOptions {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedTransactionOptionsCopyWithImpl<$Res,$Val extends ParsedTransaction
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
   return _then(_value.copyWith(
 tagCborSets: null == tagCborSets ? _value.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$ParsedTransactionOptionsImplCopyWithImpl<$Res> extends _$ParsedTransac
       : super(_value, _then);
 
 
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
   return _then(_$ParsedTransactionOptionsImpl(
 tagCborSets: null == tagCborSets ? _value.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
@@ -114,7 +120,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,tagCborSets);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl> get copyWith => __$$ParsedTransactionOptionsImplCopyWithImpl<_$ParsedTransactionOptionsImpl>(this, _$identity);
@@ -135,8 +143,10 @@ abstract class _ParsedTransactionOptions extends ParsedTransactionOptions {
 
   
 
-@override  bool get tagCborSets;
-@override @JsonKey(ignore: true)
+@override bool get tagCborSets;
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

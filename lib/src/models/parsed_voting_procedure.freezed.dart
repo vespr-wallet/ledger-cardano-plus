@@ -25,7 +25,9 @@ mixin _$ParsedVotingProcedure {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedVotingProcedureCopyWith<ParsedVotingProcedure> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedVotingProcedureCopyWithImpl<$Res,$Val extends ParsedVotingProcedur
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? vote = null,Object? anchor = freezed,}) {
   return _then(_value.copyWith(
 vote: null == vote ? _value.vote : vote // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as VoteOption,anchor: freezed == anchor ? _value.anchor : anchor // ignore: cast
 as ParsedAnchor?,
   )as $Val);
 }
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedAnchorCopyWith<$Res>? get anchor {
@@ -90,6 +96,8 @@ class __$$ParsedVotingProcedureImplCopyWithImpl<$Res> extends _$ParsedVotingProc
       : super(_value, _then);
 
 
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? vote = null,Object? anchor = freezed,}) {
   return _then(_$ParsedVotingProcedureImpl(
 vote: null == vote ? _value.vote : vote // ignore: cast_nullable_to_non_nullable
@@ -127,7 +135,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,vote,anchor);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl> get copyWith => __$$ParsedVotingProcedureImplCopyWithImpl<_$ParsedVotingProcedureImpl>(this, _$identity);
@@ -148,8 +158,10 @@ abstract class _ParsedVotingProcedure extends ParsedVotingProcedure {
 
   
 
-@override  VoteOption get vote;@override  ParsedAnchor? get anchor;
-@override @JsonKey(ignore: true)
+@override VoteOption get vote;@override ParsedAnchor? get anchor;
+/// Create a copy of ParsedVotingProcedure
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

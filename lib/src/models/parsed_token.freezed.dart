@@ -25,7 +25,9 @@ mixin _$ParsedToken {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedToken
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedTokenCopyWith<ParsedToken> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedTokenCopyWithImpl<$Res,$Val extends ParsedToken> implements $Parse
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedToken
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? assetNameHex = null,Object? amount = null,}) {
   return _then(_value.copyWith(
 assetNameHex: null == assetNameHex ? _value.assetNameHex : assetNameHex // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$ParsedTokenImplCopyWithImpl<$Res> extends _$ParsedTokenCopyWithImpl<$R
       : super(_value, _then);
 
 
+/// Create a copy of ParsedToken
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? assetNameHex = null,Object? amount = null,}) {
   return _then(_$ParsedTokenImpl(
 assetNameHex: null == assetNameHex ? _value.assetNameHex : assetNameHex // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,assetNameHex,amount);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedToken
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith => __$$ParsedTokenImplCopyWithImpl<_$ParsedTokenImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _ParsedToken extends ParsedToken {
 
   
 
-@override  String get assetNameHex;@override  BigInt get amount;
-@override @JsonKey(ignore: true)
+@override String get assetNameHex;@override BigInt get amount;
+/// Create a copy of ParsedToken
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedTokenImplCopyWith<_$ParsedTokenImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

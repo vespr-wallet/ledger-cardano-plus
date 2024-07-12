@@ -25,7 +25,9 @@ mixin _$ParsedComplexNativeScript {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedComplexNativeScriptCopyWith<ParsedComplexNativeScript> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedComplexNativeScriptCopyWithImpl<$Res,$Val extends ParsedComplexNat
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scripts = null,}) {
   return _then(_value.copyWith(
 scripts: null == scripts ? _value.scripts : scripts // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$ParsedComplexNativeScript_AllImplCopyWithImpl<$Res> extends _$ParsedCo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scripts = null,}) {
   return _then(_$ParsedComplexNativeScript_AllImpl(
 scripts: null == scripts ? _value._scripts : scripts // ignore: cast_nullable_to_non_nullable
@@ -120,7 +126,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedComplexNativeScript_AllImplCopyWith<_$ParsedComplexNativeScript_AllImpl> get copyWith => __$$ParsedComplexNativeScript_AllImplCopyWithImpl<_$ParsedComplexNativeScript_AllImpl>(this, _$identity);
@@ -141,8 +149,10 @@ abstract class ParsedComplexNativeScript_All extends ParsedComplexNativeScript {
 
   
 
-@override  List<ParsedNativeScript> get scripts;
-@override @JsonKey(ignore: true)
+@override List<ParsedNativeScript> get scripts;
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedComplexNativeScript_AllImplCopyWith<_$ParsedComplexNativeScript_AllImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -165,6 +175,8 @@ class __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<$Res> extends _$ParsedCo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scripts = null,}) {
   return _then(_$ParsedComplexNativeScript_AnyImpl(
 scripts: null == scripts ? _value._scripts : scripts // ignore: cast_nullable_to_non_nullable
@@ -206,7 +218,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedComplexNativeScript_AnyImplCopyWith<_$ParsedComplexNativeScript_AnyImpl> get copyWith => __$$ParsedComplexNativeScript_AnyImplCopyWithImpl<_$ParsedComplexNativeScript_AnyImpl>(this, _$identity);
@@ -227,8 +241,10 @@ abstract class ParsedComplexNativeScript_Any extends ParsedComplexNativeScript {
 
   
 
-@override  List<ParsedNativeScript> get scripts;
-@override @JsonKey(ignore: true)
+@override List<ParsedNativeScript> get scripts;
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedComplexNativeScript_AnyImplCopyWith<_$ParsedComplexNativeScript_AnyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -251,6 +267,8 @@ class __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<$Res> extends _$ParsedC
       : super(_value, _then);
 
 
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? requiredCount = null,Object? scripts = null,}) {
   return _then(_$ParsedComplexNativeScript_NOfKImpl(
 requiredCount: null == requiredCount ? _value.requiredCount : requiredCount // ignore: cast_nullable_to_non_nullable
@@ -294,7 +312,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,requiredCount,const DeepCollectionEquality().hash(_scripts));
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedComplexNativeScript_NOfKImplCopyWith<_$ParsedComplexNativeScript_NOfKImpl> get copyWith => __$$ParsedComplexNativeScript_NOfKImplCopyWithImpl<_$ParsedComplexNativeScript_NOfKImpl>(this, _$identity);
@@ -315,8 +335,10 @@ abstract class ParsedComplexNativeScript_NOfK extends ParsedComplexNativeScript 
 
   
 
- int get requiredCount;@override  List<ParsedNativeScript> get scripts;
-@override @JsonKey(ignore: true)
+ int get requiredCount;@override List<ParsedNativeScript> get scripts;
+/// Create a copy of ParsedComplexNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedComplexNativeScript_NOfKImplCopyWith<_$ParsedComplexNativeScript_NOfKImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

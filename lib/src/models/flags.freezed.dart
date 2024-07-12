@@ -25,7 +25,9 @@ mixin _$Flags {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of Flags
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $FlagsCopyWith<Flags> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$FlagsCopyWithImpl<$Res,$Val extends Flags> implements $FlagsCopyWith<$Re
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of Flags
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? isDebug = null,Object? isAppXS = null,}) {
   return _then(_value.copyWith(
 isDebug: null == isDebug ? _value.isDebug : isDebug // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$FlagsImplCopyWithImpl<$Res> extends _$FlagsCopyWithImpl<$Res, _$FlagsI
       : super(_value, _then);
 
 
+/// Create a copy of Flags
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? isDebug = null,Object? isAppXS = null,}) {
   return _then(_$FlagsImpl(
 isDebug: null == isDebug ? _value.isDebug : isDebug // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,isDebug,isAppXS);
 
-@JsonKey(ignore: true)
+/// Create a copy of Flags
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$FlagsImplCopyWith<_$FlagsImpl> get copyWith => __$$FlagsImplCopyWithImpl<_$FlagsImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _Flags extends Flags {
 
   
 
-@override  bool get isDebug;@override  bool get isAppXS;
-@override @JsonKey(ignore: true)
+@override bool get isDebug;@override bool get isAppXS;
+/// Create a copy of Flags
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$FlagsImplCopyWith<_$FlagsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

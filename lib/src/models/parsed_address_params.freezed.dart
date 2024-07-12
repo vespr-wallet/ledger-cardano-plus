@@ -45,6 +45,8 @@ class _$ParsedAddressParamsCopyWithImpl<$Res,$Val extends ParsedAddressParams> i
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$ByronAddressParamsImplCopyWithImpl<$Res> extends _$ParsedAddressParams
       : super(_value, _then);
 
 
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = null,}) {
   return _then(_$ByronAddressParamsImpl(
 spendingDataSource: null == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as SpendingDataSource,
   ));
 }
 
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,spendingDataSource);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith => __$$ByronAddressParamsImplCopyWithImpl<_$ByronAddressParamsImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class ByronAddressParams extends ParsedAddressParams {
   
 
  SpendingDataSource get spendingDataSource;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$ShelleyAddressParamsImplCopyWithImpl<$Res> extends _$ParsedAddressPara
       : super(_value, _then);
 
 
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? shelleyAddressParams = null,}) {
   return _then(_$ShelleyAddressParamsImpl(
 shelleyAddressParams: null == shelleyAddressParams ? _value.shelleyAddressParams : shelleyAddressParams // ignore: cast_nullable_to_non_nullable
@@ -162,6 +174,8 @@ as ShelleyAddressParamsData,
   ));
 }
 
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams {
@@ -197,7 +211,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,shelleyAddressParams);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ShelleyAddressParamsImplCopyWith<_$ShelleyAddressParamsImpl> get copyWith => __$$ShelleyAddressParamsImplCopyWithImpl<_$ShelleyAddressParamsImpl>(this, _$identity);
@@ -219,7 +235,9 @@ abstract class ShelleyAddressParams extends ParsedAddressParams {
   
 
  ShelleyAddressParamsData get shelleyAddressParams;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAddressParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$ShelleyAddressParamsImplCopyWith<_$ShelleyAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

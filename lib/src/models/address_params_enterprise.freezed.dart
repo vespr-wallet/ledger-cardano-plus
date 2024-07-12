@@ -25,7 +25,9 @@ mixin _$AddressParamsEnterprise {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $AddressParamsEnterpriseCopyWith<AddressParamsEnterprise> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,12 +53,16 @@ class _$AddressParamsEnterpriseCopyWithImpl<$Res,$Val extends AddressParamsEnter
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
   return _then(_value.copyWith(
 spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
 as SpendingParams,
   )as $Val);
 }
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $SpendingParamsCopyWith<$Res> get spendingPath {
@@ -86,6 +92,8 @@ class __$$AddressParamsEnterpriseImplCopyWithImpl<$Res> extends _$AddressParamsE
       : super(_value, _then);
 
 
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
   return _then(_$AddressParamsEnterpriseImpl(
 spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
@@ -121,7 +129,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,spendingPath);
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$AddressParamsEnterpriseImplCopyWith<_$AddressParamsEnterpriseImpl> get copyWith => __$$AddressParamsEnterpriseImplCopyWithImpl<_$AddressParamsEnterpriseImpl>(this, _$identity);
@@ -142,8 +152,10 @@ abstract class _AddressParamsEnterprise extends AddressParamsEnterprise {
 
   
 
-@override  SpendingParams get spendingPath;
-@override @JsonKey(ignore: true)
+@override SpendingParams get spendingPath;
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$AddressParamsEnterpriseImplCopyWith<_$AddressParamsEnterpriseImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

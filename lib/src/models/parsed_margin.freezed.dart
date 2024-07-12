@@ -25,7 +25,9 @@ mixin _$ParsedMargin {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedMargin
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedMarginCopyWith<ParsedMargin> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedMarginCopyWithImpl<$Res,$Val extends ParsedMargin> implements $Par
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedMargin
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? numerator = null,Object? denominator = null,}) {
   return _then(_value.copyWith(
 numerator: null == numerator ? _value.numerator : numerator // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$ParsedMarginImplCopyWithImpl<$Res> extends _$ParsedMarginCopyWithImpl<
       : super(_value, _then);
 
 
+/// Create a copy of ParsedMargin
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? numerator = null,Object? denominator = null,}) {
   return _then(_$ParsedMarginImpl(
 numerator: null == numerator ? _value.numerator : numerator // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,numerator,denominator);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedMargin
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith => __$$ParsedMarginImplCopyWithImpl<_$ParsedMarginImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _ParsedMargin extends ParsedMargin {
 
   
 
-@override  BigInt get numerator;@override  BigInt get denominator;
-@override @JsonKey(ignore: true)
+@override BigInt get numerator;@override BigInt get denominator;
+/// Create a copy of ParsedMargin
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

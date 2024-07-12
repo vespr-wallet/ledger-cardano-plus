@@ -45,6 +45,8 @@ class _$LedgerSigningPathCopyWithImpl<$Res,$Val extends LedgerSigningPath> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$LedgerSigningPath_ByronImplCopyWithImpl<$Res> extends _$LedgerSigningP
       : super(_value, _then);
 
 
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,}) {
   return _then(_$LedgerSigningPath_ByronImpl(
 account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
@@ -105,7 +109,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,account,address);
 
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$LedgerSigningPath_ByronImplCopyWith<_$LedgerSigningPath_ByronImpl> get copyWith => __$$LedgerSigningPath_ByronImplCopyWithImpl<_$LedgerSigningPath_ByronImpl>(this, _$identity);
@@ -127,7 +133,9 @@ abstract class LedgerSigningPath_Byron extends LedgerSigningPath {
   
 
  int get account; int get address;
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$LedgerSigningPath_ByronImplCopyWith<_$LedgerSigningPath_ByronImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -150,6 +158,8 @@ class __$$LedgerSigningPath_ShelleyImplCopyWithImpl<$Res> extends _$LedgerSignin
       : super(_value, _then);
 
 
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,Object? role = null,}) {
   return _then(_$LedgerSigningPath_ShelleyImpl(
 account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
@@ -189,7 +199,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,account,address,role);
 
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$LedgerSigningPath_ShelleyImplCopyWith<_$LedgerSigningPath_ShelleyImpl> get copyWith => __$$LedgerSigningPath_ShelleyImplCopyWithImpl<_$LedgerSigningPath_ShelleyImpl>(this, _$identity);
@@ -211,7 +223,9 @@ abstract class LedgerSigningPath_Shelley extends LedgerSigningPath {
   
 
  int get account; int get address; ShelleyAddressRole get role;
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$LedgerSigningPath_ShelleyImplCopyWith<_$LedgerSigningPath_ShelleyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -234,6 +248,8 @@ class __$$LedgerSigningPath_CIP36ImplCopyWithImpl<$Res> extends _$LedgerSigningP
       : super(_value, _then);
 
 
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,}) {
   return _then(_$LedgerSigningPath_CIP36Impl(
 account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
@@ -271,7 +287,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,account,address);
 
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => __$$LedgerSigningPath_CIP36ImplCopyWithImpl<_$LedgerSigningPath_CIP36Impl>(this, _$identity);
@@ -293,7 +311,9 @@ abstract class LedgerSigningPath_CIP36 extends LedgerSigningPath {
   
 
  int get account; int get address;
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -316,6 +336,8 @@ class __$$LedgerSigningPath_CustomImplCopyWithImpl<$Res> extends _$LedgerSigning
       : super(_value, _then);
 
 
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$LedgerSigningPath_CustomImpl(
 null == path ? _value._path : path // ignore: cast_nullable_to_non_nullable
@@ -357,7 +379,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_path));
 
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$LedgerSigningPath_CustomImplCopyWith<_$LedgerSigningPath_CustomImpl> get copyWith => __$$LedgerSigningPath_CustomImplCopyWithImpl<_$LedgerSigningPath_CustomImpl>(this, _$identity);
@@ -379,7 +403,9 @@ abstract class LedgerSigningPath_Custom extends LedgerSigningPath {
   
 
  List<int> get path;
-@JsonKey(ignore: true)
+/// Create a copy of LedgerSigningPath
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$LedgerSigningPath_CustomImplCopyWith<_$LedgerSigningPath_CustomImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

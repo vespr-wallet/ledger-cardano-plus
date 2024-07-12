@@ -183,10 +183,14 @@ Future<String> fetchReceiveAndChangeAddress(
   required int addressIndex,
 }) async {
   try {
-    final receiveAddress =
-        await cardanoApp.deriveReceiveAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
-    final changeAddress =
-        await cardanoApp.deriveChangeAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+    final receiveAddress = await cardanoApp.deriveReceiveAddress(
+      addressIndex: addressIndex,
+      network: CardanoNetwork.mainnet(),
+    );
+    final changeAddress = await cardanoApp.deriveChangeAddress(
+      addressIndex: addressIndex,
+      network: CardanoNetwork.mainnet(),
+    );
 
     return "Receive Address (1852'/1815'/0'/0/$addressIndex)\n$receiveAddress"
         "\n\nChange Address (1852'/1815'/0'/1/$addressIndex)\n$changeAddress";

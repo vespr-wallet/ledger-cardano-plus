@@ -25,7 +25,9 @@ mixin _$ParsedTransaction {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedTransactionCopyWith<ParsedTransaction> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedTransactionCopyWithImpl<$Res,$Val extends ParsedTransaction> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? network = null,Object? inputs = null,Object? outputs = null,Object? fee = null,Object? ttl = freezed,Object? certificates = freezed,Object? withdrawals = freezed,Object? auxiliaryData = freezed,Object? validityIntervalStart = freezed,Object? mint = freezed,Object? scriptDataHashHex = freezed,Object? collateralInputs = freezed,Object? requiredSigners = freezed,Object? includeNetworkId = freezed,Object? collateralOutput = freezed,Object? totalCollateral = freezed,Object? referenceInputs = freezed,Object? votingProcedures = freezed,Object? treasury = freezed,Object? donation = freezed,}) {
   return _then(_value.copyWith(
 network: null == network ? _value.network : network // ignore: cast_nullable_to_non_nullable
@@ -76,6 +80,8 @@ as BigInt?,donation: freezed == donation ? _value.donation : donation // ignore:
 as BigInt?,
   )as $Val);
 }
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $CardanoNetworkCopyWith<$Res> get network {
@@ -83,7 +89,9 @@ $CardanoNetworkCopyWith<$Res> get network {
   return $CardanoNetworkCopyWith<$Res>(_value.network, (value) {
     return _then(_value.copyWith(network: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData {
     if (_value.auxiliaryData == null) {
@@ -93,7 +101,9 @@ $ParsedTxAuxiliaryDataCopyWith<$Res>? get auxiliaryData {
   return $ParsedTxAuxiliaryDataCopyWith<$Res>(_value.auxiliaryData!, (value) {
     return _then(_value.copyWith(auxiliaryData: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex {
     if (_value.scriptDataHashHex == null) {
@@ -103,7 +113,9 @@ $ScriptDataHashCopyWith<$Res>? get scriptDataHashHex {
   return $ScriptDataHashCopyWith<$Res>(_value.scriptDataHashHex!, (value) {
     return _then(_value.copyWith(scriptDataHashHex: value) as $Val);
   });
-}@override
+}/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override
 @pragma('vm:prefer-inline')
 $ParsedOutputCopyWith<$Res>? get collateralOutput {
     if (_value.collateralOutput == null) {
@@ -135,6 +147,8 @@ class __$$ParsedTransactionImplCopyWithImpl<$Res> extends _$ParsedTransactionCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? network = null,Object? inputs = null,Object? outputs = null,Object? fee = null,Object? ttl = freezed,Object? certificates = freezed,Object? withdrawals = freezed,Object? auxiliaryData = freezed,Object? validityIntervalStart = freezed,Object? mint = freezed,Object? scriptDataHashHex = freezed,Object? collateralInputs = freezed,Object? requiredSigners = freezed,Object? includeNetworkId = freezed,Object? collateralOutput = freezed,Object? totalCollateral = freezed,Object? referenceInputs = freezed,Object? votingProcedures = freezed,Object? treasury = freezed,Object? donation = freezed,}) {
   return _then(_$ParsedTransactionImpl(
 network: null == network ? _value.network : network // ignore: cast_nullable_to_non_nullable
@@ -276,7 +290,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hashAll([runtimeType,network,const DeepCollectionEquality().hash(_inputs),const DeepCollectionEquality().hash(_outputs),fee,ttl,const DeepCollectionEquality().hash(_certificates),const DeepCollectionEquality().hash(_withdrawals),auxiliaryData,validityIntervalStart,const DeepCollectionEquality().hash(_mint),scriptDataHashHex,const DeepCollectionEquality().hash(_collateralInputs),const DeepCollectionEquality().hash(_requiredSigners),includeNetworkId,collateralOutput,totalCollateral,const DeepCollectionEquality().hash(_referenceInputs),const DeepCollectionEquality().hash(_votingProcedures),treasury,donation]);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedTransactionImplCopyWith<_$ParsedTransactionImpl> get copyWith => __$$ParsedTransactionImplCopyWithImpl<_$ParsedTransactionImpl>(this, _$identity);
@@ -297,8 +313,10 @@ abstract class _ParsedTransaction extends ParsedTransaction {
 
   
 
-@override  CardanoNetwork get network;@override  List<ParsedInput> get inputs;@override  List<ParsedOutput> get outputs;@override  BigInt get fee;@override  BigInt? get ttl;@override  List<ParsedCertificate>? get certificates;@override  List<ParsedWithdrawal>? get withdrawals;@override  ParsedTxAuxiliaryData? get auxiliaryData;@override  BigInt? get validityIntervalStart;@override  List<ParsedAssetGroup>? get mint;@override  ScriptDataHash? get scriptDataHashHex;@override  List<ParsedInput>? get collateralInputs;@override  List<ParsedRequiredSigner>? get requiredSigners;@override  bool? get includeNetworkId;@override  ParsedOutput? get collateralOutput;@override  BigInt? get totalCollateral;@override  List<ParsedInput>? get referenceInputs;@override  List<ParsedVoterVotes>? get votingProcedures;@override  BigInt? get treasury;@override  BigInt? get donation;
-@override @JsonKey(ignore: true)
+@override CardanoNetwork get network;@override List<ParsedInput> get inputs;@override List<ParsedOutput> get outputs;@override BigInt get fee;@override BigInt? get ttl;@override List<ParsedCertificate>? get certificates;@override List<ParsedWithdrawal>? get withdrawals;@override ParsedTxAuxiliaryData? get auxiliaryData;@override BigInt? get validityIntervalStart;@override List<ParsedAssetGroup>? get mint;@override ScriptDataHash? get scriptDataHashHex;@override List<ParsedInput>? get collateralInputs;@override List<ParsedRequiredSigner>? get requiredSigners;@override bool? get includeNetworkId;@override ParsedOutput? get collateralOutput;@override BigInt? get totalCollateral;@override List<ParsedInput>? get referenceInputs;@override List<ParsedVoterVotes>? get votingProcedures;@override BigInt? get treasury;@override BigInt? get donation;
+/// Create a copy of ParsedTransaction
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedTransactionImplCopyWith<_$ParsedTransactionImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

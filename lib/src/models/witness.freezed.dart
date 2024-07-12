@@ -25,7 +25,9 @@ mixin _$Witness {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $WitnessCopyWith<Witness> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$WitnessCopyWithImpl<$Res,$Val extends Witness> implements $WitnessCopyWi
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,Object? witnessSignatureHex = null,}) {
   return _then(_value.copyWith(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as LedgerSigningPath,witnessSignatureHex: null == witnessSignatureHex ? _value.w
 as String,
   )as $Val);
 }
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -87,6 +93,8 @@ class __$$WitnessImplCopyWithImpl<$Res> extends _$WitnessCopyWithImpl<$Res, _$Wi
       : super(_value, _then);
 
 
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,Object? witnessSignatureHex = null,}) {
   return _then(_$WitnessImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -124,7 +132,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path,witnessSignatureHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$WitnessImplCopyWith<_$WitnessImpl> get copyWith => __$$WitnessImplCopyWithImpl<_$WitnessImpl>(this, _$identity);
@@ -145,8 +155,10 @@ abstract class _Witness extends Witness {
 
   
 
-@override  LedgerSigningPath get path;@override  String get witnessSignatureHex;
-@override @JsonKey(ignore: true)
+@override LedgerSigningPath get path;@override String get witnessSignatureHex;
+/// Create a copy of Witness
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$WitnessImplCopyWith<_$WitnessImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

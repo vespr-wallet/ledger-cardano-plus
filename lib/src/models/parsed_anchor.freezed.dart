@@ -25,7 +25,9 @@ mixin _$ParsedAnchor {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedAnchorCopyWith<ParsedAnchor> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedAnchorCopyWithImpl<$Res,$Val extends ParsedAnchor> implements $Par
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
   return _then(_value.copyWith(
 url: null == url ? _value.url : url // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$ParsedAnchorImplCopyWithImpl<$Res> extends _$ParsedAnchorCopyWithImpl<
       : super(_value, _then);
 
 
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
   return _then(_$ParsedAnchorImpl(
 url: null == url ? _value.url : url // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,url,hashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith => __$$ParsedAnchorImplCopyWithImpl<_$ParsedAnchorImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _ParsedAnchor extends ParsedAnchor {
 
   
 
-@override  String get url;@override  String get hashHex;
-@override @JsonKey(ignore: true)
+@override String get url;@override String get hashHex;
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedAnchorImplCopyWith<_$ParsedAnchorImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

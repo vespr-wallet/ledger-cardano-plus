@@ -50,8 +50,6 @@ void main() {
       }
     });
 
-    return;
-
     group('Should successfully derive Shelley address - isAppXS true', () {
       for (var testCase in shelleyTestCases) {
         test(testCase.testName, () async {

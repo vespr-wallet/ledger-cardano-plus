@@ -45,6 +45,8 @@ class _$CardanoNetworkCopyWithImpl<$Res,$Val extends CardanoNetwork> implements 
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -64,6 +66,8 @@ class __$$NetworkMainnetImplCopyWithImpl<$Res> extends _$CardanoNetworkCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -129,6 +133,8 @@ class __$$NetworkLegacyTestnetImplCopyWithImpl<$Res> extends _$CardanoNetworkCop
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -194,6 +200,8 @@ class __$$NetworkPreProdImplCopyWithImpl<$Res> extends _$CardanoNetworkCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -259,6 +267,8 @@ class __$$NetworkPreviewImplCopyWithImpl<$Res> extends _$CardanoNetworkCopyWithI
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -324,6 +334,8 @@ class __$$NetworkConwayImplCopyWithImpl<$Res> extends _$CardanoNetworkCopyWithIm
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -393,6 +405,8 @@ class __$$NetworkCustomImplCopyWithImpl<$Res> extends _$CardanoNetworkCopyWithIm
       : super(_value, _then);
 
 
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? customNetworkId = null,Object? customNetworkMagic = null,Object? customPaymentBech32Hrp = null,Object? customStakeBech32Hrp = null,}) {
   return _then(_$NetworkCustomImpl(
 customNetworkId: null == customNetworkId ? _value.customNetworkId : customNetworkId // ignore: cast_nullable_to_non_nullable
@@ -434,7 +448,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,customNetworkId,customNetworkMagic,customPaymentBech32Hrp,customStakeBech32Hrp);
 
-@JsonKey(ignore: true)
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$NetworkCustomImplCopyWith<_$NetworkCustomImpl> get copyWith => __$$NetworkCustomImplCopyWithImpl<_$NetworkCustomImpl>(this, _$identity);
@@ -456,7 +472,9 @@ abstract class NetworkCustom extends CardanoNetwork {
   
 
  int get customNetworkId; int get customNetworkMagic; String get customPaymentBech32Hrp; String get customStakeBech32Hrp;
-@JsonKey(ignore: true)
+/// Create a copy of CardanoNetwork
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$NetworkCustomImplCopyWith<_$NetworkCustomImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

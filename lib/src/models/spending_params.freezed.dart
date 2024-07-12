@@ -45,6 +45,8 @@ class _$SpendingParamsCopyWithImpl<$Res,$Val extends SpendingParams> implements 
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$SpendingParamsPathImplCopyWithImpl<$Res> extends _$SpendingParamsCopyW
       : super(_value, _then);
 
 
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
   return _then(_$SpendingParamsPathImpl(
 spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get spendingPath {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,spendingPath);
 
-@JsonKey(ignore: true)
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SpendingParamsPathImplCopyWith<_$SpendingParamsPathImpl> get copyWith => __$$SpendingParamsPathImplCopyWithImpl<_$SpendingParamsPathImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class SpendingParamsPath extends SpendingParams {
   
 
  LedgerSigningPath get spendingPath;
-@JsonKey(ignore: true)
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SpendingParamsPathImplCopyWith<_$SpendingParamsPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$SpendingParamsScriptHashImplCopyWithImpl<$Res> extends _$SpendingParam
       : super(_value, _then);
 
 
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingScriptHashHex = null,}) {
   return _then(_$SpendingParamsScriptHashImpl(
 spendingScriptHashHex: null == spendingScriptHashHex ? _value.spendingScriptHashHex : spendingScriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,spendingScriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$SpendingParamsScriptHashImplCopyWith<_$SpendingParamsScriptHashImpl> get copyWith => __$$SpendingParamsScriptHashImplCopyWithImpl<_$SpendingParamsScriptHashImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class SpendingParamsScriptHash extends SpendingParams {
   
 
  String get spendingScriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of SpendingParams
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$SpendingParamsScriptHashImplCopyWith<_$SpendingParamsScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

@@ -25,7 +25,9 @@ mixin _$ParsedCVoteDelegation {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedCVoteDelegationCopyWith<ParsedCVoteDelegation> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedCVoteDelegationCopyWithImpl<$Res,$Val extends ParsedCVoteDelegatio
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? weight = null,}) {
   return _then(_value.copyWith(
 weight: null == weight ? _value.weight : weight // ignore: cast_nullable_to_non_nullable
@@ -79,6 +83,8 @@ class __$$PathDelegationImplCopyWithImpl<$Res> extends _$ParsedCVoteDelegationCo
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voteKeyPath = null,Object? weight = null,}) {
   return _then(_$PathDelegationImpl(
 voteKeyPath: null == voteKeyPath ? _value.voteKeyPath : voteKeyPath // ignore: cast_nullable_to_non_nullable
@@ -87,6 +93,8 @@ as int,
   ));
 }
 
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get voteKeyPath {
@@ -123,7 +131,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,voteKeyPath,weight);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$PathDelegationImplCopyWith<_$PathDelegationImpl> get copyWith => __$$PathDelegationImplCopyWithImpl<_$PathDelegationImpl>(this, _$identity);
@@ -144,8 +154,10 @@ abstract class PathDelegation extends ParsedCVoteDelegation {
 
   
 
- LedgerSigningPath get voteKeyPath;@override  int get weight;
-@override @JsonKey(ignore: true)
+ LedgerSigningPath get voteKeyPath;@override int get weight;
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$PathDelegationImplCopyWith<_$PathDelegationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -168,6 +180,8 @@ class __$$KeyDelegationImplCopyWithImpl<$Res> extends _$ParsedCVoteDelegationCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voteKey = null,Object? weight = null,}) {
   return _then(_$KeyDelegationImpl(
 voteKey: null == voteKey ? _value.voteKey : voteKey // ignore: cast_nullable_to_non_nullable
@@ -205,7 +219,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,voteKey,weight);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$KeyDelegationImplCopyWith<_$KeyDelegationImpl> get copyWith => __$$KeyDelegationImplCopyWithImpl<_$KeyDelegationImpl>(this, _$identity);
@@ -226,8 +242,10 @@ abstract class KeyDelegation extends ParsedCVoteDelegation {
 
   
 
- String get voteKey;@override  int get weight;
-@override @JsonKey(ignore: true)
+ String get voteKey;@override int get weight;
+/// Create a copy of ParsedCVoteDelegation
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$KeyDelegationImplCopyWith<_$KeyDelegationImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

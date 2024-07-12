@@ -45,6 +45,8 @@ class _$ParsedDRepCopyWithImpl<$Res,$Val extends ParsedDRep> implements $ParsedD
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$DRepKeyPathImplCopyWithImpl<$Res> extends _$ParsedDRepCopyWithImpl<$Re
       : super(_value, _then);
 
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$DRepKeyPathImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepKeyPathImplCopyWith<_$DRepKeyPathImpl> get copyWith => __$$DRepKeyPathImplCopyWithImpl<_$DRepKeyPathImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class DRepKeyPath extends ParsedDRep {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepKeyPathImplCopyWith<_$DRepKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$DRepKeyHashImplCopyWithImpl<$Res> extends _$ParsedDRepCopyWithImpl<$Re
       : super(_value, _then);
 
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
   return _then(_$DRepKeyHashImpl(
 keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,keyHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepKeyHashImplCopyWith<_$DRepKeyHashImpl> get copyWith => __$$DRepKeyHashImplCopyWithImpl<_$DRepKeyHashImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class DRepKeyHash extends ParsedDRep {
   
 
  String get keyHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepKeyHashImplCopyWith<_$DRepKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -235,6 +251,8 @@ class __$$DRepScriptHashImplCopyWithImpl<$Res> extends _$ParsedDRepCopyWithImpl<
       : super(_value, _then);
 
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
   return _then(_$DRepScriptHashImpl(
 scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -270,7 +288,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$DRepScriptHashImplCopyWith<_$DRepScriptHashImpl> get copyWith => __$$DRepScriptHashImplCopyWithImpl<_$DRepScriptHashImpl>(this, _$identity);
@@ -292,7 +312,9 @@ abstract class DRepScriptHash extends ParsedDRep {
   
 
  String get scriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$DRepScriptHashImplCopyWith<_$DRepScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -311,6 +333,8 @@ class __$$DRepAbstainImplCopyWithImpl<$Res> extends _$ParsedDRepCopyWithImpl<$Re
       : super(_value, _then);
 
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -376,6 +400,8 @@ class __$$DRepNoConfidenceImplCopyWithImpl<$Res> extends _$ParsedDRepCopyWithImp
       : super(_value, _then);
 
 
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
 
 
 

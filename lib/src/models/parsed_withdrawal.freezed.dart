@@ -25,7 +25,9 @@ mixin _$ParsedWithdrawal {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedWithdrawalCopyWith<ParsedWithdrawal> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedWithdrawalCopyWithImpl<$Res,$Val extends ParsedWithdrawal> impleme
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? amount = null,Object? stakeCredential = null,}) {
   return _then(_value.copyWith(
 amount: null == amount ? _value.amount : amount // ignore: cast_nullable_to_non_nullable
@@ -58,6 +62,8 @@ as BigInt,stakeCredential: null == stakeCredential ? _value.stakeCredential : st
 as ParsedCredential,
   )as $Val);
 }
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $ParsedCredentialCopyWith<$Res> get stakeCredential {
@@ -87,6 +93,8 @@ class __$$ParsedWithdrawalImplCopyWithImpl<$Res> extends _$ParsedWithdrawalCopyW
       : super(_value, _then);
 
 
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? amount = null,Object? stakeCredential = null,}) {
   return _then(_$ParsedWithdrawalImpl(
 amount: null == amount ? _value.amount : amount // ignore: cast_nullable_to_non_nullable
@@ -124,7 +132,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,amount,stakeCredential);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedWithdrawalImplCopyWith<_$ParsedWithdrawalImpl> get copyWith => __$$ParsedWithdrawalImplCopyWithImpl<_$ParsedWithdrawalImpl>(this, _$identity);
@@ -145,8 +155,10 @@ abstract class _ParsedWithdrawal extends ParsedWithdrawal {
 
   
 
-@override  BigInt get amount;@override  ParsedCredential get stakeCredential;
-@override @JsonKey(ignore: true)
+@override BigInt get amount;@override ParsedCredential get stakeCredential;
+/// Create a copy of ParsedWithdrawal
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedWithdrawalImplCopyWith<_$ParsedWithdrawalImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

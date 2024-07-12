@@ -45,6 +45,8 @@ class _$ParsedRequiredSignerCopyWithImpl<$Res,$Val extends ParsedRequiredSigner>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$RequiredSignerHashImplCopyWithImpl<$Res> extends _$ParsedRequiredSigne
       : super(_value, _then);
 
 
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
   return _then(_$RequiredSignerHashImpl(
 hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
@@ -103,7 +107,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,hashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith => __$$RequiredSignerHashImplCopyWithImpl<_$RequiredSignerHashImpl>(this, _$identity);
@@ -125,7 +131,9 @@ abstract class RequiredSignerHash extends ParsedRequiredSigner {
   
 
  String get hashHex;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -148,6 +156,8 @@ class __$$RequiredSignerPathImplCopyWithImpl<$Res> extends _$ParsedRequiredSigne
       : super(_value, _then);
 
 
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$RequiredSignerPathImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -155,6 +165,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith => __$$RequiredSignerPathImplCopyWithImpl<_$RequiredSignerPathImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class RequiredSignerPath extends ParsedRequiredSigner {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

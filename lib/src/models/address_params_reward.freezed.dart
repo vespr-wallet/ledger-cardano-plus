@@ -45,6 +45,8 @@ class _$AddressParamsRewardCopyWithImpl<$Res,$Val extends AddressParamsReward> i
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -68,6 +70,8 @@ class __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res> extends _$Address
       : super(_value, _then);
 
 
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakingPath = null,}) {
   return _then(_$AddressParamsRewardStakingPathImpl(
 stakingPath: null == stakingPath ? _value.stakingPath : stakingPath // ignore: cast_nullable_to_non_nullable
@@ -75,6 +79,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get stakingPath {
@@ -110,7 +116,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakingPath);
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$AddressParamsRewardStakingPathImplCopyWith<_$AddressParamsRewardStakingPathImpl> get copyWith => __$$AddressParamsRewardStakingPathImplCopyWithImpl<_$AddressParamsRewardStakingPathImpl>(this, _$identity);
@@ -132,7 +140,9 @@ abstract class AddressParamsRewardStakingPath extends AddressParamsReward {
   
 
  LedgerSigningPath get stakingPath;
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$AddressParamsRewardStakingPathImplCopyWith<_$AddressParamsRewardStakingPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -155,6 +165,8 @@ class __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<$Res> extends 
       : super(_value, _then);
 
 
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? stakingScriptHashHex = null,}) {
   return _then(_$AddressParamsRewardStakingScriptHashHexImpl(
 stakingScriptHashHex: null == stakingScriptHashHex ? _value.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -190,7 +202,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$AddressParamsRewardStakingScriptHashHexImplCopyWith<_$AddressParamsRewardStakingScriptHashHexImpl> get copyWith => __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<_$AddressParamsRewardStakingScriptHashHexImpl>(this, _$identity);
@@ -212,7 +226,9 @@ abstract class AddressParamsRewardStakingScriptHashHex extends AddressParamsRewa
   
 
  String get stakingScriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$AddressParamsRewardStakingScriptHashHexImplCopyWith<_$AddressParamsRewardStakingScriptHashHexImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

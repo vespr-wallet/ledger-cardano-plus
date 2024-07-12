@@ -45,6 +45,8 @@ class _$StakingDataSourceCopyWithImpl<$Res,$Val extends StakingDataSource> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 
 
 }
@@ -64,6 +66,8 @@ class __$$StakingDataSourceNoneImplCopyWithImpl<$Res> extends _$StakingDataSourc
       : super(_value, _then);
 
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 
 
 
@@ -133,6 +137,8 @@ class __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res> extends _$StakingDataSo
       : super(_value, _then);
 
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
   return _then(_$StakingDataSourceKeyPathImpl(
 path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
@@ -140,6 +146,8 @@ as LedgerSigningPath,
   ));
 }
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
@@ -175,7 +183,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,path);
 
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl> get copyWith => __$$StakingDataSourceKeyPathImplCopyWithImpl<_$StakingDataSourceKeyPathImpl>(this, _$identity);
@@ -197,7 +207,9 @@ abstract class StakingDataSourceKeyPath extends StakingDataSource {
   
 
  LedgerSigningPath get path;
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -220,6 +232,8 @@ class __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res> extends _$StakingDataSo
       : super(_value, _then);
 
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
   return _then(_$StakingDataSourceKeyHashImpl(
 keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
@@ -255,7 +269,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,keyHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl> get copyWith => __$$StakingDataSourceKeyHashImplCopyWithImpl<_$StakingDataSourceKeyHashImpl>(this, _$identity);
@@ -277,7 +293,9 @@ abstract class StakingDataSourceKeyHash extends StakingDataSource {
   
 
  String get keyHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -300,6 +318,8 @@ class __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res> extends _$Sta
       : super(_value, _then);
 
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
   return _then(_$StakingDataSourceBlockchainPointerImpl(
 blockIndex: null == blockIndex ? _value.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
@@ -339,7 +359,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakingDataSourceBlockchainPointerImplCopyWith<_$StakingDataSourceBlockchainPointerImpl> get copyWith => __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<_$StakingDataSourceBlockchainPointerImpl>(this, _$identity);
@@ -361,7 +383,9 @@ abstract class StakingDataSourceBlockchainPointer extends StakingDataSource {
   
 
  int get blockIndex; int get txIndex; int get certificateIndex;
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakingDataSourceBlockchainPointerImplCopyWith<_$StakingDataSourceBlockchainPointerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -384,6 +408,8 @@ class __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res> extends _$StakingDat
       : super(_value, _then);
 
 
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
   return _then(_$StakingDataSourceScriptHashImpl(
 scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
@@ -419,7 +445,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl> get copyWith => __$$StakingDataSourceScriptHashImplCopyWithImpl<_$StakingDataSourceScriptHashImpl>(this, _$identity);
@@ -441,7 +469,9 @@ abstract class StakingDataSourceScriptHash extends StakingDataSource {
   
 
  String get scriptHashHex;
-@JsonKey(ignore: true)
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 _$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

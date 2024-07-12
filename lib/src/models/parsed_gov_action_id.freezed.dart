@@ -25,7 +25,9 @@ mixin _$ParsedGovActionId {
 
 
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedGovActionId
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 $ParsedGovActionIdCopyWith<ParsedGovActionId> get copyWith => throw _privateConstructorUsedError;
 
 }
@@ -51,6 +53,8 @@ class _$ParsedGovActionIdCopyWithImpl<$Res,$Val extends ParsedGovActionId> imple
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+/// Create a copy of ParsedGovActionId
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? govActionIndex = null,}) {
   return _then(_value.copyWith(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -80,6 +84,8 @@ class __$$ParsedGovActionIdImplCopyWithImpl<$Res> extends _$ParsedGovActionIdCop
       : super(_value, _then);
 
 
+/// Create a copy of ParsedGovActionId
+/// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? govActionIndex = null,}) {
   return _then(_$ParsedGovActionIdImpl(
 txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
@@ -117,7 +123,9 @@ bool operator ==(Object other) {
 @override
 int get hashCode => Object.hash(runtimeType,txHashHex,govActionIndex);
 
-@JsonKey(ignore: true)
+/// Create a copy of ParsedGovActionId
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
 @override
 @pragma('vm:prefer-inline')
 _$$ParsedGovActionIdImplCopyWith<_$ParsedGovActionIdImpl> get copyWith => __$$ParsedGovActionIdImplCopyWithImpl<_$ParsedGovActionIdImpl>(this, _$identity);
@@ -138,8 +146,10 @@ abstract class _ParsedGovActionId extends ParsedGovActionId {
 
   
 
-@override  String get txHashHex;@override  int get govActionIndex;
-@override @JsonKey(ignore: true)
+@override String get txHashHex;@override int get govActionIndex;
+/// Create a copy of ParsedGovActionId
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 _$$ParsedGovActionIdImplCopyWith<_$ParsedGovActionIdImpl> get copyWith => throw _privateConstructorUsedError;
 
 }

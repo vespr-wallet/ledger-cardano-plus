@@ -7,6 +7,7 @@ export 'src/cardano_version.dart';
 // models
 export 'src/models/extended_public_key.dart';
 export 'src/models/ledger_signing_path.dart';
+export 'src/models/parsed_anchor.dart';
 export 'src/models/parsed_address_params.dart';
 export 'src/models/parsed_asset_group.dart';
 export 'src/models/parsed_certificate.dart';

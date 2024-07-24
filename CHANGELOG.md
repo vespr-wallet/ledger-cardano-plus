@@ -1,3 +1,7 @@
+## 0.1.3
+
+* Exposed additional classes publicly
+
 ## 0.1.2
 
 * Exposed additional classes publicly

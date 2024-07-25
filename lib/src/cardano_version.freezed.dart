@@ -117,7 +117,7 @@ as Flags,
 /// @nodoc
 
 
-class _$CardanoVersionImpl extends _CardanoVersion  with DiagnosticableTreeMixin {
+class _$CardanoVersionImpl extends _CardanoVersion  {
    _$CardanoVersionImpl({required this.testMode, required this.versionMajor, required this.versionMinor, required this.versionPatch, required this.locked, required this.flags}): super._();
 
   
@@ -130,17 +130,10 @@ class _$CardanoVersionImpl extends _CardanoVersion  with DiagnosticableTreeMixin
 @override final  Flags flags;
 
 @override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+String toString() {
   return 'CardanoVersion(testMode: $testMode, versionMajor: $versionMajor, versionMinor: $versionMinor, versionPatch: $versionPatch, locked: $locked, flags: $flags)';
 }
 
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  super.debugFillProperties(properties);
-  properties
-    ..add(DiagnosticsProperty('type', 'CardanoVersion'))
-    ..add(DiagnosticsProperty('testMode', testMode))..add(DiagnosticsProperty('versionMajor', versionMajor))..add(DiagnosticsProperty('versionMinor', versionMinor))..add(DiagnosticsProperty('versionPatch', versionPatch))..add(DiagnosticsProperty('locked', locked))..add(DiagnosticsProperty('flags', flags));
-}
 
 @override
 bool operator ==(Object other) {

@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 
-import 'package:flutter/services.dart';
 import 'package:ledger_cardano_plus/src/models/extended_public_key.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';

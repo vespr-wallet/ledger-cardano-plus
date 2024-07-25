@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano_plus/src/models/flags.dart';
 import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';

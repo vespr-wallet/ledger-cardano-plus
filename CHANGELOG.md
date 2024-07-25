@@ -1,3 +1,7 @@
+## 0.1.4 and 0.1.5
+
+* Small change to clear flutter imports where possible
+
 ## 0.1.3
 
 * Exposed additional classes publicly

@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:collection/collection.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 import 'utils/constants.dart';
 
 class CardanoTransformer extends LedgerTransformer {

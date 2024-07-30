@@ -1,3 +1,12 @@
+## 0.2.0
+
+* Very small change in API for onPermissionRequest
+* Exported more classes
+
+## 0.1.7
+
+* Updated one import
+
 ## 0.1.6
 
 * Changes in imports/exports

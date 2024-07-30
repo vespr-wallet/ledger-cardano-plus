@@ -1,10 +1,10 @@
 import 'dart:typed_data';
 import 'package:collection/collection.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
-import 'utils/constants.dart';
 
 class CardanoTransformer extends LedgerTransformer {
-  final ConnectionType connectionType;
+  final LedgerConnectionType connectionType;
   const CardanoTransformer(this.connectionType);
 
   @override
@@ -13,7 +13,7 @@ class CardanoTransformer extends LedgerTransformer {
       throw LedgerDeviceException(
         message: 'No response data from Ledger.',
         errorCode: -10,
-        connectionType: connectionType,
+        connectionType: connectionType.toSdk(),
       );
     }
 
@@ -22,7 +22,7 @@ class CardanoTransformer extends LedgerTransformer {
       throw LedgerDeviceException(
         message: 'Response data from Ledger is too short.',
         errorCode: -11,
-        connectionType: connectionType,
+        connectionType: connectionType.toSdk(),
       );
     }
 
@@ -35,13 +35,13 @@ class CardanoTransformer extends LedgerTransformer {
       throw LedgerDeviceException(
         message: unknownResponseCodeMessage,
         errorCode: statusCode,
-        connectionType: connectionType,
+        connectionType: connectionType.toSdk(),
       );
     } else if (responseCode != CardanoResponseCode.success) {
       throw LedgerDeviceException(
         message: responseCode.message,
         errorCode: responseCode.statusCode,
-        connectionType: connectionType,
+        connectionType: connectionType.toSdk(),
       );
     }
 

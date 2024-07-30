@@ -9,6 +9,7 @@ export 'src/models/parsed_asset_group.dart';
 export 'src/models/parsed_certificate.dart';
 export 'src/models/parsed_complex_native_script.dart';
 export 'src/models/parsed_credential.dart';
+export 'src/models/parsed_c_vote.dart';
 export 'src/models/parsed_drep.dart';
 export 'src/models/parsed_datum.dart';
 export 'src/models/parsed_input.dart';
@@ -31,13 +32,18 @@ export 'src/models/parsed_transaction_options.dart';
 export 'src/models/parsed_tx_auxiliary_data.dart';
 export 'src/models/parsed_withdrawal.dart';
 export 'src/models/script_data_hash.dart';
+export 'src/models/signed_cip36_vote_data.dart';
 export 'src/models/shelley_address_params.dart';
 export 'src/models/signed_transaction_data.dart';
 export 'src/models/spending_data_source.dart';
 export 'src/models/staking_data_source.dart';
 export 'src/models/transaction_signing_mode.dart';
+export 'src/models/version_compatibility.dart';
 
 // utils
 export 'src/utils/constants.dart';
 export 'src/utils/hex_utils.dart';
 export 'src/utils/cardano_networks.dart';
+export 'src/utils/ledger_device.dart';
+export 'src/utils/ledger_connection_type.dart';
+export 'src/utils/connection_error_type.dart';

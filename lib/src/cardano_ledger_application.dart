@@ -1,20 +1,8 @@
 import 'dart:typed_data';
 
+import 'package:ledger_cardano_plus/ledger_cardano_plus_models.dart';
 import 'package:ledger_cardano_plus/src/cardano_transformer.dart';
 import 'package:ledger_cardano_plus/src/cardano_version.dart';
-import 'package:ledger_cardano_plus/src/models/extended_public_key.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_c_vote.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_native_script.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_operational_certificate.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_signing_request.dart';
-import 'package:ledger_cardano_plus/src/models/shelley_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/signed_cip36_vote_data.dart';
-import 'package:ledger_cardano_plus/src/models/signed_transaction_data.dart';
-import 'package:ledger_cardano_plus/src/models/spending_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/staking_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
 import 'package:ledger_cardano_plus/src/operations/cardano_derive_address_operation.dart';
 import 'package:ledger_cardano_plus/src/operations/cardano_derive_native_script_hash_operation.dart';
 import 'package:ledger_cardano_plus/src/operations/cardano_get_serial_operation.dart';
@@ -26,12 +14,11 @@ import 'package:ledger_cardano_plus/src/operations/cardano_sign_transaction_oper
 import 'package:ledger_cardano_plus/src/operations/cardano_version_operation.dart';
 import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/conversion_utils.dart';
+import 'package:ledger_cardano_plus/src/utils/ledger_device_x.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' as sdk;
 
 CardanoLedger? _cardanoLedgerBle;
 CardanoLedger? _cardanoLedgerUsb;
@@ -39,34 +26,34 @@ CardanoLedger? _cardanoLedgerUsb;
 class CardanoLedger {
   static bool debugPrintEnabled = false;
 
-  final LedgerInterface ledger;
-  final ConnectionType connectionType;
-  final LedgerTransformer? transformer;
+  final LedgerConnectionType connectionType;
+  final sdk.LedgerInterface ledger;
+  final sdk.LedgerTransformer? transformer;
 
   static CardanoLedger ble({
-    required PermissionRequestCallback onPermissionRequest,
+    required Future<bool> Function({required bool unsupported}) onPermissionRequest,
   }) =>
       _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
 
   static CardanoLedger usb() => _cardanoLedgerUsb ??= CardanoLedger._usb();
 
   CardanoLedger._ble(
-    PermissionRequestCallback onPermissionRequest,
-  )   : connectionType = ConnectionType.ble,
-        transformer = const CardanoTransformer(ConnectionType.ble),
-        ledger = LedgerInterface.ble(
-          onPermissionRequest: onPermissionRequest,
+    Future<bool> Function({required bool unsupported}) onPermissionRequest,
+  )   : connectionType = LedgerConnectionType.bluetooth,
+        transformer = const CardanoTransformer(LedgerConnectionType.bluetooth),
+        ledger = sdk.LedgerInterface.ble(
+          onPermissionRequest: (state) => onPermissionRequest(unsupported: state == sdk.AvailabilityState.unsupported),
         );
 
   CardanoLedger._usb()
-      : connectionType = ConnectionType.usb,
-        transformer = const CardanoTransformer(ConnectionType.usb),
-        ledger = LedgerInterface.usb();
+      : connectionType = LedgerConnectionType.usb,
+        transformer = const CardanoTransformer(LedgerConnectionType.usb),
+        ledger = sdk.LedgerInterface.usb();
 
-  Stream<LedgerDevice> scanForDevices() => ledger.scan();
+  Stream<LedgerDevice> scanForDevices() => ledger.scan().map((device) => device.fromSdk());
 
   Future<CardanoLedgerConnection> connect(LedgerDevice device) async {
-    final ledgerConnection = await ledger.connect(device);
+    final ledgerConnection = await ledger.connect(device.toSdk());
     return CardanoLedgerConnection(
       connectionType: connectionType,
       ledgerConnection: ledgerConnection,
@@ -75,10 +62,10 @@ class CardanoLedger {
 
   Future<void> dispose() async {
     switch (connectionType) {
-      case ConnectionType.ble:
+      case LedgerConnectionType.bluetooth:
         _cardanoLedgerBle = null;
         break;
-      case ConnectionType.usb:
+      case LedgerConnectionType.usb:
         _cardanoLedgerUsb = null;
         break;
     }
@@ -87,17 +74,17 @@ class CardanoLedger {
 }
 
 class CardanoLedgerConnection {
-  final LedgerConnection _ledgerConnection;
-  final LedgerTransformer _transformer;
+  final sdk.LedgerConnection _ledgerConnection;
+  final sdk.LedgerTransformer _transformer;
 
-  final ConnectionType connectionType;
+  final LedgerConnectionType connectionType;
 
-  LedgerDevice get device => _ledgerConnection.device;
+  LedgerDevice get device => _ledgerConnection.device.fromSdk();
   bool get isDisconnected => _ledgerConnection.isDisconnected;
 
   CardanoLedgerConnection({
     required this.connectionType,
-    required LedgerConnection ledgerConnection,
+    required sdk.LedgerConnection ledgerConnection,
   })  : _ledgerConnection = ledgerConnection,
         _transformer = CardanoTransformer(connectionType);
 

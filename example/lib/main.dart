@@ -4,7 +4,6 @@ import 'package:example/sample_utils/operations.dart';
 import 'package:example/widgets/available_devices.dart';
 import 'package:flutter/material.dart';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 const _awaitingLedgerResponse = '[Awaiting Ledger Response...]';
@@ -41,8 +40,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late final CardanoLedger cardanoLedgerConnector = CardanoLedger.ble(
-    onPermissionRequest: (status) async {
-      if ([AvailabilityState.unsupported].contains(status)) {
+    onPermissionRequest: ({required bool unsupported}) async {
+      if (unsupported) {
         return false;
       }
 

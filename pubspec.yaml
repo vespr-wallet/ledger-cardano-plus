@@ -1,6 +1,6 @@
 name: ledger_cardano_plus
 description: A Ledger App Plugin for the Cardano blockchain, using Ledger Cardano Plus for device communication.
-version: 0.1.8
+version: 0.2.0
 homepage: https://github.com/vespr-wallet/ledger-cardano-plus
 repository: https://github.com/vespr-wallet/ledger-cardano-plus
 issue_tracker: https://github.com/vespr-wallet/ledger-cardano-plus/issues

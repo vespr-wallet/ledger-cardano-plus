@@ -1,5 +1,4 @@
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
 
 class SignOperationalCertificateTestCase {
   final String testName;

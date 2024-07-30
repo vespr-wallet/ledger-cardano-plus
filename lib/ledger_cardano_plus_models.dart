@@ -39,6 +39,11 @@ export 'src/models/spending_data_source.dart';
 export 'src/models/staking_data_source.dart';
 export 'src/models/transaction_signing_mode.dart';
 export 'src/models/version_compatibility.dart';
+export 'src/models/parsed_c_vote_registration_params.dart';
+export 'src/models/cvote_public_key.dart';
+export 'src/models/witness.dart';
+export 'src/models/tx_auxiliary_data_supplement.dart';
+export 'src/models/parsed_voter_votes.dart';
 
 // utils
 export 'src/utils/constants.dart';

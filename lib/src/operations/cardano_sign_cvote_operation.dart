@@ -1,9 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_c_vote.dart';
-import 'package:ledger_cardano_plus/src/models/signed_cip36_vote_data.dart';
-import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
 import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';

@@ -1,7 +1,4 @@
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/spending_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus_models.dart';
 
 class ByronTestCase {
   final String testName;

@@ -4,7 +4,7 @@ import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:bech32/bech32.dart';
-import 'package:ledger_flutter_plus/src/utils/buffer.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 Uint8List useBinaryWriter(Uint8List Function(ByteDataWriter writer) invoker) {
   final writer = ByteDataWriter();

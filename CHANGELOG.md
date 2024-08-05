@@ -1,3 +1,8 @@
+## 0.2.1
+
+* Updated min supported deps to fix some bugs
+* [Derive multiple xPubs] Changed to only request app version once
+
 ## 0.2.0
 
 * Very small change in API for onPermissionRequest

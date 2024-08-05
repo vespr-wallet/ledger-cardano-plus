@@ -31,27 +31,29 @@ class CardanoTransformer extends LedgerTransformer {
       (element) => element.statusCode == statusCode,
     );
 
-    if (responseCode == null) {
-      throw LedgerDeviceException(
-        message: unknownResponseCodeMessage,
-        errorCode: statusCode,
-        connectionType: connectionType.toSdk(),
-      );
-    } else if (responseCode != CardanoResponseCode.success) {
-      throw LedgerDeviceException(
-        message: responseCode.message,
-        errorCode: responseCode.statusCode,
-        connectionType: connectionType.toSdk(),
-      );
-    }
+    switch (responseCode) {
+      case CardanoResponseCode.success:
+        final output = <Uint8List>[];
+        for (var data in transform) {
+          int offset = (data.length >= 2) ? 2 : 0;
+          output.add(data.sublist(0, data.length - offset));
+        }
 
-    final output = <Uint8List>[];
-    for (var data in transform) {
-      int offset = (data.length >= 2) ? 2 : 0;
-      output.add(data.sublist(0, data.length - offset));
-    }
+        final result = Uint8List.fromList(output.expand((e) => e).toList());
+        return result;
 
-    final result = Uint8List.fromList(output.expand((e) => e).toList());
-    return result;
+      case null:
+        throw LedgerDeviceException(
+          message: unknownResponseCodeMessage,
+          errorCode: statusCode,
+          connectionType: connectionType.toSdk(),
+        );
+      default:
+        throw LedgerDeviceException(
+          message: responseCode.message,
+          errorCode: responseCode.statusCode,
+          connectionType: connectionType.toSdk(),
+        );
+    }
   }
 }

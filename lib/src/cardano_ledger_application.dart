@@ -150,11 +150,12 @@ class CardanoLedgerConnection {
     required List<ExtendedPublicKeyRequest> requests,
   }) async {
     final List<ExtendedPublicKey> xPubKeys = [];
+    final CardanoVersion deviceVersion = await getVersion();
+    
     for (final request in requests) {
       final List<int> derivationPaths = request.derivationPath;
       final int minSupportedVersionCode = request.minSupportedVersionCode;
 
-      final CardanoVersion deviceVersion = await getVersion();
       if (deviceVersion.versionCode < minSupportedVersionCode) {
         throw ValidationException(
           "Operation not supported by the device's Cardano app version. "

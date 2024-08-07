@@ -1,7 +1,8 @@
 import 'dart:typed_data';
-import 'package:collection/collection.dart';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+
+const _ledgerSuccessCode = 0x9000;
 
 class CardanoTransformer extends LedgerTransformer {
   final LedgerConnectionType connectionType;
@@ -27,12 +28,9 @@ class CardanoTransformer extends LedgerTransformer {
     }
 
     final statusCode = (lastItem[lastItem.length - 2] << 8) | lastItem[lastItem.length - 1];
-    final CardanoResponseCode? responseCode = CardanoResponseCode.values.firstWhereOrNull(
-      (element) => element.statusCode == statusCode,
-    );
 
-    switch (responseCode) {
-      case CardanoResponseCode.success:
+    switch (statusCode) {
+      case _ledgerSuccessCode:
         final output = <Uint8List>[];
         for (var data in transform) {
           int offset = (data.length >= 2) ? 2 : 0;
@@ -41,19 +39,8 @@ class CardanoTransformer extends LedgerTransformer {
 
         final result = Uint8List.fromList(output.expand((e) => e).toList());
         return result;
-
-      case null:
-        throw LedgerDeviceException(
-          message: unknownResponseCodeMessage,
-          errorCode: statusCode,
-          connectionType: connectionType.toSdk(),
-        );
       default:
-        throw LedgerDeviceException(
-          message: responseCode.message,
-          errorCode: responseCode.statusCode,
-          connectionType: connectionType.toSdk(),
-        );
+        throw LedgerCardanoResponseCodeException.fromLedgerStatusCode(statusCode);
     }
   }
 }

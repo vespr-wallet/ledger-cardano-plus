@@ -133,25 +133,6 @@ enum NativeScriptHashDisplayFormat {
 
 const unknownResponseCodeMessage = "Unknown error code";
 
-enum CardanoResponseCode {
-  success(0x9000, "Success"),
-  errMalformedRequestHeader(0x6E01, "Malformed request header"),
-  errBadCla(0x6E02, "Bad CLA (Command Link Assurance)"),
-  errUnknownIns(0x6E03, "Unknown instruction"),
-  errStillInCall(0x6E04, "Still in call"),
-  errInvalidRequestParameters(0x6E05, "Invalid request parameters"),
-  errInvalidState(0x6E06, "Invalid state"),
-  errInvalidData(0x6E07, "Invalid data"),
-  errInvalidBip44Path(0x6E08, "Invalid BIP44 path"),
-  errRejectedByUser(0x6E09, "Rejected by user"),
-  errRejectedByPolicy(0x6E10, "Rejected by policy"),
-  errDeviceLocked(0x6E11, "Device is locked");
-
-  final int statusCode;
-  final String message;
-  const CardanoResponseCode(this.statusCode, this.message);
-}
-
 enum InstructionType {
   deriveAddress(insValue: 0x11),
   getVersion(insValue: 0x00),

@@ -45,10 +45,12 @@ export 'src/models/witness.dart';
 export 'src/models/tx_auxiliary_data_supplement.dart';
 export 'src/models/parsed_voter_votes.dart';
 
+// errors
+export 'src/errors/ledger_cardano_error.dart';
+
 // utils
 export 'src/utils/constants.dart';
 export 'src/utils/hex_utils.dart';
 export 'src/utils/cardano_networks.dart';
 export 'src/utils/ledger_device.dart';
 export 'src/utils/ledger_connection_type.dart';
-export 'src/utils/connection_error_type.dart';

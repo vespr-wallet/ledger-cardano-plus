@@ -40,7 +40,7 @@ final testsAlonzo = [
             ScriptDataHash(hexString: 'ffd4d009f554ba4fd8ed1f1d703244819861a9d34fd4753bcf3ff32f043ce188'),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -102,7 +102,7 @@ final testsAlonzo = [
           )
         ],
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -151,7 +151,7 @@ final testsAlonzo = [
           )
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -215,7 +215,7 @@ final testsAlonzo = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -276,7 +276,7 @@ final testsAlonzo = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -326,7 +326,7 @@ final testsAlonzo = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -386,7 +386,7 @@ final testsAlonzo = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -438,7 +438,7 @@ final testsAlonzo = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -491,7 +491,7 @@ final testsAlonzo = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([harden + 1855, harden + 1815, harden + 0]),
       ],
@@ -554,7 +554,7 @@ final testsAlonzo = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -626,7 +626,7 @@ final testsBabbage = [
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -680,7 +680,7 @@ final testsBabbage = [
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -750,7 +750,7 @@ final testsBabbage = [
           hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
     ),
     expected: SignedTransactionData(
       txHashHex: '92f83ca3e05fb48ffe0f90e6d7ac653a684039476b4963984b84fdc6fecea67d',
@@ -801,7 +801,7 @@ final testsBabbage = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -854,7 +854,7 @@ final testsBabbage = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -907,7 +907,7 @@ final testsBabbage = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -972,7 +972,7 @@ final testsBabbage = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1076,7 +1076,7 @@ final testsBabbage = [
         ],
         validityIntervalStart: BigInt.from(7),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1172,7 +1172,7 @@ final testsBabbage = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1238,7 +1238,7 @@ final testsBabbage = [
             ScriptDataHash(hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7'),
         totalCollateral: BigInt.from(10),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1326,7 +1326,7 @@ final testsBabbage = [
           amount: BigInt.from(7120787),
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1436,7 +1436,7 @@ final testsBabbage = [
           ],
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1547,7 +1547,7 @@ final testsBabbage = [
         ),
         totalCollateral: BigInt.from(5),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1648,7 +1648,7 @@ final testsBabbage = [
           amount: BigInt.from(1),
         ),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1750,7 +1750,7 @@ final testsBabbage = [
         ),
         totalCollateral: BigInt.from(5),
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1800,7 +1800,7 @@ final testsByron = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1846,7 +1846,7 @@ final testsByron = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1897,7 +1897,7 @@ final testsByron = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1938,7 +1938,7 @@ final testsShelleyNoCertificates = [
         ],
         outputs: [],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -1978,7 +1978,7 @@ final testsShelleyNoCertificates = [
   //       ],
   //       outputs: [],
   //     ),
-  //     signingMode: TransactionSigningModes.ordinaryTransaction(),
+  //     signingMode: TransactionSigningModes.ordinaryTransaction,
   //     additionalWitnessPaths: [],
   //     options: ParsedTransactionOptions(
   //       tagCborSets: true,
@@ -2029,7 +2029,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2099,7 +2099,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2165,7 +2165,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2229,7 +2229,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2298,7 +2298,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2364,7 +2364,7 @@ final testsShelleyNoCertificates = [
           hashHex: 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2424,7 +2424,7 @@ final testsShelleyNoCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2484,7 +2484,7 @@ final testsShelleyNoCertificates = [
           hashHex: 'deadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeefdeadbeef',
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2546,7 +2546,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2605,7 +2605,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2674,7 +2674,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2751,7 +2751,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2823,7 +2823,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2891,7 +2891,7 @@ final testsShelleyWithCertificates = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -2958,7 +2958,7 @@ final testsConwayWithoutCertificates = [
         ],
         treasury: BigInt.from(27),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3009,7 +3009,7 @@ final testsConwayWithoutCertificates = [
         donation: BigInt.from(28),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3061,7 +3061,7 @@ final testsConwayWithoutCertificates = [
         donation: BigInt.from(28),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3123,7 +3123,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3177,7 +3177,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3285,7 +3285,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3361,7 +3361,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3423,7 +3423,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3488,7 +3488,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3542,7 +3542,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3604,7 +3604,7 @@ final testsConwayWithCertificates = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3661,7 +3661,7 @@ final testsMultisig = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 0, 0]),
       ],
@@ -3715,7 +3715,7 @@ final testsMultisig = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 2, 0]),
       ],
@@ -3768,7 +3768,7 @@ final testsMultisig = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 2, 0]),
       ],
@@ -3822,7 +3822,7 @@ final testsMultisig = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 2, 0]),
       ],
@@ -3875,7 +3875,7 @@ final testsMultisig = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 2, 0]),
       ],
@@ -3925,7 +3925,7 @@ final testsAllegra = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -3974,7 +3974,7 @@ final testsAllegra = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4060,7 +4060,7 @@ final testsMary = [
         ],
         validityIntervalStart: BigInt.from(7),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4164,7 +4164,7 @@ final testsMary = [
         ],
         validityIntervalStart: BigInt.from(7),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4224,7 +4224,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4306,7 +4306,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4370,7 +4370,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4442,7 +4442,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4505,7 +4505,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4576,7 +4576,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4682,7 +4682,7 @@ final testsMary = [
           ),
         ],
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -4800,7 +4800,7 @@ final testsAlonzoTrezorComparison = [
         ),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.multisigTransaction(),
+      signingMode: TransactionSigningModes.multisigTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 0, 0]),
         LedgerSigningPath.custom([1854 + harden, 1815 + harden, 0 + harden, 2, 0]),
@@ -4913,7 +4913,7 @@ final testsBabbageTrezorComparison = [
         ],
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.plutusTransaction(),
+      signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.shelley(
           account: 0,
@@ -4974,7 +4974,7 @@ final testsBabbageTrezorComparison = [
         validityIntervalStart: BigInt.from(47),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -5104,7 +5104,7 @@ final testsMultidelegation = [
         ),
         includeNetworkId: true,
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [
         LedgerSigningPath.shelley(
           account: 0,

@@ -7,7 +7,7 @@ Future<String> signTransaction(CardanoLedgerConnection cardanoApp) async {
   try {
     // Constructing the transaction to sign
     final txToSign = ParsedSigningRequest(
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       tx: ParsedTransaction(
         network: CardanoNetwork.mainnet(),
         inputs: [

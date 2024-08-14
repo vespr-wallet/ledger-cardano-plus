@@ -88,7 +88,7 @@ final testsCatalystRegistration = [
           ),
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -186,7 +186,7 @@ final testsCatalystRegistration = [
           ),
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -287,7 +287,7 @@ final testsCVoteRegistrationCIP36 = [
           ),
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
@@ -391,7 +391,7 @@ final testsCVoteRegistrationCIP36 = [
           ),
         ),
       ),
-      signingMode: TransactionSigningModes.ordinaryTransaction(),
+      signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(

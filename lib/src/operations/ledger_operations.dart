@@ -36,6 +36,7 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
         }
 
         if (CardanoLedger.debugPrintEnabled) {
+          // ignore: avoid_print
           print("$debugName: ${hex.encode(writer.toBytes())}");
         }
         return [writer.toBytes()];
@@ -51,6 +52,7 @@ class ResetOperation extends LedgerOperation<ByteDataReader> {
   @override
   Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
         if (CardanoLedger.debugPrintEnabled) {
+          // ignore: avoid_print
           print("ResetOperation command sent to ledger");
         }
         writer.writeUint8(claCardano);

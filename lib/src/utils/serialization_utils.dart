@@ -114,17 +114,6 @@ class SerializationUtils {
     writer.write(serializeUint64(optionFlags));
   }
 
-  static void _serializeSigningMode(ByteDataWriter writer, TransactionSigningModes mode) {
-    final void Function() invoker = switch (mode) {
-      OrdinaryTransaction() => () => writer.writeUint8(mode.value),
-      MultisigTransaction() => () => writer.writeUint8(mode.value),
-      PoolRegistrationAsOwner() => () => writer.writeUint8(mode.value),
-      PoolRegistrationAsOperator() => () => writer.writeUint8(mode.value),
-      PlutusTransaction() => () => writer.writeUint8(mode.value),
-    };
-    invoker();
-  }
-
   static Uint8List serializeTxInit({
     required ParsedTransaction tx,
     required TransactionSigningModes signingMode,
@@ -190,7 +179,7 @@ class SerializationUtils {
         writer.write(Uint8List(0));
       }
 
-      _serializeSigningMode(writer, signingMode);
+      writer.writeUint8(signingMode.value);
 
       writer.writeUint32(tx.inputs.length);
       writer.writeUint32(tx.outputs.length);
@@ -1057,7 +1046,7 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
   final additionalWitnessPaths = request.additionalWitnessPaths;
   final List<LedgerSigningPath> witnessPaths = [];
 
-  if (signingMode is! MultisigTransaction) {
+  if (signingMode != TransactionSigningModes.multisigTransaction) {
     for (final input in tx.inputs) {
       final path = input.path;
       if (path != null) {

@@ -41,7 +41,7 @@ $Res call({
 });
 
 
-$ParsedTransactionCopyWith<$Res> get tx;$TransactionSigningModesCopyWith<$Res> get signingMode;$ParsedTransactionOptionsCopyWith<$Res>? get options;
+$ParsedTransactionCopyWith<$Res> get tx;$ParsedTransactionOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc
@@ -77,15 +77,6 @@ $ParsedTransactionCopyWith<$Res> get tx {
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-$TransactionSigningModesCopyWith<$Res> get signingMode {
-  
-  return $TransactionSigningModesCopyWith<$Res>(_value.signingMode, (value) {
-    return _then(_value.copyWith(signingMode: value) as $Val);
-  });
-}/// Create a copy of ParsedSigningRequest
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
 $ParsedTransactionOptionsCopyWith<$Res>? get options {
     if (_value.options == null) {
     return null;
@@ -107,7 +98,7 @@ $Res call({
 });
 
 
-@override $ParsedTransactionCopyWith<$Res> get tx;@override $TransactionSigningModesCopyWith<$Res> get signingMode;@override $ParsedTransactionOptionsCopyWith<$Res>? get options;
+@override $ParsedTransactionCopyWith<$Res> get tx;@override $ParsedTransactionOptionsCopyWith<$Res>? get options;
 }
 
 /// @nodoc

@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Changed `TransactionSigningModes` from sealed class to enum
+
 ## 0.3.0
 
 - Improved error reporting (unexpected response status from ledger gets thrown as LedgerCardanoResponseCodeException)

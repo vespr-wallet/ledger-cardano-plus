@@ -74,22 +74,22 @@ class VersionCompatibility with _$VersionCompatibility {
     final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
     final void Function() invoker = switch (request.signingMode) {
-      PoolRegistrationAsOwner() when !compatibility.supportsPoolRegistrationAsOwner => () {
+      TransactionSigningModes.poolRegistrationAsOwner when !compatibility.supportsPoolRegistrationAsOwner => () {
           throw ValidationException(
             'Pool registration as owner not supported by Ledger app version ${version.versionName}.',
           );
         },
-      PoolRegistrationAsOperator() when !compatibility.supportsPoolRegistrationAsOperator => () {
+      TransactionSigningModes.poolRegistrationAsOperator when !compatibility.supportsPoolRegistrationAsOperator => () {
           throw ValidationException(
             'Pool registration as operator not supported by Ledger app version ${version.versionName}.',
           );
         },
-      MultisigTransaction() when !compatibility.supportsMultisigTransaction => () {
+      TransactionSigningModes.multisigTransaction when !compatibility.supportsMultisigTransaction => () {
           throw ValidationException(
             'Multisig transactions not supported by Ledger app version ${version.versionName}.',
           );
         },
-      PlutusTransaction() when !compatibility.supportsAlonzo => () {
+      TransactionSigningModes.plutusTransaction when !compatibility.supportsAlonzo => () {
           throw ValidationException(
             'Plutus transactions not supported by Ledger app version ${version.versionName}.',
           );

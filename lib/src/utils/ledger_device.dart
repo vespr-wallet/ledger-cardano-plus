@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/ledger_cardano_plus_models.dart';
+import 'package:ledger_cardano_plus/src/utils/ledger_connection_type.dart';
 
 part 'ledger_device.freezed.dart';
 
@@ -14,4 +14,3 @@ class LedgerDevice with _$LedgerDevice {
     required int rssi,
   }) = _LedgerDevice;
 }
-

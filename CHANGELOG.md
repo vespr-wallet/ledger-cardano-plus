@@ -1,3 +1,7 @@
+## 0.4.1
+
+- Isolated `LedgerConnectionType` extension methods in another file to avoid indirect UI imports for `ledger_cardano_plus_models.dart`
+
 ## 0.4.0
 
 - Changed `TransactionSigningModes` from sealed class to enum

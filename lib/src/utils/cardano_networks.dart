@@ -41,7 +41,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkCustom(customNetworkId: final customNetworkId) => customNetworkId,
   };
 
-late final String paymentBech32Hrp = switch (this) {
+  late final String paymentBech32Hrp = switch (this) {
     NetworkMainnet() => 'addr',
     NetworkLegacyTestnet() => 'addr_test',
     NetworkPreProd() => 'addr_test',
@@ -49,7 +49,7 @@ late final String paymentBech32Hrp = switch (this) {
     NetworkConway() => 'addr_test',
     NetworkCustom(customPaymentBech32Hrp: final customPaymentBech32Hrp) => customPaymentBech32Hrp,
   };
-  
+
   late final String stakeBech32Hrp = switch (this) {
     NetworkMainnet() => 'stake',
     NetworkLegacyTestnet() => 'stake_test',

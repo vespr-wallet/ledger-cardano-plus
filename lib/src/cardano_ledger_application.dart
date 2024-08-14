@@ -151,7 +151,7 @@ class CardanoLedgerConnection {
   }) async {
     final List<ExtendedPublicKey> xPubKeys = [];
     final CardanoVersion deviceVersion = await getVersion();
-    
+
     for (final request in requests) {
       final List<int> derivationPaths = request.derivationPath;
       final int minSupportedVersionCode = request.minSupportedVersionCode;

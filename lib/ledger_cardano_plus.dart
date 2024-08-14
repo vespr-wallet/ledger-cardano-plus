@@ -8,6 +8,9 @@ export 'src/cardano_version.dart';
 // models
 export 'ledger_cardano_plus_models.dart';
 
+// utils
+export 'src/utils/ledger_connection_type_x.dart';
+
 // operations
 export 'src/operations/cardano_derive_address_operation.dart';
 export 'src/operations/cardano_public_key_operation.dart';

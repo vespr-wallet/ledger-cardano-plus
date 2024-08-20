@@ -81,14 +81,14 @@ final testsAlonzo = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1054,14 +1054,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1118,14 +1118,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1214,14 +1214,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1280,14 +1280,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1306,14 +1306,14 @@ final testsBabbage = [
           destination: ParsedOutputDestination.deviceOwned(
             addressParams: ParsedAddressParams.shelley(
               shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                spendingDataSource: SpendingDataSource.path(
+                spendingDataSource: SpendingDataSourcePath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
                     role: ShelleyAddressRole.payment,
                   ),
                 ),
-                stakingDataSource: StakingDataSource.path(
+                stakingDataSource: StakingDataSource.keyPath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
@@ -1368,14 +1368,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1405,14 +1405,14 @@ final testsBabbage = [
           destination: ParsedOutputDestination.deviceOwned(
             addressParams: ParsedAddressParams.shelley(
               shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                spendingDataSource: SpendingDataSource.path(
+                spendingDataSource: SpendingDataSourcePath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
                     role: ShelleyAddressRole.payment,
                   ),
                 ),
-                stakingDataSource: StakingDataSource.path(
+                stakingDataSource: StakingDataSource.keyPath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
@@ -1478,14 +1478,14 @@ final testsBabbage = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -1515,14 +1515,14 @@ final testsBabbage = [
           destination: ParsedOutputDestination.deviceOwned(
             addressParams: ParsedAddressParams.shelley(
               shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                spendingDataSource: SpendingDataSource.path(
+                spendingDataSource: SpendingDataSourcePath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
                     role: ShelleyAddressRole.payment,
                   ),
                 ),
-                stakingDataSource: StakingDataSource.path(
+                stakingDataSource: StakingDataSource.keyPath(
                   path: LedgerSigningPath.shelley(
                     account: 0,
                     address: 0,
@@ -2078,14 +2078,14 @@ final testsShelleyNoCertificates = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -2148,7 +2148,7 @@ final testsShelleyNoCertificates = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -2215,7 +2215,7 @@ final testsShelleyNoCertificates = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -2279,7 +2279,7 @@ final testsShelleyNoCertificates = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.pointerKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -2340,14 +2340,14 @@ final testsShelleyNoCertificates = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 456,
                       address: 5000000,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 456,
                       address: 0,
@@ -4038,14 +4038,14 @@ final testsMary = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -4142,14 +4142,14 @@ final testsMary = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -4274,14 +4274,14 @@ final testsMary = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -4349,14 +4349,14 @@ final testsMary = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -4635,14 +4635,14 @@ final testsMary = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,

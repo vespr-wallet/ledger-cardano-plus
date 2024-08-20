@@ -1,3 +1,7 @@
+## 0.5.0
+
+- `ShelleyAddressParamsData` : Narrowed down the arguments being accepted for each individual union type to force the user to pass correct data
+
 ## 0.4.1
 
 - Isolated `LedgerConnectionType` extension methods in another file to avoid indirect UI imports for `ledger_cardano_plus_models.dart`

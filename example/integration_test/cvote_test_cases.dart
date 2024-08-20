@@ -38,14 +38,14 @@ final testsCatalystRegistration = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -69,9 +69,9 @@ final testsCatalystRegistration = [
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                       path: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment)),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.stake),
                   ),
                 ),
@@ -135,14 +135,14 @@ final testsCatalystRegistration = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -169,7 +169,7 @@ final testsCatalystRegistration = [
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -236,14 +236,14 @@ final testsCVoteRegistrationCIP36 = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -270,7 +270,7 @@ final testsCVoteRegistrationCIP36 = [
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -334,14 +334,14 @@ final testsCVoteRegistrationCIP36 = [
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
@@ -368,14 +368,14 @@ final testsCVoteRegistrationCIP36 = [
             paymentDestination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-                  spendingDataSource: SpendingDataSource.path(
+                  spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,
                       role: ShelleyAddressRole.payment,
                     ),
                   ),
-                  stakingDataSource: StakingDataSource.path(
+                  stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
                       address: 0,

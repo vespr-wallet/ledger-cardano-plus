@@ -11,13 +11,7 @@ sealed class StakingDataSource with _$StakingDataSource {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       StakingDataSourceNone() => () {},
-      StakingDataSourceKeyPath() => () {
-          validateBIP32Path(thisClass.path, 'path');
-        },
-      StakingDataSourceKeyHash() => () {
-          validateHexString(thisClass.keyHashHex, 'keyHashHex');
-          validateMaxStringLength(thisClass.keyHashHex, 'keyHashHex', stringLength64Bytes);
-        },
+      StakingDataSourceKey() => () {},
       StakingDataSourceBlockchainPointer() => () {
           validate32bitUnsignedInteger(thisClass.blockIndex, 'blockIndex');
           validate32bitUnsignedInteger(thisClass.txIndex, 'txIndex');
@@ -33,13 +27,23 @@ sealed class StakingDataSource with _$StakingDataSource {
 
   factory StakingDataSource.none() = StakingDataSourceNone;
 
-  factory StakingDataSource.path({
-    required LedgerSigningPath path,
-  }) = StakingDataSourceKeyPath;
+  factory StakingDataSource.key({
+    required StakingDataSourceKeyData data,
+  }) = StakingDataSourceKey;
 
-  factory StakingDataSource.keyHash({
+  static StakingDataSourceKey keyPath({
+    required LedgerSigningPath path,
+  }) =>
+      StakingDataSourceKey(
+        data: StakingDataSourceKeyData.path(path: path),
+      );
+
+  static StakingDataSourceKey keyHash({
     required String keyHashHex,
-  }) = StakingDataSourceKeyHash;
+  }) =>
+      StakingDataSourceKey(
+        data: StakingDataSourceKeyData.hash(keyHashHex: keyHashHex),
+      );
 
   factory StakingDataSource.blockchainPointer({
     required int blockIndex,
@@ -53,9 +57,34 @@ sealed class StakingDataSource with _$StakingDataSource {
 
   late final int stakingDataSourceValue = switch (this) {
     StakingDataSourceNone() => 0x11,
-    StakingDataSourceKeyPath() => 0x22,
-    StakingDataSourceKeyHash() => 0x33,
+    StakingDataSourceKey(data: final data) => data.stakingDataSourceValue,
     StakingDataSourceBlockchainPointer() => 0x44,
     StakingDataSourceScriptHash() => 0x55,
+  };
+}
+
+@freezed
+sealed class StakingDataSourceKeyData with _$StakingDataSourceKeyData {
+  StakingDataSourceKeyData._() {
+    switch (this) {
+      case StakingDataSourceKeyPath(path: final path):
+        validateBIP32Path(path, 'path');
+        break;
+      case StakingDataSourceKeyHash(keyHashHex: final keyHashHex):
+        validateHexString(keyHashHex, 'keyHashHex');
+        validateMaxStringLength(keyHashHex, 'keyHashHex', stringLength64Bytes);
+        break;
+    }
+  }
+  factory StakingDataSourceKeyData.path({
+    required LedgerSigningPath path,
+  }) = StakingDataSourceKeyPath;
+  factory StakingDataSourceKeyData.hash({
+    required String keyHashHex,
+  }) = StakingDataSourceKeyHash;
+
+  late final int stakingDataSourceValue = switch (this) {
+    StakingDataSourceKeyPath() => 0x22,
+    StakingDataSourceKeyHash() => 0x33,
   };
 }

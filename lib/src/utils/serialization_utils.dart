@@ -241,13 +241,18 @@ class SerializationUtils {
   static Uint8List serializeStakingDataSource(StakingDataSource dataSource) => useBinaryWriter((writer) {
         final void Function() invoker = switch (dataSource) {
           StakingDataSourceNone() => () {},
-          StakingDataSourceKeyPath() => () {
-              writer.writeUint8(dataSource.stakingDataSourceValue);
-              writerSerializedPath(writer, dataSource.path);
-            },
-          StakingDataSourceKeyHash() => () {
-              writer.writeUint8(dataSource.stakingDataSourceValue);
-              writeSerializedHex(writer, dataSource.keyHashHex);
+          StakingDataSourceKey() => () {
+              final keyContent = dataSource.data;
+              switch (keyContent) {
+                case StakingDataSourceKeyPath():
+                  writer.writeUint8(dataSource.stakingDataSourceValue);
+                  writerSerializedPath(writer, keyContent.path);
+                  break;
+                case StakingDataSourceKeyHash():
+                  writer.writeUint8(dataSource.stakingDataSourceValue);
+                  writeSerializedHex(writer, keyContent.keyHashHex);
+                  break;
+              }
             },
           StakingDataSourceScriptHash() => () {
               writer.writeUint8(dataSource.stakingDataSourceValue);

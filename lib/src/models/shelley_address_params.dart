@@ -9,40 +9,42 @@ part 'shelley_address_params.freezed.dart';
 @freezed
 sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
   ShelleyAddressParamsData._() {
-    final thisclass = this;
-    final void Function() invoker = switch (thisclass) {
-      RewardScript() => () => validateHexString(thisclass.stakingScriptHashHex, 'stakingScriptHashHex'),
-      _ => () => {}
-    };
-    invoker();
+    final thisObj = this;
+    switch (thisObj) {
+      case RewardScript():
+        validateHexString(thisObj.stakingScriptHashHex, 'stakingScriptHashHex');
+        break;
+      default:
+        break;
+    }
   }
 
   factory ShelleyAddressParamsData.basePaymentKeyStakeKey({
-    required SpendingDataSource spendingDataSource,
-    required StakingDataSource stakingDataSource,
+    required SpendingDataSourcePath spendingDataSource,
+    required StakingDataSourceKey stakingDataSource,
   }) = BasePaymentKeyStakeKey;
 
   factory ShelleyAddressParamsData.basePaymentScriptStakeKey({
-    required SpendingDataSource spendingDataSource,
-    required StakingDataSource stakingDataSource,
+    required SpendingDataSourceScriptHash spendingDataSource,
+    required StakingDataSourceKey stakingDataSource,
   }) = BasePaymentScriptStakeKey;
 
   factory ShelleyAddressParamsData.basePaymentKeyStakeScript({
-    required SpendingDataSource spendingDataSource,
-    required StakingDataSource stakingDataSource,
+    required SpendingDataSourcePath spendingDataSource,
+    required StakingDataSourceScriptHash stakingDataSource,
   }) = BasePaymentKeyStakeScript;
 
   factory ShelleyAddressParamsData.basePaymentScriptStakeScript({
-    required SpendingDataSource spendingDataSource,
-    required StakingDataSource stakingDataSource,
+    required SpendingDataSourceScriptHash spendingDataSource,
+    required StakingDataSourceScriptHash stakingDataSource,
   }) = BasePaymentScriptStakeScript;
 
   factory ShelleyAddressParamsData.enterpriseKey({
-    required SpendingDataSource spendingDataSource,
+    required SpendingDataSourcePath spendingDataSource,
   }) = EnterpriseKey;
 
   factory ShelleyAddressParamsData.enterpriseScript({
-    required SpendingDataSource spendingDataSource,
+    required SpendingDataSourceScriptHash spendingDataSource,
   }) = EnterpriseScript;
 
   factory ShelleyAddressParamsData.pointerKey({
@@ -56,7 +58,7 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
   }) = PointerScript;
 
   factory ShelleyAddressParamsData.rewardKey({
-    required StakingDataSource stakingDataSource,
+    required StakingDataSourceKey stakingDataSource,
   }) = RewardKey;
 
   factory ShelleyAddressParamsData.rewardScript({

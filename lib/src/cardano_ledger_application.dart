@@ -235,8 +235,8 @@ class CardanoLedgerConnection {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource: SpendingDataSource.path(path: bip32ChangePath),
-        stakingDataSource: StakingDataSource.path(path: bip32StakePath),
+        spendingDataSource: SpendingDataSourcePath(path: bip32ChangePath),
+        stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
 
@@ -278,8 +278,8 @@ class CardanoLedgerConnection {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
-        spendingDataSource: SpendingDataSource.path(path: bip32ReceivePath),
-        stakingDataSource: StakingDataSource.path(path: bip32StakePath),
+        spendingDataSource: SpendingDataSourcePath(path: bip32ReceivePath),
+        stakingDataSource: StakingDataSource.keyPath(path: bip32StakePath),
       ),
     );
 
@@ -312,7 +312,7 @@ class CardanoLedgerConnection {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.rewardKey(
-        stakingDataSource: StakingDataSource.path(path: path),
+        stakingDataSource: StakingDataSource.keyPath(path: path),
       ),
     );
 
@@ -346,7 +346,7 @@ class CardanoLedgerConnection {
 
     final params = ParsedAddressParams.shelley(
       shelleyAddressParams: ShelleyAddressParamsData.enterpriseKey(
-        spendingDataSource: SpendingDataSource.path(path: path),
+        spendingDataSource: SpendingDataSourcePath(path: path),
       ),
     );
 

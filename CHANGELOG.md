@@ -1,3 +1,7 @@
+## 0.5.1
+
+- Increased min ledger_flutter_plus version
+
 ## 0.5.0
 
 - `ShelleyAddressParamsData` : Narrowed down the arguments being accepted for each individual union type to force the user to pass correct data

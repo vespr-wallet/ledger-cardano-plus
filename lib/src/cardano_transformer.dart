@@ -1,6 +1,5 @@
 import 'dart:typed_data';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/ledger_connection_type_x.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 const _ledgerSuccessCode = 0x9000;

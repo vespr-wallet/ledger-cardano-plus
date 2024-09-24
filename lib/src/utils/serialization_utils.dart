@@ -578,7 +578,9 @@ class SerializationUtils {
   }
 
   static Uint8List serializeTxCertificate(
-      ParsedCertificate certificate, CardanoVersion version) {
+    ParsedCertificate certificate,
+    CardanoVersion version,
+  ) {
     if (!VersionCompatibility.checkVersionCompatibility(version)
         .supportsMultisigTransaction) {
       return serializeTxCertificatePreMultisig(certificate);

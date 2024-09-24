@@ -682,28 +682,26 @@ class SerializationUtils {
     writer.write(serializeCoin(coin));
   }
 
-  static Uint8List serializeDRep(ParsedDRep dRep) {
-    return useBinaryWriter((ByteDataWriter writer) {
-      final void Function() invoker = switch (dRep) {
-        DRepKeyPath() => () => {
-              writer.writeUint8(dRep.dRepValue),
-              writerSerializedPath(writer, dRep.path),
-            },
-        DRepKeyHash() => () => {
-              writer.writeUint8(dRep.dRepValue),
-              writeSerializedHex(writer, dRep.keyHashHex),
-            },
-        DRepScriptHash() => () => {
-              writer.writeUint8(dRep.dRepValue),
-              writeSerializedHex(writer, dRep.scriptHashHex),
-            },
-        DRepAbstain() => () => writer.writeUint8(dRep.dRepValue),
-        DRepNoConfidence() => () => writer.writeUint8(dRep.dRepValue),
-      };
-      invoker();
-      return writer.toBytes();
-    });
-  }
+  static Uint8List serializeDRep(ParsedDRep dRep) => useBinaryWriter(
+        (ByteDataWriter writer) {
+          writer.writeUint8(dRep.serializationType);
+          switch (dRep) {
+            case DRepKeyPath():
+              writerSerializedPath(writer, dRep.path);
+              break;
+            case DRepKeyHash():
+              writeSerializedHex(writer, dRep.keyHashHex);
+              break;
+            case DRepScriptHash():
+              writeSerializedHex(writer, dRep.scriptHashHex);
+              break;
+            case DRepAbstain():
+            case DRepNoConfidence():
+              break;
+          }
+          return writer.toBytes();
+        },
+      );
 
   static Uint8List serializeAnchor(ParsedAnchor? anchor) {
     return useBinaryWriter((ByteDataWriter writer) {

@@ -3,6 +3,30 @@ import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import '../sign_tx_test_cases.dart';
 import '../test_utils.dart';
 
+final _inputs = [
+  ParsedInput(
+    txHashHex:
+        '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+    outputIndex: 0,
+    path: LedgerSigningPath.shelley(
+      account: 0,
+      address: 0,
+      role: ShelleyAddressRole.payment,
+    ),
+  ),
+];
+
+final _outputs = [
+  ParsedOutput.alonzo(
+    destination: ParsedOutputDestination.thirdParty(
+      addressHex: base58ToHex(
+        'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
+      ),
+    ),
+    amount: BigInt.from(3003112),
+  ),
+];
+
 final testsConwayWithCertificates = [
   SignTxTestCase(
     testName: 'Sign tx with a stake registration path certificate --- Conway',
@@ -11,28 +35,8 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [
-          ParsedOutput.alonzo(
-            destination: ParsedOutputDestination.thirdParty(
-              addressHex: base58ToHex(
-                'Ae2tdPwUPEZCanmBz5g2GEwFqKTKpNJcGYPKfDxoNeKZ8bRHr8366kseiK2',
-              ),
-            ),
-            amount: BigInt.from(3003112),
-          ),
-        ],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.stakeRegistrationConway(
             stakeCredential: ParsedCredential.keyPath(
@@ -83,34 +87,20 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.stakeDeregistrationConway(
             stakeCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                2 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.stake,
+              ),
             ),
             deposit: BigInt.from(17),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -129,13 +119,11 @@ final testsConwayWithCertificates = [
               'b0a196ce81930fedb90551d395f7ba2ff8671f1528d1eec85e3d2398174a1bf6c9bc2afc6c14891cf11a24e16c4a6d39f73689f5947170d0f0d9a53418c76400',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            2 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.stake,
+          ),
           witnessSignatureHex:
               'c9ee07d3ee9ed1be5576e1ed371393335a98270f2a316ebec6c702e519db1b68a8cfb67039355a46a3f9d96051c74ae4e13e41d1ad05c3a401a8365369ea8407',
         ),
@@ -151,19 +139,8 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.voteDelegation(
             stakeCredential: ParsedCredential.keyPath(
@@ -228,7 +205,6 @@ final testsConwayWithCertificates = [
             dRep: ParsedDRep.noConfidence(),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -267,49 +243,32 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.authorizeCommitteeHot(
             coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                4 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeCold,
+              ),
             ),
             hotCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                5 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeHot,
+              ),
             ),
           ),
           ParsedCertificate.authorizeCommitteeHot(
             coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                4 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeCold,
+              ),
             ),
             hotCredential: ParsedCredential.keyHash(
               keyHashHex:
@@ -318,13 +277,11 @@ final testsConwayWithCertificates = [
           ),
           ParsedCertificate.authorizeCommitteeHot(
             coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                4 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeCold,
+              ),
             ),
             hotCredential: ParsedCredential.scriptHash(
               scriptHashHex:
@@ -332,7 +289,6 @@ final testsConwayWithCertificates = [
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -351,13 +307,11 @@ final testsConwayWithCertificates = [
               '73e3c0105404e90f6cccebbd9a1e9bb119c4f0a3d5e489a52d15caa477db35802fefe83dbec748b2c388b9dc193821eac068f519edb89ed2c550bc28e51a7203',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            4 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.constitutionalCommitteeCold,
+          ),
           witnessSignatureHex:
               'b8075d9666648e02f3e2ab6355fd786b3864cfc18a0070beb60813745a36c68e03b9face68231efc0d13da11069f2b3c7ca9a2c7fbf2119970071607e5c18d01',
         ),
@@ -373,29 +327,16 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.resignCommitteeCold(
             coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                4 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeCold,
+              ),
             ),
             anchor: ParsedAnchor(
               url: 'x' * 128, // max url length in anchor
@@ -405,17 +346,14 @@ final testsConwayWithCertificates = [
           ),
           ParsedCertificate.resignCommitteeCold(
             coldCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                4 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeCold,
+              ),
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -434,13 +372,11 @@ final testsConwayWithCertificates = [
               '82f826cea558d08e833e3657f6afaba0175813a7de5bda7c0e075f4b08a2833a6e61f7a2587d9b88e919b4b4aa465cc689a6a611c8cf96fe1249f47ffd22ba05',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            4 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.constitutionalCommitteeCold,
+          ),
           witnessSignatureHex:
               '6eff66993a624cb218bf84dbdd3481212b4586bf1d8ef0a9c6e5bf32c977afbb1e09a1c0f3810f6828b17f9d4f3acee7d59af098e98d46d9a95d5d60fd9a8f07',
         ),
@@ -456,29 +392,16 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.dRepRegistration(
             dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                3 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
+              ),
             ),
             deposit: BigInt.from(19),
             anchor: ParsedAnchor(
@@ -489,19 +412,16 @@ final testsConwayWithCertificates = [
           ),
           ParsedCertificate.dRepRegistration(
             dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                3 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
+              ),
             ),
             deposit: BigInt.from(19),
             anchor: null,
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -520,13 +440,11 @@ final testsConwayWithCertificates = [
               'ce8634b0306f71be765b655488276e86a56cbe6e77ffdd14e40851394cf6842d695f4184df0dcb8e76dd5918ec9b1b65976b31bf54c5621b34b1ff58d631540d',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            3 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.drepCredential,
+          ),
           witnessSignatureHex:
               'd1600ce316bac100729207b08550d53f77834983fa4ae1285d8b8478d813cb8a9321588026e40521147718ba3708c533e4b37f890bc9b66ac0456534e926ce06',
         ),
@@ -542,34 +460,20 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.dRepDeregistration(
             dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                3 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
+              ),
             ),
             deposit: BigInt.from(19),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -588,13 +492,11 @@ final testsConwayWithCertificates = [
               '903e42d8f48c60d4bacc8aa953bff66c79ef8b48c2eece243f03d32146f9d213e6595809bc6c13e2ebb13f990ad0ef7bb937eab6a9d251c35aae7bafc2c51702',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            3 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.drepCredential,
+          ),
           witnessSignatureHex:
               '56786aa0710832c8ef584ebe964473cd21eb15b4b60057a5d96973f6a4687176d1f7cbecde585f7b875fc75ad73a9404733219d61ee542363ef4baa8a1bb1504',
         ),
@@ -610,29 +512,16 @@ final testsConwayWithCertificates = [
         network: CardanoNetwork.mainnet(),
         fee: BigInt.from(42),
         ttl: BigInt.from(10),
-        inputs: [
-          ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
-            outputIndex: 0,
-            path: LedgerSigningPath.shelley(
-              account: 0,
-              address: 0,
-              role: ShelleyAddressRole.payment,
-            ),
-          ),
-        ],
-        outputs: [],
+        inputs: _inputs,
+        outputs: _outputs,
         certificates: [
           ParsedCertificate.dRepUpdate(
             dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                3 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
+              ),
             ),
             anchor: ParsedAnchor(
               url: 'www.vacuumlabs.com',
@@ -642,17 +531,14 @@ final testsConwayWithCertificates = [
           ),
           ParsedCertificate.dRepUpdate(
             dRepCredential: ParsedCredential.keyPath(
-              path: LedgerSigningPath.custom([
-                1852 + harden,
-                1815 + harden,
-                0 + harden,
-                3 + harden,
-                0 + harden
-              ]),
+              path: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
+              ),
             ),
           ),
         ],
-        includeNetworkId: true,
       ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
@@ -671,13 +557,11 @@ final testsConwayWithCertificates = [
               'e65f9e0d99db02f1a39b8af92b9f7e8f6509b24cbd6f4492e19d699f5f7e08d627a64def7408405ff0aadd7504bacfa279a2f1ba550a765f43d06fcac16f1009',
         ),
         Witness(
-          path: LedgerSigningPath.custom([
-            1852 + harden,
-            1815 + harden,
-            0 + harden,
-            3 + harden,
-            0 + harden
-          ]),
+          path: LedgerSigningPath.shelley(
+            account: 0,
+            address: 0,
+            role: ShelleyAddressRole.drepCredential,
+          ),
           witnessSignatureHex:
               '88b20b4bc43f6d45981c658689e6d80886b6aeb02b654363c421462f855654039d5ff3595be6778934b4eff2a24c3a082789f95559bd6e8afa2e8bab339e910d',
         ),

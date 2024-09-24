@@ -44,11 +44,11 @@ sealed class ParsedDRep with _$ParsedDRep {
 
   factory ParsedDRep.noConfidence() = DRepNoConfidence;
 
-  late final int dRepValue = switch (this) {
-    DRepKeyPath() => 0,
-    DRepKeyHash() => 1,
-    DRepScriptHash() => 2,
-    DRepAbstain() => 3,
-    DRepNoConfidence() => 4,
+  late final int serializationType = switch (this) {
+    DRepKeyHash() => 0,
+    DRepKeyPath() => 100,
+    DRepScriptHash() => 1,
+    DRepAbstain() => 2,
+    DRepNoConfidence() => 3,
   };
 }

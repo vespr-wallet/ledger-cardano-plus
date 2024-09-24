@@ -33,7 +33,7 @@ void main() async {
             "Skipped ${testsConwayWithCertificates.length - filteredTests.length} tests due to min cardano version");
       }
 
-      for (final testCase in testsConwayWithCertificates) {
+      for (final testCase in filteredTests) {
         test(testCase.testName, () async {
           final result = await cardanoApp.signTransaction(testCase.request);
           expectVespr(result, equals(testCase.expected));

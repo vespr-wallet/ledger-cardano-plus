@@ -17,7 +17,8 @@ sealed class AddressParamsBase with _$AddressParamsBase {
           validateHexString(thisClass.stakingKeyHashHex, 'stakingKeyHashHex');
         },
       AddressParamsBaseStakingScriptHash() => () {
-          validateHexString(thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
+          validateHexString(
+              thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
         },
     };
     assertinvoker();

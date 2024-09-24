@@ -8,7 +8,8 @@ part 'tx_auxiliary_data_supplement.freezed.dart';
 sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
   TxAuxiliaryDataSupplement._() {
     validateHexString(auxiliaryDataHashHex, 'auxiliaryDataHashHex');
-    validateHexString(cip36VoteRegistrationSignatureHex, 'cip36VoteRegistrationSignatureHex');
+    validateHexString(
+        cip36VoteRegistrationSignatureHex, 'cip36VoteRegistrationSignatureHex');
   }
 
   factory TxAuxiliaryDataSupplement({
@@ -17,6 +18,7 @@ sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
   }) = _TxAuxiliaryDataSupplementData;
 
   late final TxAuxiliaryDataSupplementType type = switch (this) {
-    _TxAuxiliaryDataSupplementData() => TxAuxiliaryDataSupplementType.cip36Registration,
+    _TxAuxiliaryDataSupplementData() =>
+      TxAuxiliaryDataSupplementType.cip36Registration,
   };
 }

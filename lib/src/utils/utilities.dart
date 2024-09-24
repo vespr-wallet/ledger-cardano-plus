@@ -67,18 +67,22 @@ void validateUint64(BigInt? value, String fieldName) {
 
 void validateInt64(BigInt? value, String fieldName) {
   if (value != null && value.bitLength > 63) {
-    throw ValidationException('$fieldName must have max 64 bits (including sign bit).');
+    throw ValidationException(
+        '$fieldName must have max 64 bits (including sign bit).');
   }
 }
 
 void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
   if (path != null) {
-    if (path.signingPath.isEmpty || path.signingPath.length > maxBIP32PathLength) {
-      throw ValidationException('$fieldName must contain between 1 and $maxBIP32PathLength indices');
+    if (path.signingPath.isEmpty ||
+        path.signingPath.length > maxBIP32PathLength) {
+      throw ValidationException(
+          '$fieldName must contain between 1 and $maxBIP32PathLength indices');
     }
     for (int index in path.signingPath) {
       if (index < 0 || index > max32BitValue) {
-        throw ValidationException('$fieldName contains an index out of the valid unsigned 32-bit integer range');
+        throw ValidationException(
+            '$fieldName contains an index out of the valid unsigned 32-bit integer range');
       }
     }
   }
@@ -86,7 +90,8 @@ void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
 
 void validateMaxStringLength(String? value, String fieldName, int maxLength) {
   if (value != null && value.length > maxLength) {
-    throw ValidationException('$fieldName must be maximum $maxLength characters long');
+    throw ValidationException(
+        '$fieldName must be maximum $maxLength characters long');
   }
 }
 
@@ -98,14 +103,16 @@ void validate32bitUnsignedInteger(int value, String fieldName) {
 
 void validateUrl(String? value, String fieldName) {
   if (value != null && value.length > maxUrlLength) {
-    throw ValidationException('$fieldName must be maximum $maxUrlLength characters long');
+    throw ValidationException(
+        '$fieldName must be maximum $maxUrlLength characters long');
   }
 }
 
 void validateExactHexString(String? value, String fieldName, int length) {
   validateHexString(value, fieldName);
   if (value != null && value.length != length) {
-    throw ValidationException('$fieldName must be exactly $length characters long');
+    throw ValidationException(
+        '$fieldName must be exactly $length characters long');
   }
 }
 
@@ -118,11 +125,13 @@ void validateUint32(int? value, String fieldName) {
 void validateHexString(String? value, String fieldName) {
   if (value != null) {
     if (value.length % 2 != 0) {
-      throw ValidationException('$fieldName must be a valid hex string with an even number of characters');
+      throw ValidationException(
+          '$fieldName must be a valid hex string with an even number of characters');
     }
     final hexRegex = RegExp(r'^[0-9a-fA-F]+$');
     if (!hexRegex.hasMatch(value)) {
-      throw ValidationException('$fieldName must be a valid hex string containing only characters 0-9 or a-f');
+      throw ValidationException(
+          '$fieldName must be a valid hex string containing only characters 0-9 or a-f');
     }
   }
 }
@@ -184,6 +193,6 @@ List<int> toWords(List<int> bytes) {
 }
 
 Uint8List hexToBytes(String hex) {
-  return Uint8List.fromList(
-      List.generate(hex.length ~/ 2, (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)));
+  return Uint8List.fromList(List.generate(hex.length ~/ 2,
+      (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)));
 }

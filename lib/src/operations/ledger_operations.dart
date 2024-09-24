@@ -23,7 +23,8 @@ class SendOperation extends LedgerOperation<ByteDataReader> {
   });
 
   @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
+  Future<List<Uint8List>> write(ByteDataWriter writer) =>
+      ValidationException.runSafely(() async {
         writer.writeUint8(claCardano);
         writer.writeUint8(ins);
         writer.writeUint8(p1);
@@ -50,7 +51,8 @@ class ResetOperation extends LedgerOperation<ByteDataReader> {
   ResetOperation();
 
   @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) => ValidationException.runSafely(() async {
+  Future<List<Uint8List>> write(ByteDataWriter writer) =>
+      ValidationException.runSafely(() async {
         if (CardanoLedger.debugPrintEnabled) {
           // ignore: avoid_print
           print("ResetOperation command sent to ledger");

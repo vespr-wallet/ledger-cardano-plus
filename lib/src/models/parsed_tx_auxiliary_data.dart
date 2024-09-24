@@ -10,7 +10,8 @@ sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
   ParsedTxAuxiliaryData._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
-      ArbitraryHash() => () => validateExactHexString(thisClass.hashHex, 'hashHex', auxiliaryDataHashHexLength),
+      ArbitraryHash() => () => validateExactHexString(
+          thisClass.hashHex, 'hashHex', auxiliaryDataHashHexLength),
       CIP36Registration() => () => (),
     };
     assertinvoker();

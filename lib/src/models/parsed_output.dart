@@ -48,6 +48,7 @@ sealed class ParsedOutput with _$ParsedOutput {
 
   late final String? referenceScriptHash = switch (this) {
     ParsedOutputAlonzo() => null,
-    ParsedOutputBabbage(referenceScriptHex: final referenceScriptHex) => referenceScriptHex,
+    ParsedOutputBabbage(referenceScriptHex: final referenceScriptHex) =>
+      referenceScriptHex,
   };
 }

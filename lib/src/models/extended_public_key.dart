@@ -71,9 +71,12 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
 
   late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20002, // Version 2.2.0
-    ExtendedPublicKeyRequest_Byron() => 20002, // Version 2.2.0, supportsByronAddressDerivation
-    ExtendedPublicKeyRequest_Custom() => 50001, // Version 5.0.1, last official build
-    ExtendedPublicKeyRequest_Stake() => 20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
+    ExtendedPublicKeyRequest_Byron() =>
+      20002, // Version 2.2.0, supportsByronAddressDerivation
+    ExtendedPublicKeyRequest_Custom() =>
+      50001, // Version 5.0.1, last official build
+    ExtendedPublicKeyRequest_Stake() =>
+      20002, // Version 2.2.0, supportsPoolRegistrationAsOwner
     ExtendedPublicKeyRequest_CIP36() => 60000, // Version 6.0.0, supportsCIP36
   };
 }

@@ -17,7 +17,8 @@ extension LedgerX on LedgerConnection {
     ComplexLedgerOperation<T> operation, {
     required LedgerTransformer? transformer,
   }) async {
-    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) => sendOperation(simpleOp, transformer: transformer);
+    Future<Y> send<Y>(LedgerOperation<Y> simpleOp) =>
+        sendOperation(simpleOp, transformer: transformer);
     try {
       return await operation.invoke(send);
     } on ValidationException {

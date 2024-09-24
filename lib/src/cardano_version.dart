@@ -18,11 +18,13 @@ class CardanoVersion with _$CardanoVersion {
     required Flags flags,
   }) = _CardanoVersion;
 
-  late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
+  late final int versionCode =
+      versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
   late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
 
-  late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
+  late final VersionCompatibility compatibility =
+      VersionCompatibility.checkVersionCompatibility(this);
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
         testMode: false,

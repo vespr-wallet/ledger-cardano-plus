@@ -8,7 +8,8 @@ import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 import 'complex_ledger_operations.dart';
 import 'ledger_operations.dart';
 
-class GetExtendedPublicKeyOperation extends ComplexLedgerOperation<ExtendedPublicKey> {
+class GetExtendedPublicKeyOperation
+    extends ComplexLedgerOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
 
   const GetExtendedPublicKeyOperation({

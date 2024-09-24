@@ -16,7 +16,8 @@ sealed class SpendingDataSource with _$SpendingDataSource {
         },
       SpendingDataSourceScriptHash() => () {
           validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
-          validateMaxStringLength(thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+          validateMaxStringLength(
+              thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
         },
     };
     assertinvoker();

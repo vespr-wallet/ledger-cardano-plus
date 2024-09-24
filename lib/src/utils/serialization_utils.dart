@@ -47,9 +47,11 @@ import 'dart:convert';
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
-  static final BigInt optionFlagsTagCborSets = BigInt.from(OptionFlags.tagCborSets.value);
+  static final BigInt optionFlagsTagCborSets =
+      BigInt.from(OptionFlags.tagCborSets.value);
 
-  static void writerSerializedPath(ByteDataWriter writer, LedgerSigningPath path) {
+  static void writerSerializedPath(
+      ByteDataWriter writer, LedgerSigningPath path) {
     writer.writeUint8(path.signingPath.length);
     for (var index in path.signingPath) {
       writer.writeUint32(index);
@@ -106,7 +108,8 @@ class SerializationUtils {
     writer.writeUint8(value);
   }
 
-  static void serializeTxOptions(ByteDataWriter writer, ParsedTransactionOptions options) {
+  static void serializeTxOptions(
+      ByteDataWriter writer, ParsedTransactionOptions options) {
     BigInt optionFlags = BigInt.zero;
     if (options.tagCborSets) {
       optionFlags += optionFlagsTagCborSets;
@@ -125,7 +128,8 @@ class SerializationUtils {
       final compatibility = version.compatibility;
 
       if (compatibility.supportsConway) {
-        serializeTxOptions(writer, options ?? ParsedTransactionOptions(tagCborSets: false));
+        serializeTxOptions(
+            writer, options ?? ParsedTransactionOptions(tagCborSets: false));
       } else {
         writer.write(Uint8List(0));
       }
@@ -224,7 +228,8 @@ class SerializationUtils {
 
   static Uint8List serializeTxTtl(BigInt ttl) => serializeUint64(ttl);
 
-  static Uint8List serializeSpendingDataSource(SpendingDataSource dataSource) => useBinaryWriter((writer) {
+  static Uint8List serializeSpendingDataSource(SpendingDataSource dataSource) =>
+      useBinaryWriter((writer) {
         final void Function() invoker = switch (dataSource) {
           SpendingDataSourcePath() => () {
               writerSerializedPath(writer, dataSource.path);
@@ -238,7 +243,8 @@ class SerializationUtils {
         return writer.toBytes();
       });
 
-  static Uint8List serializeStakingDataSource(StakingDataSource dataSource) => useBinaryWriter((writer) {
+  static Uint8List serializeStakingDataSource(StakingDataSource dataSource) =>
+      useBinaryWriter((writer) {
         final void Function() invoker = switch (dataSource) {
           StakingDataSourceNone() => () {},
           StakingDataSourceKey() => () {
@@ -269,7 +275,8 @@ class SerializationUtils {
         return writer.toBytes();
       });
 
-  static Uint8List serializeOperationalCertificate(ParsedOperationalCertificate certificate) {
+  static Uint8List serializeOperationalCertificate(
+      ParsedOperationalCertificate certificate) {
     return useBinaryWriter((writer) {
       writeSerializedHex(writer, certificate.kesPublicKeyHex);
       writer.write(serializeUint64(certificate.kesPeriod));
@@ -280,7 +287,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxAuxiliaryData(ParsedTxAuxiliaryData auxiliaryData) {
+  static Uint8List serializeTxAuxiliaryData(
+      ParsedTxAuxiliaryData auxiliaryData) {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (auxiliaryData) {
         ArbitraryHash() => () {
@@ -296,7 +304,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCVoteRegistrationInit(ParsedCVoteRegistrationParams params) {
+  static Uint8List serializeCVoteRegistrationInit(
+      ParsedCVoteRegistrationParams params) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(params.format.encodingValue);
 
@@ -306,17 +315,22 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) => Uint8List.fromList([type.encodingValue]);
+  static Uint8List serializeDelegationType(CIP36VoteDelegationType type) =>
+      Uint8List.fromList([type.encodingValue]);
 
   static Uint8List serializeCVoteRegistrationVoteKey(
-      CVotePublicKey? votePublicKey, LedgerSigningPath? votePublicKeyPath, CardanoVersion version) {
+      CVotePublicKey? votePublicKey,
+      LedgerSigningPath? votePublicKeyPath,
+      CardanoVersion version) {
     if (votePublicKey != null && votePublicKeyPath != null) {
-      throw ValidationException('Only one of votePublicKey or votePublicKeyPath should be provided');
+      throw ValidationException(
+          'Only one of votePublicKey or votePublicKeyPath should be provided');
     }
 
     return useBinaryWriter((ByteDataWriter writer) {
       if (votePublicKey != null) {
-        if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
+        if (VersionCompatibility.checkVersionCompatibility(version)
+            .supportsCIP36) {
           writer.write(serializeDelegationType(CIP36VoteDelegationType.key));
         }
         writeSerializedHex(writer, votePublicKey.value);
@@ -325,8 +339,10 @@ class SerializationUtils {
           throw ValidationException('Missing vote key');
         }
 
-        if (!VersionCompatibility.checkVersionCompatibility(version).supportsCIP36Vote) {
-          throw ValidationException('Key derivation path for vote keys not supported by the device');
+        if (!VersionCompatibility.checkVersionCompatibility(version)
+            .supportsCIP36Vote) {
+          throw ValidationException(
+              'Key derivation path for vote keys not supported by the device');
         }
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
         writerSerializedPath(writer, votePublicKeyPath);
@@ -339,7 +355,8 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       final poolkey = pool.poolKey;
       final void Function() poolKeyInvoker = switch (poolkey) {
-        ThirdPartyPoolKey() => () => writer.write(serializePoolKeyLegacy(poolkey)),
+        ThirdPartyPoolKey() => () =>
+            writer.write(serializePoolKeyLegacy(poolkey)),
         _ => () {},
       };
       poolKeyInvoker();
@@ -352,7 +369,8 @@ class SerializationUtils {
 
       final rewardAccount = pool.rewardAccount;
       final void Function() rewardAccountInvoker = switch (rewardAccount) {
-        ThirdPartyPoolRewardAccount() => () => writer.write(serializePoolRewardAccountLegacy(rewardAccount)),
+        ThirdPartyPoolRewardAccount() => () =>
+            writer.write(serializePoolRewardAccountLegacy(rewardAccount)),
         _ => () {},
       };
       rewardAccountInvoker();
@@ -371,21 +389,24 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializePoolRewardAccountLegacy(ThirdPartyPoolRewardAccount rewardAccount) {
+  static Uint8List serializePoolRewardAccountLegacy(
+      ThirdPartyPoolRewardAccount rewardAccount) {
     return useBinaryWriter((ByteDataWriter writer) {
       writeSerializedHex(writer, rewardAccount.rewardAccountHex);
       return writer.toBytes();
     });
   }
 
-  static Uint8List serializeCVoteRegistrationDelegation(ParsedCVoteDelegation delegation) {
+  static Uint8List serializeCVoteRegistrationDelegation(
+      ParsedCVoteDelegation delegation) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(delegation.cVoteDelegationValue);
       writer.writeUint32(delegation.weight);
 
       final void Function() invoker = switch (delegation) {
         KeyDelegation() => () => writeSerializedHex(writer, delegation.voteKey),
-        PathDelegation() => () => writerSerializedPath(writer, delegation.voteKeyPath),
+        PathDelegation() => () =>
+            writerSerializedPath(writer, delegation.voteKeyPath),
       };
 
       invoker();
@@ -393,7 +414,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCVoteRegistrationStakingPath(LedgerSigningPath stakingPath) {
+  static Uint8List serializeCVoteRegistrationStakingPath(
+      LedgerSigningPath stakingPath) {
     return useBinaryWriter((ByteDataWriter writer) {
       writerSerializedPath(writer, stakingPath);
       return writer.toBytes();
@@ -401,12 +423,15 @@ class SerializationUtils {
   }
 
   static Uint8List serializeCVoteRegistrationPaymentDestination(
-      ParsedOutputDestination paymentDestination, CardanoVersion version, CardanoNetwork network) {
+      ParsedOutputDestination paymentDestination,
+      CardanoVersion version,
+      CardanoNetwork network) {
     if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
       return serializeTxOutputDestination(paymentDestination, version, network);
     } else {
       final Uint8List Function() invoker = switch (paymentDestination) {
-        DeviceOwned() => () => serializeAddressParams(paymentDestination.addressParams, version, network),
+        DeviceOwned() => () => serializeAddressParams(
+            paymentDestination.addressParams, version, network),
         _ => () => throw ValidationException('Invalid payment destination'),
       };
       return invoker();
@@ -420,7 +445,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeCVoteRegistrationVotingPurpose(BigInt? votingPurpose) {
+  static Uint8List serializeCVoteRegistrationVotingPurpose(
+      BigInt? votingPurpose) {
     return useBinaryWriter((ByteDataWriter writer) {
       serializeOptionFlag(writer, votingPurpose != null);
       if (votingPurpose != null) {
@@ -431,7 +457,9 @@ class SerializationUtils {
   }
 
   static Uint8List serializeTxOutputDestination(
-          ParsedOutputDestination destination, CardanoVersion version, CardanoNetwork network) =>
+          ParsedOutputDestination destination,
+          CardanoVersion version,
+          CardanoNetwork network) =>
       useBinaryWriter((ByteDataWriter writer) {
         writer.writeUint8(destination.typeEncoding);
         final void Function() invoker = switch (destination) {
@@ -442,7 +470,8 @@ class SerializationUtils {
               writer.write(hex.decode(addressHex));
             },
           DeviceOwned() => () {
-              final addressParamsBytes = serializeAddressParams(destination.addressParams, version, network);
+              final addressParamsBytes = serializeAddressParams(
+                  destination.addressParams, version, network);
               writer.write(addressParamsBytes);
             },
         };
@@ -452,14 +481,16 @@ class SerializationUtils {
         return writer.toBytes();
       });
 
-  static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version, CardanoNetwork network) {
+  static Uint8List serializeAddressParams(ParsedAddressParams params,
+      CardanoVersion version, CardanoNetwork network) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(params.addressType.value);
 
       final void Function() invoker = switch (params) {
         ByronAddressParams() => () {
             writer.writeUint32(network.networkMagic);
-            writer.write(serializeSpendingDataSource(params.spendingDataSource));
+            writer
+                .write(serializeSpendingDataSource(params.spendingDataSource));
             writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
           },
         ShelleyAddressParams() => () {
@@ -468,44 +499,63 @@ class SerializationUtils {
 
             final void Function() shelleyInvoker = switch (newparams) {
               BasePaymentKeyStakeKey() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               BasePaymentScriptStakeKey() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               BasePaymentKeyStakeScript() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               BasePaymentScriptStakeScript() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               EnterpriseKey() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.writeUint8(
+                      StakingDataSource.none().stakingDataSourceValue);
                 },
               EnterpriseScript() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.writeUint8(
+                      StakingDataSource.none().stakingDataSourceValue);
                 },
               PointerKey() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               PointerScript() => () {
-                  writer.write(serializeSpendingDataSource(newparams.spendingDataSource));
-                  writer.write(serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(serializeSpendingDataSource(
+                      newparams.spendingDataSource));
+                  writer.write(
+                      serializeStakingDataSource(newparams.stakingDataSource));
                 },
               RewardKey() => () {
-                  writer.write(SerializationUtils.serializeStakingDataSource(newparams.stakingDataSource));
+                  writer.write(SerializationUtils.serializeStakingDataSource(
+                      newparams.stakingDataSource));
                 },
               RewardScript() => () {
-                  writer.writeUint8(StakingDataSource.scriptHash(scriptHashHex: newparams.stakingScriptHashHex)
+                  writer.writeUint8(StakingDataSource.scriptHash(
+                          scriptHashHex: newparams.stakingScriptHashHex)
                       .stakingDataSourceValue);
-                  SerializationUtils.writeSerializedHex(writer, newparams.stakingScriptHashHex);
+                  SerializationUtils.writeSerializedHex(
+                      writer, newparams.stakingScriptHashHex);
                 },
             };
 
@@ -527,8 +577,10 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxCertificate(ParsedCertificate certificate, CardanoVersion version) {
-    if (!VersionCompatibility.checkVersionCompatibility(version).supportsMultisigTransaction) {
+  static Uint8List serializeTxCertificate(
+      ParsedCertificate certificate, CardanoVersion version) {
+    if (!VersionCompatibility.checkVersionCompatibility(version)
+        .supportsMultisigTransaction) {
       return serializeTxCertificatePreMultisig(certificate);
     }
 
@@ -662,7 +714,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxCertificatePreMultisig(ParsedCertificate certificate) {
+  static Uint8List serializeTxCertificatePreMultisig(
+      ParsedCertificate certificate) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(certificate.certificateTypeSerializationValue);
       final void Function() invoker = switch (certificate) {
@@ -699,14 +752,22 @@ class SerializationUtils {
             writerSerializedPath(writer, certificate.path);
             writer.write(serializeUint64(certificate.retirementEpoch));
           },
-        StakeRegistrationConway() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        StakeDeregistrationConway() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        VoteDelegation() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        AuthorizeCommitteeHot() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        ResignCommitteeCold() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        DRepRegistration() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        DRepDeregistration() => throw ValidationException('Conway certificates in pre-multisig serialization'),
-        DRepUpdate() => throw ValidationException('Conway certificates in pre-multisig serialization'),
+        StakeRegistrationConway() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        StakeDeregistrationConway() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        VoteDelegation() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        AuthorizeCommitteeHot() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        ResignCommitteeCold() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        DRepRegistration() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        DRepDeregistration() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
+        DRepUpdate() => throw ValidationException(
+            'Conway certificates in pre-multisig serialization'),
       };
       invoker();
       return writer.toBytes();
@@ -748,7 +809,8 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializePoolRewardAccount(ParsedPoolRewardAccount rewardAccount) {
+  static Uint8List serializePoolRewardAccount(
+      ParsedPoolRewardAccount rewardAccount) {
     return useBinaryWriter((ByteDataWriter writer) {
       final void Function() invoker = switch (rewardAccount) {
         DeviceOwnedPoolRewardAccount() => () {
@@ -787,17 +849,22 @@ class SerializationUtils {
       final void Function() invoker = switch (relay) {
         SingleHostIpAddr() => () {
             writer.writeUint8(relay.relayType.value);
-            serializeOptional(writer, relay.port, (w, value) => w.writeUint16(value));
-            serializeOptional(writer, relay.ipv4, (w, value) => w.write(serializeIpv4(value)));
+            serializeOptional(
+                writer, relay.port, (w, value) => w.writeUint16(value));
+            serializeOptional(writer, relay.ipv4,
+                (w, value) => w.write(serializeIpv4(value)));
           },
         SingleHostName() => () {
             writer.writeUint8(relay.relayType.value);
-            serializeOptional(writer, relay.port, (w, value) => w.writeUint16(value));
-            serializeOptional(writer, relay.dnsName, (w, value) => w.write(serializeDnsName(value)));
+            serializeOptional(
+                writer, relay.port, (w, value) => w.writeUint16(value));
+            serializeOptional(writer, relay.dnsName,
+                (w, value) => w.write(serializeDnsName(value)));
           },
         MultiHost() => () {
             writer.writeUint8(relay.relayType.value);
-            serializeOptional(writer, relay.dnsName, (w, value) => w.write(serializeDnsName(value)));
+            serializeOptional(writer, relay.dnsName,
+                (w, value) => w.write(serializeDnsName(value)));
           },
       };
       invoker();
@@ -805,8 +872,8 @@ class SerializationUtils {
     });
   }
 
-  static void serializeOptional<T>(
-      ByteDataWriter writer, T? value, void Function(ByteDataWriter, T) serializeFunction) {
+  static void serializeOptional<T>(ByteDataWriter writer, T? value,
+      void Function(ByteDataWriter, T) serializeFunction) {
     if (value == null) {
       writer.writeUint8(1);
     } else {
@@ -840,8 +907,10 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxWithdrawal(ParsedWithdrawal withdrawal, CardanoVersion version) {
-    if (VersionCompatibility.checkVersionCompatibility(version).supportsMultisigTransaction) {
+  static Uint8List serializeTxWithdrawal(
+      ParsedWithdrawal withdrawal, CardanoVersion version) {
+    if (VersionCompatibility.checkVersionCompatibility(version)
+        .supportsMultisigTransaction) {
       return useBinaryWriter((ByteDataWriter writer) {
         writer.write(serializeCoin(withdrawal.amount));
         writer.write(serializeCredential(withdrawal.stakeCredential));
@@ -924,16 +993,19 @@ class SerializationUtils {
     return data;
   }
 
-  static Uint8List serializeTxOutputBasicParams(ParsedOutput output, CardanoVersion version, CardanoNetwork network) {
+  static Uint8List serializeTxOutputBasicParams(
+      ParsedOutput output, CardanoVersion version, CardanoNetwork network) {
     final ByteDataWriter writer = ByteDataWriter();
 
-    final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+    final compatibility =
+        VersionCompatibility.checkVersionCompatibility(version);
 
     if (compatibility.supportsBabbage) {
       writer.writeUint8(output.format.value);
     }
 
-    writer.write(serializeTxOutputDestination(output.destination, version, network));
+    writer.write(
+        serializeTxOutputDestination(output.destination, version, network));
 
     writer.write(serializeCoin(output.amount));
 
@@ -969,13 +1041,17 @@ class SerializationUtils {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(voter.voterValue);
       final void Function() invoker = switch (voter) {
-        CommitteeKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
+        CommitteeKeyHash() => () =>
+            writeSerializedHex(writer, voter.keyHashHex),
         CommitteeKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
-        CommitteeScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
+        CommitteeScriptHash() => () =>
+            writeSerializedHex(writer, voter.scriptHashHex),
         DrepKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
         DrepKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
-        DrepScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
-        StakePoolKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
+        DrepScriptHash() => () =>
+            writeSerializedHex(writer, voter.scriptHashHex),
+        StakePoolKeyHash() => () =>
+            writeSerializedHex(writer, voter.keyHashHex),
         StakePoolKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
       };
       invoker();
@@ -990,9 +1066,11 @@ class SerializationUtils {
     });
   }
 
-  static Uint8List serializeTxOutputDatum(ParsedDatum datum, CardanoVersion version) {
+  static Uint8List serializeTxOutputDatum(
+      ParsedDatum datum, CardanoVersion version) {
     return useBinaryWriter((ByteDataWriter writer) {
-      final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+      final compatibility =
+          VersionCompatibility.checkVersionCompatibility(version);
 
       final void Function() invoker = switch (datum) {
         ParsedDatumHash() => () {
@@ -1167,7 +1245,8 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
 
     for (final withdrawal in tx.withdrawals ?? []) {
       final void Function() invoker = switch (withdrawal.stakeCredential) {
-        CredentialKeyPath() => () => witnessPaths.add(withdrawal.stakeCredential.path),
+        CredentialKeyPath() => () =>
+            witnessPaths.add(withdrawal.stakeCredential.path),
         _ => () => (),
       };
       invoker();
@@ -1190,9 +1269,11 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
     final votingProcedures = tx.votingProcedures;
     for (final votingProcedure in votingProcedures ?? []) {
       final void Function() invoker = switch (votingProcedure.voter.type) {
-        CommitteeKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
+        CommitteeKeyPath() => () =>
+            witnessPaths.add(votingProcedure.voter.keyPath),
         DrepKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
-        StakePoolKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
+        StakePoolKeyPath() => () =>
+            witnessPaths.add(votingProcedure.voter.keyPath),
         _ => () {},
       };
       invoker();

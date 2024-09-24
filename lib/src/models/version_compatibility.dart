@@ -38,13 +38,15 @@ class VersionCompatibility with _$VersionCompatibility {
     required bool supportsConway,
   }) = _VersionCompatibility;
 
-  factory VersionCompatibility.checkVersionCompatibility(CardanoVersion version) {
+  factory VersionCompatibility.checkVersionCompatibility(
+      CardanoVersion version) {
     final isAppXS = version.flags.isAppXS;
     final int major = version.versionMajor;
     final int minor = version.versionMinor;
 
     bool isVersionInRange(int minMajor, int minMinor, [int maxMajor = 7]) {
-      return (major > minMajor || (major == minMajor && minor >= minMinor)) && major <= maxMajor;
+      return (major > minMajor || (major == minMajor && minor >= minMinor)) &&
+          major <= maxMajor;
     }
 
     return VersionCompatibility(
@@ -70,26 +72,36 @@ class VersionCompatibility with _$VersionCompatibility {
     );
   }
 
-  static void ensureRequestSupportedByAppVersion(CardanoVersion version, ParsedSigningRequest request) {
-    final compatibility = VersionCompatibility.checkVersionCompatibility(version);
+  static void ensureRequestSupportedByAppVersion(
+      CardanoVersion version, ParsedSigningRequest request) {
+    final compatibility =
+        VersionCompatibility.checkVersionCompatibility(version);
 
     final void Function() invoker = switch (request.signingMode) {
-      TransactionSigningModes.poolRegistrationAsOwner when !compatibility.supportsPoolRegistrationAsOwner => () {
+      TransactionSigningModes.poolRegistrationAsOwner
+          when !compatibility.supportsPoolRegistrationAsOwner =>
+        () {
           throw ValidationException(
             'Pool registration as owner not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningModes.poolRegistrationAsOperator when !compatibility.supportsPoolRegistrationAsOperator => () {
+      TransactionSigningModes.poolRegistrationAsOperator
+          when !compatibility.supportsPoolRegistrationAsOperator =>
+        () {
           throw ValidationException(
             'Pool registration as operator not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningModes.multisigTransaction when !compatibility.supportsMultisigTransaction => () {
+      TransactionSigningModes.multisigTransaction
+          when !compatibility.supportsMultisigTransaction =>
+        () {
           throw ValidationException(
             'Multisig transactions not supported by Ledger app version ${version.versionName}.',
           );
         },
-      TransactionSigningModes.plutusTransaction when !compatibility.supportsAlonzo => () {
+      TransactionSigningModes.plutusTransaction
+          when !compatibility.supportsAlonzo =>
+        () {
           throw ValidationException(
             'Plutus transactions not supported by Ledger app version ${version.versionName}.',
           );
@@ -151,7 +163,8 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasMapFormatInOutputs = request.tx.outputs.any((o) => o.format == TxOutputFormat.mapBabbage);
+    final hasMapFormatInOutputs =
+        request.tx.outputs.any((o) => o.format == TxOutputFormat.mapBabbage);
     if (hasMapFormatInOutputs && !compatibility.supportsBabbage) {
       throw ValidationException(
         'Outputs with map format not supported by Ledger app version ${version.versionName}.',
@@ -170,13 +183,15 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.referenceInputs?.isNotEmpty == true && !compatibility.supportsBabbage) {
+    if (request.tx.referenceInputs?.isNotEmpty == true &&
+        !compatibility.supportsBabbage) {
       throw ValidationException(
         'Reference inputs not supported by Ledger app version ${version.versionName}.',
       );
     }
 
-    if (request.tx.requiredSigners?.isNotEmpty == true && !compatibility.supportsAlonzo) {
+    if (request.tx.requiredSigners?.isNotEmpty == true &&
+        !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Required signers not supported by Ledger app version ${version.versionName}.',
       );
@@ -194,7 +209,8 @@ class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.collateralInputs?.isNotEmpty == true && !compatibility.supportsAlonzo) {
+    if (request.tx.collateralInputs?.isNotEmpty == true &&
+        !compatibility.supportsAlonzo) {
       throw ValidationException(
         'Collateral inputs not supported by Ledger app version ${version.versionName}.',
       );
@@ -202,7 +218,12 @@ class VersionCompatibility with _$VersionCompatibility {
 
     final auxiliaryData = request.tx.auxiliaryData;
     final hasCIP15Registration = switch (auxiliaryData) {
-      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip15)) => true,
+      CIP36Registration(
+        params: ParsedCVoteRegistrationParams(
+          format: CIP36VoteRegistrationFormat.cip15
+        )
+      ) =>
+        true,
       _ => false,
     };
     if (hasCIP15Registration && !compatibility.supportsCatalystRegistration) {
@@ -212,7 +233,12 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasCIP36Registration = switch (auxiliaryData) {
-      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip36)) => true,
+      CIP36Registration(
+        params: ParsedCVoteRegistrationParams(
+          format: CIP36VoteRegistrationFormat.cip36
+        )
+      ) =>
+        true,
       _ => false,
     };
     if (hasCIP36Registration && !compatibility.supportsCIP36) {
@@ -222,7 +248,10 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasKeyPath = switch (auxiliaryData) {
-      CIP36Registration(params: ParsedCVoteRegistrationParams(votePublicKeyPath: _)) => true,
+      CIP36Registration(
+        params: ParsedCVoteRegistrationParams(votePublicKeyPath: _)
+      ) =>
+        true,
       _ => false,
     };
     if (hasKeyPath && !compatibility.supportsCIP36Vote) {
@@ -232,7 +261,12 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     final thirdPartyPayment = switch (auxiliaryData) {
-      CIP36Registration(params: ParsedCVoteRegistrationParams(paymentDestination: ThirdParty(addressHex: _))) => true,
+      CIP36Registration(
+        params: ParsedCVoteRegistrationParams(
+          paymentDestination: ThirdParty(addressHex: _)
+        )
+      ) =>
+        true,
       _ => false,
     };
     if (thirdPartyPayment && !compatibility.supportsCIP36) {

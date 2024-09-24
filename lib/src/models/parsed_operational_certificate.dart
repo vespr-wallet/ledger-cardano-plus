@@ -8,7 +8,8 @@ part 'parsed_operational_certificate.freezed.dart';
 @freezed
 sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
   ParsedOperationalCertificate._() {
-    validateExactHexString(kesPublicKeyHex, 'kesPublicKeyHex', kesPublicKeyLength);
+    validateExactHexString(
+        kesPublicKeyHex, 'kesPublicKeyHex', kesPublicKeyLength);
   }
 
   factory ParsedOperationalCertificate({

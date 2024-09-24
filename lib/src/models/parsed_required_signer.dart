@@ -10,7 +10,8 @@ sealed class ParsedRequiredSigner with _$ParsedRequiredSigner {
   ParsedRequiredSigner._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
-      RequiredSignerHash() => () => validateExactHexString(thisClass.hashHex, 'hashHex', keyHashLength),
+      RequiredSignerHash() => () =>
+          validateExactHexString(thisClass.hashHex, 'hashHex', keyHashLength),
       RequiredSignerPath() => () => validateBIP32Path(thisClass.path, 'path'),
     };
     assertinvoker();

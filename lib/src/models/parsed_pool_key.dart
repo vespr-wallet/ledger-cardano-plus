@@ -10,7 +10,8 @@ sealed class ParsedPoolKey with _$ParsedPoolKey {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DeviceOwnedPoolKey() => () => validateBIP32Path(thisClass.path, 'path'),
-      ThirdPartyPoolKey() => () => validateHexString(thisClass.hashHex, 'hashHex'),
+      ThirdPartyPoolKey() => () =>
+          validateHexString(thisClass.hashHex, 'hashHex'),
     };
     assertInvoker();
   }

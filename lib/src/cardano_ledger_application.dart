@@ -31,7 +31,8 @@ class CardanoLedger {
   final sdk.LedgerTransformer? transformer;
 
   static CardanoLedger ble({
-    required Future<bool> Function({required bool unsupported}) onPermissionRequest,
+    required Future<bool> Function({required bool unsupported})
+        onPermissionRequest,
   }) =>
       _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
 
@@ -42,7 +43,8 @@ class CardanoLedger {
   )   : connectionType = LedgerConnectionType.bluetooth,
         transformer = const CardanoTransformer(LedgerConnectionType.bluetooth),
         ledger = sdk.LedgerInterface.ble(
-          onPermissionRequest: (state) => onPermissionRequest(unsupported: state == sdk.AvailabilityState.unsupported),
+          onPermissionRequest: (state) => onPermissionRequest(
+              unsupported: state == sdk.AvailabilityState.unsupported),
         );
 
   CardanoLedger._usb()
@@ -50,7 +52,8 @@ class CardanoLedger {
         transformer = const CardanoTransformer(LedgerConnectionType.usb),
         ledger = sdk.LedgerInterface.usb();
 
-  Stream<LedgerDevice> scanForDevices() => ledger.scan().map((device) => device.fromSdk());
+  Stream<LedgerDevice> scanForDevices() =>
+      ledger.scan().map((device) => device.fromSdk());
 
   Future<CardanoLedgerConnection> connect(LedgerDevice device) async {
     final ledgerConnection = await ledger.connect(device.toSdk());
@@ -118,9 +121,11 @@ class CardanoLedgerConnection {
     NativeScriptHashDisplayFormat displayFormat,
   ) async {
     final CardanoVersion deviceVersion = await getVersion();
-    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
-    if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
+    if (!compatibility.isCompatible ||
+        !compatibility.supportsNativeScriptHashDerivation) {
       throw ValidationException(
         "Deriving native script hash not supported by the device's Cardano app version. "
         "Required minimum version: ${compatibility.recommendedVersion}, "
@@ -133,7 +138,8 @@ class CardanoLedgerConnection {
       displayFormat: displayFormat,
     );
 
-    final String scriptHash = await _ledgerConnection.sendComplexOperation<String>(
+    final String scriptHash =
+        await _ledgerConnection.sendComplexOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -369,9 +375,11 @@ class CardanoLedgerConnection {
     ParsedOperationalCertificate operationalCertificate,
   ) async {
     final CardanoVersion deviceVersion = await getVersion();
-    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
-    if (!compatibility.isCompatible || !compatibility.supportsOperationalCertificateSigning) {
+    if (!compatibility.isCompatible ||
+        !compatibility.supportsOperationalCertificateSigning) {
       throw ValidationException(
         "Operational certificate signing not supported by the device's Cardano app version. "
         "Required minimum version: ${compatibility.recommendedVersion}, "
@@ -383,7 +391,8 @@ class CardanoLedgerConnection {
       operationalCertificate: operationalCertificate,
     );
 
-    final Uint8List signature = await _ledgerConnection.sendComplexOperation<Uint8List>(
+    final Uint8List signature =
+        await _ledgerConnection.sendComplexOperation<Uint8List>(
       operation,
       transformer: _transformer,
     );
@@ -396,7 +405,8 @@ class CardanoLedgerConnection {
   ) async {
     final CardanoVersion deviceVersion = await getVersion();
     VersionCompatibility.checkVersionCompatibility(deviceVersion);
-    VersionCompatibility.ensureRequestSupportedByAppVersion(deviceVersion, signingRequest);
+    VersionCompatibility.ensureRequestSupportedByAppVersion(
+        deviceVersion, signingRequest);
 
     final operation = CardanoSignTransactionOperation(
       signingRequest: signingRequest,
@@ -417,7 +427,8 @@ class CardanoLedgerConnection {
     ParsedCVote parsedCVote,
   ) async {
     final CardanoVersion deviceVersion = await getVersion();
-    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible || !compatibility.supportsCIP36Vote) {
       throw ValidationException(
@@ -432,7 +443,8 @@ class CardanoLedgerConnection {
       version: deviceVersion,
     );
 
-    final SignedCIP36VoteData signedCIP36VoteData = await _ledgerConnection.sendComplexOperation<SignedCIP36VoteData>(
+    final SignedCIP36VoteData signedCIP36VoteData =
+        await _ledgerConnection.sendComplexOperation<SignedCIP36VoteData>(
       operation,
       transformer: _transformer,
     );
@@ -442,7 +454,8 @@ class CardanoLedgerConnection {
 
   Future<void> runTests() async {
     final CardanoVersion deviceVersion = await getVersion();
-    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+    final VersionCompatibility compatibility =
+        VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible) {
       throw ValidationException(
@@ -460,5 +473,6 @@ class CardanoLedgerConnection {
     );
   }
 
-  sendComplexOperation(device, CardanoDeriveAddressOperation operation, {required CardanoTransformer transformer}) {}
+  sendComplexOperation(device, CardanoDeriveAddressOperation operation,
+      {required CardanoTransformer transformer}) {}
 }

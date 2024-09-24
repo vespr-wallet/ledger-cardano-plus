@@ -6,7 +6,8 @@ import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
-class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteData> {
+class CardanoSignCVoteOperation
+    extends ComplexLedgerOperation<SignedCIP36VoteData> {
   final ParsedCVote cVote;
   final CardanoVersion version;
 
@@ -31,7 +32,8 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
 
   @override
   Future<SignedCIP36VoteData> invoke(LedgerSendFct send) async {
-    if (!VersionCompatibility.checkVersionCompatibility(version).supportsCIP36Vote) {
+    if (!VersionCompatibility.checkVersionCompatibility(version)
+        .supportsCIP36Vote) {
       throw ValidationException(
         'CIP36 voting not supported by Ledger app version ${version.versionName}.',
       );
@@ -39,7 +41,9 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
 
     final votecastBytes = hex.decode(cVote.voteCastDataHex);
     var start = 0;
-    var end = votecastBytes.length < maxVotecastChunkSize ? votecastBytes.length : maxVotecastChunkSize;
+    var end = votecastBytes.length < maxVotecastChunkSize
+        ? votecastBytes.length
+        : maxVotecastChunkSize;
 
     final initDataBuffer = Uint8List.fromList([
       ...SerializationUtils.serializeUint32(votecastBytes.length),
@@ -49,7 +53,9 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
     start = end;
 
     while (start < votecastBytes.length) {
-      end = votecastBytes.length < start + maxVotecastChunkSize ? votecastBytes.length : start + maxVotecastChunkSize;
+      end = votecastBytes.length < start + maxVotecastChunkSize
+          ? votecastBytes.length
+          : start + maxVotecastChunkSize;
 
       await send(_createSendOperation(
         p1: p1StageChunk,
@@ -71,7 +77,8 @@ class CardanoSignCVoteOperation extends ComplexLedgerOperation<SignedCIP36VoteDa
     return SignedCIP36VoteData(
       dataHashHex: hex.encode(confirmResponse.read(votecastHashLength)),
       witnessPath: cVote.witnessPath,
-      witnessSignatureHex: hex.encode(witnessResponse.read(ed25519SignatureLength)),
+      witnessSignatureHex:
+          hex.encode(witnessResponse.read(ed25519SignatureLength)),
     );
   }
 }

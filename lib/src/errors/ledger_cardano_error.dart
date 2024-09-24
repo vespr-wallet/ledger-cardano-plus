@@ -1,6 +1,7 @@
 sealed class LedgerCardanoResponseCodeException implements Exception {
   late int statusCode = switch (this) {
-    WrongAppOpenedException(ledgerStatusCode: final ledgerStatusCode) => ledgerStatusCode,
+    WrongAppOpenedException(ledgerStatusCode: final ledgerStatusCode) =>
+      ledgerStatusCode,
     // MalformedRequestHeaderException() => 0x6E01, // 0x6A81 on Soalan app ; 0x6E00 on btc and eth app
     BadClaException() => 0x6E02,
     UnknownInstructionException() => 0x6E03,
@@ -12,7 +13,8 @@ sealed class LedgerCardanoResponseCodeException implements Exception {
     UserRejectedException() => 0x6E09,
     PolicyRejectedException() => 0x6E10,
     DeviceLockedException() => 0x6E11,
-    UnknownResponseCodeException(ledgerStatusCode: final ledgerStatusCode) => ledgerStatusCode,
+    UnknownResponseCodeException(ledgerStatusCode: final ledgerStatusCode) =>
+      ledgerStatusCode,
   };
   final String message;
 
@@ -20,7 +22,9 @@ sealed class LedgerCardanoResponseCodeException implements Exception {
     required this.message,
   });
 
-  static LedgerCardanoResponseCodeException fromLedgerStatusCode(int statusCode) => switch (statusCode) {
+  static LedgerCardanoResponseCodeException fromLedgerStatusCode(
+          int statusCode) =>
+      switch (statusCode) {
         // 0x6E01 => MalformedRequestHeaderException(),
         // 0x6E00 on eth/btc app
         // 0x6E01 on no app opened
@@ -48,7 +52,8 @@ sealed class LedgerCardanoResponseCodeException implements Exception {
 
 class WrongAppOpenedException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
-  WrongAppOpenedException({required this.ledgerStatusCode}) : super(message: "Wrong app opened on Ledger device");
+  WrongAppOpenedException({required this.ledgerStatusCode})
+      : super(message: "Wrong app opened on Ledger device");
 }
 
 // class MalformedRequestHeaderException extends LedgerCardanoResponseCodeException {
@@ -67,8 +72,10 @@ class StillInCallException extends LedgerCardanoResponseCodeException {
   StillInCallException() : super(message: "Still in call");
 }
 
-class InvalidRequestParametersException extends LedgerCardanoResponseCodeException {
-  InvalidRequestParametersException() : super(message: "Invalid request parameters");
+class InvalidRequestParametersException
+    extends LedgerCardanoResponseCodeException {
+  InvalidRequestParametersException()
+      : super(message: "Invalid request parameters");
 }
 
 class InvalidStateException extends LedgerCardanoResponseCodeException {
@@ -97,5 +104,6 @@ class DeviceLockedException extends LedgerCardanoResponseCodeException {
 
 class UnknownResponseCodeException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
-  UnknownResponseCodeException({required this.ledgerStatusCode}) : super(message: "Unknown error code");
+  UnknownResponseCodeException({required this.ledgerStatusCode})
+      : super(message: "Unknown error code");
 }

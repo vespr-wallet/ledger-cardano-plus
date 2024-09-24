@@ -9,7 +9,8 @@ import 'parsed_output_destination.dart';
 part 'parsed_c_vote_registration_params.freezed.dart';
 
 @freezed
-sealed class ParsedCVoteRegistrationParams with _$ParsedCVoteRegistrationParams {
+sealed class ParsedCVoteRegistrationParams
+    with _$ParsedCVoteRegistrationParams {
   ParsedCVoteRegistrationParams._() {
     validateBIP32Path(votePublicKeyPath, 'votePublicKeyPath');
     validateBIP32Path(stakingPath, 'stakingPath');

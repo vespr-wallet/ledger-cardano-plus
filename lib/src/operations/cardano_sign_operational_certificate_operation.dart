@@ -7,7 +7,8 @@ import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
-class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<Uint8List> {
+class CardanoSignOperationalCertificateOperation
+    extends ComplexLedgerOperation<Uint8List> {
   final ParsedOperationalCertificate operationalCertificate;
 
   const CardanoSignOperationalCertificateOperation({
@@ -16,7 +17,8 @@ class CardanoSignOperationalCertificateOperation extends ComplexLedgerOperation<
 
   @override
   Future<Uint8List> invoke(LedgerSendFct send) async {
-    final data = SerializationUtils.serializeOperationalCertificate(operationalCertificate);
+    final data = SerializationUtils.serializeOperationalCertificate(
+        operationalCertificate);
 
     final response = await send(
       SendOperation(

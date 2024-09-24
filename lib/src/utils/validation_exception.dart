@@ -15,9 +15,11 @@ class ValidationException implements Exception {
     }
   }
 
-  static void validateBip32Path(List<int> bipPath, String pathType, List<int> validFourthIndices) {
+  static void validateBip32Path(
+      List<int> bipPath, String pathType, List<int> validFourthIndices) {
     if (bipPath.length != 5) {
-      throw ValidationException('BIP44 $pathType path length must be exactly 5');
+      throw ValidationException(
+          'BIP44 $pathType path length must be exactly 5');
     }
     if (bipPath[0] != harden + 1852) {
       throw ValidationException("First $pathType path index must be 1852'");
@@ -29,7 +31,8 @@ class ValidationException implements Exception {
       throw ValidationException("Third $pathType path index must be hardened");
     }
     if (!validFourthIndices.contains(bipPath[3])) {
-      throw ValidationException("Fourth $pathType path index must be ${validFourthIndices.join(" or ")}");
+      throw ValidationException(
+          "Fourth $pathType path index must be ${validFourthIndices.join(" or ")}");
     }
   }
 }

@@ -8,6 +8,8 @@ part 'parsed_native_script.freezed.dart';
 sealed class ParsedNativeScript with _$ParsedNativeScript {
   const ParsedNativeScript._();
 
-  const factory ParsedNativeScript.complex(ParsedComplexNativeScript script) = ParsedNativeScript_Complex;
-  const factory ParsedNativeScript.simple(ParsedSimpleNativeScript script) = ParsedNativeScript_Simple;
+  const factory ParsedNativeScript.complex(ParsedComplexNativeScript script) =
+      ParsedNativeScript_Complex;
+  const factory ParsedNativeScript.simple(ParsedSimpleNativeScript script) =
+      ParsedNativeScript_Simple;
 }

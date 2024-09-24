@@ -14,10 +14,12 @@ sealed class ParsedDRep with _$ParsedDRep {
           validateBIP32Path(thisClass.path, 'path');
         },
       DRepKeyHash() => () {
-          validateExactHexString(thisClass.keyHashHex, 'keyHashHex', keyHashLength);
+          validateExactHexString(
+              thisClass.keyHashHex, 'keyHashHex', keyHashLength);
         },
       DRepScriptHash() => () {
-          validateExactHexString(thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
+          validateExactHexString(
+              thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
         },
       DRepAbstain() => () {},
       DRepNoConfidence() => () {},

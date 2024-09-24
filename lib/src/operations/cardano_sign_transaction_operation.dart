@@ -7,7 +7,8 @@ import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 
-class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTransactionData> {
+class CardanoSignTransactionOperation
+    extends ComplexLedgerOperation<SignedTransactionData> {
   final ParsedSigningRequest signingRequest;
   final CardanoVersion cardanoVersion;
   final CardanoNetwork network;
@@ -21,11 +22,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
   @override
   Future<SignedTransactionData> invoke(LedgerSendFct send) async {
     VersionCompatibility.checkVersionCompatibility(cardanoVersion);
-    VersionCompatibility.ensureRequestSupportedByAppVersion(cardanoVersion, signingRequest);
+    VersionCompatibility.ensureRequestSupportedByAppVersion(
+        cardanoVersion, signingRequest);
 
     final auxDataBeforeTxBody =
-        VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCatalystRegistration ||
-            VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsCIP36;
+        VersionCompatibility.checkVersionCompatibility(cardanoVersion)
+                .supportsCatalystRegistration ||
+            VersionCompatibility.checkVersionCompatibility(cardanoVersion)
+                .supportsCIP36;
 
     final witnessPaths = gatherWitnessPaths(signingRequest);
 
@@ -81,7 +85,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     final auxiliarydata = signingRequest.tx.auxiliaryData;
     // auxiliary data before Ledger app version 2.3.x
     if (!auxDataBeforeTxBody && auxiliarydata != null) {
-      auxiliaryDataSupplement = await _signTxSetAuxiliaryDatabBeforev2_3(auxiliarydata, send);
+      auxiliaryDataSupplement =
+          await _signTxSetAuxiliaryDatabBeforev2_3(auxiliarydata, send);
     }
 
     final validityStart = signingRequest.tx.validityIntervalStart;
@@ -178,7 +183,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     );
   }
 
-  Future<void> _signTxInit(LedgerSendFct send, List<LedgerSigningPath> witnessPaths) async {
+  Future<void> _signTxInit(
+      LedgerSendFct send, List<LedgerSigningPath> witnessPaths) async {
     final data = SerializationUtils.serializeTxInit(
       tx: signingRequest.tx,
       signingMode: signingRequest.signingMode,
@@ -226,7 +232,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     CardanoVersion version,
     LedgerSendFct send,
   ) async {
-    final Uint8List data = SerializationUtils.serializeTxCertificate(certificate, version);
+    final Uint8List data =
+        SerializationUtils.serializeTxCertificate(certificate, version);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -239,7 +246,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
     final void Function() invoker = switch (certificate) {
       StakePoolRegistration() => () {
-          if (VersionCompatibility.checkVersionCompatibility(cardanoVersion).supportsPoolRegistrationAsOperator) {
+          if (VersionCompatibility.checkVersionCompatibility(cardanoVersion)
+              .supportsPoolRegistrationAsOperator) {
             _signTxAddStakePoolRegistrationCertificate(certificate, send);
           } else {
             _signTxAddStakePoolRegistrationCertificateLegacy(certificate, send);
@@ -258,7 +266,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageCertificates,
       p2: p2PoolParamsLegacy,
-      data: SerializationUtils.serializePoolInitialParamsLegacy(certificate.pool),
+      data:
+          SerializationUtils.serializePoolInitialParamsLegacy(certificate.pool),
       prependDataLength: true,
       debugName: 'Sign Transaction Stake Pool Registration Init Legacy',
     ));
@@ -349,7 +358,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageCertificates,
       p2: p2RewardAccount,
-      data: SerializationUtils.serializePoolRewardAccount(poolParams.pool.rewardAccount),
+      data: SerializationUtils.serializePoolRewardAccount(
+          poolParams.pool.rewardAccount),
       prependDataLength: true,
       debugName: 'Sign Transaction Stake Pool Registration Reward Account',
     ));
@@ -401,7 +411,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     LedgerSendFct send,
     CardanoNetwork network,
   ) async {
-    final serializedAuxData = SerializationUtils.serializeTxAuxiliaryData(auxiliaryData);
+    final serializedAuxData =
+        SerializationUtils.serializeTxAuxiliaryData(auxiliaryData);
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageAuxData,
@@ -411,12 +422,15 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       debugName: 'Sign Transaction Set Auxiliary Data',
     ));
 
-    final Future<TxAuxiliaryDataSupplement?>? Function() invoker = switch (auxiliaryData) {
+    final Future<TxAuxiliaryDataSupplement?>? Function() invoker =
+        switch (auxiliaryData) {
       CIP36Registration() => () async {
           final params = auxiliaryData.params;
 
-          if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
-            final serializedInitData = SerializationUtils.serializeCVoteRegistrationInit(params);
+          if (VersionCompatibility.checkVersionCompatibility(version)
+              .supportsCIP36) {
+            final serializedInitData =
+                SerializationUtils.serializeCVoteRegistrationInit(params);
             await send(SendOperation(
               ins: InstructionType.signTransaction.insValue,
               p1: p1StageAuxData,
@@ -427,9 +441,11 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             ));
           }
 
-          if (params.votePublicKey != null || params.votePublicKeyPath != null) {
-            final serializedVoteKeyData = SerializationUtils.serializeCVoteRegistrationVoteKey(
-                params.votePublicKey, params.votePublicKeyPath, version);
+          if (params.votePublicKey != null ||
+              params.votePublicKeyPath != null) {
+            final serializedVoteKeyData =
+                SerializationUtils.serializeCVoteRegistrationVoteKey(
+                    params.votePublicKey, params.votePublicKeyPath, version);
             await send(SendOperation(
               ins: InstructionType.signTransaction.insValue,
               p1: p1StageAuxData,
@@ -442,7 +458,9 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
 
           if (params.delegations != null) {
             for (final delegation in params.delegations!) {
-              final serializedDelegationData = SerializationUtils.serializeCVoteRegistrationDelegation(delegation);
+              final serializedDelegationData =
+                  SerializationUtils.serializeCVoteRegistrationDelegation(
+                      delegation);
               await send(SendOperation(
                 ins: InstructionType.signTransaction.insValue,
                 p1: p1StageAuxData,
@@ -454,7 +472,9 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             }
           }
 
-          final serializedStakingKeyData = SerializationUtils.serializeCVoteRegistrationStakingPath(params.stakingPath);
+          final serializedStakingKeyData =
+              SerializationUtils.serializeCVoteRegistrationStakingPath(
+                  params.stakingPath);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
@@ -464,17 +484,20 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             debugName: 'Sign Transaction Set CVote Registration Staking Key',
           ));
 
-          final serializedPaymentAddressData = SerializationUtils.serializeCVoteRegistrationPaymentDestination(
-              params.paymentDestination, version, network);
+          final serializedPaymentAddressData =
+              SerializationUtils.serializeCVoteRegistrationPaymentDestination(
+                  params.paymentDestination, version, network);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
             p2: p2PaymentAddress,
             data: serializedPaymentAddressData,
             prependDataLength: true,
-            debugName: 'Sign Transaction Set CVote Registration Payment Address',
+            debugName:
+                'Sign Transaction Set CVote Registration Payment Address',
           ));
-          final serializedNonceData = SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
+          final serializedNonceData =
+              SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
           await send(SendOperation(
             ins: InstructionType.signTransaction.insValue,
             p1: p1StageAuxData,
@@ -484,16 +507,19 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             debugName: 'Sign Transaction Set CVote Registration Nonce',
           ));
 
-          if (VersionCompatibility.checkVersionCompatibility(version).supportsCIP36) {
+          if (VersionCompatibility.checkVersionCompatibility(version)
+              .supportsCIP36) {
             final serializedVotingPurposeData =
-                SerializationUtils.serializeCVoteRegistrationVotingPurpose(params.votingPurpose);
+                SerializationUtils.serializeCVoteRegistrationVotingPurpose(
+                    params.votingPurpose);
             await send(SendOperation(
               ins: InstructionType.signTransaction.insValue,
               p1: p1StageAuxData,
               p2: p2VotingPurpose,
               data: serializedVotingPurposeData,
               prependDataLength: true,
-              debugName: 'Sign Transaction Set CVote Registration Voting Purpose',
+              debugName:
+                  'Sign Transaction Set CVote Registration Voting Purpose',
             ));
           }
 
@@ -503,11 +529,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
             p2: p2Confirm,
             data: Uint8List(0),
             prependDataLength: true,
-            debugName: 'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
+            debugName:
+                'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
           ));
 
-          if (response.remainingLength != auxiliaryDataHashLength + ed25519SignatureLength) {
-            throw Exception('Unexpected response length for auxiliary data hash and signature');
+          if (response.remainingLength !=
+              auxiliaryDataHashLength + ed25519SignatureLength) {
+            throw Exception(
+                'Unexpected response length for auxiliary data hash and signature');
           }
 
           final auxDataHash = response.read(auxiliaryDataHashLength);
@@ -526,7 +555,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return invoker();
   }
 
-  Future<void> _signTxAddOutputSendChunks(String hexString, int p2, LedgerSendFct send) async {
+  Future<void> _signTxAddOutputSendChunks(
+      String hexString, int p2, LedgerSendFct send) async {
     var start = maxChunkSize * 2;
 
     while (start < hexString.length) {
@@ -599,8 +629,10 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     return null;
   }
 
-  Future<void> _signTxSetValidityIntervalStart(BigInt validityIntervalStart, LedgerSendFct send) async {
-    final Uint8List data = SerializationUtils.serializeTxValidityStart(validityIntervalStart);
+  Future<void> _signTxSetValidityIntervalStart(
+      BigInt validityIntervalStart, LedgerSendFct send) async {
+    final Uint8List data =
+        SerializationUtils.serializeTxValidityStart(validityIntervalStart);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -643,7 +675,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     LedgerSendFct send,
   ) async {
     for (final assetGroup in tokenBundle) {
-      final Uint8List assetGroupData = SerializationUtils.serializeAssetGroup(assetGroup);
+      final Uint8List assetGroupData =
+          SerializationUtils.serializeAssetGroup(assetGroup);
       await send(SendOperation(
         ins: InstructionType.signTransaction.insValue,
         p1: p1,
@@ -667,7 +700,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     }
   }
 
-  Future<void> _signTxSetScriptDataHash(ScriptDataHash scriptDataHash, LedgerSendFct send) async {
+  Future<void> _signTxSetScriptDataHash(
+      ScriptDataHash scriptDataHash, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageScriptDataHash,
@@ -678,7 +712,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> _signTxAddCollateralInput(ParsedInput collateralInput, LedgerSendFct send) async {
+  Future<void> _signTxAddCollateralInput(
+      ParsedInput collateralInput, LedgerSendFct send) async {
     final data = SerializationUtils.serializeTxInput(collateralInput);
 
     await send(SendOperation(
@@ -691,7 +726,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> _signTxAddRequiredSigner(ParsedRequiredSigner requiredSigner, LedgerSendFct send) async {
+  Future<void> _signTxAddRequiredSigner(
+      ParsedRequiredSigner requiredSigner, LedgerSendFct send) async {
     final data = SerializationUtils.serializeRequiredSigner(requiredSigner);
 
     await send(SendOperation(
@@ -714,12 +750,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageCollateralOutput,
       p2: p2CollateralOutputBasicData,
-      data: SerializationUtils.serializeTxOutputBasicParams(collateralOutput, version, network),
+      data: SerializationUtils.serializeTxOutputBasicParams(
+          collateralOutput, version, network),
       prependDataLength: true,
       debugName: 'Sign Transaction Collateral Output Basic Data',
     ));
 
-    await _signTxAddTokenBundle(collateralOutput.tokenBundle, p1StageCollateralOutput, send);
+    await _signTxAddTokenBundle(
+        collateralOutput.tokenBundle, p1StageCollateralOutput, send);
 
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
@@ -745,7 +783,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> _signTxAddReferenceInput(ParsedInput referenceInput, LedgerSendFct send) async {
+  Future<void> _signTxAddReferenceInput(
+      ParsedInput referenceInput, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageReferenceInputs,
@@ -756,7 +795,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
   }
 
-  Future<void> _signTxAddVoterVotes(ParsedVoterVotes voterVotes, LedgerSendFct send) async {
+  Future<void> _signTxAddVoterVotes(
+      ParsedVoterVotes voterVotes, LedgerSendFct send) async {
     await send(SendOperation(
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageVotingProcedures,
@@ -800,14 +840,16 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
 
     if (response.remainingLength != txHashLength) {
-      throw ValidationException('Unexpected response length for transaction hash');
+      throw ValidationException(
+          'Unexpected response length for transaction hash');
     }
 
     final txHashHex = hex.encode(response.read(response.remainingLength));
     return txHashHex;
   }
 
-  Future<Witness> _signTxGetWitness(LedgerSigningPath path, LedgerSendFct send) async {
+  Future<Witness> _signTxGetWitness(
+      LedgerSigningPath path, LedgerSendFct send) async {
     final Uint8List data = SerializationUtils.pathToBuf(path.signingPath);
 
     final response = await send(SendOperation(
@@ -820,7 +862,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
     ));
 
     if (response.remainingLength != ed25519SignatureLength) {
-      throw ValidationException('Unexpected response length for witness signature');
+      throw ValidationException(
+          'Unexpected response length for witness signature');
     }
 
     final witnessSignature = response.read(response.remainingLength);
@@ -855,7 +898,8 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
       ins: InstructionType.signTransaction.insValue,
       p1: p1StageOutputs,
       p2: p2OutputBasicData,
-      data: SerializationUtils.serializeTxOutputBasicParams(output, version, network),
+      data: SerializationUtils.serializeTxOutputBasicParams(
+          output, version, network),
       prependDataLength: true,
       debugName: 'Sign Transaction Output Basic Data',
     ));
@@ -873,8 +917,10 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         prependDataLength: true,
         debugName: 'Sign Transaction Output Datum',
       ));
-      if (outputDatum is ParsedDatumInline && outputDatum.datumHex.length / 2 > maxChunkSize) {
-        await _signTxAddOutputSendChunks(outputDatum.datumHex, p2OutputDatumChunk, send);
+      if (outputDatum is ParsedDatumInline &&
+          outputDatum.datumHex.length / 2 > maxChunkSize) {
+        await _signTxAddOutputSendChunks(
+            outputDatum.datumHex, p2OutputDatumChunk, send);
       }
     }
 
@@ -885,12 +931,14 @@ class CardanoSignTransactionOperation extends ComplexLedgerOperation<SignedTrans
         ins: InstructionType.signTransaction.insValue,
         p1: p1StageOutputs,
         p2: p2OutputScript,
-        data: SerializationUtils.serializeTxOutputRefScript(outputReferenceScriptHash),
+        data: SerializationUtils.serializeTxOutputRefScript(
+            outputReferenceScriptHash),
         prependDataLength: true,
         debugName: 'Sign Transaction Output Reference Script',
       ));
       if (outputReferenceScriptHash.length / 2 > maxChunkSize) {
-        await _signTxAddOutputSendChunks(outputReferenceScriptHash, p2OutputScriptChunk, send);
+        await _signTxAddOutputSendChunks(
+            outputReferenceScriptHash, p2OutputScriptChunk, send);
       }
     }
 

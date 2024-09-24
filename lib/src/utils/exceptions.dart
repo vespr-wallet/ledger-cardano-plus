@@ -17,5 +17,6 @@ class VersionNotSupported extends LedgerCardanoException {
 }
 
 class OtherLedgerCardanoException extends LedgerCardanoException {
-  OtherLedgerCardanoException(String message) : super("OtherLedgerCardanoException: $message");
+  OtherLedgerCardanoException(String message)
+      : super("OtherLedgerCardanoException: $message");
 }

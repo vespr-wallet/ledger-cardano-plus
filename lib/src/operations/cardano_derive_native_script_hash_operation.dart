@@ -10,7 +10,8 @@ import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 
-class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<String> {
+class CardanoDeriveNativeScriptHashOperation
+    extends ComplexLedgerOperation<String> {
   static const int nativeScriptHashLength = 28;
 
   final ParsedNativeScript script;
@@ -24,11 +25,13 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
   @override
   Future<String> invoke(LedgerSendFct send) async {
     await _deriveNativeScriptHashAddScript(send, script);
-    final scriptHashHex = await _deriveNativeScriptHashFinishWholeNativeScript(send, displayFormat);
+    final scriptHashHex = await _deriveNativeScriptHashFinishWholeNativeScript(
+        send, displayFormat);
     return scriptHashHex;
   }
 
-  Future<void> _deriveNativeScriptHashAddScript(LedgerSendFct send, ParsedNativeScript script) async {
+  Future<void> _deriveNativeScriptHashAddScript(
+      LedgerSendFct send, ParsedNativeScript script) async {
     final sendOperation = switch (script) {
       ParsedNativeScript_Complex() => SendOperation(
           ins: InstructionType.deriveNativeScriptHash.insValue,
@@ -77,7 +80,9 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
     return hex.encode(response.read(nativeScriptHashLength));
   }
 
-  Uint8List serializeComplexNativeScriptStart(ParsedComplexNativeScript script) => useBinaryWriter((writer) {
+  Uint8List serializeComplexNativeScriptStart(
+          ParsedComplexNativeScript script) =>
+      useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedComplexNativeScript_All() => () {
               writer.writeUint8(script.nativeScriptSerializationValue);
@@ -97,7 +102,8 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
         return writer.toBytes();
       });
 
-  Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) => useBinaryWriter((writer) {
+  Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) =>
+      useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
               writer.writeUint8(script.nativeScriptSerializationValue);
@@ -122,7 +128,9 @@ class CardanoDeriveNativeScriptHashOperation extends ComplexLedgerOperation<Stri
         return writer.toBytes();
       });
 
-  Uint8List serializeWholeNativeScriptFinish(NativeScriptHashDisplayFormat displayFormat) => useBinaryWriter((writer) {
+  Uint8List serializeWholeNativeScriptFinish(
+          NativeScriptHashDisplayFormat displayFormat) =>
+      useBinaryWriter((writer) {
         writer.writeUint8(displayFormat.int8Value);
         return writer.toBytes();
       });

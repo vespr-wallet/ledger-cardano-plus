@@ -10,6 +10,7 @@ extension LedgerDeviceX on LedgerDevice {
           LedgerConnectionType.bluetooth => sdk.ConnectionType.ble,
           LedgerConnectionType.usb => sdk.ConnectionType.usb,
         },
+        deviceInfo: deviceInfo,
       );
 }
 
@@ -22,5 +23,6 @@ extension SdkLedgerDeviceX on sdk.LedgerDevice {
           sdk.ConnectionType.ble => LedgerConnectionType.bluetooth,
           sdk.ConnectionType.usb => LedgerConnectionType.usb,
         },
+        deviceInfo: deviceInfo,
       );
 }

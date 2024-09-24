@@ -1,5 +1,8 @@
 library ledger_cardano_plus_models;
 
+// from ledger_flutter_plus
+export 'package:ledger_flutter_plus/src/ledger/ledger_device_type.dart';
+
 // models
 export 'src/models/extended_public_key.dart';
 export 'src/models/ledger_signing_path.dart';

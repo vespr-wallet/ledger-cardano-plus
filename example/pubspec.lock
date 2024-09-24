@@ -221,23 +221,23 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.5.0"
+    version: "0.5.1"
   ledger_flutter_plus:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: ledger_flutter_plus
-      sha256: b5e903f78d25a7d50f7849278b0d1ae7beab8ca9ac3ac2c6eae07e8f341c1218
+      sha256: d5fd8a231a20b5b2919e61fb066f3a7bd8c555a438308e869a5e4122bb011939
       url: "https://pub.dev"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.4"
   ledger_usb_plus:
     dependency: transitive
     description:
       name: ledger_usb_plus
-      sha256: f9f88253ca6d93559009b086ff45f0a4a0b34c1df477f653c59bc32562d16c65
+      sha256: "21cc5d976cf7edb3518bd2a0c4164139cbb0817d2e4f2054707fc4edfdf9ce87"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.2"
+    version: "1.0.4"
   lints:
     dependency: transitive
     description:
@@ -255,7 +255,7 @@ packages:
     source: hosted
     version: "1.2.0"
   matcher:
-    dependency: transitive
+    dependency: "direct dev"
     description:
       name: matcher
       sha256: d2323aa2060500f906aa31a895b4030b6da3ebdcc5619d14ce1aada65cd161cb
@@ -322,10 +322,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_platform_interface
-      sha256: fe0ffe274d665be8e34f9c59705441a7d248edebbe5d9e3ec2665f88b79358ea
+      sha256: e9c8eadee926c4532d0305dff94b85bf961f16759c3af791486613152af4b4f9
       url: "https://pub.dev"
     source: hosted
-    version: "4.2.2"
+    version: "4.2.3"
   permission_handler_windows:
     dependency: transitive
     description:

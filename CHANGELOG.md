@@ -1,3 +1,7 @@
+## 0.5.2
+
+- Increased min ledger_flutter_plus version to support all ledget devices and fix some breaking change
+
 ## 0.5.1
 
 - Increased min ledger_flutter_plus version

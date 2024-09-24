@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError('It seems like you constru
 /// @nodoc
 mixin _$LedgerDevice {
 
- String get id => throw _privateConstructorUsedError; String get name => throw _privateConstructorUsedError; LedgerConnectionType get connectionType => throw _privateConstructorUsedError; int get rssi => throw _privateConstructorUsedError;
+ String get id => throw _privateConstructorUsedError; String get name => throw _privateConstructorUsedError; LedgerConnectionType get connectionType => throw _privateConstructorUsedError; int get rssi => throw _privateConstructorUsedError; LedgerDeviceType get deviceInfo => throw _privateConstructorUsedError;
 
 
 
@@ -37,7 +37,7 @@ abstract class $LedgerDeviceCopyWith<$Res>  {
   factory $LedgerDeviceCopyWith(LedgerDevice value, $Res Function(LedgerDevice) then) = _$LedgerDeviceCopyWithImpl<$Res, LedgerDevice>;
 @useResult
 $Res call({
- String id, String name, LedgerConnectionType connectionType, int rssi
+ String id, String name, LedgerConnectionType connectionType, int rssi, LedgerDeviceType deviceInfo
 });
 
 
@@ -55,13 +55,14 @@ class _$LedgerDeviceCopyWithImpl<$Res,$Val extends LedgerDevice> implements $Led
 
 /// Create a copy of LedgerDevice
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? connectionType = null,Object? rssi = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? connectionType = null,Object? rssi = null,Object? deviceInfo = null,}) {
   return _then(_value.copyWith(
 id: null == id ? _value.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _value.name : name // ignore: cast_nullable_to_non_nullable
 as String,connectionType: null == connectionType ? _value.connectionType : connectionType // ignore: cast_nullable_to_non_nullable
 as LedgerConnectionType,rssi: null == rssi ? _value.rssi : rssi // ignore: cast_nullable_to_non_nullable
-as int,
+as int,deviceInfo: null == deviceInfo ? _value.deviceInfo : deviceInfo // ignore: cast_nullable_to_non_nullable
+as LedgerDeviceType,
   )as $Val);
 }
 
@@ -73,7 +74,7 @@ abstract class _$$LedgerDeviceImplCopyWith<$Res> implements $LedgerDeviceCopyWit
   factory _$$LedgerDeviceImplCopyWith(_$LedgerDeviceImpl value, $Res Function(_$LedgerDeviceImpl) then) = __$$LedgerDeviceImplCopyWithImpl<$Res>;
 @override @useResult
 $Res call({
- String id, String name, LedgerConnectionType connectionType, int rssi
+ String id, String name, LedgerConnectionType connectionType, int rssi, LedgerDeviceType deviceInfo
 });
 
 
@@ -88,13 +89,14 @@ class __$$LedgerDeviceImplCopyWithImpl<$Res> extends _$LedgerDeviceCopyWithImpl<
 
 /// Create a copy of LedgerDevice
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? connectionType = null,Object? rssi = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? connectionType = null,Object? rssi = null,Object? deviceInfo = null,}) {
   return _then(_$LedgerDeviceImpl(
 id: null == id ? _value.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _value.name : name // ignore: cast_nullable_to_non_nullable
 as String,connectionType: null == connectionType ? _value.connectionType : connectionType // ignore: cast_nullable_to_non_nullable
 as LedgerConnectionType,rssi: null == rssi ? _value.rssi : rssi // ignore: cast_nullable_to_non_nullable
-as int,
+as int,deviceInfo: null == deviceInfo ? _value.deviceInfo : deviceInfo // ignore: cast_nullable_to_non_nullable
+as LedgerDeviceType,
   ));
 }
 
@@ -105,7 +107,7 @@ as int,
 
 
 class _$LedgerDeviceImpl extends _LedgerDevice  {
-  const _$LedgerDeviceImpl({required this.id, required this.name, required this.connectionType, required this.rssi}): super._();
+  const _$LedgerDeviceImpl({required this.id, required this.name, required this.connectionType, required this.rssi, required this.deviceInfo}): super._();
 
   
 
@@ -113,21 +115,22 @@ class _$LedgerDeviceImpl extends _LedgerDevice  {
 @override final  String name;
 @override final  LedgerConnectionType connectionType;
 @override final  int rssi;
+@override final  LedgerDeviceType deviceInfo;
 
 @override
 String toString() {
-  return 'LedgerDevice(id: $id, name: $name, connectionType: $connectionType, rssi: $rssi)';
+  return 'LedgerDevice(id: $id, name: $name, connectionType: $connectionType, rssi: $rssi, deviceInfo: $deviceInfo)';
 }
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerDeviceImpl&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.connectionType, connectionType) || other.connectionType == connectionType)&&(identical(other.rssi, rssi) || other.rssi == rssi));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerDeviceImpl&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.connectionType, connectionType) || other.connectionType == connectionType)&&(identical(other.rssi, rssi) || other.rssi == rssi)&&(identical(other.deviceInfo, deviceInfo) || other.deviceInfo == deviceInfo));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,connectionType,rssi);
+int get hashCode => Object.hash(runtimeType,id,name,connectionType,rssi,deviceInfo);
 
 /// Create a copy of LedgerDevice
 /// with the given fields replaced by the non-null parameter values.
@@ -147,12 +150,12 @@ _$$LedgerDeviceImplCopyWith<_$LedgerDeviceImpl> get copyWith => __$$LedgerDevice
 
 
 abstract class _LedgerDevice extends LedgerDevice {
-  const factory _LedgerDevice({required final  String id, required final  String name, required final  LedgerConnectionType connectionType, required final  int rssi}) = _$LedgerDeviceImpl;
+  const factory _LedgerDevice({required final  String id, required final  String name, required final  LedgerConnectionType connectionType, required final  int rssi, required final  LedgerDeviceType deviceInfo}) = _$LedgerDeviceImpl;
   const _LedgerDevice._(): super._();
 
   
 
-@override String get id;@override String get name;@override LedgerConnectionType get connectionType;@override int get rssi;
+@override String get id;@override String get name;@override LedgerConnectionType get connectionType;@override int get rssi;@override LedgerDeviceType get deviceInfo;
 /// Create a copy of LedgerDevice
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)

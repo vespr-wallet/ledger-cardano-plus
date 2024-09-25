@@ -1,3 +1,8 @@
+## 0.5.3 (Full Conway support)
+
+- Fixed signing for transactions involving certs with dRep keys/scripts
+- Fixed signing for transactions involving conway voting
+
 ## 0.5.2
 
 - Increased min ledger_flutter_plus version to support all ledget devices and fix some breaking change

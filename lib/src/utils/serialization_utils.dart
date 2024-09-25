@@ -1243,16 +1243,15 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
       }
     }
 
-    for (final withdrawal in tx.withdrawals ?? []) {
+    for (final withdrawal in tx.withdrawals ?? <ParsedWithdrawal>[]) {
       final void Function() invoker = switch (withdrawal.stakeCredential) {
-        CredentialKeyPath() => () =>
-            witnessPaths.add(withdrawal.stakeCredential.path),
+        CredentialKeyPath(path: final path) => () => witnessPaths.add(path),
         _ => () => (),
       };
       invoker();
     }
 
-    for (final signer in tx.requiredSigners ?? []) {
+    for (final signer in tx.requiredSigners ?? <ParsedRequiredSigner>[]) {
       final void Function() invoker = switch (signer) {
         RequiredSignerPath() => () => witnessPaths.add(signer.path),
         _ => () => (),
@@ -1260,20 +1259,21 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
       invoker();
     }
 
-    for (final collateral in tx.collateralInputs ?? []) {
-      if (collateral.path != null) {
-        witnessPaths.add(collateral.path);
+    for (final collateral in tx.collateralInputs ?? <ParsedInput>[]) {
+      final path = collateral.path;
+      if (path != null) {
+        witnessPaths.add(path);
       }
     }
 
     final votingProcedures = tx.votingProcedures;
-    for (final votingProcedure in votingProcedures ?? []) {
-      final void Function() invoker = switch (votingProcedure.voter.type) {
-        CommitteeKeyPath() => () =>
-            witnessPaths.add(votingProcedure.voter.keyPath),
-        DrepKeyPath() => () => witnessPaths.add(votingProcedure.voter.keyPath),
-        StakePoolKeyPath() => () =>
-            witnessPaths.add(votingProcedure.voter.keyPath),
+    for (final votingProcedure in (votingProcedures ?? <ParsedVoterVotes>[])) {
+      final void Function() invoker = switch (votingProcedure.voter) {
+        CommitteeKeyPath(keyPath: final keyPath) => () =>
+            witnessPaths.add(keyPath),
+        DrepKeyPath(keyPath: final keyPath) => () => witnessPaths.add(keyPath),
+        StakePoolKeyPath(keyPath: final keyPath) => () =>
+            witnessPaths.add(keyPath),
         _ => () {},
       };
       invoker();

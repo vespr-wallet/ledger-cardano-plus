@@ -46,6 +46,7 @@ final testsAlonzo = [
               '5c66a4f75359a62b4b32751fe30a1adbf7ed2839fd4cb762e9a4d2b086de82fca2310bcf07efc2b03086211faa19941dbe059bbfb747e128863f339720e71304',
         ),
       ],
+      auxiliaryDataSupplement: null,
     ),
   ),
   SignTxTestCase(
@@ -111,6 +112,7 @@ final testsAlonzo = [
               'ea26a98ce5399280ec8ad553d155c0900396204f9fe5a33969f279752a53263188d643544cdb4ffed108017bc7544e80df924143866638faffcd11646e57710b',
         ),
       ],
+      auxiliaryDataSupplement: null,
     ),
   ),
   SignTxTestCase(
@@ -163,6 +165,7 @@ final testsAlonzo = [
               'afc57872d539c398acbb2d18c09796639029b4066ae3439925976d085b7150af418cf070b2ef80e907c20a2c942da4811b6847b1cd42fddc53d4c97732205d0d',
         ),
       ],
+      auxiliaryDataSupplement: null,
     ),
   ),
   SignTxTestCase(
@@ -231,6 +234,7 @@ final testsAlonzo = [
               '166a23e78036d5e776874bef45f86c757c60c5d1af83943982bbc1cc6bd68526cab1c554f2438c6a4c5491df00066b181891e5b97350e5b4fe367bf9a1317202',
         ),
       ],
+      auxiliaryDataSupplement: null,
     ),
   ),
   SignTxTestCase(

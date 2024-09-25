@@ -15,6 +15,7 @@ export 'src/models/parsed_credential.dart';
 export 'src/models/parsed_c_vote.dart';
 export 'src/models/parsed_drep.dart';
 export 'src/models/parsed_datum.dart';
+export 'src/models/parsed_gov_action_id.dart';
 export 'src/models/parsed_input.dart';
 export 'src/models/parsed_margin.dart';
 export 'src/models/parsed_native_script.dart';
@@ -33,6 +34,10 @@ export 'src/models/parsed_token.dart';
 export 'src/models/parsed_transaction.dart';
 export 'src/models/parsed_transaction_options.dart';
 export 'src/models/parsed_tx_auxiliary_data.dart';
+export 'src/models/parsed_vote.dart';
+export 'src/models/parsed_voter.dart';
+export 'src/models/parsed_voter_votes.dart';
+export 'src/models/parsed_voting_procedure.dart';
 export 'src/models/parsed_withdrawal.dart';
 export 'src/models/script_data_hash.dart';
 export 'src/models/signed_cip36_vote_data.dart';
@@ -46,7 +51,6 @@ export 'src/models/parsed_c_vote_registration_params.dart';
 export 'src/models/cvote_public_key.dart';
 export 'src/models/witness.dart';
 export 'src/models/tx_auxiliary_data_supplement.dart';
-export 'src/models/parsed_voter_votes.dart';
 
 // errors
 export 'src/errors/ledger_cardano_error.dart';

@@ -10,6 +10,6 @@ sealed class ParsedVotingProcedure with _$ParsedVotingProcedure {
 
   factory ParsedVotingProcedure({
     required VoteOption vote,
-    ParsedAnchor? anchor,
+    required ParsedAnchor? anchor,
   }) = _ParsedVotingProcedure;
 }

@@ -14,6 +14,6 @@ sealed class SignedTransactionData with _$SignedTransactionData {
   factory SignedTransactionData({
     required String txHashHex,
     required List<Witness> witnesses,
-    TxAuxiliaryDataSupplement? auxiliaryDataSupplement,
+    required TxAuxiliaryDataSupplement? auxiliaryDataSupplement,
   }) = _SignedTransactionData;
 }

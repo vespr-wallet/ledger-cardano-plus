@@ -72,13 +72,13 @@ class CardanoSignTransactionOperation
 
     final certificates = signingRequest.tx.certificates;
     // certificates
-    for (final certificate in certificates ?? []) {
+    for (final certificate in certificates ?? <ParsedCertificate>[]) {
       await _signTxAddCertificate(certificate, cardanoVersion, send);
     }
 
     final withdrawals = signingRequest.tx.withdrawals;
     // withdrawals
-    for (final withdrawal in withdrawals ?? []) {
+    for (final withdrawal in withdrawals ?? <ParsedWithdrawal>[]) {
       await _signTxAddWithdrawal(withdrawal, cardanoVersion, send);
     }
 
@@ -110,13 +110,13 @@ class CardanoSignTransactionOperation
 
     final collateralInputs = signingRequest.tx.collateralInputs;
     // collateral inputs
-    for (final input in collateralInputs ?? []) {
+    for (final input in collateralInputs ?? <ParsedInput>[]) {
       await _signTxAddCollateralInput(input, send);
     }
 
     final requiredSigners = signingRequest.tx.requiredSigners;
     // required signers
-    for (final requiredSigner in requiredSigners ?? []) {
+    for (final requiredSigner in requiredSigners ?? <ParsedRequiredSigner>[]) {
       await _signTxAddRequiredSigner(requiredSigner, send);
     }
 

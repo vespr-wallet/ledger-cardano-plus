@@ -1,3 +1,7 @@
+## 0.5.4
+
+- Updated ledger_flutter_plus dependency
+
 ## 0.5.3 (Full Conway support)
 
 - Fixed signing for transactions involving certs with dRep keys/scripts

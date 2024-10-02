@@ -1,7 +1,9 @@
+// ignore: unnecessary_library_name
 library ledger_cardano_plus_models;
 
 // from ledger_flutter_plus
 export 'package:ledger_flutter_plus/src/ledger/ledger_device_type.dart';
+export 'package:ledger_flutter_plus/src/utils/hex_utils.dart';
 
 // models
 export 'src/models/extended_public_key.dart';
@@ -57,7 +59,6 @@ export 'src/errors/ledger_cardano_error.dart';
 
 // utils
 export 'src/utils/constants.dart';
-export 'src/utils/hex_utils.dart';
 export 'src/utils/cardano_networks.dart';
 export 'src/utils/ledger_device.dart';
 export 'src/utils/ledger_connection_type.dart';

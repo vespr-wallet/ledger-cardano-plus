@@ -1,13 +1,12 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class CardanoSignCVoteOperation
-    extends ComplexLedgerOperation<SignedCIP36VoteData> {
+    extends LedgerComplexOperation<SignedCIP36VoteData> {
   final ParsedCVote cVote;
   final CardanoVersion version;
 
@@ -16,11 +15,12 @@ class CardanoSignCVoteOperation
     required this.version,
   });
 
-  SendOperation _createSendOperation({
+  LedgerSimpleOperation _createSendOperation({
     required int p1,
     required Uint8List data,
   }) {
-    return SendOperation(
+    return LedgerSimpleOperation(
+      cla: claCardano,
       ins: InstructionType.signCip36Vote.insValue,
       p1: p1,
       p2: p2Unused,

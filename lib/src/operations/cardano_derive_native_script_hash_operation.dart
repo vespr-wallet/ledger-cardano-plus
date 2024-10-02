@@ -3,15 +3,13 @@ import 'dart:typed_data';
 import 'package:ledger_cardano_plus/src/models/parsed_complex_native_script.dart';
 import 'package:ledger_cardano_plus/src/models/parsed_native_script.dart';
 import 'package:ledger_cardano_plus/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class CardanoDeriveNativeScriptHashOperation
-    extends ComplexLedgerOperation<String> {
+    extends LedgerComplexOperation<String> {
   static const int nativeScriptHashLength = 28;
 
   final ParsedNativeScript script;
@@ -33,7 +31,8 @@ class CardanoDeriveNativeScriptHashOperation
   Future<void> _deriveNativeScriptHashAddScript(
       LedgerSendFct send, ParsedNativeScript script) async {
     final sendOperation = switch (script) {
-      ParsedNativeScript_Complex() => SendOperation(
+      ParsedNativeScript_Complex() => LedgerSimpleOperation(
+          cla: claCardano,
           ins: InstructionType.deriveNativeScriptHash.insValue,
           p1: p1ReturnDataToHost,
           p2: p2Unused,
@@ -41,7 +40,8 @@ class CardanoDeriveNativeScriptHashOperation
           prependDataLength: true,
           debugName: 'Add Complex Native Script',
         ),
-      ParsedNativeScript_Simple() => SendOperation(
+      ParsedNativeScript_Simple() => LedgerSimpleOperation(
+          cla: claCardano,
           ins: InstructionType.deriveNativeScriptHash.insValue,
           p1: p1DisplayOnDevice,
           p2: p2Unused,
@@ -67,7 +67,8 @@ class CardanoDeriveNativeScriptHashOperation
     NativeScriptHashDisplayFormat displayFormat,
   ) async {
     final response = await send(
-      SendOperation(
+      LedgerSimpleOperation(
+        cla: claCardano,
         ins: InstructionType.deriveNativeScriptHash.insValue,
         p1: p1FinishScriptHash,
         p2: p2Unused,

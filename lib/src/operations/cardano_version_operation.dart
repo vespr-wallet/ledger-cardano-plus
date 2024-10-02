@@ -1,16 +1,16 @@
 import 'dart:typed_data';
 import 'package:ledger_cardano_plus/src/models/flags.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/cardano_version.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
-class CardanoVersionOperation extends ComplexLedgerOperation<CardanoVersion> {
+class CardanoVersionOperation extends LedgerComplexOperation<CardanoVersion> {
   const CardanoVersionOperation() : super();
 
   @override
   Future<CardanoVersion> invoke(LedgerSendFct send) async {
-    final SendOperation operation = SendOperation(
+    final operation = LedgerSimpleOperation(
+      cla: claCardano,
       ins: InstructionType.getVersion.insValue,
       p1: p1Unused,
       p2: p2Unused,

@@ -1,14 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/src/models/parsed_operational_certificate.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class CardanoSignOperationalCertificateOperation
-    extends ComplexLedgerOperation<Uint8List> {
+    extends LedgerComplexOperation<Uint8List> {
   final ParsedOperationalCertificate operationalCertificate;
 
   const CardanoSignOperationalCertificateOperation({
@@ -21,7 +20,8 @@ class CardanoSignOperationalCertificateOperation
         operationalCertificate);
 
     final response = await send(
-      SendOperation(
+      LedgerSimpleOperation(
+        cla: claCardano,
         ins: InstructionType.signOperationalCertificate.insValue,
         p1: p1Unused,
         p2: p2Unused,

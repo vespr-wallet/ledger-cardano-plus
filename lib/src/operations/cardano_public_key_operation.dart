@@ -2,14 +2,11 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/src/models/extended_public_key.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
-import 'complex_ledger_operations.dart';
-import 'ledger_operations.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class GetExtendedPublicKeyOperation
-    extends ComplexLedgerOperation<ExtendedPublicKey> {
+    extends LedgerComplexOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
 
   const GetExtendedPublicKeyOperation({
@@ -27,7 +24,8 @@ class GetExtendedPublicKeyOperation
       return writer.toBytes();
     });
 
-    final sendOperation = SendOperation(
+    final sendOperation = LedgerSimpleOperation(
+      cla: claCardano,
       ins: InstructionType.getExtendedPublicKey.insValue,
       p1: p1Unused,
       p2: p2Unused,

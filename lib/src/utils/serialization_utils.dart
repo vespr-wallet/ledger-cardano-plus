@@ -39,11 +39,11 @@ import 'package:ledger_cardano_plus/src/models/transaction_signing_mode.dart';
 import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
 import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
 import 'dart:convert';
+
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);

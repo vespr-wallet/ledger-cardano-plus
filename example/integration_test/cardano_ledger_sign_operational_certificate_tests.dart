@@ -20,12 +20,14 @@ void main() {
       isAppXS = (await cardanoApp.getVersion()).flags.isAppXS;
     });
 
-    group('Should successfully sign operational certificate - isAppXS true', () {
+    group('Should successfully sign operational certificate - isAppXS true',
+        () {
       for (final testCase in signOperationalCertificateTests) {
         test(testCase.testName, () async {
           if (isAppXS == true) {
             expectVespr(
-              () => cardanoApp.signOperationalCertificate(testCase.operationalCertificate),
+              () => cardanoApp
+                  .signOperationalCertificate(testCase.operationalCertificate),
               throwsA(isA<LedgerException>()),
             );
           } else {
@@ -35,12 +37,13 @@ void main() {
       }
     });
 
-    group('Should successfully sign operational certificate - isAppXS false', () {
+    group('Should successfully sign operational certificate - isAppXS false',
+        () {
       for (final testCase in signOperationalCertificateTests) {
         test(testCase.testName, () async {
           if (isAppXS == false) {
-            final Uint8List signatureBytes =
-                await cardanoApp.signOperationalCertificate(testCase.operationalCertificate);
+            final Uint8List signatureBytes = await cardanoApp
+                .signOperationalCertificate(testCase.operationalCertificate);
             final String signatureHex = hex.encode(signatureBytes);
             expectVespr(signatureHex, equals(testCase.expected));
           } else {

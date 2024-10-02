@@ -1,13 +1,10 @@
 import 'dart:typed_data';
 
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
-class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
+class CardanoGetSerialOperation extends LedgerComplexOperation<String> {
   const CardanoGetSerialOperation() : super();
 
   @override
@@ -16,11 +13,13 @@ class CardanoGetSerialOperation extends ComplexLedgerOperation<String> {
       return writer.toBytes();
     });
 
-    final SendOperation operation = SendOperation(
+    final operation = LedgerSimpleOperation(
+      cla: claCardano,
       ins: InstructionType.getSerial.insValue,
       p1: p1Unused,
       p2: p2Unused,
       data: data,
+      prependDataLength: true,
       debugName: 'Get Serial',
     );
 

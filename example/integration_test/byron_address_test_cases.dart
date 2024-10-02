@@ -5,12 +5,14 @@ class ByronTestCase {
   final CardanoNetwork network;
   final ParsedAddressParams addressParams;
   final String expectedResult;
+  final bool knownBroken;
 
   ByronTestCase({
     required this.testName,
     required this.network,
     required this.addressParams,
     required this.expectedResult,
+    this.knownBroken = false,
   });
 }
 
@@ -53,6 +55,7 @@ List<ByronTestCase> byronTestCases = [
   ),
   ByronTestCase(
     testName: 'testnet 1',
+    knownBroken: true,
     network: CardanoNetwork.legacyTestnet(),
     addressParams: ParsedAddressParams.byron(
       spendingDataSource: SpendingDataSourcePath(

@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 
 import 'package:base_x/base_x.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus_models.dart';
 
 String addressHexToBase58(String addressHex) {
   final base58 =

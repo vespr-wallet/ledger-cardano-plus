@@ -3,16 +3,13 @@ import 'dart:typed_data';
 import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
 import 'package:ledger_cardano_plus/src/models/shelley_address_params.dart';
 import 'package:ledger_cardano_plus/src/models/staking_data_source.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
 import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/hex_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
-class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
+class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
   final ParsedAddressParams params;
   final CardanoNetwork network;
 
@@ -26,7 +23,8 @@ class CardanoDeriveAddressOperation extends ComplexLedgerOperation<String> {
     final data = serializeAddressParams(params);
 
     final response = await send(
-      SendOperation(
+      LedgerSimpleOperation(
+        cla: claCardano,
         ins: InstructionType.deriveAddress.insValue,
         p1: p1ReturnDataToHost,
         p2: p2Unused,

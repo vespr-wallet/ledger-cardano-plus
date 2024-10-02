@@ -12,7 +12,6 @@ import 'package:ledger_cardano_plus/src/operations/cardano_sign_cvote_operation.
 import 'package:ledger_cardano_plus/src/operations/cardano_sign_operational_certificate_operation.dart';
 import 'package:ledger_cardano_plus/src/operations/cardano_sign_transaction_operation.dart';
 import 'package:ledger_cardano_plus/src/operations/cardano_version_operation.dart';
-import 'package:ledger_cardano_plus/src/operations/complex_ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/conversion_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/ledger_device_x.dart';
@@ -103,14 +102,14 @@ class CardanoLedgerConnection {
   }
 
   Future<CardanoVersion> getVersion() {
-    return _ledgerConnection.sendComplexOperation<CardanoVersion>(
+    return _ledgerConnection.sendOperation<CardanoVersion>(
       const CardanoVersionOperation(),
       transformer: _transformer,
     );
   }
 
   Future<String> getSerialNumber() {
-    return _ledgerConnection.sendComplexOperation<String>(
+    return _ledgerConnection.sendOperation<String>(
       const CardanoGetSerialOperation(),
       transformer: _transformer,
     );
@@ -138,8 +137,7 @@ class CardanoLedgerConnection {
       displayFormat: displayFormat,
     );
 
-    final String scriptHash =
-        await _ledgerConnection.sendComplexOperation<String>(
+    final String scriptHash = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -174,7 +172,7 @@ class CardanoLedgerConnection {
         bip32Path: derivationPaths,
       );
       xPubKeys.add(
-        await _ledgerConnection.sendComplexOperation<ExtendedPublicKey>(
+        await _ledgerConnection.sendOperation<ExtendedPublicKey>(
           operation,
           transformer: _transformer,
         ),
@@ -201,7 +199,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+    final addressResult = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -251,7 +249,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+    final addressResult = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -294,7 +292,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+    final addressResult = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -327,7 +325,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+    final addressResult = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -361,7 +359,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final addressResult = await _ledgerConnection.sendComplexOperation<String>(
+    final addressResult = await _ledgerConnection.sendOperation<String>(
       operation,
       transformer: _transformer,
     );
@@ -392,7 +390,7 @@ class CardanoLedgerConnection {
     );
 
     final Uint8List signature =
-        await _ledgerConnection.sendComplexOperation<Uint8List>(
+        await _ledgerConnection.sendOperation<Uint8List>(
       operation,
       transformer: _transformer,
     );
@@ -415,7 +413,7 @@ class CardanoLedgerConnection {
     );
 
     final SignedTransactionData signedTransactionData =
-        await _ledgerConnection.sendComplexOperation<SignedTransactionData>(
+        await _ledgerConnection.sendOperation<SignedTransactionData>(
       operation,
       transformer: _transformer,
     );
@@ -444,7 +442,7 @@ class CardanoLedgerConnection {
     );
 
     final SignedCIP36VoteData signedCIP36VoteData =
-        await _ledgerConnection.sendComplexOperation<SignedCIP36VoteData>(
+        await _ledgerConnection.sendOperation<SignedCIP36VoteData>(
       operation,
       transformer: _transformer,
     );
@@ -467,7 +465,7 @@ class CardanoLedgerConnection {
 
     const operation = CardanoRunTestsOperation();
 
-    await _ledgerConnection.sendComplexOperation<void>(
+    await _ledgerConnection.sendOperation<void>(
       operation,
       transformer: _transformer,
     );

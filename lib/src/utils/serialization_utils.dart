@@ -1,49 +1,13 @@
 import 'dart:typed_data';
 
 import 'package:collection/collection.dart';
-import 'package:ledger_cardano_plus/src/cardano_version.dart';
-import 'package:ledger_cardano_plus/src/models/cvote_public_key.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_anchor.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_asset_group.dart';
 import 'package:ledger_cardano_plus/src/models/parsed_c_vote_delegation.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_c_vote_registration_params.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_certificate.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_credential.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_datum.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_drep.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_input.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_operational_certificate.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_output.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_output_destination.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_key.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_metadata.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_owner.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_params.dart';
 import 'package:ledger_cardano_plus/src/models/parsed_pool_relay.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_reward_account.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_required_signer.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_signing_request.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_token.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_transaction.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_transaction_options.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_voter.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_voter_votes.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_withdrawal.dart';
-import 'package:ledger_cardano_plus/src/models/shelley_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/spending_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/staking_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
-import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
+import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 import 'dart:convert';
 
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import '../../ledger_cardano_plus.dart';
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
@@ -73,10 +37,12 @@ class SerializationUtils {
 
   static Uint8List serializeUint64(BigInt value) {
     if (value.isNegative) {
-      throw ValidationException("serializeUint64 - Value is negative");
+      throw LedgerCardanoValidationException(
+          "serializeUint64 - Value is negative");
     }
     if (value.bitLength > 64) {
-      throw ValidationException("serializeUint64 - Value is too large");
+      throw LedgerCardanoValidationException(
+          "serializeUint64 - Value is too large");
     }
     final ByteData data = ByteData(8);
     data.setUint32(0, (value >> 32).toInt());
@@ -86,7 +52,8 @@ class SerializationUtils {
 
   static Uint8List serializeUint32(int value) {
     if (value < 0 || value > max32BitValue) {
-      throw ValidationException("serializeUint32 - Value out of range");
+      throw LedgerCardanoValidationException(
+          "serializeUint32 - Value out of range");
     }
     final ByteData data = ByteData(4);
     data.setUint32(0, value, Endian.big);
@@ -95,7 +62,8 @@ class SerializationUtils {
 
   static Uint8List serializeInt64(BigInt value) {
     if (value.bitLength > 63) {
-      throw ValidationException("serializeInt64 - Value is too large");
+      throw LedgerCardanoValidationException(
+          "serializeInt64 - Value is too large");
     }
     final ByteData data = ByteData(8);
     data.setUint32(0, (value >> 32).toInt());
@@ -323,7 +291,7 @@ class SerializationUtils {
       LedgerSigningPath? votePublicKeyPath,
       CardanoVersion version) {
     if (votePublicKey != null && votePublicKeyPath != null) {
-      throw ValidationException(
+      throw LedgerCardanoValidationException(
           'Only one of votePublicKey or votePublicKeyPath should be provided');
     }
 
@@ -336,12 +304,12 @@ class SerializationUtils {
         writeSerializedHex(writer, votePublicKey.value);
       } else {
         if (votePublicKeyPath == null) {
-          throw ValidationException('Missing vote key');
+          throw LedgerCardanoValidationException('Missing vote key');
         }
 
         if (!VersionCompatibility.checkVersionCompatibility(version)
             .supportsCIP36Vote) {
-          throw ValidationException(
+          throw LedgerCardanoValidationException(
               'Key derivation path for vote keys not supported by the device');
         }
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
@@ -432,7 +400,8 @@ class SerializationUtils {
       final Uint8List Function() invoker = switch (paymentDestination) {
         DeviceOwned() => () => serializeAddressParams(
             paymentDestination.addressParams, version, network),
-        _ => () => throw ValidationException('Invalid payment destination'),
+        _ => () => throw LedgerCardanoValidationException(
+            'serializeCVoteRegPayDest: Invalid payment destination'),
       };
       return invoker();
     }
@@ -722,7 +691,8 @@ class SerializationUtils {
         StakeRegistration() => () {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
-              throw ValidationException('Invalid stake credential');
+              throw LedgerCardanoValidationException(
+                  'Invalid stake credential');
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
@@ -730,7 +700,9 @@ class SerializationUtils {
         StakeDeregistration() => () {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
-              throw ValidationException('Invalid stake credential');
+              throw LedgerCardanoValidationException(
+                'Invalid stake credential',
+              );
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
@@ -738,7 +710,9 @@ class SerializationUtils {
         StakeDelegation() => () {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
-              throw ValidationException('Invalid stake credential');
+              throw LedgerCardanoValidationException(
+                'Invalid stake credential',
+              );
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
@@ -752,22 +726,30 @@ class SerializationUtils {
             writerSerializedPath(writer, certificate.path);
             writer.write(serializeUint64(certificate.retirementEpoch));
           },
-        StakeRegistrationConway() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        StakeDeregistrationConway() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        VoteDelegation() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        AuthorizeCommitteeHot() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        ResignCommitteeCold() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        DRepRegistration() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        DRepDeregistration() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
-        DRepUpdate() => throw ValidationException(
-            'Conway certificates in pre-multisig serialization'),
+        StakeRegistrationConway() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        StakeDeregistrationConway() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        VoteDelegation() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        AuthorizeCommitteeHot() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        ResignCommitteeCold() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        DRepRegistration() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        DRepDeregistration() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
+        DRepUpdate() => throw LedgerCardanoValidationException(
+            'Conway certificates in pre-multisig serialization',
+          ),
       };
       invoker();
       return writer.toBytes();
@@ -919,7 +901,8 @@ class SerializationUtils {
     } else {
       final withdrawalStakeCredential = withdrawal.stakeCredential;
       if (withdrawalStakeCredential is! CredentialKeyPath) {
-        throw ValidationException('WITHDRAWAL_INVALID_STAKE_CREDENTIAL');
+        throw LedgerCardanoValidationException(
+            'WITHDRAWAL_INVALID_STAKE_CREDENTIAL');
       }
       return useBinaryWriter((ByteDataWriter writer) {
         writer.write(serializeCoin(withdrawal.amount));
@@ -982,13 +965,14 @@ class SerializationUtils {
 
   static Uint8List serializedInt64(BigInt value) {
     if (value.bitLength > 63) {
-      throw ValidationException("int64ToBuf - Value is too large");
+      throw LedgerCardanoValidationException("int64ToBuf - Value is too large");
     }
     ByteDataWriter writer = ByteDataWriter();
     writer.write(serializeInt64(value));
     Uint8List data = writer.toBytes();
     if (data.length != 8) {
-      throw ValidationException("int64ToBuf - Invalid data length");
+      throw LedgerCardanoValidationException(
+          "int64ToBuf - Invalid data length");
     }
     return data;
   }
@@ -1024,7 +1008,7 @@ class SerializationUtils {
 
   static Uint8List serializeVoterVotes(ParsedVoterVotes voterVotes) {
     if (voterVotes.votes.length != 1) {
-      throw ValidationException('too few / too many votes');
+      throw LedgerCardanoValidationException('too few / too many votes');
     }
     final vote = voterVotes.votes[0];
     return useBinaryWriter((ByteDataWriter writer) {

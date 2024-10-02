@@ -35,27 +35,43 @@ class CardanoVersion with _$CardanoVersion {
         flags: const Flags(isDebug: false, isAppXS: false),
       );
 
-  void requireConway(String? caller) {
+  void requireConway(String caller) {
     if (!compatibility.supportsConway) {
-      throw VersionNotSupported(caller ?? "Unknown operation", "Conway");
+      throw LedgerCardanoVersionNotSupported(
+        message: caller,
+        era: "Conway",
+        wantedVersion: ">=7.0.0",
+      );
     }
   }
 
-  void requireBabbage(String? caller) {
+  void requireBabbage(String caller) {
     if (!compatibility.supportsBabbage) {
-      throw VersionNotSupported(caller ?? "Unknown operation", "Babbage");
+      throw LedgerCardanoVersionNotSupported(
+        message: caller,
+        era: "Babbage",
+        wantedVersion: ">=5.0.0",
+      );
     }
   }
 
-  void requireAlonzo(String? caller) {
+  void requireAlonzo(String caller) {
     if (!compatibility.supportsAlonzo) {
-      throw VersionNotSupported(caller ?? "Unknown operation", "Alonzo");
+      throw LedgerCardanoVersionNotSupported(
+        message: caller,
+        wantedVersion: ">=4.0.0",
+        era: "Alonzo",
+      );
     }
   }
 
-  void requireMary(String? caller) {
+  void requireMary(String caller) {
     if (!compatibility.supportsMary) {
-      throw VersionNotSupported(caller ?? "Unknown operation", "Mary");
+      throw LedgerCardanoVersionNotSupported(
+        message: caller,
+        wantedVersion: ">=2.2.0",
+        era: "Mary",
+      );
     }
   }
 }

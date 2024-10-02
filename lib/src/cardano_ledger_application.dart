@@ -16,7 +16,6 @@ import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
 import 'package:ledger_cardano_plus/src/utils/conversion_utils.dart';
 import 'package:ledger_cardano_plus/src/utils/ledger_device_x.dart';
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' as sdk;
 
 CardanoLedger? _cardanoLedgerBle;
@@ -125,10 +124,10 @@ class CardanoLedgerConnection {
 
     if (!compatibility.isCompatible ||
         !compatibility.supportsNativeScriptHashDerivation) {
-      throw ValidationException(
-        "Deriving native script hash not supported by the device's Cardano app version. "
-        "Required minimum version: ${compatibility.recommendedVersion}, "
-        "Device version: ${deviceVersion.versionName}",
+      throw LedgerCardanoVersionNotSupported(
+        message: 'Native script hash derivation not supported',
+        wantedVersion: '>=5.0.0',
+        era: 'Babbage',
       );
     }
 
@@ -161,10 +160,11 @@ class CardanoLedgerConnection {
       final int minSupportedVersionCode = request.minSupportedVersionCode;
 
       if (deviceVersion.versionCode < minSupportedVersionCode) {
-        throw ValidationException(
-          "Operation not supported by the device's Cardano app version. "
-          "Required minimum version: ${CardanoVersion.fromVersionCode(minSupportedVersionCode).versionName}, "
-          "Device version: ${deviceVersion.versionName}",
+        LedgerCardanoVersionNotSupported(
+          message: 'getExtendedPublicKeys',
+          wantedVersion: CardanoVersion.fromVersionCode(minSupportedVersionCode)
+              .versionName,
+          era: 'Babbage',
         );
       }
 
@@ -180,7 +180,7 @@ class CardanoLedgerConnection {
     }
 
     if (requests.length != xPubKeys.length) {
-      throw ValidationException(
+      throw LedgerCardanoSdkInternalException(
         "getExtendedPublicKeyV2 returned ${xPubKeys.length} xPub keys; ${requests.length} xPubs expected",
       );
     }
@@ -378,10 +378,10 @@ class CardanoLedgerConnection {
 
     if (!compatibility.isCompatible ||
         !compatibility.supportsOperationalCertificateSigning) {
-      throw ValidationException(
-        "Operational certificate signing not supported by the device's Cardano app version. "
-        "Required minimum version: ${compatibility.recommendedVersion}, "
-        "Device version: ${deviceVersion.versionName}",
+      throw LedgerCardanoVersionNotSupported(
+        message: 'Operational certificate signing',
+        wantedVersion: '>=2.4.0',
+        era: 'Mary',
       );
     }
 
@@ -429,10 +429,10 @@ class CardanoLedgerConnection {
         VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible || !compatibility.supportsCIP36Vote) {
-      throw ValidationException(
-        "CIP36 vote signing not supported by the device's Cardano app version. "
-        "Required minimum version: ${compatibility.recommendedVersion}, "
-        "Device version: ${deviceVersion.versionName}",
+      throw LedgerCardanoVersionNotSupported(
+        message: 'CIP36 voting',
+        wantedVersion: '6.0.0',
+        era: 'Babbage',
       );
     }
 
@@ -456,10 +456,10 @@ class CardanoLedgerConnection {
         VersionCompatibility.checkVersionCompatibility(deviceVersion);
 
     if (!compatibility.isCompatible) {
-      throw ValidationException(
-        "Running tests not supported by the device's Cardano app version. "
-        "Required minimum version: ${compatibility.recommendedVersion}, "
-        "Device version: ${deviceVersion.versionName}",
+      throw LedgerCardanoVersionNotSupported(
+        message: 'runTests',
+        wantedVersion: '>=2.2.0',
+        era: 'Mary',
       );
     }
 

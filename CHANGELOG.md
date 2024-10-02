@@ -1,3 +1,7 @@
+## 0.5.5
+
+- Improved error throwing and error types
+
 ## 0.5.4
 
 - Updated ledger_flutter_plus dependency

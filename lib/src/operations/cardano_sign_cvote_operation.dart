@@ -2,7 +2,6 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class CardanoSignCVoteOperation
@@ -34,8 +33,10 @@ class CardanoSignCVoteOperation
   Future<SignedCIP36VoteData> invoke(LedgerSendFct send) async {
     if (!VersionCompatibility.checkVersionCompatibility(version)
         .supportsCIP36Vote) {
-      throw ValidationException(
-        'CIP36 voting not supported by Ledger app version ${version.versionName}.',
+      throw LedgerCardanoVersionNotSupported(
+        message: 'CIP36 voting',
+        wantedVersion: '6.0.0',
+        era: 'Babbage',
       );
     }
 

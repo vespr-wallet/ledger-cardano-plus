@@ -1,6 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
+import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 
 part 'parsed_simple_native_script.freezed.dart';
 
@@ -17,9 +16,11 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
 
     if (slot != null) {
       if (slot < BigInt.zero) {
-        throw ValidationException("Slot cannot be negative");
+        throw LedgerCardanoValidationException("Slot cannot be negative");
       } else if (slot.bitLength > 64) {
-        throw ValidationException("Slot cannot have more than 64 bits");
+        throw LedgerCardanoValidationException(
+          "Slot cannot have more than 64 bits",
+        );
       }
     }
   }

@@ -60,5 +60,6 @@ export 'src/errors/ledger_cardano_error.dart';
 // utils
 export 'src/utils/constants.dart';
 export 'src/utils/cardano_networks.dart';
+export 'src/utils/exceptions.dart';
 export 'src/utils/ledger_device.dart';
 export 'src/utils/ledger_connection_type.dart';

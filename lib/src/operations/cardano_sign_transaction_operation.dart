@@ -3,7 +3,6 @@ import 'dart:typed_data';
 
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano_plus/src/utils/validation_exception.dart';
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 class CardanoSignTransactionOperation
@@ -648,7 +647,8 @@ class CardanoSignTransactionOperation
     LedgerSendFct send,
   ) async {
     if (auxiliaryData is! ArbitraryHash) {
-      throw ValidationException('Auxiliary data type not implemented');
+      throw LedgerCardanoValidationException(
+          'Auxiliary data type not implemented');
     }
 
     await send(LedgerSimpleOperation(
@@ -891,8 +891,9 @@ class CardanoSignTransactionOperation
     ));
 
     if (response.remainingLength != txHashLength) {
-      throw ValidationException(
-          'Unexpected response length for transaction hash');
+      throw LedgerCardanoSdkInternalException(
+        '_signTxAwaitConfirm: Unexpected response length for transaction hash',
+      );
     }
 
     final txHashHex = hex.encode(response.read(response.remainingLength));
@@ -914,8 +915,9 @@ class CardanoSignTransactionOperation
     ));
 
     if (response.remainingLength != ed25519SignatureLength) {
-      throw ValidationException(
-          'Unexpected response length for witness signature');
+      throw LedgerCardanoSdkInternalException(
+        '_signTxGetWitness: Unexpected response length for witness signature',
+      );
     }
 
     final witnessSignature = response.read(response.remainingLength);

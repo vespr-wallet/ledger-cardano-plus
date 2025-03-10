@@ -148,7 +148,7 @@ List<ShelleyTestCase> shelleyTestCases = [
                 [harden + 1852, harden + 1815, harden + 0, 0, 1])),
         stakingDataSource: StakingDataSource.keyPath(
             path: LedgerSigningPath.custom(
-                [harden + 1852, harden + 1815, harden + 0, 2, 60])),
+                [harden + 1852, harden + 1815, harden + 101, 2, 60])),
       ),
     ),
     minSupportedVersion: CardanoVersion.fromVersionCode(50002),

@@ -279,7 +279,7 @@ final validNativeScriptTestCases = [
 
 class InvalidOnLedgerScriptTestCase {
   final String testName;
-  final ParsedNativeScript script;
+  final ParsedNativeScript Function() script;
 
   InvalidOnLedgerScriptTestCase({
     required this.testName,
@@ -287,18 +287,10 @@ class InvalidOnLedgerScriptTestCase {
   });
 }
 
-final invalidOnLedgerScriptTestCases = [
-  InvalidOnLedgerScriptTestCase(
-    testName: 'PUBKEY - invalid key path',
-    script: ParsedNativeScript.simple(
-      ParsedSimpleNativeScript.pubKeyDeviceOwned(
-        path: LedgerSigningPath.custom([0, 0, 0, 0, 0, 0]),
-      ),
-    ),
-  ),
+final invalidValidationTestCases = [
   InvalidOnLedgerScriptTestCase(
     testName: 'PUBKEY - invalid key hash (too short)',
-    script: ParsedNativeScript.simple(
+    script: () => ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyThirdParty(
         keyHashHex: '3a55d9f68255dfbefa1efd711f82d005fae1be2e145d616c90cf0fa',
       ),
@@ -306,7 +298,7 @@ final invalidOnLedgerScriptTestCases = [
   ),
   InvalidOnLedgerScriptTestCase(
     testName: 'PUBKEY - invalid key hash (not hex)',
-    script: ParsedNativeScript.simple(
+    script: () => ParsedNativeScript.simple(
       ParsedSimpleNativeScript.pubKeyThirdParty(
         keyHashHex: '3g55d9f68255dfbefa1efd711f82d005fae1be2e145d616c90cf0fa9',
       ),
@@ -314,7 +306,7 @@ final invalidOnLedgerScriptTestCases = [
   ),
   InvalidOnLedgerScriptTestCase(
     testName: 'N_OF_K - invalid required count (higher than number of scripts)',
-    script: ParsedNativeScript.complex(
+    script: () => ParsedNativeScript.complex(
       ParsedComplexNativeScript.nOfK(
         requiredCount: 1,
         scripts: [],
@@ -323,7 +315,7 @@ final invalidOnLedgerScriptTestCases = [
   ),
   InvalidOnLedgerScriptTestCase(
     testName: 'N_OF_K - invalid required count (negative number)',
-    script: ParsedNativeScript.complex(
+    script: () => ParsedNativeScript.complex(
       ParsedComplexNativeScript.nOfK(
         requiredCount: -1,
         scripts: [
@@ -338,7 +330,7 @@ final invalidOnLedgerScriptTestCases = [
   ),
   InvalidOnLedgerScriptTestCase(
     testName: 'INVALID_BEFORE - invalid invalidBefore (negative number) as a subscript',
-    script: ParsedNativeScript.complex(
+    script: () => ParsedNativeScript.complex(
       ParsedComplexNativeScript.any(
         scripts: [
           ParsedNativeScript.simple(
@@ -355,8 +347,19 @@ final invalidOnLedgerScriptTestCases = [
   ),
   InvalidOnLedgerScriptTestCase(
     testName: 'INVALID_HEREAFTER - invalid invalidHereafter (negative number)',
-    script: ParsedNativeScript.simple(
+    script: () => ParsedNativeScript.simple(
       ParsedSimpleNativeScript.invalidHereafter(slot: BigInt.from(-1)),
+    ),
+  ),
+];
+
+final invalidOnLedgerScriptTestCases = [
+  InvalidOnLedgerScriptTestCase(
+    testName: 'PUBKEY - invalid key path',
+    script: () => ParsedNativeScript.simple(
+      ParsedSimpleNativeScript.pubKeyDeviceOwned(
+        path: LedgerSigningPath.custom([0, 0, 0, 0, 0, 0]),
+      ),
     ),
   ),
 ];

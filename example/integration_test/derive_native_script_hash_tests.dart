@@ -20,50 +20,63 @@ void main() {
     });
 
     group('Valid native scripts - isAppXs true', () {
-      if (!isAppXS) {
-        markTestSkipped('Skipping tests as Ledger isAppXS is false');
-        return;
-      }
       for (final testCase in validNativeScriptTestCases) {
         test(testCase.testName, () async {
-          expectVespr(
-            () => cardanoApp.deriveNativeScriptHash(
-              testCase.script,
-              testCase.displayFormat,
-            ),
-            throwsA(isA<LedgerException>()),
-          );
+          if (!isAppXS) {
+            markTestSkipped('Skipping tests as Ledger isAppXS is false');
+          } else {
+            expectVespr(
+              () => cardanoApp.deriveNativeScriptHash(
+                testCase.script,
+                testCase.displayFormat,
+              ),
+              throwsA(isA<LedgerException>()),
+            );
+          }
         });
       }
     });
 
     group('Valid native scripts - isAppXs false', () {
-      if (isAppXS) {
-        markTestSkipped('Skipping tests as Ledger isAppXS is true');
-        return;
-      }
       for (final testCase in validNativeScriptTestCases) {
         test(testCase.testName, () async {
+          if (isAppXS) {
+            markTestSkipped('Skipping tests as Ledger isAppXS is true');
+          } else {
+            expectVespr(
+              cardanoApp.deriveNativeScriptHash(
+                testCase.script,
+                testCase.displayFormat,
+              ),
+              equals(testCase.expectedHash),
+            );
+          }
+        });
+      }
+    });
+
+    group('Invalid dart validation rejection scripts', () {
+      // dart throws before sending to ledger
+      for (final testCase in invalidValidationTestCases) {
+        test(testCase.testName, () async {
           expectVespr(
-            cardanoApp.deriveNativeScriptHash(
-              testCase.script,
-              testCase.displayFormat,
-            ),
-            equals(testCase.expectedHash),
+            testCase.script,
+            throwsA(isA<LedgerCardanoValidationException>()),
           );
         });
       }
     });
 
-    group('Invalid scripts', () {
+    group('Invalid ledger rejection scripts', () {
+      // ledger device dejects those
       for (final testCase in invalidOnLedgerScriptTestCases) {
         test(testCase.testName, () async {
           expectVespr(
-            () => cardanoApp.deriveNativeScriptHash(
-              testCase.script,
+            cardanoApp.deriveNativeScriptHash(
+              testCase.script(),
               NativeScriptHashDisplayFormat.bech32,
             ),
-            throwsA(isA<LedgerException>()),
+            throwsA(isA<InvalidDataException>()),
           );
         });
       }

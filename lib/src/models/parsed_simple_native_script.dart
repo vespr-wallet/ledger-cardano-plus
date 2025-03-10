@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
+import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 
 part 'parsed_simple_native_script.freezed.dart';
 
@@ -18,10 +19,18 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
       if (slot < BigInt.zero) {
         throw LedgerCardanoValidationException("Slot cannot be negative");
       } else if (slot.bitLength > 64) {
-        throw LedgerCardanoValidationException(
-          "Slot cannot have more than 64 bits",
-        );
+        throw LedgerCardanoValidationException("Slot cannot have more than 64 bits");
       }
+    }
+
+    switch (thisObj) {
+      case ParsedSimpleNativeScript_PubKeyDeviceOwned():
+        break;
+      case ParsedSimpleNativeScript_PubKeyThirdParty():
+        validateExactHexString(thisObj.keyHashHex, "keyHashHex", 56);
+      case ParsedSimpleNativeScript_InvalidBefore():
+      case ParsedSimpleNativeScript_InvalidHereafter():
+      // no-op
     }
   }
 

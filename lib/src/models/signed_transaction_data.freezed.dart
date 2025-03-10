@@ -115,7 +115,7 @@ as TxAuxiliaryDataSupplement?,
 
 
 class _$SignedTransactionDataImpl extends _SignedTransactionData  {
-   _$SignedTransactionDataImpl({required this.txHashHex, required final  List<Witness> witnesses, this.auxiliaryDataSupplement}): _witnesses = witnesses,super._();
+   _$SignedTransactionDataImpl({required this.txHashHex, required final  List<Witness> witnesses, required this.auxiliaryDataSupplement}): _witnesses = witnesses,super._();
 
   
 
@@ -162,7 +162,7 @@ _$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl> get copyWith =
 
 
 abstract class _SignedTransactionData extends SignedTransactionData {
-   factory _SignedTransactionData({required final  String txHashHex, required final  List<Witness> witnesses, final  TxAuxiliaryDataSupplement? auxiliaryDataSupplement}) = _$SignedTransactionDataImpl;
+   factory _SignedTransactionData({required final  String txHashHex, required final  List<Witness> witnesses, required final  TxAuxiliaryDataSupplement? auxiliaryDataSupplement}) = _$SignedTransactionDataImpl;
    _SignedTransactionData._(): super._();
 
   

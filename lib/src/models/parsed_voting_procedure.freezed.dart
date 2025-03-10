@@ -113,7 +113,7 @@ as ParsedAnchor?,
 
 
 class _$ParsedVotingProcedureImpl extends _ParsedVotingProcedure  {
-   _$ParsedVotingProcedureImpl({required this.vote, this.anchor}): super._();
+   _$ParsedVotingProcedureImpl({required this.vote, required this.anchor}): super._();
 
   
 
@@ -153,7 +153,7 @@ _$$ParsedVotingProcedureImplCopyWith<_$ParsedVotingProcedureImpl> get copyWith =
 
 
 abstract class _ParsedVotingProcedure extends ParsedVotingProcedure {
-   factory _ParsedVotingProcedure({required final  VoteOption vote, final  ParsedAnchor? anchor}) = _$ParsedVotingProcedureImpl;
+   factory _ParsedVotingProcedure({required final  VoteOption vote, required final  ParsedAnchor? anchor}) = _$ParsedVotingProcedureImpl;
    _ParsedVotingProcedure._(): super._();
 
   

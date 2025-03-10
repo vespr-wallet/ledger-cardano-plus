@@ -64,35 +64,35 @@ void main() {
         final promise = cardanoApp.getExtendedPublicKey(
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 44, harden + 1815]),
         );
-        expectVespr(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<PolicyRejectedException>()));
       });
 
       test('path not matching cold key structure', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1853, harden + 1900, harden + 0, 0, 0]),
         );
-        expectVespr(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<PolicyRejectedException>()));
       });
 
       test('invalid vote key path 1', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1, 0]),
         );
-        expectVespr(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<PolicyRejectedException>()));
       });
 
       test('invalid vote key path 2', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, 17]),
         );
-        expectVespr(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<PolicyRejectedException>()));
       });
 
       test('invalid vote key path 3', () async {
         final promise = cardanoApp.getExtendedPublicKey(
           request: ExtendedPublicKeyRequest_Custom(customPath: [harden + 1694, harden + 1815, harden + 0, 1]),
         );
-        expectVespr(promise, throwsA(isA<LedgerException>()));
+        expectVespr(promise, throwsA(isA<PolicyRejectedException>()));
       });
     });
   });

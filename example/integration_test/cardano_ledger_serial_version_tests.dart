@@ -41,19 +41,20 @@ void main() {
             'Device: ${cardanoApp.device.name}\nApp Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\nDevelopment Version: ${version.testMode ? "Yes" : "No"}');
 
         // Check major and minor version
-        expectVespr(version.versionMajor, equals(5));
-        expectVespr(version.versionMinor, equals(0));
+        expectVespr(version.versionMajor, equals(7));
+        expectVespr(version.versionMinor, equals(2));
+        expectVespr(version.versionPatch, equals(1));
 
         // Check debug flag
         expectVespr(version.testMode, isFalse);
 
         // Check compatibility details
         expectVespr(compatibility.isCompatible, isTrue);
-        expectVespr(compatibility.recommendedVersion, isNull);
+        expectVespr(compatibility.recommendedVersion, equals(">=7.2.1"));
         expectVespr(compatibility.supportsByronAddressDerivation, equals(!version.flags.isAppXS));
         expectVespr(compatibility.supportsMary, isTrue);
         expectVespr(compatibility.supportsCatalystRegistration, isTrue);
-        expectVespr(compatibility.supportsCIP36, isFalse);
+        expectVespr(compatibility.supportsCIP36, isTrue);
         expectVespr(compatibility.supportsZeroTtl, isTrue);
         expectVespr(compatibility.supportsPoolRegistrationAsOwner, equals(!version.flags.isAppXS));
         expectVespr(compatibility.supportsPoolRegistrationAsOperator, equals(!version.flags.isAppXS));
@@ -64,8 +65,8 @@ void main() {
         expectVespr(compatibility.supportsAlonzo, isTrue);
         expectVespr(compatibility.supportsReqSignersInOrdinaryTx, isTrue);
         expectVespr(compatibility.supportsBabbage, isTrue);
-        expectVespr(compatibility.supportsCIP36Vote, isFalse);
-        expectVespr(compatibility.supportsConway, isFalse);
+        expectVespr(compatibility.supportsCIP36Vote, isTrue);
+        expectVespr(compatibility.supportsConway, isTrue);
       } catch (e) {
         print('Error fetching version: $e');
       }

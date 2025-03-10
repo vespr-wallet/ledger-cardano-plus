@@ -50,7 +50,7 @@ class VersionCompatibility with _$VersionCompatibility {
     }
 
     return VersionCompatibility(
-      recommendedVersion: ">=7.0",
+      recommendedVersion: ">=7.2.1",
       isCompatible: isVersionInRange(2, 2),
       supportsPoolRegistrationAsOwner: isVersionInRange(2, 2) && !isAppXS,
       supportsByronAddressDerivation: isVersionInRange(2, 2) && !isAppXS,

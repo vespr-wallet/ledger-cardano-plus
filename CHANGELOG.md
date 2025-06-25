@@ -1,3 +1,10 @@
+## 0.5.6
+
+- Updated Flutter SDK to 3.32.4 and Dart SDK to ">=3.8.0 <4.0.0"
+- Updated dependencies: ledger_flutter_plus (^1.5.3), collection (^1.19.1), flutter_lints (^6.0.0), freezed (^2.5.8), and others
+- Updated example app dependencies and environment to match new SDK versions
+- Minor: Cleaned up VSCode settings and tool version files
+
 ## 0.5.5
 
 - Improved error throwing and error types

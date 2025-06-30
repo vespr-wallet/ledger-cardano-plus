@@ -28,6 +28,7 @@ sealed class Datum with _$Datum {
     required String datumHex,
   }) = DatumInline;
 
+  @override
   late final DatumType type = switch (this) {
     DatumHash() => DatumType.hash,
     DatumInline() => DatumType.inline,

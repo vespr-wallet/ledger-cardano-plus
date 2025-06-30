@@ -5,7 +5,7 @@ import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 part 'ledger_device.freezed.dart';
 
 @freezed
-class LedgerDevice with _$LedgerDevice {
+sealed class LedgerDevice with _$LedgerDevice {
   const LedgerDevice._();
 
   const factory LedgerDevice({

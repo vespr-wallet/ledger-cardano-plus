@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,226 +10,175 @@ part of 'parsed_tx_auxiliary_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedTxAuxiliaryData {
+  int get txAuxiliaryDataValue;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedTxAuxiliaryData &&
+            (identical(other.txAuxiliaryDataValue, txAuxiliaryDataValue) ||
+                other.txAuxiliaryDataValue == txAuxiliaryDataValue));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, txAuxiliaryDataValue);
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ParsedTxAuxiliaryData(txAuxiliaryDataValue: $txAuxiliaryDataValue)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedTxAuxiliaryDataCopyWith<$Res>  {
-  factory $ParsedTxAuxiliaryDataCopyWith(ParsedTxAuxiliaryData value, $Res Function(ParsedTxAuxiliaryData) then) = _$ParsedTxAuxiliaryDataCopyWithImpl<$Res, ParsedTxAuxiliaryData>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedTxAuxiliaryDataCopyWithImpl<$Res,$Val extends ParsedTxAuxiliaryData> implements $ParsedTxAuxiliaryDataCopyWith<$Res> {
-  _$ParsedTxAuxiliaryDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$ArbitraryHashImplCopyWith<$Res>  {
-  factory _$$ArbitraryHashImplCopyWith(_$ArbitraryHashImpl value, $Res Function(_$ArbitraryHashImpl) then) = __$$ArbitraryHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String hashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$ArbitraryHashImplCopyWithImpl<$Res> extends _$ParsedTxAuxiliaryDataCopyWithImpl<$Res, _$ArbitraryHashImpl> implements _$$ArbitraryHashImplCopyWith<$Res> {
-  __$$ArbitraryHashImplCopyWithImpl(_$ArbitraryHashImpl _value, $Res Function(_$ArbitraryHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
-  return _then(_$ArbitraryHashImpl(
-hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+class $ParsedTxAuxiliaryDataCopyWith<$Res> {
+  $ParsedTxAuxiliaryDataCopyWith(
+      ParsedTxAuxiliaryData _, $Res Function(ParsedTxAuxiliaryData) __);
 }
 
 /// @nodoc
 
+class ArbitraryHash extends ParsedTxAuxiliaryData {
+  ArbitraryHash({required this.hashHex}) : super._();
 
-class _$ArbitraryHashImpl extends ArbitraryHash  {
-   _$ArbitraryHashImpl({required this.hashHex}): super._();
+  final String hashHex;
 
-  
+  /// Create a copy of ParsedTxAuxiliaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ArbitraryHashCopyWith<ArbitraryHash> get copyWith =>
+      _$ArbitraryHashCopyWithImpl<ArbitraryHash>(this, _$identity);
 
-@override final  String hashHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ArbitraryHash &&
+            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+  }
 
-@override
-String toString() {
-  return 'ParsedTxAuxiliaryData.arbitraryHash(hashHex: $hashHex)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, hashHex);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ArbitraryHashImpl&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,hashHex);
-
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ArbitraryHashImplCopyWith<_$ArbitraryHashImpl> get copyWith => __$$ArbitraryHashImplCopyWithImpl<_$ArbitraryHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ArbitraryHash extends ParsedTxAuxiliaryData {
-   factory ArbitraryHash({required final  String hashHex}) = _$ArbitraryHashImpl;
-   ArbitraryHash._(): super._();
-
-  
-
- String get hashHex;
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ArbitraryHashImplCopyWith<_$ArbitraryHashImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedTxAuxiliaryData.arbitraryHash(hashHex: $hashHex)';
+  }
 }
 
 /// @nodoc
-abstract class _$$CIP36RegistrationImplCopyWith<$Res>  {
-  factory _$$CIP36RegistrationImplCopyWith(_$CIP36RegistrationImpl value, $Res Function(_$CIP36RegistrationImpl) then) = __$$CIP36RegistrationImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- ParsedCVoteRegistrationParams params
-});
-
-
-$ParsedCVoteRegistrationParamsCopyWith<$Res> get params;
+abstract mixin class $ArbitraryHashCopyWith<$Res>
+    implements $ParsedTxAuxiliaryDataCopyWith<$Res> {
+  factory $ArbitraryHashCopyWith(
+          ArbitraryHash value, $Res Function(ArbitraryHash) _then) =
+      _$ArbitraryHashCopyWithImpl;
+  @useResult
+  $Res call({String hashHex});
 }
 
 /// @nodoc
-class __$$CIP36RegistrationImplCopyWithImpl<$Res> extends _$ParsedTxAuxiliaryDataCopyWithImpl<$Res, _$CIP36RegistrationImpl> implements _$$CIP36RegistrationImplCopyWith<$Res> {
-  __$$CIP36RegistrationImplCopyWithImpl(_$CIP36RegistrationImpl _value, $Res Function(_$CIP36RegistrationImpl) _then)
-      : super(_value, _then);
+class _$ArbitraryHashCopyWithImpl<$Res>
+    implements $ArbitraryHashCopyWith<$Res> {
+  _$ArbitraryHashCopyWithImpl(this._self, this._then);
 
+  final ArbitraryHash _self;
+  final $Res Function(ArbitraryHash) _then;
 
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? params = null,}) {
-  return _then(_$CIP36RegistrationImpl(
-params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
-as ParsedCVoteRegistrationParams,
-  ));
-}
-
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedCVoteRegistrationParamsCopyWith<$Res> get params {
-  
-  return $ParsedCVoteRegistrationParamsCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
-  });
-}
+  /// Create a copy of ParsedTxAuxiliaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? hashHex = null,
+  }) {
+    return _then(ArbitraryHash(
+      hashHex: null == hashHex
+          ? _self.hashHex
+          : hashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class CIP36Registration extends ParsedTxAuxiliaryData {
+  CIP36Registration({required this.params}) : super._();
 
-class _$CIP36RegistrationImpl extends CIP36Registration  {
-   _$CIP36RegistrationImpl({required this.params}): super._();
+  final ParsedCVoteRegistrationParams params;
 
-  
+  /// Create a copy of ParsedTxAuxiliaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CIP36RegistrationCopyWith<CIP36Registration> get copyWith =>
+      _$CIP36RegistrationCopyWithImpl<CIP36Registration>(this, _$identity);
 
-@override final  ParsedCVoteRegistrationParams params;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CIP36Registration &&
+            (identical(other.params, params) || other.params == params));
+  }
 
-@override
-String toString() {
-  return 'ParsedTxAuxiliaryData.cip36Registration(params: $params)';
+  @override
+  int get hashCode => Object.hash(runtimeType, params);
+
+  @override
+  String toString() {
+    return 'ParsedTxAuxiliaryData.cip36Registration(params: $params)';
+  }
 }
 
+/// @nodoc
+abstract mixin class $CIP36RegistrationCopyWith<$Res>
+    implements $ParsedTxAuxiliaryDataCopyWith<$Res> {
+  factory $CIP36RegistrationCopyWith(
+          CIP36Registration value, $Res Function(CIP36Registration) _then) =
+      _$CIP36RegistrationCopyWithImpl;
+  @useResult
+  $Res call({ParsedCVoteRegistrationParams params});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CIP36RegistrationImpl&&(identical(other.params, params) || other.params == params));
+  $ParsedCVoteRegistrationParamsCopyWith<$Res> get params;
 }
 
+/// @nodoc
+class _$CIP36RegistrationCopyWithImpl<$Res>
+    implements $CIP36RegistrationCopyWith<$Res> {
+  _$CIP36RegistrationCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,params);
+  final CIP36Registration _self;
+  final $Res Function(CIP36Registration) _then;
 
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CIP36RegistrationImplCopyWith<_$CIP36RegistrationImpl> get copyWith => __$$CIP36RegistrationImplCopyWithImpl<_$CIP36RegistrationImpl>(this, _$identity);
+  /// Create a copy of ParsedTxAuxiliaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? params = null,
+  }) {
+    return _then(CIP36Registration(
+      params: null == params
+          ? _self.params
+          : params // ignore: cast_nullable_to_non_nullable
+              as ParsedCVoteRegistrationParams,
+    ));
+  }
 
-
-
-
-
-
-
-
+  /// Create a copy of ParsedTxAuxiliaryData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedCVoteRegistrationParamsCopyWith<$Res> get params {
+    return $ParsedCVoteRegistrationParamsCopyWith<$Res>(_self.params, (value) {
+      return _then(_self.copyWith(params: value));
+    });
+  }
 }
 
-
-abstract class CIP36Registration extends ParsedTxAuxiliaryData {
-   factory CIP36Registration({required final  ParsedCVoteRegistrationParams params}) = _$CIP36RegistrationImpl;
-   CIP36Registration._(): super._();
-
-  
-
- ParsedCVoteRegistrationParams get params;
-/// Create a copy of ParsedTxAuxiliaryData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CIP36RegistrationImplCopyWith<_$CIP36RegistrationImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

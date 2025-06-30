@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,235 +10,186 @@ part of 'parsed_address_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedAddressParams {
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is ParsedAddressParams);
+  }
 
+  @override
+  int get hashCode => runtimeType.hashCode;
 
-
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ParsedAddressParams()';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedAddressParamsCopyWith<$Res>  {
-  factory $ParsedAddressParamsCopyWith(ParsedAddressParams value, $Res Function(ParsedAddressParams) then) = _$ParsedAddressParamsCopyWithImpl<$Res, ParsedAddressParams>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedAddressParamsCopyWithImpl<$Res,$Val extends ParsedAddressParams> implements $ParsedAddressParamsCopyWith<$Res> {
-  _$ParsedAddressParamsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$ByronAddressParamsImplCopyWith<$Res>  {
-  factory _$$ByronAddressParamsImplCopyWith(_$ByronAddressParamsImpl value, $Res Function(_$ByronAddressParamsImpl) then) = __$$ByronAddressParamsImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSource spendingDataSource
-});
-
-
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource;
-}
-
-/// @nodoc
-class __$$ByronAddressParamsImplCopyWithImpl<$Res> extends _$ParsedAddressParamsCopyWithImpl<$Res, _$ByronAddressParamsImpl> implements _$$ByronAddressParamsImplCopyWith<$Res> {
-  __$$ByronAddressParamsImplCopyWithImpl(_$ByronAddressParamsImpl _value, $Res Function(_$ByronAddressParamsImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = null,}) {
-  return _then(_$ByronAddressParamsImpl(
-spendingDataSource: null == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSource,
-  ));
-}
-
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource {
-  
-  return $SpendingDataSourceCopyWith<$Res>(_value.spendingDataSource, (value) {
-    return _then(_value.copyWith(spendingDataSource: value) );
-  });
-}
+class $ParsedAddressParamsCopyWith<$Res> {
+  $ParsedAddressParamsCopyWith(
+      ParsedAddressParams _, $Res Function(ParsedAddressParams) __);
 }
 
 /// @nodoc
 
+class ByronAddressParams extends ParsedAddressParams {
+  ByronAddressParams({required this.spendingDataSource}) : super._();
 
-class _$ByronAddressParamsImpl extends ByronAddressParams  {
-   _$ByronAddressParamsImpl({required this.spendingDataSource}): super._();
+  final SpendingDataSource spendingDataSource;
 
-  
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ByronAddressParamsCopyWith<ByronAddressParams> get copyWith =>
+      _$ByronAddressParamsCopyWithImpl<ByronAddressParams>(this, _$identity);
 
-@override final  SpendingDataSource spendingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ByronAddressParams &&
+            (identical(other.spendingDataSource, spendingDataSource) ||
+                other.spendingDataSource == spendingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ParsedAddressParams.byron(spendingDataSource: $spendingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, spendingDataSource);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ByronAddressParamsImpl&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,spendingDataSource);
-
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith => __$$ByronAddressParamsImplCopyWithImpl<_$ByronAddressParamsImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ByronAddressParams extends ParsedAddressParams {
-   factory ByronAddressParams({required final  SpendingDataSource spendingDataSource}) = _$ByronAddressParamsImpl;
-   ByronAddressParams._(): super._();
-
-  
-
- SpendingDataSource get spendingDataSource;
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ByronAddressParamsImplCopyWith<_$ByronAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedAddressParams.byron(spendingDataSource: $spendingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ShelleyAddressParamsImplCopyWith<$Res>  {
-  factory _$$ShelleyAddressParamsImplCopyWith(_$ShelleyAddressParamsImpl value, $Res Function(_$ShelleyAddressParamsImpl) then) = __$$ShelleyAddressParamsImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- ShelleyAddressParamsData shelleyAddressParams
-});
+abstract mixin class $ByronAddressParamsCopyWith<$Res>
+    implements $ParsedAddressParamsCopyWith<$Res> {
+  factory $ByronAddressParamsCopyWith(
+          ByronAddressParams value, $Res Function(ByronAddressParams) _then) =
+      _$ByronAddressParamsCopyWithImpl;
+  @useResult
+  $Res call({SpendingDataSource spendingDataSource});
 
-
-$ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams;
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
 }
 
 /// @nodoc
-class __$$ShelleyAddressParamsImplCopyWithImpl<$Res> extends _$ParsedAddressParamsCopyWithImpl<$Res, _$ShelleyAddressParamsImpl> implements _$$ShelleyAddressParamsImplCopyWith<$Res> {
-  __$$ShelleyAddressParamsImplCopyWithImpl(_$ShelleyAddressParamsImpl _value, $Res Function(_$ShelleyAddressParamsImpl) _then)
-      : super(_value, _then);
+class _$ByronAddressParamsCopyWithImpl<$Res>
+    implements $ByronAddressParamsCopyWith<$Res> {
+  _$ByronAddressParamsCopyWithImpl(this._self, this._then);
 
+  final ByronAddressParams _self;
+  final $Res Function(ByronAddressParams) _then;
 
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? shelleyAddressParams = null,}) {
-  return _then(_$ShelleyAddressParamsImpl(
-shelleyAddressParams: null == shelleyAddressParams ? _value.shelleyAddressParams : shelleyAddressParams // ignore: cast_nullable_to_non_nullable
-as ShelleyAddressParamsData,
-  ));
-}
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = null,
+  }) {
+    return _then(ByronAddressParams(
+      spendingDataSource: null == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSource,
+    ));
+  }
 
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams {
-  
-  return $ShelleyAddressParamsDataCopyWith<$Res>(_value.shelleyAddressParams, (value) {
-    return _then(_value.copyWith(shelleyAddressParams: value) );
-  });
-}
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
+    return $SpendingDataSourceCopyWith<$Res>(_self.spendingDataSource, (value) {
+      return _then(_self.copyWith(spendingDataSource: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class ShelleyAddressParams extends ParsedAddressParams {
+  ShelleyAddressParams({required this.shelleyAddressParams}) : super._();
 
-class _$ShelleyAddressParamsImpl extends ShelleyAddressParams  {
-   _$ShelleyAddressParamsImpl({required this.shelleyAddressParams}): super._();
+  final ShelleyAddressParamsData shelleyAddressParams;
 
-  
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ShelleyAddressParamsCopyWith<ShelleyAddressParams> get copyWith =>
+      _$ShelleyAddressParamsCopyWithImpl<ShelleyAddressParams>(
+          this, _$identity);
 
-@override final  ShelleyAddressParamsData shelleyAddressParams;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ShelleyAddressParams &&
+            (identical(other.shelleyAddressParams, shelleyAddressParams) ||
+                other.shelleyAddressParams == shelleyAddressParams));
+  }
 
-@override
-String toString() {
-  return 'ParsedAddressParams.shelley(shelleyAddressParams: $shelleyAddressParams)';
+  @override
+  int get hashCode => Object.hash(runtimeType, shelleyAddressParams);
+
+  @override
+  String toString() {
+    return 'ParsedAddressParams.shelley(shelleyAddressParams: $shelleyAddressParams)';
+  }
 }
 
+/// @nodoc
+abstract mixin class $ShelleyAddressParamsCopyWith<$Res>
+    implements $ParsedAddressParamsCopyWith<$Res> {
+  factory $ShelleyAddressParamsCopyWith(ShelleyAddressParams value,
+          $Res Function(ShelleyAddressParams) _then) =
+      _$ShelleyAddressParamsCopyWithImpl;
+  @useResult
+  $Res call({ShelleyAddressParamsData shelleyAddressParams});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ShelleyAddressParamsImpl&&(identical(other.shelleyAddressParams, shelleyAddressParams) || other.shelleyAddressParams == shelleyAddressParams));
+  $ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams;
 }
 
+/// @nodoc
+class _$ShelleyAddressParamsCopyWithImpl<$Res>
+    implements $ShelleyAddressParamsCopyWith<$Res> {
+  _$ShelleyAddressParamsCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,shelleyAddressParams);
+  final ShelleyAddressParams _self;
+  final $Res Function(ShelleyAddressParams) _then;
 
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ShelleyAddressParamsImplCopyWith<_$ShelleyAddressParamsImpl> get copyWith => __$$ShelleyAddressParamsImplCopyWithImpl<_$ShelleyAddressParamsImpl>(this, _$identity);
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? shelleyAddressParams = null,
+  }) {
+    return _then(ShelleyAddressParams(
+      shelleyAddressParams: null == shelleyAddressParams
+          ? _self.shelleyAddressParams
+          : shelleyAddressParams // ignore: cast_nullable_to_non_nullable
+              as ShelleyAddressParamsData,
+    ));
+  }
 
-
-
-
-
-
-
-
+  /// Create a copy of ParsedAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ShelleyAddressParamsDataCopyWith<$Res> get shelleyAddressParams {
+    return $ShelleyAddressParamsDataCopyWith<$Res>(_self.shelleyAddressParams,
+        (value) {
+      return _then(_self.copyWith(shelleyAddressParams: value));
+    });
+  }
 }
 
-
-abstract class ShelleyAddressParams extends ParsedAddressParams {
-   factory ShelleyAddressParams({required final  ShelleyAddressParamsData shelleyAddressParams}) = _$ShelleyAddressParamsImpl;
-   ShelleyAddressParams._(): super._();
-
-  
-
- ShelleyAddressParamsData get shelleyAddressParams;
-/// Create a copy of ParsedAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ShelleyAddressParamsImplCopyWith<_$ShelleyAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

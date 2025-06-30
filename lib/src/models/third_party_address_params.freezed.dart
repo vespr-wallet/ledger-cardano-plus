@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,144 +10,140 @@ part of 'third_party_address_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ThirdPartyAddressParams {
+  String get addressHex;
 
- String get addressHex => throw _privateConstructorUsedError;
+  /// Create a copy of ThirdPartyAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ThirdPartyAddressParamsCopyWith<ThirdPartyAddressParams> get copyWith =>
+      _$ThirdPartyAddressParamsCopyWithImpl<ThirdPartyAddressParams>(
+          this as ThirdPartyAddressParams, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThirdPartyAddressParams &&
+            (identical(other.addressHex, addressHex) ||
+                other.addressHex == addressHex));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, addressHex);
 
-
-
-
-
-/// Create a copy of ThirdPartyAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$ThirdPartyAddressParamsCopyWith<ThirdPartyAddressParams> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ThirdPartyAddressParams(addressHex: $addressHex)';
+  }
 }
 
 /// @nodoc
-abstract class $ThirdPartyAddressParamsCopyWith<$Res>  {
-  factory $ThirdPartyAddressParamsCopyWith(ThirdPartyAddressParams value, $Res Function(ThirdPartyAddressParams) then) = _$ThirdPartyAddressParamsCopyWithImpl<$Res, ThirdPartyAddressParams>;
-@useResult
-$Res call({
- String addressHex
-});
-
-
-
+abstract mixin class $ThirdPartyAddressParamsCopyWith<$Res> {
+  factory $ThirdPartyAddressParamsCopyWith(ThirdPartyAddressParams value,
+          $Res Function(ThirdPartyAddressParams) _then) =
+      _$ThirdPartyAddressParamsCopyWithImpl;
+  @useResult
+  $Res call({String addressHex});
 }
 
 /// @nodoc
-class _$ThirdPartyAddressParamsCopyWithImpl<$Res,$Val extends ThirdPartyAddressParams> implements $ThirdPartyAddressParamsCopyWith<$Res> {
-  _$ThirdPartyAddressParamsCopyWithImpl(this._value, this._then);
+class _$ThirdPartyAddressParamsCopyWithImpl<$Res>
+    implements $ThirdPartyAddressParamsCopyWith<$Res> {
+  _$ThirdPartyAddressParamsCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ThirdPartyAddressParams _self;
+  final $Res Function(ThirdPartyAddressParams) _then;
 
-/// Create a copy of ThirdPartyAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
-  return _then(_value.copyWith(
-addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
-as String,
-  )as $Val);
-}
-
-}
-
-
-/// @nodoc
-abstract class _$$ThirdPartyAddressParamsImplCopyWith<$Res> implements $ThirdPartyAddressParamsCopyWith<$Res> {
-  factory _$$ThirdPartyAddressParamsImplCopyWith(_$ThirdPartyAddressParamsImpl value, $Res Function(_$ThirdPartyAddressParamsImpl) then) = __$$ThirdPartyAddressParamsImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- String addressHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$ThirdPartyAddressParamsImplCopyWithImpl<$Res> extends _$ThirdPartyAddressParamsCopyWithImpl<$Res, _$ThirdPartyAddressParamsImpl> implements _$$ThirdPartyAddressParamsImplCopyWith<$Res> {
-  __$$ThirdPartyAddressParamsImplCopyWithImpl(_$ThirdPartyAddressParamsImpl _value, $Res Function(_$ThirdPartyAddressParamsImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ThirdPartyAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
-  return _then(_$ThirdPartyAddressParamsImpl(
-addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of ThirdPartyAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? addressHex = null,
+  }) {
+    return _then(_self.copyWith(
+      addressHex: null == addressHex
+          ? _self.addressHex
+          : addressHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class _ThirdPartyAddressParams extends ThirdPartyAddressParams {
+  _ThirdPartyAddressParams({required this.addressHex}) : super._();
 
-class _$ThirdPartyAddressParamsImpl extends _ThirdPartyAddressParams  {
-   _$ThirdPartyAddressParamsImpl({required this.addressHex}): super._();
+  @override
+  final String addressHex;
 
-  
+  /// Create a copy of ThirdPartyAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ThirdPartyAddressParamsCopyWith<_ThirdPartyAddressParams> get copyWith =>
+      __$ThirdPartyAddressParamsCopyWithImpl<_ThirdPartyAddressParams>(
+          this, _$identity);
 
-@override final  String addressHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ThirdPartyAddressParams &&
+            (identical(other.addressHex, addressHex) ||
+                other.addressHex == addressHex));
+  }
 
-@override
-String toString() {
-  return 'ThirdPartyAddressParams(addressHex: $addressHex)';
+  @override
+  int get hashCode => Object.hash(runtimeType, addressHex);
+
+  @override
+  String toString() {
+    return 'ThirdPartyAddressParams(addressHex: $addressHex)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ThirdPartyAddressParamsImpl&&(identical(other.addressHex, addressHex) || other.addressHex == addressHex));
+/// @nodoc
+abstract mixin class _$ThirdPartyAddressParamsCopyWith<$Res>
+    implements $ThirdPartyAddressParamsCopyWith<$Res> {
+  factory _$ThirdPartyAddressParamsCopyWith(_ThirdPartyAddressParams value,
+          $Res Function(_ThirdPartyAddressParams) _then) =
+      __$ThirdPartyAddressParamsCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String addressHex});
 }
 
+/// @nodoc
+class __$ThirdPartyAddressParamsCopyWithImpl<$Res>
+    implements _$ThirdPartyAddressParamsCopyWith<$Res> {
+  __$ThirdPartyAddressParamsCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,addressHex);
+  final _ThirdPartyAddressParams _self;
+  final $Res Function(_ThirdPartyAddressParams) _then;
 
-/// Create a copy of ThirdPartyAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ThirdPartyAddressParamsImplCopyWith<_$ThirdPartyAddressParamsImpl> get copyWith => __$$ThirdPartyAddressParamsImplCopyWithImpl<_$ThirdPartyAddressParamsImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of ThirdPartyAddressParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? addressHex = null,
+  }) {
+    return _then(_ThirdPartyAddressParams(
+      addressHex: null == addressHex
+          ? _self.addressHex
+          : addressHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-
-abstract class _ThirdPartyAddressParams extends ThirdPartyAddressParams {
-   factory _ThirdPartyAddressParams({required final  String addressHex}) = _$ThirdPartyAddressParamsImpl;
-   _ThirdPartyAddressParams._(): super._();
-
-  
-
-@override String get addressHex;
-/// Create a copy of ThirdPartyAddressParams
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ThirdPartyAddressParamsImplCopyWith<_$ThirdPartyAddressParamsImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

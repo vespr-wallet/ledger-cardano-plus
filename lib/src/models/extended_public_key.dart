@@ -41,6 +41,7 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     required List<int> customPath,
   }) = ExtendedPublicKeyRequest_Custom;
 
+  @override
   late final List<int> derivationPath = switch (this) {
     ExtendedPublicKeyRequest_Shelley(accountIndex: final accIndex) => [
         harden + 1852,
@@ -69,6 +70,7 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     ExtendedPublicKeyRequest_Custom(customPath: final customPath) => customPath,
   };
 
+  @override
   late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20200, // Version 2.2.0
     ExtendedPublicKeyRequest_Byron() =>

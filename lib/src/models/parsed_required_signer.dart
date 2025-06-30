@@ -25,6 +25,7 @@ sealed class ParsedRequiredSigner with _$ParsedRequiredSigner {
     required LedgerSigningPath path,
   }) = RequiredSignerPath;
 
+  @override
   late final int requiredSignerValue = switch (this) {
     RequiredSignerHash() => 1,
     RequiredSignerPath() => 0,

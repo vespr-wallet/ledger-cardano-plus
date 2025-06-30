@@ -50,6 +50,7 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
     required BigInt slot,
   }) = ParsedSimpleNativeScript_InvalidHereafter;
 
+  @override
   late final int nativeScriptSerializationValue = switch (this) {
     ParsedSimpleNativeScript_PubKeyDeviceOwned() => 0,
     ParsedSimpleNativeScript_PubKeyThirdParty() => 0,
@@ -57,6 +58,7 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
     ParsedSimpleNativeScript_InvalidHereafter() => 5,
   };
 
+  @override
   late final int pubkeyType = switch (this) {
     ParsedSimpleNativeScript_PubKeyDeviceOwned() => 1,
     ParsedSimpleNativeScript_PubKeyThirdParty() => 2,

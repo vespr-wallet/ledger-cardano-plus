@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,953 +10,821 @@ part of 'shelley_address_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ShelleyAddressParamsData {
+  AddressType get addressType;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ShelleyAddressParamsData &&
+            (identical(other.addressType, addressType) ||
+                other.addressType == addressType));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, addressType);
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData(addressType: $addressType)';
+  }
 }
 
 /// @nodoc
-abstract class $ShelleyAddressParamsDataCopyWith<$Res>  {
-  factory $ShelleyAddressParamsDataCopyWith(ShelleyAddressParamsData value, $Res Function(ShelleyAddressParamsData) then) = _$ShelleyAddressParamsDataCopyWithImpl<$Res, ShelleyAddressParamsData>;
-
-
-
-}
-
-/// @nodoc
-class _$ShelleyAddressParamsDataCopyWithImpl<$Res,$Val extends ShelleyAddressParamsData> implements $ShelleyAddressParamsDataCopyWith<$Res> {
-  _$ShelleyAddressParamsDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$BasePaymentKeyStakeKeyImplCopyWith<$Res>  {
-  factory _$$BasePaymentKeyStakeKeyImplCopyWith(_$BasePaymentKeyStakeKeyImpl value, $Res Function(_$BasePaymentKeyStakeKeyImpl) then) = __$$BasePaymentKeyStakeKeyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourcePath spendingDataSource, StakingDataSourceKey stakingDataSource
-});
-
-
-
-}
-
-/// @nodoc
-class __$$BasePaymentKeyStakeKeyImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$BasePaymentKeyStakeKeyImpl> implements _$$BasePaymentKeyStakeKeyImplCopyWith<$Res> {
-  __$$BasePaymentKeyStakeKeyImplCopyWithImpl(_$BasePaymentKeyStakeKeyImpl _value, $Res Function(_$BasePaymentKeyStakeKeyImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,Object? stakingDataSource = freezed,}) {
-  return _then(_$BasePaymentKeyStakeKeyImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourcePath,stakingDataSource: freezed == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSourceKey,
-  ));
-}
-
-
+class $ShelleyAddressParamsDataCopyWith<$Res> {
+  $ShelleyAddressParamsDataCopyWith(
+      ShelleyAddressParamsData _, $Res Function(ShelleyAddressParamsData) __);
 }
 
 /// @nodoc
 
+class BasePaymentKeyStakeKey extends ShelleyAddressParamsData {
+  BasePaymentKeyStakeKey(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$BasePaymentKeyStakeKeyImpl extends BasePaymentKeyStakeKey  {
-   _$BasePaymentKeyStakeKeyImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSourcePath spendingDataSource;
+  final StakingDataSourceKey stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $BasePaymentKeyStakeKeyCopyWith<BasePaymentKeyStakeKey> get copyWith =>
+      _$BasePaymentKeyStakeKeyCopyWithImpl<BasePaymentKeyStakeKey>(
+          this, _$identity);
 
-@override final  SpendingDataSourcePath spendingDataSource;
-@override final  StakingDataSourceKey stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BasePaymentKeyStakeKey &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource) &&
+            const DeepCollectionEquality()
+                .equals(other.stakingDataSource, stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(spendingDataSource),
+      const DeepCollectionEquality().hash(stakingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$BasePaymentKeyStakeKeyImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$BasePaymentKeyStakeKeyImplCopyWith<_$BasePaymentKeyStakeKeyImpl> get copyWith => __$$BasePaymentKeyStakeKeyImplCopyWithImpl<_$BasePaymentKeyStakeKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class BasePaymentKeyStakeKey extends ShelleyAddressParamsData {
-   factory BasePaymentKeyStakeKey({required final  SpendingDataSourcePath spendingDataSource, required final  StakingDataSourceKey stakingDataSource}) = _$BasePaymentKeyStakeKeyImpl;
-   BasePaymentKeyStakeKey._(): super._();
-
-  
-
- SpendingDataSourcePath get spendingDataSource; StakingDataSourceKey get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$BasePaymentKeyStakeKeyImplCopyWith<_$BasePaymentKeyStakeKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$BasePaymentScriptStakeKeyImplCopyWith<$Res>  {
-  factory _$$BasePaymentScriptStakeKeyImplCopyWith(_$BasePaymentScriptStakeKeyImpl value, $Res Function(_$BasePaymentScriptStakeKeyImpl) then) = __$$BasePaymentScriptStakeKeyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourceScriptHash spendingDataSource, StakingDataSourceKey stakingDataSource
-});
-
-
-
+abstract mixin class $BasePaymentKeyStakeKeyCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $BasePaymentKeyStakeKeyCopyWith(BasePaymentKeyStakeKey value,
+          $Res Function(BasePaymentKeyStakeKey) _then) =
+      _$BasePaymentKeyStakeKeyCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSourcePath spendingDataSource,
+      StakingDataSourceKey stakingDataSource});
 }
 
 /// @nodoc
-class __$$BasePaymentScriptStakeKeyImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$BasePaymentScriptStakeKeyImpl> implements _$$BasePaymentScriptStakeKeyImplCopyWith<$Res> {
-  __$$BasePaymentScriptStakeKeyImplCopyWithImpl(_$BasePaymentScriptStakeKeyImpl _value, $Res Function(_$BasePaymentScriptStakeKeyImpl) _then)
-      : super(_value, _then);
+class _$BasePaymentKeyStakeKeyCopyWithImpl<$Res>
+    implements $BasePaymentKeyStakeKeyCopyWith<$Res> {
+  _$BasePaymentKeyStakeKeyCopyWithImpl(this._self, this._then);
 
+  final BasePaymentKeyStakeKey _self;
+  final $Res Function(BasePaymentKeyStakeKey) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,Object? stakingDataSource = freezed,}) {
-  return _then(_$BasePaymentScriptStakeKeyImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourceScriptHash,stakingDataSource: freezed == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSourceKey,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+    Object? stakingDataSource = freezed,
+  }) {
+    return _then(BasePaymentKeyStakeKey(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourcePath,
+      stakingDataSource: freezed == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceKey,
+    ));
+  }
 }
 
 /// @nodoc
 
+class BasePaymentScriptStakeKey extends ShelleyAddressParamsData {
+  BasePaymentScriptStakeKey(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$BasePaymentScriptStakeKeyImpl extends BasePaymentScriptStakeKey  {
-   _$BasePaymentScriptStakeKeyImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSourceScriptHash spendingDataSource;
+  final StakingDataSourceKey stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $BasePaymentScriptStakeKeyCopyWith<BasePaymentScriptStakeKey> get copyWith =>
+      _$BasePaymentScriptStakeKeyCopyWithImpl<BasePaymentScriptStakeKey>(
+          this, _$identity);
 
-@override final  SpendingDataSourceScriptHash spendingDataSource;
-@override final  StakingDataSourceKey stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BasePaymentScriptStakeKey &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource) &&
+            const DeepCollectionEquality()
+                .equals(other.stakingDataSource, stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(spendingDataSource),
+      const DeepCollectionEquality().hash(stakingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$BasePaymentScriptStakeKeyImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$BasePaymentScriptStakeKeyImplCopyWith<_$BasePaymentScriptStakeKeyImpl> get copyWith => __$$BasePaymentScriptStakeKeyImplCopyWithImpl<_$BasePaymentScriptStakeKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class BasePaymentScriptStakeKey extends ShelleyAddressParamsData {
-   factory BasePaymentScriptStakeKey({required final  SpendingDataSourceScriptHash spendingDataSource, required final  StakingDataSourceKey stakingDataSource}) = _$BasePaymentScriptStakeKeyImpl;
-   BasePaymentScriptStakeKey._(): super._();
-
-  
-
- SpendingDataSourceScriptHash get spendingDataSource; StakingDataSourceKey get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$BasePaymentScriptStakeKeyImplCopyWith<_$BasePaymentScriptStakeKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$BasePaymentKeyStakeScriptImplCopyWith<$Res>  {
-  factory _$$BasePaymentKeyStakeScriptImplCopyWith(_$BasePaymentKeyStakeScriptImpl value, $Res Function(_$BasePaymentKeyStakeScriptImpl) then) = __$$BasePaymentKeyStakeScriptImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourcePath spendingDataSource, StakingDataSourceScriptHash stakingDataSource
-});
-
-
-
+abstract mixin class $BasePaymentScriptStakeKeyCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $BasePaymentScriptStakeKeyCopyWith(BasePaymentScriptStakeKey value,
+          $Res Function(BasePaymentScriptStakeKey) _then) =
+      _$BasePaymentScriptStakeKeyCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSourceScriptHash spendingDataSource,
+      StakingDataSourceKey stakingDataSource});
 }
 
 /// @nodoc
-class __$$BasePaymentKeyStakeScriptImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$BasePaymentKeyStakeScriptImpl> implements _$$BasePaymentKeyStakeScriptImplCopyWith<$Res> {
-  __$$BasePaymentKeyStakeScriptImplCopyWithImpl(_$BasePaymentKeyStakeScriptImpl _value, $Res Function(_$BasePaymentKeyStakeScriptImpl) _then)
-      : super(_value, _then);
+class _$BasePaymentScriptStakeKeyCopyWithImpl<$Res>
+    implements $BasePaymentScriptStakeKeyCopyWith<$Res> {
+  _$BasePaymentScriptStakeKeyCopyWithImpl(this._self, this._then);
 
+  final BasePaymentScriptStakeKey _self;
+  final $Res Function(BasePaymentScriptStakeKey) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,Object? stakingDataSource = freezed,}) {
-  return _then(_$BasePaymentKeyStakeScriptImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourcePath,stakingDataSource: freezed == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSourceScriptHash,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+    Object? stakingDataSource = freezed,
+  }) {
+    return _then(BasePaymentScriptStakeKey(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourceScriptHash,
+      stakingDataSource: freezed == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceKey,
+    ));
+  }
 }
 
 /// @nodoc
 
+class BasePaymentKeyStakeScript extends ShelleyAddressParamsData {
+  BasePaymentKeyStakeScript(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$BasePaymentKeyStakeScriptImpl extends BasePaymentKeyStakeScript  {
-   _$BasePaymentKeyStakeScriptImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSourcePath spendingDataSource;
+  final StakingDataSourceScriptHash stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $BasePaymentKeyStakeScriptCopyWith<BasePaymentKeyStakeScript> get copyWith =>
+      _$BasePaymentKeyStakeScriptCopyWithImpl<BasePaymentKeyStakeScript>(
+          this, _$identity);
 
-@override final  SpendingDataSourcePath spendingDataSource;
-@override final  StakingDataSourceScriptHash stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BasePaymentKeyStakeScript &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource) &&
+            const DeepCollectionEquality()
+                .equals(other.stakingDataSource, stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(spendingDataSource),
+      const DeepCollectionEquality().hash(stakingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$BasePaymentKeyStakeScriptImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$BasePaymentKeyStakeScriptImplCopyWith<_$BasePaymentKeyStakeScriptImpl> get copyWith => __$$BasePaymentKeyStakeScriptImplCopyWithImpl<_$BasePaymentKeyStakeScriptImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class BasePaymentKeyStakeScript extends ShelleyAddressParamsData {
-   factory BasePaymentKeyStakeScript({required final  SpendingDataSourcePath spendingDataSource, required final  StakingDataSourceScriptHash stakingDataSource}) = _$BasePaymentKeyStakeScriptImpl;
-   BasePaymentKeyStakeScript._(): super._();
-
-  
-
- SpendingDataSourcePath get spendingDataSource; StakingDataSourceScriptHash get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$BasePaymentKeyStakeScriptImplCopyWith<_$BasePaymentKeyStakeScriptImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$BasePaymentScriptStakeScriptImplCopyWith<$Res>  {
-  factory _$$BasePaymentScriptStakeScriptImplCopyWith(_$BasePaymentScriptStakeScriptImpl value, $Res Function(_$BasePaymentScriptStakeScriptImpl) then) = __$$BasePaymentScriptStakeScriptImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourceScriptHash spendingDataSource, StakingDataSourceScriptHash stakingDataSource
-});
-
-
-
+abstract mixin class $BasePaymentKeyStakeScriptCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $BasePaymentKeyStakeScriptCopyWith(BasePaymentKeyStakeScript value,
+          $Res Function(BasePaymentKeyStakeScript) _then) =
+      _$BasePaymentKeyStakeScriptCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSourcePath spendingDataSource,
+      StakingDataSourceScriptHash stakingDataSource});
 }
 
 /// @nodoc
-class __$$BasePaymentScriptStakeScriptImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$BasePaymentScriptStakeScriptImpl> implements _$$BasePaymentScriptStakeScriptImplCopyWith<$Res> {
-  __$$BasePaymentScriptStakeScriptImplCopyWithImpl(_$BasePaymentScriptStakeScriptImpl _value, $Res Function(_$BasePaymentScriptStakeScriptImpl) _then)
-      : super(_value, _then);
+class _$BasePaymentKeyStakeScriptCopyWithImpl<$Res>
+    implements $BasePaymentKeyStakeScriptCopyWith<$Res> {
+  _$BasePaymentKeyStakeScriptCopyWithImpl(this._self, this._then);
 
+  final BasePaymentKeyStakeScript _self;
+  final $Res Function(BasePaymentKeyStakeScript) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,Object? stakingDataSource = freezed,}) {
-  return _then(_$BasePaymentScriptStakeScriptImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourceScriptHash,stakingDataSource: freezed == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSourceScriptHash,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+    Object? stakingDataSource = freezed,
+  }) {
+    return _then(BasePaymentKeyStakeScript(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourcePath,
+      stakingDataSource: freezed == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceScriptHash,
+    ));
+  }
 }
 
 /// @nodoc
 
+class BasePaymentScriptStakeScript extends ShelleyAddressParamsData {
+  BasePaymentScriptStakeScript(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$BasePaymentScriptStakeScriptImpl extends BasePaymentScriptStakeScript  {
-   _$BasePaymentScriptStakeScriptImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSourceScriptHash spendingDataSource;
+  final StakingDataSourceScriptHash stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $BasePaymentScriptStakeScriptCopyWith<BasePaymentScriptStakeScript>
+      get copyWith => _$BasePaymentScriptStakeScriptCopyWithImpl<
+          BasePaymentScriptStakeScript>(this, _$identity);
 
-@override final  SpendingDataSourceScriptHash spendingDataSource;
-@override final  StakingDataSourceScriptHash stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is BasePaymentScriptStakeScript &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource) &&
+            const DeepCollectionEquality()
+                .equals(other.stakingDataSource, stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(spendingDataSource),
+      const DeepCollectionEquality().hash(stakingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$BasePaymentScriptStakeScriptImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$BasePaymentScriptStakeScriptImplCopyWith<_$BasePaymentScriptStakeScriptImpl> get copyWith => __$$BasePaymentScriptStakeScriptImplCopyWithImpl<_$BasePaymentScriptStakeScriptImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class BasePaymentScriptStakeScript extends ShelleyAddressParamsData {
-   factory BasePaymentScriptStakeScript({required final  SpendingDataSourceScriptHash spendingDataSource, required final  StakingDataSourceScriptHash stakingDataSource}) = _$BasePaymentScriptStakeScriptImpl;
-   BasePaymentScriptStakeScript._(): super._();
-
-  
-
- SpendingDataSourceScriptHash get spendingDataSource; StakingDataSourceScriptHash get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$BasePaymentScriptStakeScriptImplCopyWith<_$BasePaymentScriptStakeScriptImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$EnterpriseKeyImplCopyWith<$Res>  {
-  factory _$$EnterpriseKeyImplCopyWith(_$EnterpriseKeyImpl value, $Res Function(_$EnterpriseKeyImpl) then) = __$$EnterpriseKeyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourcePath spendingDataSource
-});
-
-
-
+abstract mixin class $BasePaymentScriptStakeScriptCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $BasePaymentScriptStakeScriptCopyWith(
+          BasePaymentScriptStakeScript value,
+          $Res Function(BasePaymentScriptStakeScript) _then) =
+      _$BasePaymentScriptStakeScriptCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSourceScriptHash spendingDataSource,
+      StakingDataSourceScriptHash stakingDataSource});
 }
 
 /// @nodoc
-class __$$EnterpriseKeyImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$EnterpriseKeyImpl> implements _$$EnterpriseKeyImplCopyWith<$Res> {
-  __$$EnterpriseKeyImplCopyWithImpl(_$EnterpriseKeyImpl _value, $Res Function(_$EnterpriseKeyImpl) _then)
-      : super(_value, _then);
+class _$BasePaymentScriptStakeScriptCopyWithImpl<$Res>
+    implements $BasePaymentScriptStakeScriptCopyWith<$Res> {
+  _$BasePaymentScriptStakeScriptCopyWithImpl(this._self, this._then);
 
+  final BasePaymentScriptStakeScript _self;
+  final $Res Function(BasePaymentScriptStakeScript) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,}) {
-  return _then(_$EnterpriseKeyImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourcePath,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+    Object? stakingDataSource = freezed,
+  }) {
+    return _then(BasePaymentScriptStakeScript(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourceScriptHash,
+      stakingDataSource: freezed == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceScriptHash,
+    ));
+  }
 }
 
 /// @nodoc
 
+class EnterpriseKey extends ShelleyAddressParamsData {
+  EnterpriseKey({required this.spendingDataSource}) : super._();
 
-class _$EnterpriseKeyImpl extends EnterpriseKey  {
-   _$EnterpriseKeyImpl({required this.spendingDataSource}): super._();
+  final SpendingDataSourcePath spendingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EnterpriseKeyCopyWith<EnterpriseKey> get copyWith =>
+      _$EnterpriseKeyCopyWithImpl<EnterpriseKey>(this, _$identity);
 
-@override final  SpendingDataSourcePath spendingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EnterpriseKey &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.enterpriseKey(spendingDataSource: $spendingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(spendingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$EnterpriseKeyImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$EnterpriseKeyImplCopyWith<_$EnterpriseKeyImpl> get copyWith => __$$EnterpriseKeyImplCopyWithImpl<_$EnterpriseKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class EnterpriseKey extends ShelleyAddressParamsData {
-   factory EnterpriseKey({required final  SpendingDataSourcePath spendingDataSource}) = _$EnterpriseKeyImpl;
-   EnterpriseKey._(): super._();
-
-  
-
- SpendingDataSourcePath get spendingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$EnterpriseKeyImplCopyWith<_$EnterpriseKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.enterpriseKey(spendingDataSource: $spendingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$EnterpriseScriptImplCopyWith<$Res>  {
-  factory _$$EnterpriseScriptImplCopyWith(_$EnterpriseScriptImpl value, $Res Function(_$EnterpriseScriptImpl) then) = __$$EnterpriseScriptImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSourceScriptHash spendingDataSource
-});
-
-
-
+abstract mixin class $EnterpriseKeyCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $EnterpriseKeyCopyWith(
+          EnterpriseKey value, $Res Function(EnterpriseKey) _then) =
+      _$EnterpriseKeyCopyWithImpl;
+  @useResult
+  $Res call({SpendingDataSourcePath spendingDataSource});
 }
 
 /// @nodoc
-class __$$EnterpriseScriptImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$EnterpriseScriptImpl> implements _$$EnterpriseScriptImplCopyWith<$Res> {
-  __$$EnterpriseScriptImplCopyWithImpl(_$EnterpriseScriptImpl _value, $Res Function(_$EnterpriseScriptImpl) _then)
-      : super(_value, _then);
+class _$EnterpriseKeyCopyWithImpl<$Res>
+    implements $EnterpriseKeyCopyWith<$Res> {
+  _$EnterpriseKeyCopyWithImpl(this._self, this._then);
 
+  final EnterpriseKey _self;
+  final $Res Function(EnterpriseKey) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = freezed,}) {
-  return _then(_$EnterpriseScriptImpl(
-spendingDataSource: freezed == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSourceScriptHash,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+  }) {
+    return _then(EnterpriseKey(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourcePath,
+    ));
+  }
 }
 
 /// @nodoc
 
+class EnterpriseScript extends ShelleyAddressParamsData {
+  EnterpriseScript({required this.spendingDataSource}) : super._();
 
-class _$EnterpriseScriptImpl extends EnterpriseScript  {
-   _$EnterpriseScriptImpl({required this.spendingDataSource}): super._();
+  final SpendingDataSourceScriptHash spendingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $EnterpriseScriptCopyWith<EnterpriseScript> get copyWith =>
+      _$EnterpriseScriptCopyWithImpl<EnterpriseScript>(this, _$identity);
 
-@override final  SpendingDataSourceScriptHash spendingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is EnterpriseScript &&
+            const DeepCollectionEquality()
+                .equals(other.spendingDataSource, spendingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.enterpriseScript(spendingDataSource: $spendingDataSource)';
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(spendingDataSource));
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$EnterpriseScriptImpl&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$EnterpriseScriptImplCopyWith<_$EnterpriseScriptImpl> get copyWith => __$$EnterpriseScriptImplCopyWithImpl<_$EnterpriseScriptImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class EnterpriseScript extends ShelleyAddressParamsData {
-   factory EnterpriseScript({required final  SpendingDataSourceScriptHash spendingDataSource}) = _$EnterpriseScriptImpl;
-   EnterpriseScript._(): super._();
-
-  
-
- SpendingDataSourceScriptHash get spendingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$EnterpriseScriptImplCopyWith<_$EnterpriseScriptImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.enterpriseScript(spendingDataSource: $spendingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$PointerKeyImplCopyWith<$Res>  {
-  factory _$$PointerKeyImplCopyWith(_$PointerKeyImpl value, $Res Function(_$PointerKeyImpl) then) = __$$PointerKeyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSource spendingDataSource, StakingDataSource stakingDataSource
-});
-
-
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource;$StakingDataSourceCopyWith<$Res> get stakingDataSource;
+abstract mixin class $EnterpriseScriptCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $EnterpriseScriptCopyWith(
+          EnterpriseScript value, $Res Function(EnterpriseScript) _then) =
+      _$EnterpriseScriptCopyWithImpl;
+  @useResult
+  $Res call({SpendingDataSourceScriptHash spendingDataSource});
 }
 
 /// @nodoc
-class __$$PointerKeyImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$PointerKeyImpl> implements _$$PointerKeyImplCopyWith<$Res> {
-  __$$PointerKeyImplCopyWithImpl(_$PointerKeyImpl _value, $Res Function(_$PointerKeyImpl) _then)
-      : super(_value, _then);
+class _$EnterpriseScriptCopyWithImpl<$Res>
+    implements $EnterpriseScriptCopyWith<$Res> {
+  _$EnterpriseScriptCopyWithImpl(this._self, this._then);
 
+  final EnterpriseScript _self;
+  final $Res Function(EnterpriseScript) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = null,Object? stakingDataSource = null,}) {
-  return _then(_$PointerKeyImpl(
-spendingDataSource: null == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSource,stakingDataSource: null == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSource,
-  ));
-}
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource {
-  
-  return $SpendingDataSourceCopyWith<$Res>(_value.spendingDataSource, (value) {
-    return _then(_value.copyWith(spendingDataSource: value) );
-  });
-}/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$StakingDataSourceCopyWith<$Res> get stakingDataSource {
-  
-  return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
-    return _then(_value.copyWith(stakingDataSource: value) );
-  });
-}
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = freezed,
+  }) {
+    return _then(EnterpriseScript(
+      spendingDataSource: freezed == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSourceScriptHash,
+    ));
+  }
 }
 
 /// @nodoc
 
+class PointerKey extends ShelleyAddressParamsData {
+  PointerKey(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$PointerKeyImpl extends PointerKey  {
-   _$PointerKeyImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSource spendingDataSource;
+  final StakingDataSource stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PointerKeyCopyWith<PointerKey> get copyWith =>
+      _$PointerKeyCopyWithImpl<PointerKey>(this, _$identity);
 
-@override final  SpendingDataSource spendingDataSource;
-@override final  StakingDataSource stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PointerKey &&
+            (identical(other.spendingDataSource, spendingDataSource) ||
+                other.spendingDataSource == spendingDataSource) &&
+            (identical(other.stakingDataSource, stakingDataSource) ||
+                other.stakingDataSource == stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.pointerKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$PointerKeyImpl&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,spendingDataSource,stakingDataSource);
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$PointerKeyImplCopyWith<_$PointerKeyImpl> get copyWith => __$$PointerKeyImplCopyWithImpl<_$PointerKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class PointerKey extends ShelleyAddressParamsData {
-   factory PointerKey({required final  SpendingDataSource spendingDataSource, required final  StakingDataSource stakingDataSource}) = _$PointerKeyImpl;
-   PointerKey._(): super._();
-
-  
-
- SpendingDataSource get spendingDataSource; StakingDataSource get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$PointerKeyImplCopyWith<_$PointerKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.pointerKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$PointerScriptImplCopyWith<$Res>  {
-  factory _$$PointerScriptImplCopyWith(_$PointerScriptImpl value, $Res Function(_$PointerScriptImpl) then) = __$$PointerScriptImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- SpendingDataSource spendingDataSource, StakingDataSource stakingDataSource
-});
+abstract mixin class $PointerKeyCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $PointerKeyCopyWith(
+          PointerKey value, $Res Function(PointerKey) _then) =
+      _$PointerKeyCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSource spendingDataSource,
+      StakingDataSource stakingDataSource});
 
-
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource;$StakingDataSourceCopyWith<$Res> get stakingDataSource;
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
-class __$$PointerScriptImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$PointerScriptImpl> implements _$$PointerScriptImplCopyWith<$Res> {
-  __$$PointerScriptImplCopyWithImpl(_$PointerScriptImpl _value, $Res Function(_$PointerScriptImpl) _then)
-      : super(_value, _then);
+class _$PointerKeyCopyWithImpl<$Res> implements $PointerKeyCopyWith<$Res> {
+  _$PointerKeyCopyWithImpl(this._self, this._then);
 
+  final PointerKey _self;
+  final $Res Function(PointerKey) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingDataSource = null,Object? stakingDataSource = null,}) {
-  return _then(_$PointerScriptImpl(
-spendingDataSource: null == spendingDataSource ? _value.spendingDataSource : spendingDataSource // ignore: cast_nullable_to_non_nullable
-as SpendingDataSource,stakingDataSource: null == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSource,
-  ));
-}
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = null,
+    Object? stakingDataSource = null,
+  }) {
+    return _then(PointerKey(
+      spendingDataSource: null == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSource,
+      stakingDataSource: null == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSource,
+    ));
+  }
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SpendingDataSourceCopyWith<$Res> get spendingDataSource {
-  
-  return $SpendingDataSourceCopyWith<$Res>(_value.spendingDataSource, (value) {
-    return _then(_value.copyWith(spendingDataSource: value) );
-  });
-}/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$StakingDataSourceCopyWith<$Res> get stakingDataSource {
-  
-  return $StakingDataSourceCopyWith<$Res>(_value.stakingDataSource, (value) {
-    return _then(_value.copyWith(stakingDataSource: value) );
-  });
-}
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
+    return $SpendingDataSourceCopyWith<$Res>(_self.spendingDataSource, (value) {
+      return _then(_self.copyWith(spendingDataSource: value));
+    });
+  }
+
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
+    return $StakingDataSourceCopyWith<$Res>(_self.stakingDataSource, (value) {
+      return _then(_self.copyWith(stakingDataSource: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class PointerScript extends ShelleyAddressParamsData {
+  PointerScript(
+      {required this.spendingDataSource, required this.stakingDataSource})
+      : super._();
 
-class _$PointerScriptImpl extends PointerScript  {
-   _$PointerScriptImpl({required this.spendingDataSource, required this.stakingDataSource}): super._();
+  final SpendingDataSource spendingDataSource;
+  final StakingDataSource stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $PointerScriptCopyWith<PointerScript> get copyWith =>
+      _$PointerScriptCopyWithImpl<PointerScript>(this, _$identity);
 
-@override final  SpendingDataSource spendingDataSource;
-@override final  StakingDataSource stakingDataSource;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is PointerScript &&
+            (identical(other.spendingDataSource, spendingDataSource) ||
+                other.spendingDataSource == spendingDataSource) &&
+            (identical(other.stakingDataSource, stakingDataSource) ||
+                other.stakingDataSource == stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.pointerScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
-}
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, spendingDataSource, stakingDataSource);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$PointerScriptImpl&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,spendingDataSource,stakingDataSource);
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$PointerScriptImplCopyWith<_$PointerScriptImpl> get copyWith => __$$PointerScriptImplCopyWithImpl<_$PointerScriptImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class PointerScript extends ShelleyAddressParamsData {
-   factory PointerScript({required final  SpendingDataSource spendingDataSource, required final  StakingDataSource stakingDataSource}) = _$PointerScriptImpl;
-   PointerScript._(): super._();
-
-  
-
- SpendingDataSource get spendingDataSource; StakingDataSource get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$PointerScriptImplCopyWith<_$PointerScriptImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.pointerScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+  }
 }
 
 /// @nodoc
-abstract class _$$RewardKeyImplCopyWith<$Res>  {
-  factory _$$RewardKeyImplCopyWith(_$RewardKeyImpl value, $Res Function(_$RewardKeyImpl) then) = __$$RewardKeyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- StakingDataSourceKey stakingDataSource
-});
+abstract mixin class $PointerScriptCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $PointerScriptCopyWith(
+          PointerScript value, $Res Function(PointerScript) _then) =
+      _$PointerScriptCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingDataSource spendingDataSource,
+      StakingDataSource stakingDataSource});
 
-
-
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource;
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource;
 }
 
 /// @nodoc
-class __$$RewardKeyImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$RewardKeyImpl> implements _$$RewardKeyImplCopyWith<$Res> {
-  __$$RewardKeyImplCopyWithImpl(_$RewardKeyImpl _value, $Res Function(_$RewardKeyImpl) _then)
-      : super(_value, _then);
+class _$PointerScriptCopyWithImpl<$Res>
+    implements $PointerScriptCopyWith<$Res> {
+  _$PointerScriptCopyWithImpl(this._self, this._then);
 
+  final PointerScript _self;
+  final $Res Function(PointerScript) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? stakingDataSource = freezed,}) {
-  return _then(_$RewardKeyImpl(
-stakingDataSource: freezed == stakingDataSource ? _value.stakingDataSource : stakingDataSource // ignore: cast_nullable_to_non_nullable
-as StakingDataSourceKey,
-  ));
-}
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingDataSource = null,
+    Object? stakingDataSource = null,
+  }) {
+    return _then(PointerScript(
+      spendingDataSource: null == spendingDataSource
+          ? _self.spendingDataSource
+          : spendingDataSource // ignore: cast_nullable_to_non_nullable
+              as SpendingDataSource,
+      stakingDataSource: null == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSource,
+    ));
+  }
 
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingDataSourceCopyWith<$Res> get spendingDataSource {
+    return $SpendingDataSourceCopyWith<$Res>(_self.spendingDataSource, (value) {
+      return _then(_self.copyWith(spendingDataSource: value));
+    });
+  }
 
-}
-
-/// @nodoc
-
-
-class _$RewardKeyImpl extends RewardKey  {
-   _$RewardKeyImpl({required this.stakingDataSource}): super._();
-
-  
-
-@override final  StakingDataSourceKey stakingDataSource;
-
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.rewardKey(stakingDataSource: $stakingDataSource)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$RewardKeyImpl&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(stakingDataSource));
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith => __$$RewardKeyImplCopyWithImpl<_$RewardKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class RewardKey extends ShelleyAddressParamsData {
-   factory RewardKey({required final  StakingDataSourceKey stakingDataSource}) = _$RewardKeyImpl;
-   RewardKey._(): super._();
-
-  
-
- StakingDataSourceKey get stakingDataSource;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$RewardKeyImplCopyWith<_$RewardKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$RewardScriptImplCopyWith<$Res>  {
-  factory _$$RewardScriptImplCopyWith(_$RewardScriptImpl value, $Res Function(_$RewardScriptImpl) then) = __$$RewardScriptImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String stakingScriptHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$RewardScriptImplCopyWithImpl<$Res> extends _$ShelleyAddressParamsDataCopyWithImpl<$Res, _$RewardScriptImpl> implements _$$RewardScriptImplCopyWith<$Res> {
-  __$$RewardScriptImplCopyWithImpl(_$RewardScriptImpl _value, $Res Function(_$RewardScriptImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? stakingScriptHashHex = null,}) {
-  return _then(_$RewardScriptImpl(
-stakingScriptHashHex: null == stakingScriptHashHex ? _value.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $StakingDataSourceCopyWith<$Res> get stakingDataSource {
+    return $StakingDataSourceCopyWith<$Res>(_self.stakingDataSource, (value) {
+      return _then(_self.copyWith(stakingDataSource: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class RewardKey extends ShelleyAddressParamsData {
+  RewardKey({required this.stakingDataSource}) : super._();
 
-class _$RewardScriptImpl extends RewardScript  {
-   _$RewardScriptImpl({required this.stakingScriptHashHex}): super._();
+  final StakingDataSourceKey stakingDataSource;
 
-  
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RewardKeyCopyWith<RewardKey> get copyWith =>
+      _$RewardKeyCopyWithImpl<RewardKey>(this, _$identity);
 
-@override final  String stakingScriptHashHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RewardKey &&
+            const DeepCollectionEquality()
+                .equals(other.stakingDataSource, stakingDataSource));
+  }
 
-@override
-String toString() {
-  return 'ShelleyAddressParamsData.rewardScript(stakingScriptHashHex: $stakingScriptHashHex)';
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(stakingDataSource));
+
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.rewardKey(stakingDataSource: $stakingDataSource)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$RewardScriptImpl&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
+/// @nodoc
+abstract mixin class $RewardKeyCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $RewardKeyCopyWith(RewardKey value, $Res Function(RewardKey) _then) =
+      _$RewardKeyCopyWithImpl;
+  @useResult
+  $Res call({StakingDataSourceKey stakingDataSource});
 }
 
+/// @nodoc
+class _$RewardKeyCopyWithImpl<$Res> implements $RewardKeyCopyWith<$Res> {
+  _$RewardKeyCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
+  final RewardKey _self;
+  final $Res Function(RewardKey) _then;
 
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith => __$$RewardScriptImplCopyWithImpl<_$RewardScriptImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? stakingDataSource = freezed,
+  }) {
+    return _then(RewardKey(
+      stakingDataSource: freezed == stakingDataSource
+          ? _self.stakingDataSource
+          : stakingDataSource // ignore: cast_nullable_to_non_nullable
+              as StakingDataSourceKey,
+    ));
+  }
 }
 
+/// @nodoc
 
-abstract class RewardScript extends ShelleyAddressParamsData {
-   factory RewardScript({required final  String stakingScriptHashHex}) = _$RewardScriptImpl;
-   RewardScript._(): super._();
+class RewardScript extends ShelleyAddressParamsData {
+  RewardScript({required this.stakingScriptHashHex}) : super._();
 
-  
+  final String stakingScriptHashHex;
 
- String get stakingScriptHashHex;
-/// Create a copy of ShelleyAddressParamsData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$RewardScriptImplCopyWith<_$RewardScriptImpl> get copyWith => throw _privateConstructorUsedError;
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $RewardScriptCopyWith<RewardScript> get copyWith =>
+      _$RewardScriptCopyWithImpl<RewardScript>(this, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is RewardScript &&
+            (identical(other.stakingScriptHashHex, stakingScriptHashHex) ||
+                other.stakingScriptHashHex == stakingScriptHashHex));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, stakingScriptHashHex);
+
+  @override
+  String toString() {
+    return 'ShelleyAddressParamsData.rewardScript(stakingScriptHashHex: $stakingScriptHashHex)';
+  }
 }
+
+/// @nodoc
+abstract mixin class $RewardScriptCopyWith<$Res>
+    implements $ShelleyAddressParamsDataCopyWith<$Res> {
+  factory $RewardScriptCopyWith(
+          RewardScript value, $Res Function(RewardScript) _then) =
+      _$RewardScriptCopyWithImpl;
+  @useResult
+  $Res call({String stakingScriptHashHex});
+}
+
+/// @nodoc
+class _$RewardScriptCopyWithImpl<$Res> implements $RewardScriptCopyWith<$Res> {
+  _$RewardScriptCopyWithImpl(this._self, this._then);
+
+  final RewardScript _self;
+  final $Res Function(RewardScript) _then;
+
+  /// Create a copy of ShelleyAddressParamsData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? stakingScriptHashHex = null,
+  }) {
+    return _then(RewardScript(
+      stakingScriptHashHex: null == stakingScriptHashHex
+          ? _self.stakingScriptHashHex
+          : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+// dart format on

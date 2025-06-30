@@ -33,6 +33,7 @@ sealed class SpendingDataSource with _$SpendingDataSource {
     required String scriptHashHex,
   }) = SpendingDataSourceScriptHash;
 
+  @override
   late final SpendingDataSourceType spendingDataSourceType = switch (this) {
     SpendingDataSourceNone() => SpendingDataSourceType.none,
     SpendingDataSourcePath() => SpendingDataSourceType.path,

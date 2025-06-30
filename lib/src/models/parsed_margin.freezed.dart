@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,147 +10,156 @@ part of 'parsed_margin.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedMargin {
+  BigInt get numerator;
+  BigInt get denominator;
 
- BigInt get numerator => throw _privateConstructorUsedError; BigInt get denominator => throw _privateConstructorUsedError;
+  /// Create a copy of ParsedMargin
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedMarginCopyWith<ParsedMargin> get copyWith =>
+      _$ParsedMarginCopyWithImpl<ParsedMargin>(
+          this as ParsedMargin, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedMargin &&
+            (identical(other.numerator, numerator) ||
+                other.numerator == numerator) &&
+            (identical(other.denominator, denominator) ||
+                other.denominator == denominator));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, numerator, denominator);
 
-
-
-
-
-/// Create a copy of ParsedMargin
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$ParsedMarginCopyWith<ParsedMargin> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedMarginCopyWith<$Res>  {
-  factory $ParsedMarginCopyWith(ParsedMargin value, $Res Function(ParsedMargin) then) = _$ParsedMarginCopyWithImpl<$Res, ParsedMargin>;
-@useResult
-$Res call({
- BigInt numerator, BigInt denominator
-});
-
-
-
+abstract mixin class $ParsedMarginCopyWith<$Res> {
+  factory $ParsedMarginCopyWith(
+          ParsedMargin value, $Res Function(ParsedMargin) _then) =
+      _$ParsedMarginCopyWithImpl;
+  @useResult
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
 /// @nodoc
-class _$ParsedMarginCopyWithImpl<$Res,$Val extends ParsedMargin> implements $ParsedMarginCopyWith<$Res> {
-  _$ParsedMarginCopyWithImpl(this._value, this._then);
+class _$ParsedMarginCopyWithImpl<$Res> implements $ParsedMarginCopyWith<$Res> {
+  _$ParsedMarginCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ParsedMargin _self;
+  final $Res Function(ParsedMargin) _then;
 
-/// Create a copy of ParsedMargin
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? numerator = null,Object? denominator = null,}) {
-  return _then(_value.copyWith(
-numerator: null == numerator ? _value.numerator : numerator // ignore: cast_nullable_to_non_nullable
-as BigInt,denominator: null == denominator ? _value.denominator : denominator // ignore: cast_nullable_to_non_nullable
-as BigInt,
-  )as $Val);
-}
-
-}
-
-
-/// @nodoc
-abstract class _$$ParsedMarginImplCopyWith<$Res> implements $ParsedMarginCopyWith<$Res> {
-  factory _$$ParsedMarginImplCopyWith(_$ParsedMarginImpl value, $Res Function(_$ParsedMarginImpl) then) = __$$ParsedMarginImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- BigInt numerator, BigInt denominator
-});
-
-
-
-}
-
-/// @nodoc
-class __$$ParsedMarginImplCopyWithImpl<$Res> extends _$ParsedMarginCopyWithImpl<$Res, _$ParsedMarginImpl> implements _$$ParsedMarginImplCopyWith<$Res> {
-  __$$ParsedMarginImplCopyWithImpl(_$ParsedMarginImpl _value, $Res Function(_$ParsedMarginImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedMargin
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? numerator = null,Object? denominator = null,}) {
-  return _then(_$ParsedMarginImpl(
-numerator: null == numerator ? _value.numerator : numerator // ignore: cast_nullable_to_non_nullable
-as BigInt,denominator: null == denominator ? _value.denominator : denominator // ignore: cast_nullable_to_non_nullable
-as BigInt,
-  ));
-}
-
-
+  /// Create a copy of ParsedMargin
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? numerator = null,
+    Object? denominator = null,
+  }) {
+    return _then(_self.copyWith(
+      numerator: null == numerator
+          ? _self.numerator
+          : numerator // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      denominator: null == denominator
+          ? _self.denominator
+          : denominator // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
 }
 
 /// @nodoc
 
+class _ParsedMargin extends ParsedMargin {
+  _ParsedMargin({required this.numerator, required this.denominator})
+      : super._();
 
-class _$ParsedMarginImpl extends _ParsedMargin  {
-   _$ParsedMarginImpl({required this.numerator, required this.denominator}): super._();
+  @override
+  final BigInt numerator;
+  @override
+  final BigInt denominator;
 
-  
+  /// Create a copy of ParsedMargin
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ParsedMarginCopyWith<_ParsedMargin> get copyWith =>
+      __$ParsedMarginCopyWithImpl<_ParsedMargin>(this, _$identity);
 
-@override final  BigInt numerator;
-@override final  BigInt denominator;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ParsedMargin &&
+            (identical(other.numerator, numerator) ||
+                other.numerator == numerator) &&
+            (identical(other.denominator, denominator) ||
+                other.denominator == denominator));
+  }
 
-@override
-String toString() {
-  return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
+  @override
+  int get hashCode => Object.hash(runtimeType, numerator, denominator);
+
+  @override
+  String toString() {
+    return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedMarginImpl&&(identical(other.numerator, numerator) || other.numerator == numerator)&&(identical(other.denominator, denominator) || other.denominator == denominator));
+/// @nodoc
+abstract mixin class _$ParsedMarginCopyWith<$Res>
+    implements $ParsedMarginCopyWith<$Res> {
+  factory _$ParsedMarginCopyWith(
+          _ParsedMargin value, $Res Function(_ParsedMargin) _then) =
+      __$ParsedMarginCopyWithImpl;
+  @override
+  @useResult
+  $Res call({BigInt numerator, BigInt denominator});
 }
 
+/// @nodoc
+class __$ParsedMarginCopyWithImpl<$Res>
+    implements _$ParsedMarginCopyWith<$Res> {
+  __$ParsedMarginCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,numerator,denominator);
+  final _ParsedMargin _self;
+  final $Res Function(_ParsedMargin) _then;
 
-/// Create a copy of ParsedMargin
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith => __$$ParsedMarginImplCopyWithImpl<_$ParsedMarginImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of ParsedMargin
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? numerator = null,
+    Object? denominator = null,
+  }) {
+    return _then(_ParsedMargin(
+      numerator: null == numerator
+          ? _self.numerator
+          : numerator // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      denominator: null == denominator
+          ? _self.denominator
+          : denominator // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
 }
 
-
-abstract class _ParsedMargin extends ParsedMargin {
-   factory _ParsedMargin({required final  BigInt numerator, required final  BigInt denominator}) = _$ParsedMarginImpl;
-   _ParsedMargin._(): super._();
-
-  
-
-@override BigInt get numerator;@override BigInt get denominator;
-/// Create a copy of ParsedMargin
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedMarginImplCopyWith<_$ParsedMarginImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

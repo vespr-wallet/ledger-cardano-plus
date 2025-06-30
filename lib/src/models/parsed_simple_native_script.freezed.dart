@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,398 +10,329 @@ part of 'parsed_simple_native_script.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedSimpleNativeScript {
+  int get nativeScriptSerializationValue;
+  int get pubkeyType;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedSimpleNativeScript &&
+            (identical(other.nativeScriptSerializationValue,
+                    nativeScriptSerializationValue) ||
+                other.nativeScriptSerializationValue ==
+                    nativeScriptSerializationValue) &&
+            (identical(other.pubkeyType, pubkeyType) ||
+                other.pubkeyType == pubkeyType));
+  }
 
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, nativeScriptSerializationValue, pubkeyType);
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ParsedSimpleNativeScript(nativeScriptSerializationValue: $nativeScriptSerializationValue, pubkeyType: $pubkeyType)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedSimpleNativeScriptCopyWith<$Res>  {
-  factory $ParsedSimpleNativeScriptCopyWith(ParsedSimpleNativeScript value, $Res Function(ParsedSimpleNativeScript) then) = _$ParsedSimpleNativeScriptCopyWithImpl<$Res, ParsedSimpleNativeScript>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedSimpleNativeScriptCopyWithImpl<$Res,$Val extends ParsedSimpleNativeScript> implements $ParsedSimpleNativeScriptCopyWith<$Res> {
-  _$ParsedSimpleNativeScriptCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<$Res>  {
-  factory _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl value, $Res Function(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl) then) = __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- LedgerSigningPath path
-});
-
-
-$LedgerSigningPathCopyWith<$Res> get path;
-}
-
-/// @nodoc
-class __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<$Res> extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl> implements _$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<$Res> {
-  __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl _value, $Res Function(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
-  ));
-}
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LedgerSigningPathCopyWith<$Res> get path {
-  
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
-  });
-}
+class $ParsedSimpleNativeScriptCopyWith<$Res> {
+  $ParsedSimpleNativeScriptCopyWith(
+      ParsedSimpleNativeScript _, $Res Function(ParsedSimpleNativeScript) __);
 }
 
 /// @nodoc
 
+class ParsedSimpleNativeScript_PubKeyDeviceOwned
+    extends ParsedSimpleNativeScript {
+  ParsedSimpleNativeScript_PubKeyDeviceOwned({required this.path}) : super._();
 
-class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl extends ParsedSimpleNativeScript_PubKeyDeviceOwned  {
-   _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl({required this.path}): super._();
+  final LedgerSigningPath path;
 
-  
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWith<
+          ParsedSimpleNativeScript_PubKeyDeviceOwned>
+      get copyWith => _$ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWithImpl<
+          ParsedSimpleNativeScript_PubKeyDeviceOwned>(this, _$identity);
 
-@override final  LedgerSigningPath path;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedSimpleNativeScript_PubKeyDeviceOwned &&
+            (identical(other.path, path) || other.path == path));
+  }
 
-@override
-String toString() {
-  return 'ParsedSimpleNativeScript.pubKeyDeviceOwned(path: $path)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, path);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl&&(identical(other.path, path) || other.path == path));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl> get copyWith => __$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWithImpl<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ParsedSimpleNativeScript_PubKeyDeviceOwned extends ParsedSimpleNativeScript {
-   factory ParsedSimpleNativeScript_PubKeyDeviceOwned({required final  LedgerSigningPath path}) = _$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl;
-   ParsedSimpleNativeScript_PubKeyDeviceOwned._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedSimpleNativeScript_PubKeyDeviceOwnedImplCopyWith<_$ParsedSimpleNativeScript_PubKeyDeviceOwnedImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedSimpleNativeScript.pubKeyDeviceOwned(path: $path)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<$Res>  {
-  factory _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl value, $Res Function(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl) then) = __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String keyHashHex
-});
+abstract mixin class $ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWith<$Res>
+    implements $ParsedSimpleNativeScriptCopyWith<$Res> {
+  factory $ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWith(
+          ParsedSimpleNativeScript_PubKeyDeviceOwned value,
+          $Res Function(ParsedSimpleNativeScript_PubKeyDeviceOwned) _then) =
+      _$ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWithImpl;
+  @useResult
+  $Res call({LedgerSigningPath path});
 
-
-
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
-class __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<$Res> extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl> implements _$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<$Res> {
-  __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl _value, $Res Function(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl) _then)
-      : super(_value, _then);
+class _$ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWithImpl<$Res>
+    implements $ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWith<$Res> {
+  _$ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWithImpl(
+      this._self, this._then);
 
+  final ParsedSimpleNativeScript_PubKeyDeviceOwned _self;
+  final $Res Function(ParsedSimpleNativeScript_PubKeyDeviceOwned) _then;
 
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? path = null,
+  }) {
+    return _then(ParsedSimpleNativeScript_PubKeyDeviceOwned(
+      path: null == path
+          ? _self.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as LedgerSigningPath,
+    ));
+  }
 
-
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+      return _then(_self.copyWith(path: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class ParsedSimpleNativeScript_PubKeyThirdParty
+    extends ParsedSimpleNativeScript {
+  ParsedSimpleNativeScript_PubKeyThirdParty({required this.keyHashHex})
+      : super._();
 
-class _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl extends ParsedSimpleNativeScript_PubKeyThirdParty  {
-   _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl({required this.keyHashHex}): super._();
+  final String keyHashHex;
 
-  
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedSimpleNativeScript_PubKeyThirdPartyCopyWith<
+          ParsedSimpleNativeScript_PubKeyThirdParty>
+      get copyWith => _$ParsedSimpleNativeScript_PubKeyThirdPartyCopyWithImpl<
+          ParsedSimpleNativeScript_PubKeyThirdParty>(this, _$identity);
 
-@override final  String keyHashHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedSimpleNativeScript_PubKeyThirdParty &&
+            (identical(other.keyHashHex, keyHashHex) ||
+                other.keyHashHex == keyHashHex));
+  }
 
-@override
-String toString() {
-  return 'ParsedSimpleNativeScript.pubKeyThirdParty(keyHashHex: $keyHashHex)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, keyHashHex);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl> get copyWith => __$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWithImpl<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ParsedSimpleNativeScript_PubKeyThirdParty extends ParsedSimpleNativeScript {
-   factory ParsedSimpleNativeScript_PubKeyThirdParty({required final  String keyHashHex}) = _$ParsedSimpleNativeScript_PubKeyThirdPartyImpl;
-   ParsedSimpleNativeScript_PubKeyThirdParty._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedSimpleNativeScript_PubKeyThirdPartyImplCopyWith<_$ParsedSimpleNativeScript_PubKeyThirdPartyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedSimpleNativeScript.pubKeyThirdParty(keyHashHex: $keyHashHex)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<$Res>  {
-  factory _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith(_$ParsedSimpleNativeScript_InvalidBeforeImpl value, $Res Function(_$ParsedSimpleNativeScript_InvalidBeforeImpl) then) = __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- BigInt slot
-});
-
-
-
+abstract mixin class $ParsedSimpleNativeScript_PubKeyThirdPartyCopyWith<$Res>
+    implements $ParsedSimpleNativeScriptCopyWith<$Res> {
+  factory $ParsedSimpleNativeScript_PubKeyThirdPartyCopyWith(
+          ParsedSimpleNativeScript_PubKeyThirdParty value,
+          $Res Function(ParsedSimpleNativeScript_PubKeyThirdParty) _then) =
+      _$ParsedSimpleNativeScript_PubKeyThirdPartyCopyWithImpl;
+  @useResult
+  $Res call({String keyHashHex});
 }
 
 /// @nodoc
-class __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<$Res> extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$ParsedSimpleNativeScript_InvalidBeforeImpl> implements _$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<$Res> {
-  __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl(_$ParsedSimpleNativeScript_InvalidBeforeImpl _value, $Res Function(_$ParsedSimpleNativeScript_InvalidBeforeImpl) _then)
-      : super(_value, _then);
+class _$ParsedSimpleNativeScript_PubKeyThirdPartyCopyWithImpl<$Res>
+    implements $ParsedSimpleNativeScript_PubKeyThirdPartyCopyWith<$Res> {
+  _$ParsedSimpleNativeScript_PubKeyThirdPartyCopyWithImpl(
+      this._self, this._then);
 
+  final ParsedSimpleNativeScript_PubKeyThirdParty _self;
+  final $Res Function(ParsedSimpleNativeScript_PubKeyThirdParty) _then;
 
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? slot = null,}) {
-  return _then(_$ParsedSimpleNativeScript_InvalidBeforeImpl(
-slot: null == slot ? _value.slot : slot // ignore: cast_nullable_to_non_nullable
-as BigInt,
-  ));
-}
-
-
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? keyHashHex = null,
+  }) {
+    return _then(ParsedSimpleNativeScript_PubKeyThirdParty(
+      keyHashHex: null == keyHashHex
+          ? _self.keyHashHex
+          : keyHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class ParsedSimpleNativeScript_InvalidBefore extends ParsedSimpleNativeScript {
+  ParsedSimpleNativeScript_InvalidBefore({required this.slot}) : super._();
 
-class _$ParsedSimpleNativeScript_InvalidBeforeImpl extends ParsedSimpleNativeScript_InvalidBefore  {
-   _$ParsedSimpleNativeScript_InvalidBeforeImpl({required this.slot}): super._();
+  final BigInt slot;
 
-  
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedSimpleNativeScript_InvalidBeforeCopyWith<
+          ParsedSimpleNativeScript_InvalidBefore>
+      get copyWith => _$ParsedSimpleNativeScript_InvalidBeforeCopyWithImpl<
+          ParsedSimpleNativeScript_InvalidBefore>(this, _$identity);
 
-@override final  BigInt slot;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedSimpleNativeScript_InvalidBefore &&
+            (identical(other.slot, slot) || other.slot == slot));
+  }
 
-@override
-String toString() {
-  return 'ParsedSimpleNativeScript.invalidBefore(slot: $slot)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, slot);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedSimpleNativeScript_InvalidBeforeImpl&&(identical(other.slot, slot) || other.slot == slot));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,slot);
-
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<_$ParsedSimpleNativeScript_InvalidBeforeImpl> get copyWith => __$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWithImpl<_$ParsedSimpleNativeScript_InvalidBeforeImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ParsedSimpleNativeScript_InvalidBefore extends ParsedSimpleNativeScript {
-   factory ParsedSimpleNativeScript_InvalidBefore({required final  BigInt slot}) = _$ParsedSimpleNativeScript_InvalidBeforeImpl;
-   ParsedSimpleNativeScript_InvalidBefore._(): super._();
-
-  
-
- BigInt get slot;
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedSimpleNativeScript_InvalidBeforeImplCopyWith<_$ParsedSimpleNativeScript_InvalidBeforeImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedSimpleNativeScript.invalidBefore(slot: $slot)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<$Res>  {
-  factory _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith(_$ParsedSimpleNativeScript_InvalidHereafterImpl value, $Res Function(_$ParsedSimpleNativeScript_InvalidHereafterImpl) then) = __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- BigInt slot
-});
-
-
-
+abstract mixin class $ParsedSimpleNativeScript_InvalidBeforeCopyWith<$Res>
+    implements $ParsedSimpleNativeScriptCopyWith<$Res> {
+  factory $ParsedSimpleNativeScript_InvalidBeforeCopyWith(
+          ParsedSimpleNativeScript_InvalidBefore value,
+          $Res Function(ParsedSimpleNativeScript_InvalidBefore) _then) =
+      _$ParsedSimpleNativeScript_InvalidBeforeCopyWithImpl;
+  @useResult
+  $Res call({BigInt slot});
 }
 
 /// @nodoc
-class __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<$Res> extends _$ParsedSimpleNativeScriptCopyWithImpl<$Res, _$ParsedSimpleNativeScript_InvalidHereafterImpl> implements _$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<$Res> {
-  __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl(_$ParsedSimpleNativeScript_InvalidHereafterImpl _value, $Res Function(_$ParsedSimpleNativeScript_InvalidHereafterImpl) _then)
-      : super(_value, _then);
+class _$ParsedSimpleNativeScript_InvalidBeforeCopyWithImpl<$Res>
+    implements $ParsedSimpleNativeScript_InvalidBeforeCopyWith<$Res> {
+  _$ParsedSimpleNativeScript_InvalidBeforeCopyWithImpl(this._self, this._then);
 
+  final ParsedSimpleNativeScript_InvalidBefore _self;
+  final $Res Function(ParsedSimpleNativeScript_InvalidBefore) _then;
 
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? slot = null,}) {
-  return _then(_$ParsedSimpleNativeScript_InvalidHereafterImpl(
-slot: null == slot ? _value.slot : slot // ignore: cast_nullable_to_non_nullable
-as BigInt,
-  ));
-}
-
-
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? slot = null,
+  }) {
+    return _then(ParsedSimpleNativeScript_InvalidBefore(
+      slot: null == slot
+          ? _self.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
 }
 
 /// @nodoc
 
+class ParsedSimpleNativeScript_InvalidHereafter
+    extends ParsedSimpleNativeScript {
+  ParsedSimpleNativeScript_InvalidHereafter({required this.slot}) : super._();
 
-class _$ParsedSimpleNativeScript_InvalidHereafterImpl extends ParsedSimpleNativeScript_InvalidHereafter  {
-   _$ParsedSimpleNativeScript_InvalidHereafterImpl({required this.slot}): super._();
+  final BigInt slot;
 
-  
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedSimpleNativeScript_InvalidHereafterCopyWith<
+          ParsedSimpleNativeScript_InvalidHereafter>
+      get copyWith => _$ParsedSimpleNativeScript_InvalidHereafterCopyWithImpl<
+          ParsedSimpleNativeScript_InvalidHereafter>(this, _$identity);
 
-@override final  BigInt slot;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedSimpleNativeScript_InvalidHereafter &&
+            (identical(other.slot, slot) || other.slot == slot));
+  }
 
-@override
-String toString() {
-  return 'ParsedSimpleNativeScript.invalidHereafter(slot: $slot)';
+  @override
+  int get hashCode => Object.hash(runtimeType, slot);
+
+  @override
+  String toString() {
+    return 'ParsedSimpleNativeScript.invalidHereafter(slot: $slot)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedSimpleNativeScript_InvalidHereafterImpl&&(identical(other.slot, slot) || other.slot == slot));
+/// @nodoc
+abstract mixin class $ParsedSimpleNativeScript_InvalidHereafterCopyWith<$Res>
+    implements $ParsedSimpleNativeScriptCopyWith<$Res> {
+  factory $ParsedSimpleNativeScript_InvalidHereafterCopyWith(
+          ParsedSimpleNativeScript_InvalidHereafter value,
+          $Res Function(ParsedSimpleNativeScript_InvalidHereafter) _then) =
+      _$ParsedSimpleNativeScript_InvalidHereafterCopyWithImpl;
+  @useResult
+  $Res call({BigInt slot});
 }
 
+/// @nodoc
+class _$ParsedSimpleNativeScript_InvalidHereafterCopyWithImpl<$Res>
+    implements $ParsedSimpleNativeScript_InvalidHereafterCopyWith<$Res> {
+  _$ParsedSimpleNativeScript_InvalidHereafterCopyWithImpl(
+      this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,slot);
+  final ParsedSimpleNativeScript_InvalidHereafter _self;
+  final $Res Function(ParsedSimpleNativeScript_InvalidHereafter) _then;
 
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<_$ParsedSimpleNativeScript_InvalidHereafterImpl> get copyWith => __$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWithImpl<_$ParsedSimpleNativeScript_InvalidHereafterImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of ParsedSimpleNativeScript
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? slot = null,
+  }) {
+    return _then(ParsedSimpleNativeScript_InvalidHereafter(
+      slot: null == slot
+          ? _self.slot
+          : slot // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+    ));
+  }
 }
 
-
-abstract class ParsedSimpleNativeScript_InvalidHereafter extends ParsedSimpleNativeScript {
-   factory ParsedSimpleNativeScript_InvalidHereafter({required final  BigInt slot}) = _$ParsedSimpleNativeScript_InvalidHereafterImpl;
-   ParsedSimpleNativeScript_InvalidHereafter._(): super._();
-
-  
-
- BigInt get slot;
-/// Create a copy of ParsedSimpleNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedSimpleNativeScript_InvalidHereafterImplCopyWith<_$ParsedSimpleNativeScript_InvalidHereafterImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

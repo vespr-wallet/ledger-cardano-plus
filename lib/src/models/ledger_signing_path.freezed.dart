@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,403 +10,336 @@ part of 'ledger_signing_path.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$LedgerSigningPath {
+  List<int> get signingPath;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LedgerSigningPath &&
+            const DeepCollectionEquality()
+                .equals(other.signingPath, signingPath));
+  }
 
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(signingPath));
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'LedgerSigningPath(signingPath: $signingPath)';
+  }
 }
 
 /// @nodoc
-abstract class $LedgerSigningPathCopyWith<$Res>  {
-  factory $LedgerSigningPathCopyWith(LedgerSigningPath value, $Res Function(LedgerSigningPath) then) = _$LedgerSigningPathCopyWithImpl<$Res, LedgerSigningPath>;
-
-
-
-}
-
-/// @nodoc
-class _$LedgerSigningPathCopyWithImpl<$Res,$Val extends LedgerSigningPath> implements $LedgerSigningPathCopyWith<$Res> {
-  _$LedgerSigningPathCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$LedgerSigningPath_ByronImplCopyWith<$Res>  {
-  factory _$$LedgerSigningPath_ByronImplCopyWith(_$LedgerSigningPath_ByronImpl value, $Res Function(_$LedgerSigningPath_ByronImpl) then) = __$$LedgerSigningPath_ByronImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- int account, int address
-});
-
-
-
-}
-
-/// @nodoc
-class __$$LedgerSigningPath_ByronImplCopyWithImpl<$Res> extends _$LedgerSigningPathCopyWithImpl<$Res, _$LedgerSigningPath_ByronImpl> implements _$$LedgerSigningPath_ByronImplCopyWith<$Res> {
-  __$$LedgerSigningPath_ByronImplCopyWithImpl(_$LedgerSigningPath_ByronImpl _value, $Res Function(_$LedgerSigningPath_ByronImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,}) {
-  return _then(_$LedgerSigningPath_ByronImpl(
-account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
-as int,address: null == address ? _value.address : address // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
+class $LedgerSigningPathCopyWith<$Res> {
+  $LedgerSigningPathCopyWith(
+      LedgerSigningPath _, $Res Function(LedgerSigningPath) __);
 }
 
 /// @nodoc
 
+class LedgerSigningPath_Byron extends LedgerSigningPath {
+  LedgerSigningPath_Byron({required this.account, required this.address})
+      : super._();
 
-class _$LedgerSigningPath_ByronImpl extends LedgerSigningPath_Byron  {
-   _$LedgerSigningPath_ByronImpl({required this.account, required this.address}): super._();
+  final int account;
+  final int address;
 
-  
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPath_ByronCopyWith<LedgerSigningPath_Byron> get copyWith =>
+      _$LedgerSigningPath_ByronCopyWithImpl<LedgerSigningPath_Byron>(
+          this, _$identity);
 
-@override final  int account;
-@override final  int address;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LedgerSigningPath_Byron &&
+            (identical(other.account, account) || other.account == account) &&
+            (identical(other.address, address) || other.address == address));
+  }
 
-@override
-String toString() {
-  return 'LedgerSigningPath.byron(account: $account, address: $address)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, account, address);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerSigningPath_ByronImpl&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,account,address);
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$LedgerSigningPath_ByronImplCopyWith<_$LedgerSigningPath_ByronImpl> get copyWith => __$$LedgerSigningPath_ByronImplCopyWithImpl<_$LedgerSigningPath_ByronImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class LedgerSigningPath_Byron extends LedgerSigningPath {
-   factory LedgerSigningPath_Byron({required final  int account, required final  int address}) = _$LedgerSigningPath_ByronImpl;
-   LedgerSigningPath_Byron._(): super._();
-
-  
-
- int get account; int get address;
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$LedgerSigningPath_ByronImplCopyWith<_$LedgerSigningPath_ByronImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'LedgerSigningPath.byron(account: $account, address: $address)';
+  }
 }
 
 /// @nodoc
-abstract class _$$LedgerSigningPath_ShelleyImplCopyWith<$Res>  {
-  factory _$$LedgerSigningPath_ShelleyImplCopyWith(_$LedgerSigningPath_ShelleyImpl value, $Res Function(_$LedgerSigningPath_ShelleyImpl) then) = __$$LedgerSigningPath_ShelleyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- int account, int address, ShelleyAddressRole role
-});
-
-
-
+abstract mixin class $LedgerSigningPath_ByronCopyWith<$Res>
+    implements $LedgerSigningPathCopyWith<$Res> {
+  factory $LedgerSigningPath_ByronCopyWith(LedgerSigningPath_Byron value,
+          $Res Function(LedgerSigningPath_Byron) _then) =
+      _$LedgerSigningPath_ByronCopyWithImpl;
+  @useResult
+  $Res call({int account, int address});
 }
 
 /// @nodoc
-class __$$LedgerSigningPath_ShelleyImplCopyWithImpl<$Res> extends _$LedgerSigningPathCopyWithImpl<$Res, _$LedgerSigningPath_ShelleyImpl> implements _$$LedgerSigningPath_ShelleyImplCopyWith<$Res> {
-  __$$LedgerSigningPath_ShelleyImplCopyWithImpl(_$LedgerSigningPath_ShelleyImpl _value, $Res Function(_$LedgerSigningPath_ShelleyImpl) _then)
-      : super(_value, _then);
+class _$LedgerSigningPath_ByronCopyWithImpl<$Res>
+    implements $LedgerSigningPath_ByronCopyWith<$Res> {
+  _$LedgerSigningPath_ByronCopyWithImpl(this._self, this._then);
 
+  final LedgerSigningPath_Byron _self;
+  final $Res Function(LedgerSigningPath_Byron) _then;
 
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,Object? role = null,}) {
-  return _then(_$LedgerSigningPath_ShelleyImpl(
-account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
-as int,address: null == address ? _value.address : address // ignore: cast_nullable_to_non_nullable
-as int,role: null == role ? _value.role : role // ignore: cast_nullable_to_non_nullable
-as ShelleyAddressRole,
-  ));
-}
-
-
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? account = null,
+    Object? address = null,
+  }) {
+    return _then(LedgerSigningPath_Byron(
+      account: null == account
+          ? _self.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as int,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
+class LedgerSigningPath_Shelley extends LedgerSigningPath {
+  LedgerSigningPath_Shelley(
+      {required this.account, required this.address, required this.role})
+      : super._();
 
-class _$LedgerSigningPath_ShelleyImpl extends LedgerSigningPath_Shelley  {
-   _$LedgerSigningPath_ShelleyImpl({required this.account, required this.address, required this.role}): super._();
+  final int account;
+  final int address;
+  final ShelleyAddressRole role;
 
-  
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPath_ShelleyCopyWith<LedgerSigningPath_Shelley> get copyWith =>
+      _$LedgerSigningPath_ShelleyCopyWithImpl<LedgerSigningPath_Shelley>(
+          this, _$identity);
 
-@override final  int account;
-@override final  int address;
-@override final  ShelleyAddressRole role;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LedgerSigningPath_Shelley &&
+            (identical(other.account, account) || other.account == account) &&
+            (identical(other.address, address) || other.address == address) &&
+            (identical(other.role, role) || other.role == role));
+  }
 
-@override
-String toString() {
-  return 'LedgerSigningPath.shelley(account: $account, address: $address, role: $role)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, account, address, role);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerSigningPath_ShelleyImpl&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address)&&(identical(other.role, role) || other.role == role));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,account,address,role);
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$LedgerSigningPath_ShelleyImplCopyWith<_$LedgerSigningPath_ShelleyImpl> get copyWith => __$$LedgerSigningPath_ShelleyImplCopyWithImpl<_$LedgerSigningPath_ShelleyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class LedgerSigningPath_Shelley extends LedgerSigningPath {
-   factory LedgerSigningPath_Shelley({required final  int account, required final  int address, required final  ShelleyAddressRole role}) = _$LedgerSigningPath_ShelleyImpl;
-   LedgerSigningPath_Shelley._(): super._();
-
-  
-
- int get account; int get address; ShelleyAddressRole get role;
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$LedgerSigningPath_ShelleyImplCopyWith<_$LedgerSigningPath_ShelleyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'LedgerSigningPath.shelley(account: $account, address: $address, role: $role)';
+  }
 }
 
 /// @nodoc
-abstract class _$$LedgerSigningPath_CIP36ImplCopyWith<$Res>  {
-  factory _$$LedgerSigningPath_CIP36ImplCopyWith(_$LedgerSigningPath_CIP36Impl value, $Res Function(_$LedgerSigningPath_CIP36Impl) then) = __$$LedgerSigningPath_CIP36ImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- int account, int address
-});
-
-
-
+abstract mixin class $LedgerSigningPath_ShelleyCopyWith<$Res>
+    implements $LedgerSigningPathCopyWith<$Res> {
+  factory $LedgerSigningPath_ShelleyCopyWith(LedgerSigningPath_Shelley value,
+          $Res Function(LedgerSigningPath_Shelley) _then) =
+      _$LedgerSigningPath_ShelleyCopyWithImpl;
+  @useResult
+  $Res call({int account, int address, ShelleyAddressRole role});
 }
 
 /// @nodoc
-class __$$LedgerSigningPath_CIP36ImplCopyWithImpl<$Res> extends _$LedgerSigningPathCopyWithImpl<$Res, _$LedgerSigningPath_CIP36Impl> implements _$$LedgerSigningPath_CIP36ImplCopyWith<$Res> {
-  __$$LedgerSigningPath_CIP36ImplCopyWithImpl(_$LedgerSigningPath_CIP36Impl _value, $Res Function(_$LedgerSigningPath_CIP36Impl) _then)
-      : super(_value, _then);
+class _$LedgerSigningPath_ShelleyCopyWithImpl<$Res>
+    implements $LedgerSigningPath_ShelleyCopyWith<$Res> {
+  _$LedgerSigningPath_ShelleyCopyWithImpl(this._self, this._then);
 
+  final LedgerSigningPath_Shelley _self;
+  final $Res Function(LedgerSigningPath_Shelley) _then;
 
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? account = null,Object? address = null,}) {
-  return _then(_$LedgerSigningPath_CIP36Impl(
-account: null == account ? _value.account : account // ignore: cast_nullable_to_non_nullable
-as int,address: null == address ? _value.address : address // ignore: cast_nullable_to_non_nullable
-as int,
-  ));
-}
-
-
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? account = null,
+    Object? address = null,
+    Object? role = null,
+  }) {
+    return _then(LedgerSigningPath_Shelley(
+      account: null == account
+          ? _self.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as int,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as int,
+      role: null == role
+          ? _self.role
+          : role // ignore: cast_nullable_to_non_nullable
+              as ShelleyAddressRole,
+    ));
+  }
 }
 
 /// @nodoc
 
+class LedgerSigningPath_CIP36 extends LedgerSigningPath {
+  LedgerSigningPath_CIP36({required this.account, required this.address})
+      : super._();
 
-class _$LedgerSigningPath_CIP36Impl extends LedgerSigningPath_CIP36  {
-   _$LedgerSigningPath_CIP36Impl({required this.account, required this.address}): super._();
+  final int account;
+  final int address;
 
-  
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPath_CIP36CopyWith<LedgerSigningPath_CIP36> get copyWith =>
+      _$LedgerSigningPath_CIP36CopyWithImpl<LedgerSigningPath_CIP36>(
+          this, _$identity);
 
-@override final  int account;
-@override final  int address;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LedgerSigningPath_CIP36 &&
+            (identical(other.account, account) || other.account == account) &&
+            (identical(other.address, address) || other.address == address));
+  }
 
-@override
-String toString() {
-  return 'LedgerSigningPath.cip36(account: $account, address: $address)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, account, address);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerSigningPath_CIP36Impl&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,account,address);
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => __$$LedgerSigningPath_CIP36ImplCopyWithImpl<_$LedgerSigningPath_CIP36Impl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class LedgerSigningPath_CIP36 extends LedgerSigningPath {
-   factory LedgerSigningPath_CIP36({required final  int account, required final  int address}) = _$LedgerSigningPath_CIP36Impl;
-   LedgerSigningPath_CIP36._(): super._();
-
-  
-
- int get account; int get address;
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$LedgerSigningPath_CIP36ImplCopyWith<_$LedgerSigningPath_CIP36Impl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'LedgerSigningPath.cip36(account: $account, address: $address)';
+  }
 }
 
 /// @nodoc
-abstract class _$$LedgerSigningPath_CustomImplCopyWith<$Res>  {
-  factory _$$LedgerSigningPath_CustomImplCopyWith(_$LedgerSigningPath_CustomImpl value, $Res Function(_$LedgerSigningPath_CustomImpl) then) = __$$LedgerSigningPath_CustomImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- List<int> path
-});
-
-
-
+abstract mixin class $LedgerSigningPath_CIP36CopyWith<$Res>
+    implements $LedgerSigningPathCopyWith<$Res> {
+  factory $LedgerSigningPath_CIP36CopyWith(LedgerSigningPath_CIP36 value,
+          $Res Function(LedgerSigningPath_CIP36) _then) =
+      _$LedgerSigningPath_CIP36CopyWithImpl;
+  @useResult
+  $Res call({int account, int address});
 }
 
 /// @nodoc
-class __$$LedgerSigningPath_CustomImplCopyWithImpl<$Res> extends _$LedgerSigningPathCopyWithImpl<$Res, _$LedgerSigningPath_CustomImpl> implements _$$LedgerSigningPath_CustomImplCopyWith<$Res> {
-  __$$LedgerSigningPath_CustomImplCopyWithImpl(_$LedgerSigningPath_CustomImpl _value, $Res Function(_$LedgerSigningPath_CustomImpl) _then)
-      : super(_value, _then);
+class _$LedgerSigningPath_CIP36CopyWithImpl<$Res>
+    implements $LedgerSigningPath_CIP36CopyWith<$Res> {
+  _$LedgerSigningPath_CIP36CopyWithImpl(this._self, this._then);
 
+  final LedgerSigningPath_CIP36 _self;
+  final $Res Function(LedgerSigningPath_CIP36) _then;
 
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$LedgerSigningPath_CustomImpl(
-null == path ? _value._path : path // ignore: cast_nullable_to_non_nullable
-as List<int>,
-  ));
-}
-
-
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? account = null,
+    Object? address = null,
+  }) {
+    return _then(LedgerSigningPath_CIP36(
+      account: null == account
+          ? _self.account
+          : account // ignore: cast_nullable_to_non_nullable
+              as int,
+      address: null == address
+          ? _self.address
+          : address // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
 }
 
 /// @nodoc
 
+class LedgerSigningPath_Custom extends LedgerSigningPath {
+  LedgerSigningPath_Custom(final List<int> path)
+      : _path = path,
+        super._();
 
-class _$LedgerSigningPath_CustomImpl extends LedgerSigningPath_Custom  {
-   _$LedgerSigningPath_CustomImpl(final  List<int> path): _path = path,super._();
+  final List<int> _path;
+  List<int> get path {
+    if (_path is EqualUnmodifiableListView) return _path;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_path);
+  }
 
-  
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPath_CustomCopyWith<LedgerSigningPath_Custom> get copyWith =>
+      _$LedgerSigningPath_CustomCopyWithImpl<LedgerSigningPath_Custom>(
+          this, _$identity);
 
- final  List<int> _path;
-@override List<int> get path {
-  if (_path is EqualUnmodifiableListView) return _path;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_path);
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is LedgerSigningPath_Custom &&
+            const DeepCollectionEquality().equals(other._path, _path));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_path));
+
+  @override
+  String toString() {
+    return 'LedgerSigningPath.custom(path: $path)';
+  }
 }
 
-
-@override
-String toString() {
-  return 'LedgerSigningPath.custom(path: $path)';
+/// @nodoc
+abstract mixin class $LedgerSigningPath_CustomCopyWith<$Res>
+    implements $LedgerSigningPathCopyWith<$Res> {
+  factory $LedgerSigningPath_CustomCopyWith(LedgerSigningPath_Custom value,
+          $Res Function(LedgerSigningPath_Custom) _then) =
+      _$LedgerSigningPath_CustomCopyWithImpl;
+  @useResult
+  $Res call({List<int> path});
 }
 
+/// @nodoc
+class _$LedgerSigningPath_CustomCopyWithImpl<$Res>
+    implements $LedgerSigningPath_CustomCopyWith<$Res> {
+  _$LedgerSigningPath_CustomCopyWithImpl(this._self, this._then);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$LedgerSigningPath_CustomImpl&&const DeepCollectionEquality().equals(other._path, _path));
+  final LedgerSigningPath_Custom _self;
+  final $Res Function(LedgerSigningPath_Custom) _then;
+
+  /// Create a copy of LedgerSigningPath
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? path = null,
+  }) {
+    return _then(LedgerSigningPath_Custom(
+      null == path
+          ? _self._path
+          : path // ignore: cast_nullable_to_non_nullable
+              as List<int>,
+    ));
+  }
 }
 
-
-@override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_path));
-
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$LedgerSigningPath_CustomImplCopyWith<_$LedgerSigningPath_CustomImpl> get copyWith => __$$LedgerSigningPath_CustomImplCopyWithImpl<_$LedgerSigningPath_CustomImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class LedgerSigningPath_Custom extends LedgerSigningPath {
-   factory LedgerSigningPath_Custom(final  List<int> path) = _$LedgerSigningPath_CustomImpl;
-   LedgerSigningPath_Custom._(): super._();
-
-  
-
- List<int> get path;
-/// Create a copy of LedgerSigningPath
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$LedgerSigningPath_CustomImplCopyWith<_$LedgerSigningPath_CustomImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

@@ -23,6 +23,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     required String customStakeBech32Hrp,
   }) = NetworkCustom;
 
+  @override
   late final int networkMagic = switch (this) {
     NetworkMainnet() => 764824073,
     NetworkLegacyTestnet() => 1097911063,
@@ -33,6 +34,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
       customNetworkMagic,
   };
 
+  @override
   late final int networkId = switch (this) {
     NetworkMainnet() => 1,
     NetworkLegacyTestnet() => 0,
@@ -42,6 +44,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkCustom(customNetworkId: final customNetworkId) => customNetworkId,
   };
 
+  @override
   late final String paymentBech32Hrp = switch (this) {
     NetworkMainnet() => 'addr',
     NetworkLegacyTestnet() => 'addr_test',
@@ -52,6 +55,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
       customPaymentBech32Hrp,
   };
 
+  @override
   late final String stakeBech32Hrp = switch (this) {
     NetworkMainnet() => 'stake',
     NetworkLegacyTestnet() => 'stake_test',

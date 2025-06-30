@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,162 +10,234 @@ part of 'parsed_operational_certificate.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedOperationalCertificate {
+  String get kesPublicKeyHex;
+  BigInt get kesPeriod;
+  BigInt get issueCounter;
+  LedgerSigningPath get coldKeyPath;
 
- String get kesPublicKeyHex => throw _privateConstructorUsedError; BigInt get kesPeriod => throw _privateConstructorUsedError; BigInt get issueCounter => throw _privateConstructorUsedError; LedgerSigningPath get coldKeyPath => throw _privateConstructorUsedError;
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedOperationalCertificateCopyWith<ParsedOperationalCertificate>
+      get copyWith => _$ParsedOperationalCertificateCopyWithImpl<
+              ParsedOperationalCertificate>(
+          this as ParsedOperationalCertificate, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedOperationalCertificate &&
+            (identical(other.kesPublicKeyHex, kesPublicKeyHex) ||
+                other.kesPublicKeyHex == kesPublicKeyHex) &&
+            (identical(other.kesPeriod, kesPeriod) ||
+                other.kesPeriod == kesPeriod) &&
+            (identical(other.issueCounter, issueCounter) ||
+                other.issueCounter == issueCounter) &&
+            (identical(other.coldKeyPath, coldKeyPath) ||
+                other.coldKeyPath == coldKeyPath));
+  }
 
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
 
-
-
-
-
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$ParsedOperationalCertificateCopyWith<ParsedOperationalCertificate> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedOperationalCertificate(kesPublicKeyHex: $kesPublicKeyHex, kesPeriod: $kesPeriod, issueCounter: $issueCounter, coldKeyPath: $coldKeyPath)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedOperationalCertificateCopyWith<$Res>  {
-  factory $ParsedOperationalCertificateCopyWith(ParsedOperationalCertificate value, $Res Function(ParsedOperationalCertificate) then) = _$ParsedOperationalCertificateCopyWithImpl<$Res, ParsedOperationalCertificate>;
-@useResult
-$Res call({
- String kesPublicKeyHex, BigInt kesPeriod, BigInt issueCounter, LedgerSigningPath coldKeyPath
-});
+abstract mixin class $ParsedOperationalCertificateCopyWith<$Res> {
+  factory $ParsedOperationalCertificateCopyWith(
+          ParsedOperationalCertificate value,
+          $Res Function(ParsedOperationalCertificate) _then) =
+      _$ParsedOperationalCertificateCopyWithImpl;
+  @useResult
+  $Res call(
+      {String kesPublicKeyHex,
+      BigInt kesPeriod,
+      BigInt issueCounter,
+      LedgerSigningPath coldKeyPath});
 
-
-$LedgerSigningPathCopyWith<$Res> get coldKeyPath;
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath;
 }
 
 /// @nodoc
-class _$ParsedOperationalCertificateCopyWithImpl<$Res,$Val extends ParsedOperationalCertificate> implements $ParsedOperationalCertificateCopyWith<$Res> {
-  _$ParsedOperationalCertificateCopyWithImpl(this._value, this._then);
+class _$ParsedOperationalCertificateCopyWithImpl<$Res>
+    implements $ParsedOperationalCertificateCopyWith<$Res> {
+  _$ParsedOperationalCertificateCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ParsedOperationalCertificate _self;
+  final $Res Function(ParsedOperationalCertificate) _then;
 
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? kesPublicKeyHex = null,Object? kesPeriod = null,Object? issueCounter = null,Object? coldKeyPath = null,}) {
-  return _then(_value.copyWith(
-kesPublicKeyHex: null == kesPublicKeyHex ? _value.kesPublicKeyHex : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
-as String,kesPeriod: null == kesPeriod ? _value.kesPeriod : kesPeriod // ignore: cast_nullable_to_non_nullable
-as BigInt,issueCounter: null == issueCounter ? _value.issueCounter : issueCounter // ignore: cast_nullable_to_non_nullable
-as BigInt,coldKeyPath: null == coldKeyPath ? _value.coldKeyPath : coldKeyPath // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
-  )as $Val);
-}
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LedgerSigningPathCopyWith<$Res> get coldKeyPath {
-  
-  return $LedgerSigningPathCopyWith<$Res>(_value.coldKeyPath, (value) {
-    return _then(_value.copyWith(coldKeyPath: value) as $Val);
-  });
-}
-}
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? kesPublicKeyHex = null,
+    Object? kesPeriod = null,
+    Object? issueCounter = null,
+    Object? coldKeyPath = null,
+  }) {
+    return _then(_self.copyWith(
+      kesPublicKeyHex: null == kesPublicKeyHex
+          ? _self.kesPublicKeyHex
+          : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      kesPeriod: null == kesPeriod
+          ? _self.kesPeriod
+          : kesPeriod // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      issueCounter: null == issueCounter
+          ? _self.issueCounter
+          : issueCounter // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      coldKeyPath: null == coldKeyPath
+          ? _self.coldKeyPath
+          : coldKeyPath // ignore: cast_nullable_to_non_nullable
+              as LedgerSigningPath,
+    ));
+  }
 
-
-/// @nodoc
-abstract class _$$ParsedOperationalCertificateImplCopyWith<$Res> implements $ParsedOperationalCertificateCopyWith<$Res> {
-  factory _$$ParsedOperationalCertificateImplCopyWith(_$ParsedOperationalCertificateImpl value, $Res Function(_$ParsedOperationalCertificateImpl) then) = __$$ParsedOperationalCertificateImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- String kesPublicKeyHex, BigInt kesPeriod, BigInt issueCounter, LedgerSigningPath coldKeyPath
-});
-
-
-@override $LedgerSigningPathCopyWith<$Res> get coldKeyPath;
-}
-
-/// @nodoc
-class __$$ParsedOperationalCertificateImplCopyWithImpl<$Res> extends _$ParsedOperationalCertificateCopyWithImpl<$Res, _$ParsedOperationalCertificateImpl> implements _$$ParsedOperationalCertificateImplCopyWith<$Res> {
-  __$$ParsedOperationalCertificateImplCopyWithImpl(_$ParsedOperationalCertificateImpl _value, $Res Function(_$ParsedOperationalCertificateImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? kesPublicKeyHex = null,Object? kesPeriod = null,Object? issueCounter = null,Object? coldKeyPath = null,}) {
-  return _then(_$ParsedOperationalCertificateImpl(
-kesPublicKeyHex: null == kesPublicKeyHex ? _value.kesPublicKeyHex : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
-as String,kesPeriod: null == kesPeriod ? _value.kesPeriod : kesPeriod // ignore: cast_nullable_to_non_nullable
-as BigInt,issueCounter: null == issueCounter ? _value.issueCounter : issueCounter // ignore: cast_nullable_to_non_nullable
-as BigInt,coldKeyPath: null == coldKeyPath ? _value.coldKeyPath : coldKeyPath // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
-  ));
-}
-
-
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_self.coldKeyPath, (value) {
+      return _then(_self.copyWith(coldKeyPath: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class _ParsedOperationalCertificate extends ParsedOperationalCertificate {
+  _ParsedOperationalCertificate(
+      {required this.kesPublicKeyHex,
+      required this.kesPeriod,
+      required this.issueCounter,
+      required this.coldKeyPath})
+      : super._();
 
-class _$ParsedOperationalCertificateImpl extends _ParsedOperationalCertificate  {
-   _$ParsedOperationalCertificateImpl({required this.kesPublicKeyHex, required this.kesPeriod, required this.issueCounter, required this.coldKeyPath}): super._();
+  @override
+  final String kesPublicKeyHex;
+  @override
+  final BigInt kesPeriod;
+  @override
+  final BigInt issueCounter;
+  @override
+  final LedgerSigningPath coldKeyPath;
 
-  
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ParsedOperationalCertificateCopyWith<_ParsedOperationalCertificate>
+      get copyWith => __$ParsedOperationalCertificateCopyWithImpl<
+          _ParsedOperationalCertificate>(this, _$identity);
 
-@override final  String kesPublicKeyHex;
-@override final  BigInt kesPeriod;
-@override final  BigInt issueCounter;
-@override final  LedgerSigningPath coldKeyPath;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ParsedOperationalCertificate &&
+            (identical(other.kesPublicKeyHex, kesPublicKeyHex) ||
+                other.kesPublicKeyHex == kesPublicKeyHex) &&
+            (identical(other.kesPeriod, kesPeriod) ||
+                other.kesPeriod == kesPeriod) &&
+            (identical(other.issueCounter, issueCounter) ||
+                other.issueCounter == issueCounter) &&
+            (identical(other.coldKeyPath, coldKeyPath) ||
+                other.coldKeyPath == coldKeyPath));
+  }
 
-@override
-String toString() {
-  return 'ParsedOperationalCertificate(kesPublicKeyHex: $kesPublicKeyHex, kesPeriod: $kesPeriod, issueCounter: $issueCounter, coldKeyPath: $coldKeyPath)';
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, kesPublicKeyHex, kesPeriod, issueCounter, coldKeyPath);
+
+  @override
+  String toString() {
+    return 'ParsedOperationalCertificate(kesPublicKeyHex: $kesPublicKeyHex, kesPeriod: $kesPeriod, issueCounter: $issueCounter, coldKeyPath: $coldKeyPath)';
+  }
 }
 
+/// @nodoc
+abstract mixin class _$ParsedOperationalCertificateCopyWith<$Res>
+    implements $ParsedOperationalCertificateCopyWith<$Res> {
+  factory _$ParsedOperationalCertificateCopyWith(
+          _ParsedOperationalCertificate value,
+          $Res Function(_ParsedOperationalCertificate) _then) =
+      __$ParsedOperationalCertificateCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String kesPublicKeyHex,
+      BigInt kesPeriod,
+      BigInt issueCounter,
+      LedgerSigningPath coldKeyPath});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedOperationalCertificateImpl&&(identical(other.kesPublicKeyHex, kesPublicKeyHex) || other.kesPublicKeyHex == kesPublicKeyHex)&&(identical(other.kesPeriod, kesPeriod) || other.kesPeriod == kesPeriod)&&(identical(other.issueCounter, issueCounter) || other.issueCounter == issueCounter)&&(identical(other.coldKeyPath, coldKeyPath) || other.coldKeyPath == coldKeyPath));
+  @override
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath;
 }
 
+/// @nodoc
+class __$ParsedOperationalCertificateCopyWithImpl<$Res>
+    implements _$ParsedOperationalCertificateCopyWith<$Res> {
+  __$ParsedOperationalCertificateCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,kesPublicKeyHex,kesPeriod,issueCounter,coldKeyPath);
+  final _ParsedOperationalCertificate _self;
+  final $Res Function(_ParsedOperationalCertificate) _then;
 
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedOperationalCertificateImplCopyWith<_$ParsedOperationalCertificateImpl> get copyWith => __$$ParsedOperationalCertificateImplCopyWithImpl<_$ParsedOperationalCertificateImpl>(this, _$identity);
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? kesPublicKeyHex = null,
+    Object? kesPeriod = null,
+    Object? issueCounter = null,
+    Object? coldKeyPath = null,
+  }) {
+    return _then(_ParsedOperationalCertificate(
+      kesPublicKeyHex: null == kesPublicKeyHex
+          ? _self.kesPublicKeyHex
+          : kesPublicKeyHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      kesPeriod: null == kesPeriod
+          ? _self.kesPeriod
+          : kesPeriod // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      issueCounter: null == issueCounter
+          ? _self.issueCounter
+          : issueCounter // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      coldKeyPath: null == coldKeyPath
+          ? _self.coldKeyPath
+          : coldKeyPath // ignore: cast_nullable_to_non_nullable
+              as LedgerSigningPath,
+    ));
+  }
 
-
-
-
-
-
-
-
+  /// Create a copy of ParsedOperationalCertificate
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get coldKeyPath {
+    return $LedgerSigningPathCopyWith<$Res>(_self.coldKeyPath, (value) {
+      return _then(_self.copyWith(coldKeyPath: value));
+    });
+  }
 }
 
-
-abstract class _ParsedOperationalCertificate extends ParsedOperationalCertificate {
-   factory _ParsedOperationalCertificate({required final  String kesPublicKeyHex, required final  BigInt kesPeriod, required final  BigInt issueCounter, required final  LedgerSigningPath coldKeyPath}) = _$ParsedOperationalCertificateImpl;
-   _ParsedOperationalCertificate._(): super._();
-
-  
-
-@override String get kesPublicKeyHex;@override BigInt get kesPeriod;@override BigInt get issueCounter;@override LedgerSigningPath get coldKeyPath;
-/// Create a copy of ParsedOperationalCertificate
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedOperationalCertificateImplCopyWith<_$ParsedOperationalCertificateImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

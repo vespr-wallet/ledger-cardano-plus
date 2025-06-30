@@ -38,6 +38,7 @@ sealed class DeviceOwnedAddress with _$DeviceOwnedAddress {
     required AddressParamsReward params,
   }) = DeviceOwnedAddressReward;
 
+  @override
   late final AddressType addressType = switch (this) {
     DeviceOwnedAddressByron(type: AddressByron type) => type.type,
     DeviceOwnedAddressBase(type: AddressBase type) => type.type,

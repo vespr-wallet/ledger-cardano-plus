@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,226 +10,176 @@ part of 'parsed_output_destination.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedOutputDestination {
+// uint8
+  int get typeEncoding;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedOutputDestination &&
+            (identical(other.typeEncoding, typeEncoding) ||
+                other.typeEncoding == typeEncoding));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, typeEncoding);
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ParsedOutputDestination(typeEncoding: $typeEncoding)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedOutputDestinationCopyWith<$Res>  {
-  factory $ParsedOutputDestinationCopyWith(ParsedOutputDestination value, $Res Function(ParsedOutputDestination) then) = _$ParsedOutputDestinationCopyWithImpl<$Res, ParsedOutputDestination>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedOutputDestinationCopyWithImpl<$Res,$Val extends ParsedOutputDestination> implements $ParsedOutputDestinationCopyWith<$Res> {
-  _$ParsedOutputDestinationCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$ThirdPartyImplCopyWith<$Res>  {
-  factory _$$ThirdPartyImplCopyWith(_$ThirdPartyImpl value, $Res Function(_$ThirdPartyImpl) then) = __$$ThirdPartyImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String addressHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$ThirdPartyImplCopyWithImpl<$Res> extends _$ParsedOutputDestinationCopyWithImpl<$Res, _$ThirdPartyImpl> implements _$$ThirdPartyImplCopyWith<$Res> {
-  __$$ThirdPartyImplCopyWithImpl(_$ThirdPartyImpl _value, $Res Function(_$ThirdPartyImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? addressHex = null,}) {
-  return _then(_$ThirdPartyImpl(
-addressHex: null == addressHex ? _value.addressHex : addressHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+class $ParsedOutputDestinationCopyWith<$Res> {
+  $ParsedOutputDestinationCopyWith(
+      ParsedOutputDestination _, $Res Function(ParsedOutputDestination) __);
 }
 
 /// @nodoc
 
+class ThirdParty extends ParsedOutputDestination {
+  ThirdParty({required this.addressHex}) : super._();
 
-class _$ThirdPartyImpl extends ThirdParty  {
-   _$ThirdPartyImpl({required this.addressHex}): super._();
+  final String addressHex;
 
-  
+  /// Create a copy of ParsedOutputDestination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ThirdPartyCopyWith<ThirdParty> get copyWith =>
+      _$ThirdPartyCopyWithImpl<ThirdParty>(this, _$identity);
 
-@override final  String addressHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThirdParty &&
+            (identical(other.addressHex, addressHex) ||
+                other.addressHex == addressHex));
+  }
 
-@override
-String toString() {
-  return 'ParsedOutputDestination.thirdParty(addressHex: $addressHex)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, addressHex);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ThirdPartyImpl&&(identical(other.addressHex, addressHex) || other.addressHex == addressHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,addressHex);
-
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith => __$$ThirdPartyImplCopyWithImpl<_$ThirdPartyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ThirdParty extends ParsedOutputDestination {
-   factory ThirdParty({required final  String addressHex}) = _$ThirdPartyImpl;
-   ThirdParty._(): super._();
-
-  
-
- String get addressHex;
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ThirdPartyImplCopyWith<_$ThirdPartyImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedOutputDestination.thirdParty(addressHex: $addressHex)';
+  }
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedImplCopyWith(_$DeviceOwnedImpl value, $Res Function(_$DeviceOwnedImpl) then) = __$$DeviceOwnedImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- ParsedAddressParams addressParams
-});
-
-
-$ParsedAddressParamsCopyWith<$Res> get addressParams;
+abstract mixin class $ThirdPartyCopyWith<$Res>
+    implements $ParsedOutputDestinationCopyWith<$Res> {
+  factory $ThirdPartyCopyWith(
+          ThirdParty value, $Res Function(ThirdParty) _then) =
+      _$ThirdPartyCopyWithImpl;
+  @useResult
+  $Res call({String addressHex});
 }
 
 /// @nodoc
-class __$$DeviceOwnedImplCopyWithImpl<$Res> extends _$ParsedOutputDestinationCopyWithImpl<$Res, _$DeviceOwnedImpl> implements _$$DeviceOwnedImplCopyWith<$Res> {
-  __$$DeviceOwnedImplCopyWithImpl(_$DeviceOwnedImpl _value, $Res Function(_$DeviceOwnedImpl) _then)
-      : super(_value, _then);
+class _$ThirdPartyCopyWithImpl<$Res> implements $ThirdPartyCopyWith<$Res> {
+  _$ThirdPartyCopyWithImpl(this._self, this._then);
 
+  final ThirdParty _self;
+  final $Res Function(ThirdParty) _then;
 
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? addressParams = null,}) {
-  return _then(_$DeviceOwnedImpl(
-addressParams: null == addressParams ? _value.addressParams : addressParams // ignore: cast_nullable_to_non_nullable
-as ParsedAddressParams,
-  ));
-}
-
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedAddressParamsCopyWith<$Res> get addressParams {
-  
-  return $ParsedAddressParamsCopyWith<$Res>(_value.addressParams, (value) {
-    return _then(_value.copyWith(addressParams: value) );
-  });
-}
+  /// Create a copy of ParsedOutputDestination
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? addressHex = null,
+  }) {
+    return _then(ThirdParty(
+      addressHex: null == addressHex
+          ? _self.addressHex
+          : addressHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class DeviceOwned extends ParsedOutputDestination {
+  DeviceOwned({required this.addressParams}) : super._();
 
-class _$DeviceOwnedImpl extends DeviceOwned  {
-   _$DeviceOwnedImpl({required this.addressParams}): super._();
+  final ParsedAddressParams addressParams;
 
-  
+  /// Create a copy of ParsedOutputDestination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DeviceOwnedCopyWith<DeviceOwned> get copyWith =>
+      _$DeviceOwnedCopyWithImpl<DeviceOwned>(this, _$identity);
 
-@override final  ParsedAddressParams addressParams;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeviceOwned &&
+            (identical(other.addressParams, addressParams) ||
+                other.addressParams == addressParams));
+  }
 
-@override
-String toString() {
-  return 'ParsedOutputDestination.deviceOwned(addressParams: $addressParams)';
+  @override
+  int get hashCode => Object.hash(runtimeType, addressParams);
+
+  @override
+  String toString() {
+    return 'ParsedOutputDestination.deviceOwned(addressParams: $addressParams)';
+  }
 }
 
+/// @nodoc
+abstract mixin class $DeviceOwnedCopyWith<$Res>
+    implements $ParsedOutputDestinationCopyWith<$Res> {
+  factory $DeviceOwnedCopyWith(
+          DeviceOwned value, $Res Function(DeviceOwned) _then) =
+      _$DeviceOwnedCopyWithImpl;
+  @useResult
+  $Res call({ParsedAddressParams addressParams});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedImpl&&(identical(other.addressParams, addressParams) || other.addressParams == addressParams));
+  $ParsedAddressParamsCopyWith<$Res> get addressParams;
 }
 
+/// @nodoc
+class _$DeviceOwnedCopyWithImpl<$Res> implements $DeviceOwnedCopyWith<$Res> {
+  _$DeviceOwnedCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,addressParams);
+  final DeviceOwned _self;
+  final $Res Function(DeviceOwned) _then;
 
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith => __$$DeviceOwnedImplCopyWithImpl<_$DeviceOwnedImpl>(this, _$identity);
+  /// Create a copy of ParsedOutputDestination
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? addressParams = null,
+  }) {
+    return _then(DeviceOwned(
+      addressParams: null == addressParams
+          ? _self.addressParams
+          : addressParams // ignore: cast_nullable_to_non_nullable
+              as ParsedAddressParams,
+    ));
+  }
 
-
-
-
-
-
-
-
+  /// Create a copy of ParsedOutputDestination
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedAddressParamsCopyWith<$Res> get addressParams {
+    return $ParsedAddressParamsCopyWith<$Res>(_self.addressParams, (value) {
+      return _then(_self.copyWith(addressParams: value));
+    });
+  }
 }
 
-
-abstract class DeviceOwned extends ParsedOutputDestination {
-   factory DeviceOwned({required final  ParsedAddressParams addressParams}) = _$DeviceOwnedImpl;
-   DeviceOwned._(): super._();
-
-  
-
- ParsedAddressParams get addressParams;
-/// Create a copy of ParsedOutputDestination
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedImplCopyWith<_$DeviceOwnedImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

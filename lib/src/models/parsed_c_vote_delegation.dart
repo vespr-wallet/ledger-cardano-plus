@@ -33,6 +33,7 @@ sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
     required int weight,
   }) = KeyDelegation;
 
+  @override
   late final int cVoteDelegationValue = switch (this) {
     PathDelegation() => 0x01,
     KeyDelegation() => 0x02,

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,219 +10,427 @@ part of 'parsed_pool_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedPoolParams {
+  ParsedPoolKey get poolKey;
+  String get vrfHashHex;
+  BigInt get pledge;
+  BigInt get cost;
+  ParsedMargin get margin;
+  ParsedPoolRewardAccount get rewardAccount;
+  List<ParsedPoolOwner> get owners;
+  List<ParsedPoolRelay> get relays;
+  ParsedPoolMetadata? get metadata;
 
- ParsedPoolKey get poolKey => throw _privateConstructorUsedError; String get vrfHashHex => throw _privateConstructorUsedError; BigInt get pledge => throw _privateConstructorUsedError; BigInt get cost => throw _privateConstructorUsedError; ParsedMargin get margin => throw _privateConstructorUsedError; ParsedPoolRewardAccount get rewardAccount => throw _privateConstructorUsedError; List<ParsedPoolOwner> get owners => throw _privateConstructorUsedError; List<ParsedPoolRelay> get relays => throw _privateConstructorUsedError; ParsedPoolMetadata? get metadata => throw _privateConstructorUsedError;
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ParsedPoolParamsCopyWith<ParsedPoolParams> get copyWith =>
+      _$ParsedPoolParamsCopyWithImpl<ParsedPoolParams>(
+          this as ParsedPoolParams, _$identity);
 
-
-
-
-
-
-
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$ParsedPoolParamsCopyWith<ParsedPoolParams> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class $ParsedPoolParamsCopyWith<$Res>  {
-  factory $ParsedPoolParamsCopyWith(ParsedPoolParams value, $Res Function(ParsedPoolParams) then) = _$ParsedPoolParamsCopyWithImpl<$Res, ParsedPoolParams>;
-@useResult
-$Res call({
- ParsedPoolKey poolKey, String vrfHashHex, BigInt pledge, BigInt cost, ParsedMargin margin, ParsedPoolRewardAccount rewardAccount, List<ParsedPoolOwner> owners, List<ParsedPoolRelay> relays, ParsedPoolMetadata? metadata
-});
-
-
-$ParsedPoolKeyCopyWith<$Res> get poolKey;$ParsedMarginCopyWith<$Res> get margin;$ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount;$ParsedPoolMetadataCopyWith<$Res>? get metadata;
-}
-
-/// @nodoc
-class _$ParsedPoolParamsCopyWithImpl<$Res,$Val extends ParsedPoolParams> implements $ParsedPoolParamsCopyWith<$Res> {
-  _$ParsedPoolParamsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? poolKey = null,Object? vrfHashHex = null,Object? pledge = null,Object? cost = null,Object? margin = null,Object? rewardAccount = null,Object? owners = null,Object? relays = null,Object? metadata = freezed,}) {
-  return _then(_value.copyWith(
-poolKey: null == poolKey ? _value.poolKey : poolKey // ignore: cast_nullable_to_non_nullable
-as ParsedPoolKey,vrfHashHex: null == vrfHashHex ? _value.vrfHashHex : vrfHashHex // ignore: cast_nullable_to_non_nullable
-as String,pledge: null == pledge ? _value.pledge : pledge // ignore: cast_nullable_to_non_nullable
-as BigInt,cost: null == cost ? _value.cost : cost // ignore: cast_nullable_to_non_nullable
-as BigInt,margin: null == margin ? _value.margin : margin // ignore: cast_nullable_to_non_nullable
-as ParsedMargin,rewardAccount: null == rewardAccount ? _value.rewardAccount : rewardAccount // ignore: cast_nullable_to_non_nullable
-as ParsedPoolRewardAccount,owners: null == owners ? _value.owners : owners // ignore: cast_nullable_to_non_nullable
-as List<ParsedPoolOwner>,relays: null == relays ? _value.relays : relays // ignore: cast_nullable_to_non_nullable
-as List<ParsedPoolRelay>,metadata: freezed == metadata ? _value.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as ParsedPoolMetadata?,
-  )as $Val);
-}
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedPoolKeyCopyWith<$Res> get poolKey {
-  
-  return $ParsedPoolKeyCopyWith<$Res>(_value.poolKey, (value) {
-    return _then(_value.copyWith(poolKey: value) as $Val);
-  });
-}/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedMarginCopyWith<$Res> get margin {
-  
-  return $ParsedMarginCopyWith<$Res>(_value.margin, (value) {
-    return _then(_value.copyWith(margin: value) as $Val);
-  });
-}/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount {
-  
-  return $ParsedPoolRewardAccountCopyWith<$Res>(_value.rewardAccount, (value) {
-    return _then(_value.copyWith(rewardAccount: value) as $Val);
-  });
-}/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$ParsedPoolMetadataCopyWith<$Res>? get metadata {
-    if (_value.metadata == null) {
-    return null;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedPoolParams &&
+            (identical(other.poolKey, poolKey) || other.poolKey == poolKey) &&
+            (identical(other.vrfHashHex, vrfHashHex) ||
+                other.vrfHashHex == vrfHashHex) &&
+            (identical(other.pledge, pledge) || other.pledge == pledge) &&
+            (identical(other.cost, cost) || other.cost == cost) &&
+            (identical(other.margin, margin) || other.margin == margin) &&
+            (identical(other.rewardAccount, rewardAccount) ||
+                other.rewardAccount == rewardAccount) &&
+            const DeepCollectionEquality().equals(other.owners, owners) &&
+            const DeepCollectionEquality().equals(other.relays, relays) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata));
   }
 
-  return $ParsedPoolMetadataCopyWith<$Res>(_value.metadata!, (value) {
-    return _then(_value.copyWith(metadata: value) as $Val);
-  });
-}
-}
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      poolKey,
+      vrfHashHex,
+      pledge,
+      cost,
+      margin,
+      rewardAccount,
+      const DeepCollectionEquality().hash(owners),
+      const DeepCollectionEquality().hash(relays),
+      metadata);
 
-
-/// @nodoc
-abstract class _$$ParsedPoolParamsImplCopyWith<$Res> implements $ParsedPoolParamsCopyWith<$Res> {
-  factory _$$ParsedPoolParamsImplCopyWith(_$ParsedPoolParamsImpl value, $Res Function(_$ParsedPoolParamsImpl) then) = __$$ParsedPoolParamsImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- ParsedPoolKey poolKey, String vrfHashHex, BigInt pledge, BigInt cost, ParsedMargin margin, ParsedPoolRewardAccount rewardAccount, List<ParsedPoolOwner> owners, List<ParsedPoolRelay> relays, ParsedPoolMetadata? metadata
-});
-
-
-@override $ParsedPoolKeyCopyWith<$Res> get poolKey;@override $ParsedMarginCopyWith<$Res> get margin;@override $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount;@override $ParsedPoolMetadataCopyWith<$Res>? get metadata;
-}
-
-/// @nodoc
-class __$$ParsedPoolParamsImplCopyWithImpl<$Res> extends _$ParsedPoolParamsCopyWithImpl<$Res, _$ParsedPoolParamsImpl> implements _$$ParsedPoolParamsImplCopyWith<$Res> {
-  __$$ParsedPoolParamsImplCopyWithImpl(_$ParsedPoolParamsImpl _value, $Res Function(_$ParsedPoolParamsImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? poolKey = null,Object? vrfHashHex = null,Object? pledge = null,Object? cost = null,Object? margin = null,Object? rewardAccount = null,Object? owners = null,Object? relays = null,Object? metadata = freezed,}) {
-  return _then(_$ParsedPoolParamsImpl(
-poolKey: null == poolKey ? _value.poolKey : poolKey // ignore: cast_nullable_to_non_nullable
-as ParsedPoolKey,vrfHashHex: null == vrfHashHex ? _value.vrfHashHex : vrfHashHex // ignore: cast_nullable_to_non_nullable
-as String,pledge: null == pledge ? _value.pledge : pledge // ignore: cast_nullable_to_non_nullable
-as BigInt,cost: null == cost ? _value.cost : cost // ignore: cast_nullable_to_non_nullable
-as BigInt,margin: null == margin ? _value.margin : margin // ignore: cast_nullable_to_non_nullable
-as ParsedMargin,rewardAccount: null == rewardAccount ? _value.rewardAccount : rewardAccount // ignore: cast_nullable_to_non_nullable
-as ParsedPoolRewardAccount,owners: null == owners ? _value._owners : owners // ignore: cast_nullable_to_non_nullable
-as List<ParsedPoolOwner>,relays: null == relays ? _value._relays : relays // ignore: cast_nullable_to_non_nullable
-as List<ParsedPoolRelay>,metadata: freezed == metadata ? _value.metadata : metadata // ignore: cast_nullable_to_non_nullable
-as ParsedPoolMetadata?,
-  ));
-}
-
-
+  @override
+  String toString() {
+    return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
+  }
 }
 
 /// @nodoc
+abstract mixin class $ParsedPoolParamsCopyWith<$Res> {
+  factory $ParsedPoolParamsCopyWith(
+          ParsedPoolParams value, $Res Function(ParsedPoolParams) _then) =
+      _$ParsedPoolParamsCopyWithImpl;
+  @useResult
+  $Res call(
+      {ParsedPoolKey poolKey,
+      String vrfHashHex,
+      BigInt pledge,
+      BigInt cost,
+      ParsedMargin margin,
+      ParsedPoolRewardAccount rewardAccount,
+      List<ParsedPoolOwner> owners,
+      List<ParsedPoolRelay> relays,
+      ParsedPoolMetadata? metadata});
 
-
-class _$ParsedPoolParamsImpl extends _ParsedPoolParams  {
-   _$ParsedPoolParamsImpl({required this.poolKey, required this.vrfHashHex, required this.pledge, required this.cost, required this.margin, required this.rewardAccount, required final  List<ParsedPoolOwner> owners, required final  List<ParsedPoolRelay> relays, required this.metadata}): _owners = owners,_relays = relays,super._();
-
-  
-
-@override final  ParsedPoolKey poolKey;
-@override final  String vrfHashHex;
-@override final  BigInt pledge;
-@override final  BigInt cost;
-@override final  ParsedMargin margin;
-@override final  ParsedPoolRewardAccount rewardAccount;
- final  List<ParsedPoolOwner> _owners;
-@override List<ParsedPoolOwner> get owners {
-  if (_owners is EqualUnmodifiableListView) return _owners;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_owners);
+  $ParsedPoolKeyCopyWith<$Res> get poolKey;
+  $ParsedMarginCopyWith<$Res> get margin;
+  $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount;
+  $ParsedPoolMetadataCopyWith<$Res>? get metadata;
 }
 
- final  List<ParsedPoolRelay> _relays;
-@override List<ParsedPoolRelay> get relays {
-  if (_relays is EqualUnmodifiableListView) return _relays;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_relays);
+/// @nodoc
+class _$ParsedPoolParamsCopyWithImpl<$Res>
+    implements $ParsedPoolParamsCopyWith<$Res> {
+  _$ParsedPoolParamsCopyWithImpl(this._self, this._then);
+
+  final ParsedPoolParams _self;
+  final $Res Function(ParsedPoolParams) _then;
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? poolKey = null,
+    Object? vrfHashHex = null,
+    Object? pledge = null,
+    Object? cost = null,
+    Object? margin = null,
+    Object? rewardAccount = null,
+    Object? owners = null,
+    Object? relays = null,
+    Object? metadata = freezed,
+  }) {
+    return _then(_self.copyWith(
+      poolKey: null == poolKey
+          ? _self.poolKey
+          : poolKey // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolKey,
+      vrfHashHex: null == vrfHashHex
+          ? _self.vrfHashHex
+          : vrfHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      pledge: null == pledge
+          ? _self.pledge
+          : pledge // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      cost: null == cost
+          ? _self.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      margin: null == margin
+          ? _self.margin
+          : margin // ignore: cast_nullable_to_non_nullable
+              as ParsedMargin,
+      rewardAccount: null == rewardAccount
+          ? _self.rewardAccount
+          : rewardAccount // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolRewardAccount,
+      owners: null == owners
+          ? _self.owners
+          : owners // ignore: cast_nullable_to_non_nullable
+              as List<ParsedPoolOwner>,
+      relays: null == relays
+          ? _self.relays
+          : relays // ignore: cast_nullable_to_non_nullable
+              as List<ParsedPoolRelay>,
+      metadata: freezed == metadata
+          ? _self.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolMetadata?,
+    ));
+  }
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolKeyCopyWith<$Res> get poolKey {
+    return $ParsedPoolKeyCopyWith<$Res>(_self.poolKey, (value) {
+      return _then(_self.copyWith(poolKey: value));
+    });
+  }
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedMarginCopyWith<$Res> get margin {
+    return $ParsedMarginCopyWith<$Res>(_self.margin, (value) {
+      return _then(_self.copyWith(margin: value));
+    });
+  }
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount {
+    return $ParsedPoolRewardAccountCopyWith<$Res>(_self.rewardAccount, (value) {
+      return _then(_self.copyWith(rewardAccount: value));
+    });
+  }
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+      return null;
+    }
+
+    return $ParsedPoolMetadataCopyWith<$Res>(_self.metadata!, (value) {
+      return _then(_self.copyWith(metadata: value));
+    });
+  }
 }
 
-@override final  ParsedPoolMetadata? metadata;
+/// @nodoc
 
-@override
-String toString() {
-  return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
+class _ParsedPoolParams extends ParsedPoolParams {
+  _ParsedPoolParams(
+      {required this.poolKey,
+      required this.vrfHashHex,
+      required this.pledge,
+      required this.cost,
+      required this.margin,
+      required this.rewardAccount,
+      required final List<ParsedPoolOwner> owners,
+      required final List<ParsedPoolRelay> relays,
+      required this.metadata})
+      : _owners = owners,
+        _relays = relays,
+        super._();
+
+  @override
+  final ParsedPoolKey poolKey;
+  @override
+  final String vrfHashHex;
+  @override
+  final BigInt pledge;
+  @override
+  final BigInt cost;
+  @override
+  final ParsedMargin margin;
+  @override
+  final ParsedPoolRewardAccount rewardAccount;
+  final List<ParsedPoolOwner> _owners;
+  @override
+  List<ParsedPoolOwner> get owners {
+    if (_owners is EqualUnmodifiableListView) return _owners;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_owners);
+  }
+
+  final List<ParsedPoolRelay> _relays;
+  @override
+  List<ParsedPoolRelay> get relays {
+    if (_relays is EqualUnmodifiableListView) return _relays;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_relays);
+  }
+
+  @override
+  final ParsedPoolMetadata? metadata;
+
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$ParsedPoolParamsCopyWith<_ParsedPoolParams> get copyWith =>
+      __$ParsedPoolParamsCopyWithImpl<_ParsedPoolParams>(this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _ParsedPoolParams &&
+            (identical(other.poolKey, poolKey) || other.poolKey == poolKey) &&
+            (identical(other.vrfHashHex, vrfHashHex) ||
+                other.vrfHashHex == vrfHashHex) &&
+            (identical(other.pledge, pledge) || other.pledge == pledge) &&
+            (identical(other.cost, cost) || other.cost == cost) &&
+            (identical(other.margin, margin) || other.margin == margin) &&
+            (identical(other.rewardAccount, rewardAccount) ||
+                other.rewardAccount == rewardAccount) &&
+            const DeepCollectionEquality().equals(other._owners, _owners) &&
+            const DeepCollectionEquality().equals(other._relays, _relays) &&
+            (identical(other.metadata, metadata) ||
+                other.metadata == metadata));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      poolKey,
+      vrfHashHex,
+      pledge,
+      cost,
+      margin,
+      rewardAccount,
+      const DeepCollectionEquality().hash(_owners),
+      const DeepCollectionEquality().hash(_relays),
+      metadata);
+
+  @override
+  String toString() {
+    return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
+  }
 }
 
+/// @nodoc
+abstract mixin class _$ParsedPoolParamsCopyWith<$Res>
+    implements $ParsedPoolParamsCopyWith<$Res> {
+  factory _$ParsedPoolParamsCopyWith(
+          _ParsedPoolParams value, $Res Function(_ParsedPoolParams) _then) =
+      __$ParsedPoolParamsCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {ParsedPoolKey poolKey,
+      String vrfHashHex,
+      BigInt pledge,
+      BigInt cost,
+      ParsedMargin margin,
+      ParsedPoolRewardAccount rewardAccount,
+      List<ParsedPoolOwner> owners,
+      List<ParsedPoolRelay> relays,
+      ParsedPoolMetadata? metadata});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedPoolParamsImpl&&(identical(other.poolKey, poolKey) || other.poolKey == poolKey)&&(identical(other.vrfHashHex, vrfHashHex) || other.vrfHashHex == vrfHashHex)&&(identical(other.pledge, pledge) || other.pledge == pledge)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.margin, margin) || other.margin == margin)&&(identical(other.rewardAccount, rewardAccount) || other.rewardAccount == rewardAccount)&&const DeepCollectionEquality().equals(other._owners, _owners)&&const DeepCollectionEquality().equals(other._relays, _relays)&&(identical(other.metadata, metadata) || other.metadata == metadata));
+  @override
+  $ParsedPoolKeyCopyWith<$Res> get poolKey;
+  @override
+  $ParsedMarginCopyWith<$Res> get margin;
+  @override
+  $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount;
+  @override
+  $ParsedPoolMetadataCopyWith<$Res>? get metadata;
 }
 
+/// @nodoc
+class __$ParsedPoolParamsCopyWithImpl<$Res>
+    implements _$ParsedPoolParamsCopyWith<$Res> {
+  __$ParsedPoolParamsCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,poolKey,vrfHashHex,pledge,cost,margin,rewardAccount,const DeepCollectionEquality().hash(_owners),const DeepCollectionEquality().hash(_relays),metadata);
+  final _ParsedPoolParams _self;
+  final $Res Function(_ParsedPoolParams) _then;
 
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith => __$$ParsedPoolParamsImplCopyWithImpl<_$ParsedPoolParamsImpl>(this, _$identity);
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? poolKey = null,
+    Object? vrfHashHex = null,
+    Object? pledge = null,
+    Object? cost = null,
+    Object? margin = null,
+    Object? rewardAccount = null,
+    Object? owners = null,
+    Object? relays = null,
+    Object? metadata = freezed,
+  }) {
+    return _then(_ParsedPoolParams(
+      poolKey: null == poolKey
+          ? _self.poolKey
+          : poolKey // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolKey,
+      vrfHashHex: null == vrfHashHex
+          ? _self.vrfHashHex
+          : vrfHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      pledge: null == pledge
+          ? _self.pledge
+          : pledge // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      cost: null == cost
+          ? _self.cost
+          : cost // ignore: cast_nullable_to_non_nullable
+              as BigInt,
+      margin: null == margin
+          ? _self.margin
+          : margin // ignore: cast_nullable_to_non_nullable
+              as ParsedMargin,
+      rewardAccount: null == rewardAccount
+          ? _self.rewardAccount
+          : rewardAccount // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolRewardAccount,
+      owners: null == owners
+          ? _self._owners
+          : owners // ignore: cast_nullable_to_non_nullable
+              as List<ParsedPoolOwner>,
+      relays: null == relays
+          ? _self._relays
+          : relays // ignore: cast_nullable_to_non_nullable
+              as List<ParsedPoolRelay>,
+      metadata: freezed == metadata
+          ? _self.metadata
+          : metadata // ignore: cast_nullable_to_non_nullable
+              as ParsedPoolMetadata?,
+    ));
+  }
 
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolKeyCopyWith<$Res> get poolKey {
+    return $ParsedPoolKeyCopyWith<$Res>(_self.poolKey, (value) {
+      return _then(_self.copyWith(poolKey: value));
+    });
+  }
 
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedMarginCopyWith<$Res> get margin {
+    return $ParsedMarginCopyWith<$Res>(_self.margin, (value) {
+      return _then(_self.copyWith(margin: value));
+    });
+  }
 
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolRewardAccountCopyWith<$Res> get rewardAccount {
+    return $ParsedPoolRewardAccountCopyWith<$Res>(_self.rewardAccount, (value) {
+      return _then(_self.copyWith(rewardAccount: value));
+    });
+  }
 
+  /// Create a copy of ParsedPoolParams
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParsedPoolMetadataCopyWith<$Res>? get metadata {
+    if (_self.metadata == null) {
+      return null;
+    }
 
-
-
-
+    return $ParsedPoolMetadataCopyWith<$Res>(_self.metadata!, (value) {
+      return _then(_self.copyWith(metadata: value));
+    });
+  }
 }
 
-
-abstract class _ParsedPoolParams extends ParsedPoolParams {
-   factory _ParsedPoolParams({required final  ParsedPoolKey poolKey, required final  String vrfHashHex, required final  BigInt pledge, required final  BigInt cost, required final  ParsedMargin margin, required final  ParsedPoolRewardAccount rewardAccount, required final  List<ParsedPoolOwner> owners, required final  List<ParsedPoolRelay> relays, required final  ParsedPoolMetadata? metadata}) = _$ParsedPoolParamsImpl;
-   _ParsedPoolParams._(): super._();
-
-  
-
-@override ParsedPoolKey get poolKey;@override String get vrfHashHex;@override BigInt get pledge;@override BigInt get cost;@override ParsedMargin get margin;@override ParsedPoolRewardAccount get rewardAccount;@override List<ParsedPoolOwner> get owners;@override List<ParsedPoolRelay> get relays;@override ParsedPoolMetadata? get metadata;
-/// Create a copy of ParsedPoolParams
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedPoolParamsImplCopyWith<_$ParsedPoolParamsImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

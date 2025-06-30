@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,165 +10,217 @@ part of 'address_params_pointer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$AddressParamsPointer {
+  SpendingParams get spendingParams;
+  BlockchainPointer get stakingBlockchainPointer;
 
- SpendingParams get spendingParams => throw _privateConstructorUsedError; BlockchainPointer get stakingBlockchainPointer => throw _privateConstructorUsedError;
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $AddressParamsPointerCopyWith<AddressParamsPointer> get copyWith =>
+      _$AddressParamsPointerCopyWithImpl<AddressParamsPointer>(
+          this as AddressParamsPointer, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is AddressParamsPointer &&
+            (identical(other.spendingParams, spendingParams) ||
+                other.spendingParams == spendingParams) &&
+            (identical(
+                    other.stakingBlockchainPointer, stakingBlockchainPointer) ||
+                other.stakingBlockchainPointer == stakingBlockchainPointer));
+  }
 
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, spendingParams, stakingBlockchainPointer);
 
-
-
-
-
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$AddressParamsPointerCopyWith<AddressParamsPointer> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
+  }
 }
 
 /// @nodoc
-abstract class $AddressParamsPointerCopyWith<$Res>  {
-  factory $AddressParamsPointerCopyWith(AddressParamsPointer value, $Res Function(AddressParamsPointer) then) = _$AddressParamsPointerCopyWithImpl<$Res, AddressParamsPointer>;
-@useResult
-$Res call({
- SpendingParams spendingParams, BlockchainPointer stakingBlockchainPointer
-});
+abstract mixin class $AddressParamsPointerCopyWith<$Res> {
+  factory $AddressParamsPointerCopyWith(AddressParamsPointer value,
+          $Res Function(AddressParamsPointer) _then) =
+      _$AddressParamsPointerCopyWithImpl;
+  @useResult
+  $Res call(
+      {SpendingParams spendingParams,
+      BlockchainPointer stakingBlockchainPointer});
 
-
-$SpendingParamsCopyWith<$Res> get spendingParams;$BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer;
+  $SpendingParamsCopyWith<$Res> get spendingParams;
+  $BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer;
 }
 
 /// @nodoc
-class _$AddressParamsPointerCopyWithImpl<$Res,$Val extends AddressParamsPointer> implements $AddressParamsPointerCopyWith<$Res> {
-  _$AddressParamsPointerCopyWithImpl(this._value, this._then);
+class _$AddressParamsPointerCopyWithImpl<$Res>
+    implements $AddressParamsPointerCopyWith<$Res> {
+  _$AddressParamsPointerCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AddressParamsPointer _self;
+  final $Res Function(AddressParamsPointer) _then;
 
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingBlockchainPointer = null,}) {
-  return _then(_value.copyWith(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
-as SpendingParams,stakingBlockchainPointer: null == stakingBlockchainPointer ? _value.stakingBlockchainPointer : stakingBlockchainPointer // ignore: cast_nullable_to_non_nullable
-as BlockchainPointer,
-  )as $Val);
-}
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$SpendingParamsCopyWith<$Res> get spendingParams {
-  
-  return $SpendingParamsCopyWith<$Res>(_value.spendingParams, (value) {
-    return _then(_value.copyWith(spendingParams: value) as $Val);
-  });
-}/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer {
-  
-  return $BlockchainPointerCopyWith<$Res>(_value.stakingBlockchainPointer, (value) {
-    return _then(_value.copyWith(stakingBlockchainPointer: value) as $Val);
-  });
-}
-}
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? spendingParams = null,
+    Object? stakingBlockchainPointer = null,
+  }) {
+    return _then(_self.copyWith(
+      spendingParams: null == spendingParams
+          ? _self.spendingParams
+          : spendingParams // ignore: cast_nullable_to_non_nullable
+              as SpendingParams,
+      stakingBlockchainPointer: null == stakingBlockchainPointer
+          ? _self.stakingBlockchainPointer
+          : stakingBlockchainPointer // ignore: cast_nullable_to_non_nullable
+              as BlockchainPointer,
+    ));
+  }
 
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingParamsCopyWith<$Res> get spendingParams {
+    return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+      return _then(_self.copyWith(spendingParams: value));
+    });
+  }
 
-/// @nodoc
-abstract class _$$AddressParamsPointerImplCopyWith<$Res> implements $AddressParamsPointerCopyWith<$Res> {
-  factory _$$AddressParamsPointerImplCopyWith(_$AddressParamsPointerImpl value, $Res Function(_$AddressParamsPointerImpl) then) = __$$AddressParamsPointerImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- SpendingParams spendingParams, BlockchainPointer stakingBlockchainPointer
-});
-
-
-@override $SpendingParamsCopyWith<$Res> get spendingParams;@override $BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer;
-}
-
-/// @nodoc
-class __$$AddressParamsPointerImplCopyWithImpl<$Res> extends _$AddressParamsPointerCopyWithImpl<$Res, _$AddressParamsPointerImpl> implements _$$AddressParamsPointerImplCopyWith<$Res> {
-  __$$AddressParamsPointerImplCopyWithImpl(_$AddressParamsPointerImpl _value, $Res Function(_$AddressParamsPointerImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingBlockchainPointer = null,}) {
-  return _then(_$AddressParamsPointerImpl(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
-as SpendingParams,stakingBlockchainPointer: null == stakingBlockchainPointer ? _value.stakingBlockchainPointer : stakingBlockchainPointer // ignore: cast_nullable_to_non_nullable
-as BlockchainPointer,
-  ));
-}
-
-
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer {
+    return $BlockchainPointerCopyWith<$Res>(_self.stakingBlockchainPointer,
+        (value) {
+      return _then(_self.copyWith(stakingBlockchainPointer: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class _AddressParamsPointer extends AddressParamsPointer {
+  _AddressParamsPointer(
+      {required this.spendingParams, required this.stakingBlockchainPointer})
+      : super._();
 
-class _$AddressParamsPointerImpl extends _AddressParamsPointer  {
-   _$AddressParamsPointerImpl({required this.spendingParams, required this.stakingBlockchainPointer}): super._();
+  @override
+  final SpendingParams spendingParams;
+  @override
+  final BlockchainPointer stakingBlockchainPointer;
 
-  
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$AddressParamsPointerCopyWith<_AddressParamsPointer> get copyWith =>
+      __$AddressParamsPointerCopyWithImpl<_AddressParamsPointer>(
+          this, _$identity);
 
-@override final  SpendingParams spendingParams;
-@override final  BlockchainPointer stakingBlockchainPointer;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _AddressParamsPointer &&
+            (identical(other.spendingParams, spendingParams) ||
+                other.spendingParams == spendingParams) &&
+            (identical(
+                    other.stakingBlockchainPointer, stakingBlockchainPointer) ||
+                other.stakingBlockchainPointer == stakingBlockchainPointer));
+  }
 
-@override
-String toString() {
-  return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, spendingParams, stakingBlockchainPointer);
+
+  @override
+  String toString() {
+    return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
+  }
 }
 
+/// @nodoc
+abstract mixin class _$AddressParamsPointerCopyWith<$Res>
+    implements $AddressParamsPointerCopyWith<$Res> {
+  factory _$AddressParamsPointerCopyWith(_AddressParamsPointer value,
+          $Res Function(_AddressParamsPointer) _then) =
+      __$AddressParamsPointerCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {SpendingParams spendingParams,
+      BlockchainPointer stakingBlockchainPointer});
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsPointerImpl&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingBlockchainPointer, stakingBlockchainPointer) || other.stakingBlockchainPointer == stakingBlockchainPointer));
+  @override
+  $SpendingParamsCopyWith<$Res> get spendingParams;
+  @override
+  $BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer;
 }
 
+/// @nodoc
+class __$AddressParamsPointerCopyWithImpl<$Res>
+    implements _$AddressParamsPointerCopyWith<$Res> {
+  __$AddressParamsPointerCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingBlockchainPointer);
+  final _AddressParamsPointer _self;
+  final $Res Function(_AddressParamsPointer) _then;
 
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$AddressParamsPointerImplCopyWith<_$AddressParamsPointerImpl> get copyWith => __$$AddressParamsPointerImplCopyWithImpl<_$AddressParamsPointerImpl>(this, _$identity);
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? spendingParams = null,
+    Object? stakingBlockchainPointer = null,
+  }) {
+    return _then(_AddressParamsPointer(
+      spendingParams: null == spendingParams
+          ? _self.spendingParams
+          : spendingParams // ignore: cast_nullable_to_non_nullable
+              as SpendingParams,
+      stakingBlockchainPointer: null == stakingBlockchainPointer
+          ? _self.stakingBlockchainPointer
+          : stakingBlockchainPointer // ignore: cast_nullable_to_non_nullable
+              as BlockchainPointer,
+    ));
+  }
 
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $SpendingParamsCopyWith<$Res> get spendingParams {
+    return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+      return _then(_self.copyWith(spendingParams: value));
+    });
+  }
 
-
-
-
-
-
-
+  /// Create a copy of AddressParamsPointer
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $BlockchainPointerCopyWith<$Res> get stakingBlockchainPointer {
+    return $BlockchainPointerCopyWith<$Res>(_self.stakingBlockchainPointer,
+        (value) {
+      return _then(_self.copyWith(stakingBlockchainPointer: value));
+    });
+  }
 }
 
-
-abstract class _AddressParamsPointer extends AddressParamsPointer {
-   factory _AddressParamsPointer({required final  SpendingParams spendingParams, required final  BlockchainPointer stakingBlockchainPointer}) = _$AddressParamsPointerImpl;
-   _AddressParamsPointer._(): super._();
-
-  
-
-@override SpendingParams get spendingParams;@override BlockchainPointer get stakingBlockchainPointer;
-/// Create a copy of AddressParamsPointer
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsPointerImplCopyWith<_$AddressParamsPointerImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

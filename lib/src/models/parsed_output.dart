@@ -36,16 +36,19 @@ sealed class ParsedOutput with _$ParsedOutput {
     String? referenceScriptHex,
   }) = ParsedOutputBabbage;
 
+  @override
   late final TxOutputFormat format = switch (this) {
     ParsedOutputAlonzo() => TxOutputFormat.arrayLegacy,
     ParsedOutputBabbage() => TxOutputFormat.mapBabbage,
   };
 
+  @override
   late final ParsedDatum? outputDatum = switch (this) {
     ParsedOutputAlonzo(datumHashHex: final datumHashHex) => datumHashHex,
     ParsedOutputBabbage(datum: final datum) => datum,
   };
 
+  @override
   late final String? referenceScriptHash = switch (this) {
     ParsedOutputAlonzo() => null,
     ParsedOutputBabbage(referenceScriptHex: final referenceScriptHex) =>

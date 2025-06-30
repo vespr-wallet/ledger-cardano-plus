@@ -6,7 +6,7 @@ import 'package:ledger_cardano_plus/src/utils/exceptions.dart';
 part 'cardano_version.freezed.dart';
 
 @freezed
-class CardanoVersion with _$CardanoVersion {
+sealed class CardanoVersion with _$CardanoVersion {
   CardanoVersion._();
 
   factory CardanoVersion({
@@ -18,11 +18,14 @@ class CardanoVersion with _$CardanoVersion {
     required Flags flags,
   }) = _CardanoVersion;
 
+  @override
   late final int versionCode =
       versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
+  @override
   late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
 
+  @override
   late final VersionCompatibility compatibility =
       VersionCompatibility.checkVersionCompatibility(this);
 

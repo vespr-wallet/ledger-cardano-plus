@@ -14,7 +14,7 @@ import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 part 'parsed_transaction.freezed.dart';
 
 @freezed
-class ParsedTransaction with _$ParsedTransaction {
+sealed class ParsedTransaction with _$ParsedTransaction {
   ParsedTransaction._() {
     validateUint64(fee, 'fee');
     validateUint64(ttl, 'ttl');

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,226 +10,180 @@ part of 'parsed_pool_reward_account.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ParsedPoolRewardAccount {
+  int get poolRewardAccountValue;
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ParsedPoolRewardAccount &&
+            (identical(other.poolRewardAccountValue, poolRewardAccountValue) ||
+                other.poolRewardAccountValue == poolRewardAccountValue));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, poolRewardAccountValue);
 
-
-
-
-
-
-
-
+  @override
+  String toString() {
+    return 'ParsedPoolRewardAccount(poolRewardAccountValue: $poolRewardAccountValue)';
+  }
 }
 
 /// @nodoc
-abstract class $ParsedPoolRewardAccountCopyWith<$Res>  {
-  factory $ParsedPoolRewardAccountCopyWith(ParsedPoolRewardAccount value, $Res Function(ParsedPoolRewardAccount) then) = _$ParsedPoolRewardAccountCopyWithImpl<$Res, ParsedPoolRewardAccount>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedPoolRewardAccountCopyWithImpl<$Res,$Val extends ParsedPoolRewardAccount> implements $ParsedPoolRewardAccountCopyWith<$Res> {
-  _$ParsedPoolRewardAccountCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-
-
-}
-
-
-/// @nodoc
-abstract class _$$DeviceOwnedPoolRewardAccountImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedPoolRewardAccountImplCopyWith(_$DeviceOwnedPoolRewardAccountImpl value, $Res Function(_$DeviceOwnedPoolRewardAccountImpl) then) = __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- LedgerSigningPath path
-});
-
-
-$LedgerSigningPathCopyWith<$Res> get path;
-}
-
-/// @nodoc
-class __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<$Res> extends _$ParsedPoolRewardAccountCopyWithImpl<$Res, _$DeviceOwnedPoolRewardAccountImpl> implements _$$DeviceOwnedPoolRewardAccountImplCopyWith<$Res> {
-  __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl(_$DeviceOwnedPoolRewardAccountImpl _value, $Res Function(_$DeviceOwnedPoolRewardAccountImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$DeviceOwnedPoolRewardAccountImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
-  ));
-}
-
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LedgerSigningPathCopyWith<$Res> get path {
-  
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
-  });
-}
+class $ParsedPoolRewardAccountCopyWith<$Res> {
+  $ParsedPoolRewardAccountCopyWith(
+      ParsedPoolRewardAccount _, $Res Function(ParsedPoolRewardAccount) __);
 }
 
 /// @nodoc
 
+class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
+  DeviceOwnedPoolRewardAccount({required this.path}) : super._();
 
-class _$DeviceOwnedPoolRewardAccountImpl extends DeviceOwnedPoolRewardAccount  {
-   _$DeviceOwnedPoolRewardAccountImpl({required this.path}): super._();
+  final LedgerSigningPath path;
 
-  
+  /// Create a copy of ParsedPoolRewardAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $DeviceOwnedPoolRewardAccountCopyWith<DeviceOwnedPoolRewardAccount>
+      get copyWith => _$DeviceOwnedPoolRewardAccountCopyWithImpl<
+          DeviceOwnedPoolRewardAccount>(this, _$identity);
 
-@override final  LedgerSigningPath path;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is DeviceOwnedPoolRewardAccount &&
+            (identical(other.path, path) || other.path == path));
+  }
 
-@override
-String toString() {
-  return 'ParsedPoolRewardAccount.deviceOwned(path: $path)';
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, path);
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedPoolRewardAccountImpl&&(identical(other.path, path) || other.path == path));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedPoolRewardAccountImplCopyWith<_$DeviceOwnedPoolRewardAccountImpl> get copyWith => __$$DeviceOwnedPoolRewardAccountImplCopyWithImpl<_$DeviceOwnedPoolRewardAccountImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class DeviceOwnedPoolRewardAccount extends ParsedPoolRewardAccount {
-   factory DeviceOwnedPoolRewardAccount({required final  LedgerSigningPath path}) = _$DeviceOwnedPoolRewardAccountImpl;
-   DeviceOwnedPoolRewardAccount._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedPoolRewardAccountImplCopyWith<_$DeviceOwnedPoolRewardAccountImpl> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'ParsedPoolRewardAccount.deviceOwned(path: $path)';
+  }
 }
 
 /// @nodoc
-abstract class _$$ThirdPartyPoolRewardAccountImplCopyWith<$Res>  {
-  factory _$$ThirdPartyPoolRewardAccountImplCopyWith(_$ThirdPartyPoolRewardAccountImpl value, $Res Function(_$ThirdPartyPoolRewardAccountImpl) then) = __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String rewardAccountHex
-});
+abstract mixin class $DeviceOwnedPoolRewardAccountCopyWith<$Res>
+    implements $ParsedPoolRewardAccountCopyWith<$Res> {
+  factory $DeviceOwnedPoolRewardAccountCopyWith(
+          DeviceOwnedPoolRewardAccount value,
+          $Res Function(DeviceOwnedPoolRewardAccount) _then) =
+      _$DeviceOwnedPoolRewardAccountCopyWithImpl;
+  @useResult
+  $Res call({LedgerSigningPath path});
 
-
-
+  $LedgerSigningPathCopyWith<$Res> get path;
 }
 
 /// @nodoc
-class __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<$Res> extends _$ParsedPoolRewardAccountCopyWithImpl<$Res, _$ThirdPartyPoolRewardAccountImpl> implements _$$ThirdPartyPoolRewardAccountImplCopyWith<$Res> {
-  __$$ThirdPartyPoolRewardAccountImplCopyWithImpl(_$ThirdPartyPoolRewardAccountImpl _value, $Res Function(_$ThirdPartyPoolRewardAccountImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedPoolRewardAccountCopyWithImpl<$Res>
+    implements $DeviceOwnedPoolRewardAccountCopyWith<$Res> {
+  _$DeviceOwnedPoolRewardAccountCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedPoolRewardAccount _self;
+  final $Res Function(DeviceOwnedPoolRewardAccount) _then;
 
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? rewardAccountHex = null,}) {
-  return _then(_$ThirdPartyPoolRewardAccountImpl(
-rewardAccountHex: null == rewardAccountHex ? _value.rewardAccountHex : rewardAccountHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
+  /// Create a copy of ParsedPoolRewardAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? path = null,
+  }) {
+    return _then(DeviceOwnedPoolRewardAccount(
+      path: null == path
+          ? _self.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as LedgerSigningPath,
+    ));
+  }
 
-
+  /// Create a copy of ParsedPoolRewardAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $LedgerSigningPathCopyWith<$Res> get path {
+    return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+      return _then(_self.copyWith(path: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {
+  ThirdPartyPoolRewardAccount({required this.rewardAccountHex}) : super._();
 
-class _$ThirdPartyPoolRewardAccountImpl extends ThirdPartyPoolRewardAccount  {
-   _$ThirdPartyPoolRewardAccountImpl({required this.rewardAccountHex}): super._();
+  final String rewardAccountHex;
 
-  
+  /// Create a copy of ParsedPoolRewardAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $ThirdPartyPoolRewardAccountCopyWith<ThirdPartyPoolRewardAccount>
+      get copyWith => _$ThirdPartyPoolRewardAccountCopyWithImpl<
+          ThirdPartyPoolRewardAccount>(this, _$identity);
 
-@override final  String rewardAccountHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is ThirdPartyPoolRewardAccount &&
+            (identical(other.rewardAccountHex, rewardAccountHex) ||
+                other.rewardAccountHex == rewardAccountHex));
+  }
 
-@override
-String toString() {
-  return 'ParsedPoolRewardAccount.thirdParty(rewardAccountHex: $rewardAccountHex)';
+  @override
+  int get hashCode => Object.hash(runtimeType, rewardAccountHex);
+
+  @override
+  String toString() {
+    return 'ParsedPoolRewardAccount.thirdParty(rewardAccountHex: $rewardAccountHex)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ThirdPartyPoolRewardAccountImpl&&(identical(other.rewardAccountHex, rewardAccountHex) || other.rewardAccountHex == rewardAccountHex));
+/// @nodoc
+abstract mixin class $ThirdPartyPoolRewardAccountCopyWith<$Res>
+    implements $ParsedPoolRewardAccountCopyWith<$Res> {
+  factory $ThirdPartyPoolRewardAccountCopyWith(
+          ThirdPartyPoolRewardAccount value,
+          $Res Function(ThirdPartyPoolRewardAccount) _then) =
+      _$ThirdPartyPoolRewardAccountCopyWithImpl;
+  @useResult
+  $Res call({String rewardAccountHex});
 }
 
+/// @nodoc
+class _$ThirdPartyPoolRewardAccountCopyWithImpl<$Res>
+    implements $ThirdPartyPoolRewardAccountCopyWith<$Res> {
+  _$ThirdPartyPoolRewardAccountCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,rewardAccountHex);
+  final ThirdPartyPoolRewardAccount _self;
+  final $Res Function(ThirdPartyPoolRewardAccount) _then;
 
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl> get copyWith => __$$ThirdPartyPoolRewardAccountImplCopyWithImpl<_$ThirdPartyPoolRewardAccountImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of ParsedPoolRewardAccount
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? rewardAccountHex = null,
+  }) {
+    return _then(ThirdPartyPoolRewardAccount(
+      rewardAccountHex: null == rewardAccountHex
+          ? _self.rewardAccountHex
+          : rewardAccountHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-
-abstract class ThirdPartyPoolRewardAccount extends ParsedPoolRewardAccount {
-   factory ThirdPartyPoolRewardAccount({required final  String rewardAccountHex}) = _$ThirdPartyPoolRewardAccountImpl;
-   ThirdPartyPoolRewardAccount._(): super._();
-
-  
-
- String get rewardAccountHex;
-/// Create a copy of ParsedPoolRewardAccount
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ThirdPartyPoolRewardAccountImplCopyWith<_$ThirdPartyPoolRewardAccountImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

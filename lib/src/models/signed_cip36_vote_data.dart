@@ -5,7 +5,7 @@ import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 part 'signed_cip36_vote_data.freezed.dart';
 
 @freezed
-class SignedCIP36VoteData with _$SignedCIP36VoteData {
+sealed class SignedCIP36VoteData with _$SignedCIP36VoteData {
   SignedCIP36VoteData._() {
     validateHexString(dataHashHex, 'dataHashHex');
     validateHexString(witnessSignatureHex, 'witnessSignatureHex');

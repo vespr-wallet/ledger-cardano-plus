@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,168 +10,229 @@ part of 'signed_transaction_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$SignedTransactionData {
+  String get txHashHex;
+  List<Witness> get witnesses;
+  TxAuxiliaryDataSupplement? get auxiliaryDataSupplement;
 
- String get txHashHex => throw _privateConstructorUsedError; List<Witness> get witnesses => throw _privateConstructorUsedError; TxAuxiliaryDataSupplement? get auxiliaryDataSupplement => throw _privateConstructorUsedError;
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $SignedTransactionDataCopyWith<SignedTransactionData> get copyWith =>
+      _$SignedTransactionDataCopyWithImpl<SignedTransactionData>(
+          this as SignedTransactionData, _$identity);
 
-
-
-
-
-
-
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$SignedTransactionDataCopyWith<SignedTransactionData> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class $SignedTransactionDataCopyWith<$Res>  {
-  factory $SignedTransactionDataCopyWith(SignedTransactionData value, $Res Function(SignedTransactionData) then) = _$SignedTransactionDataCopyWithImpl<$Res, SignedTransactionData>;
-@useResult
-$Res call({
- String txHashHex, List<Witness> witnesses, TxAuxiliaryDataSupplement? auxiliaryDataSupplement
-});
-
-
-$TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement;
-}
-
-/// @nodoc
-class _$SignedTransactionDataCopyWithImpl<$Res,$Val extends SignedTransactionData> implements $SignedTransactionDataCopyWith<$Res> {
-  _$SignedTransactionDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? witnesses = null,Object? auxiliaryDataSupplement = freezed,}) {
-  return _then(_value.copyWith(
-txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
-as String,witnesses: null == witnesses ? _value.witnesses : witnesses // ignore: cast_nullable_to_non_nullable
-as List<Witness>,auxiliaryDataSupplement: freezed == auxiliaryDataSupplement ? _value.auxiliaryDataSupplement : auxiliaryDataSupplement // ignore: cast_nullable_to_non_nullable
-as TxAuxiliaryDataSupplement?,
-  )as $Val);
-}
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement {
-    if (_value.auxiliaryDataSupplement == null) {
-    return null;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is SignedTransactionData &&
+            (identical(other.txHashHex, txHashHex) ||
+                other.txHashHex == txHashHex) &&
+            const DeepCollectionEquality().equals(other.witnesses, witnesses) &&
+            (identical(
+                    other.auxiliaryDataSupplement, auxiliaryDataSupplement) ||
+                other.auxiliaryDataSupplement == auxiliaryDataSupplement));
   }
 
-  return $TxAuxiliaryDataSupplementCopyWith<$Res>(_value.auxiliaryDataSupplement!, (value) {
-    return _then(_value.copyWith(auxiliaryDataSupplement: value) as $Val);
-  });
-}
-}
+  @override
+  int get hashCode => Object.hash(runtimeType, txHashHex,
+      const DeepCollectionEquality().hash(witnesses), auxiliaryDataSupplement);
 
-
-/// @nodoc
-abstract class _$$SignedTransactionDataImplCopyWith<$Res> implements $SignedTransactionDataCopyWith<$Res> {
-  factory _$$SignedTransactionDataImplCopyWith(_$SignedTransactionDataImpl value, $Res Function(_$SignedTransactionDataImpl) then) = __$$SignedTransactionDataImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- String txHashHex, List<Witness> witnesses, TxAuxiliaryDataSupplement? auxiliaryDataSupplement
-});
-
-
-@override $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement;
+  @override
+  String toString() {
+    return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
+  }
 }
 
 /// @nodoc
-class __$$SignedTransactionDataImplCopyWithImpl<$Res> extends _$SignedTransactionDataCopyWithImpl<$Res, _$SignedTransactionDataImpl> implements _$$SignedTransactionDataImplCopyWith<$Res> {
-  __$$SignedTransactionDataImplCopyWithImpl(_$SignedTransactionDataImpl _value, $Res Function(_$SignedTransactionDataImpl) _then)
-      : super(_value, _then);
+abstract mixin class $SignedTransactionDataCopyWith<$Res> {
+  factory $SignedTransactionDataCopyWith(SignedTransactionData value,
+          $Res Function(SignedTransactionData) _then) =
+      _$SignedTransactionDataCopyWithImpl;
+  @useResult
+  $Res call(
+      {String txHashHex,
+      List<Witness> witnesses,
+      TxAuxiliaryDataSupplement? auxiliaryDataSupplement});
 
-
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? witnesses = null,Object? auxiliaryDataSupplement = freezed,}) {
-  return _then(_$SignedTransactionDataImpl(
-txHashHex: null == txHashHex ? _value.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
-as String,witnesses: null == witnesses ? _value._witnesses : witnesses // ignore: cast_nullable_to_non_nullable
-as List<Witness>,auxiliaryDataSupplement: freezed == auxiliaryDataSupplement ? _value.auxiliaryDataSupplement : auxiliaryDataSupplement // ignore: cast_nullable_to_non_nullable
-as TxAuxiliaryDataSupplement?,
-  ));
+  $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement;
 }
 
+/// @nodoc
+class _$SignedTransactionDataCopyWithImpl<$Res>
+    implements $SignedTransactionDataCopyWith<$Res> {
+  _$SignedTransactionDataCopyWithImpl(this._self, this._then);
 
+  final SignedTransactionData _self;
+  final $Res Function(SignedTransactionData) _then;
+
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? txHashHex = null,
+    Object? witnesses = null,
+    Object? auxiliaryDataSupplement = freezed,
+  }) {
+    return _then(_self.copyWith(
+      txHashHex: null == txHashHex
+          ? _self.txHashHex
+          : txHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      witnesses: null == witnesses
+          ? _self.witnesses
+          : witnesses // ignore: cast_nullable_to_non_nullable
+              as List<Witness>,
+      auxiliaryDataSupplement: freezed == auxiliaryDataSupplement
+          ? _self.auxiliaryDataSupplement
+          : auxiliaryDataSupplement // ignore: cast_nullable_to_non_nullable
+              as TxAuxiliaryDataSupplement?,
+    ));
+  }
+
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement {
+    if (_self.auxiliaryDataSupplement == null) {
+      return null;
+    }
+
+    return $TxAuxiliaryDataSupplementCopyWith<$Res>(
+        _self.auxiliaryDataSupplement!, (value) {
+      return _then(_self.copyWith(auxiliaryDataSupplement: value));
+    });
+  }
 }
 
 /// @nodoc
 
+class _SignedTransactionData extends SignedTransactionData {
+  _SignedTransactionData(
+      {required this.txHashHex,
+      required final List<Witness> witnesses,
+      required this.auxiliaryDataSupplement})
+      : _witnesses = witnesses,
+        super._();
 
-class _$SignedTransactionDataImpl extends _SignedTransactionData  {
-   _$SignedTransactionDataImpl({required this.txHashHex, required final  List<Witness> witnesses, required this.auxiliaryDataSupplement}): _witnesses = witnesses,super._();
+  @override
+  final String txHashHex;
+  final List<Witness> _witnesses;
+  @override
+  List<Witness> get witnesses {
+    if (_witnesses is EqualUnmodifiableListView) return _witnesses;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_witnesses);
+  }
 
-  
+  @override
+  final TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
 
-@override final  String txHashHex;
- final  List<Witness> _witnesses;
-@override List<Witness> get witnesses {
-  if (_witnesses is EqualUnmodifiableListView) return _witnesses;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_witnesses);
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$SignedTransactionDataCopyWith<_SignedTransactionData> get copyWith =>
+      __$SignedTransactionDataCopyWithImpl<_SignedTransactionData>(
+          this, _$identity);
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _SignedTransactionData &&
+            (identical(other.txHashHex, txHashHex) ||
+                other.txHashHex == txHashHex) &&
+            const DeepCollectionEquality()
+                .equals(other._witnesses, _witnesses) &&
+            (identical(
+                    other.auxiliaryDataSupplement, auxiliaryDataSupplement) ||
+                other.auxiliaryDataSupplement == auxiliaryDataSupplement));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, txHashHex,
+      const DeepCollectionEquality().hash(_witnesses), auxiliaryDataSupplement);
+
+  @override
+  String toString() {
+    return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
+  }
 }
 
-@override final  TxAuxiliaryDataSupplement? auxiliaryDataSupplement;
+/// @nodoc
+abstract mixin class _$SignedTransactionDataCopyWith<$Res>
+    implements $SignedTransactionDataCopyWith<$Res> {
+  factory _$SignedTransactionDataCopyWith(_SignedTransactionData value,
+          $Res Function(_SignedTransactionData) _then) =
+      __$SignedTransactionDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String txHashHex,
+      List<Witness> witnesses,
+      TxAuxiliaryDataSupplement? auxiliaryDataSupplement});
 
-@override
-String toString() {
-  return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
+  @override
+  $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement;
 }
 
+/// @nodoc
+class __$SignedTransactionDataCopyWithImpl<$Res>
+    implements _$SignedTransactionDataCopyWith<$Res> {
+  __$SignedTransactionDataCopyWithImpl(this._self, this._then);
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SignedTransactionDataImpl&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&const DeepCollectionEquality().equals(other._witnesses, _witnesses)&&(identical(other.auxiliaryDataSupplement, auxiliaryDataSupplement) || other.auxiliaryDataSupplement == auxiliaryDataSupplement));
+  final _SignedTransactionData _self;
+  final $Res Function(_SignedTransactionData) _then;
+
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? txHashHex = null,
+    Object? witnesses = null,
+    Object? auxiliaryDataSupplement = freezed,
+  }) {
+    return _then(_SignedTransactionData(
+      txHashHex: null == txHashHex
+          ? _self.txHashHex
+          : txHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      witnesses: null == witnesses
+          ? _self._witnesses
+          : witnesses // ignore: cast_nullable_to_non_nullable
+              as List<Witness>,
+      auxiliaryDataSupplement: freezed == auxiliaryDataSupplement
+          ? _self.auxiliaryDataSupplement
+          : auxiliaryDataSupplement // ignore: cast_nullable_to_non_nullable
+              as TxAuxiliaryDataSupplement?,
+    ));
+  }
+
+  /// Create a copy of SignedTransactionData
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement {
+    if (_self.auxiliaryDataSupplement == null) {
+      return null;
+    }
+
+    return $TxAuxiliaryDataSupplementCopyWith<$Res>(
+        _self.auxiliaryDataSupplement!, (value) {
+      return _then(_self.copyWith(auxiliaryDataSupplement: value));
+    });
+  }
 }
 
-
-@override
-int get hashCode => Object.hash(runtimeType,txHashHex,const DeepCollectionEquality().hash(_witnesses),auxiliaryDataSupplement);
-
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl> get copyWith => __$$SignedTransactionDataImplCopyWithImpl<_$SignedTransactionDataImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class _SignedTransactionData extends SignedTransactionData {
-   factory _SignedTransactionData({required final  String txHashHex, required final  List<Witness> witnesses, required final  TxAuxiliaryDataSupplement? auxiliaryDataSupplement}) = _$SignedTransactionDataImpl;
-   _SignedTransactionData._(): super._();
-
-  
-
-@override String get txHashHex;@override List<Witness> get witnesses;@override TxAuxiliaryDataSupplement? get auxiliaryDataSupplement;
-/// Create a copy of SignedTransactionData
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$SignedTransactionDataImplCopyWith<_$SignedTransactionDataImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

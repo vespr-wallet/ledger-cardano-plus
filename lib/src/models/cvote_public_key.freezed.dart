@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,144 +10,137 @@ part of 'cvote_public_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$CVotePublicKey {
+  String get value;
 
- String get value => throw _privateConstructorUsedError;
+  /// Create a copy of CVotePublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $CVotePublicKeyCopyWith<CVotePublicKey> get copyWith =>
+      _$CVotePublicKeyCopyWithImpl<CVotePublicKey>(
+          this as CVotePublicKey, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is CVotePublicKey &&
+            (identical(other.value, value) || other.value == value));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
 
-
-
-
-
-/// Create a copy of CVotePublicKey
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$CVotePublicKeyCopyWith<CVotePublicKey> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'CVotePublicKey(value: $value)';
+  }
 }
 
 /// @nodoc
-abstract class $CVotePublicKeyCopyWith<$Res>  {
-  factory $CVotePublicKeyCopyWith(CVotePublicKey value, $Res Function(CVotePublicKey) then) = _$CVotePublicKeyCopyWithImpl<$Res, CVotePublicKey>;
-@useResult
-$Res call({
- String value
-});
-
-
-
+abstract mixin class $CVotePublicKeyCopyWith<$Res> {
+  factory $CVotePublicKeyCopyWith(
+          CVotePublicKey value, $Res Function(CVotePublicKey) _then) =
+      _$CVotePublicKeyCopyWithImpl;
+  @useResult
+  $Res call({String value});
 }
 
 /// @nodoc
-class _$CVotePublicKeyCopyWithImpl<$Res,$Val extends CVotePublicKey> implements $CVotePublicKeyCopyWith<$Res> {
-  _$CVotePublicKeyCopyWithImpl(this._value, this._then);
+class _$CVotePublicKeyCopyWithImpl<$Res>
+    implements $CVotePublicKeyCopyWith<$Res> {
+  _$CVotePublicKeyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CVotePublicKey _self;
+  final $Res Function(CVotePublicKey) _then;
 
-/// Create a copy of CVotePublicKey
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
-  return _then(_value.copyWith(
-value: null == value ? _value.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  )as $Val);
-}
-
-}
-
-
-/// @nodoc
-abstract class _$$CVotePublicKeyImplCopyWith<$Res> implements $CVotePublicKeyCopyWith<$Res> {
-  factory _$$CVotePublicKeyImplCopyWith(_$CVotePublicKeyImpl value, $Res Function(_$CVotePublicKeyImpl) then) = __$$CVotePublicKeyImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- String value
-});
-
-
-
-}
-
-/// @nodoc
-class __$$CVotePublicKeyImplCopyWithImpl<$Res> extends _$CVotePublicKeyCopyWithImpl<$Res, _$CVotePublicKeyImpl> implements _$$CVotePublicKeyImplCopyWith<$Res> {
-  __$$CVotePublicKeyImplCopyWithImpl(_$CVotePublicKeyImpl _value, $Res Function(_$CVotePublicKeyImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of CVotePublicKey
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? value = null,}) {
-  return _then(_$CVotePublicKeyImpl(
-value: null == value ? _value.value : value // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of CVotePublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_self.copyWith(
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class _CVotePublicKey extends CVotePublicKey {
+  _CVotePublicKey({required this.value}) : super._();
 
-class _$CVotePublicKeyImpl extends _CVotePublicKey  {
-   _$CVotePublicKeyImpl({required this.value}): super._();
+  @override
+  final String value;
 
-  
+  /// Create a copy of CVotePublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$CVotePublicKeyCopyWith<_CVotePublicKey> get copyWith =>
+      __$CVotePublicKeyCopyWithImpl<_CVotePublicKey>(this, _$identity);
 
-@override final  String value;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _CVotePublicKey &&
+            (identical(other.value, value) || other.value == value));
+  }
 
-@override
-String toString() {
-  return 'CVotePublicKey(value: $value)';
+  @override
+  int get hashCode => Object.hash(runtimeType, value);
+
+  @override
+  String toString() {
+    return 'CVotePublicKey(value: $value)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CVotePublicKeyImpl&&(identical(other.value, value) || other.value == value));
+/// @nodoc
+abstract mixin class _$CVotePublicKeyCopyWith<$Res>
+    implements $CVotePublicKeyCopyWith<$Res> {
+  factory _$CVotePublicKeyCopyWith(
+          _CVotePublicKey value, $Res Function(_CVotePublicKey) _then) =
+      __$CVotePublicKeyCopyWithImpl;
+  @override
+  @useResult
+  $Res call({String value});
 }
 
+/// @nodoc
+class __$CVotePublicKeyCopyWithImpl<$Res>
+    implements _$CVotePublicKeyCopyWith<$Res> {
+  __$CVotePublicKeyCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,value);
+  final _CVotePublicKey _self;
+  final $Res Function(_CVotePublicKey) _then;
 
-/// Create a copy of CVotePublicKey
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith => __$$CVotePublicKeyImplCopyWithImpl<_$CVotePublicKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of CVotePublicKey
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? value = null,
+  }) {
+    return _then(_CVotePublicKey(
+      value: null == value
+          ? _self.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-
-abstract class _CVotePublicKey extends CVotePublicKey {
-   factory _CVotePublicKey({required final  String value}) = _$CVotePublicKeyImpl;
-   _CVotePublicKey._(): super._();
-
-  
-
-@override String get value;
-/// Create a copy of CVotePublicKey
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$CVotePublicKeyImplCopyWith<_$CVotePublicKeyImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

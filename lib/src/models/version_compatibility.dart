@@ -13,7 +13,7 @@ import 'package:ledger_cardano_plus/src/utils/exceptions.dart';
 part 'version_compatibility.freezed.dart';
 
 @freezed
-class VersionCompatibility with _$VersionCompatibility {
+sealed class VersionCompatibility with _$VersionCompatibility {
   const VersionCompatibility._();
 
   const factory VersionCompatibility({

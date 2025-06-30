@@ -29,6 +29,7 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
   }) = LedgerSigningPath_CIP36;
   factory LedgerSigningPath.custom(List<int> path) = LedgerSigningPath_Custom;
 
+  @override
   late final List<int> signingPath = switch (this) {
     LedgerSigningPath_Byron(account: final account, address: final address) => [
         harden + 44,

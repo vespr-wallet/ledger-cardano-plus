@@ -5,7 +5,7 @@ import 'package:ledger_cardano_plus/src/utils/utilities.dart';
 part 'parsed_c_vote.freezed.dart';
 
 @freezed
-class ParsedCVote with _$ParsedCVote {
+sealed class ParsedCVote with _$ParsedCVote {
   ParsedCVote._() {
     validateHexString(voteCastDataHex, 'voteCastDataHex');
     validateBIP32Path(witnessPath, 'witnessPath');

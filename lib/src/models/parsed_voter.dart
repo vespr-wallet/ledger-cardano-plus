@@ -61,6 +61,7 @@ sealed class ParsedVoter with _$ParsedVoter {
     required LedgerSigningPath keyPath,
   }) = StakePoolKeyPath;
 
+  @override
   late final int voterValue = switch (this) {
     CommitteeKeyHash() => 0,
     CommitteeKeyPath() => 100,

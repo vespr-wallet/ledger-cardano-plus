@@ -33,6 +33,7 @@ sealed class ParsedComplexNativeScript with _$ParsedComplexNativeScript {
     required List<ParsedNativeScript> scripts,
   }) = ParsedComplexNativeScript_NOfK;
 
+  @override
   late final int nativeScriptSerializationValue = switch (this) {
     ParsedComplexNativeScript_All() => 1,
     ParsedComplexNativeScript_Any() => 2,

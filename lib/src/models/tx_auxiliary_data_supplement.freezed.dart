@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,147 +10,173 @@ part of 'tx_auxiliary_data_supplement.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$TxAuxiliaryDataSupplement {
+  TxAuxiliaryDataSupplementType get type;
+  String get auxiliaryDataHashHex;
+  String get cip36VoteRegistrationSignatureHex;
 
- String get auxiliaryDataHashHex => throw _privateConstructorUsedError; String get cip36VoteRegistrationSignatureHex => throw _privateConstructorUsedError;
+  /// Create a copy of TxAuxiliaryDataSupplement
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  $TxAuxiliaryDataSupplementCopyWith<TxAuxiliaryDataSupplement> get copyWith =>
+      _$TxAuxiliaryDataSupplementCopyWithImpl<TxAuxiliaryDataSupplement>(
+          this as TxAuxiliaryDataSupplement, _$identity);
 
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is TxAuxiliaryDataSupplement &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) ||
+                other.auxiliaryDataHashHex == auxiliaryDataHashHex) &&
+            (identical(other.cip36VoteRegistrationSignatureHex,
+                    cip36VoteRegistrationSignatureHex) ||
+                other.cip36VoteRegistrationSignatureHex ==
+                    cip36VoteRegistrationSignatureHex));
+  }
 
+  @override
+  int get hashCode => Object.hash(runtimeType, type, auxiliaryDataHashHex,
+      cip36VoteRegistrationSignatureHex);
 
-
-
-
-
-/// Create a copy of TxAuxiliaryDataSupplement
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-$TxAuxiliaryDataSupplementCopyWith<TxAuxiliaryDataSupplement> get copyWith => throw _privateConstructorUsedError;
-
+  @override
+  String toString() {
+    return 'TxAuxiliaryDataSupplement(type: $type, auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+  }
 }
 
 /// @nodoc
-abstract class $TxAuxiliaryDataSupplementCopyWith<$Res>  {
-  factory $TxAuxiliaryDataSupplementCopyWith(TxAuxiliaryDataSupplement value, $Res Function(TxAuxiliaryDataSupplement) then) = _$TxAuxiliaryDataSupplementCopyWithImpl<$Res, TxAuxiliaryDataSupplement>;
-@useResult
-$Res call({
- String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex
-});
-
-
-
+abstract mixin class $TxAuxiliaryDataSupplementCopyWith<$Res> {
+  factory $TxAuxiliaryDataSupplementCopyWith(TxAuxiliaryDataSupplement value,
+          $Res Function(TxAuxiliaryDataSupplement) _then) =
+      _$TxAuxiliaryDataSupplementCopyWithImpl;
+  @useResult
+  $Res call(
+      {String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex});
 }
 
 /// @nodoc
-class _$TxAuxiliaryDataSupplementCopyWithImpl<$Res,$Val extends TxAuxiliaryDataSupplement> implements $TxAuxiliaryDataSupplementCopyWith<$Res> {
-  _$TxAuxiliaryDataSupplementCopyWithImpl(this._value, this._then);
+class _$TxAuxiliaryDataSupplementCopyWithImpl<$Res>
+    implements $TxAuxiliaryDataSupplementCopyWith<$Res> {
+  _$TxAuxiliaryDataSupplementCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final TxAuxiliaryDataSupplement _self;
+  final $Res Function(TxAuxiliaryDataSupplement) _then;
 
-/// Create a copy of TxAuxiliaryDataSupplement
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? auxiliaryDataHashHex = null,Object? cip36VoteRegistrationSignatureHex = null,}) {
-  return _then(_value.copyWith(
-auxiliaryDataHashHex: null == auxiliaryDataHashHex ? _value.auxiliaryDataHashHex : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
-as String,cip36VoteRegistrationSignatureHex: null == cip36VoteRegistrationSignatureHex ? _value.cip36VoteRegistrationSignatureHex : cip36VoteRegistrationSignatureHex // ignore: cast_nullable_to_non_nullable
-as String,
-  )as $Val);
-}
-
-}
-
-
-/// @nodoc
-abstract class _$$TxAuxiliaryDataSupplementDataImplCopyWith<$Res> implements $TxAuxiliaryDataSupplementCopyWith<$Res> {
-  factory _$$TxAuxiliaryDataSupplementDataImplCopyWith(_$TxAuxiliaryDataSupplementDataImpl value, $Res Function(_$TxAuxiliaryDataSupplementDataImpl) then) = __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<$Res> extends _$TxAuxiliaryDataSupplementCopyWithImpl<$Res, _$TxAuxiliaryDataSupplementDataImpl> implements _$$TxAuxiliaryDataSupplementDataImplCopyWith<$Res> {
-  __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl(_$TxAuxiliaryDataSupplementDataImpl _value, $Res Function(_$TxAuxiliaryDataSupplementDataImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of TxAuxiliaryDataSupplement
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? auxiliaryDataHashHex = null,Object? cip36VoteRegistrationSignatureHex = null,}) {
-  return _then(_$TxAuxiliaryDataSupplementDataImpl(
-auxiliaryDataHashHex: null == auxiliaryDataHashHex ? _value.auxiliaryDataHashHex : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
-as String,cip36VoteRegistrationSignatureHex: null == cip36VoteRegistrationSignatureHex ? _value.cip36VoteRegistrationSignatureHex : cip36VoteRegistrationSignatureHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
+  /// Create a copy of TxAuxiliaryDataSupplement
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? auxiliaryDataHashHex = null,
+    Object? cip36VoteRegistrationSignatureHex = null,
+  }) {
+    return _then(_self.copyWith(
+      auxiliaryDataHashHex: null == auxiliaryDataHashHex
+          ? _self.auxiliaryDataHashHex
+          : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      cip36VoteRegistrationSignatureHex: null ==
+              cip36VoteRegistrationSignatureHex
+          ? _self.cip36VoteRegistrationSignatureHex
+          : cip36VoteRegistrationSignatureHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
 /// @nodoc
 
+class _TxAuxiliaryDataSupplementData extends TxAuxiliaryDataSupplement {
+  _TxAuxiliaryDataSupplementData(
+      {required this.auxiliaryDataHashHex,
+      required this.cip36VoteRegistrationSignatureHex})
+      : super._();
 
-class _$TxAuxiliaryDataSupplementDataImpl extends _TxAuxiliaryDataSupplementData  {
-   _$TxAuxiliaryDataSupplementDataImpl({required this.auxiliaryDataHashHex, required this.cip36VoteRegistrationSignatureHex}): super._();
+  @override
+  final String auxiliaryDataHashHex;
+  @override
+  final String cip36VoteRegistrationSignatureHex;
 
-  
+  /// Create a copy of TxAuxiliaryDataSupplement
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @pragma('vm:prefer-inline')
+  _$TxAuxiliaryDataSupplementDataCopyWith<_TxAuxiliaryDataSupplementData>
+      get copyWith => __$TxAuxiliaryDataSupplementDataCopyWithImpl<
+          _TxAuxiliaryDataSupplementData>(this, _$identity);
 
-@override final  String auxiliaryDataHashHex;
-@override final  String cip36VoteRegistrationSignatureHex;
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _TxAuxiliaryDataSupplementData &&
+            (identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) ||
+                other.auxiliaryDataHashHex == auxiliaryDataHashHex) &&
+            (identical(other.cip36VoteRegistrationSignatureHex,
+                    cip36VoteRegistrationSignatureHex) ||
+                other.cip36VoteRegistrationSignatureHex ==
+                    cip36VoteRegistrationSignatureHex));
+  }
 
-@override
-String toString() {
-  return 'TxAuxiliaryDataSupplement(auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex);
+
+  @override
+  String toString() {
+    return 'TxAuxiliaryDataSupplement(auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+  }
 }
 
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$TxAuxiliaryDataSupplementDataImpl&&(identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) || other.auxiliaryDataHashHex == auxiliaryDataHashHex)&&(identical(other.cip36VoteRegistrationSignatureHex, cip36VoteRegistrationSignatureHex) || other.cip36VoteRegistrationSignatureHex == cip36VoteRegistrationSignatureHex));
+/// @nodoc
+abstract mixin class _$TxAuxiliaryDataSupplementDataCopyWith<$Res>
+    implements $TxAuxiliaryDataSupplementCopyWith<$Res> {
+  factory _$TxAuxiliaryDataSupplementDataCopyWith(
+          _TxAuxiliaryDataSupplementData value,
+          $Res Function(_TxAuxiliaryDataSupplementData) _then) =
+      __$TxAuxiliaryDataSupplementDataCopyWithImpl;
+  @override
+  @useResult
+  $Res call(
+      {String auxiliaryDataHashHex, String cip36VoteRegistrationSignatureHex});
 }
 
+/// @nodoc
+class __$TxAuxiliaryDataSupplementDataCopyWithImpl<$Res>
+    implements _$TxAuxiliaryDataSupplementDataCopyWith<$Res> {
+  __$TxAuxiliaryDataSupplementDataCopyWithImpl(this._self, this._then);
 
-@override
-int get hashCode => Object.hash(runtimeType,auxiliaryDataHashHex,cip36VoteRegistrationSignatureHex);
+  final _TxAuxiliaryDataSupplementData _self;
+  final $Res Function(_TxAuxiliaryDataSupplementData) _then;
 
-/// Create a copy of TxAuxiliaryDataSupplement
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$TxAuxiliaryDataSupplementDataImplCopyWith<_$TxAuxiliaryDataSupplementDataImpl> get copyWith => __$$TxAuxiliaryDataSupplementDataImplCopyWithImpl<_$TxAuxiliaryDataSupplementDataImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+  /// Create a copy of TxAuxiliaryDataSupplement
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $Res call({
+    Object? auxiliaryDataHashHex = null,
+    Object? cip36VoteRegistrationSignatureHex = null,
+  }) {
+    return _then(_TxAuxiliaryDataSupplementData(
+      auxiliaryDataHashHex: null == auxiliaryDataHashHex
+          ? _self.auxiliaryDataHashHex
+          : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
+              as String,
+      cip36VoteRegistrationSignatureHex: null ==
+              cip36VoteRegistrationSignatureHex
+          ? _self.cip36VoteRegistrationSignatureHex
+          : cip36VoteRegistrationSignatureHex // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
 }
 
-
-abstract class _TxAuxiliaryDataSupplementData extends TxAuxiliaryDataSupplement {
-   factory _TxAuxiliaryDataSupplementData({required final  String auxiliaryDataHashHex, required final  String cip36VoteRegistrationSignatureHex}) = _$TxAuxiliaryDataSupplementDataImpl;
-   _TxAuxiliaryDataSupplementData._(): super._();
-
-  
-
-@override String get auxiliaryDataHashHex;@override String get cip36VoteRegistrationSignatureHex;
-/// Create a copy of TxAuxiliaryDataSupplement
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$TxAuxiliaryDataSupplementDataImplCopyWith<_$TxAuxiliaryDataSupplementDataImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

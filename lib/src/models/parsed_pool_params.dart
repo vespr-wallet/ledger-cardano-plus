@@ -1,19 +1,17 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'parsed_margin.dart';
-import 'parsed_pool_key.dart';
-import 'parsed_pool_owner.dart';
-import 'parsed_pool_reward_account.dart';
-import 'parsed_pool_relay.dart';
-import 'parsed_pool_metadata.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_pool_params.freezed.dart';
+import "../utils/utilities.dart";
+import "parsed_margin.dart";
+import "parsed_pool_key.dart";
+import "parsed_pool_metadata.dart";
+import "parsed_pool_owner.dart";
+import "parsed_pool_relay.dart";
+import "parsed_pool_reward_account.dart";
+
+part "parsed_pool_params.freezed.dart";
 
 @freezed
 sealed class ParsedPoolParams with _$ParsedPoolParams {
-  ParsedPoolParams._() {
-    validateHexString(vrfHashHex, 'vrfHashHex');
-  }
 
   factory ParsedPoolParams({
     required ParsedPoolKey poolKey,
@@ -26,4 +24,7 @@ sealed class ParsedPoolParams with _$ParsedPoolParams {
     required List<ParsedPoolRelay> relays,
     required ParsedPoolMetadata? metadata,
   }) = _ParsedPoolParams;
+  ParsedPoolParams._() {
+    validateHexString(vrfHashHex, "vrfHashHex");
+  }
 }

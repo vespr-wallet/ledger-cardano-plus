@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'staking_data_source.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "staking_data_source.freezed.dart";
 
 @freezed
 sealed class StakingDataSource with _$StakingDataSource {
@@ -13,15 +14,15 @@ sealed class StakingDataSource with _$StakingDataSource {
       StakingDataSourceNone() => () {},
       StakingDataSourceKey() => () {},
       StakingDataSourceBlockchainPointer() => () {
-          validate32bitUnsignedInteger(thisClass.blockIndex, 'blockIndex');
-          validate32bitUnsignedInteger(thisClass.txIndex, 'txIndex');
+          validate32bitUnsignedInteger(thisClass.blockIndex, "blockIndex");
+          validate32bitUnsignedInteger(thisClass.txIndex, "txIndex");
           validate32bitUnsignedInteger(
-              thisClass.certificateIndex, 'certificateIndex');
+              thisClass.certificateIndex, "certificateIndex");
         },
       StakingDataSourceScriptHash() => () {
-          validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
+          validateHexString(thisClass.scriptHashHex, "scriptHashHex");
           validateMaxStringLength(
-              thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+              thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
         },
     };
     assertinvoker();
@@ -71,12 +72,10 @@ sealed class StakingDataSourceKeyData with _$StakingDataSourceKeyData {
   StakingDataSourceKeyData._() {
     switch (this) {
       case StakingDataSourceKeyPath(path: final path):
-        validateBIP32Path(path, 'path');
-        break;
+        validateBIP32Path(path, "path");
       case StakingDataSourceKeyHash(keyHashHex: final keyHashHex):
-        validateHexString(keyHashHex, 'keyHashHex');
-        validateMaxStringLength(keyHashHex, 'keyHashHex', stringLength64Bytes);
-        break;
+        validateHexString(keyHashHex, "keyHashHex");
+        validateMaxStringLength(keyHashHex, "keyHashHex", stringLength64Bytes);
     }
   }
   factory StakingDataSourceKeyData.path({

@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'cardano_networks.freezed.dart';
+part "cardano_networks.freezed.dart";
 
 @freezed
 sealed class CardanoNetwork with _$CardanoNetwork {
@@ -46,22 +46,22 @@ sealed class CardanoNetwork with _$CardanoNetwork {
 
   @override
   late final String paymentBech32Hrp = switch (this) {
-    NetworkMainnet() => 'addr',
-    NetworkLegacyTestnet() => 'addr_test',
-    NetworkPreProd() => 'addr_test',
-    NetworkPreview() => 'addr_test',
-    NetworkConway() => 'addr_test',
+    NetworkMainnet() => "addr",
+    NetworkLegacyTestnet() => "addr_test",
+    NetworkPreProd() => "addr_test",
+    NetworkPreview() => "addr_test",
+    NetworkConway() => "addr_test",
     NetworkCustom(customPaymentBech32Hrp: final customPaymentBech32Hrp) =>
       customPaymentBech32Hrp,
   };
 
   @override
   late final String stakeBech32Hrp = switch (this) {
-    NetworkMainnet() => 'stake',
-    NetworkLegacyTestnet() => 'stake_test',
-    NetworkPreProd() => 'stake_test',
-    NetworkPreview() => 'stake_test',
-    NetworkConway() => 'stake_test',
+    NetworkMainnet() => "stake",
+    NetworkLegacyTestnet() => "stake_test",
+    NetworkPreProd() => "stake_test",
+    NetworkPreview() => "stake_test",
+    NetworkConway() => "stake_test",
     NetworkCustom(customStakeBech32Hrp: final customStakeBech32Hrp) =>
       customStakeBech32Hrp,
   };

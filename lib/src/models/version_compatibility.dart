@@ -1,20 +1,20 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/cardano_version.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_c_vote_registration_params.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_certificate.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_output_destination.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_signing_request.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano_plus/src/models/transaction_signing_mode.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/exceptions.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'version_compatibility.freezed.dart';
+import "../cardano_version.dart";
+import "../utils/constants.dart";
+import "../utils/exceptions.dart";
+import "parsed_address_params.dart";
+import "parsed_c_vote_registration_params.dart";
+import "parsed_certificate.dart";
+import "parsed_output_destination.dart";
+import "parsed_signing_request.dart";
+import "parsed_tx_auxiliary_data.dart";
+import "transaction_signing_mode.dart";
+
+part "version_compatibility.freezed.dart";
 
 @freezed
 sealed class VersionCompatibility with _$VersionCompatibility {
-  const VersionCompatibility._();
 
   const factory VersionCompatibility({
     required bool isCompatible,
@@ -37,6 +37,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     required bool supportsCIP36Vote,
     required bool supportsConway,
   }) = _VersionCompatibility;
+  const VersionCompatibility._();
 
   factory VersionCompatibility.checkVersionCompatibility(
       CardanoVersion version) {

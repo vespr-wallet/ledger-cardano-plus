@@ -1,12 +1,13 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/src/models/parsed_complex_native_script.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_native_script.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../models/parsed_complex_native_script.dart";
+import "../models/parsed_native_script.dart";
+import "../models/parsed_simple_native_script.dart";
+import "../utils/constants.dart";
+import "../utils/serialization_utils.dart";
+import "../utils/utilities.dart";
 
 class CardanoDeriveNativeScriptHashOperation
     extends LedgerComplexOperation<String> {
@@ -38,7 +39,7 @@ class CardanoDeriveNativeScriptHashOperation
           p2: p2Unused,
           data: serializeComplexNativeScriptStart(script.script),
           prependDataLength: true,
-          debugName: 'Add Complex Native Script',
+          debugName: "Add Complex Native Script",
         ),
       ParsedNativeScript_Simple() => LedgerSimpleOperation(
           cla: claCardano,
@@ -47,7 +48,7 @@ class CardanoDeriveNativeScriptHashOperation
           p2: p2Unused,
           data: serializeSimpleNativeScript(script.script),
           prependDataLength: true,
-          debugName: 'Add Simple Native Script',
+          debugName: "Add Simple Native Script",
         ),
     };
 
@@ -74,7 +75,7 @@ class CardanoDeriveNativeScriptHashOperation
         p2: p2Unused,
         data: serializeWholeNativeScriptFinish(displayFormat),
         prependDataLength: true,
-        debugName: 'Finish Whole Native Script',
+        debugName: "Finish Whole Native Script",
       ),
     );
 

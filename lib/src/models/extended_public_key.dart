@@ -1,11 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
 
-part 'extended_public_key.freezed.dart';
+part "extended_public_key.freezed.dart";
 
 @freezed
 sealed class ExtendedPublicKey with _$ExtendedPublicKey {
-  const ExtendedPublicKey._();
 
   const factory ExtendedPublicKey({
     // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
@@ -17,6 +16,7 @@ sealed class ExtendedPublicKey with _$ExtendedPublicKey {
     required String publicKeyHex,
     required String chainCodeHex,
   }) = _ExtendedPublicKey;
+  const ExtendedPublicKey._();
 }
 
 @freezed

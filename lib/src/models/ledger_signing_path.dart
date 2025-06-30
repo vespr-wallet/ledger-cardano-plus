@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-part 'ledger_signing_path.freezed.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+part "ledger_signing_path.freezed.dart";
 
 @freezed
 sealed class LedgerSigningPath with _$LedgerSigningPath {

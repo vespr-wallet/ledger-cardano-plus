@@ -1,6 +1,6 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
 class CardanoSignMsgPackOperation extends LedgerRawOperation<Uint8List> {
   static const headerSize = 5;

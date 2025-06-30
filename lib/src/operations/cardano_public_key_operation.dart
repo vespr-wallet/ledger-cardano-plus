@@ -1,9 +1,10 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/src/models/extended_public_key.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../models/extended_public_key.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
 
 class GetExtendedPublicKeyOperation
     extends LedgerComplexOperation<ExtendedPublicKey> {
@@ -18,7 +19,7 @@ class GetExtendedPublicKeyOperation
     final data = useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(bip32Path.length * 4 + 1);
       writer.writeUint8(bip32Path.length);
-      for (var path in bip32Path) {
+      for (final path in bip32Path) {
         writer.writeUint32(path);
       }
       return writer.toBytes();
@@ -31,7 +32,7 @@ class GetExtendedPublicKeyOperation
       p2: p2Unused,
       data: data,
       prependDataLength: false,
-      debugName: 'Get Extended Public Key',
+      debugName: "Get Extended Public Key",
     );
 
     final readerResponse = await send(sendOperation);

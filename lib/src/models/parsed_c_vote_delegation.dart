@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_c_vote_delegation.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "parsed_c_vote_delegation.freezed.dart";
 
 @freezed
 sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
@@ -11,13 +12,13 @@ sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       PathDelegation() => () {
-          validateBIP32Path(thisClass.voteKeyPath, 'voteKeyPath');
-          validateUint32(thisClass.weight, 'weight');
+          validateBIP32Path(thisClass.voteKeyPath, "voteKeyPath");
+          validateUint32(thisClass.weight, "weight");
         },
       KeyDelegation() => () {
           validateExactHexString(
-              thisClass.voteKey, 'voteKey', cvotePublicKeyLength * 2);
-          validateUint32(thisClass.weight, 'weight');
+              thisClass.voteKey, "voteKey", cvotePublicKeyLength * 2);
+          validateUint32(thisClass.weight, "weight");
         },
     };
     assertinvoker();

@@ -1,8 +1,8 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
 
-part 'parsed_datum.freezed.dart';
+part "parsed_datum.freezed.dart";
 
 @freezed
 sealed class ParsedDatum with _$ParsedDatum {
@@ -11,10 +11,10 @@ sealed class ParsedDatum with _$ParsedDatum {
     final void Function() assertInvoker = switch (thisClass) {
       ParsedDatumHash() => () {
           validateExactHexString(
-              thisClass.datumHashHex, 'Datum hash hex', datumHashLength);
+              thisClass.datumHashHex, "Datum hash hex", datumHashLength);
         },
       ParsedDatumInline() => () {
-          validateHexString(thisClass.datumHex, 'Datum hex');
+          validateHexString(thisClass.datumHex, "Datum hex");
         },
     };
     assertInvoker();

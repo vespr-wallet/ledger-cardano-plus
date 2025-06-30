@@ -1,16 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_operational_certificate.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "parsed_operational_certificate.freezed.dart";
 
 @freezed
 sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
-  ParsedOperationalCertificate._() {
-    validateExactHexString(
-        kesPublicKeyHex, 'kesPublicKeyHex', kesPublicKeyLength);
-  }
 
   factory ParsedOperationalCertificate({
     required String kesPublicKeyHex,
@@ -18,4 +15,8 @@ sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
     required BigInt issueCounter,
     required LedgerSigningPath coldKeyPath,
   }) = _ParsedOperationalCertificate;
+  ParsedOperationalCertificate._() {
+    validateExactHexString(
+        kesPublicKeyHex, "kesPublicKeyHex", kesPublicKeyLength);
+  }
 }

@@ -1,7 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
 
-part 'parsed_pool_relay.freezed.dart';
+part "parsed_pool_relay.freezed.dart";
 
 @freezed
 sealed class ParsedPoolRelay with _$ParsedPoolRelay {

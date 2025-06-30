@@ -1,9 +1,9 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'parsed_address_params.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "parsed_address_params.dart";
 
-part 'parsed_output_destination.freezed.dart';
+part "parsed_output_destination.freezed.dart";
 
 @freezed
 sealed class ParsedOutputDestination with _$ParsedOutputDestination {
@@ -11,9 +11,9 @@ sealed class ParsedOutputDestination with _$ParsedOutputDestination {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       ThirdParty() => () {
-          validateHexString(thisClass.addressHex, 'addressHex');
+          validateHexString(thisClass.addressHex, "addressHex");
           validateMaxStringLength(
-              thisClass.addressHex, 'addressHex', addressHexLength);
+              thisClass.addressHex, "addressHex", addressHexLength);
         },
       DeviceOwned() => () => (),
     };

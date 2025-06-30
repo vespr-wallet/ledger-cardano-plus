@@ -1,7 +1,8 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../../ledger_cardano_plus.dart";
 
 class ResetOperation extends LedgerRawOperation<ByteDataReader> {
   ResetOperation();

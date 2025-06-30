@@ -1,5 +1,6 @@
-import 'package:ledger_cardano_plus/src/utils/ledger_connection_type.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' as sdk;
+import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
+
+import "ledger_connection_type.dart";
 
 extension LedgerConnectionTypeX on LedgerConnectionType {
   static LedgerConnectionType fromSdk(sdk.ConnectionType connectionType) {

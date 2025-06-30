@@ -1,13 +1,14 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/address_params_base.dart';
-import 'package:ledger_cardano_plus/src/models/address_params_byron.dart';
-import 'package:ledger_cardano_plus/src/models/address_params_enterprise.dart';
-import 'package:ledger_cardano_plus/src/models/address_params_pointer.dart';
-import 'package:ledger_cardano_plus/src/models/address_params_reward.dart';
-import 'package:ledger_cardano_plus/src/models/address.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'device_owned_address.freezed.dart';
+import "../utils/constants.dart";
+import "address.dart";
+import "address_params_base.dart";
+import "address_params_byron.dart";
+import "address_params_enterprise.dart";
+import "address_params_pointer.dart";
+import "address_params_reward.dart";
+
+part "device_owned_address.freezed.dart";
 
 @freezed
 sealed class DeviceOwnedAddress with _$DeviceOwnedAddress {

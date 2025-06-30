@@ -1,9 +1,10 @@
-import 'dart:math';
-import 'dart:typed_data';
+import "dart:math";
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../../ledger_cardano_plus.dart";
+import "../utils/serialization_utils.dart";
 
 class CardanoSignTransactionOperation
     extends LedgerComplexOperation<SignedTransactionData> {
@@ -199,7 +200,7 @@ class CardanoSignTransactionOperation
         p2: p2Unused,
         data: data,
         prependDataLength: true,
-        debugName: 'Sign Transaction Init',
+        debugName: "Sign Transaction Init",
       ),
     );
   }
@@ -213,7 +214,7 @@ class CardanoSignTransactionOperation
         p2: p2Unused,
         data: SerializationUtils.serializeCoin(fee),
         prependDataLength: true,
-        debugName: 'Sign Transaction Set Fee',
+        debugName: "Sign Transaction Set Fee",
       ),
     );
   }
@@ -227,7 +228,7 @@ class CardanoSignTransactionOperation
         p2: p2Unused,
         data: SerializationUtils.serializeTxTtl(ttl),
         prependDataLength: true,
-        debugName: 'Sign Transaction Set TTL',
+        debugName: "Sign Transaction Set TTL",
       ),
     );
   }
@@ -248,7 +249,7 @@ class CardanoSignTransactionOperation
         p2: p2Unused,
         data: data,
         prependDataLength: true,
-        debugName: 'Sign Transaction Add Certificate',
+        debugName: "Sign Transaction Add Certificate",
       ),
     );
 
@@ -278,7 +279,7 @@ class CardanoSignTransactionOperation
       data:
           SerializationUtils.serializePoolInitialParamsLegacy(certificate.pool),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Init Legacy',
+      debugName: "Sign Transaction Stake Pool Registration Init Legacy",
     ));
 
     for (final owner in certificate.pool.owners) {
@@ -289,7 +290,7 @@ class CardanoSignTransactionOperation
         p2: p2OwnersLegacy,
         data: SerializationUtils.serializePoolOwner(owner),
         prependDataLength: true,
-        debugName: 'Sign Transaction Stake Pool Registration Owner',
+        debugName: "Sign Transaction Stake Pool Registration Owner",
       ));
     }
 
@@ -301,7 +302,7 @@ class CardanoSignTransactionOperation
         p2: p2RelaysLegacy,
         data: SerializationUtils.serializePoolRelay(relay),
         prependDataLength: true,
-        debugName: 'Sign Transaction Stake Pool Registration Relay',
+        debugName: "Sign Transaction Stake Pool Registration Relay",
       ));
     }
 
@@ -312,7 +313,7 @@ class CardanoSignTransactionOperation
       p2: p2MetadataLegacy,
       data: SerializationUtils.serializePoolMetadata(certificate.pool.metadata),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Metadata',
+      debugName: "Sign Transaction Stake Pool Registration Metadata",
     ));
 
     await send(LedgerSimpleOperation(
@@ -322,7 +323,7 @@ class CardanoSignTransactionOperation
       p2: p2ConfirmationLegacy,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Confirmation',
+      debugName: "Sign Transaction Stake Pool Registration Confirmation",
     ));
   }
 
@@ -338,7 +339,7 @@ class CardanoSignTransactionOperation
       p2: p2InitPool,
       data: SerializationUtils.serializePoolInitialParams(poolParams.pool),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Init',
+      debugName: "Sign Transaction Stake Pool Registration Init",
     ));
 
     await send(LedgerSimpleOperation(
@@ -348,7 +349,7 @@ class CardanoSignTransactionOperation
       p2: p2PoolKey,
       data: SerializationUtils.serializePoolKey(poolParams.pool.poolKey),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Pool Key',
+      debugName: "Sign Transaction Stake Pool Registration Pool Key",
     ));
 
     await send(LedgerSimpleOperation(
@@ -358,7 +359,7 @@ class CardanoSignTransactionOperation
       p2: p2VrfKey,
       data: Uint8List.fromList(hex.decode(poolParams.pool.vrfHashHex)),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration VRF Key',
+      debugName: "Sign Transaction Stake Pool Registration VRF Key",
     ));
 
     await send(LedgerSimpleOperation(
@@ -368,7 +369,7 @@ class CardanoSignTransactionOperation
       p2: p2Financials,
       data: SerializationUtils.serializeFinancials(poolParams.pool),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Financials',
+      debugName: "Sign Transaction Stake Pool Registration Financials",
     ));
 
     await send(LedgerSimpleOperation(
@@ -379,7 +380,7 @@ class CardanoSignTransactionOperation
       data: SerializationUtils.serializePoolRewardAccount(
           poolParams.pool.rewardAccount),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Reward Account',
+      debugName: "Sign Transaction Stake Pool Registration Reward Account",
     ));
 
     for (final owner in poolParams.pool.owners) {
@@ -390,7 +391,7 @@ class CardanoSignTransactionOperation
         p2: p2Owners,
         data: SerializationUtils.serializePoolOwner(owner),
         prependDataLength: true,
-        debugName: 'Sign Transaction Stake Pool Registration Owner',
+        debugName: "Sign Transaction Stake Pool Registration Owner",
       ));
     }
 
@@ -402,7 +403,7 @@ class CardanoSignTransactionOperation
         p2: p2Relays,
         data: SerializationUtils.serializePoolRelay(relay),
         prependDataLength: true,
-        debugName: 'Sign Transaction Stake Pool Registration Relay',
+        debugName: "Sign Transaction Stake Pool Registration Relay",
       ));
     }
 
@@ -413,7 +414,7 @@ class CardanoSignTransactionOperation
       p2: p2Metadata,
       data: SerializationUtils.serializePoolMetadata(poolParams.pool.metadata),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Metadata',
+      debugName: "Sign Transaction Stake Pool Registration Metadata",
     ));
 
     await send(LedgerSimpleOperation(
@@ -423,7 +424,7 @@ class CardanoSignTransactionOperation
       p2: p2Confirmation,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Stake Pool Registration Confirmation',
+      debugName: "Sign Transaction Stake Pool Registration Confirmation",
     ));
   }
 
@@ -442,7 +443,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: serializedAuxData,
       prependDataLength: true,
-      debugName: 'Sign Transaction Set Auxiliary Data',
+      debugName: "Sign Transaction Set Auxiliary Data",
     ));
 
     final Future<TxAuxiliaryDataSupplement?>? Function() invoker =
@@ -461,7 +462,7 @@ class CardanoSignTransactionOperation
               p2: p2Init,
               data: serializedInitData,
               prependDataLength: true,
-              debugName: 'Sign Transaction Set CVote Registration Init',
+              debugName: "Sign Transaction Set CVote Registration Init",
             ));
           }
 
@@ -477,7 +478,7 @@ class CardanoSignTransactionOperation
               p2: p2VoteKey,
               data: serializedVoteKeyData,
               prependDataLength: true,
-              debugName: 'Sign Transaction Set CVote Registration Vote Key',
+              debugName: "Sign Transaction Set CVote Registration Vote Key",
             ));
           }
 
@@ -493,7 +494,7 @@ class CardanoSignTransactionOperation
                 p2: p2Delegation,
                 data: serializedDelegationData,
                 prependDataLength: true,
-                debugName: 'Sign Transaction Set CVote Registration Delegation',
+                debugName: "Sign Transaction Set CVote Registration Delegation",
               ));
             }
           }
@@ -508,7 +509,7 @@ class CardanoSignTransactionOperation
             p2: p2StakingKey,
             data: serializedStakingKeyData,
             prependDataLength: true,
-            debugName: 'Sign Transaction Set CVote Registration Staking Key',
+            debugName: "Sign Transaction Set CVote Registration Staking Key",
           ));
 
           final serializedPaymentAddressData =
@@ -522,7 +523,7 @@ class CardanoSignTransactionOperation
             data: serializedPaymentAddressData,
             prependDataLength: true,
             debugName:
-                'Sign Transaction Set CVote Registration Payment Address',
+                "Sign Transaction Set CVote Registration Payment Address",
           ));
           final serializedNonceData =
               SerializationUtils.serializeCVoteRegistrationNonce(params.nonce);
@@ -533,7 +534,7 @@ class CardanoSignTransactionOperation
             p2: p2Nonce,
             data: serializedNonceData,
             prependDataLength: true,
-            debugName: 'Sign Transaction Set CVote Registration Nonce',
+            debugName: "Sign Transaction Set CVote Registration Nonce",
           ));
 
           if (VersionCompatibility.checkVersionCompatibility(version)
@@ -549,7 +550,7 @@ class CardanoSignTransactionOperation
               data: serializedVotingPurposeData,
               prependDataLength: true,
               debugName:
-                  'Sign Transaction Set CVote Registration Voting Purpose',
+                  "Sign Transaction Set CVote Registration Voting Purpose",
             ));
           }
 
@@ -561,13 +562,13 @@ class CardanoSignTransactionOperation
             data: Uint8List(0),
             prependDataLength: true,
             debugName:
-                'Sign Transaction Confirm and Receive CVote Registration Hash and Signature',
+                "Sign Transaction Confirm and Receive CVote Registration Hash and Signature",
           ));
 
           if (response.remainingLength !=
               auxiliaryDataHashLength + ed25519SignatureLength) {
             throw Exception(
-                'Unexpected response length for auxiliary data hash and signature');
+                "Unexpected response length for auxiliary data hash and signature");
           }
 
           final auxDataHash = response.read(auxiliaryDataHashLength);
@@ -602,7 +603,7 @@ class CardanoSignTransactionOperation
           p2: p2,
           data: _createDataBuffer(chunk),
           prependDataLength: true,
-          debugName: 'Sign Transaction Add Output Chunk',
+          debugName: "Sign Transaction Add Output Chunk",
         ),
       );
       start = end;
@@ -638,7 +639,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeTxWithdrawal(withdrawal, version),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Withdrawal',
+      debugName: "Sign Transaction Add Withdrawal",
     ));
   }
 
@@ -648,7 +649,7 @@ class CardanoSignTransactionOperation
   ) async {
     if (auxiliaryData is! ArbitraryHash) {
       throw LedgerCardanoValidationException(
-          'Auxiliary data type not implemented');
+          "Auxiliary data type not implemented");
     }
 
     await send(LedgerSimpleOperation(
@@ -658,7 +659,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: Uint8List.fromList(hex.decode(auxiliaryData.hashHex)),
       prependDataLength: true,
-      debugName: 'Sign Transaction Set Auxiliary Data Before v2.3',
+      debugName: "Sign Transaction Set Auxiliary Data Before v2.3",
     ));
 
     return null;
@@ -676,7 +677,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign Transaction Set Validity Interval Start',
+      debugName: "Sign Transaction Set Validity Interval Start",
     ));
   }
 
@@ -691,7 +692,7 @@ class CardanoSignTransactionOperation
       p2: p2MintBasicData,
       data: SerializationUtils.serializeMintBasicParams(mint),
       prependDataLength: true,
-      debugName: 'Sign Transaction Set Mint Basic Data',
+      debugName: "Sign Transaction Set Mint Basic Data",
     ));
 
     await _signTxAddTokenBundle(mint, p1StageMint, send);
@@ -703,7 +704,7 @@ class CardanoSignTransactionOperation
       p2: p2MintConfirm,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Confirm Mint',
+      debugName: "Sign Transaction Confirm Mint",
     ));
   }
 
@@ -722,7 +723,7 @@ class CardanoSignTransactionOperation
         p2: p2AssetGroup,
         data: assetGroupData,
         prependDataLength: true,
-        debugName: 'Sign Transaction Add Asset Group',
+        debugName: "Sign Transaction Add Asset Group",
       ));
 
       for (final token in assetGroup.tokens) {
@@ -734,7 +735,7 @@ class CardanoSignTransactionOperation
           p2: p2Token,
           data: tokenData,
           prependDataLength: true,
-          debugName: 'Sign Transaction Add Token',
+          debugName: "Sign Transaction Add Token",
         ));
       }
     }
@@ -749,7 +750,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: Uint8List.fromList(hex.decode(scriptDataHash.hexString)),
       prependDataLength: true,
-      debugName: 'Sign Transaction Set Script Data Hash',
+      debugName: "Sign Transaction Set Script Data Hash",
     ));
   }
 
@@ -764,7 +765,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Collateral Input',
+      debugName: "Sign Transaction Add Collateral Input",
     ));
   }
 
@@ -779,7 +780,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Required Signer',
+      debugName: "Sign Transaction Add Required Signer",
     ));
   }
 
@@ -797,7 +798,7 @@ class CardanoSignTransactionOperation
       data: SerializationUtils.serializeTxOutputBasicParams(
           collateralOutput, version, network),
       prependDataLength: true,
-      debugName: 'Sign Transaction Collateral Output Basic Data',
+      debugName: "Sign Transaction Collateral Output Basic Data",
     ));
 
     await _signTxAddTokenBundle(
@@ -810,7 +811,7 @@ class CardanoSignTransactionOperation
       p2: p2CollateralOutputConfirm,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Confirm Collateral Output',
+      debugName: "Sign Transaction Confirm Collateral Output",
     ));
   }
 
@@ -825,7 +826,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeCoin(totalCollateral),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Total Collateral',
+      debugName: "Sign Transaction Add Total Collateral",
     ));
   }
 
@@ -838,7 +839,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeTxInput(referenceInput),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Reference Input',
+      debugName: "Sign Transaction Add Reference Input",
     ));
   }
 
@@ -851,7 +852,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeVoterVotes(voterVotes),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Voter Votes',
+      debugName: "Sign Transaction Add Voter Votes",
     ));
   }
 
@@ -863,7 +864,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeCoin(treasury),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Treasury',
+      debugName: "Sign Transaction Add Treasury",
     ));
   }
 
@@ -875,7 +876,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: SerializationUtils.serializeCoin(donation),
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Donation',
+      debugName: "Sign Transaction Add Donation",
     ));
   }
 
@@ -887,12 +888,12 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Await Confirm',
+      debugName: "Sign Transaction Await Confirm",
     ));
 
     if (response.remainingLength != txHashLength) {
       throw LedgerCardanoSdkInternalException(
-        '_signTxAwaitConfirm: Unexpected response length for transaction hash',
+        "_signTxAwaitConfirm: Unexpected response length for transaction hash",
       );
     }
 
@@ -911,12 +912,12 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign Transaction Get Witness',
+      debugName: "Sign Transaction Get Witness",
     ));
 
     if (response.remainingLength != ed25519SignatureLength) {
       throw LedgerCardanoSdkInternalException(
-        '_signTxGetWitness: Unexpected response length for witness signature',
+        "_signTxGetWitness: Unexpected response length for witness signature",
       );
     }
 
@@ -939,7 +940,7 @@ class CardanoSignTransactionOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign Transaction Add Input',
+      debugName: "Sign Transaction Add Input",
     ));
   }
 
@@ -957,7 +958,7 @@ class CardanoSignTransactionOperation
       data: SerializationUtils.serializeTxOutputBasicParams(
           output, version, network),
       prependDataLength: true,
-      debugName: 'Sign Transaction Output Basic Data',
+      debugName: "Sign Transaction Output Basic Data",
     ));
 
     await _signTxAddTokenBundle(output.tokenBundle, p1StageOutputs, send);
@@ -972,7 +973,7 @@ class CardanoSignTransactionOperation
         p2: p2OutputDatum,
         data: SerializationUtils.serializeTxOutputDatum(outputDatum, version),
         prependDataLength: true,
-        debugName: 'Sign Transaction Output Datum',
+        debugName: "Sign Transaction Output Datum",
       ));
       if (outputDatum is ParsedDatumInline &&
           outputDatum.datumHex.length / 2 > maxChunkSize) {
@@ -992,7 +993,7 @@ class CardanoSignTransactionOperation
         data: SerializationUtils.serializeTxOutputRefScript(
             outputReferenceScriptHash),
         prependDataLength: true,
-        debugName: 'Sign Transaction Output Reference Script',
+        debugName: "Sign Transaction Output Reference Script",
       ));
       if (outputReferenceScriptHash.length / 2 > maxChunkSize) {
         await _signTxAddOutputSendChunks(
@@ -1007,7 +1008,7 @@ class CardanoSignTransactionOperation
       p2: p2OutputConfirm,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Sign Transaction Confirm Output',
+      debugName: "Sign Transaction Confirm Output",
     ));
   }
 }

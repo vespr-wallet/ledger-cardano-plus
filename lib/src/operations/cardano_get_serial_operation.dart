@@ -1,8 +1,9 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
 
 class CardanoGetSerialOperation extends LedgerComplexOperation<String> {
   const CardanoGetSerialOperation() : super();
@@ -20,7 +21,7 @@ class CardanoGetSerialOperation extends LedgerComplexOperation<String> {
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Get Serial',
+      debugName: "Get Serial",
     );
 
     final reader = await send(operation);

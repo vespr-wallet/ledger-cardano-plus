@@ -1,8 +1,8 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../../ledger_cardano_plus.dart";
+import "../utils/utilities.dart";
 
-part 'parsed_simple_native_script.freezed.dart';
+part "parsed_simple_native_script.freezed.dart";
 
 @freezed
 sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {

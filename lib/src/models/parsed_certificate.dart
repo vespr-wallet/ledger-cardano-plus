@@ -1,12 +1,13 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'parsed_credential.dart';
-import 'parsed_drep.dart';
-import 'parsed_anchor.dart';
-import 'parsed_pool_params.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_certificate.freezed.dart';
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+import "parsed_anchor.dart";
+import "parsed_credential.dart";
+import "parsed_drep.dart";
+import "parsed_pool_params.dart";
+
+part "parsed_certificate.freezed.dart";
 
 @freezed
 sealed class ParsedCertificate with _$ParsedCertificate {
@@ -15,29 +16,29 @@ sealed class ParsedCertificate with _$ParsedCertificate {
     final void Function() assertinvoker = switch (thisClass) {
       StakeRegistration() => () {},
       StakeRegistrationConway() => () {
-          validateUint64(thisClass.deposit, 'deposit');
+          validateUint64(thisClass.deposit, "deposit");
         },
       StakeDeregistration() => () {},
       StakeDeregistrationConway() => () {
-          validateUint64(thisClass.deposit, 'deposit');
+          validateUint64(thisClass.deposit, "deposit");
         },
       StakeDelegation() => () {
-          validateHexString(thisClass.poolKeyHashHex, 'poolKeyHashHex');
+          validateHexString(thisClass.poolKeyHashHex, "poolKeyHashHex");
         },
       VoteDelegation() => () {},
       AuthorizeCommitteeHot() => () {},
       ResignCommitteeCold() => () {},
       DRepRegistration() => () {
-          validateUint64(thisClass.deposit, 'deposit');
+          validateUint64(thisClass.deposit, "deposit");
         },
       DRepDeregistration() => () {
-          validateUint64(thisClass.deposit, 'deposit');
+          validateUint64(thisClass.deposit, "deposit");
         },
       DRepUpdate() => () {},
       StakePoolRegistration() => () {},
       StakePoolRetirement() => () {
-          validateUint64(thisClass.retirementEpoch, 'retirementEpoch');
-          validateBIP32Path(thisClass.path, 'path');
+          validateUint64(thisClass.retirementEpoch, "retirementEpoch");
+          validateBIP32Path(thisClass.path, "path");
         },
     };
     assertinvoker();

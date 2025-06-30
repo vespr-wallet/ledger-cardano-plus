@@ -1,13 +1,13 @@
-import 'dart:typed_data';
+import "dart:convert";
+import "dart:typed_data";
 
-import 'package:collection/collection.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_c_vote_delegation.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_pool_relay.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
-import 'dart:convert';
+import "package:collection/collection.dart";
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
-import '../../ledger_cardano_plus.dart';
+import "../../ledger_cardano_plus.dart";
+import "../models/parsed_c_vote_delegation.dart";
+import "../models/parsed_pool_relay.dart";
+import "utilities.dart";
 
 class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
@@ -17,7 +17,7 @@ class SerializationUtils {
   static void writerSerializedPath(
       ByteDataWriter writer, LedgerSigningPath path) {
     writer.writeUint8(path.signingPath.length);
-    for (var index in path.signingPath) {
+    for (final index in path.signingPath) {
       writer.writeUint32(index);
     }
   }
@@ -221,11 +221,9 @@ class SerializationUtils {
                 case StakingDataSourceKeyPath():
                   writer.writeUint8(dataSource.stakingDataSourceValue);
                   writerSerializedPath(writer, keyContent.path);
-                  break;
                 case StakingDataSourceKeyHash():
                   writer.writeUint8(dataSource.stakingDataSourceValue);
                   writeSerializedHex(writer, keyContent.keyHashHex);
-                  break;
               }
             },
           StakingDataSourceScriptHash() => () {
@@ -292,7 +290,7 @@ class SerializationUtils {
       CardanoVersion version) {
     if (votePublicKey != null && votePublicKeyPath != null) {
       throw LedgerCardanoValidationException(
-          'Only one of votePublicKey or votePublicKeyPath should be provided');
+          "Only one of votePublicKey or votePublicKeyPath should be provided");
     }
 
     return useBinaryWriter((ByteDataWriter writer) {
@@ -304,13 +302,13 @@ class SerializationUtils {
         writeSerializedHex(writer, votePublicKey.value);
       } else {
         if (votePublicKeyPath == null) {
-          throw LedgerCardanoValidationException('Missing vote key');
+          throw LedgerCardanoValidationException("Missing vote key");
         }
 
         if (!VersionCompatibility.checkVersionCompatibility(version)
             .supportsCIP36Vote) {
           throw LedgerCardanoValidationException(
-              'Key derivation path for vote keys not supported by the device');
+              "Key derivation path for vote keys not supported by the device");
         }
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
         writerSerializedPath(writer, votePublicKeyPath);
@@ -401,7 +399,7 @@ class SerializationUtils {
         DeviceOwned() => () => serializeAddressParams(
             paymentDestination.addressParams, version, network),
         _ => () => throw LedgerCardanoValidationException(
-            'serializeCVoteRegPayDest: Invalid payment destination'),
+            "serializeCVoteRegPayDest: Invalid payment destination"),
       };
       return invoker();
     }
@@ -657,13 +655,10 @@ class SerializationUtils {
           switch (dRep) {
             case DRepKeyPath():
               writerSerializedPath(writer, dRep.path);
-              break;
             case DRepKeyHash():
               writeSerializedHex(writer, dRep.keyHashHex);
-              break;
             case DRepScriptHash():
               writeSerializedHex(writer, dRep.scriptHashHex);
-              break;
             case DRepAbstain():
             case DRepNoConfidence():
               break;
@@ -692,7 +687,7 @@ class SerializationUtils {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
               throw LedgerCardanoValidationException(
-                  'Invalid stake credential');
+                  "Invalid stake credential");
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
             writerSerializedPath(writer, certStakeCredential.path);
@@ -701,7 +696,7 @@ class SerializationUtils {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
               throw LedgerCardanoValidationException(
-                'Invalid stake credential',
+                "Invalid stake credential",
               );
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
@@ -711,7 +706,7 @@ class SerializationUtils {
             final certStakeCredential = certificate.stakeCredential;
             if (certStakeCredential is! CredentialKeyPath) {
               throw LedgerCardanoValidationException(
-                'Invalid stake credential',
+                "Invalid stake credential",
               );
             }
             writer.writeUint8(certificate.certificateTypeSerializationValue);
@@ -727,28 +722,28 @@ class SerializationUtils {
             writer.write(serializeUint64(certificate.retirementEpoch));
           },
         StakeRegistrationConway() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         StakeDeregistrationConway() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         VoteDelegation() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         AuthorizeCommitteeHot() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         ResignCommitteeCold() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         DRepRegistration() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         DRepDeregistration() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
         DRepUpdate() => throw LedgerCardanoValidationException(
-            'Conway certificates in pre-multisig serialization',
+            "Conway certificates in pre-multisig serialization",
           ),
       };
       invoker();
@@ -902,7 +897,7 @@ class SerializationUtils {
       final withdrawalStakeCredential = withdrawal.stakeCredential;
       if (withdrawalStakeCredential is! CredentialKeyPath) {
         throw LedgerCardanoValidationException(
-            'WITHDRAWAL_INVALID_STAKE_CREDENTIAL');
+            "WITHDRAWAL_INVALID_STAKE_CREDENTIAL");
       }
       return useBinaryWriter((ByteDataWriter writer) {
         writer.write(serializeCoin(withdrawal.amount));
@@ -967,9 +962,9 @@ class SerializationUtils {
     if (value.bitLength > 63) {
       throw LedgerCardanoValidationException("int64ToBuf - Value is too large");
     }
-    ByteDataWriter writer = ByteDataWriter();
+    final ByteDataWriter writer = ByteDataWriter();
     writer.write(serializeInt64(value));
-    Uint8List data = writer.toBytes();
+    final Uint8List data = writer.toBytes();
     if (data.length != 8) {
       throw LedgerCardanoValidationException(
           "int64ToBuf - Invalid data length");
@@ -1008,7 +1003,7 @@ class SerializationUtils {
 
   static Uint8List serializeVoterVotes(ParsedVoterVotes voterVotes) {
     if (voterVotes.votes.length != 1) {
-      throw LedgerCardanoValidationException('too few / too many votes');
+      throw LedgerCardanoValidationException("too few / too many votes");
     }
     final vote = voterVotes.votes[0];
     return useBinaryWriter((ByteDataWriter writer) {
@@ -1206,7 +1201,7 @@ List<LedgerSigningPath> gatherWitnessPaths(ParsedSigningRequest request) {
               invoker();
             },
           StakePoolRegistration() => () {
-              for (var owner in cert.pool.owners) {
+              for (final owner in cert.pool.owners) {
                 final void Function() invoker = switch (owner) {
                   DeviceOwnedPoolOwner() => () => witnessPaths.add(owner.path),
                   _ => () => (),

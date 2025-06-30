@@ -1,8 +1,9 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../../ledger_cardano_plus.dart";
+import "../utils/serialization_utils.dart";
 
 class CardanoSignCVoteOperation
     extends LedgerComplexOperation<SignedCIP36VoteData> {
@@ -25,7 +26,7 @@ class CardanoSignCVoteOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign CIP36 Vote',
+      debugName: "Sign CIP36 Vote",
     );
   }
 
@@ -34,9 +35,9 @@ class CardanoSignCVoteOperation
     if (!VersionCompatibility.checkVersionCompatibility(version)
         .supportsCIP36Vote) {
       throw LedgerCardanoVersionNotSupported(
-        message: 'CIP36 voting',
-        wantedVersion: '6.0.0',
-        era: 'Babbage',
+        message: "CIP36 voting",
+        wantedVersion: "6.0.0",
+        era: "Babbage",
       );
     }
 

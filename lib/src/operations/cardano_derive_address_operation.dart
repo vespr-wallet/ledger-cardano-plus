@@ -1,13 +1,14 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/src/models/parsed_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/shelley_address_params.dart';
-import 'package:ledger_cardano_plus/src/models/staking_data_source.dart';
-import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../models/parsed_address_params.dart";
+import "../models/shelley_address_params.dart";
+import "../models/staking_data_source.dart";
+import "../utils/cardano_networks.dart";
+import "../utils/constants.dart";
+import "../utils/serialization_utils.dart";
+import "../utils/utilities.dart";
 
 class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
   final ParsedAddressParams params;
@@ -30,7 +31,7 @@ class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
         p2: p2Unused,
         data: data,
         prependDataLength: true,
-        debugName: 'Derive Address',
+        debugName: "Derive Address",
       ),
     );
 

@@ -1,5 +1,6 @@
-import 'package:ledger_cardano_plus/ledger_cardano_plus_models.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus.dart' as sdk;
+import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
+
+import "../../ledger_cardano_plus_models.dart";
 
 extension LedgerDeviceX on LedgerDevice {
   sdk.LedgerDevice toSdk() => sdk.LedgerDevice(

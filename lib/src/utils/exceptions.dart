@@ -1,4 +1,4 @@
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import "constants.dart";
 
 sealed class LedgerCardanoException implements Exception {
   final String message;
@@ -7,7 +7,7 @@ sealed class LedgerCardanoException implements Exception {
 
   @override
   String toString() {
-    return '$runtimeType: $message';
+    return "$runtimeType: $message";
   }
 }
 
@@ -44,7 +44,7 @@ class LedgerTransactionValidationException extends LedgerCardanoException {
       List<int> bipPath, String pathType, List<int> validFourthIndices) {
     if (bipPath.length != 5) {
       throw LedgerTransactionValidationException(
-          'BIP44 $pathType path length must be exactly 5');
+          "BIP44 $pathType path length must be exactly 5");
     }
     if (bipPath[0] != harden + 1852) {
       throw LedgerTransactionValidationException(

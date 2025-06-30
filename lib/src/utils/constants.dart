@@ -105,7 +105,7 @@ const int p1StageConfirm = 0x0a;
 const int p1StageConfirmVote = 0x03;
 const int p1StageWitnesses = 0x0f;
 
-const String maxUint64Str = '18446744073709551615';
+const String maxUint64Str = "18446744073709551615";
 
 const p2Init = 0x36;
 const p2VoteKey = 0x30;
@@ -117,7 +117,7 @@ const p2VotingPurpose = 0x35;
 const p2Confirm = 0x34;
 const auxiliaryDataHashLength = 32; // Placeholder length
 
-const String maxLovelaceSupplyStr = '45000000000000000';
+const String maxLovelaceSupplyStr = "45000000000000000";
 const int poolRegistrationOwnersMax = 1000;
 const int poolRegistrationRelaysMax = 1000;
 const int assetGroupsMax = 1000;
@@ -150,9 +150,9 @@ enum InstructionType {
 }
 
 enum SpendingDataSourceType {
-  none('no_spending'),
-  path('spending_path'),
-  scriptHash('spending_script_hash');
+  none("no_spending"),
+  path("spending_path"),
+  scriptHash("spending_script_hash");
 
   final String value;
   const SpendingDataSourceType(this.value);
@@ -208,7 +208,7 @@ enum VoteOption {
 }
 
 enum TxAuxiliaryDataSupplementType {
-  cip36Registration('cip36_voting_registration');
+  cip36Registration("cip36_voting_registration");
 
   final String value;
   const TxAuxiliaryDataSupplementType(this.value);

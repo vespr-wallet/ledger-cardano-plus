@@ -1,9 +1,9 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'parsed_c_vote_registration_params.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "parsed_c_vote_registration_params.dart";
 
-part 'parsed_tx_auxiliary_data.freezed.dart';
+part "parsed_tx_auxiliary_data.freezed.dart";
 
 @freezed
 sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
@@ -11,7 +11,7 @@ sealed class ParsedTxAuxiliaryData with _$ParsedTxAuxiliaryData {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       ArbitraryHash() => () => validateExactHexString(
-          thisClass.hashHex, 'hashHex', auxiliaryDataHashHexLength),
+          thisClass.hashHex, "hashHex", auxiliaryDataHashHexLength),
       CIP36Registration() => () => (),
     };
     assertinvoker();

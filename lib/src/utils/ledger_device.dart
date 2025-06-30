@@ -1,12 +1,12 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/ledger_connection_type.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
-part 'ledger_device.freezed.dart';
+import "ledger_connection_type.dart";
+
+part "ledger_device.freezed.dart";
 
 @freezed
 sealed class LedgerDevice with _$LedgerDevice {
-  const LedgerDevice._();
 
   const factory LedgerDevice({
     required String id,
@@ -15,4 +15,5 @@ sealed class LedgerDevice with _$LedgerDevice {
     required int rssi,
     required LedgerDeviceType deviceInfo,
   }) = _LedgerDevice;
+  const LedgerDevice._();
 }

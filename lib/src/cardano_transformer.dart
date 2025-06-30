@@ -1,6 +1,8 @@
-import 'dart:typed_data';
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "dart:typed_data";
+
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../ledger_cardano_plus.dart";
 
 const _ledgerSuccessCode = 0x9000;
 
@@ -12,7 +14,7 @@ class CardanoTransformer extends LedgerTransformer {
   Future<Uint8List> onTransform(List<Uint8List> transform) async {
     if (transform.isEmpty) {
       throw LedgerDeviceException(
-        message: 'No response data from Ledger.',
+        message: "No response data from Ledger.",
         errorCode: -10,
         connectionType: connectionType.toSdk(),
       );
@@ -21,7 +23,7 @@ class CardanoTransformer extends LedgerTransformer {
     final lastItem = transform.last;
     if (lastItem.length < 2) {
       throw LedgerDeviceException(
-        message: 'Response data from Ledger is too short.',
+        message: "Response data from Ledger is too short.",
         errorCode: -11,
         connectionType: connectionType.toSdk(),
       );
@@ -33,8 +35,8 @@ class CardanoTransformer extends LedgerTransformer {
     switch (statusCode) {
       case _ledgerSuccessCode:
         final output = <Uint8List>[];
-        for (var data in transform) {
-          int offset = (data.length >= 2) ? 2 : 0;
+        for (final data in transform) {
+          final int offset = (data.length >= 2) ? 2 : 0;
           output.add(data.sublist(0, data.length - offset));
         }
 

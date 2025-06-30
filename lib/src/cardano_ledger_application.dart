@@ -154,7 +154,7 @@ class CardanoLedgerConnection {
       final int minSupportedVersionCode = request.minSupportedVersionCode;
 
       if (deviceVersion.versionCode < minSupportedVersionCode) {
-        LedgerCardanoVersionNotSupported(
+        throw LedgerCardanoVersionNotSupported(
           message: "getExtendedPublicKeys",
           wantedVersion: CardanoVersion.fromVersionCode(minSupportedVersionCode).versionName,
           era: "Babbage",

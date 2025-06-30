@@ -16,13 +16,11 @@ sealed class StakingDataSource with _$StakingDataSource {
       StakingDataSourceBlockchainPointer() => () {
           validate32bitUnsignedInteger(thisClass.blockIndex, "blockIndex");
           validate32bitUnsignedInteger(thisClass.txIndex, "txIndex");
-          validate32bitUnsignedInteger(
-              thisClass.certificateIndex, "certificateIndex");
+          validate32bitUnsignedInteger(thisClass.certificateIndex, "certificateIndex");
         },
       StakingDataSourceScriptHash() => () {
           validateHexString(thisClass.scriptHashHex, "scriptHashHex");
-          validateMaxStringLength(
-              thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
+          validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
         },
     };
     assertinvoker();

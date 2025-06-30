@@ -4,7 +4,6 @@ part "parsed_margin.freezed.dart";
 
 @freezed
 sealed class ParsedMargin with _$ParsedMargin {
-
   factory ParsedMargin({
     required BigInt numerator,
     required BigInt denominator,

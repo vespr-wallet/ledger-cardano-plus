@@ -6,8 +6,7 @@ import "../models/extended_public_key.dart";
 import "../utils/constants.dart";
 import "../utils/utilities.dart";
 
-class GetExtendedPublicKeyOperation
-    extends LedgerComplexOperation<ExtendedPublicKey> {
+class GetExtendedPublicKeyOperation extends LedgerComplexOperation<ExtendedPublicKey> {
   final List<int> bip32Path;
 
   const GetExtendedPublicKeyOperation({

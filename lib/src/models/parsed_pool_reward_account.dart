@@ -10,10 +10,8 @@ sealed class ParsedPoolRewardAccount with _$ParsedPoolRewardAccount {
   ParsedPoolRewardAccount._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
-      DeviceOwnedPoolRewardAccount() => () =>
-          validateBIP32Path(thisClass.path, "path"),
-      ThirdPartyPoolRewardAccount() => () =>
-          validateHexString(thisClass.rewardAccountHex, "rewardAccountHex"),
+      DeviceOwnedPoolRewardAccount() => () => validateBIP32Path(thisClass.path, "path"),
+      ThirdPartyPoolRewardAccount() => () => validateHexString(thisClass.rewardAccountHex, "rewardAccountHex"),
     };
     assertInvoker();
   }

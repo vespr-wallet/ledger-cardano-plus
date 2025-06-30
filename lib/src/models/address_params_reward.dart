@@ -14,8 +14,7 @@ sealed class AddressParamsReward with _$AddressParamsReward {
           validateBIP32Path(thisClass.stakingPath, "stakingPath");
         },
       AddressParamsRewardStakingScriptHashHex() => () {
-          validateHexString(
-              thisClass.stakingScriptHashHex, "stakingScriptHashHex");
+          validateHexString(thisClass.stakingScriptHashHex, "stakingScriptHashHex");
         },
     };
     assertInvoker();

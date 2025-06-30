@@ -8,7 +8,6 @@ part "parsed_signing_request.freezed.dart";
 
 @freezed
 sealed class ParsedSigningRequest with _$ParsedSigningRequest {
-
   factory ParsedSigningRequest({
     required ParsedTransaction tx,
     required TransactionSigningModes signingMode,

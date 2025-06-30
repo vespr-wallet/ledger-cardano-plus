@@ -12,79 +12,82 @@ part of 'parsed_pool_owner.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ParsedPoolOwner {
-  int get poolOwnerValue;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ParsedPoolOwner &&
-            (identical(other.poolOwnerValue, poolOwnerValue) ||
-                other.poolOwnerValue == poolOwnerValue));
-  }
+ int get poolOwnerValue;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, poolOwnerValue);
 
-  @override
-  String toString() {
-    return 'ParsedPoolOwner(poolOwnerValue: $poolOwnerValue)';
-  }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolOwner&&(identical(other.poolOwnerValue, poolOwnerValue) || other.poolOwnerValue == poolOwnerValue));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,poolOwnerValue);
+
+@override
+String toString() {
+  return 'ParsedPoolOwner(poolOwnerValue: $poolOwnerValue)';
+}
+
+
 }
 
 /// @nodoc
-class $ParsedPoolOwnerCopyWith<$Res> {
-  $ParsedPoolOwnerCopyWith(
-      ParsedPoolOwner _, $Res Function(ParsedPoolOwner) __);
+class $ParsedPoolOwnerCopyWith<$Res>  {
+$ParsedPoolOwnerCopyWith(ParsedPoolOwner _, $Res Function(ParsedPoolOwner) __);
 }
 
+
 /// @nodoc
+
 
 class DeviceOwnedPoolOwner extends ParsedPoolOwner {
-  DeviceOwnedPoolOwner({required this.path}) : super._();
+   DeviceOwnedPoolOwner({required this.path}): super._();
+  
 
-  final LedgerSigningPath path;
+ final  LedgerSigningPath path;
 
-  /// Create a copy of ParsedPoolOwner
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $DeviceOwnedPoolOwnerCopyWith<DeviceOwnedPoolOwner> get copyWith =>
-      _$DeviceOwnedPoolOwnerCopyWithImpl<DeviceOwnedPoolOwner>(
-          this, _$identity);
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedPoolOwnerCopyWith<DeviceOwnedPoolOwner> get copyWith => _$DeviceOwnedPoolOwnerCopyWithImpl<DeviceOwnedPoolOwner>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DeviceOwnedPoolOwner &&
-            (identical(other.path, path) || other.path == path));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, path);
 
-  @override
-  String toString() {
-    return 'ParsedPoolOwner.deviceOwned(path: $path)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolOwner&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'ParsedPoolOwner.deviceOwned(path: $path)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $DeviceOwnedPoolOwnerCopyWith<$Res>
-    implements $ParsedPoolOwnerCopyWith<$Res> {
-  factory $DeviceOwnedPoolOwnerCopyWith(DeviceOwnedPoolOwner value,
-          $Res Function(DeviceOwnedPoolOwner) _then) =
-      _$DeviceOwnedPoolOwnerCopyWithImpl;
-  @useResult
-  $Res call({LedgerSigningPath path});
+abstract mixin class $DeviceOwnedPoolOwnerCopyWith<$Res> implements $ParsedPoolOwnerCopyWith<$Res> {
+  factory $DeviceOwnedPoolOwnerCopyWith(DeviceOwnedPoolOwner value, $Res Function(DeviceOwnedPoolOwner) _then) = _$DeviceOwnedPoolOwnerCopyWithImpl;
+@useResult
+$Res call({
+ LedgerSigningPath path
+});
 
-  $LedgerSigningPathCopyWith<$Res> get path;
+
+$LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
 class _$DeviceOwnedPoolOwnerCopyWithImpl<$Res>
     implements $DeviceOwnedPoolOwnerCopyWith<$Res> {
@@ -93,72 +96,73 @@ class _$DeviceOwnedPoolOwnerCopyWithImpl<$Res>
   final DeviceOwnedPoolOwner _self;
   final $Res Function(DeviceOwnedPoolOwner) _then;
 
-  /// Create a copy of ParsedPoolOwner
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? path = null,
-  }) {
-    return _then(DeviceOwnedPoolOwner(
-      path: null == path
-          ? _self.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as LedgerSigningPath,
-    ));
-  }
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(DeviceOwnedPoolOwner(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
+  ));
+}
 
-  /// Create a copy of ParsedPoolOwner
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LedgerSigningPathCopyWith<$Res> get path {
-    return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
-      return _then(_self.copyWith(path: value));
-    });
-  }
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LedgerSigningPathCopyWith<$Res> get path {
+  
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
+  });
+}
 }
 
 /// @nodoc
+
 
 class ThirdPartyPoolOwner extends ParsedPoolOwner {
-  ThirdPartyPoolOwner({required this.hashHex}) : super._();
+   ThirdPartyPoolOwner({required this.hashHex}): super._();
+  
 
-  final String hashHex;
+ final  String hashHex;
 
-  /// Create a copy of ParsedPoolOwner
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $ThirdPartyPoolOwnerCopyWith<ThirdPartyPoolOwner> get copyWith =>
-      _$ThirdPartyPoolOwnerCopyWithImpl<ThirdPartyPoolOwner>(this, _$identity);
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ThirdPartyPoolOwnerCopyWith<ThirdPartyPoolOwner> get copyWith => _$ThirdPartyPoolOwnerCopyWithImpl<ThirdPartyPoolOwner>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ThirdPartyPoolOwner &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hashHex);
 
-  @override
-  String toString() {
-    return 'ParsedPoolOwner.thirdParty(hashHex: $hashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolOwner&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hashHex);
+
+@override
+String toString() {
+  return 'ParsedPoolOwner.thirdParty(hashHex: $hashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $ThirdPartyPoolOwnerCopyWith<$Res>
-    implements $ParsedPoolOwnerCopyWith<$Res> {
-  factory $ThirdPartyPoolOwnerCopyWith(
-          ThirdPartyPoolOwner value, $Res Function(ThirdPartyPoolOwner) _then) =
-      _$ThirdPartyPoolOwnerCopyWithImpl;
-  @useResult
-  $Res call({String hashHex});
-}
+abstract mixin class $ThirdPartyPoolOwnerCopyWith<$Res> implements $ParsedPoolOwnerCopyWith<$Res> {
+  factory $ThirdPartyPoolOwnerCopyWith(ThirdPartyPoolOwner value, $Res Function(ThirdPartyPoolOwner) _then) = _$ThirdPartyPoolOwnerCopyWithImpl;
+@useResult
+$Res call({
+ String hashHex
+});
 
+
+
+
+}
 /// @nodoc
 class _$ThirdPartyPoolOwnerCopyWithImpl<$Res>
     implements $ThirdPartyPoolOwnerCopyWith<$Res> {
@@ -167,19 +171,16 @@ class _$ThirdPartyPoolOwnerCopyWithImpl<$Res>
   final ThirdPartyPoolOwner _self;
   final $Res Function(ThirdPartyPoolOwner) _then;
 
-  /// Create a copy of ParsedPoolOwner
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? hashHex = null,
-  }) {
-    return _then(ThirdPartyPoolOwner(
-      hashHex: null == hashHex
-          ? _self.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedPoolOwner
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? hashHex = null,}) {
+  return _then(ThirdPartyPoolOwner(
+hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

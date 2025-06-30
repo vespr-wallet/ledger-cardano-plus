@@ -11,21 +11,14 @@ sealed class ParsedVoter with _$ParsedVoter {
   ParsedVoter._() {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
-      CommitteeKeyHash() => () => validateExactHexString(
-          thisClass.keyHashHex, "keyHashHex", keyHashLength),
-      CommitteeKeyPath() => () =>
-          validateBIP32Path(thisClass.keyPath, "keyPath"),
-      CommitteeScriptHash() => () => validateExactHexString(
-          thisClass.scriptHashHex, "scriptHashHex", scriptHashLength),
-      DrepKeyHash() => () => validateExactHexString(
-          thisClass.keyHashHex, "keyHashHex", keyHashLength),
+      CommitteeKeyHash() => () => validateExactHexString(thisClass.keyHashHex, "keyHashHex", keyHashLength),
+      CommitteeKeyPath() => () => validateBIP32Path(thisClass.keyPath, "keyPath"),
+      CommitteeScriptHash() => () => validateExactHexString(thisClass.scriptHashHex, "scriptHashHex", scriptHashLength),
+      DrepKeyHash() => () => validateExactHexString(thisClass.keyHashHex, "keyHashHex", keyHashLength),
       DrepKeyPath() => () => validateBIP32Path(thisClass.keyPath, "keyPath"),
-      DrepScriptHash() => () => validateExactHexString(
-          thisClass.scriptHashHex, "scriptHashHex", scriptHashLength),
-      StakePoolKeyHash() => () => validateExactHexString(
-          thisClass.keyHashHex, "keyHashHex", keyHashLength),
-      StakePoolKeyPath() => () =>
-          validateBIP32Path(thisClass.keyPath, "keyPath"),
+      DrepScriptHash() => () => validateExactHexString(thisClass.scriptHashHex, "scriptHashHex", scriptHashLength),
+      StakePoolKeyHash() => () => validateExactHexString(thisClass.keyHashHex, "keyHashHex", keyHashLength),
+      StakePoolKeyPath() => () => validateBIP32Path(thisClass.keyPath, "keyPath"),
     };
     assertinvoker();
   }

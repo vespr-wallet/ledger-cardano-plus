@@ -6,7 +6,6 @@ part "parsed_token.freezed.dart";
 
 @freezed
 sealed class ParsedToken with _$ParsedToken {
-
   factory ParsedToken({
     required String assetNameHex,
     required BigInt amount,

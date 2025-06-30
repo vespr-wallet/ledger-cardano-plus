@@ -12,8 +12,7 @@ sealed class ParsedOutputDestination with _$ParsedOutputDestination {
     final void Function() assertinvoker = switch (thisClass) {
       ThirdParty() => () {
           validateHexString(thisClass.addressHex, "addressHex");
-          validateMaxStringLength(
-              thisClass.addressHex, "addressHex", addressHexLength);
+          validateMaxStringLength(thisClass.addressHex, "addressHex", addressHexLength);
         },
       DeviceOwned() => () => (),
     };

@@ -8,7 +8,6 @@ part "parsed_operational_certificate.freezed.dart";
 
 @freezed
 sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
-
   factory ParsedOperationalCertificate({
     required String kesPublicKeyHex,
     required BigInt kesPeriod,
@@ -16,7 +15,6 @@ sealed class ParsedOperationalCertificate with _$ParsedOperationalCertificate {
     required LedgerSigningPath coldKeyPath,
   }) = _ParsedOperationalCertificate;
   ParsedOperationalCertificate._() {
-    validateExactHexString(
-        kesPublicKeyHex, "kesPublicKeyHex", kesPublicKeyLength);
+    validateExactHexString(kesPublicKeyHex, "kesPublicKeyHex", kesPublicKeyLength);
   }
 }

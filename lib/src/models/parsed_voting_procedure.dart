@@ -6,7 +6,6 @@ part "parsed_voting_procedure.freezed.dart";
 
 @freezed
 sealed class ParsedVotingProcedure with _$ParsedVotingProcedure {
-
   factory ParsedVotingProcedure({
     required VoteOption vote,
     required ParsedAnchor? anchor,

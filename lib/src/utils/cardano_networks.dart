@@ -30,8 +30,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkPreProd() => 1,
     NetworkPreview() => 2,
     NetworkConway() => 4,
-    NetworkCustom(customNetworkMagic: final customNetworkMagic) =>
-      customNetworkMagic,
+    NetworkCustom(customNetworkMagic: final customNetworkMagic) => customNetworkMagic,
   };
 
   @override
@@ -51,8 +50,7 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkPreProd() => "addr_test",
     NetworkPreview() => "addr_test",
     NetworkConway() => "addr_test",
-    NetworkCustom(customPaymentBech32Hrp: final customPaymentBech32Hrp) =>
-      customPaymentBech32Hrp,
+    NetworkCustom(customPaymentBech32Hrp: final customPaymentBech32Hrp) => customPaymentBech32Hrp,
   };
 
   @override
@@ -62,7 +60,6 @@ sealed class CardanoNetwork with _$CardanoNetwork {
     NetworkPreProd() => "stake_test",
     NetworkPreview() => "stake_test",
     NetworkConway() => "stake_test",
-    NetworkCustom(customStakeBech32Hrp: final customStakeBech32Hrp) =>
-      customStakeBech32Hrp,
+    NetworkCustom(customStakeBech32Hrp: final customStakeBech32Hrp) => customStakeBech32Hrp,
   };
 }

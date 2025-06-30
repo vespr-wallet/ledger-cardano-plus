@@ -50,31 +50,26 @@ Uint8List ipStringToBytes(String ipString) {
       throw LedgerCardanoValidationException("Invalid IP address format");
     }
   } catch (e) {
-    throw LedgerCardanoValidationException(
-        "Error converting IP string to bytes: $e");
+    throw LedgerCardanoValidationException("Error converting IP string to bytes: $e");
   }
 }
 
 void validateUint64(BigInt? value, String fieldName) {
   if (value != null && (value.bitLength > 64 || value.sign == -1)) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be positive and max 64 bits.");
+    throw LedgerCardanoValidationException("$fieldName must be positive and max 64 bits.");
   }
 }
 
 void validateInt64(BigInt? value, String fieldName) {
   if (value != null && value.bitLength > 63) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must have max 64 bits (including sign bit).");
+    throw LedgerCardanoValidationException("$fieldName must have max 64 bits (including sign bit).");
   }
 }
 
 void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
   if (path != null) {
-    if (path.signingPath.isEmpty ||
-        path.signingPath.length > maxBIP32PathLength) {
-      throw LedgerCardanoValidationException(
-          "$fieldName must contain between 1 and $maxBIP32PathLength indices");
+    if (path.signingPath.isEmpty || path.signingPath.length > maxBIP32PathLength) {
+      throw LedgerCardanoValidationException("$fieldName must contain between 1 and $maxBIP32PathLength indices");
     }
     for (final int index in path.signingPath) {
       if (index < 0 || index > max32BitValue) {
@@ -87,45 +82,39 @@ void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
 
 void validateMaxStringLength(String? value, String fieldName, int maxLength) {
   if (value != null && value.length > maxLength) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be maximum $maxLength characters long");
+    throw LedgerCardanoValidationException("$fieldName must be maximum $maxLength characters long");
   }
 }
 
 void validate32bitUnsignedInteger(int value, String fieldName) {
   if (value < 0 || value > max32BitValue) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be an unsigned 32-bit integer");
+    throw LedgerCardanoValidationException("$fieldName must be an unsigned 32-bit integer");
   }
 }
 
 void validateUrl(String? value, String fieldName) {
   if (value != null && value.length > maxUrlLength) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be maximum $maxUrlLength characters long");
+    throw LedgerCardanoValidationException("$fieldName must be maximum $maxUrlLength characters long");
   }
 }
 
 void validateExactHexString(String? value, String fieldName, int length) {
   validateHexString(value, fieldName);
   if (value != null && value.length != length) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be exactly $length characters long");
+    throw LedgerCardanoValidationException("$fieldName must be exactly $length characters long");
   }
 }
 
 void validateUint32(int? value, String fieldName) {
   if (value != null && (value.bitLength > 31 || value.sign == -1)) {
-    throw LedgerCardanoValidationException(
-        "$fieldName must be an unsigned 32-bit integer");
+    throw LedgerCardanoValidationException("$fieldName must be an unsigned 32-bit integer");
   }
 }
 
 void validateHexString(String? value, String fieldName) {
   if (value != null) {
     if (value.length % 2 != 0) {
-      throw LedgerCardanoValidationException(
-          "$fieldName must be a valid hex string with an even number of characters");
+      throw LedgerCardanoValidationException("$fieldName must be a valid hex string with an even number of characters");
     }
     final hexRegex = RegExp(r"^[0-9a-fA-F]+$");
     if (!hexRegex.hasMatch(value)) {
@@ -192,6 +181,6 @@ List<int> toWords(List<int> bytes) {
 }
 
 Uint8List hexToBytes(String hex) {
-  return Uint8List.fromList(List.generate(hex.length ~/ 2,
-      (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)));
+  return Uint8List.fromList(
+      List.generate(hex.length ~/ 2, (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)));
 }

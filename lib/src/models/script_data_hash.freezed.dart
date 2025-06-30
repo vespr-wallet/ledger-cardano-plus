@@ -12,46 +12,47 @@ part of 'script_data_hash.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ScriptDataHash {
-  String get hexString;
 
-  /// Create a copy of ScriptDataHash
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $ScriptDataHashCopyWith<ScriptDataHash> get copyWith =>
-      _$ScriptDataHashCopyWithImpl<ScriptDataHash>(
-          this as ScriptDataHash, _$identity);
+ String get hexString;
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ScriptDataHashCopyWith<ScriptDataHash> get copyWith => _$ScriptDataHashCopyWithImpl<ScriptDataHash>(this as ScriptDataHash, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ScriptDataHash &&
-            (identical(other.hexString, hexString) ||
-                other.hexString == hexString));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hexString);
 
-  @override
-  String toString() {
-    return 'ScriptDataHash(hexString: $hexString)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScriptDataHash&&(identical(other.hexString, hexString) || other.hexString == hexString));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hexString);
+
+@override
+String toString() {
+  return 'ScriptDataHash(hexString: $hexString)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $ScriptDataHashCopyWith<$Res> {
-  factory $ScriptDataHashCopyWith(
-          ScriptDataHash value, $Res Function(ScriptDataHash) _then) =
-      _$ScriptDataHashCopyWithImpl;
-  @useResult
-  $Res call({String hexString});
-}
+abstract mixin class $ScriptDataHashCopyWith<$Res>  {
+  factory $ScriptDataHashCopyWith(ScriptDataHash value, $Res Function(ScriptDataHash) _then) = _$ScriptDataHashCopyWithImpl;
+@useResult
+$Res call({
+ String hexString
+});
 
+
+
+
+}
 /// @nodoc
 class _$ScriptDataHashCopyWithImpl<$Res>
     implements $ScriptDataHashCopyWith<$Res> {
@@ -60,67 +61,64 @@ class _$ScriptDataHashCopyWithImpl<$Res>
   final ScriptDataHash _self;
   final $Res Function(ScriptDataHash) _then;
 
-  /// Create a copy of ScriptDataHash
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? hexString = null,
-  }) {
-    return _then(_self.copyWith(
-      hexString: null == hexString
-          ? _self.hexString
-          : hexString // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
+  return _then(_self.copyWith(
+hexString: null == hexString ? _self.hexString : hexString // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
+}
+
+
 /// @nodoc
+
 
 class _ScriptDataHash extends ScriptDataHash {
-  _ScriptDataHash({required this.hexString}) : super._();
+   _ScriptDataHash({required this.hexString}): super._();
+  
 
-  @override
-  final String hexString;
+@override final  String hexString;
 
-  /// Create a copy of ScriptDataHash
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$ScriptDataHashCopyWith<_ScriptDataHash> get copyWith =>
-      __$ScriptDataHashCopyWithImpl<_ScriptDataHash>(this, _$identity);
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ScriptDataHashCopyWith<_ScriptDataHash> get copyWith => __$ScriptDataHashCopyWithImpl<_ScriptDataHash>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ScriptDataHash &&
-            (identical(other.hexString, hexString) ||
-                other.hexString == hexString));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hexString);
 
-  @override
-  String toString() {
-    return 'ScriptDataHash(hexString: $hexString)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScriptDataHash&&(identical(other.hexString, hexString) || other.hexString == hexString));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hexString);
+
+@override
+String toString() {
+  return 'ScriptDataHash(hexString: $hexString)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class _$ScriptDataHashCopyWith<$Res>
-    implements $ScriptDataHashCopyWith<$Res> {
-  factory _$ScriptDataHashCopyWith(
-          _ScriptDataHash value, $Res Function(_ScriptDataHash) _then) =
-      __$ScriptDataHashCopyWithImpl;
-  @override
-  @useResult
-  $Res call({String hexString});
-}
+abstract mixin class _$ScriptDataHashCopyWith<$Res> implements $ScriptDataHashCopyWith<$Res> {
+  factory _$ScriptDataHashCopyWith(_ScriptDataHash value, $Res Function(_ScriptDataHash) _then) = __$ScriptDataHashCopyWithImpl;
+@override @useResult
+$Res call({
+ String hexString
+});
 
+
+
+
+}
 /// @nodoc
 class __$ScriptDataHashCopyWithImpl<$Res>
     implements _$ScriptDataHashCopyWith<$Res> {
@@ -129,20 +127,16 @@ class __$ScriptDataHashCopyWithImpl<$Res>
   final _ScriptDataHash _self;
   final $Res Function(_ScriptDataHash) _then;
 
-  /// Create a copy of ScriptDataHash
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? hexString = null,
-  }) {
-    return _then(_ScriptDataHash(
-      hexString: null == hexString
-          ? _self.hexString
-          : hexString // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ScriptDataHash
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? hexString = null,}) {
+  return _then(_ScriptDataHash(
+hexString: null == hexString ? _self.hexString : hexString // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

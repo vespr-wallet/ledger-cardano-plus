@@ -12,77 +12,82 @@ part of 'parsed_pool_key.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ParsedPoolKey {
-  int get poolKeyValue;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ParsedPoolKey &&
-            (identical(other.poolKeyValue, poolKeyValue) ||
-                other.poolKeyValue == poolKeyValue));
-  }
+ int get poolKeyValue;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, poolKeyValue);
 
-  @override
-  String toString() {
-    return 'ParsedPoolKey(poolKeyValue: $poolKeyValue)';
-  }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolKey&&(identical(other.poolKeyValue, poolKeyValue) || other.poolKeyValue == poolKeyValue));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,poolKeyValue);
+
+@override
+String toString() {
+  return 'ParsedPoolKey(poolKeyValue: $poolKeyValue)';
+}
+
+
 }
 
 /// @nodoc
-class $ParsedPoolKeyCopyWith<$Res> {
-  $ParsedPoolKeyCopyWith(ParsedPoolKey _, $Res Function(ParsedPoolKey) __);
+class $ParsedPoolKeyCopyWith<$Res>  {
+$ParsedPoolKeyCopyWith(ParsedPoolKey _, $Res Function(ParsedPoolKey) __);
 }
 
+
 /// @nodoc
+
 
 class DeviceOwnedPoolKey extends ParsedPoolKey {
-  DeviceOwnedPoolKey({required this.path}) : super._();
+   DeviceOwnedPoolKey({required this.path}): super._();
+  
 
-  final LedgerSigningPath path;
+ final  LedgerSigningPath path;
 
-  /// Create a copy of ParsedPoolKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $DeviceOwnedPoolKeyCopyWith<DeviceOwnedPoolKey> get copyWith =>
-      _$DeviceOwnedPoolKeyCopyWithImpl<DeviceOwnedPoolKey>(this, _$identity);
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedPoolKeyCopyWith<DeviceOwnedPoolKey> get copyWith => _$DeviceOwnedPoolKeyCopyWithImpl<DeviceOwnedPoolKey>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DeviceOwnedPoolKey &&
-            (identical(other.path, path) || other.path == path));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, path);
 
-  @override
-  String toString() {
-    return 'ParsedPoolKey.deviceOwned(path: $path)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolKey&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'ParsedPoolKey.deviceOwned(path: $path)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $DeviceOwnedPoolKeyCopyWith<$Res>
-    implements $ParsedPoolKeyCopyWith<$Res> {
-  factory $DeviceOwnedPoolKeyCopyWith(
-          DeviceOwnedPoolKey value, $Res Function(DeviceOwnedPoolKey) _then) =
-      _$DeviceOwnedPoolKeyCopyWithImpl;
-  @useResult
-  $Res call({LedgerSigningPath path});
+abstract mixin class $DeviceOwnedPoolKeyCopyWith<$Res> implements $ParsedPoolKeyCopyWith<$Res> {
+  factory $DeviceOwnedPoolKeyCopyWith(DeviceOwnedPoolKey value, $Res Function(DeviceOwnedPoolKey) _then) = _$DeviceOwnedPoolKeyCopyWithImpl;
+@useResult
+$Res call({
+ LedgerSigningPath path
+});
 
-  $LedgerSigningPathCopyWith<$Res> get path;
+
+$LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
 class _$DeviceOwnedPoolKeyCopyWithImpl<$Res>
     implements $DeviceOwnedPoolKeyCopyWith<$Res> {
@@ -91,72 +96,73 @@ class _$DeviceOwnedPoolKeyCopyWithImpl<$Res>
   final DeviceOwnedPoolKey _self;
   final $Res Function(DeviceOwnedPoolKey) _then;
 
-  /// Create a copy of ParsedPoolKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? path = null,
-  }) {
-    return _then(DeviceOwnedPoolKey(
-      path: null == path
-          ? _self.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as LedgerSigningPath,
-    ));
-  }
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(DeviceOwnedPoolKey(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
+  ));
+}
 
-  /// Create a copy of ParsedPoolKey
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LedgerSigningPathCopyWith<$Res> get path {
-    return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
-      return _then(_self.copyWith(path: value));
-    });
-  }
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LedgerSigningPathCopyWith<$Res> get path {
+  
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
+  });
+}
 }
 
 /// @nodoc
+
 
 class ThirdPartyPoolKey extends ParsedPoolKey {
-  ThirdPartyPoolKey({required this.hashHex}) : super._();
+   ThirdPartyPoolKey({required this.hashHex}): super._();
+  
 
-  final String hashHex;
+ final  String hashHex;
 
-  /// Create a copy of ParsedPoolKey
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $ThirdPartyPoolKeyCopyWith<ThirdPartyPoolKey> get copyWith =>
-      _$ThirdPartyPoolKeyCopyWithImpl<ThirdPartyPoolKey>(this, _$identity);
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ThirdPartyPoolKeyCopyWith<ThirdPartyPoolKey> get copyWith => _$ThirdPartyPoolKeyCopyWithImpl<ThirdPartyPoolKey>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ThirdPartyPoolKey &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, hashHex);
 
-  @override
-  String toString() {
-    return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolKey&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hashHex);
+
+@override
+String toString() {
+  return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $ThirdPartyPoolKeyCopyWith<$Res>
-    implements $ParsedPoolKeyCopyWith<$Res> {
-  factory $ThirdPartyPoolKeyCopyWith(
-          ThirdPartyPoolKey value, $Res Function(ThirdPartyPoolKey) _then) =
-      _$ThirdPartyPoolKeyCopyWithImpl;
-  @useResult
-  $Res call({String hashHex});
-}
+abstract mixin class $ThirdPartyPoolKeyCopyWith<$Res> implements $ParsedPoolKeyCopyWith<$Res> {
+  factory $ThirdPartyPoolKeyCopyWith(ThirdPartyPoolKey value, $Res Function(ThirdPartyPoolKey) _then) = _$ThirdPartyPoolKeyCopyWithImpl;
+@useResult
+$Res call({
+ String hashHex
+});
 
+
+
+
+}
 /// @nodoc
 class _$ThirdPartyPoolKeyCopyWithImpl<$Res>
     implements $ThirdPartyPoolKeyCopyWith<$Res> {
@@ -165,19 +171,16 @@ class _$ThirdPartyPoolKeyCopyWithImpl<$Res>
   final ThirdPartyPoolKey _self;
   final $Res Function(ThirdPartyPoolKey) _then;
 
-  /// Create a copy of ParsedPoolKey
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? hashHex = null,
-  }) {
-    return _then(ThirdPartyPoolKey(
-      hashHex: null == hashHex
-          ? _self.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedPoolKey
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? hashHex = null,}) {
+  return _then(ThirdPartyPoolKey(
+hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

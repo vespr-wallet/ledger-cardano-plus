@@ -6,7 +6,6 @@ part "address_params_pointer.freezed.dart";
 
 @freezed
 sealed class AddressParamsPointer with _$AddressParamsPointer {
-
   factory AddressParamsPointer({
     required SpendingParams spendingParams,
     required BlockchainPointer stakingBlockchainPointer,

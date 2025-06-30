@@ -6,7 +6,6 @@ part "parsed_gov_action_id.freezed.dart";
 
 @freezed
 sealed class ParsedGovActionId with _$ParsedGovActionId {
-
   factory ParsedGovActionId({
     required String txHashHex,
     required int govActionIndex,
@@ -15,8 +14,7 @@ sealed class ParsedGovActionId with _$ParsedGovActionId {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       _ParsedGovActionId() => () {
-          validateExactHexString(
-              thisClass.txHashHex, "txHashHex", txHashLength * 2);
+          validateExactHexString(thisClass.txHashHex, "txHashHex", txHashLength * 2);
           validateUint32(thisClass.govActionIndex, "govActionIndex");
         },
     };

@@ -15,7 +15,6 @@ part "version_compatibility.freezed.dart";
 
 @freezed
 sealed class VersionCompatibility with _$VersionCompatibility {
-
   const factory VersionCompatibility({
     required bool isCompatible,
     required String? recommendedVersion,
@@ -39,15 +38,13 @@ sealed class VersionCompatibility with _$VersionCompatibility {
   }) = _VersionCompatibility;
   const VersionCompatibility._();
 
-  factory VersionCompatibility.checkVersionCompatibility(
-      CardanoVersion version) {
+  factory VersionCompatibility.checkVersionCompatibility(CardanoVersion version) {
     final isAppXS = version.flags.isAppXS;
     final int major = version.versionMajor;
     final int minor = version.versionMinor;
 
     bool isVersionInRange(int minMajor, int minMinor, [int maxMajor = 7]) {
-      return (major > minMajor || (major == minMajor && minor >= minMinor)) &&
-          major <= maxMajor;
+      return (major > minMajor || (major == minMajor && minor >= minMinor)) && major <= maxMajor;
     }
 
     return VersionCompatibility(
@@ -73,42 +70,32 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     );
   }
 
-  static void ensureRequestSupportedByAppVersion(
-      CardanoVersion version, ParsedSigningRequest request) {
-    final compatibility =
-        VersionCompatibility.checkVersionCompatibility(version);
+  static void ensureRequestSupportedByAppVersion(CardanoVersion version, ParsedSigningRequest request) {
+    final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
     final void Function() invoker = switch (request.signingMode) {
-      TransactionSigningModes.poolRegistrationAsOwner
-          when !compatibility.supportsPoolRegistrationAsOwner =>
-        () {
+      TransactionSigningModes.poolRegistrationAsOwner when !compatibility.supportsPoolRegistrationAsOwner => () {
           throw LedgerCardanoVersionNotSupported(
             message: "Pool registration as owner",
             wantedVersion: ">=2.2.0",
             era: "Mary",
           );
         },
-      TransactionSigningModes.poolRegistrationAsOperator
-          when !compatibility.supportsPoolRegistrationAsOperator =>
-        () {
+      TransactionSigningModes.poolRegistrationAsOperator when !compatibility.supportsPoolRegistrationAsOperator => () {
           throw LedgerCardanoVersionNotSupported(
             message: "Pool registration as operator",
             wantedVersion: ">=2.4.0",
             era: "Mary",
           );
         },
-      TransactionSigningModes.multisigTransaction
-          when !compatibility.supportsMultisigTransaction =>
-        () {
+      TransactionSigningModes.multisigTransaction when !compatibility.supportsMultisigTransaction => () {
           throw LedgerCardanoVersionNotSupported(
             message: "Multisig transaction",
             wantedVersion: ">=3.0.0",
             era: "Mary",
           );
         },
-      TransactionSigningModes.plutusTransaction
-          when !compatibility.supportsAlonzo =>
-        () {
+      TransactionSigningModes.plutusTransaction when !compatibility.supportsAlonzo => () {
           throw LedgerCardanoVersionNotSupported(
             message: "Plutus transaction",
             wantedVersion: ">=4.0.0",
@@ -159,8 +146,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasConwayCertificates =
-        request.tx.certificates?.any((c) => c.isConway) ?? false;
+    final hasConwayCertificates = request.tx.certificates?.any((c) => c.isConway) ?? false;
     if (hasConwayCertificates && !compatibility.supportsConway) {
       throw LedgerCardanoVersionNotSupported(
         message: "Conway certificates",
@@ -177,8 +163,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasMapFormatInOutputs =
-        request.tx.outputs.any((o) => o.format == TxOutputFormat.mapBabbage);
+    final hasMapFormatInOutputs = request.tx.outputs.any((o) => o.format == TxOutputFormat.mapBabbage);
     if (hasMapFormatInOutputs && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Map CBOR output(s)",
@@ -203,8 +188,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.referenceInputs?.isNotEmpty == true &&
-        !compatibility.supportsBabbage) {
+    if (request.tx.referenceInputs?.isNotEmpty == true && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Reference inputs",
         wantedVersion: ">=6.0.0",
@@ -212,8 +196,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.requiredSigners?.isNotEmpty == true &&
-        !compatibility.supportsAlonzo) {
+    if (request.tx.requiredSigners?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw LedgerCardanoVersionNotSupported(
         message: "Required signers",
         wantedVersion: ">=4.0.0",
@@ -237,8 +220,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    if (request.tx.collateralInputs?.isNotEmpty == true &&
-        !compatibility.supportsAlonzo) {
+    if (request.tx.collateralInputs?.isNotEmpty == true && !compatibility.supportsAlonzo) {
       throw LedgerCardanoVersionNotSupported(
         message: "Collateral inputs",
         wantedVersion: ">=4.0.0",
@@ -248,12 +230,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
 
     final auxiliaryData = request.tx.auxiliaryData;
     final hasCIP15Registration = switch (auxiliaryData) {
-      CIP36Registration(
-        params: ParsedCVoteRegistrationParams(
-          format: CIP36VoteRegistrationFormat.cip15
-        )
-      ) =>
-        true,
+      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip15)) => true,
       _ => false,
     };
     if (hasCIP15Registration && !compatibility.supportsCatalystRegistration) {
@@ -265,12 +242,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasCIP36Registration = switch (auxiliaryData) {
-      CIP36Registration(
-        params: ParsedCVoteRegistrationParams(
-          format: CIP36VoteRegistrationFormat.cip36
-        )
-      ) =>
-        true,
+      CIP36Registration(params: ParsedCVoteRegistrationParams(format: CIP36VoteRegistrationFormat.cip36)) => true,
       _ => false,
     };
     if (hasCIP36Registration && !compatibility.supportsCIP36) {
@@ -294,10 +266,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     }
 
     final thirdPartyPayment = switch (auxiliaryData) {
-      CIP36Registration(
-        params: ParsedCVoteRegistrationParams(paymentDestination: ThirdParty())
-      ) =>
-        true,
+      CIP36Registration(params: ParsedCVoteRegistrationParams(paymentDestination: ThirdParty())) => true,
       _ => false,
     };
     if (thirdPartyPayment && !compatibility.supportsCIP36) {

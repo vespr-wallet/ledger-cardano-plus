@@ -6,7 +6,6 @@ part "script_data_hash.freezed.dart";
 
 @freezed
 sealed class ScriptDataHash with _$ScriptDataHash {
-
   factory ScriptDataHash({
     required String hexString,
   }) = _ScriptDataHash;

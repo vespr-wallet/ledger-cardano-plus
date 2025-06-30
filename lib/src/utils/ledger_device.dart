@@ -7,7 +7,6 @@ part "ledger_device.freezed.dart";
 
 @freezed
 sealed class LedgerDevice with _$LedgerDevice {
-
   const factory LedgerDevice({
     required String id,
     required String name,

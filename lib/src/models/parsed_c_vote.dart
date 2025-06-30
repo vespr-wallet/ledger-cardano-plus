@@ -7,7 +7,6 @@ part "parsed_c_vote.freezed.dart";
 
 @freezed
 sealed class ParsedCVote with _$ParsedCVote {
-
   factory ParsedCVote({
     required String voteCastDataHex,
     required LedgerSigningPath witnessPath,

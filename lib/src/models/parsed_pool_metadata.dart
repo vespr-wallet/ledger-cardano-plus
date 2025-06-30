@@ -5,7 +5,6 @@ part "parsed_pool_metadata.freezed.dart";
 
 @freezed
 sealed class ParsedPoolMetadata with _$ParsedPoolMetadata {
-
   factory ParsedPoolMetadata({
     required String url,
     required String hashHex,

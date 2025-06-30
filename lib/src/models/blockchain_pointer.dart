@@ -4,7 +4,6 @@ part "blockchain_pointer.freezed.dart";
 
 @freezed
 sealed class BlockchainPointer with _$BlockchainPointer {
-
   factory BlockchainPointer({
     required int blockIndex,
     required int txIndex,

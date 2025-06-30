@@ -38,12 +38,7 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
         0,
         address
       ],
-    LedgerSigningPath_Shelley(
-      account: final account,
-      role: ShelleyAddressRole role,
-      address: final address
-    ) =>
-      [
+    LedgerSigningPath_Shelley(account: final account, role: ShelleyAddressRole role, address: final address) => [
         harden + 1852,
         harden + 1815,
         harden + account,

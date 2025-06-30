@@ -10,10 +10,8 @@ sealed class SpendingParams with _$SpendingParams {
   SpendingParams._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
-      SpendingParamsPath() => () =>
-          validateBIP32Path(thisClass.spendingPath, "spendingPath"),
-      SpendingParamsScriptHash() => () => validateHexString(
-          thisClass.spendingScriptHashHex, "spendingScriptHashHex"),
+      SpendingParamsPath() => () => validateBIP32Path(thisClass.spendingPath, "spendingPath"),
+      SpendingParamsScriptHash() => () => validateHexString(thisClass.spendingScriptHashHex, "spendingScriptHashHex"),
     };
     assertInvoker();
   }

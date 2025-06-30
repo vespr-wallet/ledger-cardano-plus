@@ -7,7 +7,6 @@ part "cardano_version.freezed.dart";
 
 @freezed
 sealed class CardanoVersion with _$CardanoVersion {
-
   factory CardanoVersion({
     required bool testMode,
     required int versionMajor,
@@ -19,15 +18,13 @@ sealed class CardanoVersion with _$CardanoVersion {
   CardanoVersion._();
 
   @override
-  late final int versionCode =
-      versionMajor * 10000 + versionMinor * 100 + versionPatch;
+  late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
   @override
   late final String versionName = "$versionMajor.$versionMinor.$versionPatch";
 
   @override
-  late final VersionCompatibility compatibility =
-      VersionCompatibility.checkVersionCompatibility(this);
+  late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
         testMode: false,

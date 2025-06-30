@@ -12,122 +12,115 @@ part of 'parsed_anchor.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ParsedAnchor {
-  String get url;
-  String get hashHex;
 
-  /// Create a copy of ParsedAnchor
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $ParsedAnchorCopyWith<ParsedAnchor> get copyWith =>
-      _$ParsedAnchorCopyWithImpl<ParsedAnchor>(
-          this as ParsedAnchor, _$identity);
+ String get url; String get hashHex;
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ParsedAnchorCopyWith<ParsedAnchor> get copyWith => _$ParsedAnchorCopyWithImpl<ParsedAnchor>(this as ParsedAnchor, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ParsedAnchor &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, url, hashHex);
 
-  @override
-  String toString() {
-    return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedAnchor&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,url,hashHex);
+
+@override
+String toString() {
+  return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $ParsedAnchorCopyWith<$Res> {
-  factory $ParsedAnchorCopyWith(
-          ParsedAnchor value, $Res Function(ParsedAnchor) _then) =
-      _$ParsedAnchorCopyWithImpl;
-  @useResult
-  $Res call({String url, String hashHex});
-}
+abstract mixin class $ParsedAnchorCopyWith<$Res>  {
+  factory $ParsedAnchorCopyWith(ParsedAnchor value, $Res Function(ParsedAnchor) _then) = _$ParsedAnchorCopyWithImpl;
+@useResult
+$Res call({
+ String url, String hashHex
+});
 
+
+
+
+}
 /// @nodoc
-class _$ParsedAnchorCopyWithImpl<$Res> implements $ParsedAnchorCopyWith<$Res> {
+class _$ParsedAnchorCopyWithImpl<$Res>
+    implements $ParsedAnchorCopyWith<$Res> {
   _$ParsedAnchorCopyWithImpl(this._self, this._then);
 
   final ParsedAnchor _self;
   final $Res Function(ParsedAnchor) _then;
 
-  /// Create a copy of ParsedAnchor
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? url = null,
-    Object? hashHex = null,
-  }) {
-    return _then(_self.copyWith(
-      url: null == url
-          ? _self.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashHex: null == hashHex
-          ? _self.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
+  return _then(_self.copyWith(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String,hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
+}
+
+
 /// @nodoc
+
 
 class _ParsedAnchor extends ParsedAnchor {
-  _ParsedAnchor({required this.url, required this.hashHex}) : super._();
+   _ParsedAnchor({required this.url, required this.hashHex}): super._();
+  
 
-  @override
-  final String url;
-  @override
-  final String hashHex;
+@override final  String url;
+@override final  String hashHex;
 
-  /// Create a copy of ParsedAnchor
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$ParsedAnchorCopyWith<_ParsedAnchor> get copyWith =>
-      __$ParsedAnchorCopyWithImpl<_ParsedAnchor>(this, _$identity);
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ParsedAnchorCopyWith<_ParsedAnchor> get copyWith => __$ParsedAnchorCopyWithImpl<_ParsedAnchor>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ParsedAnchor &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.hashHex, hashHex) || other.hashHex == hashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, url, hashHex);
 
-  @override
-  String toString() {
-    return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedAnchor&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,url,hashHex);
+
+@override
+String toString() {
+  return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class _$ParsedAnchorCopyWith<$Res>
-    implements $ParsedAnchorCopyWith<$Res> {
-  factory _$ParsedAnchorCopyWith(
-          _ParsedAnchor value, $Res Function(_ParsedAnchor) _then) =
-      __$ParsedAnchorCopyWithImpl;
-  @override
-  @useResult
-  $Res call({String url, String hashHex});
-}
+abstract mixin class _$ParsedAnchorCopyWith<$Res> implements $ParsedAnchorCopyWith<$Res> {
+  factory _$ParsedAnchorCopyWith(_ParsedAnchor value, $Res Function(_ParsedAnchor) _then) = __$ParsedAnchorCopyWithImpl;
+@override @useResult
+$Res call({
+ String url, String hashHex
+});
 
+
+
+
+}
 /// @nodoc
 class __$ParsedAnchorCopyWithImpl<$Res>
     implements _$ParsedAnchorCopyWith<$Res> {
@@ -136,25 +129,17 @@ class __$ParsedAnchorCopyWithImpl<$Res>
   final _ParsedAnchor _self;
   final $Res Function(_ParsedAnchor) _then;
 
-  /// Create a copy of ParsedAnchor
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? url = null,
-    Object? hashHex = null,
-  }) {
-    return _then(_ParsedAnchor(
-      url: null == url
-          ? _self.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      hashHex: null == hashHex
-          ? _self.hashHex
-          : hashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedAnchor
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? url = null,Object? hashHex = null,}) {
+  return _then(_ParsedAnchor(
+url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String,hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 // dart format on

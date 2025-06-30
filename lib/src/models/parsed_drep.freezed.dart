@@ -12,215 +12,223 @@ part of 'parsed_drep.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ParsedDRep {
-  int get serializationType;
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ParsedDRep &&
-            (identical(other.serializationType, serializationType) ||
-                other.serializationType == serializationType));
-  }
+ int get serializationType;
 
-  @override
-  int get hashCode => Object.hash(runtimeType, serializationType);
 
-  @override
-  String toString() {
-    return 'ParsedDRep(serializationType: $serializationType)';
-  }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDRep&&(identical(other.serializationType, serializationType) || other.serializationType == serializationType));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,serializationType);
+
+@override
+String toString() {
+  return 'ParsedDRep(serializationType: $serializationType)';
+}
+
+
 }
 
 /// @nodoc
-class $ParsedDRepCopyWith<$Res> {
-  $ParsedDRepCopyWith(ParsedDRep _, $Res Function(ParsedDRep) __);
+class $ParsedDRepCopyWith<$Res>  {
+$ParsedDRepCopyWith(ParsedDRep _, $Res Function(ParsedDRep) __);
 }
 
+
 /// @nodoc
+
 
 class DRepKeyPath extends ParsedDRep {
-  DRepKeyPath({required this.path}) : super._();
+   DRepKeyPath({required this.path}): super._();
+  
 
-  final LedgerSigningPath path;
+ final  LedgerSigningPath path;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $DRepKeyPathCopyWith<DRepKeyPath> get copyWith =>
-      _$DRepKeyPathCopyWithImpl<DRepKeyPath>(this, _$identity);
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DRepKeyPathCopyWith<DRepKeyPath> get copyWith => _$DRepKeyPathCopyWithImpl<DRepKeyPath>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DRepKeyPath &&
-            (identical(other.path, path) || other.path == path));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, path);
 
-  @override
-  String toString() {
-    return 'ParsedDRep.keyPath(path: $path)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyPath&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'ParsedDRep.keyPath(path: $path)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $DRepKeyPathCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
-  factory $DRepKeyPathCopyWith(
-          DRepKeyPath value, $Res Function(DRepKeyPath) _then) =
-      _$DRepKeyPathCopyWithImpl;
-  @useResult
-  $Res call({LedgerSigningPath path});
+abstract mixin class $DRepKeyPathCopyWith<$Res> implements $ParsedDRepCopyWith<$Res> {
+  factory $DRepKeyPathCopyWith(DRepKeyPath value, $Res Function(DRepKeyPath) _then) = _$DRepKeyPathCopyWithImpl;
+@useResult
+$Res call({
+ LedgerSigningPath path
+});
 
-  $LedgerSigningPathCopyWith<$Res> get path;
+
+$LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
-class _$DRepKeyPathCopyWithImpl<$Res> implements $DRepKeyPathCopyWith<$Res> {
+class _$DRepKeyPathCopyWithImpl<$Res>
+    implements $DRepKeyPathCopyWith<$Res> {
   _$DRepKeyPathCopyWithImpl(this._self, this._then);
 
   final DRepKeyPath _self;
   final $Res Function(DRepKeyPath) _then;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? path = null,
-  }) {
-    return _then(DRepKeyPath(
-      path: null == path
-          ? _self.path
-          : path // ignore: cast_nullable_to_non_nullable
-              as LedgerSigningPath,
-    ));
-  }
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(DRepKeyPath(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
+  ));
+}
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LedgerSigningPathCopyWith<$Res> get path {
-    return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
-      return _then(_self.copyWith(path: value));
-    });
-  }
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LedgerSigningPathCopyWith<$Res> get path {
+  
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
+  });
+}
 }
 
 /// @nodoc
+
 
 class DRepKeyHash extends ParsedDRep {
-  DRepKeyHash({required this.keyHashHex}) : super._();
+   DRepKeyHash({required this.keyHashHex}): super._();
+  
 
-  final String keyHashHex;
+ final  String keyHashHex;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $DRepKeyHashCopyWith<DRepKeyHash> get copyWith =>
-      _$DRepKeyHashCopyWithImpl<DRepKeyHash>(this, _$identity);
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DRepKeyHashCopyWith<DRepKeyHash> get copyWith => _$DRepKeyHashCopyWithImpl<DRepKeyHash>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DRepKeyHash &&
-            (identical(other.keyHashHex, keyHashHex) ||
-                other.keyHashHex == keyHashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, keyHashHex);
 
-  @override
-  String toString() {
-    return 'ParsedDRep.keyHash(keyHashHex: $keyHashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,keyHashHex);
+
+@override
+String toString() {
+  return 'ParsedDRep.keyHash(keyHashHex: $keyHashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $DRepKeyHashCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
-  factory $DRepKeyHashCopyWith(
-          DRepKeyHash value, $Res Function(DRepKeyHash) _then) =
-      _$DRepKeyHashCopyWithImpl;
-  @useResult
-  $Res call({String keyHashHex});
-}
+abstract mixin class $DRepKeyHashCopyWith<$Res> implements $ParsedDRepCopyWith<$Res> {
+  factory $DRepKeyHashCopyWith(DRepKeyHash value, $Res Function(DRepKeyHash) _then) = _$DRepKeyHashCopyWithImpl;
+@useResult
+$Res call({
+ String keyHashHex
+});
 
+
+
+
+}
 /// @nodoc
-class _$DRepKeyHashCopyWithImpl<$Res> implements $DRepKeyHashCopyWith<$Res> {
+class _$DRepKeyHashCopyWithImpl<$Res>
+    implements $DRepKeyHashCopyWith<$Res> {
   _$DRepKeyHashCopyWithImpl(this._self, this._then);
 
   final DRepKeyHash _self;
   final $Res Function(DRepKeyHash) _then;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? keyHashHex = null,
-  }) {
-    return _then(DRepKeyHash(
-      keyHashHex: null == keyHashHex
-          ? _self.keyHashHex
-          : keyHashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(DRepKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
+
 
 class DRepScriptHash extends ParsedDRep {
-  DRepScriptHash({required this.scriptHashHex}) : super._();
+   DRepScriptHash({required this.scriptHashHex}): super._();
+  
 
-  final String scriptHashHex;
+ final  String scriptHashHex;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $DRepScriptHashCopyWith<DRepScriptHash> get copyWith =>
-      _$DRepScriptHashCopyWithImpl<DRepScriptHash>(this, _$identity);
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DRepScriptHashCopyWith<DRepScriptHash> get copyWith => _$DRepScriptHashCopyWithImpl<DRepScriptHash>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is DRepScriptHash &&
-            (identical(other.scriptHashHex, scriptHashHex) ||
-                other.scriptHashHex == scriptHashHex));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, scriptHashHex);
 
-  @override
-  String toString() {
-    return 'ParsedDRep.scriptHash(scriptHashHex: $scriptHashHex)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
+
+@override
+String toString() {
+  return 'ParsedDRep.scriptHash(scriptHashHex: $scriptHashHex)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $DRepScriptHashCopyWith<$Res>
-    implements $ParsedDRepCopyWith<$Res> {
-  factory $DRepScriptHashCopyWith(
-          DRepScriptHash value, $Res Function(DRepScriptHash) _then) =
-      _$DRepScriptHashCopyWithImpl;
-  @useResult
-  $Res call({String scriptHashHex});
-}
+abstract mixin class $DRepScriptHashCopyWith<$Res> implements $ParsedDRepCopyWith<$Res> {
+  factory $DRepScriptHashCopyWith(DRepScriptHash value, $Res Function(DRepScriptHash) _then) = _$DRepScriptHashCopyWithImpl;
+@useResult
+$Res call({
+ String scriptHashHex
+});
 
+
+
+
+}
 /// @nodoc
 class _$DRepScriptHashCopyWithImpl<$Res>
     implements $DRepScriptHashCopyWith<$Res> {
@@ -229,59 +237,80 @@ class _$DRepScriptHashCopyWithImpl<$Res>
   final DRepScriptHash _self;
   final $Res Function(DRepScriptHash) _then;
 
-  /// Create a copy of ParsedDRep
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? scriptHashHex = null,
-  }) {
-    return _then(DRepScriptHash(
-      scriptHashHex: null == scriptHashHex
-          ? _self.scriptHashHex
-          : scriptHashHex // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+/// Create a copy of ParsedDRep
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(DRepScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
 }
 
 /// @nodoc
+
 
 class DRepAbstain extends ParsedDRep {
-  DRepAbstain() : super._();
+   DRepAbstain(): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is DRepAbstain);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  String toString() {
-    return 'ParsedDRep.abstain()';
-  }
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepAbstain);
 }
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ParsedDRep.abstain()';
+}
+
+
+}
+
+
+
 
 /// @nodoc
 
+
 class DRepNoConfidence extends ParsedDRep {
-  DRepNoConfidence() : super._();
+   DRepNoConfidence(): super._();
+  
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is DRepNoConfidence);
-  }
 
-  @override
-  int get hashCode => runtimeType.hashCode;
 
-  @override
-  String toString() {
-    return 'ParsedDRep.noConfidence()';
-  }
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepNoConfidence);
 }
+
+
+@override
+int get hashCode => runtimeType.hashCode;
+
+@override
+String toString() {
+  return 'ParsedDRep.noConfidence()';
+}
+
+
+}
+
+
+
 
 // dart format on

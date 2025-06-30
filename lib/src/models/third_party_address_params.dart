@@ -5,7 +5,6 @@ part "third_party_address_params.freezed.dart";
 
 @freezed
 sealed class ThirdPartyAddressParams with _$ThirdPartyAddressParams {
-
   factory ThirdPartyAddressParams({
     required String addressHex,
   }) = _ThirdPartyAddressParams;

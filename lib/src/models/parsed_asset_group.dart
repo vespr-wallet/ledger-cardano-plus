@@ -7,7 +7,6 @@ part "parsed_asset_group.freezed.dart";
 
 @freezed
 sealed class ParsedAssetGroup with _$ParsedAssetGroup {
-
   factory ParsedAssetGroup({
     required String policyIdHex,
     required List<ParsedToken> tokens,

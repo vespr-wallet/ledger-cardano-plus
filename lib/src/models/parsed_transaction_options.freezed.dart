@@ -12,46 +12,47 @@ part of 'parsed_transaction_options.dart';
 
 // dart format off
 T _$identity<T>(T value) => value;
-
 /// @nodoc
 mixin _$ParsedTransactionOptions {
-  bool get tagCborSets;
 
-  /// Create a copy of ParsedTransactionOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  $ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith =>
-      _$ParsedTransactionOptionsCopyWithImpl<ParsedTransactionOptions>(
-          this as ParsedTransactionOptions, _$identity);
+ bool get tagCborSets;
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith => _$ParsedTransactionOptionsCopyWithImpl<ParsedTransactionOptions>(this as ParsedTransactionOptions, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is ParsedTransactionOptions &&
-            (identical(other.tagCborSets, tagCborSets) ||
-                other.tagCborSets == tagCborSets));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, tagCborSets);
 
-  @override
-  String toString() {
-    return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,tagCborSets);
+
+@override
+String toString() {
+  return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class $ParsedTransactionOptionsCopyWith<$Res> {
-  factory $ParsedTransactionOptionsCopyWith(ParsedTransactionOptions value,
-          $Res Function(ParsedTransactionOptions) _then) =
-      _$ParsedTransactionOptionsCopyWithImpl;
-  @useResult
-  $Res call({bool tagCborSets});
-}
+abstract mixin class $ParsedTransactionOptionsCopyWith<$Res>  {
+  factory $ParsedTransactionOptionsCopyWith(ParsedTransactionOptions value, $Res Function(ParsedTransactionOptions) _then) = _$ParsedTransactionOptionsCopyWithImpl;
+@useResult
+$Res call({
+ bool tagCborSets
+});
 
+
+
+
+}
 /// @nodoc
 class _$ParsedTransactionOptionsCopyWithImpl<$Res>
     implements $ParsedTransactionOptionsCopyWith<$Res> {
@@ -60,68 +61,64 @@ class _$ParsedTransactionOptionsCopyWithImpl<$Res>
   final ParsedTransactionOptions _self;
   final $Res Function(ParsedTransactionOptions) _then;
 
-  /// Create a copy of ParsedTransactionOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? tagCborSets = null,
-  }) {
-    return _then(_self.copyWith(
-      tagCborSets: null == tagCborSets
-          ? _self.tagCborSets
-          : tagCborSets // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
+  return _then(_self.copyWith(
+tagCborSets: null == tagCborSets ? _self.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
 }
 
+}
+
+
 /// @nodoc
+
 
 class _ParsedTransactionOptions extends ParsedTransactionOptions {
-  _ParsedTransactionOptions({required this.tagCborSets}) : super._();
+   _ParsedTransactionOptions({required this.tagCborSets}): super._();
+  
 
-  @override
-  final bool tagCborSets;
+@override final  bool tagCborSets;
 
-  /// Create a copy of ParsedTransactionOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @pragma('vm:prefer-inline')
-  _$ParsedTransactionOptionsCopyWith<_ParsedTransactionOptions> get copyWith =>
-      __$ParsedTransactionOptionsCopyWithImpl<_ParsedTransactionOptions>(
-          this, _$identity);
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ParsedTransactionOptionsCopyWith<_ParsedTransactionOptions> get copyWith => __$ParsedTransactionOptionsCopyWithImpl<_ParsedTransactionOptions>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _ParsedTransactionOptions &&
-            (identical(other.tagCborSets, tagCborSets) ||
-                other.tagCborSets == tagCborSets));
-  }
 
-  @override
-  int get hashCode => Object.hash(runtimeType, tagCborSets);
 
-  @override
-  String toString() {
-    return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
-  }
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,tagCborSets);
+
+@override
+String toString() {
+  return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
+}
+
+
 }
 
 /// @nodoc
-abstract mixin class _$ParsedTransactionOptionsCopyWith<$Res>
-    implements $ParsedTransactionOptionsCopyWith<$Res> {
-  factory _$ParsedTransactionOptionsCopyWith(_ParsedTransactionOptions value,
-          $Res Function(_ParsedTransactionOptions) _then) =
-      __$ParsedTransactionOptionsCopyWithImpl;
-  @override
-  @useResult
-  $Res call({bool tagCborSets});
-}
+abstract mixin class _$ParsedTransactionOptionsCopyWith<$Res> implements $ParsedTransactionOptionsCopyWith<$Res> {
+  factory _$ParsedTransactionOptionsCopyWith(_ParsedTransactionOptions value, $Res Function(_ParsedTransactionOptions) _then) = __$ParsedTransactionOptionsCopyWithImpl;
+@override @useResult
+$Res call({
+ bool tagCborSets
+});
 
+
+
+
+}
 /// @nodoc
 class __$ParsedTransactionOptionsCopyWithImpl<$Res>
     implements _$ParsedTransactionOptionsCopyWith<$Res> {
@@ -130,20 +127,16 @@ class __$ParsedTransactionOptionsCopyWithImpl<$Res>
   final _ParsedTransactionOptions _self;
   final $Res Function(_ParsedTransactionOptions) _then;
 
-  /// Create a copy of ParsedTransactionOptions
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $Res call({
-    Object? tagCborSets = null,
-  }) {
-    return _then(_ParsedTransactionOptions(
-      tagCborSets: null == tagCborSets
-          ? _self.tagCborSets
-          : tagCborSets // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? tagCborSets = null,}) {
+  return _then(_ParsedTransactionOptions(
+tagCborSets: null == tagCborSets ? _self.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+
 }
 
 // dart format on

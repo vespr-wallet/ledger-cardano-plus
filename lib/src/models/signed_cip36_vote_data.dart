@@ -7,7 +7,6 @@ part "signed_cip36_vote_data.freezed.dart";
 
 @freezed
 sealed class SignedCIP36VoteData with _$SignedCIP36VoteData {
-
   factory SignedCIP36VoteData({
     required String dataHashHex,
     required LedgerSigningPath witnessPath,

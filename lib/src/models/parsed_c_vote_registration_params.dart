@@ -10,9 +10,7 @@ import "parsed_output_destination.dart";
 part "parsed_c_vote_registration_params.freezed.dart";
 
 @freezed
-sealed class ParsedCVoteRegistrationParams
-    with _$ParsedCVoteRegistrationParams {
-
+sealed class ParsedCVoteRegistrationParams with _$ParsedCVoteRegistrationParams {
   factory ParsedCVoteRegistrationParams({
     required CIP36VoteRegistrationFormat format,
     required CVotePublicKey? votePublicKey,

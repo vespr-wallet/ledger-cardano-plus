@@ -8,8 +8,7 @@ class ResetOperation extends LedgerRawOperation<ByteDataReader> {
   ResetOperation();
 
   @override
-  Future<List<Uint8List>> write(ByteDataWriter writer) =>
-      LedgerCardanoSdkInternalException.runSafely(() async {
+  Future<List<Uint8List>> write(ByteDataWriter writer) => LedgerCardanoSdkInternalException.runSafely(() async {
         if (CardanoLedger.debugPrintEnabled) {
           // ignore: avoid_print
           print("ResetOperation command sent to ledger");

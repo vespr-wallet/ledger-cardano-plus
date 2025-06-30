@@ -11,8 +11,7 @@ sealed class ParsedPoolOwner with _$ParsedPoolOwner {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DeviceOwnedPoolOwner() => () => validateBIP32Path(thisClass.path, "path"),
-      ThirdPartyPoolOwner() => () =>
-          validateHexString(thisClass.hashHex, "hashHex"),
+      ThirdPartyPoolOwner() => () => validateHexString(thisClass.hashHex, "hashHex"),
     };
     assertInvoker();
   }

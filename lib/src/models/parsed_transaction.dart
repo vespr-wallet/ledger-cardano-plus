@@ -16,7 +16,6 @@ part "parsed_transaction.freezed.dart";
 
 @freezed
 sealed class ParsedTransaction with _$ParsedTransaction {
-
   factory ParsedTransaction({
     required CardanoNetwork network,
     required List<ParsedInput> inputs,

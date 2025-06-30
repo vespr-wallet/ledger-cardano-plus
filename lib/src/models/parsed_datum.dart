@@ -10,8 +10,7 @@ sealed class ParsedDatum with _$ParsedDatum {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       ParsedDatumHash() => () {
-          validateExactHexString(
-              thisClass.datumHashHex, "Datum hash hex", datumHashLength);
+          validateExactHexString(thisClass.datumHashHex, "Datum hash hex", datumHashLength);
         },
       ParsedDatumInline() => () {
           validateHexString(thisClass.datumHex, "Datum hex");

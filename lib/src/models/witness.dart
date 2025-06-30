@@ -7,7 +7,6 @@ part "witness.freezed.dart";
 
 @freezed
 sealed class Witness with _$Witness {
-
   factory Witness({
     required LedgerSigningPath path,
     required String witnessSignatureHex,

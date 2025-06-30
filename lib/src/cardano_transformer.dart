@@ -29,8 +29,7 @@ class CardanoTransformer extends LedgerTransformer {
       );
     }
 
-    final statusCode =
-        (lastItem[lastItem.length - 2] << 8) | lastItem[lastItem.length - 1];
+    final statusCode = (lastItem[lastItem.length - 2] << 8) | lastItem[lastItem.length - 1];
 
     switch (statusCode) {
       case _ledgerSuccessCode:
@@ -43,8 +42,7 @@ class CardanoTransformer extends LedgerTransformer {
         final result = Uint8List.fromList(output.expand((e) => e).toList());
         return result;
       default:
-        throw LedgerCardanoResponseCodeException.fromLedgerStatusCode(
-            statusCode);
+        throw LedgerCardanoResponseCodeException.fromLedgerStatusCode(statusCode);
     }
   }
 }

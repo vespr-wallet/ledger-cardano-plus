@@ -30,13 +30,10 @@ class CardanoSignMsgPackOperation extends LedgerRawOperation<Uint8List> {
     while (bytesRemaining > 0) {
       final writer = ByteDataWriter();
       final bytesRemainingWithHeader = bytesRemaining + headerSize;
-      final packetSize = bytesRemainingWithHeader <= chunkSize
-          ? bytesRemainingWithHeader
-          : chunkSize;
+      final packetSize = bytesRemainingWithHeader <= chunkSize ? bytesRemainingWithHeader : chunkSize;
 
       final remainingSpace = packetSize - headerSize;
-      var bytesToCopyLength =
-          (remainingSpace < bytesRemaining) ? remainingSpace : bytesRemaining;
+      var bytesToCopyLength = (remainingSpace < bytesRemaining) ? remainingSpace : bytesRemaining;
       bytesRemaining -= bytesToCopyLength;
       if (bytesRemaining == 0) {
         p2 = p2Last;
@@ -54,8 +51,7 @@ class CardanoSignMsgPackOperation extends LedgerRawOperation<Uint8List> {
         bytesToCopyLength -= 4;
       }
 
-      writer.write(
-          transaction.getRange(offset, offset + bytesToCopyLength).toList());
+      writer.write(transaction.getRange(offset, offset + bytesToCopyLength).toList());
       offset += bytesToCopyLength;
 
       p1 = p1More;

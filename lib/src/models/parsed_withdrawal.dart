@@ -6,7 +6,6 @@ part "parsed_withdrawal.freezed.dart";
 
 @freezed
 sealed class ParsedWithdrawal with _$ParsedWithdrawal {
-
   factory ParsedWithdrawal({
     required BigInt amount,
     required ParsedCredential stakeCredential,

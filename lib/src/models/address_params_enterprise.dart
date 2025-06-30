@@ -5,7 +5,6 @@ part "address_params_enterprise.freezed.dart";
 
 @freezed
 sealed class AddressParamsEnterprise with _$AddressParamsEnterprise {
-
   factory AddressParamsEnterprise({
     required SpendingParams spendingPath,
   }) = _AddressParamsEnterprise;

@@ -1,18 +1,18 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_c_vote.freezed.dart';
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "parsed_c_vote.freezed.dart";
 
 @freezed
-class ParsedCVote with _$ParsedCVote {
-  ParsedCVote._() {
-    validateHexString(voteCastDataHex, 'voteCastDataHex');
-    validateBIP32Path(witnessPath, 'witnessPath');
-  }
-
+sealed class ParsedCVote with _$ParsedCVote {
   factory ParsedCVote({
     required String voteCastDataHex,
     required LedgerSigningPath witnessPath,
   }) = _ParsedCVote;
+  ParsedCVote._() {
+    validateHexString(voteCastDataHex, "voteCastDataHex");
+    validateBIP32Path(witnessPath, "witnessPath");
+  }
 }

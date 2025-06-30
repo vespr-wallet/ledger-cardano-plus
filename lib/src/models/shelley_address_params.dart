@@ -1,10 +1,11 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/spending_data_source.dart';
-import 'package:ledger_cardano_plus/src/models/staking_data_source.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'shelley_address_params.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "spending_data_source.dart";
+import "staking_data_source.dart";
+
+part "shelley_address_params.freezed.dart";
 
 @freezed
 sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
@@ -12,8 +13,7 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
     final thisObj = this;
     switch (thisObj) {
       case RewardScript():
-        validateHexString(thisObj.stakingScriptHashHex, 'stakingScriptHashHex');
-        break;
+        validateHexString(thisObj.stakingScriptHashHex, "stakingScriptHashHex");
       default:
         break;
     }
@@ -65,6 +65,7 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
     required String stakingScriptHashHex,
   }) = RewardScript;
 
+  @override
   late final AddressType addressType = switch (this) {
     BasePaymentKeyStakeKey() => AddressType.basePaymentKeyStakeKey,
     BasePaymentScriptStakeKey() => AddressType.basePaymentScriptStakeKey,

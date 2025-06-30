@@ -1,18 +1,17 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'spending_params.freezed.dart';
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "spending_params.freezed.dart";
 
 @freezed
 sealed class SpendingParams with _$SpendingParams {
   SpendingParams._() {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
-      SpendingParamsPath() => () =>
-          validateBIP32Path(thisClass.spendingPath, 'spendingPath'),
-      SpendingParamsScriptHash() => () => validateHexString(
-          thisClass.spendingScriptHashHex, 'spendingScriptHashHex'),
+      SpendingParamsPath() => () => validateBIP32Path(thisClass.spendingPath, "spendingPath"),
+      SpendingParamsScriptHash() => () => validateHexString(thisClass.spendingScriptHashHex, "spendingScriptHashHex"),
     };
     assertInvoker();
   }

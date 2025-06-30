@@ -1,7 +1,7 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/utilities.dart";
 
-part 'datum.freezed.dart';
+part "datum.freezed.dart";
 
 enum DatumType { hash, inline }
 
@@ -11,10 +11,10 @@ sealed class Datum with _$Datum {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DatumHash() => () {
-          validateHexString(thisClass.datumHashHex, 'datumHashHex');
+          validateHexString(thisClass.datumHashHex, "datumHashHex");
         },
       DatumInline() => () {
-          validateHexString(thisClass.datumHex, 'datumHex');
+          validateHexString(thisClass.datumHex, "datumHex");
         },
     };
     assertInvoker();
@@ -28,6 +28,7 @@ sealed class Datum with _$Datum {
     required String datumHex,
   }) = DatumInline;
 
+  @override
   late final DatumType type = switch (this) {
     DatumHash() => DatumType.hash,
     DatumInline() => DatumType.inline,

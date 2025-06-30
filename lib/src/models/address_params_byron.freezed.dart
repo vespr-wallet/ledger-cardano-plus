@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,40 @@ part of 'address_params_byron.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AddressParamsByron {
 
- List<int> get spendingPath => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ List<int> get spendingPath;
 /// Create a copy of AddressParamsByron
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$AddressParamsByronCopyWith<AddressParamsByron> get copyWith => throw _privateConstructorUsedError;
+@pragma('vm:prefer-inline')
+$AddressParamsByronCopyWith<AddressParamsByron> get copyWith => _$AddressParamsByronCopyWithImpl<AddressParamsByron>(this as AddressParamsByron, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsByron&&const DeepCollectionEquality().equals(other.spendingPath, spendingPath));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingPath));
+
+@override
+String toString() {
+  return 'AddressParamsByron(spendingPath: $spendingPath)';
+}
+
 
 }
 
 /// @nodoc
-abstract class $AddressParamsByronCopyWith<$Res>  {
-  factory $AddressParamsByronCopyWith(AddressParamsByron value, $Res Function(AddressParamsByron) then) = _$AddressParamsByronCopyWithImpl<$Res, AddressParamsByron>;
+abstract mixin class $AddressParamsByronCopyWith<$Res>  {
+  factory $AddressParamsByronCopyWith(AddressParamsByron value, $Res Function(AddressParamsByron) _then) = _$AddressParamsByronCopyWithImpl;
 @useResult
 $Res call({
  List<int> spendingPath
@@ -42,65 +51,33 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class _$AddressParamsByronCopyWithImpl<$Res,$Val extends AddressParamsByron> implements $AddressParamsByronCopyWith<$Res> {
-  _$AddressParamsByronCopyWithImpl(this._value, this._then);
+class _$AddressParamsByronCopyWithImpl<$Res>
+    implements $AddressParamsByronCopyWith<$Res> {
+  _$AddressParamsByronCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AddressParamsByron _self;
+  final $Res Function(AddressParamsByron) _then;
 
 /// Create a copy of AddressParamsByron
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_value.copyWith(
-spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
-as List<int>,
-  )as $Val);
-}
-
-}
-
-
-/// @nodoc
-abstract class _$$AddressParamsByronImplCopyWith<$Res> implements $AddressParamsByronCopyWith<$Res> {
-  factory _$$AddressParamsByronImplCopyWith(_$AddressParamsByronImpl value, $Res Function(_$AddressParamsByronImpl) then) = __$$AddressParamsByronImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- List<int> spendingPath
-});
-
-
-
-}
-
-/// @nodoc
-class __$$AddressParamsByronImplCopyWithImpl<$Res> extends _$AddressParamsByronCopyWithImpl<$Res, _$AddressParamsByronImpl> implements _$$AddressParamsByronImplCopyWith<$Res> {
-  __$$AddressParamsByronImplCopyWithImpl(_$AddressParamsByronImpl _value, $Res Function(_$AddressParamsByronImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of AddressParamsByron
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_$AddressParamsByronImpl(
-spendingPath: null == spendingPath ? _value._spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
+  return _then(_self.copyWith(
+spendingPath: null == spendingPath ? _self.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
 as List<int>,
   ));
 }
 
-
 }
+
 
 /// @nodoc
 
 
-class _$AddressParamsByronImpl extends _AddressParamsByron  {
-   _$AddressParamsByronImpl({required final  List<int> spendingPath}): _spendingPath = spendingPath,super._();
-
+class _AddressParamsByron extends AddressParamsByron {
+   _AddressParamsByron({required final  List<int> spendingPath}): _spendingPath = spendingPath,super._();
   
 
  final  List<int> _spendingPath;
@@ -111,48 +88,61 @@ class _$AddressParamsByronImpl extends _AddressParamsByron  {
 }
 
 
-@override
-String toString() {
-  return 'AddressParamsByron(spendingPath: $spendingPath)';
-}
+/// Create a copy of AddressParamsByron
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AddressParamsByronCopyWith<_AddressParamsByron> get copyWith => __$AddressParamsByronCopyWithImpl<_AddressParamsByron>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsByronImpl&&const DeepCollectionEquality().equals(other._spendingPath, _spendingPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsByron&&const DeepCollectionEquality().equals(other._spendingPath, _spendingPath));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_spendingPath));
 
-/// Create a copy of AddressParamsByron
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$AddressParamsByronImplCopyWith<_$AddressParamsByronImpl> get copyWith => __$$AddressParamsByronImplCopyWithImpl<_$AddressParamsByronImpl>(this, _$identity);
+String toString() {
+  return 'AddressParamsByron(spendingPath: $spendingPath)';
+}
 
 
+}
 
-
+/// @nodoc
+abstract mixin class _$AddressParamsByronCopyWith<$Res> implements $AddressParamsByronCopyWith<$Res> {
+  factory _$AddressParamsByronCopyWith(_AddressParamsByron value, $Res Function(_AddressParamsByron) _then) = __$AddressParamsByronCopyWithImpl;
+@override @useResult
+$Res call({
+ List<int> spendingPath
+});
 
 
 
 
 }
+/// @nodoc
+class __$AddressParamsByronCopyWithImpl<$Res>
+    implements _$AddressParamsByronCopyWith<$Res> {
+  __$AddressParamsByronCopyWithImpl(this._self, this._then);
 
+  final _AddressParamsByron _self;
+  final $Res Function(_AddressParamsByron) _then;
 
-abstract class _AddressParamsByron extends AddressParamsByron {
-   factory _AddressParamsByron({required final  List<int> spendingPath}) = _$AddressParamsByronImpl;
-   _AddressParamsByron._(): super._();
-
-  
-
-@override List<int> get spendingPath;
 /// Create a copy of AddressParamsByron
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsByronImplCopyWith<_$AddressParamsByronImpl> get copyWith => throw _privateConstructorUsedError;
+@override @pragma('vm:prefer-inline') $Res call({Object? spendingPath = null,}) {
+  return _then(_AddressParamsByron(
+spendingPath: null == spendingPath ? _self._spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
+as List<int>,
+  ));
+}
+
 
 }
+
+// dart format on

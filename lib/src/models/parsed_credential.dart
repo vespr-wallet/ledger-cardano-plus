@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_credential.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "parsed_credential.freezed.dart";
 
 @freezed
 sealed class ParsedCredential with _$ParsedCredential {
@@ -11,15 +12,13 @@ sealed class ParsedCredential with _$ParsedCredential {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       CredentialKeyHash() => () {
-          validateExactHexString(
-              thisClass.keyHashHex, 'keyHashHex', keyHashLength);
+          validateExactHexString(thisClass.keyHashHex, "keyHashHex", keyHashLength);
         },
       CredentialScriptHash() => () {
-          validateExactHexString(
-              thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
+          validateExactHexString(thisClass.scriptHashHex, "scriptHashHex", scriptHashLength);
         },
       CredentialKeyPath() => () {
-          validateBIP32Path(thisClass.path, 'path');
+          validateBIP32Path(thisClass.path, "path");
         },
     };
 
@@ -38,6 +37,7 @@ sealed class ParsedCredential with _$ParsedCredential {
     required String scriptHashHex,
   }) = CredentialScriptHash;
 
+  @override
   late final int credentialValue = switch (this) {
     CredentialKeyPath() => 0,
     CredentialKeyHash() => 2,

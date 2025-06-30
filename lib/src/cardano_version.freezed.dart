@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,40 @@ part of 'cardano_version.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$CardanoVersion {
 
- bool get testMode => throw _privateConstructorUsedError; int get versionMajor => throw _privateConstructorUsedError; int get versionMinor => throw _privateConstructorUsedError; int get versionPatch => throw _privateConstructorUsedError; bool get locked => throw _privateConstructorUsedError; Flags get flags => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ int get versionCode; String get versionName; VersionCompatibility get compatibility; bool get testMode; int get versionMajor; int get versionMinor; int get versionPatch; bool get locked; Flags get flags;
 /// Create a copy of CardanoVersion
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$CardanoVersionCopyWith<CardanoVersion> get copyWith => throw _privateConstructorUsedError;
+@pragma('vm:prefer-inline')
+$CardanoVersionCopyWith<CardanoVersion> get copyWith => _$CardanoVersionCopyWithImpl<CardanoVersion>(this as CardanoVersion, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CardanoVersion&&(identical(other.versionCode, versionCode) || other.versionCode == versionCode)&&(identical(other.versionName, versionName) || other.versionName == versionName)&&(identical(other.compatibility, compatibility) || other.compatibility == compatibility)&&(identical(other.testMode, testMode) || other.testMode == testMode)&&(identical(other.versionMajor, versionMajor) || other.versionMajor == versionMajor)&&(identical(other.versionMinor, versionMinor) || other.versionMinor == versionMinor)&&(identical(other.versionPatch, versionPatch) || other.versionPatch == versionPatch)&&(identical(other.locked, locked) || other.locked == locked)&&(identical(other.flags, flags) || other.flags == flags));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,versionCode,versionName,compatibility,testMode,versionMajor,versionMinor,versionPatch,locked,flags);
+
+@override
+String toString() {
+  return 'CardanoVersion(versionCode: $versionCode, versionName: $versionName, compatibility: $compatibility, testMode: $testMode, versionMajor: $versionMajor, versionMinor: $versionMinor, versionPatch: $versionPatch, locked: $locked, flags: $flags)';
+}
+
 
 }
 
 /// @nodoc
-abstract class $CardanoVersionCopyWith<$Res>  {
-  factory $CardanoVersionCopyWith(CardanoVersion value, $Res Function(CardanoVersion) then) = _$CardanoVersionCopyWithImpl<$Res, CardanoVersion>;
+abstract mixin class $CardanoVersionCopyWith<$Res>  {
+  factory $CardanoVersionCopyWith(CardanoVersion value, $Res Function(CardanoVersion) _then) = _$CardanoVersionCopyWithImpl;
 @useResult
 $Res call({
  bool testMode, int versionMajor, int versionMinor, int versionPatch, bool locked, Flags flags
@@ -42,29 +51,28 @@ $Res call({
 
 
 $FlagsCopyWith<$Res> get flags;
+
 }
-
 /// @nodoc
-class _$CardanoVersionCopyWithImpl<$Res,$Val extends CardanoVersion> implements $CardanoVersionCopyWith<$Res> {
-  _$CardanoVersionCopyWithImpl(this._value, this._then);
+class _$CardanoVersionCopyWithImpl<$Res>
+    implements $CardanoVersionCopyWith<$Res> {
+  _$CardanoVersionCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final CardanoVersion _self;
+  final $Res Function(CardanoVersion) _then;
 
 /// Create a copy of CardanoVersion
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? testMode = null,Object? versionMajor = null,Object? versionMinor = null,Object? versionPatch = null,Object? locked = null,Object? flags = null,}) {
-  return _then(_value.copyWith(
-testMode: null == testMode ? _value.testMode : testMode // ignore: cast_nullable_to_non_nullable
-as bool,versionMajor: null == versionMajor ? _value.versionMajor : versionMajor // ignore: cast_nullable_to_non_nullable
-as int,versionMinor: null == versionMinor ? _value.versionMinor : versionMinor // ignore: cast_nullable_to_non_nullable
-as int,versionPatch: null == versionPatch ? _value.versionPatch : versionPatch // ignore: cast_nullable_to_non_nullable
-as int,locked: null == locked ? _value.locked : locked // ignore: cast_nullable_to_non_nullable
-as bool,flags: null == flags ? _value.flags : flags // ignore: cast_nullable_to_non_nullable
+  return _then(_self.copyWith(
+testMode: null == testMode ? _self.testMode : testMode // ignore: cast_nullable_to_non_nullable
+as bool,versionMajor: null == versionMajor ? _self.versionMajor : versionMajor // ignore: cast_nullable_to_non_nullable
+as int,versionMinor: null == versionMinor ? _self.versionMinor : versionMinor // ignore: cast_nullable_to_non_nullable
+as int,versionPatch: null == versionPatch ? _self.versionPatch : versionPatch // ignore: cast_nullable_to_non_nullable
+as int,locked: null == locked ? _self.locked : locked // ignore: cast_nullable_to_non_nullable
+as bool,flags: null == flags ? _self.flags : flags // ignore: cast_nullable_to_non_nullable
 as Flags,
-  )as $Val);
+  ));
 }
 /// Create a copy of CardanoVersion
 /// with the given fields replaced by the non-null parameter values.
@@ -72,54 +80,18 @@ as Flags,
 @pragma('vm:prefer-inline')
 $FlagsCopyWith<$Res> get flags {
   
-  return $FlagsCopyWith<$Res>(_value.flags, (value) {
-    return _then(_value.copyWith(flags: value) as $Val);
+  return $FlagsCopyWith<$Res>(_self.flags, (value) {
+    return _then(_self.copyWith(flags: value));
   });
 }
 }
 
 
 /// @nodoc
-abstract class _$$CardanoVersionImplCopyWith<$Res> implements $CardanoVersionCopyWith<$Res> {
-  factory _$$CardanoVersionImplCopyWith(_$CardanoVersionImpl value, $Res Function(_$CardanoVersionImpl) then) = __$$CardanoVersionImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- bool testMode, int versionMajor, int versionMinor, int versionPatch, bool locked, Flags flags
-});
 
 
-@override $FlagsCopyWith<$Res> get flags;
-}
-
-/// @nodoc
-class __$$CardanoVersionImplCopyWithImpl<$Res> extends _$CardanoVersionCopyWithImpl<$Res, _$CardanoVersionImpl> implements _$$CardanoVersionImplCopyWith<$Res> {
-  __$$CardanoVersionImplCopyWithImpl(_$CardanoVersionImpl _value, $Res Function(_$CardanoVersionImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of CardanoVersion
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? testMode = null,Object? versionMajor = null,Object? versionMinor = null,Object? versionPatch = null,Object? locked = null,Object? flags = null,}) {
-  return _then(_$CardanoVersionImpl(
-testMode: null == testMode ? _value.testMode : testMode // ignore: cast_nullable_to_non_nullable
-as bool,versionMajor: null == versionMajor ? _value.versionMajor : versionMajor // ignore: cast_nullable_to_non_nullable
-as int,versionMinor: null == versionMinor ? _value.versionMinor : versionMinor // ignore: cast_nullable_to_non_nullable
-as int,versionPatch: null == versionPatch ? _value.versionPatch : versionPatch // ignore: cast_nullable_to_non_nullable
-as int,locked: null == locked ? _value.locked : locked // ignore: cast_nullable_to_non_nullable
-as bool,flags: null == flags ? _value.flags : flags // ignore: cast_nullable_to_non_nullable
-as Flags,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$CardanoVersionImpl extends _CardanoVersion  {
-   _$CardanoVersionImpl({required this.testMode, required this.versionMajor, required this.versionMinor, required this.versionPatch, required this.locked, required this.flags}): super._();
-
+class _CardanoVersion extends CardanoVersion {
+   _CardanoVersion({required this.testMode, required this.versionMajor, required this.versionMinor, required this.versionPatch, required this.locked, required this.flags}): super._();
   
 
 @override final  bool testMode;
@@ -129,48 +101,75 @@ class _$CardanoVersionImpl extends _CardanoVersion  {
 @override final  bool locked;
 @override final  Flags flags;
 
-@override
-String toString() {
-  return 'CardanoVersion(testMode: $testMode, versionMajor: $versionMajor, versionMinor: $versionMinor, versionPatch: $versionPatch, locked: $locked, flags: $flags)';
-}
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$CardanoVersionCopyWith<_CardanoVersion> get copyWith => __$CardanoVersionCopyWithImpl<_CardanoVersion>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CardanoVersionImpl&&(identical(other.testMode, testMode) || other.testMode == testMode)&&(identical(other.versionMajor, versionMajor) || other.versionMajor == versionMajor)&&(identical(other.versionMinor, versionMinor) || other.versionMinor == versionMinor)&&(identical(other.versionPatch, versionPatch) || other.versionPatch == versionPatch)&&(identical(other.locked, locked) || other.locked == locked)&&(identical(other.flags, flags) || other.flags == flags));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _CardanoVersion&&(identical(other.testMode, testMode) || other.testMode == testMode)&&(identical(other.versionMajor, versionMajor) || other.versionMajor == versionMajor)&&(identical(other.versionMinor, versionMinor) || other.versionMinor == versionMinor)&&(identical(other.versionPatch, versionPatch) || other.versionPatch == versionPatch)&&(identical(other.locked, locked) || other.locked == locked)&&(identical(other.flags, flags) || other.flags == flags));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,testMode,versionMajor,versionMinor,versionPatch,locked,flags);
 
+@override
+String toString() {
+  return 'CardanoVersion(testMode: $testMode, versionMajor: $versionMajor, versionMinor: $versionMinor, versionPatch: $versionPatch, locked: $locked, flags: $flags)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$CardanoVersionCopyWith<$Res> implements $CardanoVersionCopyWith<$Res> {
+  factory _$CardanoVersionCopyWith(_CardanoVersion value, $Res Function(_CardanoVersion) _then) = __$CardanoVersionCopyWithImpl;
+@override @useResult
+$Res call({
+ bool testMode, int versionMajor, int versionMinor, int versionPatch, bool locked, Flags flags
+});
+
+
+@override $FlagsCopyWith<$Res> get flags;
+
+}
+/// @nodoc
+class __$CardanoVersionCopyWithImpl<$Res>
+    implements _$CardanoVersionCopyWith<$Res> {
+  __$CardanoVersionCopyWithImpl(this._self, this._then);
+
+  final _CardanoVersion _self;
+  final $Res Function(_CardanoVersion) _then;
+
 /// Create a copy of CardanoVersion
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @pragma('vm:prefer-inline') $Res call({Object? testMode = null,Object? versionMajor = null,Object? versionMinor = null,Object? versionPatch = null,Object? locked = null,Object? flags = null,}) {
+  return _then(_CardanoVersion(
+testMode: null == testMode ? _self.testMode : testMode // ignore: cast_nullable_to_non_nullable
+as bool,versionMajor: null == versionMajor ? _self.versionMajor : versionMajor // ignore: cast_nullable_to_non_nullable
+as int,versionMinor: null == versionMinor ? _self.versionMinor : versionMinor // ignore: cast_nullable_to_non_nullable
+as int,versionPatch: null == versionPatch ? _self.versionPatch : versionPatch // ignore: cast_nullable_to_non_nullable
+as int,locked: null == locked ? _self.locked : locked // ignore: cast_nullable_to_non_nullable
+as bool,flags: null == flags ? _self.flags : flags // ignore: cast_nullable_to_non_nullable
+as Flags,
+  ));
+}
+
+/// Create a copy of CardanoVersion
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-_$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith => __$$CardanoVersionImplCopyWithImpl<_$CardanoVersionImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class _CardanoVersion extends CardanoVersion {
-   factory _CardanoVersion({required final  bool testMode, required final  int versionMajor, required final  int versionMinor, required final  int versionPatch, required final  bool locked, required final  Flags flags}) = _$CardanoVersionImpl;
-   _CardanoVersion._(): super._();
-
+$FlagsCopyWith<$Res> get flags {
   
-
-@override bool get testMode;@override int get versionMajor;@override int get versionMinor;@override int get versionPatch;@override bool get locked;@override Flags get flags;
-/// Create a copy of CardanoVersion
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$CardanoVersionImplCopyWith<_$CardanoVersionImpl> get copyWith => throw _privateConstructorUsedError;
-
+  return $FlagsCopyWith<$Res>(_self.flags, (value) {
+    return _then(_self.copyWith(flags: value));
+  });
 }
+}
+
+// dart format on

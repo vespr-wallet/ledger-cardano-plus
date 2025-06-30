@@ -1,6 +1,6 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-part 'ledger_signing_path.freezed.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+part "ledger_signing_path.freezed.dart";
 
 @freezed
 sealed class LedgerSigningPath with _$LedgerSigningPath {
@@ -29,6 +29,7 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
   }) = LedgerSigningPath_CIP36;
   factory LedgerSigningPath.custom(List<int> path) = LedgerSigningPath_Custom;
 
+  @override
   late final List<int> signingPath = switch (this) {
     LedgerSigningPath_Byron(account: final account, address: final address) => [
         harden + 44,
@@ -37,12 +38,7 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
         0,
         address
       ],
-    LedgerSigningPath_Shelley(
-      account: final account,
-      role: ShelleyAddressRole role,
-      address: final address
-    ) =>
-      [
+    LedgerSigningPath_Shelley(account: final account, role: ShelleyAddressRole role, address: final address) => [
         harden + 1852,
         harden + 1815,
         harden + account,

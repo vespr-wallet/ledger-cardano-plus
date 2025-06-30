@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,52 +10,75 @@ part of 'parsed_required_signer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedRequiredSigner {
 
+ int get requiredSignerValue;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedRequiredSigner&&(identical(other.requiredSignerValue, requiredSignerValue) || other.requiredSignerValue == requiredSignerValue));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,requiredSignerValue);
 
-
+@override
+String toString() {
+  return 'ParsedRequiredSigner(requiredSignerValue: $requiredSignerValue)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $ParsedRequiredSignerCopyWith<$Res>  {
-  factory $ParsedRequiredSignerCopyWith(ParsedRequiredSigner value, $Res Function(ParsedRequiredSigner) then) = _$ParsedRequiredSignerCopyWithImpl<$Res, ParsedRequiredSigner>;
-
-
-
+class $ParsedRequiredSignerCopyWith<$Res>  {
+$ParsedRequiredSignerCopyWith(ParsedRequiredSigner _, $Res Function(ParsedRequiredSigner) __);
 }
 
-/// @nodoc
-class _$ParsedRequiredSignerCopyWithImpl<$Res,$Val extends ParsedRequiredSigner> implements $ParsedRequiredSignerCopyWith<$Res> {
-  _$ParsedRequiredSignerCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class RequiredSignerHash extends ParsedRequiredSigner {
+   RequiredSignerHash({required this.hashHex}): super._();
+  
+
+ final  String hashHex;
 
 /// Create a copy of ParsedRequiredSigner
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RequiredSignerHashCopyWith<RequiredSignerHash> get copyWith => _$RequiredSignerHashCopyWithImpl<RequiredSignerHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerHash&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,hashHex);
+
+@override
+String toString() {
+  return 'ParsedRequiredSigner.hash(hashHex: $hashHex)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$RequiredSignerHashImplCopyWith<$Res>  {
-  factory _$$RequiredSignerHashImplCopyWith(_$RequiredSignerHashImpl value, $Res Function(_$RequiredSignerHashImpl) then) = __$$RequiredSignerHashImplCopyWithImpl<$Res>;
+abstract mixin class $RequiredSignerHashCopyWith<$Res> implements $ParsedRequiredSignerCopyWith<$Res> {
+  factory $RequiredSignerHashCopyWith(RequiredSignerHash value, $Res Function(RequiredSignerHash) _then) = _$RequiredSignerHashCopyWithImpl;
 @useResult
 $Res call({
  String hashHex
@@ -62,19 +86,21 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$RequiredSignerHashImplCopyWithImpl<$Res> extends _$ParsedRequiredSignerCopyWithImpl<$Res, _$RequiredSignerHashImpl> implements _$$RequiredSignerHashImplCopyWith<$Res> {
-  __$$RequiredSignerHashImplCopyWithImpl(_$RequiredSignerHashImpl _value, $Res Function(_$RequiredSignerHashImpl) _then)
-      : super(_value, _then);
+class _$RequiredSignerHashCopyWithImpl<$Res>
+    implements $RequiredSignerHashCopyWith<$Res> {
+  _$RequiredSignerHashCopyWithImpl(this._self, this._then);
 
+  final RequiredSignerHash _self;
+  final $Res Function(RequiredSignerHash) _then;
 
 /// Create a copy of ParsedRequiredSigner
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? hashHex = null,}) {
-  return _then(_$RequiredSignerHashImpl(
-hashHex: null == hashHex ? _value.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? hashHex = null,}) {
+  return _then(RequiredSignerHash(
+hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -85,62 +111,40 @@ as String,
 /// @nodoc
 
 
-class _$RequiredSignerHashImpl extends RequiredSignerHash  {
-   _$RequiredSignerHashImpl({required this.hashHex}): super._();
-
+class RequiredSignerPath extends ParsedRequiredSigner {
+   RequiredSignerPath({required this.path}): super._();
   
 
-@override final  String hashHex;
+ final  LedgerSigningPath path;
 
-@override
-String toString() {
-  return 'ParsedRequiredSigner.hash(hashHex: $hashHex)';
-}
+/// Create a copy of ParsedRequiredSigner
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RequiredSignerPathCopyWith<RequiredSignerPath> get copyWith => _$RequiredSignerPathCopyWithImpl<RequiredSignerPath>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$RequiredSignerHashImpl&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerPath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hashHex);
+int get hashCode => Object.hash(runtimeType,path);
 
-/// Create a copy of ParsedRequiredSigner
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith => __$$RequiredSignerHashImplCopyWithImpl<_$RequiredSignerHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'ParsedRequiredSigner.path(path: $path)';
 }
 
-
-abstract class RequiredSignerHash extends ParsedRequiredSigner {
-   factory RequiredSignerHash({required final  String hashHex}) = _$RequiredSignerHashImpl;
-   RequiredSignerHash._(): super._();
-
-  
-
- String get hashHex;
-/// Create a copy of ParsedRequiredSigner
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$RequiredSignerHashImplCopyWith<_$RequiredSignerHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$RequiredSignerPathImplCopyWith<$Res>  {
-  factory _$$RequiredSignerPathImplCopyWith(_$RequiredSignerPathImpl value, $Res Function(_$RequiredSignerPathImpl) then) = __$$RequiredSignerPathImplCopyWithImpl<$Res>;
+abstract mixin class $RequiredSignerPathCopyWith<$Res> implements $ParsedRequiredSignerCopyWith<$Res> {
+  factory $RequiredSignerPathCopyWith(RequiredSignerPath value, $Res Function(RequiredSignerPath) _then) = _$RequiredSignerPathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath path
@@ -148,19 +152,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
-class __$$RequiredSignerPathImplCopyWithImpl<$Res> extends _$ParsedRequiredSignerCopyWithImpl<$Res, _$RequiredSignerPathImpl> implements _$$RequiredSignerPathImplCopyWith<$Res> {
-  __$$RequiredSignerPathImplCopyWithImpl(_$RequiredSignerPathImpl _value, $Res Function(_$RequiredSignerPathImpl) _then)
-      : super(_value, _then);
+class _$RequiredSignerPathCopyWithImpl<$Res>
+    implements $RequiredSignerPathCopyWith<$Res> {
+  _$RequiredSignerPathCopyWithImpl(this._self, this._then);
 
+  final RequiredSignerPath _self;
+  final $Res Function(RequiredSignerPath) _then;
 
 /// Create a copy of ParsedRequiredSigner
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$RequiredSignerPathImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(RequiredSignerPath(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -171,64 +177,10 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
   });
 }
 }
 
-/// @nodoc
-
-
-class _$RequiredSignerPathImpl extends RequiredSignerPath  {
-   _$RequiredSignerPathImpl({required this.path}): super._();
-
-  
-
-@override final  LedgerSigningPath path;
-
-@override
-String toString() {
-  return 'ParsedRequiredSigner.path(path: $path)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$RequiredSignerPathImpl&&(identical(other.path, path) || other.path == path));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of ParsedRequiredSigner
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith => __$$RequiredSignerPathImplCopyWithImpl<_$RequiredSignerPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class RequiredSignerPath extends ParsedRequiredSigner {
-   factory RequiredSignerPath({required final  LedgerSigningPath path}) = _$RequiredSignerPathImpl;
-   RequiredSignerPath._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of ParsedRequiredSigner
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$RequiredSignerPathImplCopyWith<_$RequiredSignerPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

@@ -1,17 +1,17 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
 
-part 'parsed_anchor.freezed.dart';
+part "parsed_anchor.freezed.dart";
 
 @freezed
 sealed class ParsedAnchor with _$ParsedAnchor {
-  ParsedAnchor._() {
-    validateExactHexString(hashHex, 'hashHex', stringLength64Bytes);
-    validateUrl(url, 'url');
-  }
   factory ParsedAnchor({
     required String url,
     required String hashHex,
   }) = _ParsedAnchor;
+  ParsedAnchor._() {
+    validateExactHexString(hashHex, "hashHex", stringLength64Bytes);
+    validateUrl(url, "url");
+  }
 }

@@ -1,11 +1,11 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
-class CardanoSignCVoteOperation
-    extends LedgerComplexOperation<SignedCIP36VoteData> {
+import "../../ledger_cardano_plus.dart";
+import "../utils/serialization_utils.dart";
+
+class CardanoSignCVoteOperation extends LedgerComplexOperation<SignedCIP36VoteData> {
   final ParsedCVote cVote;
   final CardanoVersion version;
 
@@ -25,26 +25,23 @@ class CardanoSignCVoteOperation
       p2: p2Unused,
       data: data,
       prependDataLength: true,
-      debugName: 'Sign CIP36 Vote',
+      debugName: "Sign CIP36 Vote",
     );
   }
 
   @override
   Future<SignedCIP36VoteData> invoke(LedgerSendFct send) async {
-    if (!VersionCompatibility.checkVersionCompatibility(version)
-        .supportsCIP36Vote) {
+    if (!VersionCompatibility.checkVersionCompatibility(version).supportsCIP36Vote) {
       throw LedgerCardanoVersionNotSupported(
-        message: 'CIP36 voting',
-        wantedVersion: '6.0.0',
-        era: 'Babbage',
+        message: "CIP36 voting",
+        wantedVersion: "6.0.0",
+        era: "Babbage",
       );
     }
 
     final votecastBytes = hex.decode(cVote.voteCastDataHex);
     var start = 0;
-    var end = votecastBytes.length < maxVotecastChunkSize
-        ? votecastBytes.length
-        : maxVotecastChunkSize;
+    var end = votecastBytes.length < maxVotecastChunkSize ? votecastBytes.length : maxVotecastChunkSize;
 
     final initDataBuffer = Uint8List.fromList([
       ...SerializationUtils.serializeUint32(votecastBytes.length),
@@ -54,9 +51,7 @@ class CardanoSignCVoteOperation
     start = end;
 
     while (start < votecastBytes.length) {
-      end = votecastBytes.length < start + maxVotecastChunkSize
-          ? votecastBytes.length
-          : start + maxVotecastChunkSize;
+      end = votecastBytes.length < start + maxVotecastChunkSize ? votecastBytes.length : start + maxVotecastChunkSize;
 
       await send(_createSendOperation(
         p1: p1StageChunk,
@@ -78,8 +73,7 @@ class CardanoSignCVoteOperation
     return SignedCIP36VoteData(
       dataHashHex: hex.encode(confirmResponse.read(votecastHashLength)),
       witnessPath: cVote.witnessPath,
-      witnessSignatureHex:
-          hex.encode(witnessResponse.read(ed25519SignatureLength)),
+      witnessSignatureHex: hex.encode(witnessResponse.read(ed25519SignatureLength)),
     );
   }
 }

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,52 +10,75 @@ part of 'parsed_credential.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedCredential {
 
+ int get credentialValue;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCredential&&(identical(other.credentialValue, credentialValue) || other.credentialValue == credentialValue));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,credentialValue);
 
-
+@override
+String toString() {
+  return 'ParsedCredential(credentialValue: $credentialValue)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $ParsedCredentialCopyWith<$Res>  {
-  factory $ParsedCredentialCopyWith(ParsedCredential value, $Res Function(ParsedCredential) then) = _$ParsedCredentialCopyWithImpl<$Res, ParsedCredential>;
-
-
-
+class $ParsedCredentialCopyWith<$Res>  {
+$ParsedCredentialCopyWith(ParsedCredential _, $Res Function(ParsedCredential) __);
 }
 
-/// @nodoc
-class _$ParsedCredentialCopyWithImpl<$Res,$Val extends ParsedCredential> implements $ParsedCredentialCopyWith<$Res> {
-  _$ParsedCredentialCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class CredentialKeyPath extends ParsedCredential {
+   CredentialKeyPath({required this.path}): super._();
+  
+
+ final  LedgerSigningPath path;
 
 /// Create a copy of ParsedCredential
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CredentialKeyPathCopyWith<CredentialKeyPath> get copyWith => _$CredentialKeyPathCopyWithImpl<CredentialKeyPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyPath&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'ParsedCredential.keyPath(path: $path)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$CredentialKeyPathImplCopyWith<$Res>  {
-  factory _$$CredentialKeyPathImplCopyWith(_$CredentialKeyPathImpl value, $Res Function(_$CredentialKeyPathImpl) then) = __$$CredentialKeyPathImplCopyWithImpl<$Res>;
+abstract mixin class $CredentialKeyPathCopyWith<$Res> implements $ParsedCredentialCopyWith<$Res> {
+  factory $CredentialKeyPathCopyWith(CredentialKeyPath value, $Res Function(CredentialKeyPath) _then) = _$CredentialKeyPathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath path
@@ -62,19 +86,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
-class __$$CredentialKeyPathImplCopyWithImpl<$Res> extends _$ParsedCredentialCopyWithImpl<$Res, _$CredentialKeyPathImpl> implements _$$CredentialKeyPathImplCopyWith<$Res> {
-  __$$CredentialKeyPathImplCopyWithImpl(_$CredentialKeyPathImpl _value, $Res Function(_$CredentialKeyPathImpl) _then)
-      : super(_value, _then);
+class _$CredentialKeyPathCopyWithImpl<$Res>
+    implements $CredentialKeyPathCopyWith<$Res> {
+  _$CredentialKeyPathCopyWithImpl(this._self, this._then);
 
+  final CredentialKeyPath _self;
+  final $Res Function(CredentialKeyPath) _then;
 
 /// Create a copy of ParsedCredential
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$CredentialKeyPathImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(CredentialKeyPath(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -85,8 +111,8 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
   });
 }
 }
@@ -94,98 +120,28 @@ $LedgerSigningPathCopyWith<$Res> get path {
 /// @nodoc
 
 
-class _$CredentialKeyPathImpl extends CredentialKeyPath  {
-   _$CredentialKeyPathImpl({required this.path}): super._();
-
+class CredentialKeyHash extends ParsedCredential {
+   CredentialKeyHash({required this.keyHashHex}): super._();
   
 
-@override final  LedgerSigningPath path;
+ final  String keyHashHex;
 
-@override
-String toString() {
-  return 'ParsedCredential.keyPath(path: $path)';
-}
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CredentialKeyHashCopyWith<CredentialKeyHash> get copyWith => _$CredentialKeyHashCopyWithImpl<CredentialKeyHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CredentialKeyPathImpl&&(identical(other.path, path) || other.path == path));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith => __$$CredentialKeyPathImplCopyWithImpl<_$CredentialKeyPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class CredentialKeyPath extends ParsedCredential {
-   factory CredentialKeyPath({required final  LedgerSigningPath path}) = _$CredentialKeyPathImpl;
-   CredentialKeyPath._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CredentialKeyPathImplCopyWith<_$CredentialKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$CredentialKeyHashImplCopyWith<$Res>  {
-  factory _$$CredentialKeyHashImplCopyWith(_$CredentialKeyHashImpl value, $Res Function(_$CredentialKeyHashImpl) then) = __$$CredentialKeyHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String keyHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$CredentialKeyHashImplCopyWithImpl<$Res> extends _$ParsedCredentialCopyWithImpl<$Res, _$CredentialKeyHashImpl> implements _$$CredentialKeyHashImplCopyWith<$Res> {
-  __$$CredentialKeyHashImplCopyWithImpl(_$CredentialKeyHashImpl _value, $Res Function(_$CredentialKeyHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$CredentialKeyHashImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$CredentialKeyHashImpl extends CredentialKeyHash  {
-   _$CredentialKeyHashImpl({required this.keyHashHex}): super._();
-
-  
-
-@override final  String keyHashHex;
+int get hashCode => Object.hash(runtimeType,keyHashHex);
 
 @override
 String toString() {
@@ -193,69 +149,33 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CredentialKeyHashImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
-
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith => __$$CredentialKeyHashImplCopyWithImpl<_$CredentialKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class CredentialKeyHash extends ParsedCredential {
-   factory CredentialKeyHash({required final  String keyHashHex}) = _$CredentialKeyHashImpl;
-   CredentialKeyHash._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CredentialKeyHashImplCopyWith<_$CredentialKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$CredentialScriptHashImplCopyWith<$Res>  {
-  factory _$$CredentialScriptHashImplCopyWith(_$CredentialScriptHashImpl value, $Res Function(_$CredentialScriptHashImpl) then) = __$$CredentialScriptHashImplCopyWithImpl<$Res>;
+abstract mixin class $CredentialKeyHashCopyWith<$Res> implements $ParsedCredentialCopyWith<$Res> {
+  factory $CredentialKeyHashCopyWith(CredentialKeyHash value, $Res Function(CredentialKeyHash) _then) = _$CredentialKeyHashCopyWithImpl;
 @useResult
 $Res call({
- String scriptHashHex
+ String keyHashHex
 });
 
 
 
+
 }
-
 /// @nodoc
-class __$$CredentialScriptHashImplCopyWithImpl<$Res> extends _$ParsedCredentialCopyWithImpl<$Res, _$CredentialScriptHashImpl> implements _$$CredentialScriptHashImplCopyWith<$Res> {
-  __$$CredentialScriptHashImplCopyWithImpl(_$CredentialScriptHashImpl _value, $Res Function(_$CredentialScriptHashImpl) _then)
-      : super(_value, _then);
+class _$CredentialKeyHashCopyWithImpl<$Res>
+    implements $CredentialKeyHashCopyWith<$Res> {
+  _$CredentialKeyHashCopyWithImpl(this._self, this._then);
 
+  final CredentialKeyHash _self;
+  final $Res Function(CredentialKeyHash) _then;
 
 /// Create a copy of ParsedCredential
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
-  return _then(_$CredentialScriptHashImpl(
-scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(CredentialKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -266,12 +186,28 @@ as String,
 /// @nodoc
 
 
-class _$CredentialScriptHashImpl extends CredentialScriptHash  {
-   _$CredentialScriptHashImpl({required this.scriptHashHex}): super._();
-
+class CredentialScriptHash extends ParsedCredential {
+   CredentialScriptHash({required this.scriptHashHex}): super._();
   
 
-@override final  String scriptHashHex;
+ final  String scriptHashHex;
+
+/// Create a copy of ParsedCredential
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CredentialScriptHashCopyWith<CredentialScriptHash> get copyWith => _$CredentialScriptHashCopyWithImpl<CredentialScriptHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
 @override
 String toString() {
@@ -279,42 +215,38 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CredentialScriptHashImpl&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
+/// @nodoc
+abstract mixin class $CredentialScriptHashCopyWith<$Res> implements $ParsedCredentialCopyWith<$Res> {
+  factory $CredentialScriptHashCopyWith(CredentialScriptHash value, $Res Function(CredentialScriptHash) _then) = _$CredentialScriptHashCopyWithImpl;
+@useResult
+$Res call({
+ String scriptHashHex
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+
+
+
+}
+/// @nodoc
+class _$CredentialScriptHashCopyWithImpl<$Res>
+    implements $CredentialScriptHashCopyWith<$Res> {
+  _$CredentialScriptHashCopyWithImpl(this._self, this._then);
+
+  final CredentialScriptHash _self;
+  final $Res Function(CredentialScriptHash) _then;
 
 /// Create a copy of ParsedCredential
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CredentialScriptHashImplCopyWith<_$CredentialScriptHashImpl> get copyWith => __$$CredentialScriptHashImplCopyWithImpl<_$CredentialScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(CredentialScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
 
 
 }
 
-
-abstract class CredentialScriptHash extends ParsedCredential {
-   factory CredentialScriptHash({required final  String scriptHashHex}) = _$CredentialScriptHashImpl;
-   CredentialScriptHash._(): super._();
-
-  
-
- String get scriptHashHex;
-/// Create a copy of ParsedCredential
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CredentialScriptHashImplCopyWith<_$CredentialScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

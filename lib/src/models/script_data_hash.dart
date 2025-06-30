@@ -1,16 +1,15 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
 
-part 'script_data_hash.freezed.dart';
+part "script_data_hash.freezed.dart";
 
 @freezed
 sealed class ScriptDataHash with _$ScriptDataHash {
-  ScriptDataHash._() {
-    validateExactHexString(hexString, 'ScriptDataHash', scriptDataHashLength);
-  }
-
   factory ScriptDataHash({
     required String hexString,
   }) = _ScriptDataHash;
+  ScriptDataHash._() {
+    validateExactHexString(hexString, "ScriptDataHash", scriptDataHashLength);
+  }
 }

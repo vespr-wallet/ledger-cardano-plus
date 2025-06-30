@@ -1,17 +1,16 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'parsed_credential.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/utilities.dart";
+import "parsed_credential.dart";
 
-part 'parsed_withdrawal.freezed.dart';
+part "parsed_withdrawal.freezed.dart";
 
 @freezed
 sealed class ParsedWithdrawal with _$ParsedWithdrawal {
-  ParsedWithdrawal._() {
-    validateUint64(amount, 'amount');
-  }
-
   factory ParsedWithdrawal({
     required BigInt amount,
     required ParsedCredential stakeCredential,
   }) = _ParsedWithdrawal;
+  ParsedWithdrawal._() {
+    validateUint64(amount, "amount");
+  }
 }

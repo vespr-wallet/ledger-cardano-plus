@@ -1,12 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/constants.dart";
 
-part 'extended_public_key.freezed.dart';
+part "extended_public_key.freezed.dart";
 
 @freezed
 sealed class ExtendedPublicKey with _$ExtendedPublicKey {
-  const ExtendedPublicKey._();
-
   const factory ExtendedPublicKey({
     // bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
     required String xPub,
@@ -17,6 +15,7 @@ sealed class ExtendedPublicKey with _$ExtendedPublicKey {
     required String publicKeyHex,
     required String chainCodeHex,
   }) = _ExtendedPublicKey;
+  const ExtendedPublicKey._();
 }
 
 @freezed
@@ -41,6 +40,7 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     required List<int> customPath,
   }) = ExtendedPublicKeyRequest_Custom;
 
+  @override
   late final List<int> derivationPath = switch (this) {
     ExtendedPublicKeyRequest_Shelley(accountIndex: final accIndex) => [
         harden + 1852,
@@ -69,14 +69,12 @@ sealed class ExtendedPublicKeyRequest with _$ExtendedPublicKeyRequest {
     ExtendedPublicKeyRequest_Custom(customPath: final customPath) => customPath,
   };
 
+  @override
   late final int minSupportedVersionCode = switch (this) {
     ExtendedPublicKeyRequest_Shelley() => 20200, // Version 2.2.0
-    ExtendedPublicKeyRequest_Byron() =>
-      20200, // Version 2.2.0, supportsByronAddressDerivation
-    ExtendedPublicKeyRequest_Custom() =>
-      50001, // Version 5.0.1, last official build
-    ExtendedPublicKeyRequest_Stake() =>
-      20200, // Version 2.2.0, supportsPoolRegistrationAsOwner
+    ExtendedPublicKeyRequest_Byron() => 20200, // Version 2.2.0, supportsByronAddressDerivation
+    ExtendedPublicKeyRequest_Custom() => 50001, // Version 5.0.1, last official build
+    ExtendedPublicKeyRequest_Stake() => 20200, // Version 2.2.0, supportsPoolRegistrationAsOwner
     ExtendedPublicKeyRequest_CIP36() => 60000, // Version 6.0.0, supportsCIP36
   };
 }

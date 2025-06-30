@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,79 +10,58 @@ part of 'spending_data_source.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$SpendingDataSource {
 
+ SpendingDataSourceType get spendingDataSourceType;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSource&&(identical(other.spendingDataSourceType, spendingDataSourceType) || other.spendingDataSourceType == spendingDataSourceType));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,spendingDataSourceType);
 
-
+@override
+String toString() {
+  return 'SpendingDataSource(spendingDataSourceType: $spendingDataSourceType)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $SpendingDataSourceCopyWith<$Res>  {
-  factory $SpendingDataSourceCopyWith(SpendingDataSource value, $Res Function(SpendingDataSource) then) = _$SpendingDataSourceCopyWithImpl<$Res, SpendingDataSource>;
-
-
-
-}
-
-/// @nodoc
-class _$SpendingDataSourceCopyWithImpl<$Res,$Val extends SpendingDataSource> implements $SpendingDataSourceCopyWith<$Res> {
-  _$SpendingDataSourceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-
-
+class $SpendingDataSourceCopyWith<$Res>  {
+$SpendingDataSourceCopyWith(SpendingDataSource _, $Res Function(SpendingDataSource) __);
 }
 
 
 /// @nodoc
-abstract class _$$SpendingDataSourceNoneImplCopyWith<$Res>  {
-  factory _$$SpendingDataSourceNoneImplCopyWith(_$SpendingDataSourceNoneImpl value, $Res Function(_$SpendingDataSourceNoneImpl) then) = __$$SpendingDataSourceNoneImplCopyWithImpl<$Res>;
 
 
-
-}
-
-/// @nodoc
-class __$$SpendingDataSourceNoneImplCopyWithImpl<$Res> extends _$SpendingDataSourceCopyWithImpl<$Res, _$SpendingDataSourceNoneImpl> implements _$$SpendingDataSourceNoneImplCopyWith<$Res> {
-  __$$SpendingDataSourceNoneImplCopyWithImpl(_$SpendingDataSourceNoneImpl _value, $Res Function(_$SpendingDataSourceNoneImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-
-
-
-}
-
-/// @nodoc
-
-
-class _$SpendingDataSourceNoneImpl extends SpendingDataSourceNone  {
-   _$SpendingDataSourceNoneImpl(): super._();
-
+class SpendingDataSourceNone extends SpendingDataSource {
+   SpendingDataSourceNone(): super._();
   
 
 
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceNone);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
@@ -89,39 +69,48 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SpendingDataSourceNoneImpl);
 }
 
 
-@override
-int get hashCode => runtimeType.hashCode;
 
 
+/// @nodoc
 
 
-
-
-
-
-
-}
-
-
-abstract class SpendingDataSourceNone extends SpendingDataSource {
-   factory SpendingDataSourceNone() = _$SpendingDataSourceNoneImpl;
-   SpendingDataSourceNone._(): super._();
-
+class SpendingDataSourcePath extends SpendingDataSource {
+   SpendingDataSourcePath({required this.path}): super._();
   
 
+ final  LedgerSigningPath path;
+
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SpendingDataSourcePathCopyWith<SpendingDataSourcePath> get copyWith => _$SpendingDataSourcePathCopyWithImpl<SpendingDataSourcePath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourcePath&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'SpendingDataSource.path(path: $path)';
+}
 
 
 }
 
 /// @nodoc
-abstract class _$$SpendingDataSourcePathImplCopyWith<$Res>  {
-  factory _$$SpendingDataSourcePathImplCopyWith(_$SpendingDataSourcePathImpl value, $Res Function(_$SpendingDataSourcePathImpl) then) = __$$SpendingDataSourcePathImplCopyWithImpl<$Res>;
+abstract mixin class $SpendingDataSourcePathCopyWith<$Res> implements $SpendingDataSourceCopyWith<$Res> {
+  factory $SpendingDataSourcePathCopyWith(SpendingDataSourcePath value, $Res Function(SpendingDataSourcePath) _then) = _$SpendingDataSourcePathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath path
@@ -129,19 +118,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
-class __$$SpendingDataSourcePathImplCopyWithImpl<$Res> extends _$SpendingDataSourceCopyWithImpl<$Res, _$SpendingDataSourcePathImpl> implements _$$SpendingDataSourcePathImplCopyWith<$Res> {
-  __$$SpendingDataSourcePathImplCopyWithImpl(_$SpendingDataSourcePathImpl _value, $Res Function(_$SpendingDataSourcePathImpl) _then)
-      : super(_value, _then);
+class _$SpendingDataSourcePathCopyWithImpl<$Res>
+    implements $SpendingDataSourcePathCopyWith<$Res> {
+  _$SpendingDataSourcePathCopyWithImpl(this._self, this._then);
 
+  final SpendingDataSourcePath _self;
+  final $Res Function(SpendingDataSourcePath) _then;
 
 /// Create a copy of SpendingDataSource
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$SpendingDataSourcePathImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(SpendingDataSourcePath(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -152,8 +143,8 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
   });
 }
 }
@@ -161,98 +152,28 @@ $LedgerSigningPathCopyWith<$Res> get path {
 /// @nodoc
 
 
-class _$SpendingDataSourcePathImpl extends SpendingDataSourcePath  {
-   _$SpendingDataSourcePathImpl({required this.path}): super._();
-
+class SpendingDataSourceScriptHash extends SpendingDataSource {
+   SpendingDataSourceScriptHash({required this.scriptHashHex}): super._();
   
 
-@override final  LedgerSigningPath path;
+ final  String scriptHashHex;
 
-@override
-String toString() {
-  return 'SpendingDataSource.path(path: $path)';
-}
+/// Create a copy of SpendingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SpendingDataSourceScriptHashCopyWith<SpendingDataSourceScriptHash> get copyWith => _$SpendingDataSourceScriptHashCopyWithImpl<SpendingDataSourceScriptHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SpendingDataSourcePathImpl&&(identical(other.path, path) || other.path == path));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$SpendingDataSourcePathImplCopyWith<_$SpendingDataSourcePathImpl> get copyWith => __$$SpendingDataSourcePathImplCopyWithImpl<_$SpendingDataSourcePathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class SpendingDataSourcePath extends SpendingDataSource {
-   factory SpendingDataSourcePath({required final  LedgerSigningPath path}) = _$SpendingDataSourcePathImpl;
-   SpendingDataSourcePath._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$SpendingDataSourcePathImplCopyWith<_$SpendingDataSourcePathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$SpendingDataSourceScriptHashImplCopyWith<$Res>  {
-  factory _$$SpendingDataSourceScriptHashImplCopyWith(_$SpendingDataSourceScriptHashImpl value, $Res Function(_$SpendingDataSourceScriptHashImpl) then) = __$$SpendingDataSourceScriptHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String scriptHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$SpendingDataSourceScriptHashImplCopyWithImpl<$Res> extends _$SpendingDataSourceCopyWithImpl<$Res, _$SpendingDataSourceScriptHashImpl> implements _$$SpendingDataSourceScriptHashImplCopyWith<$Res> {
-  __$$SpendingDataSourceScriptHashImplCopyWithImpl(_$SpendingDataSourceScriptHashImpl _value, $Res Function(_$SpendingDataSourceScriptHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
-  return _then(_$SpendingDataSourceScriptHashImpl(
-scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$SpendingDataSourceScriptHashImpl extends SpendingDataSourceScriptHash  {
-   _$SpendingDataSourceScriptHashImpl({required this.scriptHashHex}): super._();
-
-  
-
-@override final  String scriptHashHex;
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
 @override
 String toString() {
@@ -260,42 +181,38 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SpendingDataSourceScriptHashImpl&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
+/// @nodoc
+abstract mixin class $SpendingDataSourceScriptHashCopyWith<$Res> implements $SpendingDataSourceCopyWith<$Res> {
+  factory $SpendingDataSourceScriptHashCopyWith(SpendingDataSourceScriptHash value, $Res Function(SpendingDataSourceScriptHash) _then) = _$SpendingDataSourceScriptHashCopyWithImpl;
+@useResult
+$Res call({
+ String scriptHashHex
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+
+
+
+}
+/// @nodoc
+class _$SpendingDataSourceScriptHashCopyWithImpl<$Res>
+    implements $SpendingDataSourceScriptHashCopyWith<$Res> {
+  _$SpendingDataSourceScriptHashCopyWithImpl(this._self, this._then);
+
+  final SpendingDataSourceScriptHash _self;
+  final $Res Function(SpendingDataSourceScriptHash) _then;
 
 /// Create a copy of SpendingDataSource
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$SpendingDataSourceScriptHashImplCopyWith<_$SpendingDataSourceScriptHashImpl> get copyWith => __$$SpendingDataSourceScriptHashImplCopyWithImpl<_$SpendingDataSourceScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(SpendingDataSourceScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
 
 
 }
 
-
-abstract class SpendingDataSourceScriptHash extends SpendingDataSource {
-   factory SpendingDataSourceScriptHash({required final  String scriptHashHex}) = _$SpendingDataSourceScriptHashImpl;
-   SpendingDataSourceScriptHash._(): super._();
-
-  
-
- String get scriptHashHex;
-/// Create a copy of SpendingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$SpendingDataSourceScriptHashImplCopyWith<_$SpendingDataSourceScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

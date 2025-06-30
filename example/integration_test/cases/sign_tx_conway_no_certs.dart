@@ -57,7 +57,7 @@ final testsConwayWithoutCertificates = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
   ),
   SignTxTestCase(
-    testName: 'Sign tx with donation',
+    testName: 'Sign tx with donation', // TODO recheck???
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
         network: CardanoNetwork.mainnet(),
@@ -101,7 +101,7 @@ final testsConwayWithoutCertificates = [
             address: 0,
             role: ShelleyAddressRole.payment,
           ),
-          witnessSignatureHex:
+          witnessSignatureHex: 
               'eef7538ecd01708a3483900155c3c1545188b671f626a4622864cbfe41a51bfd4c47ccb9ee8accd7891bd0291bce3e44c8363a30ffbe80864af1a29a74239c00',
         ),
       ],
@@ -109,8 +109,8 @@ final testsConwayWithoutCertificates = [
     ),
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
   ),
-  SignTxTestCase(
-    testName: 'Sign tx with treasury and donation',
+  SignTxTestCase( 
+    testName: 'Sign tx with treasury and donation', // TODO recheck???
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
         network: CardanoNetwork.mainnet(),

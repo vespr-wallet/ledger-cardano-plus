@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'spending_data_source.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "spending_data_source.freezed.dart";
 
 @freezed
 sealed class SpendingDataSource with _$SpendingDataSource {
@@ -12,12 +13,11 @@ sealed class SpendingDataSource with _$SpendingDataSource {
     final void Function() assertinvoker = switch (thisClass) {
       SpendingDataSourceNone() => () {},
       SpendingDataSourcePath() => () {
-          validateBIP32Path(thisClass.path, 'path');
+          validateBIP32Path(thisClass.path, "path");
         },
       SpendingDataSourceScriptHash() => () {
-          validateHexString(thisClass.scriptHashHex, 'scriptHashHex');
-          validateMaxStringLength(
-              thisClass.scriptHashHex, 'scriptHashHex', stringLength64Bytes);
+          validateHexString(thisClass.scriptHashHex, "scriptHashHex");
+          validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
         },
     };
     assertinvoker();
@@ -33,6 +33,7 @@ sealed class SpendingDataSource with _$SpendingDataSource {
     required String scriptHashHex,
   }) = SpendingDataSourceScriptHash;
 
+  @override
   late final SpendingDataSourceType spendingDataSourceType = switch (this) {
     SpendingDataSourceNone() => SpendingDataSourceType.none,
     SpendingDataSourcePath() => SpendingDataSourceType.path,

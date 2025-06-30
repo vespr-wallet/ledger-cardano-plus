@@ -1,8 +1,8 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/utils/exceptions.dart';
-import 'parsed_native_script.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../utils/exceptions.dart";
+import "parsed_native_script.dart";
 
-part 'parsed_complex_native_script.freezed.dart';
+part "parsed_complex_native_script.freezed.dart";
 
 @freezed
 sealed class ParsedComplexNativeScript with _$ParsedComplexNativeScript {
@@ -33,6 +33,7 @@ sealed class ParsedComplexNativeScript with _$ParsedComplexNativeScript {
     required List<ParsedNativeScript> scripts,
   }) = ParsedComplexNativeScript_NOfK;
 
+  @override
   late final int nativeScriptSerializationValue = switch (this) {
     ParsedComplexNativeScript_All() => 1,
     ParsedComplexNativeScript_Any() => 2,

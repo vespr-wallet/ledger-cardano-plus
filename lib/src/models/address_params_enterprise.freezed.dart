@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,110 +10,28 @@ part of 'address_params_enterprise.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AddressParamsEnterprise {
 
- SpendingParams get spendingPath => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ SpendingParams get spendingPath;
 /// Create a copy of AddressParamsEnterprise
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$AddressParamsEnterpriseCopyWith<AddressParamsEnterprise> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class $AddressParamsEnterpriseCopyWith<$Res>  {
-  factory $AddressParamsEnterpriseCopyWith(AddressParamsEnterprise value, $Res Function(AddressParamsEnterprise) then) = _$AddressParamsEnterpriseCopyWithImpl<$Res, AddressParamsEnterprise>;
-@useResult
-$Res call({
- SpendingParams spendingPath
-});
-
-
-$SpendingParamsCopyWith<$Res> get spendingPath;
-}
-
-/// @nodoc
-class _$AddressParamsEnterpriseCopyWithImpl<$Res,$Val extends AddressParamsEnterprise> implements $AddressParamsEnterpriseCopyWith<$Res> {
-  _$AddressParamsEnterpriseCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of AddressParamsEnterprise
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_value.copyWith(
-spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
-as SpendingParams,
-  )as $Val);
-}
-/// Create a copy of AddressParamsEnterprise
-/// with the given fields replaced by the non-null parameter values.
-@override
 @pragma('vm:prefer-inline')
-$SpendingParamsCopyWith<$Res> get spendingPath {
-  
-  return $SpendingParamsCopyWith<$Res>(_value.spendingPath, (value) {
-    return _then(_value.copyWith(spendingPath: value) as $Val);
-  });
-}
-}
+$AddressParamsEnterpriseCopyWith<AddressParamsEnterprise> get copyWith => _$AddressParamsEnterpriseCopyWithImpl<AddressParamsEnterprise>(this as AddressParamsEnterprise, _$identity);
 
 
-/// @nodoc
-abstract class _$$AddressParamsEnterpriseImplCopyWith<$Res> implements $AddressParamsEnterpriseCopyWith<$Res> {
-  factory _$$AddressParamsEnterpriseImplCopyWith(_$AddressParamsEnterpriseImpl value, $Res Function(_$AddressParamsEnterpriseImpl) then) = __$$AddressParamsEnterpriseImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- SpendingParams spendingPath
-});
 
-
-@override $SpendingParamsCopyWith<$Res> get spendingPath;
-}
-
-/// @nodoc
-class __$$AddressParamsEnterpriseImplCopyWithImpl<$Res> extends _$AddressParamsEnterpriseCopyWithImpl<$Res, _$AddressParamsEnterpriseImpl> implements _$$AddressParamsEnterpriseImplCopyWith<$Res> {
-  __$$AddressParamsEnterpriseImplCopyWithImpl(_$AddressParamsEnterpriseImpl _value, $Res Function(_$AddressParamsEnterpriseImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of AddressParamsEnterprise
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_$AddressParamsEnterpriseImpl(
-spendingPath: null == spendingPath ? _value.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
-as SpendingParams,
-  ));
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsEnterprise&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
 }
 
 
-}
-
-/// @nodoc
-
-
-class _$AddressParamsEnterpriseImpl extends _AddressParamsEnterprise  {
-   _$AddressParamsEnterpriseImpl({required this.spendingPath}): super._();
-
-  
-
-@override final  SpendingParams spendingPath;
+@override
+int get hashCode => Object.hash(runtimeType,spendingPath);
 
 @override
 String toString() {
@@ -120,42 +39,122 @@ String toString() {
 }
 
 
+}
+
+/// @nodoc
+abstract mixin class $AddressParamsEnterpriseCopyWith<$Res>  {
+  factory $AddressParamsEnterpriseCopyWith(AddressParamsEnterprise value, $Res Function(AddressParamsEnterprise) _then) = _$AddressParamsEnterpriseCopyWithImpl;
+@useResult
+$Res call({
+ SpendingParams spendingPath
+});
+
+
+$SpendingParamsCopyWith<$Res> get spendingPath;
+
+}
+/// @nodoc
+class _$AddressParamsEnterpriseCopyWithImpl<$Res>
+    implements $AddressParamsEnterpriseCopyWith<$Res> {
+  _$AddressParamsEnterpriseCopyWithImpl(this._self, this._then);
+
+  final AddressParamsEnterprise _self;
+  final $Res Function(AddressParamsEnterprise) _then;
+
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
+  return _then(_self.copyWith(
+spendingPath: null == spendingPath ? _self.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
+as SpendingParams,
+  ));
+}
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SpendingParamsCopyWith<$Res> get spendingPath {
+  
+  return $SpendingParamsCopyWith<$Res>(_self.spendingPath, (value) {
+    return _then(_self.copyWith(spendingPath: value));
+  });
+}
+}
+
+
+/// @nodoc
+
+
+class _AddressParamsEnterprise extends AddressParamsEnterprise {
+   _AddressParamsEnterprise({required this.spendingPath}): super._();
+  
+
+@override final  SpendingParams spendingPath;
+
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AddressParamsEnterpriseCopyWith<_AddressParamsEnterprise> get copyWith => __$AddressParamsEnterpriseCopyWithImpl<_AddressParamsEnterprise>(this, _$identity);
+
+
+
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsEnterpriseImpl&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsEnterprise&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,spendingPath);
 
+@override
+String toString() {
+  return 'AddressParamsEnterprise(spendingPath: $spendingPath)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AddressParamsEnterpriseCopyWith<$Res> implements $AddressParamsEnterpriseCopyWith<$Res> {
+  factory _$AddressParamsEnterpriseCopyWith(_AddressParamsEnterprise value, $Res Function(_AddressParamsEnterprise) _then) = __$AddressParamsEnterpriseCopyWithImpl;
+@override @useResult
+$Res call({
+ SpendingParams spendingPath
+});
+
+
+@override $SpendingParamsCopyWith<$Res> get spendingPath;
+
+}
+/// @nodoc
+class __$AddressParamsEnterpriseCopyWithImpl<$Res>
+    implements _$AddressParamsEnterpriseCopyWith<$Res> {
+  __$AddressParamsEnterpriseCopyWithImpl(this._self, this._then);
+
+  final _AddressParamsEnterprise _self;
+  final $Res Function(_AddressParamsEnterprise) _then;
+
 /// Create a copy of AddressParamsEnterprise
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @pragma('vm:prefer-inline') $Res call({Object? spendingPath = null,}) {
+  return _then(_AddressParamsEnterprise(
+spendingPath: null == spendingPath ? _self.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
+as SpendingParams,
+  ));
+}
+
+/// Create a copy of AddressParamsEnterprise
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-_$$AddressParamsEnterpriseImplCopyWith<_$AddressParamsEnterpriseImpl> get copyWith => __$$AddressParamsEnterpriseImplCopyWithImpl<_$AddressParamsEnterpriseImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class _AddressParamsEnterprise extends AddressParamsEnterprise {
-   factory _AddressParamsEnterprise({required final  SpendingParams spendingPath}) = _$AddressParamsEnterpriseImpl;
-   _AddressParamsEnterprise._(): super._();
-
+$SpendingParamsCopyWith<$Res> get spendingPath {
   
-
-@override SpendingParams get spendingPath;
-/// Create a copy of AddressParamsEnterprise
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsEnterpriseImplCopyWith<_$AddressParamsEnterpriseImpl> get copyWith => throw _privateConstructorUsedError;
-
+  return $SpendingParamsCopyWith<$Res>(_self.spendingPath, (value) {
+    return _then(_self.copyWith(spendingPath: value));
+  });
 }
+}
+
+// dart format on

@@ -1,8 +1,10 @@
-import 'dart:typed_data';
-import 'package:ledger_cardano_plus/src/models/flags.dart';
-import 'package:ledger_cardano_plus/src/cardano_version.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "dart:typed_data";
+
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
+
+import "../cardano_version.dart";
+import "../models/flags.dart";
+import "../utils/constants.dart";
 
 class CardanoVersionOperation extends LedgerComplexOperation<CardanoVersion> {
   const CardanoVersionOperation() : super();
@@ -16,7 +18,7 @@ class CardanoVersionOperation extends LedgerComplexOperation<CardanoVersion> {
       p2: p2Unused,
       data: Uint8List(0),
       prependDataLength: true,
-      debugName: 'Get Cardano Version',
+      debugName: "Get Cardano Version",
     );
 
     final reader = await send(operation);

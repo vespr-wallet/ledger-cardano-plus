@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,52 +10,75 @@ part of 'parsed_native_script.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedNativeScript {
 
- Object get script => throw _privateConstructorUsedError;
+ Object get script;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript&&const DeepCollectionEquality().equals(other.script, script));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(script));
 
+@override
+String toString() {
+  return 'ParsedNativeScript(script: $script)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $ParsedNativeScriptCopyWith<$Res>  {
-  factory $ParsedNativeScriptCopyWith(ParsedNativeScript value, $Res Function(ParsedNativeScript) then) = _$ParsedNativeScriptCopyWithImpl<$Res, ParsedNativeScript>;
-
-
-
+class $ParsedNativeScriptCopyWith<$Res>  {
+$ParsedNativeScriptCopyWith(ParsedNativeScript _, $Res Function(ParsedNativeScript) __);
 }
 
-/// @nodoc
-class _$ParsedNativeScriptCopyWithImpl<$Res,$Val extends ParsedNativeScript> implements $ParsedNativeScriptCopyWith<$Res> {
-  _$ParsedNativeScriptCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class ParsedNativeScript_Complex extends ParsedNativeScript {
+  const ParsedNativeScript_Complex(this.script): super._();
+  
+
+@override final  ParsedComplexNativeScript script;
 
 /// Create a copy of ParsedNativeScript
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ParsedNativeScript_ComplexCopyWith<ParsedNativeScript_Complex> get copyWith => _$ParsedNativeScript_ComplexCopyWithImpl<ParsedNativeScript_Complex>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Complex&&(identical(other.script, script) || other.script == script));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,script);
+
+@override
+String toString() {
+  return 'ParsedNativeScript.complex(script: $script)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$ParsedNativeScript_ComplexImplCopyWith<$Res>  {
-  factory _$$ParsedNativeScript_ComplexImplCopyWith(_$ParsedNativeScript_ComplexImpl value, $Res Function(_$ParsedNativeScript_ComplexImpl) then) = __$$ParsedNativeScript_ComplexImplCopyWithImpl<$Res>;
+abstract mixin class $ParsedNativeScript_ComplexCopyWith<$Res> implements $ParsedNativeScriptCopyWith<$Res> {
+  factory $ParsedNativeScript_ComplexCopyWith(ParsedNativeScript_Complex value, $Res Function(ParsedNativeScript_Complex) _then) = _$ParsedNativeScript_ComplexCopyWithImpl;
 @useResult
 $Res call({
  ParsedComplexNativeScript script
@@ -62,19 +86,21 @@ $Res call({
 
 
 $ParsedComplexNativeScriptCopyWith<$Res> get script;
+
 }
-
 /// @nodoc
-class __$$ParsedNativeScript_ComplexImplCopyWithImpl<$Res> extends _$ParsedNativeScriptCopyWithImpl<$Res, _$ParsedNativeScript_ComplexImpl> implements _$$ParsedNativeScript_ComplexImplCopyWith<$Res> {
-  __$$ParsedNativeScript_ComplexImplCopyWithImpl(_$ParsedNativeScript_ComplexImpl _value, $Res Function(_$ParsedNativeScript_ComplexImpl) _then)
-      : super(_value, _then);
+class _$ParsedNativeScript_ComplexCopyWithImpl<$Res>
+    implements $ParsedNativeScript_ComplexCopyWith<$Res> {
+  _$ParsedNativeScript_ComplexCopyWithImpl(this._self, this._then);
 
+  final ParsedNativeScript_Complex _self;
+  final $Res Function(ParsedNativeScript_Complex) _then;
 
 /// Create a copy of ParsedNativeScript
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? script = null,}) {
-  return _then(_$ParsedNativeScript_ComplexImpl(
-null == script ? _value.script : script // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? script = null,}) {
+  return _then(ParsedNativeScript_Complex(
+null == script ? _self.script : script // ignore: cast_nullable_to_non_nullable
 as ParsedComplexNativeScript,
   ));
 }
@@ -85,8 +111,8 @@ as ParsedComplexNativeScript,
 @pragma('vm:prefer-inline')
 $ParsedComplexNativeScriptCopyWith<$Res> get script {
   
-  return $ParsedComplexNativeScriptCopyWith<$Res>(_value.script, (value) {
-    return _then(_value.copyWith(script: value) );
+  return $ParsedComplexNativeScriptCopyWith<$Res>(_self.script, (value) {
+    return _then(_self.copyWith(script: value));
   });
 }
 }
@@ -94,62 +120,40 @@ $ParsedComplexNativeScriptCopyWith<$Res> get script {
 /// @nodoc
 
 
-class _$ParsedNativeScript_ComplexImpl extends ParsedNativeScript_Complex  {
-  const _$ParsedNativeScript_ComplexImpl(this.script): super._();
-
+class ParsedNativeScript_Simple extends ParsedNativeScript {
+  const ParsedNativeScript_Simple(this.script): super._();
   
 
-@override final  ParsedComplexNativeScript script;
+@override final  ParsedSimpleNativeScript script;
 
-@override
-String toString() {
-  return 'ParsedNativeScript.complex(script: $script)';
-}
+/// Create a copy of ParsedNativeScript
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ParsedNativeScript_SimpleCopyWith<ParsedNativeScript_Simple> get copyWith => _$ParsedNativeScript_SimpleCopyWithImpl<ParsedNativeScript_Simple>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedNativeScript_ComplexImpl&&(identical(other.script, script) || other.script == script));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Simple&&(identical(other.script, script) || other.script == script));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,script);
 
-/// Create a copy of ParsedNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$ParsedNativeScript_ComplexImplCopyWith<_$ParsedNativeScript_ComplexImpl> get copyWith => __$$ParsedNativeScript_ComplexImplCopyWithImpl<_$ParsedNativeScript_ComplexImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'ParsedNativeScript.simple(script: $script)';
 }
 
-
-abstract class ParsedNativeScript_Complex extends ParsedNativeScript {
-  const factory ParsedNativeScript_Complex(final  ParsedComplexNativeScript script) = _$ParsedNativeScript_ComplexImpl;
-  const ParsedNativeScript_Complex._(): super._();
-
-  
-
-@override ParsedComplexNativeScript get script;
-/// Create a copy of ParsedNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedNativeScript_ComplexImplCopyWith<_$ParsedNativeScript_ComplexImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$ParsedNativeScript_SimpleImplCopyWith<$Res>  {
-  factory _$$ParsedNativeScript_SimpleImplCopyWith(_$ParsedNativeScript_SimpleImpl value, $Res Function(_$ParsedNativeScript_SimpleImpl) then) = __$$ParsedNativeScript_SimpleImplCopyWithImpl<$Res>;
+abstract mixin class $ParsedNativeScript_SimpleCopyWith<$Res> implements $ParsedNativeScriptCopyWith<$Res> {
+  factory $ParsedNativeScript_SimpleCopyWith(ParsedNativeScript_Simple value, $Res Function(ParsedNativeScript_Simple) _then) = _$ParsedNativeScript_SimpleCopyWithImpl;
 @useResult
 $Res call({
  ParsedSimpleNativeScript script
@@ -157,19 +161,21 @@ $Res call({
 
 
 $ParsedSimpleNativeScriptCopyWith<$Res> get script;
+
 }
-
 /// @nodoc
-class __$$ParsedNativeScript_SimpleImplCopyWithImpl<$Res> extends _$ParsedNativeScriptCopyWithImpl<$Res, _$ParsedNativeScript_SimpleImpl> implements _$$ParsedNativeScript_SimpleImplCopyWith<$Res> {
-  __$$ParsedNativeScript_SimpleImplCopyWithImpl(_$ParsedNativeScript_SimpleImpl _value, $Res Function(_$ParsedNativeScript_SimpleImpl) _then)
-      : super(_value, _then);
+class _$ParsedNativeScript_SimpleCopyWithImpl<$Res>
+    implements $ParsedNativeScript_SimpleCopyWith<$Res> {
+  _$ParsedNativeScript_SimpleCopyWithImpl(this._self, this._then);
 
+  final ParsedNativeScript_Simple _self;
+  final $Res Function(ParsedNativeScript_Simple) _then;
 
 /// Create a copy of ParsedNativeScript
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? script = null,}) {
-  return _then(_$ParsedNativeScript_SimpleImpl(
-null == script ? _value.script : script // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? script = null,}) {
+  return _then(ParsedNativeScript_Simple(
+null == script ? _self.script : script // ignore: cast_nullable_to_non_nullable
 as ParsedSimpleNativeScript,
   ));
 }
@@ -180,64 +186,10 @@ as ParsedSimpleNativeScript,
 @pragma('vm:prefer-inline')
 $ParsedSimpleNativeScriptCopyWith<$Res> get script {
   
-  return $ParsedSimpleNativeScriptCopyWith<$Res>(_value.script, (value) {
-    return _then(_value.copyWith(script: value) );
+  return $ParsedSimpleNativeScriptCopyWith<$Res>(_self.script, (value) {
+    return _then(_self.copyWith(script: value));
   });
 }
 }
 
-/// @nodoc
-
-
-class _$ParsedNativeScript_SimpleImpl extends ParsedNativeScript_Simple  {
-  const _$ParsedNativeScript_SimpleImpl(this.script): super._();
-
-  
-
-@override final  ParsedSimpleNativeScript script;
-
-@override
-String toString() {
-  return 'ParsedNativeScript.simple(script: $script)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedNativeScript_SimpleImpl&&(identical(other.script, script) || other.script == script));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,script);
-
-/// Create a copy of ParsedNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$ParsedNativeScript_SimpleImplCopyWith<_$ParsedNativeScript_SimpleImpl> get copyWith => __$$ParsedNativeScript_SimpleImplCopyWithImpl<_$ParsedNativeScript_SimpleImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class ParsedNativeScript_Simple extends ParsedNativeScript {
-  const factory ParsedNativeScript_Simple(final  ParsedSimpleNativeScript script) = _$ParsedNativeScript_SimpleImpl;
-  const ParsedNativeScript_Simple._(): super._();
-
-  
-
-@override ParsedSimpleNativeScript get script;
-/// Create a copy of ParsedNativeScript
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedNativeScript_SimpleImplCopyWith<_$ParsedNativeScript_SimpleImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

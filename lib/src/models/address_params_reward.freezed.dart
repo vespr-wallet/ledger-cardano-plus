@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,11 +10,8 @@ part of 'address_params_reward.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AddressParamsReward {
 
@@ -21,40 +19,66 @@ mixin _$AddressParamsReward {
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsReward);
+}
 
 
+@override
+int get hashCode => runtimeType.hashCode;
 
+@override
+String toString() {
+  return 'AddressParamsReward()';
+}
 
 
 }
 
 /// @nodoc
-abstract class $AddressParamsRewardCopyWith<$Res>  {
-  factory $AddressParamsRewardCopyWith(AddressParamsReward value, $Res Function(AddressParamsReward) then) = _$AddressParamsRewardCopyWithImpl<$Res, AddressParamsReward>;
-
-
-
+class $AddressParamsRewardCopyWith<$Res>  {
+$AddressParamsRewardCopyWith(AddressParamsReward _, $Res Function(AddressParamsReward) __);
 }
 
-/// @nodoc
-class _$AddressParamsRewardCopyWithImpl<$Res,$Val extends AddressParamsReward> implements $AddressParamsRewardCopyWith<$Res> {
-  _$AddressParamsRewardCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class AddressParamsRewardStakingPath extends AddressParamsReward {
+   AddressParamsRewardStakingPath({required this.stakingPath}): super._();
+  
+
+ final  LedgerSigningPath stakingPath;
 
 /// Create a copy of AddressParamsReward
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AddressParamsRewardStakingPathCopyWith<AddressParamsRewardStakingPath> get copyWith => _$AddressParamsRewardStakingPathCopyWithImpl<AddressParamsRewardStakingPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingPath&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,stakingPath);
+
+@override
+String toString() {
+  return 'AddressParamsReward.stakingPath(stakingPath: $stakingPath)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$AddressParamsRewardStakingPathImplCopyWith<$Res>  {
-  factory _$$AddressParamsRewardStakingPathImplCopyWith(_$AddressParamsRewardStakingPathImpl value, $Res Function(_$AddressParamsRewardStakingPathImpl) then) = __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res>;
+abstract mixin class $AddressParamsRewardStakingPathCopyWith<$Res> implements $AddressParamsRewardCopyWith<$Res> {
+  factory $AddressParamsRewardStakingPathCopyWith(AddressParamsRewardStakingPath value, $Res Function(AddressParamsRewardStakingPath) _then) = _$AddressParamsRewardStakingPathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath stakingPath
@@ -62,19 +86,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get stakingPath;
+
 }
-
 /// @nodoc
-class __$$AddressParamsRewardStakingPathImplCopyWithImpl<$Res> extends _$AddressParamsRewardCopyWithImpl<$Res, _$AddressParamsRewardStakingPathImpl> implements _$$AddressParamsRewardStakingPathImplCopyWith<$Res> {
-  __$$AddressParamsRewardStakingPathImplCopyWithImpl(_$AddressParamsRewardStakingPathImpl _value, $Res Function(_$AddressParamsRewardStakingPathImpl) _then)
-      : super(_value, _then);
+class _$AddressParamsRewardStakingPathCopyWithImpl<$Res>
+    implements $AddressParamsRewardStakingPathCopyWith<$Res> {
+  _$AddressParamsRewardStakingPathCopyWithImpl(this._self, this._then);
 
+  final AddressParamsRewardStakingPath _self;
+  final $Res Function(AddressParamsRewardStakingPath) _then;
 
 /// Create a copy of AddressParamsReward
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? stakingPath = null,}) {
-  return _then(_$AddressParamsRewardStakingPathImpl(
-stakingPath: null == stakingPath ? _value.stakingPath : stakingPath // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? stakingPath = null,}) {
+  return _then(AddressParamsRewardStakingPath(
+stakingPath: null == stakingPath ? _self.stakingPath : stakingPath // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -85,8 +111,8 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get stakingPath {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.stakingPath, (value) {
-    return _then(_value.copyWith(stakingPath: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.stakingPath, (value) {
+    return _then(_self.copyWith(stakingPath: value));
   });
 }
 }
@@ -94,98 +120,28 @@ $LedgerSigningPathCopyWith<$Res> get stakingPath {
 /// @nodoc
 
 
-class _$AddressParamsRewardStakingPathImpl extends AddressParamsRewardStakingPath  {
-   _$AddressParamsRewardStakingPathImpl({required this.stakingPath}): super._();
-
+class AddressParamsRewardStakingScriptHashHex extends AddressParamsReward {
+   AddressParamsRewardStakingScriptHashHex({required this.stakingScriptHashHex}): super._();
   
 
-@override final  LedgerSigningPath stakingPath;
+ final  String stakingScriptHashHex;
 
-@override
-String toString() {
-  return 'AddressParamsReward.stakingPath(stakingPath: $stakingPath)';
-}
+/// Create a copy of AddressParamsReward
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AddressParamsRewardStakingScriptHashHexCopyWith<AddressParamsRewardStakingScriptHashHex> get copyWith => _$AddressParamsRewardStakingScriptHashHexCopyWithImpl<AddressParamsRewardStakingScriptHashHex>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsRewardStakingPathImpl&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingScriptHashHex&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingPath);
-
-/// Create a copy of AddressParamsReward
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$AddressParamsRewardStakingPathImplCopyWith<_$AddressParamsRewardStakingPathImpl> get copyWith => __$$AddressParamsRewardStakingPathImplCopyWithImpl<_$AddressParamsRewardStakingPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class AddressParamsRewardStakingPath extends AddressParamsReward {
-   factory AddressParamsRewardStakingPath({required final  LedgerSigningPath stakingPath}) = _$AddressParamsRewardStakingPathImpl;
-   AddressParamsRewardStakingPath._(): super._();
-
-  
-
- LedgerSigningPath get stakingPath;
-/// Create a copy of AddressParamsReward
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsRewardStakingPathImplCopyWith<_$AddressParamsRewardStakingPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$AddressParamsRewardStakingScriptHashHexImplCopyWith<$Res>  {
-  factory _$$AddressParamsRewardStakingScriptHashHexImplCopyWith(_$AddressParamsRewardStakingScriptHashHexImpl value, $Res Function(_$AddressParamsRewardStakingScriptHashHexImpl) then) = __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String stakingScriptHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<$Res> extends _$AddressParamsRewardCopyWithImpl<$Res, _$AddressParamsRewardStakingScriptHashHexImpl> implements _$$AddressParamsRewardStakingScriptHashHexImplCopyWith<$Res> {
-  __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl(_$AddressParamsRewardStakingScriptHashHexImpl _value, $Res Function(_$AddressParamsRewardStakingScriptHashHexImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of AddressParamsReward
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? stakingScriptHashHex = null,}) {
-  return _then(_$AddressParamsRewardStakingScriptHashHexImpl(
-stakingScriptHashHex: null == stakingScriptHashHex ? _value.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$AddressParamsRewardStakingScriptHashHexImpl extends AddressParamsRewardStakingScriptHashHex  {
-   _$AddressParamsRewardStakingScriptHashHexImpl({required this.stakingScriptHashHex}): super._();
-
-  
-
-@override final  String stakingScriptHashHex;
+int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
 
 @override
 String toString() {
@@ -193,42 +149,38 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsRewardStakingScriptHashHexImpl&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
+/// @nodoc
+abstract mixin class $AddressParamsRewardStakingScriptHashHexCopyWith<$Res> implements $AddressParamsRewardCopyWith<$Res> {
+  factory $AddressParamsRewardStakingScriptHashHexCopyWith(AddressParamsRewardStakingScriptHashHex value, $Res Function(AddressParamsRewardStakingScriptHashHex) _then) = _$AddressParamsRewardStakingScriptHashHexCopyWithImpl;
+@useResult
+$Res call({
+ String stakingScriptHashHex
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
+
+
+
+}
+/// @nodoc
+class _$AddressParamsRewardStakingScriptHashHexCopyWithImpl<$Res>
+    implements $AddressParamsRewardStakingScriptHashHexCopyWith<$Res> {
+  _$AddressParamsRewardStakingScriptHashHexCopyWithImpl(this._self, this._then);
+
+  final AddressParamsRewardStakingScriptHashHex _self;
+  final $Res Function(AddressParamsRewardStakingScriptHashHex) _then;
 
 /// Create a copy of AddressParamsReward
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$AddressParamsRewardStakingScriptHashHexImplCopyWith<_$AddressParamsRewardStakingScriptHashHexImpl> get copyWith => __$$AddressParamsRewardStakingScriptHashHexImplCopyWithImpl<_$AddressParamsRewardStakingScriptHashHexImpl>(this, _$identity);
-
-
-
-
-
-
+@pragma('vm:prefer-inline') $Res call({Object? stakingScriptHashHex = null,}) {
+  return _then(AddressParamsRewardStakingScriptHashHex(
+stakingScriptHashHex: null == stakingScriptHashHex ? _self.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
 
 
 }
 
-
-abstract class AddressParamsRewardStakingScriptHashHex extends AddressParamsReward {
-   factory AddressParamsRewardStakingScriptHashHex({required final  String stakingScriptHashHex}) = _$AddressParamsRewardStakingScriptHashHexImpl;
-   AddressParamsRewardStakingScriptHashHex._(): super._();
-
-  
-
- String get stakingScriptHashHex;
-/// Create a copy of AddressParamsReward
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsRewardStakingScriptHashHexImplCopyWith<_$AddressParamsRewardStakingScriptHashHexImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

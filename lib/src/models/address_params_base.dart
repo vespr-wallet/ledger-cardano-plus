@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/models/spending_params.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'address_params_base.freezed.dart';
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+import "spending_params.dart";
+
+part "address_params_base.freezed.dart";
 
 @freezed
 sealed class AddressParamsBase with _$AddressParamsBase {
@@ -11,14 +12,13 @@ sealed class AddressParamsBase with _$AddressParamsBase {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       AddressParamsBaseStakingPath() => () {
-          validateBIP32Path(thisClass.stakingPath, 'stakingPath');
+          validateBIP32Path(thisClass.stakingPath, "stakingPath");
         },
       AddressParamsBaseStakingKeyHash() => () {
-          validateHexString(thisClass.stakingKeyHashHex, 'stakingKeyHashHex');
+          validateHexString(thisClass.stakingKeyHashHex, "stakingKeyHashHex");
         },
       AddressParamsBaseStakingScriptHash() => () {
-          validateHexString(
-              thisClass.stakingScriptHashHex, 'stakingScriptHashHex');
+          validateHexString(thisClass.stakingScriptHashHex, "stakingScriptHashHex");
         },
     };
     assertinvoker();

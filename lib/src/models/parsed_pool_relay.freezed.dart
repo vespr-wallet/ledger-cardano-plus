@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,52 +10,77 @@ part of 'parsed_pool_relay.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedPoolRelay {
 
+ RelayType get relayType;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolRelay&&(identical(other.relayType, relayType) || other.relayType == relayType));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,relayType);
 
-
+@override
+String toString() {
+  return 'ParsedPoolRelay(relayType: $relayType)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $ParsedPoolRelayCopyWith<$Res>  {
-  factory $ParsedPoolRelayCopyWith(ParsedPoolRelay value, $Res Function(ParsedPoolRelay) then) = _$ParsedPoolRelayCopyWithImpl<$Res, ParsedPoolRelay>;
-
-
-
+class $ParsedPoolRelayCopyWith<$Res>  {
+$ParsedPoolRelayCopyWith(ParsedPoolRelay _, $Res Function(ParsedPoolRelay) __);
 }
 
-/// @nodoc
-class _$ParsedPoolRelayCopyWithImpl<$Res,$Val extends ParsedPoolRelay> implements $ParsedPoolRelayCopyWith<$Res> {
-  _$ParsedPoolRelayCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class SingleHostIpAddr extends ParsedPoolRelay {
+   SingleHostIpAddr({this.port, this.ipv4, this.ipv6}): super._();
+  
+
+ final  int? port;
+ final  String? ipv4;
+ final  String? ipv6;
 
 /// Create a copy of ParsedPoolRelay
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SingleHostIpAddrCopyWith<SingleHostIpAddr> get copyWith => _$SingleHostIpAddrCopyWithImpl<SingleHostIpAddr>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostIpAddr&&(identical(other.port, port) || other.port == port)&&(identical(other.ipv4, ipv4) || other.ipv4 == ipv4)&&(identical(other.ipv6, ipv6) || other.ipv6 == ipv6));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,port,ipv4,ipv6);
+
+@override
+String toString() {
+  return 'ParsedPoolRelay.singleHostIpAddr(port: $port, ipv4: $ipv4, ipv6: $ipv6)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$SingleHostIpAddrImplCopyWith<$Res>  {
-  factory _$$SingleHostIpAddrImplCopyWith(_$SingleHostIpAddrImpl value, $Res Function(_$SingleHostIpAddrImpl) then) = __$$SingleHostIpAddrImplCopyWithImpl<$Res>;
+abstract mixin class $SingleHostIpAddrCopyWith<$Res> implements $ParsedPoolRelayCopyWith<$Res> {
+  factory $SingleHostIpAddrCopyWith(SingleHostIpAddr value, $Res Function(SingleHostIpAddr) _then) = _$SingleHostIpAddrCopyWithImpl;
 @useResult
 $Res call({
  int? port, String? ipv4, String? ipv6
@@ -62,21 +88,23 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$SingleHostIpAddrImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWithImpl<$Res, _$SingleHostIpAddrImpl> implements _$$SingleHostIpAddrImplCopyWith<$Res> {
-  __$$SingleHostIpAddrImplCopyWithImpl(_$SingleHostIpAddrImpl _value, $Res Function(_$SingleHostIpAddrImpl) _then)
-      : super(_value, _then);
+class _$SingleHostIpAddrCopyWithImpl<$Res>
+    implements $SingleHostIpAddrCopyWith<$Res> {
+  _$SingleHostIpAddrCopyWithImpl(this._self, this._then);
 
+  final SingleHostIpAddr _self;
+  final $Res Function(SingleHostIpAddr) _then;
 
 /// Create a copy of ParsedPoolRelay
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? port = freezed,Object? ipv4 = freezed,Object? ipv6 = freezed,}) {
-  return _then(_$SingleHostIpAddrImpl(
-port: freezed == port ? _value.port : port // ignore: cast_nullable_to_non_nullable
-as int?,ipv4: freezed == ipv4 ? _value.ipv4 : ipv4 // ignore: cast_nullable_to_non_nullable
-as String?,ipv6: freezed == ipv6 ? _value.ipv6 : ipv6 // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? port = freezed,Object? ipv4 = freezed,Object? ipv6 = freezed,}) {
+  return _then(SingleHostIpAddr(
+port: freezed == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int?,ipv4: freezed == ipv4 ? _self.ipv4 : ipv4 // ignore: cast_nullable_to_non_nullable
+as String?,ipv6: freezed == ipv6 ? _self.ipv6 : ipv6 // ignore: cast_nullable_to_non_nullable
 as String?,
   ));
 }
@@ -87,102 +115,29 @@ as String?,
 /// @nodoc
 
 
-class _$SingleHostIpAddrImpl extends SingleHostIpAddr  {
-   _$SingleHostIpAddrImpl({this.port, this.ipv4, this.ipv6}): super._();
-
+class SingleHostName extends ParsedPoolRelay {
+   SingleHostName({this.port, required this.dnsName}): super._();
   
 
-@override final  int? port;
-@override final  String? ipv4;
-@override final  String? ipv6;
+ final  int? port;
+ final  String dnsName;
 
-@override
-String toString() {
-  return 'ParsedPoolRelay.singleHostIpAddr(port: $port, ipv4: $ipv4, ipv6: $ipv6)';
-}
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$SingleHostNameCopyWith<SingleHostName> get copyWith => _$SingleHostNameCopyWithImpl<SingleHostName>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SingleHostIpAddrImpl&&(identical(other.port, port) || other.port == port)&&(identical(other.ipv4, ipv4) || other.ipv4 == ipv4)&&(identical(other.ipv6, ipv6) || other.ipv6 == ipv6));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostName&&(identical(other.port, port) || other.port == port)&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,port,ipv4,ipv6);
-
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith => __$$SingleHostIpAddrImplCopyWithImpl<_$SingleHostIpAddrImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class SingleHostIpAddr extends ParsedPoolRelay {
-   factory SingleHostIpAddr({final  int? port, final  String? ipv4, final  String? ipv6}) = _$SingleHostIpAddrImpl;
-   SingleHostIpAddr._(): super._();
-
-  
-
- int? get port; String? get ipv4; String? get ipv6;
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$SingleHostIpAddrImplCopyWith<_$SingleHostIpAddrImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$SingleHostNameImplCopyWith<$Res>  {
-  factory _$$SingleHostNameImplCopyWith(_$SingleHostNameImpl value, $Res Function(_$SingleHostNameImpl) then) = __$$SingleHostNameImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- int? port, String dnsName
-});
-
-
-
-}
-
-/// @nodoc
-class __$$SingleHostNameImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWithImpl<$Res, _$SingleHostNameImpl> implements _$$SingleHostNameImplCopyWith<$Res> {
-  __$$SingleHostNameImplCopyWithImpl(_$SingleHostNameImpl _value, $Res Function(_$SingleHostNameImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? port = freezed,Object? dnsName = null,}) {
-  return _then(_$SingleHostNameImpl(
-port: freezed == port ? _value.port : port // ignore: cast_nullable_to_non_nullable
-as int?,dnsName: null == dnsName ? _value.dnsName : dnsName // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$SingleHostNameImpl extends SingleHostName  {
-   _$SingleHostNameImpl({this.port, required this.dnsName}): super._();
-
-  
-
-@override final  int? port;
-@override final  String dnsName;
+int get hashCode => Object.hash(runtimeType,port,dnsName);
 
 @override
 String toString() {
@@ -190,69 +145,34 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$SingleHostNameImpl&&(identical(other.port, port) || other.port == port)&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,port,dnsName);
-
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith => __$$SingleHostNameImplCopyWithImpl<_$SingleHostNameImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class SingleHostName extends ParsedPoolRelay {
-   factory SingleHostName({final  int? port, required final  String dnsName}) = _$SingleHostNameImpl;
-   SingleHostName._(): super._();
-
-  
-
- int? get port; String get dnsName;
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$SingleHostNameImplCopyWith<_$SingleHostNameImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$MultiHostImplCopyWith<$Res>  {
-  factory _$$MultiHostImplCopyWith(_$MultiHostImpl value, $Res Function(_$MultiHostImpl) then) = __$$MultiHostImplCopyWithImpl<$Res>;
+abstract mixin class $SingleHostNameCopyWith<$Res> implements $ParsedPoolRelayCopyWith<$Res> {
+  factory $SingleHostNameCopyWith(SingleHostName value, $Res Function(SingleHostName) _then) = _$SingleHostNameCopyWithImpl;
 @useResult
 $Res call({
- String dnsName
+ int? port, String dnsName
 });
 
 
 
+
 }
-
 /// @nodoc
-class __$$MultiHostImplCopyWithImpl<$Res> extends _$ParsedPoolRelayCopyWithImpl<$Res, _$MultiHostImpl> implements _$$MultiHostImplCopyWith<$Res> {
-  __$$MultiHostImplCopyWithImpl(_$MultiHostImpl _value, $Res Function(_$MultiHostImpl) _then)
-      : super(_value, _then);
+class _$SingleHostNameCopyWithImpl<$Res>
+    implements $SingleHostNameCopyWith<$Res> {
+  _$SingleHostNameCopyWithImpl(this._self, this._then);
 
+  final SingleHostName _self;
+  final $Res Function(SingleHostName) _then;
 
 /// Create a copy of ParsedPoolRelay
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? dnsName = null,}) {
-  return _then(_$MultiHostImpl(
-dnsName: null == dnsName ? _value.dnsName : dnsName // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? port = freezed,Object? dnsName = null,}) {
+  return _then(SingleHostName(
+port: freezed == port ? _self.port : port // ignore: cast_nullable_to_non_nullable
+as int?,dnsName: null == dnsName ? _self.dnsName : dnsName // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -263,12 +183,28 @@ as String,
 /// @nodoc
 
 
-class _$MultiHostImpl extends MultiHost  {
-   _$MultiHostImpl({required this.dnsName}): super._();
-
+class MultiHost extends ParsedPoolRelay {
+   MultiHost({required this.dnsName}): super._();
   
 
-@override final  String dnsName;
+ final  String dnsName;
+
+/// Create a copy of ParsedPoolRelay
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$MultiHostCopyWith<MultiHost> get copyWith => _$MultiHostCopyWithImpl<MultiHost>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultiHost&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,dnsName);
 
 @override
 String toString() {
@@ -276,42 +212,38 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$MultiHostImpl&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
 }
 
+/// @nodoc
+abstract mixin class $MultiHostCopyWith<$Res> implements $ParsedPoolRelayCopyWith<$Res> {
+  factory $MultiHostCopyWith(MultiHost value, $Res Function(MultiHost) _then) = _$MultiHostCopyWithImpl;
+@useResult
+$Res call({
+ String dnsName
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,dnsName);
+
+
+
+}
+/// @nodoc
+class _$MultiHostCopyWithImpl<$Res>
+    implements $MultiHostCopyWith<$Res> {
+  _$MultiHostCopyWithImpl(this._self, this._then);
+
+  final MultiHost _self;
+  final $Res Function(MultiHost) _then;
 
 /// Create a copy of ParsedPoolRelay
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith => __$$MultiHostImplCopyWithImpl<_$MultiHostImpl>(this, _$identity);
-
-
-
-
-
-
+@pragma('vm:prefer-inline') $Res call({Object? dnsName = null,}) {
+  return _then(MultiHost(
+dnsName: null == dnsName ? _self.dnsName : dnsName // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
 
 
 }
 
-
-abstract class MultiHost extends ParsedPoolRelay {
-   factory MultiHost({required final  String dnsName}) = _$MultiHostImpl;
-   MultiHost._(): super._();
-
-  
-
- String get dnsName;
-/// Create a copy of ParsedPoolRelay
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$MultiHostImplCopyWith<_$MultiHostImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

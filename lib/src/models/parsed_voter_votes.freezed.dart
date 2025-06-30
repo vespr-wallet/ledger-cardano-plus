@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,40 @@ part of 'parsed_voter_votes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedVoterVotes {
 
- ParsedVoter get voter => throw _privateConstructorUsedError; List<ParsedVote> get votes => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ ParsedVoter get voter; List<ParsedVote> get votes;
 /// Create a copy of ParsedVoterVotes
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$ParsedVoterVotesCopyWith<ParsedVoterVotes> get copyWith => throw _privateConstructorUsedError;
+@pragma('vm:prefer-inline')
+$ParsedVoterVotesCopyWith<ParsedVoterVotes> get copyWith => _$ParsedVoterVotesCopyWithImpl<ParsedVoterVotes>(this as ParsedVoterVotes, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoterVotes&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other.votes, votes));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(votes));
+
+@override
+String toString() {
+  return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
+}
+
 
 }
 
 /// @nodoc
-abstract class $ParsedVoterVotesCopyWith<$Res>  {
-  factory $ParsedVoterVotesCopyWith(ParsedVoterVotes value, $Res Function(ParsedVoterVotes) then) = _$ParsedVoterVotesCopyWithImpl<$Res, ParsedVoterVotes>;
+abstract mixin class $ParsedVoterVotesCopyWith<$Res>  {
+  factory $ParsedVoterVotesCopyWith(ParsedVoterVotes value, $Res Function(ParsedVoterVotes) _then) = _$ParsedVoterVotesCopyWithImpl;
 @useResult
 $Res call({
  ParsedVoter voter, List<ParsedVote> votes
@@ -42,25 +51,24 @@ $Res call({
 
 
 $ParsedVoterCopyWith<$Res> get voter;
+
 }
-
 /// @nodoc
-class _$ParsedVoterVotesCopyWithImpl<$Res,$Val extends ParsedVoterVotes> implements $ParsedVoterVotesCopyWith<$Res> {
-  _$ParsedVoterVotesCopyWithImpl(this._value, this._then);
+class _$ParsedVoterVotesCopyWithImpl<$Res>
+    implements $ParsedVoterVotesCopyWith<$Res> {
+  _$ParsedVoterVotesCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final ParsedVoterVotes _self;
+  final $Res Function(ParsedVoterVotes) _then;
 
 /// Create a copy of ParsedVoterVotes
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voter = null,Object? votes = null,}) {
-  return _then(_value.copyWith(
-voter: null == voter ? _value.voter : voter // ignore: cast_nullable_to_non_nullable
-as ParsedVoter,votes: null == votes ? _value.votes : votes // ignore: cast_nullable_to_non_nullable
+  return _then(_self.copyWith(
+voter: null == voter ? _self.voter : voter // ignore: cast_nullable_to_non_nullable
+as ParsedVoter,votes: null == votes ? _self.votes : votes // ignore: cast_nullable_to_non_nullable
 as List<ParsedVote>,
-  )as $Val);
+  ));
 }
 /// Create a copy of ParsedVoterVotes
 /// with the given fields replaced by the non-null parameter values.
@@ -68,50 +76,18 @@ as List<ParsedVote>,
 @pragma('vm:prefer-inline')
 $ParsedVoterCopyWith<$Res> get voter {
   
-  return $ParsedVoterCopyWith<$Res>(_value.voter, (value) {
-    return _then(_value.copyWith(voter: value) as $Val);
+  return $ParsedVoterCopyWith<$Res>(_self.voter, (value) {
+    return _then(_self.copyWith(voter: value));
   });
 }
 }
 
 
 /// @nodoc
-abstract class _$$ParsedVoterVotesImplCopyWith<$Res> implements $ParsedVoterVotesCopyWith<$Res> {
-  factory _$$ParsedVoterVotesImplCopyWith(_$ParsedVoterVotesImpl value, $Res Function(_$ParsedVoterVotesImpl) then) = __$$ParsedVoterVotesImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- ParsedVoter voter, List<ParsedVote> votes
-});
 
 
-@override $ParsedVoterCopyWith<$Res> get voter;
-}
-
-/// @nodoc
-class __$$ParsedVoterVotesImplCopyWithImpl<$Res> extends _$ParsedVoterVotesCopyWithImpl<$Res, _$ParsedVoterVotesImpl> implements _$$ParsedVoterVotesImplCopyWith<$Res> {
-  __$$ParsedVoterVotesImplCopyWithImpl(_$ParsedVoterVotesImpl _value, $Res Function(_$ParsedVoterVotesImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedVoterVotes
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? voter = null,Object? votes = null,}) {
-  return _then(_$ParsedVoterVotesImpl(
-voter: null == voter ? _value.voter : voter // ignore: cast_nullable_to_non_nullable
-as ParsedVoter,votes: null == votes ? _value._votes : votes // ignore: cast_nullable_to_non_nullable
-as List<ParsedVote>,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$ParsedVoterVotesImpl extends _ParsedVoterVotes  {
-   _$ParsedVoterVotesImpl({required this.voter, required final  List<ParsedVote> votes}): _votes = votes,super._();
-
+class _ParsedVoterVotes extends ParsedVoterVotes {
+   _ParsedVoterVotes({required this.voter, required final  List<ParsedVote> votes}): _votes = votes,super._();
   
 
 @override final  ParsedVoter voter;
@@ -123,48 +99,71 @@ class _$ParsedVoterVotesImpl extends _ParsedVoterVotes  {
 }
 
 
-@override
-String toString() {
-  return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
-}
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ParsedVoterVotesCopyWith<_ParsedVoterVotes> get copyWith => __$ParsedVoterVotesCopyWithImpl<_ParsedVoterVotes>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedVoterVotesImpl&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other._votes, _votes));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedVoterVotes&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other._votes, _votes));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(_votes));
 
+@override
+String toString() {
+  return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$ParsedVoterVotesCopyWith<$Res> implements $ParsedVoterVotesCopyWith<$Res> {
+  factory _$ParsedVoterVotesCopyWith(_ParsedVoterVotes value, $Res Function(_ParsedVoterVotes) _then) = __$ParsedVoterVotesCopyWithImpl;
+@override @useResult
+$Res call({
+ ParsedVoter voter, List<ParsedVote> votes
+});
+
+
+@override $ParsedVoterCopyWith<$Res> get voter;
+
+}
+/// @nodoc
+class __$ParsedVoterVotesCopyWithImpl<$Res>
+    implements _$ParsedVoterVotesCopyWith<$Res> {
+  __$ParsedVoterVotesCopyWithImpl(this._self, this._then);
+
+  final _ParsedVoterVotes _self;
+  final $Res Function(_ParsedVoterVotes) _then;
+
 /// Create a copy of ParsedVoterVotes
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @pragma('vm:prefer-inline') $Res call({Object? voter = null,Object? votes = null,}) {
+  return _then(_ParsedVoterVotes(
+voter: null == voter ? _self.voter : voter // ignore: cast_nullable_to_non_nullable
+as ParsedVoter,votes: null == votes ? _self._votes : votes // ignore: cast_nullable_to_non_nullable
+as List<ParsedVote>,
+  ));
+}
+
+/// Create a copy of ParsedVoterVotes
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-_$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith => __$$ParsedVoterVotesImplCopyWithImpl<_$ParsedVoterVotesImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class _ParsedVoterVotes extends ParsedVoterVotes {
-   factory _ParsedVoterVotes({required final  ParsedVoter voter, required final  List<ParsedVote> votes}) = _$ParsedVoterVotesImpl;
-   _ParsedVoterVotes._(): super._();
-
+$ParsedVoterCopyWith<$Res> get voter {
   
-
-@override ParsedVoter get voter;@override List<ParsedVote> get votes;
-/// Create a copy of ParsedVoterVotes
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedVoterVotesImplCopyWith<_$ParsedVoterVotesImpl> get copyWith => throw _privateConstructorUsedError;
-
+  return $ParsedVoterCopyWith<$Res>(_self.voter, (value) {
+    return _then(_self.copyWith(voter: value));
+  });
 }
+}
+
+// dart format on

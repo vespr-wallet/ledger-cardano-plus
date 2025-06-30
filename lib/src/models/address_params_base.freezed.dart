@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,32 +10,40 @@ part of 'address_params_base.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$AddressParamsBase {
 
- SpendingParams get spendingParams => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ SpendingParams get spendingParams;
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$AddressParamsBaseCopyWith<AddressParamsBase> get copyWith => throw _privateConstructorUsedError;
+@pragma('vm:prefer-inline')
+$AddressParamsBaseCopyWith<AddressParamsBase> get copyWith => _$AddressParamsBaseCopyWithImpl<AddressParamsBase>(this as AddressParamsBase, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBase&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,spendingParams);
+
+@override
+String toString() {
+  return 'AddressParamsBase(spendingParams: $spendingParams)';
+}
+
 
 }
 
 /// @nodoc
-abstract class $AddressParamsBaseCopyWith<$Res>  {
-  factory $AddressParamsBaseCopyWith(AddressParamsBase value, $Res Function(AddressParamsBase) then) = _$AddressParamsBaseCopyWithImpl<$Res, AddressParamsBase>;
+abstract mixin class $AddressParamsBaseCopyWith<$Res>  {
+  factory $AddressParamsBaseCopyWith(AddressParamsBase value, $Res Function(AddressParamsBase) _then) = _$AddressParamsBaseCopyWithImpl;
 @useResult
 $Res call({
  SpendingParams spendingParams
@@ -42,24 +51,23 @@ $Res call({
 
 
 $SpendingParamsCopyWith<$Res> get spendingParams;
+
 }
-
 /// @nodoc
-class _$AddressParamsBaseCopyWithImpl<$Res,$Val extends AddressParamsBase> implements $AddressParamsBaseCopyWith<$Res> {
-  _$AddressParamsBaseCopyWithImpl(this._value, this._then);
+class _$AddressParamsBaseCopyWithImpl<$Res>
+    implements $AddressParamsBaseCopyWith<$Res> {
+  _$AddressParamsBaseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AddressParamsBase _self;
+  final $Res Function(AddressParamsBase) _then;
 
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,}) {
-  return _then(_value.copyWith(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
+  return _then(_self.copyWith(
+spendingParams: null == spendingParams ? _self.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
 as SpendingParams,
-  )as $Val);
+  ));
 }
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
@@ -67,16 +75,51 @@ as SpendingParams,
 @pragma('vm:prefer-inline')
 $SpendingParamsCopyWith<$Res> get spendingParams {
   
-  return $SpendingParamsCopyWith<$Res>(_value.spendingParams, (value) {
-    return _then(_value.copyWith(spendingParams: value) as $Val);
+  return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+    return _then(_self.copyWith(spendingParams: value));
   });
 }
 }
 
 
 /// @nodoc
-abstract class _$$AddressParamsBaseStakingPathImplCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
-  factory _$$AddressParamsBaseStakingPathImplCopyWith(_$AddressParamsBaseStakingPathImpl value, $Res Function(_$AddressParamsBaseStakingPathImpl) then) = __$$AddressParamsBaseStakingPathImplCopyWithImpl<$Res>;
+
+
+class AddressParamsBaseStakingPath extends AddressParamsBase {
+   AddressParamsBaseStakingPath({required this.spendingParams, required this.stakingPath}): super._();
+  
+
+@override final  SpendingParams spendingParams;
+ final  LedgerSigningPath stakingPath;
+
+/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AddressParamsBaseStakingPathCopyWith<AddressParamsBaseStakingPath> get copyWith => _$AddressParamsBaseStakingPathCopyWithImpl<AddressParamsBaseStakingPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingPath&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,spendingParams,stakingPath);
+
+@override
+String toString() {
+  return 'AddressParamsBase.stakingPath(spendingParams: $spendingParams, stakingPath: $stakingPath)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $AddressParamsBaseStakingPathCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
+  factory $AddressParamsBaseStakingPathCopyWith(AddressParamsBaseStakingPath value, $Res Function(AddressParamsBaseStakingPath) _then) = _$AddressParamsBaseStakingPathCopyWithImpl;
 @override @useResult
 $Res call({
  SpendingParams spendingParams, LedgerSigningPath stakingPath
@@ -84,20 +127,22 @@ $Res call({
 
 
 @override $SpendingParamsCopyWith<$Res> get spendingParams;$LedgerSigningPathCopyWith<$Res> get stakingPath;
+
 }
-
 /// @nodoc
-class __$$AddressParamsBaseStakingPathImplCopyWithImpl<$Res> extends _$AddressParamsBaseCopyWithImpl<$Res, _$AddressParamsBaseStakingPathImpl> implements _$$AddressParamsBaseStakingPathImplCopyWith<$Res> {
-  __$$AddressParamsBaseStakingPathImplCopyWithImpl(_$AddressParamsBaseStakingPathImpl _value, $Res Function(_$AddressParamsBaseStakingPathImpl) _then)
-      : super(_value, _then);
+class _$AddressParamsBaseStakingPathCopyWithImpl<$Res>
+    implements $AddressParamsBaseStakingPathCopyWith<$Res> {
+  _$AddressParamsBaseStakingPathCopyWithImpl(this._self, this._then);
 
+  final AddressParamsBaseStakingPath _self;
+  final $Res Function(AddressParamsBaseStakingPath) _then;
 
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingPath = null,}) {
-  return _then(_$AddressParamsBaseStakingPathImpl(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
-as SpendingParams,stakingPath: null == stakingPath ? _value.stakingPath : stakingPath // ignore: cast_nullable_to_non_nullable
+@override @pragma('vm:prefer-inline') $Res call({Object? spendingParams = null,Object? stakingPath = null,}) {
+  return _then(AddressParamsBaseStakingPath(
+spendingParams: null == spendingParams ? _self.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
+as SpendingParams,stakingPath: null == stakingPath ? _self.stakingPath : stakingPath // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -106,10 +151,19 @@ as LedgerSigningPath,
 /// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
+$SpendingParamsCopyWith<$Res> get spendingParams {
+  
+  return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+    return _then(_self.copyWith(spendingParams: value));
+  });
+}/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get stakingPath {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.stakingPath, (value) {
-    return _then(_value.copyWith(stakingPath: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.stakingPath, (value) {
+    return _then(_self.copyWith(stakingPath: value));
   });
 }
 }
@@ -117,101 +171,29 @@ $LedgerSigningPathCopyWith<$Res> get stakingPath {
 /// @nodoc
 
 
-class _$AddressParamsBaseStakingPathImpl extends AddressParamsBaseStakingPath  {
-   _$AddressParamsBaseStakingPathImpl({required this.spendingParams, required this.stakingPath}): super._();
-
+class AddressParamsBaseStakingKeyHash extends AddressParamsBase {
+   AddressParamsBaseStakingKeyHash({required this.spendingParams, required this.stakingKeyHashHex}): super._();
   
 
 @override final  SpendingParams spendingParams;
-@override final  LedgerSigningPath stakingPath;
+ final  String stakingKeyHashHex;
 
-@override
-String toString() {
-  return 'AddressParamsBase.stakingPath(spendingParams: $spendingParams, stakingPath: $stakingPath)';
-}
+/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AddressParamsBaseStakingKeyHashCopyWith<AddressParamsBaseStakingKeyHash> get copyWith => _$AddressParamsBaseStakingKeyHashCopyWithImpl<AddressParamsBaseStakingKeyHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsBaseStakingPathImpl&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingKeyHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingKeyHashHex, stakingKeyHashHex) || other.stakingKeyHashHex == stakingKeyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingPath);
-
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$AddressParamsBaseStakingPathImplCopyWith<_$AddressParamsBaseStakingPathImpl> get copyWith => __$$AddressParamsBaseStakingPathImplCopyWithImpl<_$AddressParamsBaseStakingPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class AddressParamsBaseStakingPath extends AddressParamsBase {
-   factory AddressParamsBaseStakingPath({required final  SpendingParams spendingParams, required final  LedgerSigningPath stakingPath}) = _$AddressParamsBaseStakingPathImpl;
-   AddressParamsBaseStakingPath._(): super._();
-
-  
-
-@override SpendingParams get spendingParams; LedgerSigningPath get stakingPath;
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsBaseStakingPathImplCopyWith<_$AddressParamsBaseStakingPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$AddressParamsBaseStakingKeyHashImplCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
-  factory _$$AddressParamsBaseStakingKeyHashImplCopyWith(_$AddressParamsBaseStakingKeyHashImpl value, $Res Function(_$AddressParamsBaseStakingKeyHashImpl) then) = __$$AddressParamsBaseStakingKeyHashImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- SpendingParams spendingParams, String stakingKeyHashHex
-});
-
-
-@override $SpendingParamsCopyWith<$Res> get spendingParams;
-}
-
-/// @nodoc
-class __$$AddressParamsBaseStakingKeyHashImplCopyWithImpl<$Res> extends _$AddressParamsBaseCopyWithImpl<$Res, _$AddressParamsBaseStakingKeyHashImpl> implements _$$AddressParamsBaseStakingKeyHashImplCopyWith<$Res> {
-  __$$AddressParamsBaseStakingKeyHashImplCopyWithImpl(_$AddressParamsBaseStakingKeyHashImpl _value, $Res Function(_$AddressParamsBaseStakingKeyHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingKeyHashHex = null,}) {
-  return _then(_$AddressParamsBaseStakingKeyHashImpl(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
-as SpendingParams,stakingKeyHashHex: null == stakingKeyHashHex ? _value.stakingKeyHashHex : stakingKeyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$AddressParamsBaseStakingKeyHashImpl extends AddressParamsBaseStakingKeyHash  {
-   _$AddressParamsBaseStakingKeyHashImpl({required this.spendingParams, required this.stakingKeyHashHex}): super._();
-
-  
-
-@override final  SpendingParams spendingParams;
-@override final  String stakingKeyHashHex;
+int get hashCode => Object.hash(runtimeType,spendingParams,stakingKeyHashHex);
 
 @override
 String toString() {
@@ -219,87 +201,76 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsBaseStakingKeyHashImpl&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingKeyHashHex, stakingKeyHashHex) || other.stakingKeyHashHex == stakingKeyHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingKeyHashHex);
-
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$AddressParamsBaseStakingKeyHashImplCopyWith<_$AddressParamsBaseStakingKeyHashImpl> get copyWith => __$$AddressParamsBaseStakingKeyHashImplCopyWithImpl<_$AddressParamsBaseStakingKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class AddressParamsBaseStakingKeyHash extends AddressParamsBase {
-   factory AddressParamsBaseStakingKeyHash({required final  SpendingParams spendingParams, required final  String stakingKeyHashHex}) = _$AddressParamsBaseStakingKeyHashImpl;
-   AddressParamsBaseStakingKeyHash._(): super._();
-
-  
-
-@override SpendingParams get spendingParams; String get stakingKeyHashHex;
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsBaseStakingKeyHashImplCopyWith<_$AddressParamsBaseStakingKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$AddressParamsBaseStakingScriptHashImplCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
-  factory _$$AddressParamsBaseStakingScriptHashImplCopyWith(_$AddressParamsBaseStakingScriptHashImpl value, $Res Function(_$AddressParamsBaseStakingScriptHashImpl) then) = __$$AddressParamsBaseStakingScriptHashImplCopyWithImpl<$Res>;
+abstract mixin class $AddressParamsBaseStakingKeyHashCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
+  factory $AddressParamsBaseStakingKeyHashCopyWith(AddressParamsBaseStakingKeyHash value, $Res Function(AddressParamsBaseStakingKeyHash) _then) = _$AddressParamsBaseStakingKeyHashCopyWithImpl;
 @override @useResult
 $Res call({
- SpendingParams spendingParams, String stakingScriptHashHex
+ SpendingParams spendingParams, String stakingKeyHashHex
 });
 
 
 @override $SpendingParamsCopyWith<$Res> get spendingParams;
+
 }
-
 /// @nodoc
-class __$$AddressParamsBaseStakingScriptHashImplCopyWithImpl<$Res> extends _$AddressParamsBaseCopyWithImpl<$Res, _$AddressParamsBaseStakingScriptHashImpl> implements _$$AddressParamsBaseStakingScriptHashImplCopyWith<$Res> {
-  __$$AddressParamsBaseStakingScriptHashImplCopyWithImpl(_$AddressParamsBaseStakingScriptHashImpl _value, $Res Function(_$AddressParamsBaseStakingScriptHashImpl) _then)
-      : super(_value, _then);
+class _$AddressParamsBaseStakingKeyHashCopyWithImpl<$Res>
+    implements $AddressParamsBaseStakingKeyHashCopyWith<$Res> {
+  _$AddressParamsBaseStakingKeyHashCopyWithImpl(this._self, this._then);
 
+  final AddressParamsBaseStakingKeyHash _self;
+  final $Res Function(AddressParamsBaseStakingKeyHash) _then;
 
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingScriptHashHex = null,}) {
-  return _then(_$AddressParamsBaseStakingScriptHashImpl(
-spendingParams: null == spendingParams ? _value.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
-as SpendingParams,stakingScriptHashHex: null == stakingScriptHashHex ? _value.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+@override @pragma('vm:prefer-inline') $Res call({Object? spendingParams = null,Object? stakingKeyHashHex = null,}) {
+  return _then(AddressParamsBaseStakingKeyHash(
+spendingParams: null == spendingParams ? _self.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
+as SpendingParams,stakingKeyHashHex: null == stakingKeyHashHex ? _self.stakingKeyHashHex : stakingKeyHashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
 
-
+/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$SpendingParamsCopyWith<$Res> get spendingParams {
+  
+  return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+    return _then(_self.copyWith(spendingParams: value));
+  });
+}
 }
 
 /// @nodoc
 
 
-class _$AddressParamsBaseStakingScriptHashImpl extends AddressParamsBaseStakingScriptHash  {
-   _$AddressParamsBaseStakingScriptHashImpl({required this.spendingParams, required this.stakingScriptHashHex}): super._();
-
+class AddressParamsBaseStakingScriptHash extends AddressParamsBase {
+   AddressParamsBaseStakingScriptHash({required this.spendingParams, required this.stakingScriptHashHex}): super._();
   
 
 @override final  SpendingParams spendingParams;
-@override final  String stakingScriptHashHex;
+ final  String stakingScriptHashHex;
+
+/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AddressParamsBaseStakingScriptHashCopyWith<AddressParamsBaseStakingScriptHash> get copyWith => _$AddressParamsBaseStakingScriptHashCopyWithImpl<AddressParamsBaseStakingScriptHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingScriptHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,spendingParams,stakingScriptHashHex);
 
 @override
 String toString() {
@@ -307,42 +278,48 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$AddressParamsBaseStakingScriptHashImpl&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
+/// @nodoc
+abstract mixin class $AddressParamsBaseStakingScriptHashCopyWith<$Res> implements $AddressParamsBaseCopyWith<$Res> {
+  factory $AddressParamsBaseStakingScriptHashCopyWith(AddressParamsBaseStakingScriptHash value, $Res Function(AddressParamsBaseStakingScriptHash) _then) = _$AddressParamsBaseStakingScriptHashCopyWithImpl;
+@override @useResult
+$Res call({
+ SpendingParams spendingParams, String stakingScriptHashHex
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingScriptHashHex);
+
+@override $SpendingParamsCopyWith<$Res> get spendingParams;
+
+}
+/// @nodoc
+class _$AddressParamsBaseStakingScriptHashCopyWithImpl<$Res>
+    implements $AddressParamsBaseStakingScriptHashCopyWith<$Res> {
+  _$AddressParamsBaseStakingScriptHashCopyWithImpl(this._self, this._then);
+
+  final AddressParamsBaseStakingScriptHash _self;
+  final $Res Function(AddressParamsBaseStakingScriptHash) _then;
 
 /// Create a copy of AddressParamsBase
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @pragma('vm:prefer-inline') $Res call({Object? spendingParams = null,Object? stakingScriptHashHex = null,}) {
+  return _then(AddressParamsBaseStakingScriptHash(
+spendingParams: null == spendingParams ? _self.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
+as SpendingParams,stakingScriptHashHex: null == stakingScriptHashHex ? _self.stakingScriptHashHex : stakingScriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+/// Create a copy of AddressParamsBase
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-_$$AddressParamsBaseStakingScriptHashImplCopyWith<_$AddressParamsBaseStakingScriptHashImpl> get copyWith => __$$AddressParamsBaseStakingScriptHashImplCopyWithImpl<_$AddressParamsBaseStakingScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class AddressParamsBaseStakingScriptHash extends AddressParamsBase {
-   factory AddressParamsBaseStakingScriptHash({required final  SpendingParams spendingParams, required final  String stakingScriptHashHex}) = _$AddressParamsBaseStakingScriptHashImpl;
-   AddressParamsBaseStakingScriptHash._(): super._();
-
+$SpendingParamsCopyWith<$Res> get spendingParams {
   
-
-@override SpendingParams get spendingParams; String get stakingScriptHashHex;
-/// Create a copy of AddressParamsBase
-/// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$AddressParamsBaseStakingScriptHashImplCopyWith<_$AddressParamsBaseStakingScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
-
+  return $SpendingParamsCopyWith<$Res>(_self.spendingParams, (value) {
+    return _then(_self.copyWith(spendingParams: value));
+  });
 }
+}
+
+// dart format on

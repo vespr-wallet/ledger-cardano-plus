@@ -1,14 +1,12 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/flags.dart';
-import 'package:ledger_cardano_plus/src/models/version_compatibility.dart';
-import 'package:ledger_cardano_plus/src/utils/exceptions.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "models/flags.dart";
+import "models/version_compatibility.dart";
+import "utils/exceptions.dart";
 
-part 'cardano_version.freezed.dart';
+part "cardano_version.freezed.dart";
 
 @freezed
-class CardanoVersion with _$CardanoVersion {
-  CardanoVersion._();
-
+sealed class CardanoVersion with _$CardanoVersion {
   factory CardanoVersion({
     required bool testMode,
     required int versionMajor,
@@ -17,14 +15,16 @@ class CardanoVersion with _$CardanoVersion {
     required bool locked,
     required Flags flags,
   }) = _CardanoVersion;
+  CardanoVersion._();
 
-  late final int versionCode =
-      versionMajor * 10000 + versionMinor * 100 + versionPatch;
+  @override
+  late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
-  late final String versionName = '$versionMajor.$versionMinor.$versionPatch';
+  @override
+  late final String versionName = "$versionMajor.$versionMinor.$versionPatch";
 
-  late final VersionCompatibility compatibility =
-      VersionCompatibility.checkVersionCompatibility(this);
+  @override
+  late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
         testMode: false,

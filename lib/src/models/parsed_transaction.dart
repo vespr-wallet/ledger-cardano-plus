@@ -1,29 +1,21 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_asset_group.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_certificate.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_input.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_output.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_required_signer.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_tx_auxiliary_data.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_voter_votes.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_withdrawal.dart';
-import 'package:ledger_cardano_plus/src/models/script_data_hash.dart';
-import 'package:ledger_cardano_plus/src/utils/cardano_networks.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_transaction.freezed.dart';
+import "../utils/cardano_networks.dart";
+import "../utils/utilities.dart";
+import "parsed_asset_group.dart";
+import "parsed_certificate.dart";
+import "parsed_input.dart";
+import "parsed_output.dart";
+import "parsed_required_signer.dart";
+import "parsed_tx_auxiliary_data.dart";
+import "parsed_voter_votes.dart";
+import "parsed_withdrawal.dart";
+import "script_data_hash.dart";
+
+part "parsed_transaction.freezed.dart";
 
 @freezed
-class ParsedTransaction with _$ParsedTransaction {
-  ParsedTransaction._() {
-    validateUint64(fee, 'fee');
-    validateUint64(ttl, 'ttl');
-    validateUint64(validityIntervalStart, 'validityIntervalStart');
-    validateUint64(totalCollateral, 'totalCollateral');
-    validateUint64(treasury, 'treasury');
-    validateUint64(donation, 'donation');
-  }
-
+sealed class ParsedTransaction with _$ParsedTransaction {
   factory ParsedTransaction({
     required CardanoNetwork network,
     required List<ParsedInput> inputs,
@@ -46,4 +38,12 @@ class ParsedTransaction with _$ParsedTransaction {
     BigInt? treasury,
     BigInt? donation,
   }) = _ParsedTransaction;
+  ParsedTransaction._() {
+    validateUint64(fee, "fee");
+    validateUint64(ttl, "ttl");
+    validateUint64(validityIntervalStart, "validityIntervalStart");
+    validateUint64(totalCollateral, "totalCollateral");
+    validateUint64(treasury, "treasury");
+    validateUint64(donation, "donation");
+  }
 }

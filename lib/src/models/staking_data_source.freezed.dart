@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,79 +10,58 @@ part of 'staking_data_source.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$StakingDataSource {
 
+ int get stakingDataSourceValue;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSource&&(identical(other.stakingDataSourceValue, stakingDataSourceValue) || other.stakingDataSourceValue == stakingDataSourceValue));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,stakingDataSourceValue);
 
-
+@override
+String toString() {
+  return 'StakingDataSource(stakingDataSourceValue: $stakingDataSourceValue)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $StakingDataSourceCopyWith<$Res>  {
-  factory $StakingDataSourceCopyWith(StakingDataSource value, $Res Function(StakingDataSource) then) = _$StakingDataSourceCopyWithImpl<$Res, StakingDataSource>;
-
-
-
-}
-
-/// @nodoc
-class _$StakingDataSourceCopyWithImpl<$Res,$Val extends StakingDataSource> implements $StakingDataSourceCopyWith<$Res> {
-  _$StakingDataSourceCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-
-
+class $StakingDataSourceCopyWith<$Res>  {
+$StakingDataSourceCopyWith(StakingDataSource _, $Res Function(StakingDataSource) __);
 }
 
 
 /// @nodoc
-abstract class _$$StakingDataSourceNoneImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceNoneImplCopyWith(_$StakingDataSourceNoneImpl value, $Res Function(_$StakingDataSourceNoneImpl) then) = __$$StakingDataSourceNoneImplCopyWithImpl<$Res>;
 
 
-
-}
-
-/// @nodoc
-class __$$StakingDataSourceNoneImplCopyWithImpl<$Res> extends _$StakingDataSourceCopyWithImpl<$Res, _$StakingDataSourceNoneImpl> implements _$$StakingDataSourceNoneImplCopyWith<$Res> {
-  __$$StakingDataSourceNoneImplCopyWithImpl(_$StakingDataSourceNoneImpl _value, $Res Function(_$StakingDataSourceNoneImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-
-
-
-}
-
-/// @nodoc
-
-
-class _$StakingDataSourceNoneImpl extends StakingDataSourceNone  {
-   _$StakingDataSourceNoneImpl(): super._();
-
+class StakingDataSourceNone extends StakingDataSource {
+   StakingDataSourceNone(): super._();
   
 
 
+
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceNone);
+}
+
+
+@override
+int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
@@ -89,39 +69,48 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceNoneImpl);
 }
 
 
-@override
-int get hashCode => runtimeType.hashCode;
 
 
+/// @nodoc
 
 
-
-
-
-
-
-}
-
-
-abstract class StakingDataSourceNone extends StakingDataSource {
-   factory StakingDataSourceNone() = _$StakingDataSourceNoneImpl;
-   StakingDataSourceNone._(): super._();
-
+class StakingDataSourceKey extends StakingDataSource {
+   StakingDataSourceKey({required this.data}): super._();
   
 
+ final  StakingDataSourceKeyData data;
+
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakingDataSourceKeyCopyWith<StakingDataSourceKey> get copyWith => _$StakingDataSourceKeyCopyWithImpl<StakingDataSourceKey>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKey&&(identical(other.data, data) || other.data == data));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,data);
+
+@override
+String toString() {
+  return 'StakingDataSource.key(data: $data)';
+}
 
 
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceKeyImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceKeyImplCopyWith(_$StakingDataSourceKeyImpl value, $Res Function(_$StakingDataSourceKeyImpl) then) = __$$StakingDataSourceKeyImplCopyWithImpl<$Res>;
+abstract mixin class $StakingDataSourceKeyCopyWith<$Res> implements $StakingDataSourceCopyWith<$Res> {
+  factory $StakingDataSourceKeyCopyWith(StakingDataSourceKey value, $Res Function(StakingDataSourceKey) _then) = _$StakingDataSourceKeyCopyWithImpl;
 @useResult
 $Res call({
  StakingDataSourceKeyData data
@@ -129,19 +118,21 @@ $Res call({
 
 
 $StakingDataSourceKeyDataCopyWith<$Res> get data;
+
 }
-
 /// @nodoc
-class __$$StakingDataSourceKeyImplCopyWithImpl<$Res> extends _$StakingDataSourceCopyWithImpl<$Res, _$StakingDataSourceKeyImpl> implements _$$StakingDataSourceKeyImplCopyWith<$Res> {
-  __$$StakingDataSourceKeyImplCopyWithImpl(_$StakingDataSourceKeyImpl _value, $Res Function(_$StakingDataSourceKeyImpl) _then)
-      : super(_value, _then);
+class _$StakingDataSourceKeyCopyWithImpl<$Res>
+    implements $StakingDataSourceKeyCopyWith<$Res> {
+  _$StakingDataSourceKeyCopyWithImpl(this._self, this._then);
 
+  final StakingDataSourceKey _self;
+  final $Res Function(StakingDataSourceKey) _then;
 
 /// Create a copy of StakingDataSource
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? data = null,}) {
-  return _then(_$StakingDataSourceKeyImpl(
-data: null == data ? _value.data : data // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? data = null,}) {
+  return _then(StakingDataSourceKey(
+data: null == data ? _self.data : data // ignore: cast_nullable_to_non_nullable
 as StakingDataSourceKeyData,
   ));
 }
@@ -152,8 +143,8 @@ as StakingDataSourceKeyData,
 @pragma('vm:prefer-inline')
 $StakingDataSourceKeyDataCopyWith<$Res> get data {
   
-  return $StakingDataSourceKeyDataCopyWith<$Res>(_value.data, (value) {
-    return _then(_value.copyWith(data: value) );
+  return $StakingDataSourceKeyDataCopyWith<$Res>(_self.data, (value) {
+    return _then(_self.copyWith(data: value));
   });
 }
 }
@@ -161,62 +152,42 @@ $StakingDataSourceKeyDataCopyWith<$Res> get data {
 /// @nodoc
 
 
-class _$StakingDataSourceKeyImpl extends StakingDataSourceKey  {
-   _$StakingDataSourceKeyImpl({required this.data}): super._();
-
+class StakingDataSourceBlockchainPointer extends StakingDataSource {
+   StakingDataSourceBlockchainPointer({required this.blockIndex, required this.txIndex, required this.certificateIndex}): super._();
   
 
-@override final  StakingDataSourceKeyData data;
+ final  int blockIndex;
+ final  int txIndex;
+ final  int certificateIndex;
 
-@override
-String toString() {
-  return 'StakingDataSource.key(data: $data)';
-}
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakingDataSourceBlockchainPointerCopyWith<StakingDataSourceBlockchainPointer> get copyWith => _$StakingDataSourceBlockchainPointerCopyWithImpl<StakingDataSourceBlockchainPointer>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceKeyImpl&&(identical(other.data, data) || other.data == data));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceBlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,data);
+int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
 
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$StakingDataSourceKeyImplCopyWith<_$StakingDataSourceKeyImpl> get copyWith => __$$StakingDataSourceKeyImplCopyWithImpl<_$StakingDataSourceKeyImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'StakingDataSource.blockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
 }
 
-
-abstract class StakingDataSourceKey extends StakingDataSource {
-   factory StakingDataSourceKey({required final  StakingDataSourceKeyData data}) = _$StakingDataSourceKeyImpl;
-   StakingDataSourceKey._(): super._();
-
-  
-
- StakingDataSourceKeyData get data;
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakingDataSourceKeyImplCopyWith<_$StakingDataSourceKeyImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceBlockchainPointerImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceBlockchainPointerImplCopyWith(_$StakingDataSourceBlockchainPointerImpl value, $Res Function(_$StakingDataSourceBlockchainPointerImpl) then) = __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res>;
+abstract mixin class $StakingDataSourceBlockchainPointerCopyWith<$Res> implements $StakingDataSourceCopyWith<$Res> {
+  factory $StakingDataSourceBlockchainPointerCopyWith(StakingDataSourceBlockchainPointer value, $Res Function(StakingDataSourceBlockchainPointer) _then) = _$StakingDataSourceBlockchainPointerCopyWithImpl;
 @useResult
 $Res call({
  int blockIndex, int txIndex, int certificateIndex
@@ -224,21 +195,23 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<$Res> extends _$StakingDataSourceCopyWithImpl<$Res, _$StakingDataSourceBlockchainPointerImpl> implements _$$StakingDataSourceBlockchainPointerImplCopyWith<$Res> {
-  __$$StakingDataSourceBlockchainPointerImplCopyWithImpl(_$StakingDataSourceBlockchainPointerImpl _value, $Res Function(_$StakingDataSourceBlockchainPointerImpl) _then)
-      : super(_value, _then);
+class _$StakingDataSourceBlockchainPointerCopyWithImpl<$Res>
+    implements $StakingDataSourceBlockchainPointerCopyWith<$Res> {
+  _$StakingDataSourceBlockchainPointerCopyWithImpl(this._self, this._then);
 
+  final StakingDataSourceBlockchainPointer _self;
+  final $Res Function(StakingDataSourceBlockchainPointer) _then;
 
 /// Create a copy of StakingDataSource
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
-  return _then(_$StakingDataSourceBlockchainPointerImpl(
-blockIndex: null == blockIndex ? _value.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
-as int,txIndex: null == txIndex ? _value.txIndex : txIndex // ignore: cast_nullable_to_non_nullable
-as int,certificateIndex: null == certificateIndex ? _value.certificateIndex : certificateIndex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
+  return _then(StakingDataSourceBlockchainPointer(
+blockIndex: null == blockIndex ? _self.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
+as int,txIndex: null == txIndex ? _self.txIndex : txIndex // ignore: cast_nullable_to_non_nullable
+as int,certificateIndex: null == certificateIndex ? _self.certificateIndex : certificateIndex // ignore: cast_nullable_to_non_nullable
 as int,
   ));
 }
@@ -249,64 +222,40 @@ as int,
 /// @nodoc
 
 
-class _$StakingDataSourceBlockchainPointerImpl extends StakingDataSourceBlockchainPointer  {
-   _$StakingDataSourceBlockchainPointerImpl({required this.blockIndex, required this.txIndex, required this.certificateIndex}): super._();
-
+class StakingDataSourceScriptHash extends StakingDataSource {
+   StakingDataSourceScriptHash({required this.scriptHashHex}): super._();
   
 
-@override final  int blockIndex;
-@override final  int txIndex;
-@override final  int certificateIndex;
+ final  String scriptHashHex;
 
-@override
-String toString() {
-  return 'StakingDataSource.blockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
-}
+/// Create a copy of StakingDataSource
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakingDataSourceScriptHashCopyWith<StakingDataSourceScriptHash> get copyWith => _$StakingDataSourceScriptHashCopyWithImpl<StakingDataSourceScriptHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceBlockchainPointerImpl&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$StakingDataSourceBlockchainPointerImplCopyWith<_$StakingDataSourceBlockchainPointerImpl> get copyWith => __$$StakingDataSourceBlockchainPointerImplCopyWithImpl<_$StakingDataSourceBlockchainPointerImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'StakingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
 }
 
-
-abstract class StakingDataSourceBlockchainPointer extends StakingDataSource {
-   factory StakingDataSourceBlockchainPointer({required final  int blockIndex, required final  int txIndex, required final  int certificateIndex}) = _$StakingDataSourceBlockchainPointerImpl;
-   StakingDataSourceBlockchainPointer._(): super._();
-
-  
-
- int get blockIndex; int get txIndex; int get certificateIndex;
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakingDataSourceBlockchainPointerImplCopyWith<_$StakingDataSourceBlockchainPointerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$StakingDataSourceScriptHashImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceScriptHashImplCopyWith(_$StakingDataSourceScriptHashImpl value, $Res Function(_$StakingDataSourceScriptHashImpl) then) = __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res>;
+abstract mixin class $StakingDataSourceScriptHashCopyWith<$Res> implements $StakingDataSourceCopyWith<$Res> {
+  factory $StakingDataSourceScriptHashCopyWith(StakingDataSourceScriptHash value, $Res Function(StakingDataSourceScriptHash) _then) = _$StakingDataSourceScriptHashCopyWithImpl;
 @useResult
 $Res call({
  String scriptHashHex
@@ -314,19 +263,21 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$StakingDataSourceScriptHashImplCopyWithImpl<$Res> extends _$StakingDataSourceCopyWithImpl<$Res, _$StakingDataSourceScriptHashImpl> implements _$$StakingDataSourceScriptHashImplCopyWith<$Res> {
-  __$$StakingDataSourceScriptHashImplCopyWithImpl(_$StakingDataSourceScriptHashImpl _value, $Res Function(_$StakingDataSourceScriptHashImpl) _then)
-      : super(_value, _then);
+class _$StakingDataSourceScriptHashCopyWithImpl<$Res>
+    implements $StakingDataSourceScriptHashCopyWith<$Res> {
+  _$StakingDataSourceScriptHashCopyWithImpl(this._self, this._then);
 
+  final StakingDataSourceScriptHash _self;
+  final $Res Function(StakingDataSourceScriptHash) _then;
 
 /// Create a copy of StakingDataSource
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
-  return _then(_$StakingDataSourceScriptHashImpl(
-scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(StakingDataSourceScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -335,102 +286,72 @@ as String,
 }
 
 /// @nodoc
+mixin _$StakingDataSourceKeyData {
 
+ int get stakingDataSourceValue;
 
-class _$StakingDataSourceScriptHashImpl extends StakingDataSourceScriptHash  {
-   _$StakingDataSourceScriptHashImpl({required this.scriptHashHex}): super._();
-
-  
-
-@override final  String scriptHashHex;
-
-@override
-String toString() {
-  return 'StakingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
-}
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceScriptHashImpl&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyData&&(identical(other.stakingDataSourceValue, stakingDataSourceValue) || other.stakingDataSourceValue == stakingDataSourceValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode => Object.hash(runtimeType,stakingDataSourceValue);
 
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl> get copyWith => __$$StakingDataSourceScriptHashImplCopyWithImpl<_$StakingDataSourceScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
+String toString() {
+  return 'StakingDataSourceKeyData(stakingDataSourceValue: $stakingDataSourceValue)';
+}
 
 
 }
 
+/// @nodoc
+class $StakingDataSourceKeyDataCopyWith<$Res>  {
+$StakingDataSourceKeyDataCopyWith(StakingDataSourceKeyData _, $Res Function(StakingDataSourceKeyData) __);
+}
 
-abstract class StakingDataSourceScriptHash extends StakingDataSource {
-   factory StakingDataSourceScriptHash({required final  String scriptHashHex}) = _$StakingDataSourceScriptHashImpl;
-   StakingDataSourceScriptHash._(): super._();
 
+/// @nodoc
+
+
+class StakingDataSourceKeyPath extends StakingDataSourceKeyData {
+   StakingDataSourceKeyPath({required this.path}): super._();
   
 
- String get scriptHashHex;
-/// Create a copy of StakingDataSource
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakingDataSourceScriptHashImplCopyWith<_$StakingDataSourceScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-mixin _$StakingDataSourceKeyData {
-
-
-
-
-
-
-
-
-
-
-}
-
-/// @nodoc
-abstract class $StakingDataSourceKeyDataCopyWith<$Res>  {
-  factory $StakingDataSourceKeyDataCopyWith(StakingDataSourceKeyData value, $Res Function(StakingDataSourceKeyData) then) = _$StakingDataSourceKeyDataCopyWithImpl<$Res, StakingDataSourceKeyData>;
-
-
-
-}
-
-/// @nodoc
-class _$StakingDataSourceKeyDataCopyWithImpl<$Res,$Val extends StakingDataSourceKeyData> implements $StakingDataSourceKeyDataCopyWith<$Res> {
-  _$StakingDataSourceKeyDataCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+ final  LedgerSigningPath path;
 
 /// Create a copy of StakingDataSourceKeyData
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakingDataSourceKeyPathCopyWith<StakingDataSourceKeyPath> get copyWith => _$StakingDataSourceKeyPathCopyWithImpl<StakingDataSourceKeyPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyPath&&(identical(other.path, path) || other.path == path));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,path);
+
+@override
+String toString() {
+  return 'StakingDataSourceKeyData.path(path: $path)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$StakingDataSourceKeyPathImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceKeyPathImplCopyWith(_$StakingDataSourceKeyPathImpl value, $Res Function(_$StakingDataSourceKeyPathImpl) then) = __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res>;
+abstract mixin class $StakingDataSourceKeyPathCopyWith<$Res> implements $StakingDataSourceKeyDataCopyWith<$Res> {
+  factory $StakingDataSourceKeyPathCopyWith(StakingDataSourceKeyPath value, $Res Function(StakingDataSourceKeyPath) _then) = _$StakingDataSourceKeyPathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath path
@@ -438,19 +359,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get path;
+
 }
-
 /// @nodoc
-class __$$StakingDataSourceKeyPathImplCopyWithImpl<$Res> extends _$StakingDataSourceKeyDataCopyWithImpl<$Res, _$StakingDataSourceKeyPathImpl> implements _$$StakingDataSourceKeyPathImplCopyWith<$Res> {
-  __$$StakingDataSourceKeyPathImplCopyWithImpl(_$StakingDataSourceKeyPathImpl _value, $Res Function(_$StakingDataSourceKeyPathImpl) _then)
-      : super(_value, _then);
+class _$StakingDataSourceKeyPathCopyWithImpl<$Res>
+    implements $StakingDataSourceKeyPathCopyWith<$Res> {
+  _$StakingDataSourceKeyPathCopyWithImpl(this._self, this._then);
 
+  final StakingDataSourceKeyPath _self;
+  final $Res Function(StakingDataSourceKeyPath) _then;
 
 /// Create a copy of StakingDataSourceKeyData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? path = null,}) {
-  return _then(_$StakingDataSourceKeyPathImpl(
-path: null == path ? _value.path : path // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? path = null,}) {
+  return _then(StakingDataSourceKeyPath(
+path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -461,8 +384,8 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get path {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.path, (value) {
-    return _then(_value.copyWith(path: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.path, (value) {
+    return _then(_self.copyWith(path: value));
   });
 }
 }
@@ -470,98 +393,28 @@ $LedgerSigningPathCopyWith<$Res> get path {
 /// @nodoc
 
 
-class _$StakingDataSourceKeyPathImpl extends StakingDataSourceKeyPath  {
-   _$StakingDataSourceKeyPathImpl({required this.path}): super._();
-
+class StakingDataSourceKeyHash extends StakingDataSourceKeyData {
+   StakingDataSourceKeyHash({required this.keyHashHex}): super._();
   
 
-@override final  LedgerSigningPath path;
+ final  String keyHashHex;
 
-@override
-String toString() {
-  return 'StakingDataSourceKeyData.path(path: $path)';
-}
+/// Create a copy of StakingDataSourceKeyData
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakingDataSourceKeyHashCopyWith<StakingDataSourceKeyHash> get copyWith => _$StakingDataSourceKeyHashCopyWithImpl<StakingDataSourceKeyHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceKeyPathImpl&&(identical(other.path, path) || other.path == path));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
-
-/// Create a copy of StakingDataSourceKeyData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl> get copyWith => __$$StakingDataSourceKeyPathImplCopyWithImpl<_$StakingDataSourceKeyPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class StakingDataSourceKeyPath extends StakingDataSourceKeyData {
-   factory StakingDataSourceKeyPath({required final  LedgerSigningPath path}) = _$StakingDataSourceKeyPathImpl;
-   StakingDataSourceKeyPath._(): super._();
-
-  
-
- LedgerSigningPath get path;
-/// Create a copy of StakingDataSourceKeyData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakingDataSourceKeyPathImplCopyWith<_$StakingDataSourceKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$StakingDataSourceKeyHashImplCopyWith<$Res>  {
-  factory _$$StakingDataSourceKeyHashImplCopyWith(_$StakingDataSourceKeyHashImpl value, $Res Function(_$StakingDataSourceKeyHashImpl) then) = __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String keyHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$StakingDataSourceKeyHashImplCopyWithImpl<$Res> extends _$StakingDataSourceKeyDataCopyWithImpl<$Res, _$StakingDataSourceKeyHashImpl> implements _$$StakingDataSourceKeyHashImplCopyWith<$Res> {
-  __$$StakingDataSourceKeyHashImplCopyWithImpl(_$StakingDataSourceKeyHashImpl _value, $Res Function(_$StakingDataSourceKeyHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of StakingDataSourceKeyData
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$StakingDataSourceKeyHashImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$StakingDataSourceKeyHashImpl extends StakingDataSourceKeyHash  {
-   _$StakingDataSourceKeyHashImpl({required this.keyHashHex}): super._();
-
-  
-
-@override final  String keyHashHex;
+int get hashCode => Object.hash(runtimeType,keyHashHex);
 
 @override
 String toString() {
@@ -569,42 +422,38 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakingDataSourceKeyHashImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
+/// @nodoc
+abstract mixin class $StakingDataSourceKeyHashCopyWith<$Res> implements $StakingDataSourceKeyDataCopyWith<$Res> {
+  factory $StakingDataSourceKeyHashCopyWith(StakingDataSourceKeyHash value, $Res Function(StakingDataSourceKeyHash) _then) = _$StakingDataSourceKeyHashCopyWithImpl;
+@useResult
+$Res call({
+ String keyHashHex
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+
+
+
+}
+/// @nodoc
+class _$StakingDataSourceKeyHashCopyWithImpl<$Res>
+    implements $StakingDataSourceKeyHashCopyWith<$Res> {
+  _$StakingDataSourceKeyHashCopyWithImpl(this._self, this._then);
+
+  final StakingDataSourceKeyHash _self;
+  final $Res Function(StakingDataSourceKeyHash) _then;
 
 /// Create a copy of StakingDataSourceKeyData
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl> get copyWith => __$$StakingDataSourceKeyHashImplCopyWithImpl<_$StakingDataSourceKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(StakingDataSourceKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
 
 
 }
 
-
-abstract class StakingDataSourceKeyHash extends StakingDataSourceKeyData {
-   factory StakingDataSourceKeyHash({required final  String keyHashHex}) = _$StakingDataSourceKeyHashImpl;
-   StakingDataSourceKeyHash._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of StakingDataSourceKeyData
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakingDataSourceKeyHashImplCopyWith<_$StakingDataSourceKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

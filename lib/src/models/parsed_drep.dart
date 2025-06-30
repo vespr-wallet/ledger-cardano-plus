@@ -1,9 +1,10 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/src/models/ledger_signing_path.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'parsed_drep.freezed.dart';
+import "../utils/constants.dart";
+import "../utils/utilities.dart";
+import "ledger_signing_path.dart";
+
+part "parsed_drep.freezed.dart";
 
 @freezed
 sealed class ParsedDRep with _$ParsedDRep {
@@ -11,15 +12,13 @@ sealed class ParsedDRep with _$ParsedDRep {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       DRepKeyPath() => () {
-          validateBIP32Path(thisClass.path, 'path');
+          validateBIP32Path(thisClass.path, "path");
         },
       DRepKeyHash() => () {
-          validateExactHexString(
-              thisClass.keyHashHex, 'keyHashHex', keyHashLength);
+          validateExactHexString(thisClass.keyHashHex, "keyHashHex", keyHashLength);
         },
       DRepScriptHash() => () {
-          validateExactHexString(
-              thisClass.scriptHashHex, 'scriptHashHex', scriptHashLength);
+          validateExactHexString(thisClass.scriptHashHex, "scriptHashHex", scriptHashLength);
         },
       DRepAbstain() => () {},
       DRepNoConfidence() => () {},
@@ -44,6 +43,7 @@ sealed class ParsedDRep with _$ParsedDRep {
 
   factory ParsedDRep.noConfidence() = DRepNoConfidence;
 
+  @override
   late final int serializationType = switch (this) {
     DRepKeyHash() => 0,
     DRepKeyPath() => 100,

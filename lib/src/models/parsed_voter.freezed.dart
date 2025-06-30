@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,88 +10,63 @@ part of 'parsed_voter.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedVoter {
 
+ int get voterValue;
 
 
 
-
-
-
-
-
-
-}
-
-/// @nodoc
-abstract class $ParsedVoterCopyWith<$Res>  {
-  factory $ParsedVoterCopyWith(ParsedVoter value, $Res Function(ParsedVoter) then) = _$ParsedVoterCopyWithImpl<$Res, ParsedVoter>;
-
-
-
-}
-
-/// @nodoc
-class _$ParsedVoterCopyWithImpl<$Res,$Val extends ParsedVoter> implements $ParsedVoterCopyWith<$Res> {
-  _$ParsedVoterCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-
-
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoter&&(identical(other.voterValue, voterValue) || other.voterValue == voterValue));
 }
 
 
-/// @nodoc
-abstract class _$$CommitteeKeyHashImplCopyWith<$Res>  {
-  factory _$$CommitteeKeyHashImplCopyWith(_$CommitteeKeyHashImpl value, $Res Function(_$CommitteeKeyHashImpl) then) = __$$CommitteeKeyHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String keyHashHex
-});
+@override
+int get hashCode => Object.hash(runtimeType,voterValue);
 
-
-
-}
-
-/// @nodoc
-class __$$CommitteeKeyHashImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$CommitteeKeyHashImpl> implements _$$CommitteeKeyHashImplCopyWith<$Res> {
-  __$$CommitteeKeyHashImplCopyWithImpl(_$CommitteeKeyHashImpl _value, $Res Function(_$CommitteeKeyHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$CommitteeKeyHashImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
+@override
+String toString() {
+  return 'ParsedVoter(voterValue: $voterValue)';
 }
 
 
 }
 
 /// @nodoc
+class $ParsedVoterCopyWith<$Res>  {
+$ParsedVoterCopyWith(ParsedVoter _, $Res Function(ParsedVoter) __);
+}
 
 
-class _$CommitteeKeyHashImpl extends CommitteeKeyHash  {
-   _$CommitteeKeyHashImpl({required this.keyHashHex}): super._();
+/// @nodoc
 
+
+class CommitteeKeyHash extends ParsedVoter {
+   CommitteeKeyHash({required this.keyHashHex}): super._();
   
 
-@override final  String keyHashHex;
+ final  String keyHashHex;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CommitteeKeyHashCopyWith<CommitteeKeyHash> get copyWith => _$CommitteeKeyHashCopyWithImpl<CommitteeKeyHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,keyHashHex);
 
 @override
 String toString() {
@@ -98,94 +74,65 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CommitteeKeyHashImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CommitteeKeyHashImplCopyWith<_$CommitteeKeyHashImpl> get copyWith => __$$CommitteeKeyHashImplCopyWithImpl<_$CommitteeKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class CommitteeKeyHash extends ParsedVoter {
-   factory CommitteeKeyHash({required final  String keyHashHex}) = _$CommitteeKeyHashImpl;
-   CommitteeKeyHash._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CommitteeKeyHashImplCopyWith<_$CommitteeKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$CommitteeKeyPathImplCopyWith<$Res>  {
-  factory _$$CommitteeKeyPathImplCopyWith(_$CommitteeKeyPathImpl value, $Res Function(_$CommitteeKeyPathImpl) then) = __$$CommitteeKeyPathImplCopyWithImpl<$Res>;
+abstract mixin class $CommitteeKeyHashCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $CommitteeKeyHashCopyWith(CommitteeKeyHash value, $Res Function(CommitteeKeyHash) _then) = _$CommitteeKeyHashCopyWithImpl;
 @useResult
 $Res call({
- LedgerSigningPath keyPath
+ String keyHashHex
 });
 
 
-$LedgerSigningPathCopyWith<$Res> get keyPath;
+
+
 }
-
 /// @nodoc
-class __$$CommitteeKeyPathImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$CommitteeKeyPathImpl> implements _$$CommitteeKeyPathImplCopyWith<$Res> {
-  __$$CommitteeKeyPathImplCopyWithImpl(_$CommitteeKeyPathImpl _value, $Res Function(_$CommitteeKeyPathImpl) _then)
-      : super(_value, _then);
+class _$CommitteeKeyHashCopyWithImpl<$Res>
+    implements $CommitteeKeyHashCopyWith<$Res> {
+  _$CommitteeKeyHashCopyWithImpl(this._self, this._then);
 
+  final CommitteeKeyHash _self;
+  final $Res Function(CommitteeKeyHash) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyPath = null,}) {
-  return _then(_$CommitteeKeyPathImpl(
-keyPath: null == keyPath ? _value.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(CommitteeKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
+as String,
   ));
 }
 
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LedgerSigningPathCopyWith<$Res> get keyPath {
-  
-  return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
-    return _then(_value.copyWith(keyPath: value) );
-  });
-}
+
 }
 
 /// @nodoc
 
 
-class _$CommitteeKeyPathImpl extends CommitteeKeyPath  {
-   _$CommitteeKeyPathImpl({required this.keyPath}): super._();
-
+class CommitteeKeyPath extends ParsedVoter {
+   CommitteeKeyPath({required this.keyPath}): super._();
   
 
-@override final  LedgerSigningPath keyPath;
+ final  LedgerSigningPath keyPath;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CommitteeKeyPathCopyWith<CommitteeKeyPath> get copyWith => _$CommitteeKeyPathCopyWithImpl<CommitteeKeyPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,keyPath);
 
 @override
 String toString() {
@@ -193,85 +140,74 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CommitteeKeyPathImpl&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyPath);
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CommitteeKeyPathImplCopyWith<_$CommitteeKeyPathImpl> get copyWith => __$$CommitteeKeyPathImplCopyWithImpl<_$CommitteeKeyPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class CommitteeKeyPath extends ParsedVoter {
-   factory CommitteeKeyPath({required final  LedgerSigningPath keyPath}) = _$CommitteeKeyPathImpl;
-   CommitteeKeyPath._(): super._();
-
-  
-
- LedgerSigningPath get keyPath;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CommitteeKeyPathImplCopyWith<_$CommitteeKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$CommitteeScriptHashImplCopyWith<$Res>  {
-  factory _$$CommitteeScriptHashImplCopyWith(_$CommitteeScriptHashImpl value, $Res Function(_$CommitteeScriptHashImpl) then) = __$$CommitteeScriptHashImplCopyWithImpl<$Res>;
+abstract mixin class $CommitteeKeyPathCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $CommitteeKeyPathCopyWith(CommitteeKeyPath value, $Res Function(CommitteeKeyPath) _then) = _$CommitteeKeyPathCopyWithImpl;
 @useResult
 $Res call({
- String scriptHashHex
+ LedgerSigningPath keyPath
 });
 
 
+$LedgerSigningPathCopyWith<$Res> get keyPath;
 
 }
-
 /// @nodoc
-class __$$CommitteeScriptHashImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$CommitteeScriptHashImpl> implements _$$CommitteeScriptHashImplCopyWith<$Res> {
-  __$$CommitteeScriptHashImplCopyWithImpl(_$CommitteeScriptHashImpl _value, $Res Function(_$CommitteeScriptHashImpl) _then)
-      : super(_value, _then);
+class _$CommitteeKeyPathCopyWithImpl<$Res>
+    implements $CommitteeKeyPathCopyWith<$Res> {
+  _$CommitteeKeyPathCopyWithImpl(this._self, this._then);
 
+  final CommitteeKeyPath _self;
+  final $Res Function(CommitteeKeyPath) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
-  return _then(_$CommitteeScriptHashImpl(
-scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
-as String,
+@pragma('vm:prefer-inline') $Res call({Object? keyPath = null,}) {
+  return _then(CommitteeKeyPath(
+keyPath: null == keyPath ? _self.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
   ));
 }
 
-
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LedgerSigningPathCopyWith<$Res> get keyPath {
+  
+  return $LedgerSigningPathCopyWith<$Res>(_self.keyPath, (value) {
+    return _then(_self.copyWith(keyPath: value));
+  });
+}
 }
 
 /// @nodoc
 
 
-class _$CommitteeScriptHashImpl extends CommitteeScriptHash  {
-   _$CommitteeScriptHashImpl({required this.scriptHashHex}): super._();
-
+class CommitteeScriptHash extends ParsedVoter {
+   CommitteeScriptHash({required this.scriptHashHex}): super._();
   
 
-@override final  String scriptHashHex;
+ final  String scriptHashHex;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$CommitteeScriptHashCopyWith<CommitteeScriptHash> get copyWith => _$CommitteeScriptHashCopyWithImpl<CommitteeScriptHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
 
 @override
 String toString() {
@@ -279,230 +215,11 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$CommitteeScriptHashImpl&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$CommitteeScriptHashImplCopyWith<_$CommitteeScriptHashImpl> get copyWith => __$$CommitteeScriptHashImplCopyWithImpl<_$CommitteeScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class CommitteeScriptHash extends ParsedVoter {
-   factory CommitteeScriptHash({required final  String scriptHashHex}) = _$CommitteeScriptHashImpl;
-   CommitteeScriptHash._(): super._();
-
-  
-
- String get scriptHashHex;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$CommitteeScriptHashImplCopyWith<_$CommitteeScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
-
 }
 
 /// @nodoc
-abstract class _$$DrepKeyHashImplCopyWith<$Res>  {
-  factory _$$DrepKeyHashImplCopyWith(_$DrepKeyHashImpl value, $Res Function(_$DrepKeyHashImpl) then) = __$$DrepKeyHashImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- String keyHashHex
-});
-
-
-
-}
-
-/// @nodoc
-class __$$DrepKeyHashImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$DrepKeyHashImpl> implements _$$DrepKeyHashImplCopyWith<$Res> {
-  __$$DrepKeyHashImplCopyWithImpl(_$DrepKeyHashImpl _value, $Res Function(_$DrepKeyHashImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$DrepKeyHashImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
-as String,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$DrepKeyHashImpl extends DrepKeyHash  {
-   _$DrepKeyHashImpl({required this.keyHashHex}): super._();
-
-  
-
-@override final  String keyHashHex;
-
-@override
-String toString() {
-  return 'ParsedVoter.drepKeyHash(keyHashHex: $keyHashHex)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DrepKeyHashImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$DrepKeyHashImplCopyWith<_$DrepKeyHashImpl> get copyWith => __$$DrepKeyHashImplCopyWithImpl<_$DrepKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class DrepKeyHash extends ParsedVoter {
-   factory DrepKeyHash({required final  String keyHashHex}) = _$DrepKeyHashImpl;
-   DrepKeyHash._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DrepKeyHashImplCopyWith<_$DrepKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$DrepKeyPathImplCopyWith<$Res>  {
-  factory _$$DrepKeyPathImplCopyWith(_$DrepKeyPathImpl value, $Res Function(_$DrepKeyPathImpl) then) = __$$DrepKeyPathImplCopyWithImpl<$Res>;
-@useResult
-$Res call({
- LedgerSigningPath keyPath
-});
-
-
-$LedgerSigningPathCopyWith<$Res> get keyPath;
-}
-
-/// @nodoc
-class __$$DrepKeyPathImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$DrepKeyPathImpl> implements _$$DrepKeyPathImplCopyWith<$Res> {
-  __$$DrepKeyPathImplCopyWithImpl(_$DrepKeyPathImpl _value, $Res Function(_$DrepKeyPathImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyPath = null,}) {
-  return _then(_$DrepKeyPathImpl(
-keyPath: null == keyPath ? _value.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
-as LedgerSigningPath,
-  ));
-}
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@override
-@pragma('vm:prefer-inline')
-$LedgerSigningPathCopyWith<$Res> get keyPath {
-  
-  return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
-    return _then(_value.copyWith(keyPath: value) );
-  });
-}
-}
-
-/// @nodoc
-
-
-class _$DrepKeyPathImpl extends DrepKeyPath  {
-   _$DrepKeyPathImpl({required this.keyPath}): super._();
-
-  
-
-@override final  LedgerSigningPath keyPath;
-
-@override
-String toString() {
-  return 'ParsedVoter.drepKeyPath(keyPath: $keyPath)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DrepKeyPathImpl&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,keyPath);
-
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$DrepKeyPathImplCopyWith<_$DrepKeyPathImpl> get copyWith => __$$DrepKeyPathImplCopyWithImpl<_$DrepKeyPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class DrepKeyPath extends ParsedVoter {
-   factory DrepKeyPath({required final  LedgerSigningPath keyPath}) = _$DrepKeyPathImpl;
-   DrepKeyPath._(): super._();
-
-  
-
- LedgerSigningPath get keyPath;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DrepKeyPathImplCopyWith<_$DrepKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class _$$DrepScriptHashImplCopyWith<$Res>  {
-  factory _$$DrepScriptHashImplCopyWith(_$DrepScriptHashImpl value, $Res Function(_$DrepScriptHashImpl) then) = __$$DrepScriptHashImplCopyWithImpl<$Res>;
+abstract mixin class $CommitteeScriptHashCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $CommitteeScriptHashCopyWith(CommitteeScriptHash value, $Res Function(CommitteeScriptHash) _then) = _$CommitteeScriptHashCopyWithImpl;
 @useResult
 $Res call({
  String scriptHashHex
@@ -510,19 +227,21 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$DrepScriptHashImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$DrepScriptHashImpl> implements _$$DrepScriptHashImplCopyWith<$Res> {
-  __$$DrepScriptHashImplCopyWithImpl(_$DrepScriptHashImpl _value, $Res Function(_$DrepScriptHashImpl) _then)
-      : super(_value, _then);
+class _$CommitteeScriptHashCopyWithImpl<$Res>
+    implements $CommitteeScriptHashCopyWith<$Res> {
+  _$CommitteeScriptHashCopyWithImpl(this._self, this._then);
 
+  final CommitteeScriptHash _self;
+  final $Res Function(CommitteeScriptHash) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? scriptHashHex = null,}) {
-  return _then(_$DrepScriptHashImpl(
-scriptHashHex: null == scriptHashHex ? _value.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(CommitteeScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -533,62 +252,40 @@ as String,
 /// @nodoc
 
 
-class _$DrepScriptHashImpl extends DrepScriptHash  {
-   _$DrepScriptHashImpl({required this.scriptHashHex}): super._();
-
+class DrepKeyHash extends ParsedVoter {
+   DrepKeyHash({required this.keyHashHex}): super._();
   
 
-@override final  String scriptHashHex;
+ final  String keyHashHex;
 
-@override
-String toString() {
-  return 'ParsedVoter.drepScriptHash(scriptHashHex: $scriptHashHex)';
-}
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DrepKeyHashCopyWith<DrepKeyHash> get copyWith => _$DrepKeyHashCopyWithImpl<DrepKeyHash>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DrepScriptHashImpl&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode => Object.hash(runtimeType,keyHashHex);
 
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$DrepScriptHashImplCopyWith<_$DrepScriptHashImpl> get copyWith => __$$DrepScriptHashImplCopyWithImpl<_$DrepScriptHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'ParsedVoter.drepKeyHash(keyHashHex: $keyHashHex)';
 }
 
-
-abstract class DrepScriptHash extends ParsedVoter {
-   factory DrepScriptHash({required final  String scriptHashHex}) = _$DrepScriptHashImpl;
-   DrepScriptHash._(): super._();
-
-  
-
- String get scriptHashHex;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DrepScriptHashImplCopyWith<_$DrepScriptHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$StakePoolKeyHashImplCopyWith<$Res>  {
-  factory _$$StakePoolKeyHashImplCopyWith(_$StakePoolKeyHashImpl value, $Res Function(_$StakePoolKeyHashImpl) then) = __$$StakePoolKeyHashImplCopyWithImpl<$Res>;
+abstract mixin class $DrepKeyHashCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $DrepKeyHashCopyWith(DrepKeyHash value, $Res Function(DrepKeyHash) _then) = _$DrepKeyHashCopyWithImpl;
 @useResult
 $Res call({
  String keyHashHex
@@ -596,19 +293,21 @@ $Res call({
 
 
 
+
 }
-
 /// @nodoc
-class __$$StakePoolKeyHashImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$StakePoolKeyHashImpl> implements _$$StakePoolKeyHashImplCopyWith<$Res> {
-  __$$StakePoolKeyHashImplCopyWithImpl(_$StakePoolKeyHashImpl _value, $Res Function(_$StakePoolKeyHashImpl) _then)
-      : super(_value, _then);
+class _$DrepKeyHashCopyWithImpl<$Res>
+    implements $DrepKeyHashCopyWith<$Res> {
+  _$DrepKeyHashCopyWithImpl(this._self, this._then);
 
+  final DrepKeyHash _self;
+  final $Res Function(DrepKeyHash) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyHashHex = null,}) {
-  return _then(_$StakePoolKeyHashImpl(
-keyHashHex: null == keyHashHex ? _value.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(DrepKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
 as String,
   ));
 }
@@ -619,62 +318,40 @@ as String,
 /// @nodoc
 
 
-class _$StakePoolKeyHashImpl extends StakePoolKeyHash  {
-   _$StakePoolKeyHashImpl({required this.keyHashHex}): super._();
-
+class DrepKeyPath extends ParsedVoter {
+   DrepKeyPath({required this.keyPath}): super._();
   
 
-@override final  String keyHashHex;
+ final  LedgerSigningPath keyPath;
 
-@override
-String toString() {
-  return 'ParsedVoter.stakePoolKeyHash(keyHashHex: $keyHashHex)';
-}
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DrepKeyPathCopyWith<DrepKeyPath> get copyWith => _$DrepKeyPathCopyWithImpl<DrepKeyPath>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakePoolKeyHashImpl&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode => Object.hash(runtimeType,keyPath);
 
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$StakePoolKeyHashImplCopyWith<_$StakePoolKeyHashImpl> get copyWith => __$$StakePoolKeyHashImplCopyWithImpl<_$StakePoolKeyHashImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'ParsedVoter.drepKeyPath(keyPath: $keyPath)';
 }
 
-
-abstract class StakePoolKeyHash extends ParsedVoter {
-   factory StakePoolKeyHash({required final  String keyHashHex}) = _$StakePoolKeyHashImpl;
-   StakePoolKeyHash._(): super._();
-
-  
-
- String get keyHashHex;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakePoolKeyHashImplCopyWith<_$StakePoolKeyHashImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$StakePoolKeyPathImplCopyWith<$Res>  {
-  factory _$$StakePoolKeyPathImplCopyWith(_$StakePoolKeyPathImpl value, $Res Function(_$StakePoolKeyPathImpl) then) = __$$StakePoolKeyPathImplCopyWithImpl<$Res>;
+abstract mixin class $DrepKeyPathCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $DrepKeyPathCopyWith(DrepKeyPath value, $Res Function(DrepKeyPath) _then) = _$DrepKeyPathCopyWithImpl;
 @useResult
 $Res call({
  LedgerSigningPath keyPath
@@ -682,19 +359,21 @@ $Res call({
 
 
 $LedgerSigningPathCopyWith<$Res> get keyPath;
+
 }
-
 /// @nodoc
-class __$$StakePoolKeyPathImplCopyWithImpl<$Res> extends _$ParsedVoterCopyWithImpl<$Res, _$StakePoolKeyPathImpl> implements _$$StakePoolKeyPathImplCopyWith<$Res> {
-  __$$StakePoolKeyPathImplCopyWithImpl(_$StakePoolKeyPathImpl _value, $Res Function(_$StakePoolKeyPathImpl) _then)
-      : super(_value, _then);
+class _$DrepKeyPathCopyWithImpl<$Res>
+    implements $DrepKeyPathCopyWith<$Res> {
+  _$DrepKeyPathCopyWithImpl(this._self, this._then);
 
+  final DrepKeyPath _self;
+  final $Res Function(DrepKeyPath) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? keyPath = null,}) {
-  return _then(_$StakePoolKeyPathImpl(
-keyPath: null == keyPath ? _value.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? keyPath = null,}) {
+  return _then(DrepKeyPath(
+keyPath: null == keyPath ? _self.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
   ));
 }
@@ -705,8 +384,8 @@ as LedgerSigningPath,
 @pragma('vm:prefer-inline')
 $LedgerSigningPathCopyWith<$Res> get keyPath {
   
-  return $LedgerSigningPathCopyWith<$Res>(_value.keyPath, (value) {
-    return _then(_value.copyWith(keyPath: value) );
+  return $LedgerSigningPathCopyWith<$Res>(_self.keyPath, (value) {
+    return _then(_self.copyWith(keyPath: value));
   });
 }
 }
@@ -714,12 +393,160 @@ $LedgerSigningPathCopyWith<$Res> get keyPath {
 /// @nodoc
 
 
-class _$StakePoolKeyPathImpl extends StakePoolKeyPath  {
-   _$StakePoolKeyPathImpl({required this.keyPath}): super._();
-
+class DrepScriptHash extends ParsedVoter {
+   DrepScriptHash({required this.scriptHashHex}): super._();
   
 
-@override final  LedgerSigningPath keyPath;
+ final  String scriptHashHex;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DrepScriptHashCopyWith<DrepScriptHash> get copyWith => _$DrepScriptHashCopyWithImpl<DrepScriptHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,scriptHashHex);
+
+@override
+String toString() {
+  return 'ParsedVoter.drepScriptHash(scriptHashHex: $scriptHashHex)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $DrepScriptHashCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $DrepScriptHashCopyWith(DrepScriptHash value, $Res Function(DrepScriptHash) _then) = _$DrepScriptHashCopyWithImpl;
+@useResult
+$Res call({
+ String scriptHashHex
+});
+
+
+
+
+}
+/// @nodoc
+class _$DrepScriptHashCopyWithImpl<$Res>
+    implements $DrepScriptHashCopyWith<$Res> {
+  _$DrepScriptHashCopyWithImpl(this._self, this._then);
+
+  final DrepScriptHash _self;
+  final $Res Function(DrepScriptHash) _then;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? scriptHashHex = null,}) {
+  return _then(DrepScriptHash(
+scriptHashHex: null == scriptHashHex ? _self.scriptHashHex : scriptHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class StakePoolKeyHash extends ParsedVoter {
+   StakePoolKeyHash({required this.keyHashHex}): super._();
+  
+
+ final  String keyHashHex;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakePoolKeyHashCopyWith<StakePoolKeyHash> get copyWith => _$StakePoolKeyHashCopyWithImpl<StakePoolKeyHash>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,keyHashHex);
+
+@override
+String toString() {
+  return 'ParsedVoter.stakePoolKeyHash(keyHashHex: $keyHashHex)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $StakePoolKeyHashCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $StakePoolKeyHashCopyWith(StakePoolKeyHash value, $Res Function(StakePoolKeyHash) _then) = _$StakePoolKeyHashCopyWithImpl;
+@useResult
+$Res call({
+ String keyHashHex
+});
+
+
+
+
+}
+/// @nodoc
+class _$StakePoolKeyHashCopyWithImpl<$Res>
+    implements $StakePoolKeyHashCopyWith<$Res> {
+  _$StakePoolKeyHashCopyWithImpl(this._self, this._then);
+
+  final StakePoolKeyHash _self;
+  final $Res Function(StakePoolKeyHash) _then;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? keyHashHex = null,}) {
+  return _then(StakePoolKeyHash(
+keyHashHex: null == keyHashHex ? _self.keyHashHex : keyHashHex // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+/// @nodoc
+
+
+class StakePoolKeyPath extends ParsedVoter {
+   StakePoolKeyPath({required this.keyPath}): super._();
+  
+
+ final  LedgerSigningPath keyPath;
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$StakePoolKeyPathCopyWith<StakePoolKeyPath> get copyWith => _$StakePoolKeyPathCopyWithImpl<StakePoolKeyPath>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,keyPath);
 
 @override
 String toString() {
@@ -727,42 +554,47 @@ String toString() {
 }
 
 
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$StakePoolKeyPathImpl&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
 }
 
+/// @nodoc
+abstract mixin class $StakePoolKeyPathCopyWith<$Res> implements $ParsedVoterCopyWith<$Res> {
+  factory $StakePoolKeyPathCopyWith(StakePoolKeyPath value, $Res Function(StakePoolKeyPath) _then) = _$StakePoolKeyPathCopyWithImpl;
+@useResult
+$Res call({
+ LedgerSigningPath keyPath
+});
 
-@override
-int get hashCode => Object.hash(runtimeType,keyPath);
+
+$LedgerSigningPathCopyWith<$Res> get keyPath;
+
+}
+/// @nodoc
+class _$StakePoolKeyPathCopyWithImpl<$Res>
+    implements $StakePoolKeyPathCopyWith<$Res> {
+  _$StakePoolKeyPathCopyWithImpl(this._self, this._then);
+
+  final StakePoolKeyPath _self;
+  final $Res Function(StakePoolKeyPath) _then;
 
 /// Create a copy of ParsedVoter
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline') $Res call({Object? keyPath = null,}) {
+  return _then(StakePoolKeyPath(
+keyPath: null == keyPath ? _self.keyPath : keyPath // ignore: cast_nullable_to_non_nullable
+as LedgerSigningPath,
+  ));
+}
+
+/// Create a copy of ParsedVoter
+/// with the given fields replaced by the non-null parameter values.
 @override
 @pragma('vm:prefer-inline')
-_$$StakePoolKeyPathImplCopyWith<_$StakePoolKeyPathImpl> get copyWith => __$$StakePoolKeyPathImplCopyWithImpl<_$StakePoolKeyPathImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class StakePoolKeyPath extends ParsedVoter {
-   factory StakePoolKeyPath({required final  LedgerSigningPath keyPath}) = _$StakePoolKeyPathImpl;
-   StakePoolKeyPath._(): super._();
-
+$LedgerSigningPathCopyWith<$Res> get keyPath {
   
-
- LedgerSigningPath get keyPath;
-/// Create a copy of ParsedVoter
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$StakePoolKeyPathImplCopyWith<_$StakePoolKeyPathImpl> get copyWith => throw _privateConstructorUsedError;
-
+  return $LedgerSigningPathCopyWith<$Res>(_self.keyPath, (value) {
+    return _then(_self.copyWith(keyPath: value));
+  });
 }
+}
+
+// dart format on

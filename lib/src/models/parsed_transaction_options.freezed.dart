@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,101 +10,28 @@ part of 'parsed_transaction_options.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$ParsedTransactionOptions {
 
- bool get tagCborSets => throw _privateConstructorUsedError;
-
-
-
-
-
-
-
+ bool get tagCborSets;
 /// Create a copy of ParsedTransactionOptions
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
-$ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith => throw _privateConstructorUsedError;
-
-}
-
-/// @nodoc
-abstract class $ParsedTransactionOptionsCopyWith<$Res>  {
-  factory $ParsedTransactionOptionsCopyWith(ParsedTransactionOptions value, $Res Function(ParsedTransactionOptions) then) = _$ParsedTransactionOptionsCopyWithImpl<$Res, ParsedTransactionOptions>;
-@useResult
-$Res call({
- bool tagCborSets
-});
+@pragma('vm:prefer-inline')
+$ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith => _$ParsedTransactionOptionsCopyWithImpl<ParsedTransactionOptions>(this as ParsedTransactionOptions, _$identity);
 
 
 
-}
-
-/// @nodoc
-class _$ParsedTransactionOptionsCopyWithImpl<$Res,$Val extends ParsedTransactionOptions> implements $ParsedTransactionOptionsCopyWith<$Res> {
-  _$ParsedTransactionOptionsCopyWithImpl(this._value, this._then);
-
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
-
-/// Create a copy of ParsedTransactionOptions
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
-  return _then(_value.copyWith(
-tagCborSets: null == tagCborSets ? _value.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
-as bool,
-  )as $Val);
-}
-
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
 }
 
 
-/// @nodoc
-abstract class _$$ParsedTransactionOptionsImplCopyWith<$Res> implements $ParsedTransactionOptionsCopyWith<$Res> {
-  factory _$$ParsedTransactionOptionsImplCopyWith(_$ParsedTransactionOptionsImpl value, $Res Function(_$ParsedTransactionOptionsImpl) then) = __$$ParsedTransactionOptionsImplCopyWithImpl<$Res>;
-@override @useResult
-$Res call({
- bool tagCborSets
-});
-
-
-
-}
-
-/// @nodoc
-class __$$ParsedTransactionOptionsImplCopyWithImpl<$Res> extends _$ParsedTransactionOptionsCopyWithImpl<$Res, _$ParsedTransactionOptionsImpl> implements _$$ParsedTransactionOptionsImplCopyWith<$Res> {
-  __$$ParsedTransactionOptionsImplCopyWithImpl(_$ParsedTransactionOptionsImpl _value, $Res Function(_$ParsedTransactionOptionsImpl) _then)
-      : super(_value, _then);
-
-
-/// Create a copy of ParsedTransactionOptions
-/// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
-  return _then(_$ParsedTransactionOptionsImpl(
-tagCborSets: null == tagCborSets ? _value.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
-as bool,
-  ));
-}
-
-
-}
-
-/// @nodoc
-
-
-class _$ParsedTransactionOptionsImpl extends _ParsedTransactionOptions  {
-   _$ParsedTransactionOptionsImpl({required this.tagCborSets}): super._();
-
-  
-
-@override final  bool tagCborSets;
+@override
+int get hashCode => Object.hash(runtimeType,tagCborSets);
 
 @override
 String toString() {
@@ -111,42 +39,104 @@ String toString() {
 }
 
 
+}
+
+/// @nodoc
+abstract mixin class $ParsedTransactionOptionsCopyWith<$Res>  {
+  factory $ParsedTransactionOptionsCopyWith(ParsedTransactionOptions value, $Res Function(ParsedTransactionOptions) _then) = _$ParsedTransactionOptionsCopyWithImpl;
+@useResult
+$Res call({
+ bool tagCborSets
+});
+
+
+
+
+}
+/// @nodoc
+class _$ParsedTransactionOptionsCopyWithImpl<$Res>
+    implements $ParsedTransactionOptionsCopyWith<$Res> {
+  _$ParsedTransactionOptionsCopyWithImpl(this._self, this._then);
+
+  final ParsedTransactionOptions _self;
+  final $Res Function(ParsedTransactionOptions) _then;
+
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
+  return _then(_self.copyWith(
+tagCborSets: null == tagCborSets ? _self.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
+}
+
+
+/// @nodoc
+
+
+class _ParsedTransactionOptions extends ParsedTransactionOptions {
+   _ParsedTransactionOptions({required this.tagCborSets}): super._();
+  
+
+@override final  bool tagCborSets;
+
+/// Create a copy of ParsedTransactionOptions
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$ParsedTransactionOptionsCopyWith<_ParsedTransactionOptions> get copyWith => __$ParsedTransactionOptionsCopyWithImpl<_ParsedTransactionOptions>(this, _$identity);
+
+
+
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$ParsedTransactionOptionsImpl&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,tagCborSets);
 
-/// Create a copy of ParsedTransactionOptions
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl> get copyWith => __$$ParsedTransactionOptionsImplCopyWithImpl<_$ParsedTransactionOptionsImpl>(this, _$identity);
+String toString() {
+  return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
+}
 
 
+}
 
-
+/// @nodoc
+abstract mixin class _$ParsedTransactionOptionsCopyWith<$Res> implements $ParsedTransactionOptionsCopyWith<$Res> {
+  factory _$ParsedTransactionOptionsCopyWith(_ParsedTransactionOptions value, $Res Function(_ParsedTransactionOptions) _then) = __$ParsedTransactionOptionsCopyWithImpl;
+@override @useResult
+$Res call({
+ bool tagCborSets
+});
 
 
 
 
 }
+/// @nodoc
+class __$ParsedTransactionOptionsCopyWithImpl<$Res>
+    implements _$ParsedTransactionOptionsCopyWith<$Res> {
+  __$ParsedTransactionOptionsCopyWithImpl(this._self, this._then);
 
+  final _ParsedTransactionOptions _self;
+  final $Res Function(_ParsedTransactionOptions) _then;
 
-abstract class _ParsedTransactionOptions extends ParsedTransactionOptions {
-   factory _ParsedTransactionOptions({required final  bool tagCborSets}) = _$ParsedTransactionOptionsImpl;
-   _ParsedTransactionOptions._(): super._();
-
-  
-
-@override bool get tagCborSets;
 /// Create a copy of ParsedTransactionOptions
 /// with the given fields replaced by the non-null parameter values.
-@override @JsonKey(includeFromJson: false, includeToJson: false)
-_$$ParsedTransactionOptionsImplCopyWith<_$ParsedTransactionOptionsImpl> get copyWith => throw _privateConstructorUsedError;
+@override @pragma('vm:prefer-inline') $Res call({Object? tagCborSets = null,}) {
+  return _then(_ParsedTransactionOptions(
+tagCborSets: null == tagCborSets ? _self.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
+as bool,
+  ));
+}
+
 
 }
+
+// dart format on

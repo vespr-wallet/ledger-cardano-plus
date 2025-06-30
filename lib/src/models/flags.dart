@@ -1,13 +1,12 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
 
-part 'flags.freezed.dart';
+part "flags.freezed.dart";
 
 @freezed
-class Flags with _$Flags {
-  const Flags._();
-
+sealed class Flags with _$Flags {
   const factory Flags({
     required bool isDebug,
     required bool isAppXS,
   }) = _Flags;
+  const Flags._();
 }

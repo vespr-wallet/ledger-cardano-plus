@@ -1,15 +1,15 @@
-import 'dart:typed_data';
+import "dart:typed_data";
 
-import 'package:ledger_cardano_plus/src/models/parsed_complex_native_script.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_native_script.dart';
-import 'package:ledger_cardano_plus/src/models/parsed_simple_native_script.dart';
-import 'package:ledger_cardano_plus/src/utils/constants.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
-import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
-class CardanoDeriveNativeScriptHashOperation
-    extends LedgerComplexOperation<String> {
+import "../models/parsed_complex_native_script.dart";
+import "../models/parsed_native_script.dart";
+import "../models/parsed_simple_native_script.dart";
+import "../utils/constants.dart";
+import "../utils/serialization_utils.dart";
+import "../utils/utilities.dart";
+
+class CardanoDeriveNativeScriptHashOperation extends LedgerComplexOperation<String> {
   static const int nativeScriptHashLength = 28;
 
   final ParsedNativeScript script;
@@ -23,13 +23,11 @@ class CardanoDeriveNativeScriptHashOperation
   @override
   Future<String> invoke(LedgerSendFct send) async {
     await _deriveNativeScriptHashAddScript(send, script);
-    final scriptHashHex = await _deriveNativeScriptHashFinishWholeNativeScript(
-        send, displayFormat);
+    final scriptHashHex = await _deriveNativeScriptHashFinishWholeNativeScript(send, displayFormat);
     return scriptHashHex;
   }
 
-  Future<void> _deriveNativeScriptHashAddScript(
-      LedgerSendFct send, ParsedNativeScript script) async {
+  Future<void> _deriveNativeScriptHashAddScript(LedgerSendFct send, ParsedNativeScript script) async {
     final sendOperation = switch (script) {
       ParsedNativeScript_Complex() => LedgerSimpleOperation(
           cla: claCardano,
@@ -38,7 +36,7 @@ class CardanoDeriveNativeScriptHashOperation
           p2: p2Unused,
           data: serializeComplexNativeScriptStart(script.script),
           prependDataLength: true,
-          debugName: 'Add Complex Native Script',
+          debugName: "Add Complex Native Script",
         ),
       ParsedNativeScript_Simple() => LedgerSimpleOperation(
           cla: claCardano,
@@ -47,7 +45,7 @@ class CardanoDeriveNativeScriptHashOperation
           p2: p2Unused,
           data: serializeSimpleNativeScript(script.script),
           prependDataLength: true,
-          debugName: 'Add Simple Native Script',
+          debugName: "Add Simple Native Script",
         ),
     };
 
@@ -74,16 +72,14 @@ class CardanoDeriveNativeScriptHashOperation
         p2: p2Unused,
         data: serializeWholeNativeScriptFinish(displayFormat),
         prependDataLength: true,
-        debugName: 'Finish Whole Native Script',
+        debugName: "Finish Whole Native Script",
       ),
     );
 
     return hex.encode(response.read(nativeScriptHashLength));
   }
 
-  Uint8List serializeComplexNativeScriptStart(
-          ParsedComplexNativeScript script) =>
-      useBinaryWriter((writer) {
+  Uint8List serializeComplexNativeScriptStart(ParsedComplexNativeScript script) => useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedComplexNativeScript_All() => () {
               writer.writeUint8(script.nativeScriptSerializationValue);
@@ -103,8 +99,7 @@ class CardanoDeriveNativeScriptHashOperation
         return writer.toBytes();
       });
 
-  Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) =>
-      useBinaryWriter((writer) {
+  Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) => useBinaryWriter((writer) {
         final void Function() invoker = switch (script) {
           ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
               writer.writeUint8(script.nativeScriptSerializationValue);
@@ -129,9 +124,7 @@ class CardanoDeriveNativeScriptHashOperation
         return writer.toBytes();
       });
 
-  Uint8List serializeWholeNativeScriptFinish(
-          NativeScriptHashDisplayFormat displayFormat) =>
-      useBinaryWriter((writer) {
+  Uint8List serializeWholeNativeScriptFinish(NativeScriptHashDisplayFormat displayFormat) => useBinaryWriter((writer) {
         writer.writeUint8(displayFormat.int8Value);
         return writer.toBytes();
       });

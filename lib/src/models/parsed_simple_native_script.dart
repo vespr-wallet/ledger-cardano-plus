@@ -1,8 +1,8 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
-import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import "package:freezed_annotation/freezed_annotation.dart";
+import "../../ledger_cardano_plus.dart";
+import "../utils/utilities.dart";
 
-part 'parsed_simple_native_script.freezed.dart';
+part "parsed_simple_native_script.freezed.dart";
 
 @freezed
 sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
@@ -50,6 +50,7 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
     required BigInt slot,
   }) = ParsedSimpleNativeScript_InvalidHereafter;
 
+  @override
   late final int nativeScriptSerializationValue = switch (this) {
     ParsedSimpleNativeScript_PubKeyDeviceOwned() => 0,
     ParsedSimpleNativeScript_PubKeyThirdParty() => 0,
@@ -57,6 +58,7 @@ sealed class ParsedSimpleNativeScript with _$ParsedSimpleNativeScript {
     ParsedSimpleNativeScript_InvalidHereafter() => 5,
   };
 
+  @override
   late final int pubkeyType = switch (this) {
     ParsedSimpleNativeScript_PubKeyDeviceOwned() => 1,
     ParsedSimpleNativeScript_PubKeyThirdParty() => 2,

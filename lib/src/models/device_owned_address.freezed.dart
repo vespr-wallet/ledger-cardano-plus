@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,52 +10,76 @@ part of 'device_owned_address.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-
-final _privateConstructorUsedError = UnsupportedError('It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
 /// @nodoc
 mixin _$DeviceOwnedAddress {
 
- Object get type => throw _privateConstructorUsedError; Object get params => throw _privateConstructorUsedError;
+ AddressType get addressType; Object get type; Object get params;
 
 
 
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddress&&(identical(other.addressType, addressType) || other.addressType == addressType)&&const DeepCollectionEquality().equals(other.type, type)&&const DeepCollectionEquality().equals(other.params, params));
+}
 
 
+@override
+int get hashCode => Object.hash(runtimeType,addressType,const DeepCollectionEquality().hash(type),const DeepCollectionEquality().hash(params));
 
+@override
+String toString() {
+  return 'DeviceOwnedAddress(addressType: $addressType, type: $type, params: $params)';
+}
 
 
 }
 
 /// @nodoc
-abstract class $DeviceOwnedAddressCopyWith<$Res>  {
-  factory $DeviceOwnedAddressCopyWith(DeviceOwnedAddress value, $Res Function(DeviceOwnedAddress) then) = _$DeviceOwnedAddressCopyWithImpl<$Res, DeviceOwnedAddress>;
-
-
-
+class $DeviceOwnedAddressCopyWith<$Res>  {
+$DeviceOwnedAddressCopyWith(DeviceOwnedAddress _, $Res Function(DeviceOwnedAddress) __);
 }
 
-/// @nodoc
-class _$DeviceOwnedAddressCopyWithImpl<$Res,$Val extends DeviceOwnedAddress> implements $DeviceOwnedAddressCopyWith<$Res> {
-  _$DeviceOwnedAddressCopyWithImpl(this._value, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+/// @nodoc
+
+
+class DeviceOwnedAddressByron extends DeviceOwnedAddress {
+   DeviceOwnedAddressByron({required this.type, required this.params}): super._();
+  
+
+@override final  AddressByron type;
+@override final  AddressParamsByron params;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedAddressByronCopyWith<DeviceOwnedAddressByron> get copyWith => _$DeviceOwnedAddressByronCopyWithImpl<DeviceOwnedAddressByron>(this, _$identity);
+
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressByron&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+}
+
+
+@override
+int get hashCode => Object.hash(runtimeType,type,params);
+
+@override
+String toString() {
+  return 'DeviceOwnedAddress.byron(type: $type, params: $params)';
+}
 
 
 }
 
-
 /// @nodoc
-abstract class _$$DeviceOwnedAddressByronImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedAddressByronImplCopyWith(_$DeviceOwnedAddressByronImpl value, $Res Function(_$DeviceOwnedAddressByronImpl) then) = __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res>;
+abstract mixin class $DeviceOwnedAddressByronCopyWith<$Res> implements $DeviceOwnedAddressCopyWith<$Res> {
+  factory $DeviceOwnedAddressByronCopyWith(DeviceOwnedAddressByron value, $Res Function(DeviceOwnedAddressByron) _then) = _$DeviceOwnedAddressByronCopyWithImpl;
 @useResult
 $Res call({
  AddressByron type, AddressParamsByron params
@@ -62,20 +87,22 @@ $Res call({
 
 
 $AddressParamsByronCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class __$$DeviceOwnedAddressByronImplCopyWithImpl<$Res> extends _$DeviceOwnedAddressCopyWithImpl<$Res, _$DeviceOwnedAddressByronImpl> implements _$$DeviceOwnedAddressByronImplCopyWith<$Res> {
-  __$$DeviceOwnedAddressByronImplCopyWithImpl(_$DeviceOwnedAddressByronImpl _value, $Res Function(_$DeviceOwnedAddressByronImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedAddressByronCopyWithImpl<$Res>
+    implements $DeviceOwnedAddressByronCopyWith<$Res> {
+  _$DeviceOwnedAddressByronCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedAddressByron _self;
+  final $Res Function(DeviceOwnedAddressByron) _then;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
-  return _then(_$DeviceOwnedAddressByronImpl(
-type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
-as AddressByron,params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
+  return _then(DeviceOwnedAddressByron(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as AddressByron,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
 as AddressParamsByron,
   ));
 }
@@ -86,8 +113,8 @@ as AddressParamsByron,
 @pragma('vm:prefer-inline')
 $AddressParamsByronCopyWith<$Res> get params {
   
-  return $AddressParamsByronCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
+  return $AddressParamsByronCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
   });
 }
 }
@@ -95,63 +122,41 @@ $AddressParamsByronCopyWith<$Res> get params {
 /// @nodoc
 
 
-class _$DeviceOwnedAddressByronImpl extends DeviceOwnedAddressByron  {
-   _$DeviceOwnedAddressByronImpl({required this.type, required this.params}): super._();
-
+class DeviceOwnedAddressBase extends DeviceOwnedAddress {
+   DeviceOwnedAddressBase({required this.type, required this.params}): super._();
   
 
-@override final  AddressByron type;
-@override final  AddressParamsByron params;
+@override final  AddressBase type;
+@override final  AddressParamsBase params;
 
-@override
-String toString() {
-  return 'DeviceOwnedAddress.byron(type: $type, params: $params)';
-}
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedAddressBaseCopyWith<DeviceOwnedAddressBase> get copyWith => _$DeviceOwnedAddressBaseCopyWithImpl<DeviceOwnedAddressBase>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedAddressByronImpl&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressBase&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedAddressByronImplCopyWith<_$DeviceOwnedAddressByronImpl> get copyWith => __$$DeviceOwnedAddressByronImplCopyWithImpl<_$DeviceOwnedAddressByronImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'DeviceOwnedAddress.base(type: $type, params: $params)';
 }
 
-
-abstract class DeviceOwnedAddressByron extends DeviceOwnedAddress {
-   factory DeviceOwnedAddressByron({required final  AddressByron type, required final  AddressParamsByron params}) = _$DeviceOwnedAddressByronImpl;
-   DeviceOwnedAddressByron._(): super._();
-
-  
-
-@override AddressByron get type;@override AddressParamsByron get params;
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedAddressByronImplCopyWith<_$DeviceOwnedAddressByronImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedAddressBaseImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedAddressBaseImplCopyWith(_$DeviceOwnedAddressBaseImpl value, $Res Function(_$DeviceOwnedAddressBaseImpl) then) = __$$DeviceOwnedAddressBaseImplCopyWithImpl<$Res>;
+abstract mixin class $DeviceOwnedAddressBaseCopyWith<$Res> implements $DeviceOwnedAddressCopyWith<$Res> {
+  factory $DeviceOwnedAddressBaseCopyWith(DeviceOwnedAddressBase value, $Res Function(DeviceOwnedAddressBase) _then) = _$DeviceOwnedAddressBaseCopyWithImpl;
 @useResult
 $Res call({
  AddressBase type, AddressParamsBase params
@@ -159,20 +164,22 @@ $Res call({
 
 
 $AddressParamsBaseCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class __$$DeviceOwnedAddressBaseImplCopyWithImpl<$Res> extends _$DeviceOwnedAddressCopyWithImpl<$Res, _$DeviceOwnedAddressBaseImpl> implements _$$DeviceOwnedAddressBaseImplCopyWith<$Res> {
-  __$$DeviceOwnedAddressBaseImplCopyWithImpl(_$DeviceOwnedAddressBaseImpl _value, $Res Function(_$DeviceOwnedAddressBaseImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedAddressBaseCopyWithImpl<$Res>
+    implements $DeviceOwnedAddressBaseCopyWith<$Res> {
+  _$DeviceOwnedAddressBaseCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedAddressBase _self;
+  final $Res Function(DeviceOwnedAddressBase) _then;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
-  return _then(_$DeviceOwnedAddressBaseImpl(
-type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
-as AddressBase,params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
+  return _then(DeviceOwnedAddressBase(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as AddressBase,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
 as AddressParamsBase,
   ));
 }
@@ -183,8 +190,8 @@ as AddressParamsBase,
 @pragma('vm:prefer-inline')
 $AddressParamsBaseCopyWith<$Res> get params {
   
-  return $AddressParamsBaseCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
+  return $AddressParamsBaseCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
   });
 }
 }
@@ -192,63 +199,41 @@ $AddressParamsBaseCopyWith<$Res> get params {
 /// @nodoc
 
 
-class _$DeviceOwnedAddressBaseImpl extends DeviceOwnedAddressBase  {
-   _$DeviceOwnedAddressBaseImpl({required this.type, required this.params}): super._();
-
+class DeviceOwnedAddressEnterprise extends DeviceOwnedAddress {
+   DeviceOwnedAddressEnterprise({required this.type, required this.params}): super._();
   
 
-@override final  AddressBase type;
-@override final  AddressParamsBase params;
+@override final  AddressEnterprise type;
+@override final  AddressParamsEnterprise params;
 
-@override
-String toString() {
-  return 'DeviceOwnedAddress.base(type: $type, params: $params)';
-}
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedAddressEnterpriseCopyWith<DeviceOwnedAddressEnterprise> get copyWith => _$DeviceOwnedAddressEnterpriseCopyWithImpl<DeviceOwnedAddressEnterprise>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedAddressBaseImpl&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressEnterprise&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedAddressBaseImplCopyWith<_$DeviceOwnedAddressBaseImpl> get copyWith => __$$DeviceOwnedAddressBaseImplCopyWithImpl<_$DeviceOwnedAddressBaseImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'DeviceOwnedAddress.enterprise(type: $type, params: $params)';
 }
 
-
-abstract class DeviceOwnedAddressBase extends DeviceOwnedAddress {
-   factory DeviceOwnedAddressBase({required final  AddressBase type, required final  AddressParamsBase params}) = _$DeviceOwnedAddressBaseImpl;
-   DeviceOwnedAddressBase._(): super._();
-
-  
-
-@override AddressBase get type;@override AddressParamsBase get params;
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedAddressBaseImplCopyWith<_$DeviceOwnedAddressBaseImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedAddressEnterpriseImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedAddressEnterpriseImplCopyWith(_$DeviceOwnedAddressEnterpriseImpl value, $Res Function(_$DeviceOwnedAddressEnterpriseImpl) then) = __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<$Res>;
+abstract mixin class $DeviceOwnedAddressEnterpriseCopyWith<$Res> implements $DeviceOwnedAddressCopyWith<$Res> {
+  factory $DeviceOwnedAddressEnterpriseCopyWith(DeviceOwnedAddressEnterprise value, $Res Function(DeviceOwnedAddressEnterprise) _then) = _$DeviceOwnedAddressEnterpriseCopyWithImpl;
 @useResult
 $Res call({
  AddressEnterprise type, AddressParamsEnterprise params
@@ -256,20 +241,22 @@ $Res call({
 
 
 $AddressParamsEnterpriseCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<$Res> extends _$DeviceOwnedAddressCopyWithImpl<$Res, _$DeviceOwnedAddressEnterpriseImpl> implements _$$DeviceOwnedAddressEnterpriseImplCopyWith<$Res> {
-  __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl(_$DeviceOwnedAddressEnterpriseImpl _value, $Res Function(_$DeviceOwnedAddressEnterpriseImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedAddressEnterpriseCopyWithImpl<$Res>
+    implements $DeviceOwnedAddressEnterpriseCopyWith<$Res> {
+  _$DeviceOwnedAddressEnterpriseCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedAddressEnterprise _self;
+  final $Res Function(DeviceOwnedAddressEnterprise) _then;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
-  return _then(_$DeviceOwnedAddressEnterpriseImpl(
-type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
-as AddressEnterprise,params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
+  return _then(DeviceOwnedAddressEnterprise(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as AddressEnterprise,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
 as AddressParamsEnterprise,
   ));
 }
@@ -280,8 +267,8 @@ as AddressParamsEnterprise,
 @pragma('vm:prefer-inline')
 $AddressParamsEnterpriseCopyWith<$Res> get params {
   
-  return $AddressParamsEnterpriseCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
+  return $AddressParamsEnterpriseCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
   });
 }
 }
@@ -289,63 +276,41 @@ $AddressParamsEnterpriseCopyWith<$Res> get params {
 /// @nodoc
 
 
-class _$DeviceOwnedAddressEnterpriseImpl extends DeviceOwnedAddressEnterprise  {
-   _$DeviceOwnedAddressEnterpriseImpl({required this.type, required this.params}): super._();
-
+class DeviceOwnedAddressPointer extends DeviceOwnedAddress {
+   DeviceOwnedAddressPointer({required this.type, required this.params}): super._();
   
 
-@override final  AddressEnterprise type;
-@override final  AddressParamsEnterprise params;
+@override final  AddressPointer type;
+@override final  AddressParamsPointer params;
 
-@override
-String toString() {
-  return 'DeviceOwnedAddress.enterprise(type: $type, params: $params)';
-}
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedAddressPointerCopyWith<DeviceOwnedAddressPointer> get copyWith => _$DeviceOwnedAddressPointerCopyWithImpl<DeviceOwnedAddressPointer>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedAddressEnterpriseImpl&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressPointer&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedAddressEnterpriseImplCopyWith<_$DeviceOwnedAddressEnterpriseImpl> get copyWith => __$$DeviceOwnedAddressEnterpriseImplCopyWithImpl<_$DeviceOwnedAddressEnterpriseImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'DeviceOwnedAddress.pointer(type: $type, params: $params)';
 }
 
-
-abstract class DeviceOwnedAddressEnterprise extends DeviceOwnedAddress {
-   factory DeviceOwnedAddressEnterprise({required final  AddressEnterprise type, required final  AddressParamsEnterprise params}) = _$DeviceOwnedAddressEnterpriseImpl;
-   DeviceOwnedAddressEnterprise._(): super._();
-
-  
-
-@override AddressEnterprise get type;@override AddressParamsEnterprise get params;
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedAddressEnterpriseImplCopyWith<_$DeviceOwnedAddressEnterpriseImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedAddressPointerImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedAddressPointerImplCopyWith(_$DeviceOwnedAddressPointerImpl value, $Res Function(_$DeviceOwnedAddressPointerImpl) then) = __$$DeviceOwnedAddressPointerImplCopyWithImpl<$Res>;
+abstract mixin class $DeviceOwnedAddressPointerCopyWith<$Res> implements $DeviceOwnedAddressCopyWith<$Res> {
+  factory $DeviceOwnedAddressPointerCopyWith(DeviceOwnedAddressPointer value, $Res Function(DeviceOwnedAddressPointer) _then) = _$DeviceOwnedAddressPointerCopyWithImpl;
 @useResult
 $Res call({
  AddressPointer type, AddressParamsPointer params
@@ -353,20 +318,22 @@ $Res call({
 
 
 $AddressParamsPointerCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class __$$DeviceOwnedAddressPointerImplCopyWithImpl<$Res> extends _$DeviceOwnedAddressCopyWithImpl<$Res, _$DeviceOwnedAddressPointerImpl> implements _$$DeviceOwnedAddressPointerImplCopyWith<$Res> {
-  __$$DeviceOwnedAddressPointerImplCopyWithImpl(_$DeviceOwnedAddressPointerImpl _value, $Res Function(_$DeviceOwnedAddressPointerImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedAddressPointerCopyWithImpl<$Res>
+    implements $DeviceOwnedAddressPointerCopyWith<$Res> {
+  _$DeviceOwnedAddressPointerCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedAddressPointer _self;
+  final $Res Function(DeviceOwnedAddressPointer) _then;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
-  return _then(_$DeviceOwnedAddressPointerImpl(
-type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
-as AddressPointer,params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
+  return _then(DeviceOwnedAddressPointer(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as AddressPointer,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
 as AddressParamsPointer,
   ));
 }
@@ -377,8 +344,8 @@ as AddressParamsPointer,
 @pragma('vm:prefer-inline')
 $AddressParamsPointerCopyWith<$Res> get params {
   
-  return $AddressParamsPointerCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
+  return $AddressParamsPointerCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
   });
 }
 }
@@ -386,63 +353,41 @@ $AddressParamsPointerCopyWith<$Res> get params {
 /// @nodoc
 
 
-class _$DeviceOwnedAddressPointerImpl extends DeviceOwnedAddressPointer  {
-   _$DeviceOwnedAddressPointerImpl({required this.type, required this.params}): super._();
-
+class DeviceOwnedAddressReward extends DeviceOwnedAddress {
+   DeviceOwnedAddressReward({required this.type, required this.params}): super._();
   
 
-@override final  AddressPointer type;
-@override final  AddressParamsPointer params;
+@override final  AddressReward type;
+@override final  AddressParamsReward params;
 
-@override
-String toString() {
-  return 'DeviceOwnedAddress.pointer(type: $type, params: $params)';
-}
+/// Create a copy of DeviceOwnedAddress
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$DeviceOwnedAddressRewardCopyWith<DeviceOwnedAddressReward> get copyWith => _$DeviceOwnedAddressRewardCopyWithImpl<DeviceOwnedAddressReward>(this, _$identity);
+
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedAddressPointerImpl&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressReward&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
 int get hashCode => Object.hash(runtimeType,type,params);
 
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
 @override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedAddressPointerImplCopyWith<_$DeviceOwnedAddressPointerImpl> get copyWith => __$$DeviceOwnedAddressPointerImplCopyWithImpl<_$DeviceOwnedAddressPointerImpl>(this, _$identity);
-
-
-
-
-
-
-
-
+String toString() {
+  return 'DeviceOwnedAddress.reward(type: $type, params: $params)';
 }
 
-
-abstract class DeviceOwnedAddressPointer extends DeviceOwnedAddress {
-   factory DeviceOwnedAddressPointer({required final  AddressPointer type, required final  AddressParamsPointer params}) = _$DeviceOwnedAddressPointerImpl;
-   DeviceOwnedAddressPointer._(): super._();
-
-  
-
-@override AddressPointer get type;@override AddressParamsPointer get params;
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedAddressPointerImplCopyWith<_$DeviceOwnedAddressPointerImpl> get copyWith => throw _privateConstructorUsedError;
 
 }
 
 /// @nodoc
-abstract class _$$DeviceOwnedAddressRewardImplCopyWith<$Res>  {
-  factory _$$DeviceOwnedAddressRewardImplCopyWith(_$DeviceOwnedAddressRewardImpl value, $Res Function(_$DeviceOwnedAddressRewardImpl) then) = __$$DeviceOwnedAddressRewardImplCopyWithImpl<$Res>;
+abstract mixin class $DeviceOwnedAddressRewardCopyWith<$Res> implements $DeviceOwnedAddressCopyWith<$Res> {
+  factory $DeviceOwnedAddressRewardCopyWith(DeviceOwnedAddressReward value, $Res Function(DeviceOwnedAddressReward) _then) = _$DeviceOwnedAddressRewardCopyWithImpl;
 @useResult
 $Res call({
  AddressReward type, AddressParamsReward params
@@ -450,20 +395,22 @@ $Res call({
 
 
 $AddressParamsRewardCopyWith<$Res> get params;
+
 }
-
 /// @nodoc
-class __$$DeviceOwnedAddressRewardImplCopyWithImpl<$Res> extends _$DeviceOwnedAddressCopyWithImpl<$Res, _$DeviceOwnedAddressRewardImpl> implements _$$DeviceOwnedAddressRewardImplCopyWith<$Res> {
-  __$$DeviceOwnedAddressRewardImplCopyWithImpl(_$DeviceOwnedAddressRewardImpl _value, $Res Function(_$DeviceOwnedAddressRewardImpl) _then)
-      : super(_value, _then);
+class _$DeviceOwnedAddressRewardCopyWithImpl<$Res>
+    implements $DeviceOwnedAddressRewardCopyWith<$Res> {
+  _$DeviceOwnedAddressRewardCopyWithImpl(this._self, this._then);
 
+  final DeviceOwnedAddressReward _self;
+  final $Res Function(DeviceOwnedAddressReward) _then;
 
 /// Create a copy of DeviceOwnedAddress
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? type = null,Object? params = null,}) {
-  return _then(_$DeviceOwnedAddressRewardImpl(
-type: null == type ? _value.type : type // ignore: cast_nullable_to_non_nullable
-as AddressReward,params: null == params ? _value.params : params // ignore: cast_nullable_to_non_nullable
+@pragma('vm:prefer-inline') $Res call({Object? type = null,Object? params = null,}) {
+  return _then(DeviceOwnedAddressReward(
+type: null == type ? _self.type : type // ignore: cast_nullable_to_non_nullable
+as AddressReward,params: null == params ? _self.params : params // ignore: cast_nullable_to_non_nullable
 as AddressParamsReward,
   ));
 }
@@ -474,65 +421,10 @@ as AddressParamsReward,
 @pragma('vm:prefer-inline')
 $AddressParamsRewardCopyWith<$Res> get params {
   
-  return $AddressParamsRewardCopyWith<$Res>(_value.params, (value) {
-    return _then(_value.copyWith(params: value) );
+  return $AddressParamsRewardCopyWith<$Res>(_self.params, (value) {
+    return _then(_self.copyWith(params: value));
   });
 }
 }
 
-/// @nodoc
-
-
-class _$DeviceOwnedAddressRewardImpl extends DeviceOwnedAddressReward  {
-   _$DeviceOwnedAddressRewardImpl({required this.type, required this.params}): super._();
-
-  
-
-@override final  AddressReward type;
-@override final  AddressParamsReward params;
-
-@override
-String toString() {
-  return 'DeviceOwnedAddress.reward(type: $type, params: $params)';
-}
-
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _$DeviceOwnedAddressRewardImpl&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
-}
-
-
-@override
-int get hashCode => Object.hash(runtimeType,type,params);
-
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-@override
-@pragma('vm:prefer-inline')
-_$$DeviceOwnedAddressRewardImplCopyWith<_$DeviceOwnedAddressRewardImpl> get copyWith => __$$DeviceOwnedAddressRewardImplCopyWithImpl<_$DeviceOwnedAddressRewardImpl>(this, _$identity);
-
-
-
-
-
-
-
-
-}
-
-
-abstract class DeviceOwnedAddressReward extends DeviceOwnedAddress {
-   factory DeviceOwnedAddressReward({required final  AddressReward type, required final  AddressParamsReward params}) = _$DeviceOwnedAddressRewardImpl;
-   DeviceOwnedAddressReward._(): super._();
-
-  
-
-@override AddressReward get type;@override AddressParamsReward get params;
-/// Create a copy of DeviceOwnedAddress
-/// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
-_$$DeviceOwnedAddressRewardImplCopyWith<_$DeviceOwnedAddressRewardImpl> get copyWith => throw _privateConstructorUsedError;
-
-}
+// dart format on

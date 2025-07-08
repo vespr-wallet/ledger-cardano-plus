@@ -104,7 +104,7 @@ class CardanoDeriveNativeScriptHashOperation extends LedgerComplexOperation<Stri
       ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
         writer.writeUint8(script.nativeScriptSerializationValue);
         writer.writeUint8(script.pubkeyType);
-        SerializationUtils.writerSerializedPath(writer, script.path);
+        writer.write(SerializationUtils.serializePath(script.path));
       },
       ParsedSimpleNativeScript_PubKeyThirdParty() => () {
         writer.writeUint8(script.nativeScriptSerializationValue);

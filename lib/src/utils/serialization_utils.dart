@@ -13,12 +13,16 @@ class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
   static final BigInt optionFlagsTagCborSets = BigInt.from(OptionFlags.tagCborSets.value);
 
-  static void writerSerializedPath(ByteDataWriter writer, LedgerSigningPath path) {
+  static Uint8List serializePath(LedgerSigningPath path) => useBinaryWriter((writer) {
     writer.writeUint8(path.signingPath.length);
     for (final index in path.signingPath) {
       writer.writeUint32(index);
     }
-  }
+    return writer.toBytes();
+  });
+
+  @Deprecated("Use serializePath instead")
+  static void writerSerializedPath(ByteDataWriter writer, LedgerSigningPath path) => writer.write(serializePath(path));
 
   static Uint8List pathToBuf(List<int> path) {
     final ByteData data = ByteData(1 + 4 * path.length);
@@ -422,7 +426,11 @@ class SerializationUtils {
     return writer.toBytes();
   });
 
-  static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version, CardanoNetwork network) {
+  static Uint8List serializeAddressParams(
+    ParsedAddressParams params,
+    CardanoVersion version,
+    CardanoNetwork network,
+  ) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(params.addressType.value);
 
@@ -1031,6 +1039,35 @@ class SerializationUtils {
       writer.writeUint32(totalScriptSize.toInt());
       writer.writeUint32(chunkSize.toInt());
       writeSerializedHex(writer, chunkHex);
+
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeMessageDataInit({
+    required CardanoVersion version,
+    required ParsedMessageData msgData,
+    required CardanoNetwork network,
+  }) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      // Message length
+      final msgBytes = hex.decode(msgData.messageHex);
+      final msgLengthBuffer = serializeUint32(msgBytes.length);
+      final hashPayloadUint8 = msgData.hashPayload ? 1 : 0;
+      final isAsciiUint8 = msgData.isAscii ? 1 : 0;
+      final serializedDataFieldTypeUint8 = msgData.serializedDataFieldType;
+
+      final addressBuffer = switch (msgData) {
+        ParsedMessageDataAddress() => serializeAddressParams(msgData.address, version, network),
+        ParsedMessageDataKeyHash() => Uint8List(0),
+      };
+
+      writer.write(msgLengthBuffer);
+      writer.write(serializePath(msgData.signingPath));
+      writer.writeUint8(hashPayloadUint8);
+      writer.writeUint8(isAsciiUint8);
+      writer.writeUint8(serializedDataFieldTypeUint8);
+      writer.write(addressBuffer);
 
       return writer.toBytes();
     });

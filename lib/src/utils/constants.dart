@@ -40,6 +40,7 @@ const int p1ReturnDataToHost = 0x01;
 const int p1DisplayOnDevice = 0x02;
 const int p1FinishScriptHash = 0x03;
 const int ed25519SignatureLength = 64;
+const int publicKeyLength = 32;
 const int keyHashLength = 56;
 
 const int auxiliaryDataHashHexLength = 64;
@@ -123,6 +124,11 @@ const int poolRegistrationRelaysMax = 1000;
 const int assetGroupsMax = 1000;
 const int tokensInGroupMax = 1000;
 
+// Message signing constants
+const int maxCIP8MessageFirstChunkAsciiSize = 198;
+const int maxCIP8MessageFirstChunkHexSize = 99;
+const int maxCIP8MessageHiddenChunkSize = 250;
+
 enum NativeScriptHashDisplayFormat {
   bech32(1),
   policyId(2);
@@ -142,7 +148,8 @@ enum InstructionType {
   signOperationalCertificate(insValue: 0x22),
   signTransaction(insValue: 0x21),
   runTests(insValue: 0xF0),
-  signCip36Vote(insValue: 0x23);
+  signCip36Vote(insValue: 0x23),
+  signMessage(insValue: 0x24);
 
   final int insValue;
 

@@ -41,7 +41,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   permission_handler: ^11.4.0
 
-dependency_overrides:
+# dependency_overrides:
   # ledger_flutter_plus:
   #   path: ../../ledger-flutter
 

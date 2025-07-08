@@ -13,12 +13,13 @@ class SerializationUtils {
   static final BigInt maxUint32 = BigInt.from(0xFFFFFFFF);
   static final BigInt optionFlagsTagCborSets = BigInt.from(OptionFlags.tagCborSets.value);
 
-  static void writerSerializedPath(ByteDataWriter writer, LedgerSigningPath path) {
+  static Uint8List serializePath(LedgerSigningPath path) => useBinaryWriter((writer) {
     writer.writeUint8(path.signingPath.length);
     for (final index in path.signingPath) {
       writer.writeUint32(index);
     }
-  }
+    return writer.toBytes();
+  });
 
   static Uint8List pathToBuf(List<int> path) {
     final ByteData data = ByteData(1 + 4 * path.length);
@@ -191,7 +192,7 @@ class SerializationUtils {
   static Uint8List serializeSpendingDataSource(SpendingDataSource dataSource) => useBinaryWriter((writer) {
     final void Function() invoker = switch (dataSource) {
       SpendingDataSourcePath() => () {
-        writerSerializedPath(writer, dataSource.path);
+        writer.write(serializePath(dataSource.path));
       },
       SpendingDataSourceScriptHash() => () {
         writeSerializedHex(writer, dataSource.scriptHashHex);
@@ -210,7 +211,7 @@ class SerializationUtils {
         switch (keyContent) {
           case StakingDataSourceKeyPath():
             writer.writeUint8(dataSource.stakingDataSourceValue);
-            writerSerializedPath(writer, keyContent.path);
+            writer.write(serializePath(keyContent.path));
           case StakingDataSourceKeyHash():
             writer.writeUint8(dataSource.stakingDataSourceValue);
             writeSerializedHex(writer, keyContent.keyHashHex);
@@ -236,7 +237,7 @@ class SerializationUtils {
       writeSerializedHex(writer, certificate.kesPublicKeyHex);
       writer.write(serializeUint64(certificate.kesPeriod));
       writer.write(serializeUint64(certificate.issueCounter));
-      writerSerializedPath(writer, certificate.coldKeyPath);
+      writer.write(serializePath(certificate.coldKeyPath));
 
       return writer.toBytes();
     });
@@ -294,7 +295,7 @@ class SerializationUtils {
           throw LedgerCardanoValidationException("Key derivation path for vote keys not supported by the device");
         }
         writer.write(serializeDelegationType(CIP36VoteDelegationType.path));
-        writerSerializedPath(writer, votePublicKeyPath);
+        writer.write(serializePath(votePublicKeyPath));
       }
       return writer.toBytes();
     });
@@ -350,7 +351,7 @@ class SerializationUtils {
 
       final void Function() invoker = switch (delegation) {
         KeyDelegation() => () => writeSerializedHex(writer, delegation.voteKey),
-        PathDelegation() => () => writerSerializedPath(writer, delegation.voteKeyPath),
+        PathDelegation() => () => writer.write(serializePath(delegation.voteKeyPath)),
       };
 
       invoker();
@@ -360,7 +361,7 @@ class SerializationUtils {
 
   static Uint8List serializeCVoteRegistrationStakingPath(LedgerSigningPath stakingPath) {
     return useBinaryWriter((ByteDataWriter writer) {
-      writerSerializedPath(writer, stakingPath);
+      writer.write(serializePath(stakingPath));
       return writer.toBytes();
     });
   }
@@ -422,7 +423,11 @@ class SerializationUtils {
     return writer.toBytes();
   });
 
-  static Uint8List serializeAddressParams(ParsedAddressParams params, CardanoVersion version, CardanoNetwork network) {
+  static Uint8List serializeAddressParams(
+    ParsedAddressParams params,
+    CardanoVersion version,
+    CardanoNetwork network,
+  ) {
     return useBinaryWriter((ByteDataWriter writer) {
       writer.writeUint8(params.addressType.value);
 
@@ -567,7 +572,7 @@ class SerializationUtils {
         },
         StakePoolRetirement() => () {
           writer.writeUint8(certificate.certificateTypeSerializationValue);
-          writerSerializedPath(writer, certificate.path);
+          writer.write(serializePath(certificate.path));
           writer.write(serializeUint64(certificate.retirementEpoch));
         },
       };
@@ -582,7 +587,7 @@ class SerializationUtils {
       final void Function() invoker = switch (credential) {
         CredentialKeyPath() => () => {
           writer.writeUint8(credential.credentialValue),
-          writerSerializedPath(writer, credential.path),
+          writer.write(serializePath(credential.path)),
         },
         CredentialKeyHash() => () => {
           writer.writeUint8(credential.credentialValue),
@@ -607,7 +612,7 @@ class SerializationUtils {
       writer.writeUint8(dRep.serializationType);
       switch (dRep) {
         case DRepKeyPath():
-          writerSerializedPath(writer, dRep.path);
+          writer.write(serializePath(dRep.path));
         case DRepKeyHash():
           writeSerializedHex(writer, dRep.keyHashHex);
         case DRepScriptHash():
@@ -641,7 +646,7 @@ class SerializationUtils {
             throw LedgerCardanoValidationException("Invalid stake credential");
           }
           writer.writeUint8(certificate.certificateTypeSerializationValue);
-          writerSerializedPath(writer, certStakeCredential.path);
+          writer.write(serializePath(certStakeCredential.path));
         },
         StakeDeregistration() => () {
           final certStakeCredential = certificate.stakeCredential;
@@ -651,7 +656,7 @@ class SerializationUtils {
             );
           }
           writer.writeUint8(certificate.certificateTypeSerializationValue);
-          writerSerializedPath(writer, certStakeCredential.path);
+          writer.write(serializePath(certStakeCredential.path));
         },
         StakeDelegation() => () {
           final certStakeCredential = certificate.stakeCredential;
@@ -661,7 +666,7 @@ class SerializationUtils {
             );
           }
           writer.writeUint8(certificate.certificateTypeSerializationValue);
-          writerSerializedPath(writer, certStakeCredential.path);
+          writer.write(serializePath(certStakeCredential.path));
           writeSerializedHex(writer, certificate.poolKeyHashHex);
         },
         StakePoolRegistration() => () {
@@ -669,7 +674,7 @@ class SerializationUtils {
         },
         StakePoolRetirement() => () {
           writer.writeUint8(certificate.certificateTypeSerializationValue);
-          writerSerializedPath(writer, certificate.path);
+          writer.write(serializePath(certificate.path));
           writer.write(serializeUint64(certificate.retirementEpoch));
         },
         StakeRegistrationConway() => throw LedgerCardanoValidationException(
@@ -715,7 +720,7 @@ class SerializationUtils {
       final void Function() invoker = switch (key) {
         DeviceOwnedPoolKey() => () {
           writer.writeUint8(key.poolKeyValue);
-          writerSerializedPath(writer, key.path);
+          writer.write(serializePath(key.path));
         },
         ThirdPartyPoolKey() => () {
           writer.writeUint8(key.poolKeyValue);
@@ -742,7 +747,7 @@ class SerializationUtils {
       final void Function() invoker = switch (rewardAccount) {
         DeviceOwnedPoolRewardAccount() => () {
           writer.writeUint8(rewardAccount.poolRewardAccountValue);
-          writerSerializedPath(writer, rewardAccount.path);
+          writer.write(serializePath(rewardAccount.path));
         },
         ThirdPartyPoolRewardAccount() => () {
           writer.writeUint8(rewardAccount.poolRewardAccountValue);
@@ -759,7 +764,7 @@ class SerializationUtils {
       final void Function() invoker = switch (owner) {
         DeviceOwnedPoolOwner() => () {
           writer.writeUint8(owner.poolOwnerValue);
-          writerSerializedPath(writer, owner.path);
+          writer.write(serializePath(owner.path));
         },
         ThirdPartyPoolOwner() => () {
           writer.writeUint8(owner.poolOwnerValue);
@@ -846,7 +851,7 @@ class SerializationUtils {
       }
       return useBinaryWriter((ByteDataWriter writer) {
         writer.write(serializeCoin(withdrawal.amount));
-        writerSerializedPath(writer, withdrawalStakeCredential.path);
+        writer.write(serializePath(withdrawalStakeCredential.path));
         return writer.toBytes();
       });
     }
@@ -891,7 +896,7 @@ class SerializationUtils {
       final void Function() invoker = switch (requiredSigner) {
         RequiredSignerPath() => () {
           writer.writeUint8(requiredSigner.requiredSignerValue);
-          writerSerializedPath(writer, requiredSigner.path);
+          writer.write(serializePath(requiredSigner.path));
         },
         RequiredSignerHash() => () {
           writer.writeUint8(requiredSigner.requiredSignerValue);
@@ -962,22 +967,15 @@ class SerializationUtils {
       writer.writeUint8(voter.voterValue);
       final void Function() invoker = switch (voter) {
         CommitteeKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
-        CommitteeKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+        CommitteeKeyPath() => () => writer.write(serializePath(voter.keyPath)),
         CommitteeScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
         DrepKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
-        DrepKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+        DrepKeyPath() => () => writer.write(serializePath(voter.keyPath)),
         DrepScriptHash() => () => writeSerializedHex(writer, voter.scriptHashHex),
         StakePoolKeyHash() => () => writeSerializedHex(writer, voter.keyHashHex),
-        StakePoolKeyPath() => () => writerSerializedPath(writer, voter.keyPath),
+        StakePoolKeyPath() => () => writer.write(serializePath(voter.keyPath)),
       };
       invoker();
-      return writer.toBytes();
-    });
-  }
-
-  static Uint8List serializeTxWitnessRequest(LedgerSigningPath path) {
-    return useBinaryWriter((ByteDataWriter writer) {
-      writerSerializedPath(writer, path);
       return writer.toBytes();
     });
   }
@@ -1031,6 +1029,35 @@ class SerializationUtils {
       writer.writeUint32(totalScriptSize.toInt());
       writer.writeUint32(chunkSize.toInt());
       writeSerializedHex(writer, chunkHex);
+
+      return writer.toBytes();
+    });
+  }
+
+  static Uint8List serializeMessageDataInit({
+    required CardanoVersion version,
+    required ParsedMessageData msgData,
+    required CardanoNetwork network,
+  }) {
+    return useBinaryWriter((ByteDataWriter writer) {
+      // Message length
+      final msgBytes = hex.decode(msgData.messageHex);
+      final msgLengthBuffer = serializeUint32(msgBytes.length);
+      final hashPayloadUint8 = msgData.hashPayload ? 1 : 0;
+      final isAsciiUint8 = msgData.isAscii ? 1 : 0;
+      final serializedDataFieldTypeUint8 = msgData.serializedDataFieldType;
+
+      final addressBuffer = switch (msgData) {
+        ParsedMessageDataAddress() => serializeAddressParams(msgData.address, version, network),
+        ParsedMessageDataKeyHash() => Uint8List(0),
+      };
+
+      writer.write(msgLengthBuffer);
+      writer.write(serializePath(msgData.signingPath));
+      writer.writeUint8(hashPayloadUint8);
+      writer.writeUint8(isAsciiUint8);
+      writer.writeUint8(serializedDataFieldTypeUint8);
+      writer.write(addressBuffer);
 
       return writer.toBytes();
     });

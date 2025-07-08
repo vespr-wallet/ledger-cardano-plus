@@ -1,3 +1,4 @@
+import "dart:async";
 import "dart:typed_data";
 
 import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
@@ -11,6 +12,7 @@ import "operations/cardano_get_serial_operation.dart";
 import "operations/cardano_public_key_operation.dart";
 import "operations/cardano_run_tests_operation.dart";
 import "operations/cardano_sign_cvote_operation.dart";
+import "operations/cardano_sign_message_operation.dart";
 import "operations/cardano_sign_operational_certificate_operation.dart";
 import "operations/cardano_sign_transaction_operation.dart";
 import "operations/cardano_version_operation.dart";
@@ -65,7 +67,7 @@ class CardanoLedger {
       case LedgerConnectionType.usb:
         _cardanoLedgerUsb = null;
     }
-    ledger.dispose();
+    unawaited(ledger.dispose());
   }
 }
 
@@ -434,6 +436,35 @@ class CardanoLedgerConnection {
     return signedCIP36VoteData;
   }
 
+  Future<SignedMessageData> signMessage({
+    required ParsedMessageData messageData,
+    required CardanoNetwork network,
+  }) async {
+    final CardanoVersion deviceVersion = await getVersion();
+    final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
+
+    if (!compatibility.isCompatible || !compatibility.supportsMessageSigning) {
+      throw LedgerCardanoVersionNotSupported(
+        message: "CIP-8 message signing",
+        wantedVersion: "7.1.0",
+        era: "Conway",
+      );
+    }
+
+    final operation = CardanoSignMessageOperation(
+      msgData: messageData,
+      version: deviceVersion,
+      network: network,
+    );
+
+    final SignedMessageData signedMessageData = await _ledgerConnection.sendOperation<SignedMessageData>(
+      operation,
+      transformer: _transformer,
+    );
+
+    return signedMessageData;
+  }
+
   Future<void> runTests() async {
     final CardanoVersion deviceVersion = await getVersion();
     final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(deviceVersion);
@@ -453,10 +484,4 @@ class CardanoLedgerConnection {
       transformer: _transformer,
     );
   }
-
-  void sendComplexOperation(
-    device,
-    CardanoDeriveAddressOperation operation, {
-    required CardanoTransformer transformer,
-  }) {}
 }

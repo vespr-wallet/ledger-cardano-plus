@@ -35,6 +35,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     required bool supportsBabbage,
     required bool supportsCIP36Vote,
     required bool supportsConway,
+    required bool supportsMessageSigning,
   }) = _VersionCompatibility;
   const VersionCompatibility._();
 
@@ -67,6 +68,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       supportsCIP36: isVersionInRange(6, 0),
       supportsCIP36Vote: isVersionInRange(6, 0),
       supportsConway: isVersionInRange(7, 0),
+      supportsMessageSigning: isVersionInRange(7, 1),
     );
   }
 

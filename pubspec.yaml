@@ -10,28 +10,24 @@ environment:
   flutter: ">=3.32.0"
 
 dependencies:
+  base_x: ^2.0.1
+  bech32: ^0.2.2
+  collection: ^1.19.1
   flutter:
     sdk: flutter
-
-  ledger_flutter_plus: ^1.5.3
-    # path: ../ledger-flutter
-  collection: ^1.19.1
   freezed_annotation: ^3.0.0
-  bech32: ^0.2.2
-  base_x: ^2.0.1
+  ledger_flutter_plus: ^1.5.3
 
 # dependency_overrides:
-  # ledger_flutter_plus:
-  #   path: ../ledger-flutter
+# ledger_flutter_plus:
+#   path: ../ledger-flutter
 
 dev_dependencies:
-  # integration_test:
-  #   sdk: flutter
+  build_runner:
+  flutter_lints: ^6.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^6.0.0
   freezed: ^3.0.6
-  build_runner:
 
 # flutter:
 

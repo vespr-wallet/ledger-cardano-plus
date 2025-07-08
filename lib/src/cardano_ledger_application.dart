@@ -1,3 +1,4 @@
+import "dart:async";
 import "dart:typed_data";
 
 import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
@@ -66,7 +67,7 @@ class CardanoLedger {
       case LedgerConnectionType.usb:
         _cardanoLedgerUsb = null;
     }
-    ledger.dispose();
+    unawaited(ledger.dispose());
   }
 }
 
@@ -483,10 +484,4 @@ class CardanoLedgerConnection {
       transformer: _transformer,
     );
   }
-
-  void sendComplexOperation(
-    device,
-    CardanoDeriveAddressOperation operation, {
-    required CardanoTransformer transformer,
-  }) {}
 }

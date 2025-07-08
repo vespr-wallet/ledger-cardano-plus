@@ -75,33 +75,33 @@ sealed class VersionCompatibility with _$VersionCompatibility {
 
     final void Function() invoker = switch (request.signingMode) {
       TransactionSigningModes.poolRegistrationAsOwner when !compatibility.supportsPoolRegistrationAsOwner => () {
-          throw LedgerCardanoVersionNotSupported(
-            message: "Pool registration as owner",
-            wantedVersion: ">=2.2.0",
-            era: "Mary",
-          );
-        },
+        throw LedgerCardanoVersionNotSupported(
+          message: "Pool registration as owner",
+          wantedVersion: ">=2.2.0",
+          era: "Mary",
+        );
+      },
       TransactionSigningModes.poolRegistrationAsOperator when !compatibility.supportsPoolRegistrationAsOperator => () {
-          throw LedgerCardanoVersionNotSupported(
-            message: "Pool registration as operator",
-            wantedVersion: ">=2.4.0",
-            era: "Mary",
-          );
-        },
+        throw LedgerCardanoVersionNotSupported(
+          message: "Pool registration as operator",
+          wantedVersion: ">=2.4.0",
+          era: "Mary",
+        );
+      },
       TransactionSigningModes.multisigTransaction when !compatibility.supportsMultisigTransaction => () {
-          throw LedgerCardanoVersionNotSupported(
-            message: "Multisig transaction",
-            wantedVersion: ">=3.0.0",
-            era: "Mary",
-          );
-        },
+        throw LedgerCardanoVersionNotSupported(
+          message: "Multisig transaction",
+          wantedVersion: ">=3.0.0",
+          era: "Mary",
+        );
+      },
       TransactionSigningModes.plutusTransaction when !compatibility.supportsAlonzo => () {
-          throw LedgerCardanoVersionNotSupported(
-            message: "Plutus transaction",
-            wantedVersion: ">=4.0.0",
-            era: "Alonzo",
-          );
-        },
+        throw LedgerCardanoVersionNotSupported(
+          message: "Plutus transaction",
+          wantedVersion: ">=4.0.0",
+          era: "Alonzo",
+        );
+      },
       _ => () {},
     };
     invoker();
@@ -109,9 +109,9 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       final bool Function() invoker = switch (o.destination) {
         DeviceOwned(addressParams: ByronAddressParams()) => () => true,
         _ => switch (request.tx.collateralOutput?.destination) {
-            DeviceOwned(addressParams: ByronAddressParams()) => () => true,
-            _ => () => false,
-          },
+          DeviceOwned(addressParams: ByronAddressParams()) => () => true,
+          _ => () => false,
+        },
       };
       return invoker();
     });
@@ -131,7 +131,8 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasPoolRetirement = request.tx.certificates?.any((c) {
+    final hasPoolRetirement =
+        request.tx.certificates?.any((c) {
           return switch (c) {
             StakePoolRetirement() => true,
             _ => false,

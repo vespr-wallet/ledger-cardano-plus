@@ -45,58 +45,59 @@ class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
 
       final void Function() invoker = switch (params) {
         ByronAddressParams() => () {
-            writer.writeUint32(network.networkMagic);
-            writer.write(SerializationUtils.serializeSpendingDataSource(params.spendingDataSource));
-            writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
-          },
+          writer.writeUint32(network.networkMagic);
+          writer.write(SerializationUtils.serializeSpendingDataSource(params.spendingDataSource));
+          writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
+        },
         ShelleyAddressParams() => () {
-            writer.writeUint8(network.networkId);
-            final shelleyParams = params.shelleyAddressParams;
-            final void Function() shelleyInvoker = switch (shelleyParams) {
-              BasePaymentKeyStakeKey() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              BasePaymentScriptStakeKey() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              BasePaymentKeyStakeScript() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              BasePaymentScriptStakeScript() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              EnterpriseKey() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
-                },
-              EnterpriseScript() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
-                },
-              PointerKey() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              PointerScript() => () {
-                  writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              RewardKey() => () {
-                  writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
-                },
-              RewardScript() => () {
-                  writer.writeUint8(StakingDataSource.scriptHash(scriptHashHex: shelleyParams.stakingScriptHashHex)
-                      .stakingDataSourceValue);
-                  SerializationUtils.writeSerializedHex(writer, shelleyParams.stakingScriptHashHex);
-                },
-            };
+          writer.writeUint8(network.networkId);
+          final shelleyParams = params.shelleyAddressParams;
+          final void Function() shelleyInvoker = switch (shelleyParams) {
+            BasePaymentKeyStakeKey() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            BasePaymentScriptStakeKey() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            BasePaymentKeyStakeScript() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            BasePaymentScriptStakeScript() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            EnterpriseKey() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
+            },
+            EnterpriseScript() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.writeUint8(StakingDataSource.none().stakingDataSourceValue);
+            },
+            PointerKey() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            PointerScript() => () {
+              writer.write(SerializationUtils.serializeSpendingDataSource(shelleyParams.spendingDataSource));
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            RewardKey() => () {
+              writer.write(SerializationUtils.serializeStakingDataSource(shelleyParams.stakingDataSource));
+            },
+            RewardScript() => () {
+              writer.writeUint8(
+                StakingDataSource.scriptHash(scriptHashHex: shelleyParams.stakingScriptHashHex).stakingDataSourceValue,
+              );
+              SerializationUtils.writeSerializedHex(writer, shelleyParams.stakingScriptHashHex);
+            },
+          };
 
-            shelleyInvoker();
-          },
+          shelleyInvoker();
+        },
       };
 
       invoker();

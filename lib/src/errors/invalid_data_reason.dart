@@ -124,11 +124,14 @@ enum InvalidDataReason {
   signModeUnknown(message: "sign mode unknown"),
   signModeOrdinaryPoolRegistrationNotAllowed(message: "sign mode ordinary pool registration not allowed"),
   signModeOrdinaryCertificateStakeCredentialOnlyAsPath(
-      message: "sign mode ordinary certificate stake credential only as path"),
+    message: "sign mode ordinary certificate stake credential only as path",
+  ),
   signModeOrdinaryCertificateCommitteeColdCredentialOnlyAsPath(
-      message: "sign mode ordinary certificate committee cold credential only as path"),
+    message: "sign mode ordinary certificate committee cold credential only as path",
+  ),
   signModeOrdinaryCertificateDrepCredentialOnlyAsPath(
-      message: "sign mode ordinary certificate drep credential only as path"),
+    message: "sign mode ordinary certificate drep credential only as path",
+  ),
   signModeOrdinaryWithdrawalOnlyAsPath(message: "sign mode ordinary withdrawal only as path"),
   signModeOrdinaryCollateralInputsNotAllowed(message: "sign mode ordinary collateral inputs not allowed"),
   signModeOrdinaryCollateralOutputNotAllowed(message: "sign mode ordinary collateral output not allowed"),
@@ -139,7 +142,8 @@ enum InvalidDataReason {
   signModeMultisigPoolRetirementNotAllowed(message: "sign mode multisig pool retirement not allowed"),
   signModeMultisigDeviceOwnedAddressNotAllowed(message: "sign mode multisig device owned address not allowed"),
   signModeMultisigCertificateCredentialOnlyAsScript(
-      message: "sign mode multisig certificate credential only as script"),
+    message: "sign mode multisig certificate credential only as script",
+  ),
   signModeMultisigWithdrawalOnlyAsScript(message: "sign mode multisig withdrawal only as script"),
   signModeMultisigCollateralInputsNotAllowed(message: "sign mode multisig collateral inputs not allowed"),
   signModeMultisigCollateralOutputNotAllowed(message: "sign mode multisig collateral output not allowed"),
@@ -151,7 +155,8 @@ enum InvalidDataReason {
   signModePoolOwnerDatumNotAllowed(message: "sign mode pool owner datum not allowed"),
   signModePoolOwnerReferenceScriptNotAllowed(message: "sign mode pool owner reference script not allowed"),
   signModePoolOwnerSinglePoolRegCertificateRequired(
-      message: "sign mode pool owner single pool reg certificate required"),
+    message: "sign mode pool owner single pool reg certificate required",
+  ),
   signModePoolOwnerThirdPartyPoolKeyRequired(message: "sign mode pool owner third party pool key required"),
   signModePoolOwnerSingleDeviceOwnerRequired(message: "sign mode pool owner single device owner required"),
   signModePoolOwnerWithdrawalsNotAllowed(message: "sign mode pool owner withdrawals not allowed"),
@@ -168,10 +173,12 @@ enum InvalidDataReason {
   signModePoolOperatorDatumNotAllowed(message: "sign mode pool operator datum not allowed"),
   signModePoolOperatorReferenceScriptNotAllowed(message: "sign mode pool operator reference script not allowed"),
   signModePoolOperatorSinglePoolRegCertificateRequired(
-      message: "sign mode pool operator single pool reg certificate required"),
+    message: "sign mode pool operator single pool reg certificate required",
+  ),
   signModePoolOperatorDeviceOwnedPoolKeyRequired(message: "sign mode pool operator device owned pool key required"),
   signModePoolOperatorDeviceOwnedPoolOwnerNotAllowed(
-      message: "sign mode pool operator device owned pool owner not allowed"),
+    message: "sign mode pool operator device owned pool owner not allowed",
+  ),
   signModePoolOperatorWithdrawalsNotAllowed(message: "sign mode pool operator withdrawals not allowed"),
   signModePoolOperatorMintNotAllowed(message: "sign mode pool operator mint not allowed"),
   signModePoolOperatorScriptDataHashNotAllowed(message: "sign mode pool operator script data hash not allowed"),
@@ -199,7 +206,8 @@ enum InvalidDataReason {
   deriveNativeScriptHashInvalidRequiredCount(message: "derive native script hash invalid required count"),
   deriveNativeScriptHashInvalidTokenLockingSlot(message: "derive native script hash invalid token locking slot"),
   deriveNativeScriptHashRequiredCountHigherThanNumberOfScripts(
-      message: "derive native script hash required count higher than number of scripts"),
+    message: "derive native script hash required count higher than number of scripts",
+  ),
   deriveNativeScriptHashUnknownType(message: "derive native script hash unknown type"),
   deriveNativeScriptHashInvalidDisplayFormat(message: "derive native script hash invalid display format"),
   ledgerPolicy(message: "ledger policy"),

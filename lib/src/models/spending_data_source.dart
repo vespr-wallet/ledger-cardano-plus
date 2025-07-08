@@ -13,12 +13,12 @@ sealed class SpendingDataSource with _$SpendingDataSource {
     final void Function() assertinvoker = switch (thisClass) {
       SpendingDataSourceNone() => () {},
       SpendingDataSourcePath() => () {
-          validateBIP32Path(thisClass.path, "path");
-        },
+        validateBIP32Path(thisClass.path, "path");
+      },
       SpendingDataSourceScriptHash() => () {
-          validateHexString(thisClass.scriptHashHex, "scriptHashHex");
-          validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
-        },
+        validateHexString(thisClass.scriptHashHex, "scriptHashHex");
+        validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
+      },
     };
     assertinvoker();
   }

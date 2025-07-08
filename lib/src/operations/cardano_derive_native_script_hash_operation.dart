@@ -30,28 +30,28 @@ class CardanoDeriveNativeScriptHashOperation extends LedgerComplexOperation<Stri
   Future<void> _deriveNativeScriptHashAddScript(LedgerSendFct send, ParsedNativeScript script) async {
     final sendOperation = switch (script) {
       ParsedNativeScript_Complex() => LedgerSimpleOperation(
-          cla: claCardano,
-          ins: InstructionType.deriveNativeScriptHash.insValue,
-          p1: p1ReturnDataToHost,
-          p2: p2Unused,
-          data: serializeComplexNativeScriptStart(script.script),
-          prependDataLength: true,
-          debugName: "Add Complex Native Script",
-        ),
+        cla: claCardano,
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: p1ReturnDataToHost,
+        p2: p2Unused,
+        data: serializeComplexNativeScriptStart(script.script),
+        prependDataLength: true,
+        debugName: "Add Complex Native Script",
+      ),
       ParsedNativeScript_Simple() => LedgerSimpleOperation(
-          cla: claCardano,
-          ins: InstructionType.deriveNativeScriptHash.insValue,
-          p1: p1DisplayOnDevice,
-          p2: p2Unused,
-          data: serializeSimpleNativeScript(script.script),
-          prependDataLength: true,
-          debugName: "Add Simple Native Script",
-        ),
+        cla: claCardano,
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: p1DisplayOnDevice,
+        p2: p2Unused,
+        data: serializeSimpleNativeScript(script.script),
+        prependDataLength: true,
+        debugName: "Add Simple Native Script",
+      ),
     };
 
     await send(sendOperation);
 
-// Recursively add subscripts for complex native scripts
+    // Recursively add subscripts for complex native scripts
     // This ensures that all scripts are added before calling Finish Whole Native Script
     if (script is ParsedNativeScript_Complex) {
       for (final subscript in script.script.scripts) {
@@ -80,52 +80,52 @@ class CardanoDeriveNativeScriptHashOperation extends LedgerComplexOperation<Stri
   }
 
   Uint8List serializeComplexNativeScriptStart(ParsedComplexNativeScript script) => useBinaryWriter((writer) {
-        final void Function() invoker = switch (script) {
-          ParsedComplexNativeScript_All() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.writeUint32(script.scripts.length);
-            },
-          ParsedComplexNativeScript_Any() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.writeUint32(script.scripts.length);
-            },
-          ParsedComplexNativeScript_NOfK() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.writeUint32(script.scripts.length);
-              writer.writeUint32(script.requiredCount);
-            },
-        };
-        invoker();
-        return writer.toBytes();
-      });
+    final void Function() invoker = switch (script) {
+      ParsedComplexNativeScript_All() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.writeUint32(script.scripts.length);
+      },
+      ParsedComplexNativeScript_Any() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.writeUint32(script.scripts.length);
+      },
+      ParsedComplexNativeScript_NOfK() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.writeUint32(script.scripts.length);
+        writer.writeUint32(script.requiredCount);
+      },
+    };
+    invoker();
+    return writer.toBytes();
+  });
 
   Uint8List serializeSimpleNativeScript(ParsedSimpleNativeScript script) => useBinaryWriter((writer) {
-        final void Function() invoker = switch (script) {
-          ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.writeUint8(script.pubkeyType);
-              SerializationUtils.writerSerializedPath(writer, script.path);
-            },
-          ParsedSimpleNativeScript_PubKeyThirdParty() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.writeUint8(script.pubkeyType);
-              SerializationUtils.writeSerializedHex(writer, script.keyHashHex);
-            },
-          ParsedSimpleNativeScript_InvalidBefore() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.write(SerializationUtils.serializeUint64(script.slot));
-            },
-          ParsedSimpleNativeScript_InvalidHereafter() => () {
-              writer.writeUint8(script.nativeScriptSerializationValue);
-              writer.write(SerializationUtils.serializeUint64(script.slot));
-            },
-        };
-        invoker();
-        return writer.toBytes();
-      });
+    final void Function() invoker = switch (script) {
+      ParsedSimpleNativeScript_PubKeyDeviceOwned() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.writeUint8(script.pubkeyType);
+        SerializationUtils.writerSerializedPath(writer, script.path);
+      },
+      ParsedSimpleNativeScript_PubKeyThirdParty() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.writeUint8(script.pubkeyType);
+        SerializationUtils.writeSerializedHex(writer, script.keyHashHex);
+      },
+      ParsedSimpleNativeScript_InvalidBefore() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.write(SerializationUtils.serializeUint64(script.slot));
+      },
+      ParsedSimpleNativeScript_InvalidHereafter() => () {
+        writer.writeUint8(script.nativeScriptSerializationValue);
+        writer.write(SerializationUtils.serializeUint64(script.slot));
+      },
+    };
+    invoker();
+    return writer.toBytes();
+  });
 
   Uint8List serializeWholeNativeScriptFinish(NativeScriptHashDisplayFormat displayFormat) => useBinaryWriter((writer) {
-        writer.writeUint8(displayFormat.int8Value);
-        return writer.toBytes();
-      });
+    writer.writeUint8(displayFormat.int8Value);
+    return writer.toBytes();
+  });
 }

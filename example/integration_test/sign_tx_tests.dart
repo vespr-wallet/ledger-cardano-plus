@@ -19,20 +19,19 @@ extension SignTxTestX on List<SignTxTestCase> {
     required String groupName,
     required CardanoVersion appVersion,
     required CardanoLedgerConnection cardanoApp,
-  }) =>
-      group(groupName, () {
-        for (final testCase in this) {
-          versionConstrainedTest(
-            testCase.testName,
-            appVersion: appVersion,
-            minSupportedVersion: testCase.minSupportedVersion,
-            body: () async {
-              final result = await cardanoApp.signTransaction(testCase.request);
-              expectVespr(result, equals(testCase.expected));
-            },
-          );
-        }
-      });
+  }) => group(groupName, () {
+    for (final testCase in this) {
+      versionConstrainedTest(
+        testCase.testName,
+        appVersion: appVersion,
+        minSupportedVersion: testCase.minSupportedVersion,
+        body: () async {
+          final result = await cardanoApp.signTransaction(testCase.request);
+          expectVespr(result, equals(testCase.expected));
+        },
+      );
+    }
+  });
 }
 
 void main() async {

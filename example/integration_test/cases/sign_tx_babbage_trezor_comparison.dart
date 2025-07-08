@@ -11,8 +11,7 @@ final testsBabbageTrezorComparison = [
         network: CardanoNetwork.mainnet(),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -31,8 +30,7 @@ final testsBabbageTrezorComparison = [
             amount: BigInt.from(2000000),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '0d63e8d2c5a00cbcffbdf9112487c443466e1ea7d8c834df5ac5c425',
+                policyIdHex: '0d63e8d2c5a00cbcffbdf9112487c443466e1ea7d8c834df5ac5c425',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74657374436f696e',
@@ -50,8 +48,7 @@ final testsBabbageTrezorComparison = [
             ),
             amount: BigInt.from(1),
             datumHashHex: ParsedDatumHash(
-              datumHashHex:
-                  '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+              datumHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             ),
           ),
         ],
@@ -59,13 +56,11 @@ final testsBabbageTrezorComparison = [
         ttl: BigInt.from(10),
         validityIntervalStart: BigInt.from(47),
         scriptDataHashHex: ScriptDataHash(
-          hexString:
-              '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
         collateralInputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -85,8 +80,7 @@ final testsBabbageTrezorComparison = [
         totalCollateral: BigInt.from(10),
         referenceInputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -107,8 +101,7 @@ final testsBabbageTrezorComparison = [
       ],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '3e0c44577b78d0b9628167ca03bfe56d2730e3291b0992d0316e6eebabf0685e',
+      txHashHex: '3e0c44577b78d0b9628167ca03bfe56d2730e3291b0992d0316e6eebabf0685e',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -124,15 +117,13 @@ final testsBabbageTrezorComparison = [
     ),
   ),
   SignTxTestCase(
-    testName:
-        'Full test for trezor feature parity - Babbage elements (ordinary)',
+    testName: 'Full test for trezor feature parity - Babbage elements (ordinary)',
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
         network: CardanoNetwork.mainnet(),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -165,8 +156,7 @@ final testsBabbageTrezorComparison = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'de264f4b285415fd88932156862e775be26aab30a0003767aa8a04881595f77f',
+      txHashHex: 'de264f4b285415fd88932156862e775be26aab30a0003767aa8a04881595f77f',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(

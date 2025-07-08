@@ -9,29 +9,29 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.committeeKeyPath(
-                keyPath: LedgerSigningPath.shelley(
-                  account: 0,
-                  address: 0,
-                  role: ShelleyAddressRole.constitutionalCommitteeHot,
-                ),
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.committeeKeyPath(
+              keyPath: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.constitutionalCommitteeHot,
               ),
-              votes: [_vote1],
             ),
-          ]),
+            votes: [_vote1],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "1878027bc8ffa79d279f5c739a18817598382f1f181c0722954642e28a552417",
+      txHashHex: "1878027bc8ffa79d279f5c739a18817598382f1f181c0722954642e28a552417",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -60,29 +60,29 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.drepKeyPath(
-                keyPath: LedgerSigningPath.shelley(
-                  account: 0,
-                  address: 0,
-                  role: ShelleyAddressRole.drepCredential,
-                ),
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.drepKeyPath(
+              keyPath: LedgerSigningPath.shelley(
+                account: 0,
+                address: 0,
+                role: ShelleyAddressRole.drepCredential,
               ),
-              votes: [_vote2],
             ),
-          ]),
+            votes: [_vote2],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "c76996d3e2bce5d61c19e5c6f4e69dbda650f14b706b95c440e4f4dbe56f584c",
+      txHashHex: "c76996d3e2bce5d61c19e5c6f4e69dbda650f14b706b95c440e4f4dbe56f584c",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -111,32 +111,32 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.stakePoolKeyPath(
-                keyPath: LedgerSigningPath.custom(
-                  [
-                    harden + 1853,
-                    harden + 1815,
-                    harden + 0,
-                    harden + 0,
-                  ],
-                ),
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.stakePoolKeyPath(
+              keyPath: LedgerSigningPath.custom(
+                [
+                  harden + 1853,
+                  harden + 1815,
+                  harden + 0,
+                  harden + 0,
+                ],
               ),
-              votes: [_vote3],
             ),
-          ]),
+            votes: [_vote3],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.ordinaryTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "a883078593d6e64486f54bb975230f47d43e4a92f3a6bdef60a522197610c947",
+      txHashHex: "a883078593d6e64486f54bb975230f47d43e4a92f3a6bdef60a522197610c947",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -168,26 +168,25 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.committeeKeyHash(
-                keyHashHex:
-                    "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
-              ),
-              votes: [_vote1],
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.committeeKeyHash(
+              keyHashHex: "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
             ),
-          ]),
+            votes: [_vote1],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "e19f0cdcd735f6ea53f5673e593008af68a182f66c1027aa31fd8da449b7cf5b",
+      txHashHex: "e19f0cdcd735f6ea53f5673e593008af68a182f66c1027aa31fd8da449b7cf5b",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -207,26 +206,25 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.committeeScriptHash(
-                scriptHashHex:
-                    "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
-              ),
-              votes: [_vote2],
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.committeeScriptHash(
+              scriptHashHex: "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
             ),
-          ]),
+            votes: [_vote2],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "05af307259f8f07f34c536ce037b1a443c7a1be8e62f644c37364d3210b744d8",
+      txHashHex: "05af307259f8f07f34c536ce037b1a443c7a1be8e62f644c37364d3210b744d8",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -246,26 +244,25 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.drepKeyHash(
-                keyHashHex:
-                    "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
-              ),
-              votes: [_vote3],
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.drepKeyHash(
+              keyHashHex: "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
             ),
-          ]),
+            votes: [_vote3],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "4cc800d11a4464c352841e393543981bfeb35dfef04037519c0170dce87c5198",
+      txHashHex: "4cc800d11a4464c352841e393543981bfeb35dfef04037519c0170dce87c5198",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -285,26 +282,25 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.drepScriptHash(
-                scriptHashHex:
-                    "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
-              ),
-              votes: [_vote1],
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.drepScriptHash(
+              scriptHashHex: "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
             ),
-          ]),
+            votes: [_vote1],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "00881f4f414a32bd7e3e06036935b8a37944dc3d348216df6a1470fb4e2f04ae",
+      txHashHex: "00881f4f414a32bd7e3e06036935b8a37944dc3d348216df6a1470fb4e2f04ae",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -324,26 +320,25 @@ final testsConwayVotingProcedures = [
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
-          network: CardanoNetwork.mainnet(),
-          fee: BigInt.from(42),
-          ttl: BigInt.from(10),
-          inputs: _inputs,
-          outputs: _outputs,
-          votingProcedures: [
-            ParsedVoterVotes(
-              voter: ParsedVoter.stakePoolKeyHash(
-                keyHashHex:
-                    "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
-              ),
-              votes: [_vote1],
+        network: CardanoNetwork.mainnet(),
+        fee: BigInt.from(42),
+        ttl: BigInt.from(10),
+        inputs: _inputs,
+        outputs: _outputs,
+        votingProcedures: [
+          ParsedVoterVotes(
+            voter: ParsedVoter.stakePoolKeyHash(
+              keyHashHex: "7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8",
             ),
-          ]),
+            votes: [_vote1],
+          ),
+        ],
+      ),
       signingMode: TransactionSigningModes.plutusTransaction,
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          "623dd691a60d25e379424eceae1052acff119013c56bd2b73e8e1e822d3292bd",
+      txHashHex: "623dd691a60d25e379424eceae1052acff119013c56bd2b73e8e1e822d3292bd",
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -362,8 +357,7 @@ final testsConwayVotingProcedures = [
 
 final _inputs = [
   ParsedInput(
-    txHashHex:
-        '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+    txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
     outputIndex: 0,
     path: LedgerSigningPath.shelley(
       account: 0,
@@ -386,23 +380,20 @@ final _outputs = [
 
 final _vote1 = ParsedVote(
   govActionId: ParsedGovActionId(
-    txHashHex:
-        "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
+    txHashHex: "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
     govActionIndex: 3,
   ),
   votingProcedure: ParsedVotingProcedure(
     vote: VoteOption.abstain,
     anchor: ParsedAnchor(
       url: "www.vacuumlabs.com",
-      hashHex:
-          "1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef",
+      hashHex: "1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef",
     ),
   ),
 );
 final _vote2 = ParsedVote(
   govActionId: ParsedGovActionId(
-    txHashHex:
-        "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
+    txHashHex: "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
     govActionIndex: 3,
   ),
   votingProcedure: ParsedVotingProcedure(
@@ -412,8 +403,7 @@ final _vote2 = ParsedVote(
 );
 final _vote3 = ParsedVote(
   govActionId: ParsedGovActionId(
-    txHashHex:
-        "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
+    txHashHex: "3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7",
     govActionIndex: 3,
   ),
   votingProcedure: ParsedVotingProcedure(

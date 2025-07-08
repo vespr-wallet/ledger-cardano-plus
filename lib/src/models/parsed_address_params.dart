@@ -18,7 +18,7 @@ sealed class ParsedAddressParams with _$ParsedAddressParams {
   }) = ShelleyAddressParams;
 
   AddressType get addressType => switch (this) {
-        ByronAddressParams() => AddressType.byron,
-        ShelleyAddressParams(shelleyAddressParams: final shelleyparams) => shelleyparams.addressType,
-      };
+    ByronAddressParams() => AddressType.byron,
+    ShelleyAddressParams(shelleyAddressParams: final shelleyparams) => shelleyparams.addressType,
+  };
 }

@@ -5,8 +5,7 @@ import '../test_utils.dart';
 
 final _inputs = [
   ParsedInput(
-    txHashHex:
-        '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+    txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
     outputIndex: 0,
     path: LedgerSigningPath.shelley(
       account: 0,
@@ -54,8 +53,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '26ab8ebe60e70fffd59eb186ed6903ccd5a27c2468da72c5033b596dd41d1745',
+      txHashHex: '26ab8ebe60e70fffd59eb186ed6903ccd5a27c2468da72c5033b596dd41d1745',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -106,8 +104,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '58dc7ddba14500538e5de842066bb3a1979687c6ae0c2472d8f1851b4f011e26',
+      txHashHex: '58dc7ddba14500538e5de842066bb3a1979687c6ae0c2472d8f1851b4f011e26',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -167,8 +164,7 @@ final testsConwayWithCertificates = [
               ),
             ),
             dRep: ParsedDRep.keyHash(
-              keyHashHex:
-                  '7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+              keyHashHex: '7afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
             ),
           ),
           ParsedCertificate.voteDelegation(
@@ -180,8 +176,7 @@ final testsConwayWithCertificates = [
               ),
             ),
             dRep: ParsedDRep.scriptHash(
-              scriptHashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+              scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
             ),
           ),
           ParsedCertificate.voteDelegation(
@@ -210,8 +205,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'b65bfdff7d247058d60b55958111c5b45322fdb3806be0e86a09382bafce3457',
+      txHashHex: 'b65bfdff7d247058d60b55958111c5b45322fdb3806be0e86a09382bafce3457',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -271,8 +265,7 @@ final testsConwayWithCertificates = [
               ),
             ),
             hotCredential: ParsedCredential.keyHash(
-              keyHashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+              keyHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
             ),
           ),
           ParsedCertificate.authorizeCommitteeHot(
@@ -284,8 +277,7 @@ final testsConwayWithCertificates = [
               ),
             ),
             hotCredential: ParsedCredential.scriptHash(
-              scriptHashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
+              scriptHashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8',
             ),
           ),
         ],
@@ -294,8 +286,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'f39823031913a09286755ec2383da73a7248e36f6fc92685928296ec81e43b76',
+      txHashHex: 'f39823031913a09286755ec2383da73a7248e36f6fc92685928296ec81e43b76',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -340,8 +331,7 @@ final testsConwayWithCertificates = [
             ),
             anchor: ParsedAnchor(
               url: 'x' * 128, // max url length in anchor
-              hashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
             ),
           ),
           ParsedCertificate.resignCommitteeCold(
@@ -359,8 +349,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '5b6d2cc6f1401d783dd5012200337aa2df4407e28267c4ea7d39914adacde25d',
+      txHashHex: '5b6d2cc6f1401d783dd5012200337aa2df4407e28267c4ea7d39914adacde25d',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -406,8 +395,7 @@ final testsConwayWithCertificates = [
             deposit: BigInt.from(19),
             anchor: ParsedAnchor(
               url: 'www.vacuumlabs.com',
-              hashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
             ),
           ),
           ParsedCertificate.dRepRegistration(
@@ -427,8 +415,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'd029be88cc6c18578cd49713438270d80b64c0c126b2ce90b8418d6b020e2395',
+      txHashHex: 'd029be88cc6c18578cd49713438270d80b64c0c126b2ce90b8418d6b020e2395',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -479,8 +466,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'ddac3d3a8a4554f7dd1797a7bfdd4ec19ddf13d20f3b9ea79ed37d5663b51497',
+      txHashHex: 'ddac3d3a8a4554f7dd1797a7bfdd4ec19ddf13d20f3b9ea79ed37d5663b51497',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -525,8 +511,7 @@ final testsConwayWithCertificates = [
             ),
             anchor: ParsedAnchor(
               url: 'www.vacuumlabs.com',
-              hashHex:
-                  '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
+              hashHex: '1afd028b504c3668102b129b37a86c09a2872f76741dc7a68e2149c8deadbeef',
             ),
           ),
           ParsedCertificate.dRepUpdate(
@@ -544,8 +529,7 @@ final testsConwayWithCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '85b23eda26bd9f6f9f4ce80f7d1e9c0cf3afcb33a39c0102711a81a96715d2e6',
+      txHashHex: '85b23eda26bd9f6f9f4ce80f7d1e9c0cf3afcb33a39c0102711a81a96715d2e6',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(

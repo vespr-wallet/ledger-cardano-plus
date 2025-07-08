@@ -27,13 +27,13 @@ sealed class CardanoVersion with _$CardanoVersion {
   late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(
-        testMode: false,
-        versionMajor: versionCode ~/ 10000,
-        versionMinor: (versionCode % 10000) ~/ 100,
-        versionPatch: versionCode % 100,
-        locked: false,
-        flags: const Flags(isDebug: false, isAppXS: false),
-      );
+    testMode: false,
+    versionMajor: versionCode ~/ 10000,
+    versionMinor: (versionCode % 10000) ~/ 100,
+    versionPatch: versionCode % 100,
+    locked: false,
+    flags: const Flags(isDebug: false, isAppXS: false),
+  );
 
   void requireConway(String caller) {
     if (!compatibility.supportsConway) {

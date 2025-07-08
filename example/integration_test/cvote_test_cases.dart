@@ -70,7 +70,8 @@ final testsCatalystRegistration = [
               addressParams: ParsedAddressParams.shelley(
                 shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
-                      path: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment)),
+                    path: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+                  ),
                   stakingDataSource: StakingDataSource.keyPath(
                     path: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.stake),
                   ),

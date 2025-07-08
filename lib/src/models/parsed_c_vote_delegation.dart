@@ -12,13 +12,13 @@ sealed class ParsedCVoteDelegation with _$ParsedCVoteDelegation {
     final thisClass = this;
     final void Function() assertinvoker = switch (thisClass) {
       PathDelegation() => () {
-          validateBIP32Path(thisClass.voteKeyPath, "voteKeyPath");
-          validateUint32(thisClass.weight, "weight");
-        },
+        validateBIP32Path(thisClass.voteKeyPath, "voteKeyPath");
+        validateUint32(thisClass.weight, "weight");
+      },
       KeyDelegation() => () {
-          validateExactHexString(thisClass.voteKey, "voteKey", cvotePublicKeyLength * 2);
-          validateUint32(thisClass.weight, "weight");
-        },
+        validateExactHexString(thisClass.voteKey, "voteKey", cvotePublicKeyLength * 2);
+        validateUint32(thisClass.weight, "weight");
+      },
     };
     assertinvoker();
   }

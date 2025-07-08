@@ -11,8 +11,7 @@ final testsMultidelegation = [
         network: CardanoNetwork.mainnet(),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -31,8 +30,7 @@ final testsMultidelegation = [
             amount: BigInt.from(2000000),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '0d63e8d2c5a00cbcffbdf9112487c443466e1ea7d8c834df5ac5c425',
+                policyIdHex: '0d63e8d2c5a00cbcffbdf9112487c443466e1ea7d8c834df5ac5c425',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74657374436f696e',
@@ -50,8 +48,7 @@ final testsMultidelegation = [
             ),
             amount: BigInt.from(1),
             datumHashHex: ParsedDatumHash(
-              datumHashHex:
-                  '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+              datumHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             ),
           ),
         ],
@@ -85,8 +82,7 @@ final testsMultidelegation = [
                 role: ShelleyAddressRole.stake,
               ),
             ),
-            poolKeyHashHex:
-                'f61c42cbf7c8c53af3f520508212ad3e72f674f957fe23ff0acb4973',
+            poolKeyHashHex: 'f61c42cbf7c8c53af3f520508212ad3e72f674f957fe23ff0acb4973',
           ),
         ],
         withdrawals: [
@@ -111,8 +107,7 @@ final testsMultidelegation = [
           ),
         ],
         scriptDataHashHex: ScriptDataHash(
-          hexString:
-              '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+          hexString: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
         ),
         includeNetworkId: true,
       ),
@@ -131,8 +126,7 @@ final testsMultidelegation = [
       ],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'edcf824da89507ae03c46a4ad1f4676c28842052022e2d2062993680c3e36f80',
+      txHashHex: 'edcf824da89507ae03c46a4ad1f4676c28842052022e2d2062993680c3e36f80',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(

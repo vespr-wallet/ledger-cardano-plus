@@ -45,6 +45,6 @@ sealed class DeviceOwnedAddress with _$DeviceOwnedAddress {
     DeviceOwnedAddressBase(type: AddressBase type) => type.type,
     DeviceOwnedAddressEnterprise(type: AddressEnterprise type) => type.type,
     DeviceOwnedAddressPointer(type: AddressPointer type) => type.type,
-    DeviceOwnedAddressReward(type: AddressReward type) => type.type
+    DeviceOwnedAddressReward(type: AddressReward type) => type.type,
   };
 }

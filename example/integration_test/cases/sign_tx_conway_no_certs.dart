@@ -13,8 +13,7 @@ final testsConwayWithoutCertificates = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -39,8 +38,7 @@ final testsConwayWithoutCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'c3fb3f4330d9f051b567db11d56ab8174cba081373936c9fde80d809b178326f',
+      txHashHex: 'c3fb3f4330d9f051b567db11d56ab8174cba081373936c9fde80d809b178326f',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -65,8 +63,7 @@ final testsConwayWithoutCertificates = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -92,8 +89,7 @@ final testsConwayWithoutCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '618718225c0c876fd429ca25957a23ad894eaebc1831365c5b41cba50993a1bf',
+      txHashHex: '618718225c0c876fd429ca25957a23ad894eaebc1831365c5b41cba50993a1bf',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -101,7 +97,7 @@ final testsConwayWithoutCertificates = [
             address: 0,
             role: ShelleyAddressRole.payment,
           ),
-          witnessSignatureHex: 
+          witnessSignatureHex:
               'eef7538ecd01708a3483900155c3c1545188b671f626a4622864cbfe41a51bfd4c47ccb9ee8accd7891bd0291bce3e44c8363a30ffbe80864af1a29a74239c00',
         ),
       ],
@@ -109,7 +105,7 @@ final testsConwayWithoutCertificates = [
     ),
     minSupportedVersion: CardanoVersion.fromVersionCode(70000),
   ),
-  SignTxTestCase( 
+  SignTxTestCase(
     testName: 'Sign tx with treasury and donation', // TODO recheck???
     request: ParsedSigningRequest(
       tx: ParsedTransaction(
@@ -118,8 +114,7 @@ final testsConwayWithoutCertificates = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -146,8 +141,7 @@ final testsConwayWithoutCertificates = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '37e2cf72599186d1ec571af568ea0ab39f7f73ba2e8c5f4725bfd0d4fb8c58e7',
+      txHashHex: '37e2cf72599186d1ec571af568ea0ab39f7f73ba2e8c5f4725bfd0d4fb8c58e7',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(

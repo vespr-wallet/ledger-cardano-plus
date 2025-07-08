@@ -34,8 +34,8 @@ class LedgerCardanoVersionNotSupported extends LedgerCardanoException {
     required String wantedVersion,
     required String era,
   }) : super(
-          "LedgerCardanoVersionNotSupported: requires ledger cardano version of at least $wantedVersion | era: $era | $message",
-        );
+         "LedgerCardanoVersionNotSupported: requires ledger cardano version of at least $wantedVersion | era: $era | $message",
+       );
 }
 
 class LedgerTransactionValidationException extends LedgerCardanoException {
@@ -56,7 +56,8 @@ class LedgerTransactionValidationException extends LedgerCardanoException {
     }
     if (!validFourthIndices.contains(bipPath[3])) {
       throw LedgerTransactionValidationException(
-          "Fourth $pathType path index must be ${validFourthIndices.join(" or ")}");
+        "Fourth $pathType path index must be ${validFourthIndices.join(" or ")}",
+      );
     }
   }
 }

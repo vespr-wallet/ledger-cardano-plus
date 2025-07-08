@@ -11,11 +11,11 @@ sealed class AddressParamsReward with _$AddressParamsReward {
     final thisClass = this;
     final void Function() assertInvoker = switch (thisClass) {
       AddressParamsRewardStakingPath() => () {
-          validateBIP32Path(thisClass.stakingPath, "stakingPath");
-        },
+        validateBIP32Path(thisClass.stakingPath, "stakingPath");
+      },
       AddressParamsRewardStakingScriptHashHex() => () {
-          validateHexString(thisClass.stakingScriptHashHex, "stakingScriptHashHex");
-        },
+        validateHexString(thisClass.stakingScriptHashHex, "stakingScriptHashHex");
+      },
     };
     assertInvoker();
   }

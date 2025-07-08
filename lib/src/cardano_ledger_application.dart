@@ -31,23 +31,22 @@ class CardanoLedger {
 
   static CardanoLedger ble({
     required Future<bool> Function({required bool unsupported}) onPermissionRequest,
-  }) =>
-      _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
+  }) => _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
 
   static CardanoLedger usb() => _cardanoLedgerUsb ??= CardanoLedger._usb();
 
   CardanoLedger._ble(
     Future<bool> Function({required bool unsupported}) onPermissionRequest,
-  )   : connectionType = LedgerConnectionType.bluetooth,
-        transformer = const CardanoTransformer(LedgerConnectionType.bluetooth),
-        ledger = sdk.LedgerInterface.ble(
-          onPermissionRequest: (state) => onPermissionRequest(unsupported: state == sdk.AvailabilityState.unsupported),
-        );
+  ) : connectionType = LedgerConnectionType.bluetooth,
+      transformer = const CardanoTransformer(LedgerConnectionType.bluetooth),
+      ledger = sdk.LedgerInterface.ble(
+        onPermissionRequest: (state) => onPermissionRequest(unsupported: state == sdk.AvailabilityState.unsupported),
+      );
 
   CardanoLedger._usb()
-      : connectionType = LedgerConnectionType.usb,
-        transformer = const CardanoTransformer(LedgerConnectionType.usb),
-        ledger = sdk.LedgerInterface.usb();
+    : connectionType = LedgerConnectionType.usb,
+      transformer = const CardanoTransformer(LedgerConnectionType.usb),
+      ledger = sdk.LedgerInterface.usb();
 
   Stream<LedgerDevice> scanForDevices() => ledger.scan().map((device) => device.fromSdk());
 
@@ -82,8 +81,8 @@ class CardanoLedgerConnection {
   CardanoLedgerConnection({
     required this.connectionType,
     required sdk.LedgerConnection ledgerConnection,
-  })  : _ledgerConnection = ledgerConnection,
-        _transformer = CardanoTransformer(connectionType);
+  }) : _ledgerConnection = ledgerConnection,
+       _transformer = CardanoTransformer(connectionType);
 
   Future<void> disconnect() async => _ledgerConnection.disconnect();
 
@@ -140,8 +139,7 @@ class CardanoLedgerConnection {
 
   Future<ExtendedPublicKey> getExtendedPublicKey({
     required ExtendedPublicKeyRequest request,
-  }) async =>
-      (await getExtendedPublicKeys(requests: [request]))[0];
+  }) async => (await getExtendedPublicKeys(requests: [request]))[0];
 
   Future<List<ExtendedPublicKey>> getExtendedPublicKeys({
     required List<ExtendedPublicKeyRequest> requests,
@@ -201,13 +199,13 @@ class CardanoLedgerConnection {
     final String Function() encoder = switch (params) {
       ByronAddressParams() => () => addressHexToBase58(addressResult),
       ShelleyAddressParams(shelleyAddressParams: final shelleyParams) => () {
-          final String bech32Hrp = switch (shelleyParams) {
-            RewardKey() => network.stakeBech32Hrp,
-            RewardScript() => network.stakeBech32Hrp,
-            _ => network.paymentBech32Hrp,
-          };
-          return bech32EncodeAddress(bech32Hrp, addressBytes);
-        },
+        final String bech32Hrp = switch (shelleyParams) {
+          RewardKey() => network.stakeBech32Hrp,
+          RewardScript() => network.stakeBech32Hrp,
+          _ => network.paymentBech32Hrp,
+        };
+        return bech32EncodeAddress(bech32Hrp, addressBytes);
+      },
     };
     return encoder();
   }
@@ -456,6 +454,9 @@ class CardanoLedgerConnection {
     );
   }
 
-  void sendComplexOperation(device, CardanoDeriveAddressOperation operation,
-      {required CardanoTransformer transformer}) {}
+  void sendComplexOperation(
+    device,
+    CardanoDeriveAddressOperation operation, {
+    required CardanoTransformer transformer,
+  }) {}
 }

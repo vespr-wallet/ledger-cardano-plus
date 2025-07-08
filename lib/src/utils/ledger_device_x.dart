@@ -4,26 +4,26 @@ import "../../ledger_cardano_plus_models.dart";
 
 extension LedgerDeviceX on LedgerDevice {
   sdk.LedgerDevice toSdk() => sdk.LedgerDevice(
-        id: id,
-        name: name,
-        rssi: rssi,
-        connectionType: switch (connectionType) {
-          LedgerConnectionType.bluetooth => sdk.ConnectionType.ble,
-          LedgerConnectionType.usb => sdk.ConnectionType.usb,
-        },
-        deviceInfo: deviceInfo,
-      );
+    id: id,
+    name: name,
+    rssi: rssi,
+    connectionType: switch (connectionType) {
+      LedgerConnectionType.bluetooth => sdk.ConnectionType.ble,
+      LedgerConnectionType.usb => sdk.ConnectionType.usb,
+    },
+    deviceInfo: deviceInfo,
+  );
 }
 
 extension SdkLedgerDeviceX on sdk.LedgerDevice {
   LedgerDevice fromSdk() => LedgerDevice(
-        id: id,
-        name: name,
-        rssi: rssi,
-        connectionType: switch (connectionType) {
-          sdk.ConnectionType.ble => LedgerConnectionType.bluetooth,
-          sdk.ConnectionType.usb => LedgerConnectionType.usb,
-        },
-        deviceInfo: deviceInfo,
-      );
+    id: id,
+    name: name,
+    rssi: rssi,
+    connectionType: switch (connectionType) {
+      sdk.ConnectionType.ble => LedgerConnectionType.bluetooth,
+      sdk.ConnectionType.usb => LedgerConnectionType.usb,
+    },
+    deviceInfo: deviceInfo,
+  );
 }

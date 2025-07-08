@@ -35,20 +35,19 @@ void versionConstrainedTest(
   required CardanoVersion appVersion,
   required CardanoVersion? minSupportedVersion,
   required dynamic Function() body,
-}) =>
-    test(
-      description,
-      () async {
-        if ((minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode) {
-          await body();
-        } else {
-          markTestSkipped(
-            "Skipped test: version ${appVersion.versionName} < ${minSupportedVersion?.versionName}",
-          );
-        }
-      },
-      timeout: const Timeout(Duration(seconds: 120)),
-    );
+}) => test(
+  description,
+  () async {
+    if ((minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode) {
+      await body();
+    } else {
+      markTestSkipped(
+        "Skipped test: version ${appVersion.versionName} < ${minSupportedVersion?.versionName}",
+      );
+    }
+  },
+  timeout: const Timeout(Duration(seconds: 120)),
+);
 
 FutureOr<void> expectVespr(dynamic actual, dynamic matcher) async {
   switch (actual) {
@@ -63,22 +62,17 @@ FutureOr<void> expectVespr(dynamic actual, dynamic matcher) async {
         resultIsError = true;
       }
       if (resultIsError) {
-        return expectLater(() => throw result, matcher,
-            reason: StackTrace.current.toString());
+        return expectLater(() => throw result, matcher, reason: StackTrace.current.toString());
       } else if (result is Future && matcher is! AsyncMatcher) {
-        return expectLater(result, completion(matcher),
-            reason: StackTrace.current.toString());
+        return expectLater(result, completion(matcher), reason: StackTrace.current.toString());
       } else {
-        return expectLater(result, matcher,
-            reason: StackTrace.current.toString());
+        return expectLater(result, matcher, reason: StackTrace.current.toString());
       }
     case Future():
       if (matcher is! AsyncMatcher) {
-        return expectLater(actual, completion(matcher),
-            reason: StackTrace.current.toString());
+        return expectLater(actual, completion(matcher), reason: StackTrace.current.toString());
       } else {
-        return expectLater(actual, matcher,
-            reason: StackTrace.current.toString());
+        return expectLater(actual, matcher, reason: StackTrace.current.toString());
       }
     default:
       return expect(actual, matcher, reason: StackTrace.current.toString());
@@ -89,14 +83,11 @@ Future<String> deriveAddress(
   CardanoLedgerConnection cardanoApp,
   CardanoNetwork network,
   ParsedAddressParams params,
-) =>
-    cardanoApp.deriveAddressGeneric(network: network, params: params);
+) => cardanoApp.deriveAddressGeneric(network: network, params: params);
 
 String bech32ToHex(String bech32Address) {
   Uint8List addressBytes = bech32DecodeAddress(bech32Address);
-  return addressBytes
-      .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
-      .join();
+  return addressBytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
 }
 
 Future<void> testSingleKey(
@@ -105,8 +96,7 @@ Future<void> testSingleKey(
 ) async {
   final appVersion = await cardanoApp.getVersion();
   for (final testCase in tests) {
-    if ((testCase.minSupportedVersion?.versionCode ?? 0) <=
-        appVersion.versionCode) {
+    if ((testCase.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode) {
       final response = await cardanoApp.getExtendedPublicKey(
         request: ExtendedPublicKeyRequest_Custom(customPath: testCase.path),
       );
@@ -124,19 +114,12 @@ Future<void> testMultipleKeys(
   CardanoLedgerConnection cardanoApp,
 ) async {
   final appVersion = await cardanoApp.getVersion();
-  final tests = allTests
-      .where((t) =>
-          (t.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode)
-      .toList();
+  final tests = allTests.where((t) => (t.minSupportedVersion?.versionCode ?? 0) <= appVersion.versionCode).toList();
   if (tests.length != allTests.length) {
-    print(
-        "Skipped ${allTests.length - tests.length} tests due to min cardano version");
+    print("Skipped ${allTests.length - tests.length} tests due to min cardano version");
   }
 
-  final requests = tests
-      .map((testCase) =>
-          ExtendedPublicKeyRequest_Custom(customPath: testCase.path))
-      .toList();
+  final requests = tests.map((testCase) => ExtendedPublicKeyRequest_Custom(customPath: testCase.path)).toList();
   final results = await cardanoApp.getExtendedPublicKeys(requests: requests);
 
   expectVespr(results.length, equals(tests.length));
@@ -147,15 +130,13 @@ Future<void> testMultipleKeys(
 }
 
 String addressHexToBase58(String addressHex) {
-  final base58 =
-      BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
+  final base58 = BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
   final bytes = hex.decode(addressHex);
   return base58.encode(Uint8List.fromList(bytes));
 }
 
 String base58ToHex(String base58Address) {
-  final base58 =
-      BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
+  final base58 = BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');
   final bytes = base58.decode(base58Address);
   return bytes.map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
 }

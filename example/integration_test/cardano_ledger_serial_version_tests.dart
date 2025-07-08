@@ -38,7 +38,8 @@ void main() {
         final compatibility = VersionCompatibility.checkVersionCompatibility(version);
 
         print(
-            'Device: ${cardanoApp.device.name}\nApp Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\nDevelopment Version: ${version.testMode ? "Yes" : "No"}');
+          'Device: ${cardanoApp.device.name}\nApp Version: ${version.versionMajor}.${version.versionMinor}.${version.versionPatch}\nDevelopment Version: ${version.testMode ? "Yes" : "No"}',
+        );
 
         // Check major and minor version
         expectVespr(version.versionMajor, equals(7));

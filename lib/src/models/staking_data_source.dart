@@ -14,14 +14,14 @@ sealed class StakingDataSource with _$StakingDataSource {
       StakingDataSourceNone() => () {},
       StakingDataSourceKey() => () {},
       StakingDataSourceBlockchainPointer() => () {
-          validate32bitUnsignedInteger(thisClass.blockIndex, "blockIndex");
-          validate32bitUnsignedInteger(thisClass.txIndex, "txIndex");
-          validate32bitUnsignedInteger(thisClass.certificateIndex, "certificateIndex");
-        },
+        validate32bitUnsignedInteger(thisClass.blockIndex, "blockIndex");
+        validate32bitUnsignedInteger(thisClass.txIndex, "txIndex");
+        validate32bitUnsignedInteger(thisClass.certificateIndex, "certificateIndex");
+      },
       StakingDataSourceScriptHash() => () {
-          validateHexString(thisClass.scriptHashHex, "scriptHashHex");
-          validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
-        },
+        validateHexString(thisClass.scriptHashHex, "scriptHashHex");
+        validateMaxStringLength(thisClass.scriptHashHex, "scriptHashHex", stringLength64Bytes);
+      },
     };
     assertinvoker();
   }
@@ -34,17 +34,15 @@ sealed class StakingDataSource with _$StakingDataSource {
 
   static StakingDataSourceKey keyPath({
     required LedgerSigningPath path,
-  }) =>
-      StakingDataSourceKey(
-        data: StakingDataSourceKeyData.path(path: path),
-      );
+  }) => StakingDataSourceKey(
+    data: StakingDataSourceKeyData.path(path: path),
+  );
 
   static StakingDataSourceKey keyHash({
     required String keyHashHex,
-  }) =>
-      StakingDataSourceKey(
-        data: StakingDataSourceKeyData.hash(keyHashHex: keyHashHex),
-      );
+  }) => StakingDataSourceKey(
+    data: StakingDataSourceKeyData.hash(keyHashHex: keyHashHex),
+  );
 
   factory StakingDataSource.blockchainPointer({
     required int blockIndex,

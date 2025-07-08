@@ -13,8 +13,7 @@ final testsMary = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -33,8 +32,7 @@ final testsMary = [
             amount: BigInt.from(1234),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                policyIdHex: '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74652474436f696e',
@@ -47,8 +45,7 @@ final testsMary = [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams:
-                    ShelleyAddressParamsData.basePaymentKeyStakeKey(
+                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -75,8 +72,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '9a9bce0cfe146a1327a94a6257e1013b12476d9c73c891d73faf74aaf131cde5',
+      txHashHex: '9a9bce0cfe146a1327a94a6257e1013b12476d9c73c891d73faf74aaf131cde5',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -100,8 +96,7 @@ final testsMary = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -120,28 +115,24 @@ final testsMary = [
             amount: BigInt.from(1234),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
+                policyIdHex: '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '',
                     amount: BigInt.from(3),
                   ),
                   ParsedToken(
-                    assetNameHex:
-                        '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
+                    assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
                     amount: BigInt.from(1),
                   ),
                   ParsedToken(
-                    assetNameHex:
-                        '0000000000000000000000000000000000000000000000000000000000000000',
+                    assetNameHex: '0000000000000000000000000000000000000000000000000000000000000000',
                     amount: BigInt.from(2),
                   ),
                 ],
               ),
               ParsedAssetGroup(
-                policyIdHex:
-                    '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                policyIdHex: '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '456c204e69c3b16f',
@@ -158,8 +149,7 @@ final testsMary = [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams:
-                    ShelleyAddressParamsData.basePaymentKeyStakeKey(
+                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -186,8 +176,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'b81c3a6f8506eeacb0512a54f12500151745fbb683f52dbc52f6c099437baca8',
+      txHashHex: 'b81c3a6f8506eeacb0512a54f12500151745fbb683f52dbc52f6c099437baca8',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -212,8 +201,7 @@ final testsMary = [
         validityIntervalStart: BigInt.parse('24103998870869519'),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -232,8 +220,7 @@ final testsMary = [
             amount: BigInt.parse('24103998870869519'),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                policyIdHex: '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74652474436f696e',
@@ -249,8 +236,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'e60735a3cc71a8a3f89652797c3e650d6ed80059c0b59978c59858dcf6f8ca48',
+      txHashHex: 'e60735a3cc71a8a3f89652797c3e650d6ed80059c0b59978c59858dcf6f8ca48',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -274,8 +260,7 @@ final testsMary = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -296,8 +281,7 @@ final testsMary = [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams:
-                    ShelleyAddressParamsData.basePaymentKeyStakeKey(
+                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -318,8 +302,7 @@ final testsMary = [
             amount: BigInt.from(1234),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                policyIdHex: '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74652474436f696e',
@@ -335,8 +318,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '005b324472b13e181f72a9c5eb1f05351a22b103ce35517768bab1d3bfe4a114',
+      txHashHex: '005b324472b13e181f72a9c5eb1f05351a22b103ce35517768bab1d3bfe4a114',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -361,8 +343,7 @@ final testsMary = [
         validityIntervalStart: BigInt.from(0),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -375,8 +356,7 @@ final testsMary = [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams:
-                    ShelleyAddressParamsData.basePaymentKeyStakeKey(
+                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -402,8 +382,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'acc997f583c78f36529ee29134e2cfb7a4550493727f565a502ab40544827311',
+      txHashHex: 'acc997f583c78f36529ee29134e2cfb7a4550493727f565a502ab40544827311',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -427,8 +406,7 @@ final testsMary = [
         ttl: null,
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -447,8 +425,7 @@ final testsMary = [
             amount: BigInt.from(1234),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '6954264b15bc92d6d592febeac84f14645e1ed46ca5ebb9acdb5c15f',
+                policyIdHex: '6954264b15bc92d6d592febeac84f14645e1ed46ca5ebb9acdb5c15f',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '5354524950',
@@ -457,8 +434,7 @@ final testsMary = [
                 ],
               ),
               ParsedAssetGroup(
-                policyIdHex:
-                    'af2e27f580f7f08e93190a81f72462f153026d06450924726645891b',
+                policyIdHex: 'af2e27f580f7f08e93190a81f72462f153026d06450924726645891b',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '44524950',
@@ -478,8 +454,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'a36c270c8ee52c8f5b9cc47ccad0869ad72f00dd1ac1510b682752e09738a27f',
+      txHashHex: 'a36c270c8ee52c8f5b9cc47ccad0869ad72f00dd1ac1510b682752e09738a27f',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -503,8 +478,7 @@ final testsMary = [
         ttl: BigInt.from(10),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -516,27 +490,23 @@ final testsMary = [
         outputs: [],
         mint: [
           ParsedAssetGroup(
-            policyIdHex:
-                '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
+            policyIdHex: '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
             tokens: [
               ParsedToken(
                 assetNameHex: '',
                 amount: BigInt.from(0),
               ),
               ParsedToken(
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
                 amount: BigInt.from(-1),
               ),
               ParsedToken(
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20a',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20a',
                 amount: BigInt.from(9223372036854775807),
               ),
               ParsedToken(
                 // fingerprint: asset17jd78wukhtrnmjh3fngzasxm8rck0l2r4hhyyt (and incremented)
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20b',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20b',
                 amount: BigInt.from(-9223372036854775808),
               ),
             ],
@@ -547,8 +517,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'd31008087e3a9a267661f802993f7604ac2dd53d4b458f27bfc3663bc7072de1',
+      txHashHex: 'd31008087e3a9a267661f802993f7604ac2dd53d4b458f27bfc3663bc7072de1',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -571,8 +540,7 @@ final testsMary = [
         fee: BigInt.from(33),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -593,8 +561,7 @@ final testsMary = [
         ],
         mint: [
           ParsedAssetGroup(
-            policyIdHex:
-                '6954264b15bc92d6d592febeac84f14645e1ed46ca5ebb9acdb5c15f',
+            policyIdHex: '6954264b15bc92d6d592febeac84f14645e1ed46ca5ebb9acdb5c15f',
             tokens: [
               ParsedToken(
                 assetNameHex: '5354524950',
@@ -603,8 +570,7 @@ final testsMary = [
             ],
           ),
           ParsedAssetGroup(
-            policyIdHex:
-                'af2e27f580f7f08e93190a81f72462f153026d06450924726645891b',
+            policyIdHex: 'af2e27f580f7f08e93190a81f72462f153026d06450924726645891b',
             tokens: [
               ParsedToken(
                 assetNameHex: '44524950',
@@ -622,8 +588,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          'a96b68158758496044fbf91d7abaaa59e1cc426315c4fc2a1c4fa2c5db432807',
+      txHashHex: 'a96b68158758496044fbf91d7abaaa59e1cc426315c4fc2a1c4fa2c5db432807',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(
@@ -645,8 +610,7 @@ final testsMary = [
         network: CardanoNetwork.mainnet(),
         inputs: [
           ParsedInput(
-            txHashHex:
-                '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
+            txHashHex: '3b40265111d8bb3c3c608d95b3a0bf83461ace32d79336579a1939b3aad1c0b7',
             outputIndex: 0,
             path: LedgerSigningPath.shelley(
               account: 0,
@@ -665,8 +629,7 @@ final testsMary = [
             amount: BigInt.from(1234),
             tokenBundle: [
               ParsedAssetGroup(
-                policyIdHex:
-                    '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
+                policyIdHex: '95a292ffee938be03e9bae5657982a74e9014eb4960108c9e23a5b39',
                 tokens: [
                   ParsedToken(
                     assetNameHex: '74652474436f696e',
@@ -679,8 +642,7 @@ final testsMary = [
           ParsedOutput.alonzo(
             destination: ParsedOutputDestination.deviceOwned(
               addressParams: ParsedAddressParams.shelley(
-                shelleyAddressParams:
-                    ShelleyAddressParamsData.basePaymentKeyStakeKey(
+                shelleyAddressParams: ShelleyAddressParamsData.basePaymentKeyStakeKey(
                   spendingDataSource: SpendingDataSourcePath(
                     path: LedgerSigningPath.shelley(
                       account: 0,
@@ -706,26 +668,22 @@ final testsMary = [
         ttl: BigInt.from(1000),
         mint: [
           ParsedAssetGroup(
-            policyIdHex:
-                '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
+            policyIdHex: '7eae28af2208be856f7a119668ae52a49b73725e326dc16579dcc373',
             tokens: [
               ParsedToken(
                 assetNameHex: '',
                 amount: BigInt.from(0),
               ),
               ParsedToken(
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df209',
                 amount: BigInt.from(-1),
               ),
               ParsedToken(
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20a',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20a',
                 amount: BigInt.from(9223372036854775807),
               ),
               ParsedToken(
-                assetNameHex:
-                    '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20b',
+                assetNameHex: '1e349c9bdea19fd6c147626a5260bc44b71635f398b67c59881df20b',
                 amount: BigInt.from(-9223372036854775808),
               ),
             ],
@@ -736,8 +694,7 @@ final testsMary = [
       additionalWitnessPaths: [],
     ),
     expected: SignedTransactionData(
-      txHashHex:
-          '49686d9089cba67506537574dd0514038f813a2b9e648097aa49c2b93d14d549',
+      txHashHex: '49686d9089cba67506537574dd0514038f813a2b9e648097aa49c2b93d14d549',
       witnesses: [
         Witness(
           path: LedgerSigningPath.shelley(

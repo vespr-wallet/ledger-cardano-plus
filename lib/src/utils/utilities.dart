@@ -74,7 +74,8 @@ void validateBIP32Path(LedgerSigningPath? path, String fieldName) {
     for (final int index in path.signingPath) {
       if (index < 0 || index > max32BitValue) {
         throw LedgerCardanoValidationException(
-            "$fieldName contains an index out of the valid unsigned 32-bit integer range");
+          "$fieldName contains an index out of the valid unsigned 32-bit integer range",
+        );
       }
     }
   }
@@ -119,7 +120,8 @@ void validateHexString(String? value, String fieldName) {
     final hexRegex = RegExp(r"^[0-9a-fA-F]+$");
     if (!hexRegex.hasMatch(value)) {
       throw LedgerCardanoValidationException(
-          "$fieldName must be a valid hex string containing only characters 0-9 or a-f");
+        "$fieldName must be a valid hex string containing only characters 0-9 or a-f",
+      );
     }
   }
 }
@@ -182,5 +184,6 @@ List<int> toWords(List<int> bytes) {
 
 Uint8List hexToBytes(String hex) {
   return Uint8List.fromList(
-      List.generate(hex.length ~/ 2, (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)));
+    List.generate(hex.length ~/ 2, (i) => int.parse(hex.substring(i * 2, i * 2 + 2), radix: 16)),
+  );
 }

@@ -32,26 +32,26 @@ sealed class LedgerSigningPath with _$LedgerSigningPath {
   @override
   late final List<int> signingPath = switch (this) {
     LedgerSigningPath_Byron(account: final account, address: final address) => [
-        harden + 44,
-        harden + 1815,
-        harden + account,
-        0,
-        address
-      ],
+      harden + 44,
+      harden + 1815,
+      harden + account,
+      0,
+      address,
+    ],
     LedgerSigningPath_Shelley(account: final account, role: ShelleyAddressRole role, address: final address) => [
-        harden + 1852,
-        harden + 1815,
-        harden + account,
-        role.derivationIndex,
-        address
-      ],
+      harden + 1852,
+      harden + 1815,
+      harden + account,
+      role.derivationIndex,
+      address,
+    ],
     LedgerSigningPath_CIP36(account: final account, address: final address) => [
-        harden + 1694,
-        harden + 1815,
-        harden + account,
-        0,
-        address
-      ],
+      harden + 1694,
+      harden + 1815,
+      harden + account,
+      0,
+      address,
+    ],
     LedgerSigningPath_Custom(path: final path) => path,
   };
 }

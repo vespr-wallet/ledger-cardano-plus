@@ -118,7 +118,7 @@ class _MyAppState extends State<MyApp> {
                   color: Colors.redAccent,
                   fontWeight: FontWeight.bold,
                 ),
-              )
+              ),
           ],
         ),
       );
@@ -251,15 +251,17 @@ class _MyAppState extends State<MyApp> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(resultTitle ?? "[Operation]",
-                          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                      Text(
+                        resultTitle ?? "[Operation]",
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      ),
                       const Divider(),
                       const SizedBox(height: 4),
                       Text(resultData ?? "[Ledger Result]"),
                       if (resultData == _awaitingLedgerResponse) ...[
                         const SizedBox(height: 16),
                         const CircularProgressIndicator(),
-                      ]
+                      ],
                     ],
                   ),
                 ),

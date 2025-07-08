@@ -144,8 +144,10 @@ Future<String> fetchReceiveAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address =
-          await cardanoApp.deriveReceiveAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+      final address = await cardanoApp.deriveReceiveAddress(
+        addressIndex: addressIndex,
+        network: CardanoNetwork.mainnet(),
+      );
       receiveAddress.add("Receive Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -164,8 +166,10 @@ Future<String> fetchChangeAddresses(
   try {
     final List<String> receiveAddress = [];
     for (final addressIndex in addressIndices) {
-      final address =
-          await cardanoApp.deriveChangeAddress(addressIndex: addressIndex, network: CardanoNetwork.mainnet());
+      final address = await cardanoApp.deriveChangeAddress(
+        addressIndex: addressIndex,
+        network: CardanoNetwork.mainnet(),
+      );
       receiveAddress.add("Change Address (1852'/1815'/0'/0/$addressIndex)\n$address");
     }
 
@@ -222,55 +226,59 @@ Future<String> deriveComplexNativeScriptHash(CardanoLedgerConnection cardanoApp)
   try {
     // Constructing the complex script
     final complexScript = ParsedNativeScript.complex(
-      ParsedComplexNativeScript.all(scripts: [
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.pubKeyThirdParty(
-            keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
-          ),
-        ),
-        ParsedNativeScript.complex(
-          ParsedComplexNativeScript.any(scripts: [
-            ParsedNativeScript.simple(
-              ParsedSimpleNativeScript.pubKeyThirdParty(
-                keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
-              ),
+      ParsedComplexNativeScript.all(
+        scripts: [
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.pubKeyThirdParty(
+              keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
             ),
-            ParsedNativeScript.simple(
-              ParsedSimpleNativeScript.pubKeyThirdParty(
-                keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
-              ),
-            ),
-          ]),
-        ),
-        ParsedNativeScript.complex(
-          ParsedComplexNativeScript.nOfK(
-            requiredCount: 2,
-            scripts: [
-              ParsedNativeScript.simple(
-                ParsedSimpleNativeScript.pubKeyThirdParty(
-                  keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
-                ),
-              ),
-              ParsedNativeScript.simple(
-                ParsedSimpleNativeScript.pubKeyThirdParty(
-                  keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
-                ),
-              ),
-              ParsedNativeScript.simple(
-                ParsedSimpleNativeScript.pubKeyThirdParty(
-                  keyHashHex: 'cecb1d427c4ae436d28cc0f8ae9bb37501a5b77bcc64cd1693e9ae20',
-                ),
-              ),
-            ],
           ),
-        ),
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.invalidBefore(slot: BigInt.from(100)),
-        ),
-        ParsedNativeScript.simple(
-          ParsedSimpleNativeScript.invalidHereafter(slot: BigInt.from(200)),
-        ),
-      ]),
+          ParsedNativeScript.complex(
+            ParsedComplexNativeScript.any(
+              scripts: [
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+                  ),
+                ),
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ParsedNativeScript.complex(
+            ParsedComplexNativeScript.nOfK(
+              requiredCount: 2,
+              scripts: [
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: 'c4b9265645fde9536c0795adbcc5291767a0c61fd62448341d7e0386',
+                  ),
+                ),
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: '0241f2d196f52a92fbd2183d03b370c30b6960cfdeae364ffabac889',
+                  ),
+                ),
+                ParsedNativeScript.simple(
+                  ParsedSimpleNativeScript.pubKeyThirdParty(
+                    keyHashHex: 'cecb1d427c4ae436d28cc0f8ae9bb37501a5b77bcc64cd1693e9ae20',
+                  ),
+                ),
+              ],
+            ),
+          ),
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.invalidBefore(slot: BigInt.from(100)),
+          ),
+          ParsedNativeScript.simple(
+            ParsedSimpleNativeScript.invalidHereafter(slot: BigInt.from(200)),
+          ),
+        ],
+      ),
     );
 
     // Deriving the script hash

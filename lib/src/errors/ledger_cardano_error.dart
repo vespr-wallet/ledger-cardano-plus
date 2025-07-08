@@ -21,29 +21,23 @@ sealed class LedgerCardanoResponseCodeException implements Exception {
   });
 
   static LedgerCardanoResponseCodeException fromLedgerStatusCode(int statusCode) => switch (statusCode) {
-        // 0x6E01 => MalformedRequestHeaderException(),
-        // 0x6E00 on eth/btc app
-        // 0x6E01 on no app opened
-        // 0x6A81 on solana app
-        0x6E00 ||
-        0x6E01 ||
-        0x6a80 ||
-        0x6A81 ||
-        0x6A15 ||
-        0x6511 =>
-          WrongAppOpenedException(ledgerStatusCode: statusCode),
-        0x6E02 => BadClaException(),
-        0x6E03 => UnknownInstructionException(),
-        0x6E04 => StillInCallException(),
-        0x6E05 => InvalidRequestParametersException(),
-        0x6E06 => InvalidStateException(),
-        0x6E07 => InvalidDataException(),
-        0x6E08 => InvalidBip44PathException(),
-        0x6E09 => UserRejectedException(),
-        0x6E10 => PolicyRejectedException(),
-        0x6E11 || 0x6B0C || 0x5515 => DeviceLockedException(),
-        _ => UnknownResponseCodeException(ledgerStatusCode: statusCode),
-      };
+    // 0x6E01 => MalformedRequestHeaderException(),
+    // 0x6E00 on eth/btc app
+    // 0x6E01 on no app opened
+    // 0x6A81 on solana app
+    0x6E00 || 0x6E01 || 0x6a80 || 0x6A81 || 0x6A15 || 0x6511 => WrongAppOpenedException(ledgerStatusCode: statusCode),
+    0x6E02 => BadClaException(),
+    0x6E03 => UnknownInstructionException(),
+    0x6E04 => StillInCallException(),
+    0x6E05 => InvalidRequestParametersException(),
+    0x6E06 => InvalidStateException(),
+    0x6E07 => InvalidDataException(),
+    0x6E08 => InvalidBip44PathException(),
+    0x6E09 => UserRejectedException(),
+    0x6E10 => PolicyRejectedException(),
+    0x6E11 || 0x6B0C || 0x5515 => DeviceLockedException(),
+    _ => UnknownResponseCodeException(ledgerStatusCode: statusCode),
+  };
 }
 
 class WrongAppOpenedException extends LedgerCardanoResponseCodeException {

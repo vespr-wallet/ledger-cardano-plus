@@ -74,26 +74,26 @@ class _AvailableDevicesState extends State<AvailableDevices> {
                   ),
                 )
               : devices.isEmpty
-                  ? const Padding(
-                      padding: EdgeInsets.only(top: 36, bottom: 12),
-                      child: CircularProgressIndicator(),
-                    )
-                  : Flexible(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.min,
-                          children: devices
-                              .map<Widget>(
-                                (device) => ListTile(
-                                  title: Text(device.name),
-                                  subtitle: Text(device.id),
-                                  onTap: () => Navigator.of(context).maybePop(device),
-                                ),
-                              )
-                              .toList(),
-                        ),
-                      ),
+              ? const Padding(
+                  padding: EdgeInsets.only(top: 36, bottom: 12),
+                  child: CircularProgressIndicator(),
+                )
+              : Flexible(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: devices
+                          .map<Widget>(
+                            (device) => ListTile(
+                              title: Text(device.name),
+                              subtitle: Text(device.id),
+                              onTap: () => Navigator.of(context).maybePop(device),
+                            ),
+                          )
+                          .toList(),
                     ),
+                  ),
+                ),
           // ListView.separated(
           //   shrinkWrap: true,
           //   physics: const NeverScrollableScrollPhysics(),

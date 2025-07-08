@@ -53,22 +53,28 @@ class CardanoSignCVoteOperation extends LedgerComplexOperation<SignedCIP36VoteDa
     while (start < votecastBytes.length) {
       end = votecastBytes.length < start + maxVotecastChunkSize ? votecastBytes.length : start + maxVotecastChunkSize;
 
-      await send(_createSendOperation(
-        p1: p1StageChunk,
-        data: Uint8List.fromList(votecastBytes.sublist(start, end)),
-      ));
+      await send(
+        _createSendOperation(
+          p1: p1StageChunk,
+          data: Uint8List.fromList(votecastBytes.sublist(start, end)),
+        ),
+      );
       start = end;
     }
 
-    final confirmResponse = await send(_createSendOperation(
-      p1: p1StageConfirmVote,
-      data: Uint8List(0),
-    ));
+    final confirmResponse = await send(
+      _createSendOperation(
+        p1: p1StageConfirmVote,
+        data: Uint8List(0),
+      ),
+    );
 
-    final witnessResponse = await send(_createSendOperation(
-      p1: p1StageWitness,
-      data: SerializationUtils.pathToBuf(cVote.witnessPath.signingPath),
-    ));
+    final witnessResponse = await send(
+      _createSendOperation(
+        p1: p1StageWitness,
+        data: SerializationUtils.pathToBuf(cVote.witnessPath.signingPath),
+      ),
+    );
 
     return SignedCIP36VoteData(
       dataHashHex: hex.encode(confirmResponse.read(votecastHashLength)),

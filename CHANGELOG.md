@@ -1,3 +1,7 @@
+## 0.5.7
+
+- Added **signMessage** support (part of [CardanoLedgerConnection])
+
 ## 0.5.6
 
 - Updated Flutter SDK to 3.32.4 and Dart SDK to ">=3.8.0 <4.0.0"

@@ -1,6 +1,7 @@
 import "package:freezed_annotation/freezed_annotation.dart";
 import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart";
 
+import "../utils/utilities.dart";
 import "ledger_signing_path.dart";
 import "parsed_address_params.dart";
 
@@ -8,7 +9,9 @@ part "parsed_message_data.freezed.dart";
 
 @freezed
 sealed class ParsedMessageData with _$ParsedMessageData {
-  ParsedMessageData._();
+  ParsedMessageData._() {
+    validateHexString(messageHex, "ParsedMessageData.messageHex");
+  }
 
   factory ParsedMessageData.address({
     required String messageHex,

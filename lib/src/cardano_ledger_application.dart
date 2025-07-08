@@ -1,6 +1,7 @@
 import "dart:async";
 import "dart:typed_data";
 
+import "package:flutter/foundation.dart";
 import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
 
 import "../ledger_cardano_plus_models.dart";
@@ -25,7 +26,7 @@ CardanoLedger? _cardanoLedgerBle;
 CardanoLedger? _cardanoLedgerUsb;
 
 class CardanoLedger {
-  static bool debugPrintEnabled = false;
+  static bool debugPrintEnabled = kDebugMode;
 
   final LedgerConnectionType connectionType;
   final sdk.LedgerInterface ledger;
@@ -67,7 +68,11 @@ class CardanoLedger {
       case LedgerConnectionType.usb:
         _cardanoLedgerUsb = null;
     }
-    unawaited(ledger.dispose());
+    await ledger.dispose().catchError((err) {
+      if (debugPrintEnabled) {
+        debugPrint("Error disposing ledger: $err");
+      }
+    });
   }
 }
 

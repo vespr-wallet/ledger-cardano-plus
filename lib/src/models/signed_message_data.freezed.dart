@@ -14,7 +14,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SignedMessageData {
 
- String get signatureHex; String get signingPublicKeyHex; String get addressFieldHex;
+ String get signatureHex; String get signingPublicKeyHex; String get addressFieldHex; DataSignatureType get signatureType;
 /// Create a copy of SignedMessageData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +25,16 @@ $SignedMessageDataCopyWith<SignedMessageData> get copyWith => _$SignedMessageDat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex)&&(identical(other.signatureType, signatureType) || other.signatureType == signatureType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex);
+int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex,signatureType);
 
 @override
 String toString() {
-  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex)';
+  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex, signatureType: $signatureType)';
 }
 
 
@@ -45,7 +45,7 @@ abstract mixin class $SignedMessageDataCopyWith<$Res>  {
   factory $SignedMessageDataCopyWith(SignedMessageData value, $Res Function(SignedMessageData) _then) = _$SignedMessageDataCopyWithImpl;
 @useResult
 $Res call({
- String signatureHex, String signingPublicKeyHex, String addressFieldHex
+ String signatureHex, String signingPublicKeyHex, String addressFieldHex, DataSignatureType signatureType
 });
 
 
@@ -62,12 +62,13 @@ class _$SignedMessageDataCopyWithImpl<$Res>
 
 /// Create a copy of SignedMessageData
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? signatureHex = null,Object? signingPublicKeyHex = null,Object? addressFieldHex = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? signatureHex = null,Object? signingPublicKeyHex = null,Object? addressFieldHex = null,Object? signatureType = null,}) {
   return _then(_self.copyWith(
 signatureHex: null == signatureHex ? _self.signatureHex : signatureHex // ignore: cast_nullable_to_non_nullable
 as String,signingPublicKeyHex: null == signingPublicKeyHex ? _self.signingPublicKeyHex : signingPublicKeyHex // ignore: cast_nullable_to_non_nullable
 as String,addressFieldHex: null == addressFieldHex ? _self.addressFieldHex : addressFieldHex // ignore: cast_nullable_to_non_nullable
-as String,
+as String,signatureType: null == signatureType ? _self.signatureType : signatureType // ignore: cast_nullable_to_non_nullable
+as DataSignatureType,
   ));
 }
 
@@ -79,12 +80,13 @@ as String,
 
 
 class _SignedMessageData implements SignedMessageData {
-  const _SignedMessageData({required this.signatureHex, required this.signingPublicKeyHex, required this.addressFieldHex});
+  const _SignedMessageData({required this.signatureHex, required this.signingPublicKeyHex, required this.addressFieldHex, required this.signatureType});
   
 
 @override final  String signatureHex;
 @override final  String signingPublicKeyHex;
 @override final  String addressFieldHex;
+@override final  DataSignatureType signatureType;
 
 /// Create a copy of SignedMessageData
 /// with the given fields replaced by the non-null parameter values.
@@ -96,16 +98,16 @@ _$SignedMessageDataCopyWith<_SignedMessageData> get copyWith => __$SignedMessage
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex)&&(identical(other.signatureType, signatureType) || other.signatureType == signatureType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex);
+int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex,signatureType);
 
 @override
 String toString() {
-  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex)';
+  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex, signatureType: $signatureType)';
 }
 
 
@@ -116,7 +118,7 @@ abstract mixin class _$SignedMessageDataCopyWith<$Res> implements $SignedMessage
   factory _$SignedMessageDataCopyWith(_SignedMessageData value, $Res Function(_SignedMessageData) _then) = __$SignedMessageDataCopyWithImpl;
 @override @useResult
 $Res call({
- String signatureHex, String signingPublicKeyHex, String addressFieldHex
+ String signatureHex, String signingPublicKeyHex, String addressFieldHex, DataSignatureType signatureType
 });
 
 
@@ -133,12 +135,13 @@ class __$SignedMessageDataCopyWithImpl<$Res>
 
 /// Create a copy of SignedMessageData
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? signatureHex = null,Object? signingPublicKeyHex = null,Object? addressFieldHex = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? signatureHex = null,Object? signingPublicKeyHex = null,Object? addressFieldHex = null,Object? signatureType = null,}) {
   return _then(_SignedMessageData(
 signatureHex: null == signatureHex ? _self.signatureHex : signatureHex // ignore: cast_nullable_to_non_nullable
 as String,signingPublicKeyHex: null == signingPublicKeyHex ? _self.signingPublicKeyHex : signingPublicKeyHex // ignore: cast_nullable_to_non_nullable
 as String,addressFieldHex: null == addressFieldHex ? _self.addressFieldHex : addressFieldHex // ignore: cast_nullable_to_non_nullable
-as String,
+as String,signatureType: null == signatureType ? _self.signatureType : signatureType // ignore: cast_nullable_to_non_nullable
+as DataSignatureType,
   ));
 }
 

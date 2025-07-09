@@ -30,6 +30,7 @@ void main() {
         expectVespr(result.signatureHex, equals(testCase.expected.signatureHex));
         expectVespr(result.signingPublicKeyHex, equals(testCase.expected.signingPublicKeyHex));
         expectVespr(result.addressFieldHex, equals(testCase.expected.addressFieldHex));
+        expectVespr(result.signatureType, equals(testCase.expected.signatureType));
       });
     }
   });

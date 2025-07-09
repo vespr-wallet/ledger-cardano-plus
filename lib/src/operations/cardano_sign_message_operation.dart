@@ -129,6 +129,7 @@ class CardanoSignMessageOperation extends LedgerComplexOperation<SignedMessageDa
       signatureHex: signatureHex,
       signingPublicKeyHex: signingPublicKeyHex,
       addressFieldHex: addressFieldHex,
+      signatureType: msgData.hashPayload ? DataSignatureType.payload_black2b_hash_28_bytes : DataSignatureType.paylod,
     );
   }
 }

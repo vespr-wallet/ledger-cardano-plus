@@ -1,3 +1,7 @@
+## 0.5.8
+
+- Added **[SignedMessageData]** now includes info on what was signed (payload or its hash)
+
 ## 0.5.7
 
 - Added **signMessage** support (part of [CardanoLedgerConnection])

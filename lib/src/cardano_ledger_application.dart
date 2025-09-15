@@ -1,5 +1,4 @@
 import "dart:async";
-import "dart:typed_data";
 
 import "package:flutter/foundation.dart";
 import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;

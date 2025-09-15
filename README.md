@@ -133,7 +133,10 @@ To run the integration tests for the `ledger-cardano-plus` SDK, follow these ste
    cd example/integration_test
    ```
 
-4. **Run the Tests:**
+4. **Set up ledger device with correct test recovery phrase**
+   - abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon about
+
+5. **Run the Tests:**
 
    - Use the following Flutter command to execute all the integration tests:
 

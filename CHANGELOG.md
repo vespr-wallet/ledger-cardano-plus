@@ -1,3 +1,7 @@
+## 0.5.9
+
+- Updated deps
+
 ## 0.5.8
 
 - Added **[SignedMessageData]** now includes info on what was signed (payload or its hash)

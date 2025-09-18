@@ -213,23 +213,23 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.5.8"
+    version: "0.5.9"
   ledger_flutter_plus:
     dependency: "direct main"
     description:
       name: ledger_flutter_plus
-      sha256: adc6ea21a6235b2a5851d05d41746d64b999fdd7ed070be50b60783f85423e01
+      sha256: "66a9ac7e7706a2cda447d07e2ddc26d37e67297ffdfb0defa684f3c2936a38e1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.4"
+    version: "1.5.5"
   ledger_usb_plus:
     dependency: transitive
     description:
       name: ledger_usb_plus
-      sha256: "21cc5d976cf7edb3518bd2a0c4164139cbb0817d2e4f2054707fc4edfdf9ce87"
+      sha256: "2de0fa4b882471842d795e6a8520cfdb24e7d7bff11094092ebffa020624e664"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
+    version: "1.0.5"
   lints:
     dependency: transitive
     description:
@@ -330,10 +330,10 @@ packages:
     dependency: transitive
     description:
       name: petitparser
-      sha256: "07c8f0b1913bcde1ff0d26e57ace2f3012ccbf2b204e070290dad3bb22797646"
+      sha256: "1a97266a94f7350d30ae522c0af07890c70b8e62c71e8e3920d1db4d23c057d1"
       url: "https://pub.dev"
     source: hosted
-    version: "6.1.0"
+    version: "7.0.1"
   platform:
     dependency: transitive
     description:
@@ -439,10 +439,10 @@ packages:
     dependency: transitive
     description:
       name: universal_ble
-      sha256: a253dbb5c0b161738660e78588b26e14312c26fb441db31aee22062f5731f319
+      sha256: "6a5c6c1fb295015934a5aef3dc751ae7e00721535275f8478bfe74db77b238c5"
       url: "https://pub.dev"
     source: hosted
-    version: "0.20.2"
+    version: "0.21.1"
   universal_platform:
     dependency: transitive
     description:
@@ -487,10 +487,10 @@ packages:
     dependency: transitive
     description:
       name: xml
-      sha256: b015a8ad1c488f66851d762d3090a21c600e479dc75e68328c52774040cf9226
+      sha256: "971043b3a0d3da28727e40ed3e0b5d18b742fa5a68665cca88e74b7876d5e025"
       url: "https://pub.dev"
     source: hosted
-    version: "6.5.0"
+    version: "6.6.1"
 sdks:
   dart: ">=3.8.0 <4.0.0"
   flutter: ">=3.32.0"

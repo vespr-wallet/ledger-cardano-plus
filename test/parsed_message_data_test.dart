@@ -21,78 +21,108 @@ void main() {
     group('hex validation', () {
       test('should accept valid hex strings', () {
         // Empty string should be valid
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), returnsNormally);
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          returnsNormally,
+        );
 
-                 // Valid even-length hex
-         expect(() => ParsedMessageData.keyHash(
-           messageHex: '68656c6c6f20',
-           signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-           hashPayload: false,
-         ), returnsNormally);
+        // Valid even-length hex
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '68656c6c6f20',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          returnsNormally,
+        );
 
         // Uppercase hex
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: 'DEADBEEF',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), returnsNormally);
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: 'DEADBEEF',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          returnsNormally,
+        );
 
         // Mixed case hex
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '0123456789abcdefABCDEF',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), returnsNormally);
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '0123456789abcdefABCDEF',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          returnsNormally,
+        );
 
         // Address variant should also work
-        expect(() => ParsedMessageData.address(
-          messageHex: 'deadbeef',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-          address: testAddress,
-        ), returnsNormally);
+        expect(
+          () => ParsedMessageData.address(
+            messageHex: 'deadbeef',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+            address: testAddress,
+          ),
+          returnsNormally,
+        );
       });
 
       test('should reject invalid hex strings', () {
         // Odd length
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '123',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), throwsA(isA<LedgerCardanoValidationException>()));
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '123',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          throwsA(isA<LedgerCardanoValidationException>()),
+        );
 
         // Invalid characters
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '12g4',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), throwsA(isA<LedgerCardanoValidationException>()));
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '12g4',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          throwsA(isA<LedgerCardanoValidationException>()),
+        );
 
         // Space in hex
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '12 34',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), throwsA(isA<LedgerCardanoValidationException>()));
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '12 34',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          throwsA(isA<LedgerCardanoValidationException>()),
+        );
 
         // Special characters
-        expect(() => ParsedMessageData.keyHash(
-          messageHex: '12@4',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-        ), throwsA(isA<LedgerCardanoValidationException>()));
+        expect(
+          () => ParsedMessageData.keyHash(
+            messageHex: '12@4',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+          ),
+          throwsA(isA<LedgerCardanoValidationException>()),
+        );
 
         // Address variant should also reject invalid hex
-        expect(() => ParsedMessageData.address(
-          messageHex: 'invalid',
-          signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
-          hashPayload: false,
-          address: testAddress,
-        ), throwsA(isA<LedgerCardanoValidationException>()));
+        expect(
+          () => ParsedMessageData.address(
+            messageHex: 'invalid',
+            signingPath: LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.payment),
+            hashPayload: false,
+            address: testAddress,
+          ),
+          throwsA(isA<LedgerCardanoValidationException>()),
+        );
       });
     });
 
@@ -226,10 +256,10 @@ void main() {
         expect(messageData.messageHex, equals('deadbeef'));
         expect(messageData.hashPayload, equals(false));
         expect(messageData.preferHexDisplay, equals(false));
-        
+
         // Test runtime type
         expect(messageData, isA<ParsedMessageDataAddress>());
-        
+
         // Access address-specific field
         if (messageData is ParsedMessageDataAddress) {
           expect(messageData.address, equals(testAddress));
@@ -250,7 +280,7 @@ void main() {
         expect(messageData.messageHex, equals('deadbeef'));
         expect(messageData.hashPayload, equals(true));
         expect(messageData.preferHexDisplay, equals(true));
-        
+
         // Test runtime type
         expect(messageData, isA<ParsedMessageDataKeyHash>());
       });
@@ -293,4 +323,4 @@ void main() {
       });
     });
   });
-} 
+}

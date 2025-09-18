@@ -231,15 +231,12 @@ enum CIP36VoteRegistrationFormat {
 
 enum RelayType {
   /// Relay is a single host specified with IPv4 or IPv6
-  /// @see [SingleHostIpAddrRelayParams]
   singleHostIpAddr(0),
 
   /// Relay is a single host specified as dns name
-  /// @see [SingleHostHostnameRelayParams]
   singleHostname(1),
 
   /// Relay is multiple hosts reachable under dns name
-  /// @see [MultiHostRelayParams]
   multiHost(2);
 
   final int value;

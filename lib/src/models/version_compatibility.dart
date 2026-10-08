@@ -55,7 +55,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     }
 
     return VersionCompatibility(
-      recommendedVersion: isVersionAtLeast(2, 2) ? null : "7.0",
+      recommendedVersion: isVersionAtLeast(2, 2) ? null : "8.0",
       isCompatible: isVersionAtLeast(2, 2),
       supportsPoolRegistrationAsOwner: isVersionAtLeast(2, 2) && !isAppXS,
       supportsByronAddressDerivation: isVersionAtLeast(2, 2) && !isAppXS,

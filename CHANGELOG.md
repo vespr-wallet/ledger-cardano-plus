@@ -12,7 +12,7 @@
 - Fixed the missing witness count when signing on app versions older than 5.0
 - Fixed duplicate witnesses when the same path is given as different `LedgerSigningPath` variants
 - Fixed compressed IPv6 relay addresses (e.g. `2001:db8::1`) failing to parse
-- Fixed several version errors naming the wrong minimum version
+- Fixed several version errors naming the wrong minimum version; `recommendedVersion` for unsupported apps is now 8.0
 - Updated Flutter to 3.47.6, freezed to 4.0.2, and the example app dependencies
 
 ## 0.5.10

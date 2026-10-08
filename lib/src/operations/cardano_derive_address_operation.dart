@@ -14,9 +14,13 @@ class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
   final ParsedAddressParams params;
   final CardanoNetwork network;
 
+  /// Also shows the address on the device and waits for the user to confirm it
+  final bool display;
+
   const CardanoDeriveAddressOperation({
     required this.params,
     required this.network,
+    this.display = false,
   });
 
   @override
@@ -36,6 +40,21 @@ class CardanoDeriveAddressOperation extends LedgerComplexOperation<String> {
     );
 
     final addressBytes = response.read(response.remainingLength);
+
+    if (display) {
+      await send(
+        LedgerSimpleOperation(
+          cla: claCardano,
+          ins: InstructionType.deriveAddress.insValue,
+          p1: p1DisplayOnDevice,
+          p2: p2Unused,
+          data: data,
+          prependDataLength: true,
+          debugName: "Show Address",
+        ),
+      );
+    }
+
     return hex.encode(addressBytes);
   }
 

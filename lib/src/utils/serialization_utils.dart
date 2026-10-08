@@ -560,7 +560,8 @@ List<LedgerSigningPath> uniquify(List<LedgerSigningPath> paths) {
   const eq = DeepCollectionEquality();
   final List<LedgerSigningPath> finalPaths = [];
   for (final path in paths) {
-    if (finalPaths.none((addedPath) => eq.equals(addedPath, path))) {
+    // compare the raw paths: .shelley(...) and .custom([...]) can describe the same key
+    if (finalPaths.none((addedPath) => eq.equals(addedPath.signingPath, path.signingPath))) {
       finalPaths.add(path);
     }
   }

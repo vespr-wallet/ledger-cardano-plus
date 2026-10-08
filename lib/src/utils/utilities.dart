@@ -14,41 +14,10 @@ Uint8List useBinaryWriter(Uint8List Function(ByteDataWriter writer) invoker) {
 
 Uint8List ipStringToBytes(String ipString) {
   try {
-    if (ipString.contains(".")) {
-      // IPv4 address
-      final List<String> parts = ipString.split(".");
-      if (parts.length != 4) {
-        throw LedgerCardanoValidationException("Invalid IPv4 string format");
-      }
-
-      final Uint8List bytes = Uint8List(4);
-      for (int i = 0; i < 4; i++) {
-        final int part = int.parse(parts[i]);
-        if (part < 0 || part > 255) {
-          throw LedgerCardanoValidationException("Invalid IPv4 address range");
-        }
-        bytes[i] = part;
-      }
-
-      return bytes;
-    } else if (ipString.contains(":")) {
-      // IPv6 address
-      final List<String> parts = ipString.split(":");
-      if (parts.length != 8) {
-        throw LedgerCardanoValidationException("Invalid IPv6 string format");
-      }
-
-      final Uint8List bytes = Uint8List(16);
-      for (int i = 0; i < 8; i++) {
-        final int part = int.parse(parts[i], radix: 16);
-        bytes[i * 2] = (part >> 8) & 0xFF;
-        bytes[i * 2 + 1] = part & 0xFF;
-      }
-
-      return bytes;
-    } else {
-      throw LedgerCardanoValidationException("Invalid IP address format");
-    }
+    // IPv6 first so embedded IPv4 ("::ffff:1.2.3.4") stays IPv6; the stdlib parser also handles "::" compression
+    return Uint8List.fromList(
+      ipString.contains(":") ? Uri.parseIPv6Address(ipString) : Uri.parseIPv4Address(ipString),
+    );
   } catch (e) {
     throw LedgerCardanoValidationException("Error converting IP string to bytes: $e");
   }

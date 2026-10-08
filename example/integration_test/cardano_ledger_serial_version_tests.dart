@@ -56,7 +56,7 @@ void main() {
 
         // Flags present in both v7 and v8
         expectVespr(compatibility.isCompatible, isTrue);
-        expectVespr(compatibility.recommendedVersion, equals(">=7.2.1"));
+        expectVespr(compatibility.recommendedVersion, isNull);
         expectVespr(compatibility.supportsByronAddressDerivation, equals(!version.flags.isAppXS));
         expectVespr(compatibility.supportsMary, isTrue);
         expectVespr(compatibility.supportsCatalystRegistration, isTrue);
@@ -78,7 +78,9 @@ void main() {
         // v8-only flags
         final isV8 = version.versionMajor >= 8;
         expectVespr(compatibility.supportsCombinedCerts, equals(isV8));
-        expectVespr(compatibility.supportsUnrestrictedTransaction, equals(isV8 && !version.flags.isAppXS));
+        expectVespr(compatibility.supportsUnrestrictedTransaction, equals(isV8));
+        expectVespr(compatibility.supportsMultipleVoters, equals(isV8));
+        expectVespr(compatibility.supportsMultipleVotesPerVoter, equals(isV8));
       } catch (e, st) {
         fail('Error fetching version: $e\n$st');
       }

@@ -38,41 +38,47 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     required bool supportsMessageSigning,
     required bool supportsUnrestrictedTransaction,
     required bool supportsCombinedCerts,
+    required bool supportsMultipleVoters,
+    required bool supportsMultipleVotesPerVoter,
   }) = _VersionCompatibility;
   const VersionCompatibility._();
 
   factory VersionCompatibility.checkVersionCompatibility(CardanoVersion version) {
-    final isAppXS = version.flags.isAppXS;
     final int major = version.versionMajor;
     final int minor = version.versionMinor;
+    // XS (Nano S) builds only exist for v7, so v8+ apps are never restricted by it
+    final isAppXS = version.flags.isAppXS && major < 8;
 
-    bool isVersionInRange(int minMajor, int minMinor, [int maxMajor = 8]) {
-      return (major > minMajor || (major == minMajor && minor >= minMinor)) && major <= maxMajor;
+    // No upper bound: like the JS SDK, every app from 8.0 on is treated as v8
+    bool isVersionAtLeast(int minMajor, int minMinor) {
+      return major > minMajor || (major == minMajor && minor >= minMinor);
     }
 
     return VersionCompatibility(
-      recommendedVersion: ">=7.2.1",
-      isCompatible: isVersionInRange(2, 2),
-      supportsPoolRegistrationAsOwner: isVersionInRange(2, 2) && !isAppXS,
-      supportsByronAddressDerivation: isVersionInRange(2, 2) && !isAppXS,
-      supportsMary: isVersionInRange(2, 2),
-      supportsCatalystRegistration: isVersionInRange(2, 3),
-      supportsZeroTtl: isVersionInRange(2, 3),
-      supportsPoolRegistrationAsOperator: isVersionInRange(2, 4) && !isAppXS,
-      supportsOperationalCertificateSigning: isVersionInRange(2, 4),
-      supportsPoolRetirement: isVersionInRange(2, 4) && !isAppXS,
-      supportsNativeScriptHashDerivation: isVersionInRange(3, 0) && !isAppXS,
-      supportsMultisigTransaction: isVersionInRange(3, 0),
-      supportsMint: isVersionInRange(3, 0),
-      supportsAlonzo: isVersionInRange(4, 0),
-      supportsReqSignersInOrdinaryTx: isVersionInRange(4, 1),
-      supportsBabbage: isVersionInRange(5, 0),
-      supportsCIP36: isVersionInRange(6, 0),
-      supportsCIP36Vote: isVersionInRange(6, 0),
-      supportsConway: isVersionInRange(7, 0),
-      supportsMessageSigning: isVersionInRange(7, 1),
-      supportsUnrestrictedTransaction: isVersionInRange(8, 0) && !isAppXS,
-      supportsCombinedCerts: isVersionInRange(8, 0),
+      recommendedVersion: isVersionAtLeast(2, 2) ? null : "7.0",
+      isCompatible: isVersionAtLeast(2, 2),
+      supportsPoolRegistrationAsOwner: isVersionAtLeast(2, 2) && !isAppXS,
+      supportsByronAddressDerivation: isVersionAtLeast(2, 2) && !isAppXS,
+      supportsMary: isVersionAtLeast(2, 2),
+      supportsCatalystRegistration: isVersionAtLeast(2, 3),
+      supportsZeroTtl: isVersionAtLeast(2, 3),
+      supportsPoolRegistrationAsOperator: isVersionAtLeast(2, 4) && !isAppXS,
+      supportsOperationalCertificateSigning: isVersionAtLeast(2, 4) && !isAppXS,
+      supportsPoolRetirement: isVersionAtLeast(2, 4) && !isAppXS,
+      supportsNativeScriptHashDerivation: isVersionAtLeast(3, 0) && !isAppXS,
+      supportsMultisigTransaction: isVersionAtLeast(3, 0),
+      supportsMint: isVersionAtLeast(3, 0),
+      supportsAlonzo: isVersionAtLeast(4, 0),
+      supportsReqSignersInOrdinaryTx: isVersionAtLeast(4, 1),
+      supportsBabbage: isVersionAtLeast(5, 0),
+      supportsCIP36: isVersionAtLeast(6, 0),
+      supportsCIP36Vote: isVersionAtLeast(6, 0),
+      supportsConway: isVersionAtLeast(7, 0),
+      supportsMessageSigning: isVersionAtLeast(7, 1),
+      supportsUnrestrictedTransaction: isVersionAtLeast(8, 0),
+      supportsCombinedCerts: isVersionAtLeast(8, 0),
+      supportsMultipleVoters: isVersionAtLeast(8, 0),
+      supportsMultipleVotesPerVoter: isVersionAtLeast(8, 0),
     );
   }
 
@@ -184,6 +190,23 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
+    if ((request.tx.votingProcedures?.length ?? 0) > 1 && !compatibility.supportsMultipleVoters) {
+      throw LedgerCardanoVersionNotSupported(
+        message: "Multiple voters in voting procedures",
+        wantedVersion: ">=8.0.0",
+        era: "Conway",
+      );
+    }
+
+    final hasMultipleVotesPerVoter = request.tx.votingProcedures?.any((v) => v.votes.length > 1) ?? false;
+    if (hasMultipleVotesPerVoter && !compatibility.supportsMultipleVotesPerVoter) {
+      throw LedgerCardanoVersionNotSupported(
+        message: "Multiple votes per voter in voting procedures",
+        wantedVersion: ">=8.0.0",
+        era: "Conway",
+      );
+    }
+
     if (request.tx.mint != null && !compatibility.supportsMint) {
       throw LedgerCardanoVersionNotSupported(
         message: "Mint",
@@ -196,7 +219,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     if (hasMapFormatInOutputs && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Map CBOR output(s)",
-        wantedVersion: ">=6.0.0",
+        wantedVersion: ">=5.0.0",
         era: "Babbage",
       );
     }
@@ -204,7 +227,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     if (request.tx.collateralOutput != null && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Collateral output",
-        wantedVersion: ">=6.0.0",
+        wantedVersion: ">=5.0.0",
         era: "Babbage",
       );
     }
@@ -212,7 +235,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     if (request.tx.totalCollateral != null && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Total collateral",
-        wantedVersion: ">=6.0.0",
+        wantedVersion: ">=5.0.0",
         era: "Babbage",
       );
     }
@@ -220,7 +243,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     if (request.tx.referenceInputs?.isNotEmpty == true && !compatibility.supportsBabbage) {
       throw LedgerCardanoVersionNotSupported(
         message: "Reference inputs",
-        wantedVersion: ">=6.0.0",
+        wantedVersion: ">=5.0.0",
         era: "Babbage",
       );
     }
@@ -283,7 +306,7 @@ sealed class VersionCompatibility with _$VersionCompatibility {
     }
 
     final hasKeyPath = switch (auxiliaryData) {
-      CIP36Registration(params: ParsedCVoteRegistrationParams()) => true,
+      CIP36Registration(params: ParsedCVoteRegistrationParams(votePublicKeyPath: != null)) => true,
       _ => false,
     };
     if (hasKeyPath && !compatibility.supportsCIP36Vote) {

@@ -43,7 +43,6 @@ sealed class ParsedDRep with _$ParsedDRep {
 
   factory ParsedDRep.noConfidence() = DRepNoConfidence;
 
-  @override
   late final int serializationType = switch (this) {
     DRepKeyHash() => 0,
     DRepKeyPath() => 100,

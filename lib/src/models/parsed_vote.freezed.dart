@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_vote.dart';
@@ -9,6 +9,7 @@ part of 'parsed_vote.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedVoteCopyWith<ParsedVote> get copyWith => _$ParsedVoteCopyWithImpl<ParsedV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVote&&(identical(other.govActionId, govActionId) || other.govActionId == govActionId)&&(identical(other.votingProcedure, votingProcedure) || other.votingProcedure == votingProcedure));
+  final _this = this as ParsedVote;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVote&&(identical(other.govActionId, _this.govActionId) || other.govActionId == _this.govActionId)&&(identical(other.votingProcedure, _this.votingProcedure) || other.votingProcedure == _this.votingProcedure));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,govActionId,votingProcedure);
+int get hashCode {
+  final _this = this as ParsedVote;
+  return Object.hash(runtimeType,_this.govActionId,_this.votingProcedure);
+}
 
 @override
 String toString() {
-  return 'ParsedVote(govActionId: $govActionId, votingProcedure: $votingProcedure)';
+  final _this = this as ParsedVote;
+  return 'ParsedVote(govActionId: ${_this.govActionId}, votingProcedure: ${_this.votingProcedure})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedVoteCopyWithImpl<$Res>
 /// Create a copy of ParsedVote
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? govActionId = null,Object? votingProcedure = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedVote(
 govActionId: null == govActionId ? _self.govActionId : govActionId // ignore: cast_nullable_to_non_nullable
 as ParsedGovActionId,votingProcedure: null == votingProcedure ? _self.votingProcedure : votingProcedure // ignore: cast_nullable_to_non_nullable
 as ParsedVotingProcedure,
@@ -112,16 +118,18 @@ _$ParsedVoteCopyWith<_ParsedVote> get copyWith => __$ParsedVoteCopyWithImpl<_Par
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedVote&&(identical(other.govActionId, govActionId) || other.govActionId == govActionId)&&(identical(other.votingProcedure, votingProcedure) || other.votingProcedure == votingProcedure));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedVote&&(identical(other.govActionId, govActionId) || other.govActionId == govActionId)&&(identical(other.votingProcedure, votingProcedure) || other.votingProcedure == votingProcedure));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,govActionId,votingProcedure);
+int get hashCode {
+    return Object.hash(runtimeType,govActionId,votingProcedure);
+}
 
 @override
 String toString() {
-  return 'ParsedVote(govActionId: $govActionId, votingProcedure: $votingProcedure)';
+    return 'ParsedVote(govActionId: $govActionId, votingProcedure: $votingProcedure)';
 }
 
 

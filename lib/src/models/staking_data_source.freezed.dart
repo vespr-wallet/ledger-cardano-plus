@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'staking_data_source.dart';
@@ -9,27 +9,33 @@ part of 'staking_data_source.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$StakingDataSource {
 
- int get stakingDataSourceValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSource&&(identical(other.stakingDataSourceValue, stakingDataSourceValue) || other.stakingDataSourceValue == stakingDataSourceValue));
+  final _this = this as StakingDataSource;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSource&&(identical(other.stakingDataSourceValue, _this.stakingDataSourceValue) || other.stakingDataSourceValue == _this.stakingDataSourceValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingDataSourceValue);
+int get hashCode {
+  final _this = this as StakingDataSource;
+  return Object.hash(runtimeType,_this.stakingDataSourceValue);
+}
 
 @override
 String toString() {
-  return 'StakingDataSource(stakingDataSourceValue: $stakingDataSourceValue)';
+  final _this = this as StakingDataSource;
+  return 'StakingDataSource(stakingDataSourceValue: ${_this.stakingDataSourceValue})';
 }
 
 
@@ -56,7 +62,7 @@ class StakingDataSourceNone extends StakingDataSource {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceNone);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceNone);
 }
 
 
@@ -65,7 +71,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'StakingDataSource.none()';
+    return 'StakingDataSource.none()';
 }
 
 
@@ -93,16 +99,18 @@ $StakingDataSourceKeyCopyWith<StakingDataSourceKey> get copyWith => _$StakingDat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKey&&(identical(other.data, data) || other.data == data));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKey&&(identical(other.data, data) || other.data == data));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,data);
+int get hashCode {
+    return Object.hash(runtimeType,data);
+}
 
 @override
 String toString() {
-  return 'StakingDataSource.key(data: $data)';
+    return 'StakingDataSource.key(data: $data)';
 }
 
 
@@ -170,16 +178,18 @@ $StakingDataSourceBlockchainPointerCopyWith<StakingDataSourceBlockchainPointer> 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceBlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceBlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+int get hashCode {
+    return Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+}
 
 @override
 String toString() {
-  return 'StakingDataSource.blockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
+    return 'StakingDataSource.blockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
 }
 
 
@@ -238,16 +248,18 @@ $StakingDataSourceScriptHashCopyWith<StakingDataSourceScriptHash> get copyWith =
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'StakingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
+    return 'StakingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 
@@ -288,22 +300,27 @@ as String,
 /// @nodoc
 mixin _$StakingDataSourceKeyData {
 
- int get stakingDataSourceValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyData&&(identical(other.stakingDataSourceValue, stakingDataSourceValue) || other.stakingDataSourceValue == stakingDataSourceValue));
+  final _this = this as StakingDataSourceKeyData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyData&&(identical(other.stakingDataSourceValue, _this.stakingDataSourceValue) || other.stakingDataSourceValue == _this.stakingDataSourceValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingDataSourceValue);
+int get hashCode {
+  final _this = this as StakingDataSourceKeyData;
+  return Object.hash(runtimeType,_this.stakingDataSourceValue);
+}
 
 @override
 String toString() {
-  return 'StakingDataSourceKeyData(stakingDataSourceValue: $stakingDataSourceValue)';
+  final _this = this as StakingDataSourceKeyData;
+  return 'StakingDataSourceKeyData(stakingDataSourceValue: ${_this.stakingDataSourceValue})';
 }
 
 
@@ -335,16 +352,18 @@ $StakingDataSourceKeyPathCopyWith<StakingDataSourceKeyPath> get copyWith => _$St
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyPath&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyPath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'StakingDataSourceKeyData.path(path: $path)';
+    return 'StakingDataSourceKeyData.path(path: $path)';
 }
 
 
@@ -410,16 +429,18 @@ $StakingDataSourceKeyHashCopyWith<StakingDataSourceKeyHash> get copyWith => _$St
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakingDataSourceKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'StakingDataSourceKeyData.hash(keyHashHex: $keyHashHex)';
+    return 'StakingDataSourceKeyData.hash(keyHashHex: $keyHashHex)';
 }
 
 

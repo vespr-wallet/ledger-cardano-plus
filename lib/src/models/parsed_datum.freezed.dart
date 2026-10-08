@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_datum.dart';
@@ -9,27 +9,33 @@ part of 'parsed_datum.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedDatum {
 
- int get datumValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatum&&(identical(other.datumValue, datumValue) || other.datumValue == datumValue));
+  final _this = this as ParsedDatum;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatum&&(identical(other.datumValue, _this.datumValue) || other.datumValue == _this.datumValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,datumValue);
+int get hashCode {
+  final _this = this as ParsedDatum;
+  return Object.hash(runtimeType,_this.datumValue);
+}
 
 @override
 String toString() {
-  return 'ParsedDatum(datumValue: $datumValue)';
+  final _this = this as ParsedDatum;
+  return 'ParsedDatum(datumValue: ${_this.datumValue})';
 }
 
 
@@ -61,16 +67,18 @@ $ParsedDatumHashCopyWith<ParsedDatumHash> get copyWith => _$ParsedDatumHashCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatumHash&&(identical(other.datumHashHex, datumHashHex) || other.datumHashHex == datumHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatumHash&&(identical(other.datumHashHex, datumHashHex) || other.datumHashHex == datumHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,datumHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,datumHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedDatum.hash(datumHashHex: $datumHashHex)';
+    return 'ParsedDatum.hash(datumHashHex: $datumHashHex)';
 }
 
 
@@ -127,16 +135,18 @@ $ParsedDatumInlineCopyWith<ParsedDatumInline> get copyWith => _$ParsedDatumInlin
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatumInline&&(identical(other.datumHex, datumHex) || other.datumHex == datumHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDatumInline&&(identical(other.datumHex, datumHex) || other.datumHex == datumHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,datumHex);
+int get hashCode {
+    return Object.hash(runtimeType,datumHex);
+}
 
 @override
 String toString() {
-  return 'ParsedDatum.inline(datumHex: $datumHex)';
+    return 'ParsedDatum.inline(datumHex: $datumHex)';
 }
 
 

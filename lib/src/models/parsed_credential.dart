@@ -37,7 +37,6 @@ sealed class ParsedCredential with _$ParsedCredential {
     required String scriptHashHex,
   }) = CredentialScriptHash;
 
-  @override
   late final int credentialValue = switch (this) {
     CredentialKeyPath() => 0,
     CredentialKeyHash() => 2,

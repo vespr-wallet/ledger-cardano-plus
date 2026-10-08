@@ -24,7 +24,6 @@ sealed class ParsedPoolRewardAccount with _$ParsedPoolRewardAccount {
     required String rewardAccountHex,
   }) = ThirdPartyPoolRewardAccount;
 
-  @override
   late final int poolRewardAccountValue = switch (this) {
     DeviceOwnedPoolRewardAccount() => 1,
     ThirdPartyPoolRewardAccount() => 2,

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_anchor.dart';
@@ -9,6 +9,7 @@ part of 'parsed_anchor.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedAnchorCopyWith<ParsedAnchor> get copyWith => _$ParsedAnchorCopyWithImpl<P
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedAnchor&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+  final _this = this as ParsedAnchor;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedAnchor&&(identical(other.url, _this.url) || other.url == _this.url)&&(identical(other.hashHex, _this.hashHex) || other.hashHex == _this.hashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,url,hashHex);
+int get hashCode {
+  final _this = this as ParsedAnchor;
+  return Object.hash(runtimeType,_this.url,_this.hashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
+  final _this = this as ParsedAnchor;
+  return 'ParsedAnchor(url: ${_this.url}, hashHex: ${_this.hashHex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedAnchorCopyWithImpl<$Res>
 /// Create a copy of ParsedAnchor
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? url = null,Object? hashHex = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedAnchor(
 url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
 as String,hashHex: null == hashHex ? _self.hashHex : hashHex // ignore: cast_nullable_to_non_nullable
 as String,
@@ -94,16 +100,18 @@ _$ParsedAnchorCopyWith<_ParsedAnchor> get copyWith => __$ParsedAnchorCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedAnchor&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedAnchor&&(identical(other.url, url) || other.url == url)&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,url,hashHex);
+int get hashCode {
+    return Object.hash(runtimeType,url,hashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
+    return 'ParsedAnchor(url: $url, hashHex: $hashHex)';
 }
 
 

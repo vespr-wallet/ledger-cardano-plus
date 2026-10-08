@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'device_owned_address.dart';
@@ -9,27 +9,33 @@ part of 'device_owned_address.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$DeviceOwnedAddress {
 
- AddressType get addressType; Object get type; Object get params;
+ Object get type; Object get params;
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddress&&(identical(other.addressType, addressType) || other.addressType == addressType)&&const DeepCollectionEquality().equals(other.type, type)&&const DeepCollectionEquality().equals(other.params, params));
+  final _this = this as DeviceOwnedAddress;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddress&&(identical(other.addressType, _this.addressType) || other.addressType == _this.addressType)&&const DeepCollectionEquality().equals(other.type, _this.type)&&const DeepCollectionEquality().equals(other.params, _this.params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,addressType,const DeepCollectionEquality().hash(type),const DeepCollectionEquality().hash(params));
+int get hashCode {
+  final _this = this as DeviceOwnedAddress;
+  return Object.hash(runtimeType,_this.addressType,const DeepCollectionEquality().hash(_this.type),const DeepCollectionEquality().hash(_this.params));
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress(addressType: $addressType, type: $type, params: $params)';
+  final _this = this as DeviceOwnedAddress;
+  return 'DeviceOwnedAddress(addressType: ${_this.addressType}, type: ${_this.type}, params: ${_this.params})';
 }
 
 
@@ -62,16 +68,18 @@ $DeviceOwnedAddressByronCopyWith<DeviceOwnedAddressByron> get copyWith => _$Devi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressByron&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressByron&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,params);
+int get hashCode {
+    return Object.hash(runtimeType,type,params);
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress.byron(type: $type, params: $params)';
+    return 'DeviceOwnedAddress.byron(type: $type, params: $params)';
 }
 
 
@@ -139,16 +147,18 @@ $DeviceOwnedAddressBaseCopyWith<DeviceOwnedAddressBase> get copyWith => _$Device
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressBase&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressBase&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,params);
+int get hashCode {
+    return Object.hash(runtimeType,type,params);
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress.base(type: $type, params: $params)';
+    return 'DeviceOwnedAddress.base(type: $type, params: $params)';
 }
 
 
@@ -216,16 +226,18 @@ $DeviceOwnedAddressEnterpriseCopyWith<DeviceOwnedAddressEnterprise> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressEnterprise&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressEnterprise&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,params);
+int get hashCode {
+    return Object.hash(runtimeType,type,params);
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress.enterprise(type: $type, params: $params)';
+    return 'DeviceOwnedAddress.enterprise(type: $type, params: $params)';
 }
 
 
@@ -293,16 +305,18 @@ $DeviceOwnedAddressPointerCopyWith<DeviceOwnedAddressPointer> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressPointer&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressPointer&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,params);
+int get hashCode {
+    return Object.hash(runtimeType,type,params);
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress.pointer(type: $type, params: $params)';
+    return 'DeviceOwnedAddress.pointer(type: $type, params: $params)';
 }
 
 
@@ -370,16 +384,18 @@ $DeviceOwnedAddressRewardCopyWith<DeviceOwnedAddressReward> get copyWith => _$De
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressReward&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedAddressReward&&(identical(other.type, type) || other.type == type)&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,params);
+int get hashCode {
+    return Object.hash(runtimeType,type,params);
+}
 
 @override
 String toString() {
-  return 'DeviceOwnedAddress.reward(type: $type, params: $params)';
+    return 'DeviceOwnedAddress.reward(type: $type, params: $params)';
 }
 
 

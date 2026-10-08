@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_signing_request.dart';
@@ -9,6 +9,7 @@ part of 'parsed_signing_request.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedSigningRequestCopyWith<ParsedSigningRequest> get copyWith => _$ParsedSign
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSigningRequest&&(identical(other.tx, tx) || other.tx == tx)&&(identical(other.signingMode, signingMode) || other.signingMode == signingMode)&&const DeepCollectionEquality().equals(other.additionalWitnessPaths, additionalWitnessPaths)&&(identical(other.options, options) || other.options == options));
+  final _this = this as ParsedSigningRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSigningRequest&&(identical(other.tx, _this.tx) || other.tx == _this.tx)&&(identical(other.signingMode, _this.signingMode) || other.signingMode == _this.signingMode)&&const DeepCollectionEquality().equals(other.additionalWitnessPaths, _this.additionalWitnessPaths)&&(identical(other.options, _this.options) || other.options == _this.options));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tx,signingMode,const DeepCollectionEquality().hash(additionalWitnessPaths),options);
+int get hashCode {
+  final _this = this as ParsedSigningRequest;
+  return Object.hash(runtimeType,_this.tx,_this.signingMode,const DeepCollectionEquality().hash(_this.additionalWitnessPaths),_this.options);
+}
 
 @override
 String toString() {
-  return 'ParsedSigningRequest(tx: $tx, signingMode: $signingMode, additionalWitnessPaths: $additionalWitnessPaths, options: $options)';
+  final _this = this as ParsedSigningRequest;
+  return 'ParsedSigningRequest(tx: ${_this.tx}, signingMode: ${_this.signingMode}, additionalWitnessPaths: ${_this.additionalWitnessPaths}, options: ${_this.options})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedSigningRequestCopyWithImpl<$Res>
 /// Create a copy of ParsedSigningRequest
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tx = null,Object? signingMode = null,Object? additionalWitnessPaths = null,Object? options = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedSigningRequest(
 tx: null == tx ? _self.tx : tx // ignore: cast_nullable_to_non_nullable
 as ParsedTransaction,signingMode: null == signingMode ? _self.signingMode : signingMode // ignore: cast_nullable_to_non_nullable
 as TransactionSigningModes,additionalWitnessPaths: null == additionalWitnessPaths ? _self.additionalWitnessPaths : additionalWitnessPaths // ignore: cast_nullable_to_non_nullable
@@ -101,7 +107,7 @@ $ParsedTransactionOptionsCopyWith<$Res>? get options {
 
 
 class _ParsedSigningRequest extends ParsedSigningRequest {
-   _ParsedSigningRequest({required this.tx, required this.signingMode, required final  List<LedgerSigningPath> additionalWitnessPaths, this.options}): _additionalWitnessPaths = additionalWitnessPaths,super._();
+   _ParsedSigningRequest({required this.tx, required this.signingMode, required  List<LedgerSigningPath> additionalWitnessPaths, this.options}): _additionalWitnessPaths = additionalWitnessPaths,super._();
   
 
 @override final  ParsedTransaction tx;
@@ -125,16 +131,18 @@ _$ParsedSigningRequestCopyWith<_ParsedSigningRequest> get copyWith => __$ParsedS
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedSigningRequest&&(identical(other.tx, tx) || other.tx == tx)&&(identical(other.signingMode, signingMode) || other.signingMode == signingMode)&&const DeepCollectionEquality().equals(other._additionalWitnessPaths, _additionalWitnessPaths)&&(identical(other.options, options) || other.options == options));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedSigningRequest&&(identical(other.tx, tx) || other.tx == tx)&&(identical(other.signingMode, signingMode) || other.signingMode == signingMode)&&const DeepCollectionEquality().equals(other.additionalWitnessPaths, _additionalWitnessPaths)&&(identical(other.options, options) || other.options == options));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tx,signingMode,const DeepCollectionEquality().hash(_additionalWitnessPaths),options);
+int get hashCode {
+    return Object.hash(runtimeType,tx,signingMode,const DeepCollectionEquality().hash(_additionalWitnessPaths),options);
+}
 
 @override
 String toString() {
-  return 'ParsedSigningRequest(tx: $tx, signingMode: $signingMode, additionalWitnessPaths: $additionalWitnessPaths, options: $options)';
+    return 'ParsedSigningRequest(tx: $tx, signingMode: $signingMode, additionalWitnessPaths: $additionalWitnessPaths, options: $options)';
 }
 
 

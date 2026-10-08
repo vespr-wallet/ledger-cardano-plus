@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'cardano_networks.dart';
@@ -9,27 +9,33 @@ part of 'cardano_networks.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$CardanoNetwork {
 
- int get networkMagic; int get networkId; String get paymentBech32Hrp; String get stakeBech32Hrp;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CardanoNetwork&&(identical(other.networkMagic, networkMagic) || other.networkMagic == networkMagic)&&(identical(other.networkId, networkId) || other.networkId == networkId)&&(identical(other.paymentBech32Hrp, paymentBech32Hrp) || other.paymentBech32Hrp == paymentBech32Hrp)&&(identical(other.stakeBech32Hrp, stakeBech32Hrp) || other.stakeBech32Hrp == stakeBech32Hrp));
+  final _this = this as CardanoNetwork;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is CardanoNetwork&&(identical(other.networkMagic, _this.networkMagic) || other.networkMagic == _this.networkMagic)&&(identical(other.networkId, _this.networkId) || other.networkId == _this.networkId)&&(identical(other.paymentBech32Hrp, _this.paymentBech32Hrp) || other.paymentBech32Hrp == _this.paymentBech32Hrp)&&(identical(other.stakeBech32Hrp, _this.stakeBech32Hrp) || other.stakeBech32Hrp == _this.stakeBech32Hrp));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,networkMagic,networkId,paymentBech32Hrp,stakeBech32Hrp);
+int get hashCode {
+  final _this = this as CardanoNetwork;
+  return Object.hash(runtimeType,_this.networkMagic,_this.networkId,_this.paymentBech32Hrp,_this.stakeBech32Hrp);
+}
 
 @override
 String toString() {
-  return 'CardanoNetwork(networkMagic: $networkMagic, networkId: $networkId, paymentBech32Hrp: $paymentBech32Hrp, stakeBech32Hrp: $stakeBech32Hrp)';
+  final _this = this as CardanoNetwork;
+  return 'CardanoNetwork(networkMagic: ${_this.networkMagic}, networkId: ${_this.networkId}, paymentBech32Hrp: ${_this.paymentBech32Hrp}, stakeBech32Hrp: ${_this.stakeBech32Hrp})';
 }
 
 
@@ -56,7 +62,7 @@ class NetworkMainnet extends CardanoNetwork {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkMainnet);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkMainnet);
 }
 
 
@@ -65,7 +71,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'CardanoNetwork.mainnet()';
+    return 'CardanoNetwork.mainnet()';
 }
 
 
@@ -88,7 +94,7 @@ class NetworkLegacyTestnet extends CardanoNetwork {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkLegacyTestnet);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkLegacyTestnet);
 }
 
 
@@ -97,7 +103,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'CardanoNetwork.legacyTestnet()';
+    return 'CardanoNetwork.legacyTestnet()';
 }
 
 
@@ -120,7 +126,7 @@ class NetworkPreProd extends CardanoNetwork {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkPreProd);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkPreProd);
 }
 
 
@@ -129,7 +135,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'CardanoNetwork.preprod()';
+    return 'CardanoNetwork.preprod()';
 }
 
 
@@ -152,7 +158,7 @@ class NetworkPreview extends CardanoNetwork {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkPreview);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkPreview);
 }
 
 
@@ -161,7 +167,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'CardanoNetwork.preview()';
+    return 'CardanoNetwork.preview()';
 }
 
 
@@ -184,7 +190,7 @@ class NetworkConway extends CardanoNetwork {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkConway);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkConway);
 }
 
 
@@ -193,7 +199,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'CardanoNetwork.conway()';
+    return 'CardanoNetwork.conway()';
 }
 
 
@@ -224,16 +230,18 @@ $NetworkCustomCopyWith<NetworkCustom> get copyWith => _$NetworkCustomCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkCustom&&(identical(other.customNetworkId, customNetworkId) || other.customNetworkId == customNetworkId)&&(identical(other.customNetworkMagic, customNetworkMagic) || other.customNetworkMagic == customNetworkMagic)&&(identical(other.customPaymentBech32Hrp, customPaymentBech32Hrp) || other.customPaymentBech32Hrp == customPaymentBech32Hrp)&&(identical(other.customStakeBech32Hrp, customStakeBech32Hrp) || other.customStakeBech32Hrp == customStakeBech32Hrp));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is NetworkCustom&&(identical(other.customNetworkId, customNetworkId) || other.customNetworkId == customNetworkId)&&(identical(other.customNetworkMagic, customNetworkMagic) || other.customNetworkMagic == customNetworkMagic)&&(identical(other.customPaymentBech32Hrp, customPaymentBech32Hrp) || other.customPaymentBech32Hrp == customPaymentBech32Hrp)&&(identical(other.customStakeBech32Hrp, customStakeBech32Hrp) || other.customStakeBech32Hrp == customStakeBech32Hrp));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,customNetworkId,customNetworkMagic,customPaymentBech32Hrp,customStakeBech32Hrp);
+int get hashCode {
+    return Object.hash(runtimeType,customNetworkId,customNetworkMagic,customPaymentBech32Hrp,customStakeBech32Hrp);
+}
 
 @override
 String toString() {
-  return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic, customPaymentBech32Hrp: $customPaymentBech32Hrp, customStakeBech32Hrp: $customStakeBech32Hrp)';
+    return 'CardanoNetwork.custom(customNetworkId: $customNetworkId, customNetworkMagic: $customNetworkMagic, customPaymentBech32Hrp: $customPaymentBech32Hrp, customStakeBech32Hrp: $customStakeBech32Hrp)';
 }
 
 

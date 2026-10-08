@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_params_base.dart';
@@ -9,6 +9,7 @@ part of 'address_params_base.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AddressParamsBaseCopyWith<AddressParamsBase> get copyWith => _$AddressParamsBas
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBase&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams));
+  final _this = this as AddressParamsBase;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBase&&(identical(other.spendingParams, _this.spendingParams) || other.spendingParams == _this.spendingParams));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams);
+int get hashCode {
+  final _this = this as AddressParamsBase;
+  return Object.hash(runtimeType,_this.spendingParams);
+}
 
 @override
 String toString() {
-  return 'AddressParamsBase(spendingParams: $spendingParams)';
+  final _this = this as AddressParamsBase;
+  return 'AddressParamsBase(spendingParams: ${_this.spendingParams})';
 }
 
 
@@ -102,16 +108,18 @@ $AddressParamsBaseStakingPathCopyWith<AddressParamsBaseStakingPath> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingPath&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingPath&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingPath);
+int get hashCode {
+    return Object.hash(runtimeType,spendingParams,stakingPath);
+}
 
 @override
 String toString() {
-  return 'AddressParamsBase.stakingPath(spendingParams: $spendingParams, stakingPath: $stakingPath)';
+    return 'AddressParamsBase.stakingPath(spendingParams: $spendingParams, stakingPath: $stakingPath)';
 }
 
 
@@ -188,16 +196,18 @@ $AddressParamsBaseStakingKeyHashCopyWith<AddressParamsBaseStakingKeyHash> get co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingKeyHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingKeyHashHex, stakingKeyHashHex) || other.stakingKeyHashHex == stakingKeyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingKeyHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingKeyHashHex, stakingKeyHashHex) || other.stakingKeyHashHex == stakingKeyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingKeyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,spendingParams,stakingKeyHashHex);
+}
 
 @override
 String toString() {
-  return 'AddressParamsBase.stakingKeyHash(spendingParams: $spendingParams, stakingKeyHashHex: $stakingKeyHashHex)';
+    return 'AddressParamsBase.stakingKeyHash(spendingParams: $spendingParams, stakingKeyHashHex: $stakingKeyHashHex)';
 }
 
 
@@ -265,16 +275,18 @@ $AddressParamsBaseStakingScriptHashCopyWith<AddressParamsBaseStakingScriptHash> 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingScriptHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsBaseStakingScriptHash&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingScriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,spendingParams,stakingScriptHashHex);
+}
 
 @override
 String toString() {
-  return 'AddressParamsBase.stakingScriptHash(spendingParams: $spendingParams, stakingScriptHashHex: $stakingScriptHashHex)';
+    return 'AddressParamsBase.stakingScriptHash(spendingParams: $spendingParams, stakingScriptHashHex: $stakingScriptHashHex)';
 }
 
 

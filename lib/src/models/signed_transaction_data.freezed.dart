@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_transaction_data.dart';
@@ -9,6 +9,7 @@ part of 'signed_transaction_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $SignedTransactionDataCopyWith<SignedTransactionData> get copyWith => _$SignedTr
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedTransactionData&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&const DeepCollectionEquality().equals(other.witnesses, witnesses)&&(identical(other.auxiliaryDataSupplement, auxiliaryDataSupplement) || other.auxiliaryDataSupplement == auxiliaryDataSupplement));
+  final _this = this as SignedTransactionData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedTransactionData&&(identical(other.txHashHex, _this.txHashHex) || other.txHashHex == _this.txHashHex)&&const DeepCollectionEquality().equals(other.witnesses, _this.witnesses)&&(identical(other.auxiliaryDataSupplement, _this.auxiliaryDataSupplement) || other.auxiliaryDataSupplement == _this.auxiliaryDataSupplement));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,txHashHex,const DeepCollectionEquality().hash(witnesses),auxiliaryDataSupplement);
+int get hashCode {
+  final _this = this as SignedTransactionData;
+  return Object.hash(runtimeType,_this.txHashHex,const DeepCollectionEquality().hash(_this.witnesses),_this.auxiliaryDataSupplement);
+}
 
 @override
 String toString() {
-  return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
+  final _this = this as SignedTransactionData;
+  return 'SignedTransactionData(txHashHex: ${_this.txHashHex}, witnesses: ${_this.witnesses}, auxiliaryDataSupplement: ${_this.auxiliaryDataSupplement})';
 }
 
 
@@ -63,7 +69,7 @@ class _$SignedTransactionDataCopyWithImpl<$Res>
 /// Create a copy of SignedTransactionData
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? witnesses = null,Object? auxiliaryDataSupplement = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(SignedTransactionData(
 txHashHex: null == txHashHex ? _self.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
 as String,witnesses: null == witnesses ? _self.witnesses : witnesses // ignore: cast_nullable_to_non_nullable
 as List<Witness>,auxiliaryDataSupplement: freezed == auxiliaryDataSupplement ? _self.auxiliaryDataSupplement : auxiliaryDataSupplement // ignore: cast_nullable_to_non_nullable
@@ -91,7 +97,7 @@ $TxAuxiliaryDataSupplementCopyWith<$Res>? get auxiliaryDataSupplement {
 
 
 class _SignedTransactionData extends SignedTransactionData {
-   _SignedTransactionData({required this.txHashHex, required final  List<Witness> witnesses, required this.auxiliaryDataSupplement}): _witnesses = witnesses,super._();
+   _SignedTransactionData({required this.txHashHex, required  List<Witness> witnesses, required this.auxiliaryDataSupplement}): _witnesses = witnesses,super._();
   
 
 @override final  String txHashHex;
@@ -114,16 +120,18 @@ _$SignedTransactionDataCopyWith<_SignedTransactionData> get copyWith => __$Signe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedTransactionData&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&const DeepCollectionEquality().equals(other._witnesses, _witnesses)&&(identical(other.auxiliaryDataSupplement, auxiliaryDataSupplement) || other.auxiliaryDataSupplement == auxiliaryDataSupplement));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedTransactionData&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&const DeepCollectionEquality().equals(other.witnesses, _witnesses)&&(identical(other.auxiliaryDataSupplement, auxiliaryDataSupplement) || other.auxiliaryDataSupplement == auxiliaryDataSupplement));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,txHashHex,const DeepCollectionEquality().hash(_witnesses),auxiliaryDataSupplement);
+int get hashCode {
+    return Object.hash(runtimeType,txHashHex,const DeepCollectionEquality().hash(_witnesses),auxiliaryDataSupplement);
+}
 
 @override
 String toString() {
-  return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
+    return 'SignedTransactionData(txHashHex: $txHashHex, witnesses: $witnesses, auxiliaryDataSupplement: $auxiliaryDataSupplement)';
 }
 
 

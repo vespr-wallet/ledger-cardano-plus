@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_params_reward.dart';
@@ -9,6 +9,7 @@ part of 'address_params_reward.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$AddressParamsReward {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsReward);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsReward);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'AddressParamsReward()';
+    return 'AddressParamsReward()';
 }
 
 
@@ -61,16 +62,18 @@ $AddressParamsRewardStakingPathCopyWith<AddressParamsRewardStakingPath> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingPath&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingPath&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingPath);
+int get hashCode {
+    return Object.hash(runtimeType,stakingPath);
+}
 
 @override
 String toString() {
-  return 'AddressParamsReward.stakingPath(stakingPath: $stakingPath)';
+    return 'AddressParamsReward.stakingPath(stakingPath: $stakingPath)';
 }
 
 
@@ -136,16 +139,18 @@ $AddressParamsRewardStakingScriptHashHexCopyWith<AddressParamsRewardStakingScrip
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingScriptHashHex&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsRewardStakingScriptHashHex&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,stakingScriptHashHex);
+}
 
 @override
 String toString() {
-  return 'AddressParamsReward.stakingScriptHashHex(stakingScriptHashHex: $stakingScriptHashHex)';
+    return 'AddressParamsReward.stakingScriptHashHex(stakingScriptHashHex: $stakingScriptHashHex)';
 }
 
 

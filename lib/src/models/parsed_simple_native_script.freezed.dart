@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_simple_native_script.dart';
@@ -9,27 +9,33 @@ part of 'parsed_simple_native_script.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedSimpleNativeScript {
 
- int get nativeScriptSerializationValue; int get pubkeyTypeV7; int get pubkeyTypeV8;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript&&(identical(other.nativeScriptSerializationValue, nativeScriptSerializationValue) || other.nativeScriptSerializationValue == nativeScriptSerializationValue)&&(identical(other.pubkeyTypeV7, pubkeyTypeV7) || other.pubkeyTypeV7 == pubkeyTypeV7)&&(identical(other.pubkeyTypeV8, pubkeyTypeV8) || other.pubkeyTypeV8 == pubkeyTypeV8));
+  final _this = this as ParsedSimpleNativeScript;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript&&(identical(other.nativeScriptSerializationValue, _this.nativeScriptSerializationValue) || other.nativeScriptSerializationValue == _this.nativeScriptSerializationValue)&&(identical(other.pubkeyTypeV7, _this.pubkeyTypeV7) || other.pubkeyTypeV7 == _this.pubkeyTypeV7)&&(identical(other.pubkeyTypeV8, _this.pubkeyTypeV8) || other.pubkeyTypeV8 == _this.pubkeyTypeV8));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nativeScriptSerializationValue,pubkeyTypeV7,pubkeyTypeV8);
+int get hashCode {
+  final _this = this as ParsedSimpleNativeScript;
+  return Object.hash(runtimeType,_this.nativeScriptSerializationValue,_this.pubkeyTypeV7,_this.pubkeyTypeV8);
+}
 
 @override
 String toString() {
-  return 'ParsedSimpleNativeScript(nativeScriptSerializationValue: $nativeScriptSerializationValue, pubkeyTypeV7: $pubkeyTypeV7, pubkeyTypeV8: $pubkeyTypeV8)';
+  final _this = this as ParsedSimpleNativeScript;
+  return 'ParsedSimpleNativeScript(nativeScriptSerializationValue: ${_this.nativeScriptSerializationValue}, pubkeyTypeV7: ${_this.pubkeyTypeV7}, pubkeyTypeV8: ${_this.pubkeyTypeV8})';
 }
 
 
@@ -61,16 +67,18 @@ $ParsedSimpleNativeScript_PubKeyDeviceOwnedCopyWith<ParsedSimpleNativeScript_Pub
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_PubKeyDeviceOwned&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_PubKeyDeviceOwned&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedSimpleNativeScript.pubKeyDeviceOwned(path: $path)';
+    return 'ParsedSimpleNativeScript.pubKeyDeviceOwned(path: $path)';
 }
 
 
@@ -136,16 +144,18 @@ $ParsedSimpleNativeScript_PubKeyThirdPartyCopyWith<ParsedSimpleNativeScript_PubK
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_PubKeyThirdParty&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_PubKeyThirdParty&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedSimpleNativeScript.pubKeyThirdParty(keyHashHex: $keyHashHex)';
+    return 'ParsedSimpleNativeScript.pubKeyThirdParty(keyHashHex: $keyHashHex)';
 }
 
 
@@ -202,16 +212,18 @@ $ParsedSimpleNativeScript_InvalidBeforeCopyWith<ParsedSimpleNativeScript_Invalid
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_InvalidBefore&&(identical(other.slot, slot) || other.slot == slot));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_InvalidBefore&&(identical(other.slot, slot) || other.slot == slot));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,slot);
+int get hashCode {
+    return Object.hash(runtimeType,slot);
+}
 
 @override
 String toString() {
-  return 'ParsedSimpleNativeScript.invalidBefore(slot: $slot)';
+    return 'ParsedSimpleNativeScript.invalidBefore(slot: $slot)';
 }
 
 
@@ -268,16 +280,18 @@ $ParsedSimpleNativeScript_InvalidHereafterCopyWith<ParsedSimpleNativeScript_Inva
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_InvalidHereafter&&(identical(other.slot, slot) || other.slot == slot));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedSimpleNativeScript_InvalidHereafter&&(identical(other.slot, slot) || other.slot == slot));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,slot);
+int get hashCode {
+    return Object.hash(runtimeType,slot);
+}
 
 @override
 String toString() {
-  return 'ParsedSimpleNativeScript.invalidHereafter(slot: $slot)';
+    return 'ParsedSimpleNativeScript.invalidHereafter(slot: $slot)';
 }
 
 

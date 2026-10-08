@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_pool_reward_account.dart';
@@ -9,27 +9,33 @@ part of 'parsed_pool_reward_account.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedPoolRewardAccount {
 
- int get poolRewardAccountValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolRewardAccount&&(identical(other.poolRewardAccountValue, poolRewardAccountValue) || other.poolRewardAccountValue == poolRewardAccountValue));
+  final _this = this as ParsedPoolRewardAccount;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolRewardAccount&&(identical(other.poolRewardAccountValue, _this.poolRewardAccountValue) || other.poolRewardAccountValue == _this.poolRewardAccountValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,poolRewardAccountValue);
+int get hashCode {
+  final _this = this as ParsedPoolRewardAccount;
+  return Object.hash(runtimeType,_this.poolRewardAccountValue);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRewardAccount(poolRewardAccountValue: $poolRewardAccountValue)';
+  final _this = this as ParsedPoolRewardAccount;
+  return 'ParsedPoolRewardAccount(poolRewardAccountValue: ${_this.poolRewardAccountValue})';
 }
 
 
@@ -61,16 +67,18 @@ $DeviceOwnedPoolRewardAccountCopyWith<DeviceOwnedPoolRewardAccount> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolRewardAccount&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolRewardAccount&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRewardAccount.deviceOwned(path: $path)';
+    return 'ParsedPoolRewardAccount.deviceOwned(path: $path)';
 }
 
 
@@ -136,16 +144,18 @@ $ThirdPartyPoolRewardAccountCopyWith<ThirdPartyPoolRewardAccount> get copyWith =
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolRewardAccount&&(identical(other.rewardAccountHex, rewardAccountHex) || other.rewardAccountHex == rewardAccountHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolRewardAccount&&(identical(other.rewardAccountHex, rewardAccountHex) || other.rewardAccountHex == rewardAccountHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,rewardAccountHex);
+int get hashCode {
+    return Object.hash(runtimeType,rewardAccountHex);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRewardAccount.thirdParty(rewardAccountHex: $rewardAccountHex)';
+    return 'ParsedPoolRewardAccount.thirdParty(rewardAccountHex: $rewardAccountHex)';
 }
 
 

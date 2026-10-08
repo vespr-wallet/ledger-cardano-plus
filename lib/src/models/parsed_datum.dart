@@ -27,7 +27,6 @@ sealed class ParsedDatum with _$ParsedDatum {
     required String datumHex,
   }) = ParsedDatumInline;
 
-  @override
   late final int datumValue = switch (this) {
     ParsedDatumHash() => 0,
     ParsedDatumInline() => 1,

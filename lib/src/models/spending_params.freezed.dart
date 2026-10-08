@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'spending_params.dart';
@@ -9,6 +9,7 @@ part of 'spending_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,7 +21,7 @@ mixin _$SpendingParams {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParams);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParams);
 }
 
 
@@ -29,7 +30,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SpendingParams()';
+    return 'SpendingParams()';
 }
 
 
@@ -61,16 +62,18 @@ $SpendingParamsPathCopyWith<SpendingParamsPath> get copyWith => _$SpendingParams
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParamsPath&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParamsPath&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingPath);
+int get hashCode {
+    return Object.hash(runtimeType,spendingPath);
+}
 
 @override
 String toString() {
-  return 'SpendingParams.path(spendingPath: $spendingPath)';
+    return 'SpendingParams.path(spendingPath: $spendingPath)';
 }
 
 
@@ -136,16 +139,18 @@ $SpendingParamsScriptHashCopyWith<SpendingParamsScriptHash> get copyWith => _$Sp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParamsScriptHash&&(identical(other.spendingScriptHashHex, spendingScriptHashHex) || other.spendingScriptHashHex == spendingScriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingParamsScriptHash&&(identical(other.spendingScriptHashHex, spendingScriptHashHex) || other.spendingScriptHashHex == spendingScriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingScriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,spendingScriptHashHex);
+}
 
 @override
 String toString() {
-  return 'SpendingParams.scriptHash(spendingScriptHashHex: $spendingScriptHashHex)';
+    return 'SpendingParams.scriptHash(spendingScriptHashHex: $spendingScriptHashHex)';
 }
 
 

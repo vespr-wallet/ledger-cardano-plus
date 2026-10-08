@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_signing_path.dart';
@@ -9,27 +9,33 @@ part of 'ledger_signing_path.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$LedgerSigningPath {
 
- List<int> get signingPath;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath&&const DeepCollectionEquality().equals(other.signingPath, signingPath));
+  final _this = this as LedgerSigningPath;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath&&const DeepCollectionEquality().equals(other.signingPath, _this.signingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(signingPath));
+int get hashCode {
+  final _this = this as LedgerSigningPath;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.signingPath));
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath(signingPath: $signingPath)';
+  final _this = this as LedgerSigningPath;
+  return 'LedgerSigningPath(signingPath: ${_this.signingPath})';
 }
 
 
@@ -62,16 +68,18 @@ $LedgerSigningPath_PoolColdCopyWith<LedgerSigningPath_PoolCold> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_PoolCold&&(identical(other.account, account) || other.account == account)&&(identical(other.index, index) || other.index == index));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_PoolCold&&(identical(other.account, account) || other.account == account)&&(identical(other.index, index) || other.index == index));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,account,index);
+int get hashCode {
+    return Object.hash(runtimeType,account,index);
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath.poolCold(account: $account, index: $index)';
+    return 'LedgerSigningPath.poolCold(account: $account, index: $index)';
 }
 
 
@@ -130,16 +138,18 @@ $LedgerSigningPath_ByronCopyWith<LedgerSigningPath_Byron> get copyWith => _$Ledg
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Byron&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Byron&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,account,address);
+int get hashCode {
+    return Object.hash(runtimeType,account,address);
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath.byron(account: $account, address: $address)';
+    return 'LedgerSigningPath.byron(account: $account, address: $address)';
 }
 
 
@@ -199,16 +209,18 @@ $LedgerSigningPath_ShelleyCopyWith<LedgerSigningPath_Shelley> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Shelley&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address)&&(identical(other.role, role) || other.role == role));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Shelley&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address)&&(identical(other.role, role) || other.role == role));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,account,address,role);
+int get hashCode {
+    return Object.hash(runtimeType,account,address,role);
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath.shelley(account: $account, address: $address, role: $role)';
+    return 'LedgerSigningPath.shelley(account: $account, address: $address, role: $role)';
 }
 
 
@@ -268,16 +280,18 @@ $LedgerSigningPath_CIP36CopyWith<LedgerSigningPath_CIP36> get copyWith => _$Ledg
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_CIP36&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_CIP36&&(identical(other.account, account) || other.account == account)&&(identical(other.address, address) || other.address == address));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,account,address);
+int get hashCode {
+    return Object.hash(runtimeType,account,address);
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath.cip36(account: $account, address: $address)';
+    return 'LedgerSigningPath.cip36(account: $account, address: $address)';
 }
 
 
@@ -320,7 +334,7 @@ as int,
 
 
 class LedgerSigningPath_Custom extends LedgerSigningPath {
-   LedgerSigningPath_Custom(final  List<int> path): _path = path,super._();
+   LedgerSigningPath_Custom( List<int> path): _path = path,super._();
   
 
  final  List<int> _path;
@@ -341,16 +355,18 @@ $LedgerSigningPath_CustomCopyWith<LedgerSigningPath_Custom> get copyWith => _$Le
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Custom&&const DeepCollectionEquality().equals(other._path, _path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerSigningPath_Custom&&const DeepCollectionEquality().equals(other.path, _path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_path));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_path));
+}
 
 @override
 String toString() {
-  return 'LedgerSigningPath.custom(path: $path)';
+    return 'LedgerSigningPath.custom(path: $path)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'witness.dart';
@@ -9,6 +9,7 @@ part of 'witness.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $WitnessCopyWith<Witness> get copyWith => _$WitnessCopyWithImpl<Witness>(this as
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Witness&&(identical(other.path, path) || other.path == path)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
+  final _this = this as Witness;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Witness&&(identical(other.path, _this.path) || other.path == _this.path)&&(identical(other.witnessSignatureHex, _this.witnessSignatureHex) || other.witnessSignatureHex == _this.witnessSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path,witnessSignatureHex);
+int get hashCode {
+  final _this = this as Witness;
+  return Object.hash(runtimeType,_this.path,_this.witnessSignatureHex);
+}
 
 @override
 String toString() {
-  return 'Witness(path: $path, witnessSignatureHex: $witnessSignatureHex)';
+  final _this = this as Witness;
+  return 'Witness(path: ${_this.path}, witnessSignatureHex: ${_this.witnessSignatureHex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$WitnessCopyWithImpl<$Res>
 /// Create a copy of Witness
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? path = null,Object? witnessSignatureHex = null,}) {
-  return _then(_self.copyWith(
+  return _then(Witness(
 path: null == path ? _self.path : path // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,witnessSignatureHex: null == witnessSignatureHex ? _self.witnessSignatureHex : witnessSignatureHex // ignore: cast_nullable_to_non_nullable
 as String,
@@ -103,16 +109,18 @@ _$WitnessCopyWith<_Witness> get copyWith => __$WitnessCopyWithImpl<_Witness>(thi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Witness&&(identical(other.path, path) || other.path == path)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Witness&&(identical(other.path, path) || other.path == path)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path,witnessSignatureHex);
+int get hashCode {
+    return Object.hash(runtimeType,path,witnessSignatureHex);
+}
 
 @override
 String toString() {
-  return 'Witness(path: $path, witnessSignatureHex: $witnessSignatureHex)';
+    return 'Witness(path: $path, witnessSignatureHex: $witnessSignatureHex)';
 }
 
 

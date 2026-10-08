@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_drep.dart';
@@ -9,27 +9,33 @@ part of 'parsed_drep.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedDRep {
 
- int get serializationType;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDRep&&(identical(other.serializationType, serializationType) || other.serializationType == serializationType));
+  final _this = this as ParsedDRep;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedDRep&&(identical(other.serializationType, _this.serializationType) || other.serializationType == _this.serializationType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,serializationType);
+int get hashCode {
+  final _this = this as ParsedDRep;
+  return Object.hash(runtimeType,_this.serializationType);
+}
 
 @override
 String toString() {
-  return 'ParsedDRep(serializationType: $serializationType)';
+  final _this = this as ParsedDRep;
+  return 'ParsedDRep(serializationType: ${_this.serializationType})';
 }
 
 
@@ -61,16 +67,18 @@ $DRepKeyPathCopyWith<DRepKeyPath> get copyWith => _$DRepKeyPathCopyWithImpl<DRep
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyPath&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyPath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedDRep.keyPath(path: $path)';
+    return 'ParsedDRep.keyPath(path: $path)';
 }
 
 
@@ -136,16 +144,18 @@ $DRepKeyHashCopyWith<DRepKeyHash> get copyWith => _$DRepKeyHashCopyWithImpl<DRep
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedDRep.keyHash(keyHashHex: $keyHashHex)';
+    return 'ParsedDRep.keyHash(keyHashHex: $keyHashHex)';
 }
 
 
@@ -202,16 +212,18 @@ $DRepScriptHashCopyWith<DRepScriptHash> get copyWith => _$DRepScriptHashCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedDRep.scriptHash(scriptHashHex: $scriptHashHex)';
+    return 'ParsedDRep.scriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 
@@ -263,7 +275,7 @@ class DRepAbstain extends ParsedDRep {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepAbstain);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepAbstain);
 }
 
 
@@ -272,7 +284,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'ParsedDRep.abstain()';
+    return 'ParsedDRep.abstain()';
 }
 
 
@@ -295,7 +307,7 @@ class DRepNoConfidence extends ParsedDRep {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepNoConfidence);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DRepNoConfidence);
 }
 
 
@@ -304,7 +316,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'ParsedDRep.noConfidence()';
+    return 'ParsedDRep.noConfidence()';
 }
 
 

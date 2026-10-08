@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_native_script.dart';
@@ -9,6 +9,7 @@ part of 'parsed_native_script.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -20,16 +21,21 @@ mixin _$ParsedNativeScript {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript&&const DeepCollectionEquality().equals(other.script, script));
+  final _this = this as ParsedNativeScript;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript&&const DeepCollectionEquality().equals(other.script, _this.script));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(script));
+int get hashCode {
+  final _this = this as ParsedNativeScript;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.script));
+}
 
 @override
 String toString() {
-  return 'ParsedNativeScript(script: $script)';
+  final _this = this as ParsedNativeScript;
+  return 'ParsedNativeScript(script: ${_this.script})';
 }
 
 
@@ -61,16 +67,18 @@ $ParsedNativeScript_ComplexCopyWith<ParsedNativeScript_Complex> get copyWith => 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Complex&&(identical(other.script, script) || other.script == script));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Complex&&(identical(other.script, script) || other.script == script));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,script);
+int get hashCode {
+    return Object.hash(runtimeType,script);
+}
 
 @override
 String toString() {
-  return 'ParsedNativeScript.complex(script: $script)';
+    return 'ParsedNativeScript.complex(script: $script)';
 }
 
 
@@ -136,16 +144,18 @@ $ParsedNativeScript_SimpleCopyWith<ParsedNativeScript_Simple> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Simple&&(identical(other.script, script) || other.script == script));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedNativeScript_Simple&&(identical(other.script, script) || other.script == script));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,script);
+int get hashCode {
+    return Object.hash(runtimeType,script);
+}
 
 @override
 String toString() {
-  return 'ParsedNativeScript.simple(script: $script)';
+    return 'ParsedNativeScript.simple(script: $script)';
 }
 
 

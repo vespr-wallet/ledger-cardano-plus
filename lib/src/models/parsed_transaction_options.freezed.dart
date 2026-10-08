@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_transaction_options.dart';
@@ -9,6 +9,7 @@ part of 'parsed_transaction_options.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedTransactionOptionsCopyWith<ParsedTransactionOptions> get copyWith => _$Pa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
+  final _this = this as ParsedTransactionOptions;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTransactionOptions&&(identical(other.tagCborSets, _this.tagCborSets) || other.tagCborSets == _this.tagCborSets));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tagCborSets);
+int get hashCode {
+  final _this = this as ParsedTransactionOptions;
+  return Object.hash(runtimeType,_this.tagCborSets);
+}
 
 @override
 String toString() {
-  return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
+  final _this = this as ParsedTransactionOptions;
+  return 'ParsedTransactionOptions(tagCborSets: ${_this.tagCborSets})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedTransactionOptionsCopyWithImpl<$Res>
 /// Create a copy of ParsedTransactionOptions
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? tagCborSets = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedTransactionOptions(
 tagCborSets: null == tagCborSets ? _self.tagCborSets : tagCborSets // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
@@ -92,16 +98,18 @@ _$ParsedTransactionOptionsCopyWith<_ParsedTransactionOptions> get copyWith => __
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedTransactionOptions&&(identical(other.tagCborSets, tagCborSets) || other.tagCborSets == tagCborSets));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,tagCborSets);
+int get hashCode {
+    return Object.hash(runtimeType,tagCborSets);
+}
 
 @override
 String toString() {
-  return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
+    return 'ParsedTransactionOptions(tagCborSets: $tagCborSets)';
 }
 
 

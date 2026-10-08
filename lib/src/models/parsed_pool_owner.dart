@@ -24,7 +24,6 @@ sealed class ParsedPoolOwner with _$ParsedPoolOwner {
     required String hashHex,
   }) = ThirdPartyPoolOwner;
 
-  @override
   late final int poolOwnerValue = switch (this) {
     DeviceOwnedPoolOwner() => 1,
     ThirdPartyPoolOwner() => 2,

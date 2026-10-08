@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_params_pointer.dart';
@@ -9,6 +9,7 @@ part of 'address_params_pointer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AddressParamsPointerCopyWith<AddressParamsPointer> get copyWith => _$AddressPar
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsPointer&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingBlockchainPointer, stakingBlockchainPointer) || other.stakingBlockchainPointer == stakingBlockchainPointer));
+  final _this = this as AddressParamsPointer;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsPointer&&(identical(other.spendingParams, _this.spendingParams) || other.spendingParams == _this.spendingParams)&&(identical(other.stakingBlockchainPointer, _this.stakingBlockchainPointer) || other.stakingBlockchainPointer == _this.stakingBlockchainPointer));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingBlockchainPointer);
+int get hashCode {
+  final _this = this as AddressParamsPointer;
+  return Object.hash(runtimeType,_this.spendingParams,_this.stakingBlockchainPointer);
+}
 
 @override
 String toString() {
-  return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
+  final _this = this as AddressParamsPointer;
+  return 'AddressParamsPointer(spendingParams: ${_this.spendingParams}, stakingBlockchainPointer: ${_this.stakingBlockchainPointer})';
 }
 
 
@@ -63,7 +69,7 @@ class _$AddressParamsPointerCopyWithImpl<$Res>
 /// Create a copy of AddressParamsPointer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingParams = null,Object? stakingBlockchainPointer = null,}) {
-  return _then(_self.copyWith(
+  return _then(AddressParamsPointer(
 spendingParams: null == spendingParams ? _self.spendingParams : spendingParams // ignore: cast_nullable_to_non_nullable
 as SpendingParams,stakingBlockchainPointer: null == stakingBlockchainPointer ? _self.stakingBlockchainPointer : stakingBlockchainPointer // ignore: cast_nullable_to_non_nullable
 as BlockchainPointer,
@@ -112,16 +118,18 @@ _$AddressParamsPointerCopyWith<_AddressParamsPointer> get copyWith => __$Address
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsPointer&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingBlockchainPointer, stakingBlockchainPointer) || other.stakingBlockchainPointer == stakingBlockchainPointer));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsPointer&&(identical(other.spendingParams, spendingParams) || other.spendingParams == spendingParams)&&(identical(other.stakingBlockchainPointer, stakingBlockchainPointer) || other.stakingBlockchainPointer == stakingBlockchainPointer));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingParams,stakingBlockchainPointer);
+int get hashCode {
+    return Object.hash(runtimeType,spendingParams,stakingBlockchainPointer);
+}
 
 @override
 String toString() {
-  return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
+    return 'AddressParamsPointer(spendingParams: $spendingParams, stakingBlockchainPointer: $stakingBlockchainPointer)';
 }
 
 

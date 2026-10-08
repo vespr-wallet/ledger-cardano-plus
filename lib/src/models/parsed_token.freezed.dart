@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_token.dart';
@@ -9,6 +9,7 @@ part of 'parsed_token.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedTokenCopyWith<ParsedToken> get copyWith => _$ParsedTokenCopyWithImpl<Pars
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedToken&&(identical(other.assetNameHex, assetNameHex) || other.assetNameHex == assetNameHex)&&(identical(other.amount, amount) || other.amount == amount));
+  final _this = this as ParsedToken;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedToken&&(identical(other.assetNameHex, _this.assetNameHex) || other.assetNameHex == _this.assetNameHex)&&(identical(other.amount, _this.amount) || other.amount == _this.amount));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,assetNameHex,amount);
+int get hashCode {
+  final _this = this as ParsedToken;
+  return Object.hash(runtimeType,_this.assetNameHex,_this.amount);
+}
 
 @override
 String toString() {
-  return 'ParsedToken(assetNameHex: $assetNameHex, amount: $amount)';
+  final _this = this as ParsedToken;
+  return 'ParsedToken(assetNameHex: ${_this.assetNameHex}, amount: ${_this.amount})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedTokenCopyWithImpl<$Res>
 /// Create a copy of ParsedToken
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? assetNameHex = null,Object? amount = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedToken(
 assetNameHex: null == assetNameHex ? _self.assetNameHex : assetNameHex // ignore: cast_nullable_to_non_nullable
 as String,amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as BigInt,
@@ -94,16 +100,18 @@ _$ParsedTokenCopyWith<_ParsedToken> get copyWith => __$ParsedTokenCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedToken&&(identical(other.assetNameHex, assetNameHex) || other.assetNameHex == assetNameHex)&&(identical(other.amount, amount) || other.amount == amount));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedToken&&(identical(other.assetNameHex, assetNameHex) || other.assetNameHex == assetNameHex)&&(identical(other.amount, amount) || other.amount == amount));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,assetNameHex,amount);
+int get hashCode {
+    return Object.hash(runtimeType,assetNameHex,amount);
+}
 
 @override
 String toString() {
-  return 'ParsedToken(assetNameHex: $assetNameHex, amount: $amount)';
+    return 'ParsedToken(assetNameHex: $assetNameHex, amount: $amount)';
 }
 
 

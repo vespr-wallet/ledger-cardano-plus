@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'ledger_device.dart';
@@ -9,6 +9,7 @@ part of 'ledger_device.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $LedgerDeviceCopyWith<LedgerDevice> get copyWith => _$LedgerDeviceCopyWithImpl<L
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerDevice&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.connectionType, connectionType) || other.connectionType == connectionType)&&(identical(other.rssi, rssi) || other.rssi == rssi)&&(identical(other.deviceInfo, deviceInfo) || other.deviceInfo == deviceInfo));
+  final _this = this as LedgerDevice;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LedgerDevice&&(identical(other.id, _this.id) || other.id == _this.id)&&(identical(other.name, _this.name) || other.name == _this.name)&&(identical(other.connectionType, _this.connectionType) || other.connectionType == _this.connectionType)&&(identical(other.rssi, _this.rssi) || other.rssi == _this.rssi)&&(identical(other.deviceInfo, _this.deviceInfo) || other.deviceInfo == _this.deviceInfo));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,connectionType,rssi,deviceInfo);
+int get hashCode {
+  final _this = this as LedgerDevice;
+  return Object.hash(runtimeType,_this.id,_this.name,_this.connectionType,_this.rssi,_this.deviceInfo);
+}
 
 @override
 String toString() {
-  return 'LedgerDevice(id: $id, name: $name, connectionType: $connectionType, rssi: $rssi, deviceInfo: $deviceInfo)';
+  final _this = this as LedgerDevice;
+  return 'LedgerDevice(id: ${_this.id}, name: ${_this.name}, connectionType: ${_this.connectionType}, rssi: ${_this.rssi}, deviceInfo: ${_this.deviceInfo})';
 }
 
 
@@ -63,7 +69,7 @@ class _$LedgerDeviceCopyWithImpl<$Res>
 /// Create a copy of LedgerDevice
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? name = null,Object? connectionType = null,Object? rssi = null,Object? deviceInfo = null,}) {
-  return _then(_self.copyWith(
+  return _then(LedgerDevice(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
 as String,connectionType: null == connectionType ? _self.connectionType : connectionType // ignore: cast_nullable_to_non_nullable
@@ -100,16 +106,18 @@ _$LedgerDeviceCopyWith<_LedgerDevice> get copyWith => __$LedgerDeviceCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LedgerDevice&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.connectionType, connectionType) || other.connectionType == connectionType)&&(identical(other.rssi, rssi) || other.rssi == rssi)&&(identical(other.deviceInfo, deviceInfo) || other.deviceInfo == deviceInfo));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _LedgerDevice&&(identical(other.id, id) || other.id == id)&&(identical(other.name, name) || other.name == name)&&(identical(other.connectionType, connectionType) || other.connectionType == connectionType)&&(identical(other.rssi, rssi) || other.rssi == rssi)&&(identical(other.deviceInfo, deviceInfo) || other.deviceInfo == deviceInfo));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,id,name,connectionType,rssi,deviceInfo);
+int get hashCode {
+    return Object.hash(runtimeType,id,name,connectionType,rssi,deviceInfo);
+}
 
 @override
 String toString() {
-  return 'LedgerDevice(id: $id, name: $name, connectionType: $connectionType, rssi: $rssi, deviceInfo: $deviceInfo)';
+    return 'LedgerDevice(id: $id, name: $name, connectionType: $connectionType, rssi: $rssi, deviceInfo: $deviceInfo)';
 }
 
 

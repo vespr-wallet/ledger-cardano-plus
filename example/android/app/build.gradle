@@ -25,7 +25,8 @@ if (flutterVersionName == null) {
 android {
     namespace = "com.example.example"
 
-    compileSdk = flutter.compileSdkVersion
+    // permission_handler_android 14 needs 37; Flutter's default is still 36
+    compileSdk = 37
 
     // Replaced default NDK version with newer one to support latest AGP
     // https://github.com/flutter/flutter/issues/139427

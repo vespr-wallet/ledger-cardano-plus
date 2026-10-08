@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_gov_action_id.dart';
@@ -9,6 +9,7 @@ part of 'parsed_gov_action_id.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedGovActionIdCopyWith<ParsedGovActionId> get copyWith => _$ParsedGovActionI
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedGovActionId&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&(identical(other.govActionIndex, govActionIndex) || other.govActionIndex == govActionIndex));
+  final _this = this as ParsedGovActionId;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedGovActionId&&(identical(other.txHashHex, _this.txHashHex) || other.txHashHex == _this.txHashHex)&&(identical(other.govActionIndex, _this.govActionIndex) || other.govActionIndex == _this.govActionIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,txHashHex,govActionIndex);
+int get hashCode {
+  final _this = this as ParsedGovActionId;
+  return Object.hash(runtimeType,_this.txHashHex,_this.govActionIndex);
+}
 
 @override
 String toString() {
-  return 'ParsedGovActionId(txHashHex: $txHashHex, govActionIndex: $govActionIndex)';
+  final _this = this as ParsedGovActionId;
+  return 'ParsedGovActionId(txHashHex: ${_this.txHashHex}, govActionIndex: ${_this.govActionIndex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedGovActionIdCopyWithImpl<$Res>
 /// Create a copy of ParsedGovActionId
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? txHashHex = null,Object? govActionIndex = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedGovActionId(
 txHashHex: null == txHashHex ? _self.txHashHex : txHashHex // ignore: cast_nullable_to_non_nullable
 as String,govActionIndex: null == govActionIndex ? _self.govActionIndex : govActionIndex // ignore: cast_nullable_to_non_nullable
 as int,
@@ -94,16 +100,18 @@ _$ParsedGovActionIdCopyWith<_ParsedGovActionId> get copyWith => __$ParsedGovActi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedGovActionId&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&(identical(other.govActionIndex, govActionIndex) || other.govActionIndex == govActionIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedGovActionId&&(identical(other.txHashHex, txHashHex) || other.txHashHex == txHashHex)&&(identical(other.govActionIndex, govActionIndex) || other.govActionIndex == govActionIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,txHashHex,govActionIndex);
+int get hashCode {
+    return Object.hash(runtimeType,txHashHex,govActionIndex);
+}
 
 @override
 String toString() {
-  return 'ParsedGovActionId(txHashHex: $txHashHex, govActionIndex: $govActionIndex)';
+    return 'ParsedGovActionId(txHashHex: $txHashHex, govActionIndex: $govActionIndex)';
 }
 
 

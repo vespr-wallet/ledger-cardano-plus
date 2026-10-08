@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'script_data_hash.dart';
@@ -9,6 +9,7 @@ part of 'script_data_hash.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ScriptDataHashCopyWith<ScriptDataHash> get copyWith => _$ScriptDataHashCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScriptDataHash&&(identical(other.hexString, hexString) || other.hexString == hexString));
+  final _this = this as ScriptDataHash;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ScriptDataHash&&(identical(other.hexString, _this.hexString) || other.hexString == _this.hexString));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hexString);
+int get hashCode {
+  final _this = this as ScriptDataHash;
+  return Object.hash(runtimeType,_this.hexString);
+}
 
 @override
 String toString() {
-  return 'ScriptDataHash(hexString: $hexString)';
+  final _this = this as ScriptDataHash;
+  return 'ScriptDataHash(hexString: ${_this.hexString})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ScriptDataHashCopyWithImpl<$Res>
 /// Create a copy of ScriptDataHash
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? hexString = null,}) {
-  return _then(_self.copyWith(
+  return _then(ScriptDataHash(
 hexString: null == hexString ? _self.hexString : hexString // ignore: cast_nullable_to_non_nullable
 as String,
   ));
@@ -92,16 +98,18 @@ _$ScriptDataHashCopyWith<_ScriptDataHash> get copyWith => __$ScriptDataHashCopyW
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScriptDataHash&&(identical(other.hexString, hexString) || other.hexString == hexString));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ScriptDataHash&&(identical(other.hexString, hexString) || other.hexString == hexString));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hexString);
+int get hashCode {
+    return Object.hash(runtimeType,hexString);
+}
 
 @override
 String toString() {
-  return 'ScriptDataHash(hexString: $hexString)';
+    return 'ScriptDataHash(hexString: $hexString)';
 }
 
 

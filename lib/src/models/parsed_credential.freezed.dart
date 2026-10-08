@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_credential.dart';
@@ -9,27 +9,33 @@ part of 'parsed_credential.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedCredential {
 
- int get credentialValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCredential&&(identical(other.credentialValue, credentialValue) || other.credentialValue == credentialValue));
+  final _this = this as ParsedCredential;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCredential&&(identical(other.credentialValue, _this.credentialValue) || other.credentialValue == _this.credentialValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,credentialValue);
+int get hashCode {
+  final _this = this as ParsedCredential;
+  return Object.hash(runtimeType,_this.credentialValue);
+}
 
 @override
 String toString() {
-  return 'ParsedCredential(credentialValue: $credentialValue)';
+  final _this = this as ParsedCredential;
+  return 'ParsedCredential(credentialValue: ${_this.credentialValue})';
 }
 
 
@@ -61,16 +67,18 @@ $CredentialKeyPathCopyWith<CredentialKeyPath> get copyWith => _$CredentialKeyPat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyPath&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyPath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedCredential.keyPath(path: $path)';
+    return 'ParsedCredential.keyPath(path: $path)';
 }
 
 
@@ -136,16 +144,18 @@ $CredentialKeyHashCopyWith<CredentialKeyHash> get copyWith => _$CredentialKeyHas
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedCredential.keyHash(keyHashHex: $keyHashHex)';
+    return 'ParsedCredential.keyHash(keyHashHex: $keyHashHex)';
 }
 
 
@@ -202,16 +212,18 @@ $CredentialScriptHashCopyWith<CredentialScriptHash> get copyWith => _$Credential
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CredentialScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedCredential.scriptHash(scriptHashHex: $scriptHashHex)';
+    return 'ParsedCredential.scriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 

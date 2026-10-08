@@ -28,7 +28,6 @@ sealed class ParsedOutputDestination with _$ParsedOutputDestination {
   }) = DeviceOwned;
 
   // uint8
-  @override
   late final int typeEncoding = switch (this) {
     ThirdParty() => 1,
     DeviceOwned() => 2,

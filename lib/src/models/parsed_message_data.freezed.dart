@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_message_data.dart';
@@ -9,12 +9,13 @@ part of 'parsed_message_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedMessageData {
 
- int get serializedDataFieldType; bool get isAscii; String get messageHex; LedgerSigningPath get signingPath; bool get hashPayload; bool get preferHexDisplay;
+ String get messageHex; LedgerSigningPath get signingPath; bool get hashPayload; bool get preferHexDisplay;
 /// Create a copy of ParsedMessageData
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,21 @@ $ParsedMessageDataCopyWith<ParsedMessageData> get copyWith => _$ParsedMessageDat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageData&&(identical(other.serializedDataFieldType, serializedDataFieldType) || other.serializedDataFieldType == serializedDataFieldType)&&(identical(other.isAscii, isAscii) || other.isAscii == isAscii)&&(identical(other.messageHex, messageHex) || other.messageHex == messageHex)&&(identical(other.signingPath, signingPath) || other.signingPath == signingPath)&&(identical(other.hashPayload, hashPayload) || other.hashPayload == hashPayload)&&(identical(other.preferHexDisplay, preferHexDisplay) || other.preferHexDisplay == preferHexDisplay));
+  final _this = this as ParsedMessageData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageData&&(identical(other.serializedDataFieldType, _this.serializedDataFieldType) || other.serializedDataFieldType == _this.serializedDataFieldType)&&(identical(other.isAscii, _this.isAscii) || other.isAscii == _this.isAscii)&&(identical(other.messageHex, _this.messageHex) || other.messageHex == _this.messageHex)&&(identical(other.signingPath, _this.signingPath) || other.signingPath == _this.signingPath)&&(identical(other.hashPayload, _this.hashPayload) || other.hashPayload == _this.hashPayload)&&(identical(other.preferHexDisplay, _this.preferHexDisplay) || other.preferHexDisplay == _this.preferHexDisplay));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,serializedDataFieldType,isAscii,messageHex,signingPath,hashPayload,preferHexDisplay);
+int get hashCode {
+  final _this = this as ParsedMessageData;
+  return Object.hash(runtimeType,_this.serializedDataFieldType,_this.isAscii,_this.messageHex,_this.signingPath,_this.hashPayload,_this.preferHexDisplay);
+}
 
 @override
 String toString() {
-  return 'ParsedMessageData(serializedDataFieldType: $serializedDataFieldType, isAscii: $isAscii, messageHex: $messageHex, signingPath: $signingPath, hashPayload: $hashPayload, preferHexDisplay: $preferHexDisplay)';
+  final _this = this as ParsedMessageData;
+  return 'ParsedMessageData(serializedDataFieldType: ${_this.serializedDataFieldType}, isAscii: ${_this.isAscii}, messageHex: ${_this.messageHex}, signingPath: ${_this.signingPath}, hashPayload: ${_this.hashPayload}, preferHexDisplay: ${_this.preferHexDisplay})';
 }
 
 
@@ -108,16 +114,18 @@ $ParsedMessageDataAddressCopyWith<ParsedMessageDataAddress> get copyWith => _$Pa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageDataAddress&&(identical(other.messageHex, messageHex) || other.messageHex == messageHex)&&(identical(other.signingPath, signingPath) || other.signingPath == signingPath)&&(identical(other.hashPayload, hashPayload) || other.hashPayload == hashPayload)&&(identical(other.address, address) || other.address == address)&&(identical(other.preferHexDisplay, preferHexDisplay) || other.preferHexDisplay == preferHexDisplay));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageDataAddress&&(identical(other.messageHex, messageHex) || other.messageHex == messageHex)&&(identical(other.signingPath, signingPath) || other.signingPath == signingPath)&&(identical(other.hashPayload, hashPayload) || other.hashPayload == hashPayload)&&(identical(other.address, address) || other.address == address)&&(identical(other.preferHexDisplay, preferHexDisplay) || other.preferHexDisplay == preferHexDisplay));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,messageHex,signingPath,hashPayload,address,preferHexDisplay);
+int get hashCode {
+    return Object.hash(runtimeType,messageHex,signingPath,hashPayload,address,preferHexDisplay);
+}
 
 @override
 String toString() {
-  return 'ParsedMessageData.address(messageHex: $messageHex, signingPath: $signingPath, hashPayload: $hashPayload, address: $address, preferHexDisplay: $preferHexDisplay)';
+    return 'ParsedMessageData.address(messageHex: $messageHex, signingPath: $signingPath, hashPayload: $hashPayload, address: $address, preferHexDisplay: $preferHexDisplay)';
 }
 
 
@@ -199,16 +207,18 @@ $ParsedMessageDataKeyHashCopyWith<ParsedMessageDataKeyHash> get copyWith => _$Pa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageDataKeyHash&&(identical(other.messageHex, messageHex) || other.messageHex == messageHex)&&(identical(other.signingPath, signingPath) || other.signingPath == signingPath)&&(identical(other.hashPayload, hashPayload) || other.hashPayload == hashPayload)&&(identical(other.preferHexDisplay, preferHexDisplay) || other.preferHexDisplay == preferHexDisplay));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMessageDataKeyHash&&(identical(other.messageHex, messageHex) || other.messageHex == messageHex)&&(identical(other.signingPath, signingPath) || other.signingPath == signingPath)&&(identical(other.hashPayload, hashPayload) || other.hashPayload == hashPayload)&&(identical(other.preferHexDisplay, preferHexDisplay) || other.preferHexDisplay == preferHexDisplay));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,messageHex,signingPath,hashPayload,preferHexDisplay);
+int get hashCode {
+    return Object.hash(runtimeType,messageHex,signingPath,hashPayload,preferHexDisplay);
+}
 
 @override
 String toString() {
-  return 'ParsedMessageData.keyHash(messageHex: $messageHex, signingPath: $signingPath, hashPayload: $hashPayload, preferHexDisplay: $preferHexDisplay)';
+    return 'ParsedMessageData.keyHash(messageHex: $messageHex, signingPath: $signingPath, hashPayload: $hashPayload, preferHexDisplay: $preferHexDisplay)';
 }
 
 

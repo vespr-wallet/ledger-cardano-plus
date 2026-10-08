@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_output.dart';
@@ -9,12 +9,13 @@ part of 'parsed_output.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedOutput {
 
- TxOutputFormat get format; ParsedDatum? get outputDatum; String? get referenceScriptHash; ParsedOutputDestination get destination; BigInt get amount; List<ParsedAssetGroup> get tokenBundle;
+ ParsedOutputDestination get destination; BigInt get amount; List<ParsedAssetGroup> get tokenBundle;
 /// Create a copy of ParsedOutput
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,21 @@ $ParsedOutputCopyWith<ParsedOutput> get copyWith => _$ParsedOutputCopyWithImpl<P
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutput&&(identical(other.format, format) || other.format == format)&&(identical(other.outputDatum, outputDatum) || other.outputDatum == outputDatum)&&(identical(other.referenceScriptHash, referenceScriptHash) || other.referenceScriptHash == referenceScriptHash)&&(identical(other.destination, destination) || other.destination == destination)&&(identical(other.amount, amount) || other.amount == amount)&&const DeepCollectionEquality().equals(other.tokenBundle, tokenBundle));
+  final _this = this as ParsedOutput;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutput&&(identical(other.format, _this.format) || other.format == _this.format)&&(identical(other.outputDatum, _this.outputDatum) || other.outputDatum == _this.outputDatum)&&(identical(other.referenceScriptHash, _this.referenceScriptHash) || other.referenceScriptHash == _this.referenceScriptHash)&&(identical(other.destination, _this.destination) || other.destination == _this.destination)&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&const DeepCollectionEquality().equals(other.tokenBundle, _this.tokenBundle));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,format,outputDatum,referenceScriptHash,destination,amount,const DeepCollectionEquality().hash(tokenBundle));
+int get hashCode {
+  final _this = this as ParsedOutput;
+  return Object.hash(runtimeType,_this.format,_this.outputDatum,_this.referenceScriptHash,_this.destination,_this.amount,const DeepCollectionEquality().hash(_this.tokenBundle));
+}
 
 @override
 String toString() {
-  return 'ParsedOutput(format: $format, outputDatum: $outputDatum, referenceScriptHash: $referenceScriptHash, destination: $destination, amount: $amount, tokenBundle: $tokenBundle)';
+  final _this = this as ParsedOutput;
+  return 'ParsedOutput(format: ${_this.format}, outputDatum: ${_this.outputDatum}, referenceScriptHash: ${_this.referenceScriptHash}, destination: ${_this.destination}, amount: ${_this.amount}, tokenBundle: ${_this.tokenBundle})';
 }
 
 
@@ -88,7 +94,7 @@ $ParsedOutputDestinationCopyWith<$Res> get destination {
 
 
 class ParsedOutputAlonzo extends ParsedOutput {
-   ParsedOutputAlonzo({required this.destination, required this.amount, final  List<ParsedAssetGroup> tokenBundle = const [], this.datumHashHex}): _tokenBundle = tokenBundle,super._();
+   ParsedOutputAlonzo({required this.destination, required this.amount,  List<ParsedAssetGroup> tokenBundle = const [], this.datumHashHex}): _tokenBundle = tokenBundle,super._();
   
 
 @override final  ParsedOutputDestination destination;
@@ -112,16 +118,18 @@ $ParsedOutputAlonzoCopyWith<ParsedOutputAlonzo> get copyWith => _$ParsedOutputAl
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputAlonzo&&(identical(other.destination, destination) || other.destination == destination)&&(identical(other.amount, amount) || other.amount == amount)&&const DeepCollectionEquality().equals(other._tokenBundle, _tokenBundle)&&const DeepCollectionEquality().equals(other.datumHashHex, datumHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputAlonzo&&(identical(other.destination, destination) || other.destination == destination)&&(identical(other.amount, amount) || other.amount == amount)&&const DeepCollectionEquality().equals(other.tokenBundle, _tokenBundle)&&const DeepCollectionEquality().equals(other.datumHashHex, datumHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),const DeepCollectionEquality().hash(datumHashHex));
+int get hashCode {
+    return Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),const DeepCollectionEquality().hash(datumHashHex));
+}
 
 @override
 String toString() {
-  return 'ParsedOutput.alonzo(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datumHashHex: $datumHashHex)';
+    return 'ParsedOutput.alonzo(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datumHashHex: $datumHashHex)';
 }
 
 
@@ -175,7 +183,7 @@ $ParsedOutputDestinationCopyWith<$Res> get destination {
 
 
 class ParsedOutputBabbage extends ParsedOutput {
-   ParsedOutputBabbage({required this.destination, required this.amount, final  List<ParsedAssetGroup> tokenBundle = const [], this.datum, this.referenceScriptHex}): _tokenBundle = tokenBundle,super._();
+   ParsedOutputBabbage({required this.destination, required this.amount,  List<ParsedAssetGroup> tokenBundle = const [], this.datum, this.referenceScriptHex}): _tokenBundle = tokenBundle,super._();
   
 
 @override final  ParsedOutputDestination destination;
@@ -200,16 +208,18 @@ $ParsedOutputBabbageCopyWith<ParsedOutputBabbage> get copyWith => _$ParsedOutput
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputBabbage&&(identical(other.destination, destination) || other.destination == destination)&&(identical(other.amount, amount) || other.amount == amount)&&const DeepCollectionEquality().equals(other._tokenBundle, _tokenBundle)&&(identical(other.datum, datum) || other.datum == datum)&&(identical(other.referenceScriptHex, referenceScriptHex) || other.referenceScriptHex == referenceScriptHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputBabbage&&(identical(other.destination, destination) || other.destination == destination)&&(identical(other.amount, amount) || other.amount == amount)&&const DeepCollectionEquality().equals(other.tokenBundle, _tokenBundle)&&(identical(other.datum, datum) || other.datum == datum)&&(identical(other.referenceScriptHex, referenceScriptHex) || other.referenceScriptHex == referenceScriptHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),datum,referenceScriptHex);
+int get hashCode {
+    return Object.hash(runtimeType,destination,amount,const DeepCollectionEquality().hash(_tokenBundle),datum,referenceScriptHex);
+}
 
 @override
 String toString() {
-  return 'ParsedOutput.babbage(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datum: $datum, referenceScriptHex: $referenceScriptHex)';
+    return 'ParsedOutput.babbage(destination: $destination, amount: $amount, tokenBundle: $tokenBundle, datum: $datum, referenceScriptHex: $referenceScriptHex)';
 }
 
 

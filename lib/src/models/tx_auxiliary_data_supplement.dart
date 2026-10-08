@@ -15,7 +15,6 @@ sealed class TxAuxiliaryDataSupplement with _$TxAuxiliaryDataSupplement {
     validateHexString(cip36VoteRegistrationSignatureHex, "cip36VoteRegistrationSignatureHex");
   }
 
-  @override
   late final TxAuxiliaryDataSupplementType type = switch (this) {
     _TxAuxiliaryDataSupplementData() => TxAuxiliaryDataSupplementType.cip36Registration,
   };

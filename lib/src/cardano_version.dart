@@ -17,13 +17,10 @@ sealed class CardanoVersion with _$CardanoVersion {
   }) = _CardanoVersion;
   CardanoVersion._();
 
-  @override
   late final int versionCode = versionMajor * 10000 + versionMinor * 100 + versionPatch;
 
-  @override
   late final String versionName = "$versionMajor.$versionMinor.$versionPatch";
 
-  @override
   late final VersionCompatibility compatibility = VersionCompatibility.checkVersionCompatibility(this);
 
   factory CardanoVersion.fromVersionCode(int versionCode) => CardanoVersion(

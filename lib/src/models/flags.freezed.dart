@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'flags.dart';
@@ -9,6 +9,7 @@ part of 'flags.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $FlagsCopyWith<Flags> get copyWith => _$FlagsCopyWithImpl<Flags>(this as Flags, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Flags&&(identical(other.isDebug, isDebug) || other.isDebug == isDebug)&&(identical(other.isAppXS, isAppXS) || other.isAppXS == isAppXS));
+  final _this = this as Flags;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Flags&&(identical(other.isDebug, _this.isDebug) || other.isDebug == _this.isDebug)&&(identical(other.isAppXS, _this.isAppXS) || other.isAppXS == _this.isAppXS));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isDebug,isAppXS);
+int get hashCode {
+  final _this = this as Flags;
+  return Object.hash(runtimeType,_this.isDebug,_this.isAppXS);
+}
 
 @override
 String toString() {
-  return 'Flags(isDebug: $isDebug, isAppXS: $isAppXS)';
+  final _this = this as Flags;
+  return 'Flags(isDebug: ${_this.isDebug}, isAppXS: ${_this.isAppXS})';
 }
 
 
@@ -63,7 +69,7 @@ class _$FlagsCopyWithImpl<$Res>
 /// Create a copy of Flags
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? isDebug = null,Object? isAppXS = null,}) {
-  return _then(_self.copyWith(
+  return _then(Flags(
 isDebug: null == isDebug ? _self.isDebug : isDebug // ignore: cast_nullable_to_non_nullable
 as bool,isAppXS: null == isAppXS ? _self.isAppXS : isAppXS // ignore: cast_nullable_to_non_nullable
 as bool,
@@ -94,16 +100,18 @@ _$FlagsCopyWith<_Flags> get copyWith => __$FlagsCopyWithImpl<_Flags>(this, _$ide
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Flags&&(identical(other.isDebug, isDebug) || other.isDebug == isDebug)&&(identical(other.isAppXS, isAppXS) || other.isAppXS == isAppXS));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _Flags&&(identical(other.isDebug, isDebug) || other.isDebug == isDebug)&&(identical(other.isAppXS, isAppXS) || other.isAppXS == isAppXS));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,isDebug,isAppXS);
+int get hashCode {
+    return Object.hash(runtimeType,isDebug,isAppXS);
+}
 
 @override
 String toString() {
-  return 'Flags(isDebug: $isDebug, isAppXS: $isAppXS)';
+    return 'Flags(isDebug: $isDebug, isAppXS: $isAppXS)';
 }
 
 

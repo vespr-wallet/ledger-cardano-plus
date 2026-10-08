@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_voter_votes.dart';
@@ -9,6 +9,7 @@ part of 'parsed_voter_votes.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedVoterVotesCopyWith<ParsedVoterVotes> get copyWith => _$ParsedVoterVotesCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoterVotes&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other.votes, votes));
+  final _this = this as ParsedVoterVotes;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoterVotes&&(identical(other.voter, _this.voter) || other.voter == _this.voter)&&const DeepCollectionEquality().equals(other.votes, _this.votes));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(votes));
+int get hashCode {
+  final _this = this as ParsedVoterVotes;
+  return Object.hash(runtimeType,_this.voter,const DeepCollectionEquality().hash(_this.votes));
+}
 
 @override
 String toString() {
-  return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
+  final _this = this as ParsedVoterVotes;
+  return 'ParsedVoterVotes(voter: ${_this.voter}, votes: ${_this.votes})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedVoterVotesCopyWithImpl<$Res>
 /// Create a copy of ParsedVoterVotes
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voter = null,Object? votes = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedVoterVotes(
 voter: null == voter ? _self.voter : voter // ignore: cast_nullable_to_non_nullable
 as ParsedVoter,votes: null == votes ? _self.votes : votes // ignore: cast_nullable_to_non_nullable
 as List<ParsedVote>,
@@ -87,7 +93,7 @@ $ParsedVoterCopyWith<$Res> get voter {
 
 
 class _ParsedVoterVotes extends ParsedVoterVotes {
-   _ParsedVoterVotes({required this.voter, required final  List<ParsedVote> votes}): _votes = votes,super._();
+   _ParsedVoterVotes({required this.voter, required  List<ParsedVote> votes}): _votes = votes,super._();
   
 
 @override final  ParsedVoter voter;
@@ -109,16 +115,18 @@ _$ParsedVoterVotesCopyWith<_ParsedVoterVotes> get copyWith => __$ParsedVoterVote
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedVoterVotes&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other._votes, _votes));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedVoterVotes&&(identical(other.voter, voter) || other.voter == voter)&&const DeepCollectionEquality().equals(other.votes, _votes));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(_votes));
+int get hashCode {
+    return Object.hash(runtimeType,voter,const DeepCollectionEquality().hash(_votes));
+}
 
 @override
 String toString() {
-  return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
+    return 'ParsedVoterVotes(voter: $voter, votes: $votes)';
 }
 
 

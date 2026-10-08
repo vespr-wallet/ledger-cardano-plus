@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_params_byron.dart';
@@ -9,6 +9,7 @@ part of 'address_params_byron.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AddressParamsByronCopyWith<AddressParamsByron> get copyWith => _$AddressParamsB
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsByron&&const DeepCollectionEquality().equals(other.spendingPath, spendingPath));
+  final _this = this as AddressParamsByron;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsByron&&const DeepCollectionEquality().equals(other.spendingPath, _this.spendingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingPath));
+int get hashCode {
+  final _this = this as AddressParamsByron;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.spendingPath));
+}
 
 @override
 String toString() {
-  return 'AddressParamsByron(spendingPath: $spendingPath)';
+  final _this = this as AddressParamsByron;
+  return 'AddressParamsByron(spendingPath: ${_this.spendingPath})';
 }
 
 
@@ -63,7 +69,7 @@ class _$AddressParamsByronCopyWithImpl<$Res>
 /// Create a copy of AddressParamsByron
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_self.copyWith(
+  return _then(AddressParamsByron(
 spendingPath: null == spendingPath ? _self.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
 as List<int>,
   ));
@@ -77,7 +83,7 @@ as List<int>,
 
 
 class _AddressParamsByron extends AddressParamsByron {
-   _AddressParamsByron({required final  List<int> spendingPath}): _spendingPath = spendingPath,super._();
+   _AddressParamsByron({required  List<int> spendingPath}): _spendingPath = spendingPath,super._();
   
 
  final  List<int> _spendingPath;
@@ -98,16 +104,18 @@ _$AddressParamsByronCopyWith<_AddressParamsByron> get copyWith => __$AddressPara
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsByron&&const DeepCollectionEquality().equals(other._spendingPath, _spendingPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsByron&&const DeepCollectionEquality().equals(other.spendingPath, _spendingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_spendingPath));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_spendingPath));
+}
 
 @override
 String toString() {
-  return 'AddressParamsByron(spendingPath: $spendingPath)';
+    return 'AddressParamsByron(spendingPath: $spendingPath)';
 }
 
 

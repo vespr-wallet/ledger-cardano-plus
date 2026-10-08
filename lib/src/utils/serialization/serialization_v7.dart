@@ -73,6 +73,11 @@ class SerializationV7 {
       writer.writeUint32(tx.certificates?.length ?? 0);
       writer.writeUint32(tx.withdrawals?.length ?? 0);
 
+      // pre-Babbage apps expect numWitnesses here; Babbage moved it to the end
+      if (!compatibility.supportsBabbage) {
+        writer.writeUint32(numWitnesses);
+      }
+
       if (compatibility.supportsAlonzo) {
         writer.writeUint32(tx.collateralInputs?.length ?? 0);
       } else {

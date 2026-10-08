@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_complex_native_script.dart';
@@ -9,12 +9,13 @@ part of 'parsed_complex_native_script.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedComplexNativeScript {
 
- int get nativeScriptSerializationValue; List<ParsedNativeScript> get scripts;
+ List<ParsedNativeScript> get scripts;
 /// Create a copy of ParsedComplexNativeScript
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,21 @@ $ParsedComplexNativeScriptCopyWith<ParsedComplexNativeScript> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript&&(identical(other.nativeScriptSerializationValue, nativeScriptSerializationValue) || other.nativeScriptSerializationValue == nativeScriptSerializationValue)&&const DeepCollectionEquality().equals(other.scripts, scripts));
+  final _this = this as ParsedComplexNativeScript;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript&&(identical(other.nativeScriptSerializationValue, _this.nativeScriptSerializationValue) || other.nativeScriptSerializationValue == _this.nativeScriptSerializationValue)&&const DeepCollectionEquality().equals(other.scripts, _this.scripts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,nativeScriptSerializationValue,const DeepCollectionEquality().hash(scripts));
+int get hashCode {
+  final _this = this as ParsedComplexNativeScript;
+  return Object.hash(runtimeType,_this.nativeScriptSerializationValue,const DeepCollectionEquality().hash(_this.scripts));
+}
 
 @override
 String toString() {
-  return 'ParsedComplexNativeScript(nativeScriptSerializationValue: $nativeScriptSerializationValue, scripts: $scripts)';
+  final _this = this as ParsedComplexNativeScript;
+  return 'ParsedComplexNativeScript(nativeScriptSerializationValue: ${_this.nativeScriptSerializationValue}, scripts: ${_this.scripts})';
 }
 
 
@@ -77,7 +83,7 @@ as List<ParsedNativeScript>,
 
 
 class ParsedComplexNativeScript_All extends ParsedComplexNativeScript {
-   ParsedComplexNativeScript_All({required final  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
+   ParsedComplexNativeScript_All({required  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
   
 
  final  List<ParsedNativeScript> _scripts;
@@ -98,16 +104,18 @@ $ParsedComplexNativeScript_AllCopyWith<ParsedComplexNativeScript_All> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_All&&const DeepCollectionEquality().equals(other._scripts, _scripts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_All&&const DeepCollectionEquality().equals(other.scripts, _scripts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
+}
 
 @override
 String toString() {
-  return 'ParsedComplexNativeScript.all(scripts: $scripts)';
+    return 'ParsedComplexNativeScript.all(scripts: $scripts)';
 }
 
 
@@ -149,7 +157,7 @@ as List<ParsedNativeScript>,
 
 
 class ParsedComplexNativeScript_Any extends ParsedComplexNativeScript {
-   ParsedComplexNativeScript_Any({required final  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
+   ParsedComplexNativeScript_Any({required  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
   
 
  final  List<ParsedNativeScript> _scripts;
@@ -170,16 +178,18 @@ $ParsedComplexNativeScript_AnyCopyWith<ParsedComplexNativeScript_Any> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_Any&&const DeepCollectionEquality().equals(other._scripts, _scripts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_Any&&const DeepCollectionEquality().equals(other.scripts, _scripts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_scripts));
+}
 
 @override
 String toString() {
-  return 'ParsedComplexNativeScript.any(scripts: $scripts)';
+    return 'ParsedComplexNativeScript.any(scripts: $scripts)';
 }
 
 
@@ -221,7 +231,7 @@ as List<ParsedNativeScript>,
 
 
 class ParsedComplexNativeScript_NOfK extends ParsedComplexNativeScript {
-   ParsedComplexNativeScript_NOfK({required this.requiredCount, required final  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
+   ParsedComplexNativeScript_NOfK({required this.requiredCount, required  List<ParsedNativeScript> scripts}): _scripts = scripts,super._();
   
 
  final  int requiredCount;
@@ -243,16 +253,18 @@ $ParsedComplexNativeScript_NOfKCopyWith<ParsedComplexNativeScript_NOfK> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_NOfK&&(identical(other.requiredCount, requiredCount) || other.requiredCount == requiredCount)&&const DeepCollectionEquality().equals(other._scripts, _scripts));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedComplexNativeScript_NOfK&&(identical(other.requiredCount, requiredCount) || other.requiredCount == requiredCount)&&const DeepCollectionEquality().equals(other.scripts, _scripts));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,requiredCount,const DeepCollectionEquality().hash(_scripts));
+int get hashCode {
+    return Object.hash(runtimeType,requiredCount,const DeepCollectionEquality().hash(_scripts));
+}
 
 @override
 String toString() {
-  return 'ParsedComplexNativeScript.nOfK(requiredCount: $requiredCount, scripts: $scripts)';
+    return 'ParsedComplexNativeScript.nOfK(requiredCount: $requiredCount, scripts: $scripts)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_c_vote.dart';
@@ -9,6 +9,7 @@ part of 'parsed_c_vote.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedCVoteCopyWith<ParsedCVote> get copyWith => _$ParsedCVoteCopyWithImpl<Pars
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVote&&(identical(other.voteCastDataHex, voteCastDataHex) || other.voteCastDataHex == voteCastDataHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath));
+  final _this = this as ParsedCVote;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVote&&(identical(other.voteCastDataHex, _this.voteCastDataHex) || other.voteCastDataHex == _this.voteCastDataHex)&&(identical(other.witnessPath, _this.witnessPath) || other.witnessPath == _this.witnessPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voteCastDataHex,witnessPath);
+int get hashCode {
+  final _this = this as ParsedCVote;
+  return Object.hash(runtimeType,_this.voteCastDataHex,_this.witnessPath);
+}
 
 @override
 String toString() {
-  return 'ParsedCVote(voteCastDataHex: $voteCastDataHex, witnessPath: $witnessPath)';
+  final _this = this as ParsedCVote;
+  return 'ParsedCVote(voteCastDataHex: ${_this.voteCastDataHex}, witnessPath: ${_this.witnessPath})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedCVoteCopyWithImpl<$Res>
 /// Create a copy of ParsedCVote
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? voteCastDataHex = null,Object? witnessPath = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedCVote(
 voteCastDataHex: null == voteCastDataHex ? _self.voteCastDataHex : voteCastDataHex // ignore: cast_nullable_to_non_nullable
 as String,witnessPath: null == witnessPath ? _self.witnessPath : witnessPath // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,
@@ -103,16 +109,18 @@ _$ParsedCVoteCopyWith<_ParsedCVote> get copyWith => __$ParsedCVoteCopyWithImpl<_
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedCVote&&(identical(other.voteCastDataHex, voteCastDataHex) || other.voteCastDataHex == voteCastDataHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedCVote&&(identical(other.voteCastDataHex, voteCastDataHex) || other.voteCastDataHex == voteCastDataHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voteCastDataHex,witnessPath);
+int get hashCode {
+    return Object.hash(runtimeType,voteCastDataHex,witnessPath);
+}
 
 @override
 String toString() {
-  return 'ParsedCVote(voteCastDataHex: $voteCastDataHex, witnessPath: $witnessPath)';
+    return 'ParsedCVote(voteCastDataHex: $voteCastDataHex, witnessPath: $witnessPath)';
 }
 
 

@@ -2,6 +2,7 @@ import "dart:async";
 
 import "package:flutter/foundation.dart";
 import "package:ledger_flutter_plus/ledger_flutter_plus.dart" as sdk;
+import "package:ledger_flutter_plus/ledger_flutter_plus_dart.dart" as sdk show LedgerComplexOperation;
 
 import "../ledger_cardano_plus_models.dart";
 import "cardano_transformer.dart";
@@ -101,18 +102,19 @@ class CardanoLedgerConnection {
         .ignore();
   }
 
-  Future<CardanoVersion> getVersion() {
-    return _ledgerConnection.sendOperation<CardanoVersion>(
-      const CardanoVersionOperation(),
+  Future<T> _send<T>(sdk.LedgerComplexOperation<T> operation) {
+    return _ledgerConnection.sendOperation<T>(
+      RetryStillInCallOperation(operation),
       transformer: _transformer,
     );
   }
 
+  Future<CardanoVersion> getVersion() {
+    return _send(const CardanoVersionOperation());
+  }
+
   Future<String> getSerialNumber() {
-    return _ledgerConnection.sendOperation<String>(
-      const CardanoGetSerialOperation(),
-      transformer: _transformer,
-    );
+    return _send(const CardanoGetSerialOperation());
   }
 
   Future<String> deriveNativeScriptHash(
@@ -125,8 +127,8 @@ class CardanoLedgerConnection {
     if (!compatibility.isCompatible || !compatibility.supportsNativeScriptHashDerivation) {
       throw LedgerCardanoVersionNotSupported(
         message: "Native script hash derivation not supported",
-        wantedVersion: ">=5.0.0",
-        era: "Babbage",
+        wantedVersion: ">=3.0.0",
+        era: "Mary",
       );
     }
 
@@ -136,10 +138,7 @@ class CardanoLedgerConnection {
       version: deviceVersion,
     );
 
-    final String scriptHash = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final String scriptHash = await _send(operation);
 
     return scriptHash;
   }
@@ -169,12 +168,7 @@ class CardanoLedgerConnection {
       final operation = GetExtendedPublicKeyOperation(
         bip32Path: derivationPaths,
       );
-      xPubKeys.add(
-        await _ledgerConnection.sendOperation<ExtendedPublicKey>(
-          operation,
-          transformer: _transformer,
-        ),
-      );
+      xPubKeys.add(await _send(operation));
     }
 
     if (requests.length != xPubKeys.length) {
@@ -191,16 +185,15 @@ class CardanoLedgerConnection {
     // int addressIndex = 0,
     required ParsedAddressParams params,
     required CardanoNetwork network,
+    bool displayOnDevice = false,
   }) async {
     final operation = CardanoDeriveAddressOperation(
       params: params,
       network: network,
+      display: displayOnDevice,
     );
 
-    final addressResult = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final addressResult = await _send(operation);
 
     final Uint8List addressBytes = hexToBytes(addressResult);
     final String Function() encoder = switch (params) {
@@ -245,12 +238,10 @@ class CardanoLedgerConnection {
     final operation = CardanoDeriveAddressOperation(
       params: params,
       network: network,
+      display: displayOnDevice,
     );
 
-    final addressResult = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final addressResult = await _send(operation);
 
     final Uint8List addressBytes = hexToBytes(addressResult);
     final String bech32Hrp = network.paymentBech32Hrp;
@@ -288,12 +279,10 @@ class CardanoLedgerConnection {
     final operation = CardanoDeriveAddressOperation(
       params: params,
       network: network,
+      display: displayOnDevice,
     );
 
-    final addressResult = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final addressResult = await _send(operation);
 
     final Uint8List addressBytes = hexToBytes(addressResult);
     final String bech32Hrp = network.paymentBech32Hrp;
@@ -321,12 +310,10 @@ class CardanoLedgerConnection {
     final operation = CardanoDeriveAddressOperation(
       params: params,
       network: network,
+      display: displayOnDevice,
     );
 
-    final addressResult = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final addressResult = await _send(operation);
 
     final Uint8List addressBytes = hexToBytes(addressResult);
     final result = bech32EncodeAddress(network.stakeBech32Hrp, addressBytes);
@@ -355,12 +342,10 @@ class CardanoLedgerConnection {
     final operation = CardanoDeriveAddressOperation(
       params: params,
       network: network,
+      display: displayOnDevice,
     );
 
-    final addressResult = await _ledgerConnection.sendOperation<String>(
-      operation,
-      transformer: _transformer,
-    );
+    final addressResult = await _send(operation);
 
     final Uint8List addressBytes = hexToBytes(addressResult);
     final String bech32Hrp = network.paymentBech32Hrp;
@@ -385,10 +370,7 @@ class CardanoLedgerConnection {
       operationalCertificate: operationalCertificate,
     );
 
-    final Uint8List signature = await _ledgerConnection.sendOperation<Uint8List>(
-      operation,
-      transformer: _transformer,
-    );
+    final Uint8List signature = await _send(operation);
 
     return signature;
   }
@@ -403,13 +385,9 @@ class CardanoLedgerConnection {
     final operation = CardanoSignTransactionOperation(
       signingRequest: signingRequest,
       cardanoVersion: deviceVersion,
-      network: CardanoNetwork.mainnet(),
     );
 
-    final SignedTransactionData signedTransactionData = await _ledgerConnection.sendOperation<SignedTransactionData>(
-      operation,
-      transformer: _transformer,
-    );
+    final SignedTransactionData signedTransactionData = await _send(operation);
 
     return signedTransactionData;
   }
@@ -433,10 +411,7 @@ class CardanoLedgerConnection {
       version: deviceVersion,
     );
 
-    final SignedCIP36VoteData signedCIP36VoteData = await _ledgerConnection.sendOperation<SignedCIP36VoteData>(
-      operation,
-      transformer: _transformer,
-    );
+    final SignedCIP36VoteData signedCIP36VoteData = await _send(operation);
 
     return signedCIP36VoteData;
   }
@@ -462,10 +437,7 @@ class CardanoLedgerConnection {
       network: network,
     );
 
-    final SignedMessageData signedMessageData = await _ledgerConnection.sendOperation<SignedMessageData>(
-      operation,
-      transformer: _transformer,
-    );
+    final SignedMessageData signedMessageData = await _send(operation);
 
     return signedMessageData;
   }
@@ -484,9 +456,6 @@ class CardanoLedgerConnection {
 
     const operation = CardanoRunTestsOperation();
 
-    await _ledgerConnection.sendOperation<void>(
-      operation,
-      transformer: _transformer,
-    );
+    await _send(operation);
   }
 }

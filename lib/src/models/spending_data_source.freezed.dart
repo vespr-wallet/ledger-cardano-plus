@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'spending_data_source.dart';
@@ -9,27 +9,33 @@ part of 'spending_data_source.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$SpendingDataSource {
 
- SpendingDataSourceType get spendingDataSourceType;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSource&&(identical(other.spendingDataSourceType, spendingDataSourceType) || other.spendingDataSourceType == spendingDataSourceType));
+  final _this = this as SpendingDataSource;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSource&&(identical(other.spendingDataSourceType, _this.spendingDataSourceType) || other.spendingDataSourceType == _this.spendingDataSourceType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingDataSourceType);
+int get hashCode {
+  final _this = this as SpendingDataSource;
+  return Object.hash(runtimeType,_this.spendingDataSourceType);
+}
 
 @override
 String toString() {
-  return 'SpendingDataSource(spendingDataSourceType: $spendingDataSourceType)';
+  final _this = this as SpendingDataSource;
+  return 'SpendingDataSource(spendingDataSourceType: ${_this.spendingDataSourceType})';
 }
 
 
@@ -56,7 +62,7 @@ class SpendingDataSourceNone extends SpendingDataSource {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceNone);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceNone);
 }
 
 
@@ -65,7 +71,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'SpendingDataSource.none()';
+    return 'SpendingDataSource.none()';
 }
 
 
@@ -93,16 +99,18 @@ $SpendingDataSourcePathCopyWith<SpendingDataSourcePath> get copyWith => _$Spendi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourcePath&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourcePath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'SpendingDataSource.path(path: $path)';
+    return 'SpendingDataSource.path(path: $path)';
 }
 
 
@@ -168,16 +176,18 @@ $SpendingDataSourceScriptHashCopyWith<SpendingDataSourceScriptHash> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SpendingDataSourceScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'SpendingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
+    return 'SpendingDataSource.scriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 

@@ -12,13 +12,13 @@ part "sign_transaction/sign_transaction_v8.dart";
 class CardanoSignTransactionOperation extends LedgerComplexOperation<SignedTransactionData> {
   final ParsedSigningRequest signingRequest;
   final CardanoVersion cardanoVersion;
-  final CardanoNetwork network;
 
   const CardanoSignTransactionOperation({
     required this.signingRequest,
     required this.cardanoVersion,
-    required this.network,
   });
+
+  CardanoNetwork get network => signingRequest.tx.network;
 
   @override
   Future<SignedTransactionData> invoke(LedgerSendFct send) async {

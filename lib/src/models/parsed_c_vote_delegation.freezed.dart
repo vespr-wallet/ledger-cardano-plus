@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_c_vote_delegation.dart';
@@ -9,12 +9,13 @@ part of 'parsed_c_vote_delegation.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedCVoteDelegation {
 
- int get cVoteDelegationValue; int get weight;
+ int get weight;
 /// Create a copy of ParsedCVoteDelegation
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,21 @@ $ParsedCVoteDelegationCopyWith<ParsedCVoteDelegation> get copyWith => _$ParsedCV
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVoteDelegation&&(identical(other.cVoteDelegationValue, cVoteDelegationValue) || other.cVoteDelegationValue == cVoteDelegationValue)&&(identical(other.weight, weight) || other.weight == weight));
+  final _this = this as ParsedCVoteDelegation;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVoteDelegation&&(identical(other.cVoteDelegationValue, _this.cVoteDelegationValue) || other.cVoteDelegationValue == _this.cVoteDelegationValue)&&(identical(other.weight, _this.weight) || other.weight == _this.weight));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,cVoteDelegationValue,weight);
+int get hashCode {
+  final _this = this as ParsedCVoteDelegation;
+  return Object.hash(runtimeType,_this.cVoteDelegationValue,_this.weight);
+}
 
 @override
 String toString() {
-  return 'ParsedCVoteDelegation(cVoteDelegationValue: $cVoteDelegationValue, weight: $weight)';
+  final _this = this as ParsedCVoteDelegation;
+  return 'ParsedCVoteDelegation(cVoteDelegationValue: ${_this.cVoteDelegationValue}, weight: ${_this.weight})';
 }
 
 
@@ -93,16 +99,18 @@ $PathDelegationCopyWith<PathDelegation> get copyWith => _$PathDelegationCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PathDelegation&&(identical(other.voteKeyPath, voteKeyPath) || other.voteKeyPath == voteKeyPath)&&(identical(other.weight, weight) || other.weight == weight));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is PathDelegation&&(identical(other.voteKeyPath, voteKeyPath) || other.voteKeyPath == voteKeyPath)&&(identical(other.weight, weight) || other.weight == weight));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voteKeyPath,weight);
+int get hashCode {
+    return Object.hash(runtimeType,voteKeyPath,weight);
+}
 
 @override
 String toString() {
-  return 'ParsedCVoteDelegation.path(voteKeyPath: $voteKeyPath, weight: $weight)';
+    return 'ParsedCVoteDelegation.path(voteKeyPath: $voteKeyPath, weight: $weight)';
 }
 
 
@@ -170,16 +178,18 @@ $KeyDelegationCopyWith<KeyDelegation> get copyWith => _$KeyDelegationCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyDelegation&&(identical(other.voteKey, voteKey) || other.voteKey == voteKey)&&(identical(other.weight, weight) || other.weight == weight));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is KeyDelegation&&(identical(other.voteKey, voteKey) || other.voteKey == voteKey)&&(identical(other.weight, weight) || other.weight == weight));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voteKey,weight);
+int get hashCode {
+    return Object.hash(runtimeType,voteKey,weight);
+}
 
 @override
 String toString() {
-  return 'ParsedCVoteDelegation.key(voteKey: $voteKey, weight: $weight)';
+    return 'ParsedCVoteDelegation.key(voteKey: $voteKey, weight: $weight)';
 }
 
 

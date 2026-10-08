@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_message_data.dart';
@@ -9,6 +9,7 @@ part of 'signed_message_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $SignedMessageDataCopyWith<SignedMessageData> get copyWith => _$SignedMessageDat
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex)&&(identical(other.signatureType, signatureType) || other.signatureType == signatureType));
+  final _this = this as SignedMessageData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedMessageData&&(identical(other.signatureHex, _this.signatureHex) || other.signatureHex == _this.signatureHex)&&(identical(other.signingPublicKeyHex, _this.signingPublicKeyHex) || other.signingPublicKeyHex == _this.signingPublicKeyHex)&&(identical(other.addressFieldHex, _this.addressFieldHex) || other.addressFieldHex == _this.addressFieldHex)&&(identical(other.signatureType, _this.signatureType) || other.signatureType == _this.signatureType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex,signatureType);
+int get hashCode {
+  final _this = this as SignedMessageData;
+  return Object.hash(runtimeType,_this.signatureHex,_this.signingPublicKeyHex,_this.addressFieldHex,_this.signatureType);
+}
 
 @override
 String toString() {
-  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex, signatureType: $signatureType)';
+  final _this = this as SignedMessageData;
+  return 'SignedMessageData(signatureHex: ${_this.signatureHex}, signingPublicKeyHex: ${_this.signingPublicKeyHex}, addressFieldHex: ${_this.addressFieldHex}, signatureType: ${_this.signatureType})';
 }
 
 
@@ -63,7 +69,7 @@ class _$SignedMessageDataCopyWithImpl<$Res>
 /// Create a copy of SignedMessageData
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? signatureHex = null,Object? signingPublicKeyHex = null,Object? addressFieldHex = null,Object? signatureType = null,}) {
-  return _then(_self.copyWith(
+  return _then(SignedMessageData(
 signatureHex: null == signatureHex ? _self.signatureHex : signatureHex // ignore: cast_nullable_to_non_nullable
 as String,signingPublicKeyHex: null == signingPublicKeyHex ? _self.signingPublicKeyHex : signingPublicKeyHex // ignore: cast_nullable_to_non_nullable
 as String,addressFieldHex: null == addressFieldHex ? _self.addressFieldHex : addressFieldHex // ignore: cast_nullable_to_non_nullable
@@ -98,16 +104,18 @@ _$SignedMessageDataCopyWith<_SignedMessageData> get copyWith => __$SignedMessage
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex)&&(identical(other.signatureType, signatureType) || other.signatureType == signatureType));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedMessageData&&(identical(other.signatureHex, signatureHex) || other.signatureHex == signatureHex)&&(identical(other.signingPublicKeyHex, signingPublicKeyHex) || other.signingPublicKeyHex == signingPublicKeyHex)&&(identical(other.addressFieldHex, addressFieldHex) || other.addressFieldHex == addressFieldHex)&&(identical(other.signatureType, signatureType) || other.signatureType == signatureType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex,signatureType);
+int get hashCode {
+    return Object.hash(runtimeType,signatureHex,signingPublicKeyHex,addressFieldHex,signatureType);
+}
 
 @override
 String toString() {
-  return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex, signatureType: $signatureType)';
+    return 'SignedMessageData(signatureHex: $signatureHex, signingPublicKeyHex: $signingPublicKeyHex, addressFieldHex: $addressFieldHex, signatureType: $signatureType)';
 }
 
 

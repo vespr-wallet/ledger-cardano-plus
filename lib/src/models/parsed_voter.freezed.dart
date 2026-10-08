@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_voter.dart';
@@ -9,27 +9,33 @@ part of 'parsed_voter.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedVoter {
 
- int get voterValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoter&&(identical(other.voterValue, voterValue) || other.voterValue == voterValue));
+  final _this = this as ParsedVoter;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedVoter&&(identical(other.voterValue, _this.voterValue) || other.voterValue == _this.voterValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,voterValue);
+int get hashCode {
+  final _this = this as ParsedVoter;
+  return Object.hash(runtimeType,_this.voterValue);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter(voterValue: $voterValue)';
+  final _this = this as ParsedVoter;
+  return 'ParsedVoter(voterValue: ${_this.voterValue})';
 }
 
 
@@ -61,16 +67,18 @@ $CommitteeKeyHashCopyWith<CommitteeKeyHash> get copyWith => _$CommitteeKeyHashCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.committeeKeyHash(keyHashHex: $keyHashHex)';
+    return 'ParsedVoter.committeeKeyHash(keyHashHex: $keyHashHex)';
 }
 
 
@@ -127,16 +135,18 @@ $CommitteeKeyPathCopyWith<CommitteeKeyPath> get copyWith => _$CommitteeKeyPathCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyPath);
+int get hashCode {
+    return Object.hash(runtimeType,keyPath);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.committeeKeyPath(keyPath: $keyPath)';
+    return 'ParsedVoter.committeeKeyPath(keyPath: $keyPath)';
 }
 
 
@@ -202,16 +212,18 @@ $CommitteeScriptHashCopyWith<CommitteeScriptHash> get copyWith => _$CommitteeScr
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CommitteeScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.committeeScriptHash(scriptHashHex: $scriptHashHex)';
+    return 'ParsedVoter.committeeScriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 
@@ -268,16 +280,18 @@ $DrepKeyHashCopyWith<DrepKeyHash> get copyWith => _$DrepKeyHashCopyWithImpl<Drep
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.drepKeyHash(keyHashHex: $keyHashHex)';
+    return 'ParsedVoter.drepKeyHash(keyHashHex: $keyHashHex)';
 }
 
 
@@ -334,16 +348,18 @@ $DrepKeyPathCopyWith<DrepKeyPath> get copyWith => _$DrepKeyPathCopyWithImpl<Drep
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyPath);
+int get hashCode {
+    return Object.hash(runtimeType,keyPath);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.drepKeyPath(keyPath: $keyPath)';
+    return 'ParsedVoter.drepKeyPath(keyPath: $keyPath)';
 }
 
 
@@ -409,16 +425,18 @@ $DrepScriptHashCopyWith<DrepScriptHash> get copyWith => _$DrepScriptHashCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DrepScriptHash&&(identical(other.scriptHashHex, scriptHashHex) || other.scriptHashHex == scriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,scriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,scriptHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.drepScriptHash(scriptHashHex: $scriptHashHex)';
+    return 'ParsedVoter.drepScriptHash(scriptHashHex: $scriptHashHex)';
 }
 
 
@@ -475,16 +493,18 @@ $StakePoolKeyHashCopyWith<StakePoolKeyHash> get copyWith => _$StakePoolKeyHashCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyHash&&(identical(other.keyHashHex, keyHashHex) || other.keyHashHex == keyHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,keyHashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.stakePoolKeyHash(keyHashHex: $keyHashHex)';
+    return 'ParsedVoter.stakePoolKeyHash(keyHashHex: $keyHashHex)';
 }
 
 
@@ -541,16 +561,18 @@ $StakePoolKeyPathCopyWith<StakePoolKeyPath> get copyWith => _$StakePoolKeyPathCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is StakePoolKeyPath&&(identical(other.keyPath, keyPath) || other.keyPath == keyPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,keyPath);
+int get hashCode {
+    return Object.hash(runtimeType,keyPath);
+}
 
 @override
 String toString() {
-  return 'ParsedVoter.stakePoolKeyPath(keyPath: $keyPath)';
+    return 'ParsedVoter.stakePoolKeyPath(keyPath: $keyPath)';
 }
 
 

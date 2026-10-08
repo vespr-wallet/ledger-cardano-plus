@@ -54,7 +54,6 @@ sealed class StakingDataSource with _$StakingDataSource {
     required String scriptHashHex,
   }) = StakingDataSourceScriptHash;
 
-  @override
   late final int stakingDataSourceValue = switch (this) {
     StakingDataSourceNone() => 0x11,
     StakingDataSourceKey(data: final data) => data.stakingDataSourceValue,
@@ -81,7 +80,6 @@ sealed class StakingDataSourceKeyData with _$StakingDataSourceKeyData {
     required String keyHashHex,
   }) = StakingDataSourceKeyHash;
 
-  @override
   late final int stakingDataSourceValue = switch (this) {
     StakingDataSourceKeyPath() => 0x22,
     StakingDataSourceKeyHash() => 0x33,

@@ -1,3 +1,20 @@
+## 0.6.1
+
+- **Breaking:** `VersionCompatibility` has new required fields `supportsMultipleVoters` and `supportsMultipleVotesPerVoter`
+- Changed `displayOnDevice: true` to show the address on the device and wait for the user to confirm it (it was ignored before); `deriveAddressGeneric` accepts it too
+- Added `ParsedSigningRequest.withInferredSigningMode`, which picks the signing mode the same way the JS SDK does
+- Added a single retry when the device is still in a previous call (0x6E04), matching the JS SDK
+- Added upfront rejection of multiple voters, or multiple votes per voter, on v7 apps
+- Fixed `signTransaction` always encoding device-owned outputs for mainnet; it now uses the transaction's network
+- Fixed app versions 9.0 and later being reported as incompatible
+- Fixed Nano S restrictions never applying, because the version flags were not read
+- Fixed CIP-15 registrations being rejected on app versions 2.3 to 5.x
+- Fixed the missing witness count when signing on app versions older than 5.0
+- Fixed duplicate witnesses when the same path is given as different `LedgerSigningPath` variants
+- Fixed compressed IPv6 relay addresses (e.g. `2001:db8::1`) failing to parse
+- Fixed several version errors naming the wrong minimum version; `recommendedVersion` for unsupported apps is now 8.0
+- Updated Flutter to 3.47.6, freezed to 4.0.2, and the example app dependencies
+
 ## 0.5.10
 
 - Added Ledger Cardano app v8 support while retaining v7 compatibility, with automatic protocol selection for transaction signing, CIP-36 vote signing, CIP-8 message signing, and native script hash derivation

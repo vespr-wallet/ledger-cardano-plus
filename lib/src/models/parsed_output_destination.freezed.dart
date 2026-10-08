@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_output_destination.dart';
@@ -9,28 +9,33 @@ part of 'parsed_output_destination.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedOutputDestination {
 
-// uint8
- int get typeEncoding;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputDestination&&(identical(other.typeEncoding, typeEncoding) || other.typeEncoding == typeEncoding));
+  final _this = this as ParsedOutputDestination;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedOutputDestination&&(identical(other.typeEncoding, _this.typeEncoding) || other.typeEncoding == _this.typeEncoding));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,typeEncoding);
+int get hashCode {
+  final _this = this as ParsedOutputDestination;
+  return Object.hash(runtimeType,_this.typeEncoding);
+}
 
 @override
 String toString() {
-  return 'ParsedOutputDestination(typeEncoding: $typeEncoding)';
+  final _this = this as ParsedOutputDestination;
+  return 'ParsedOutputDestination(typeEncoding: ${_this.typeEncoding})';
 }
 
 
@@ -62,16 +67,18 @@ $ThirdPartyCopyWith<ThirdParty> get copyWith => _$ThirdPartyCopyWithImpl<ThirdPa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdParty&&(identical(other.addressHex, addressHex) || other.addressHex == addressHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdParty&&(identical(other.addressHex, addressHex) || other.addressHex == addressHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,addressHex);
+int get hashCode {
+    return Object.hash(runtimeType,addressHex);
+}
 
 @override
 String toString() {
-  return 'ParsedOutputDestination.thirdParty(addressHex: $addressHex)';
+    return 'ParsedOutputDestination.thirdParty(addressHex: $addressHex)';
 }
 
 
@@ -128,16 +135,18 @@ $DeviceOwnedCopyWith<DeviceOwned> get copyWith => _$DeviceOwnedCopyWithImpl<Devi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwned&&(identical(other.addressParams, addressParams) || other.addressParams == addressParams));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwned&&(identical(other.addressParams, addressParams) || other.addressParams == addressParams));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,addressParams);
+int get hashCode {
+    return Object.hash(runtimeType,addressParams);
+}
 
 @override
 String toString() {
-  return 'ParsedOutputDestination.deviceOwned(addressParams: $addressParams)';
+    return 'ParsedOutputDestination.deviceOwned(addressParams: $addressParams)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_margin.dart';
@@ -9,6 +9,7 @@ part of 'parsed_margin.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedMarginCopyWith<ParsedMargin> get copyWith => _$ParsedMarginCopyWithImpl<P
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMargin&&(identical(other.numerator, numerator) || other.numerator == numerator)&&(identical(other.denominator, denominator) || other.denominator == denominator));
+  final _this = this as ParsedMargin;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedMargin&&(identical(other.numerator, _this.numerator) || other.numerator == _this.numerator)&&(identical(other.denominator, _this.denominator) || other.denominator == _this.denominator));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,numerator,denominator);
+int get hashCode {
+  final _this = this as ParsedMargin;
+  return Object.hash(runtimeType,_this.numerator,_this.denominator);
+}
 
 @override
 String toString() {
-  return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
+  final _this = this as ParsedMargin;
+  return 'ParsedMargin(numerator: ${_this.numerator}, denominator: ${_this.denominator})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedMarginCopyWithImpl<$Res>
 /// Create a copy of ParsedMargin
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? numerator = null,Object? denominator = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedMargin(
 numerator: null == numerator ? _self.numerator : numerator // ignore: cast_nullable_to_non_nullable
 as BigInt,denominator: null == denominator ? _self.denominator : denominator // ignore: cast_nullable_to_non_nullable
 as BigInt,
@@ -94,16 +100,18 @@ _$ParsedMarginCopyWith<_ParsedMargin> get copyWith => __$ParsedMarginCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedMargin&&(identical(other.numerator, numerator) || other.numerator == numerator)&&(identical(other.denominator, denominator) || other.denominator == denominator));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedMargin&&(identical(other.numerator, numerator) || other.numerator == numerator)&&(identical(other.denominator, denominator) || other.denominator == denominator));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,numerator,denominator);
+int get hashCode {
+    return Object.hash(runtimeType,numerator,denominator);
+}
 
 @override
 String toString() {
-  return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
+    return 'ParsedMargin(numerator: $numerator, denominator: $denominator)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_pool_params.dart';
@@ -9,6 +9,7 @@ part of 'parsed_pool_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedPoolParamsCopyWith<ParsedPoolParams> get copyWith => _$ParsedPoolParamsCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolParams&&(identical(other.poolKey, poolKey) || other.poolKey == poolKey)&&(identical(other.vrfHashHex, vrfHashHex) || other.vrfHashHex == vrfHashHex)&&(identical(other.pledge, pledge) || other.pledge == pledge)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.margin, margin) || other.margin == margin)&&(identical(other.rewardAccount, rewardAccount) || other.rewardAccount == rewardAccount)&&const DeepCollectionEquality().equals(other.owners, owners)&&const DeepCollectionEquality().equals(other.relays, relays)&&(identical(other.metadata, metadata) || other.metadata == metadata));
+  final _this = this as ParsedPoolParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolParams&&(identical(other.poolKey, _this.poolKey) || other.poolKey == _this.poolKey)&&(identical(other.vrfHashHex, _this.vrfHashHex) || other.vrfHashHex == _this.vrfHashHex)&&(identical(other.pledge, _this.pledge) || other.pledge == _this.pledge)&&(identical(other.cost, _this.cost) || other.cost == _this.cost)&&(identical(other.margin, _this.margin) || other.margin == _this.margin)&&(identical(other.rewardAccount, _this.rewardAccount) || other.rewardAccount == _this.rewardAccount)&&const DeepCollectionEquality().equals(other.owners, _this.owners)&&const DeepCollectionEquality().equals(other.relays, _this.relays)&&(identical(other.metadata, _this.metadata) || other.metadata == _this.metadata));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,poolKey,vrfHashHex,pledge,cost,margin,rewardAccount,const DeepCollectionEquality().hash(owners),const DeepCollectionEquality().hash(relays),metadata);
+int get hashCode {
+  final _this = this as ParsedPoolParams;
+  return Object.hash(runtimeType,_this.poolKey,_this.vrfHashHex,_this.pledge,_this.cost,_this.margin,_this.rewardAccount,const DeepCollectionEquality().hash(_this.owners),const DeepCollectionEquality().hash(_this.relays),_this.metadata);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
+  final _this = this as ParsedPoolParams;
+  return 'ParsedPoolParams(poolKey: ${_this.poolKey}, vrfHashHex: ${_this.vrfHashHex}, pledge: ${_this.pledge}, cost: ${_this.cost}, margin: ${_this.margin}, rewardAccount: ${_this.rewardAccount}, owners: ${_this.owners}, relays: ${_this.relays}, metadata: ${_this.metadata})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedPoolParamsCopyWithImpl<$Res>
 /// Create a copy of ParsedPoolParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? poolKey = null,Object? vrfHashHex = null,Object? pledge = null,Object? cost = null,Object? margin = null,Object? rewardAccount = null,Object? owners = null,Object? relays = null,Object? metadata = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedPoolParams(
 poolKey: null == poolKey ? _self.poolKey : poolKey // ignore: cast_nullable_to_non_nullable
 as ParsedPoolKey,vrfHashHex: null == vrfHashHex ? _self.vrfHashHex : vrfHashHex // ignore: cast_nullable_to_non_nullable
 as String,pledge: null == pledge ? _self.pledge : pledge // ignore: cast_nullable_to_non_nullable
@@ -124,7 +130,7 @@ $ParsedPoolMetadataCopyWith<$Res>? get metadata {
 
 
 class _ParsedPoolParams extends ParsedPoolParams {
-   _ParsedPoolParams({required this.poolKey, required this.vrfHashHex, required this.pledge, required this.cost, required this.margin, required this.rewardAccount, required final  List<ParsedPoolOwner> owners, required final  List<ParsedPoolRelay> relays, required this.metadata}): _owners = owners,_relays = relays,super._();
+   _ParsedPoolParams({required this.poolKey, required this.vrfHashHex, required this.pledge, required this.cost, required this.margin, required this.rewardAccount, required  List<ParsedPoolOwner> owners, required  List<ParsedPoolRelay> relays, required this.metadata}): _owners = owners,_relays = relays,super._();
   
 
 @override final  ParsedPoolKey poolKey;
@@ -159,16 +165,18 @@ _$ParsedPoolParamsCopyWith<_ParsedPoolParams> get copyWith => __$ParsedPoolParam
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedPoolParams&&(identical(other.poolKey, poolKey) || other.poolKey == poolKey)&&(identical(other.vrfHashHex, vrfHashHex) || other.vrfHashHex == vrfHashHex)&&(identical(other.pledge, pledge) || other.pledge == pledge)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.margin, margin) || other.margin == margin)&&(identical(other.rewardAccount, rewardAccount) || other.rewardAccount == rewardAccount)&&const DeepCollectionEquality().equals(other._owners, _owners)&&const DeepCollectionEquality().equals(other._relays, _relays)&&(identical(other.metadata, metadata) || other.metadata == metadata));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedPoolParams&&(identical(other.poolKey, poolKey) || other.poolKey == poolKey)&&(identical(other.vrfHashHex, vrfHashHex) || other.vrfHashHex == vrfHashHex)&&(identical(other.pledge, pledge) || other.pledge == pledge)&&(identical(other.cost, cost) || other.cost == cost)&&(identical(other.margin, margin) || other.margin == margin)&&(identical(other.rewardAccount, rewardAccount) || other.rewardAccount == rewardAccount)&&const DeepCollectionEquality().equals(other.owners, _owners)&&const DeepCollectionEquality().equals(other.relays, _relays)&&(identical(other.metadata, metadata) || other.metadata == metadata));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,poolKey,vrfHashHex,pledge,cost,margin,rewardAccount,const DeepCollectionEquality().hash(_owners),const DeepCollectionEquality().hash(_relays),metadata);
+int get hashCode {
+    return Object.hash(runtimeType,poolKey,vrfHashHex,pledge,cost,margin,rewardAccount,const DeepCollectionEquality().hash(_owners),const DeepCollectionEquality().hash(_relays),metadata);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
+    return 'ParsedPoolParams(poolKey: $poolKey, vrfHashHex: $vrfHashHex, pledge: $pledge, cost: $cost, margin: $margin, rewardAccount: $rewardAccount, owners: $owners, relays: $relays, metadata: $metadata)';
 }
 
 

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_pool_key.dart';
@@ -9,27 +9,33 @@ part of 'parsed_pool_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedPoolKey {
 
- int get poolKeyValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolKey&&(identical(other.poolKeyValue, poolKeyValue) || other.poolKeyValue == poolKeyValue));
+  final _this = this as ParsedPoolKey;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolKey&&(identical(other.poolKeyValue, _this.poolKeyValue) || other.poolKeyValue == _this.poolKeyValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,poolKeyValue);
+int get hashCode {
+  final _this = this as ParsedPoolKey;
+  return Object.hash(runtimeType,_this.poolKeyValue);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolKey(poolKeyValue: $poolKeyValue)';
+  final _this = this as ParsedPoolKey;
+  return 'ParsedPoolKey(poolKeyValue: ${_this.poolKeyValue})';
 }
 
 
@@ -61,16 +67,18 @@ $DeviceOwnedPoolKeyCopyWith<DeviceOwnedPoolKey> get copyWith => _$DeviceOwnedPoo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolKey&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is DeviceOwnedPoolKey&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolKey.deviceOwned(path: $path)';
+    return 'ParsedPoolKey.deviceOwned(path: $path)';
 }
 
 
@@ -136,16 +144,18 @@ $ThirdPartyPoolKeyCopyWith<ThirdPartyPoolKey> get copyWith => _$ThirdPartyPoolKe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolKey&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ThirdPartyPoolKey&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hashHex);
+int get hashCode {
+    return Object.hash(runtimeType,hashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
+    return 'ParsedPoolKey.thirdParty(hashHex: $hashHex)';
 }
 
 

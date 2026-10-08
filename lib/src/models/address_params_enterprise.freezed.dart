@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'address_params_enterprise.dart';
@@ -9,6 +9,7 @@ part of 'address_params_enterprise.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $AddressParamsEnterpriseCopyWith<AddressParamsEnterprise> get copyWith => _$Addr
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsEnterprise&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
+  final _this = this as AddressParamsEnterprise;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AddressParamsEnterprise&&(identical(other.spendingPath, _this.spendingPath) || other.spendingPath == _this.spendingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingPath);
+int get hashCode {
+  final _this = this as AddressParamsEnterprise;
+  return Object.hash(runtimeType,_this.spendingPath);
+}
 
 @override
 String toString() {
-  return 'AddressParamsEnterprise(spendingPath: $spendingPath)';
+  final _this = this as AddressParamsEnterprise;
+  return 'AddressParamsEnterprise(spendingPath: ${_this.spendingPath})';
 }
 
 
@@ -63,7 +69,7 @@ class _$AddressParamsEnterpriseCopyWithImpl<$Res>
 /// Create a copy of AddressParamsEnterprise
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? spendingPath = null,}) {
-  return _then(_self.copyWith(
+  return _then(AddressParamsEnterprise(
 spendingPath: null == spendingPath ? _self.spendingPath : spendingPath // ignore: cast_nullable_to_non_nullable
 as SpendingParams,
   ));
@@ -101,16 +107,18 @@ _$AddressParamsEnterpriseCopyWith<_AddressParamsEnterprise> get copyWith => __$A
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsEnterprise&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _AddressParamsEnterprise&&(identical(other.spendingPath, spendingPath) || other.spendingPath == spendingPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingPath);
+int get hashCode {
+    return Object.hash(runtimeType,spendingPath);
+}
 
 @override
 String toString() {
-  return 'AddressParamsEnterprise(spendingPath: $spendingPath)';
+    return 'AddressParamsEnterprise(spendingPath: $spendingPath)';
 }
 
 

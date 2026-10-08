@@ -146,7 +146,6 @@ sealed class ParsedCertificate with _$ParsedCertificate {
     required BigInt retirementEpoch,
   }) = StakePoolRetirement;
 
-  @override
   late final bool isConway = switch (this) {
     StakeRegistration() => false,
     StakeDeregistration() => false,
@@ -167,7 +166,6 @@ sealed class ParsedCertificate with _$ParsedCertificate {
     AccountRegistrationDelegationToStakePoolAndDRep() => true,
   };
 
-  @override
   late final int certificateTypeSerializationValue = switch (this) {
     StakeRegistration() => 0,
     StakeDeregistration() => 1,

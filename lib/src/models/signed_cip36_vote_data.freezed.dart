@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'signed_cip36_vote_data.dart';
@@ -9,6 +9,7 @@ part of 'signed_cip36_vote_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $SignedCIP36VoteDataCopyWith<SignedCIP36VoteData> get copyWith => _$SignedCIP36V
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedCIP36VoteData&&(identical(other.dataHashHex, dataHashHex) || other.dataHashHex == dataHashHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
+  final _this = this as SignedCIP36VoteData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is SignedCIP36VoteData&&(identical(other.dataHashHex, _this.dataHashHex) || other.dataHashHex == _this.dataHashHex)&&(identical(other.witnessPath, _this.witnessPath) || other.witnessPath == _this.witnessPath)&&(identical(other.witnessSignatureHex, _this.witnessSignatureHex) || other.witnessSignatureHex == _this.witnessSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,dataHashHex,witnessPath,witnessSignatureHex);
+int get hashCode {
+  final _this = this as SignedCIP36VoteData;
+  return Object.hash(runtimeType,_this.dataHashHex,_this.witnessPath,_this.witnessSignatureHex);
+}
 
 @override
 String toString() {
-  return 'SignedCIP36VoteData(dataHashHex: $dataHashHex, witnessPath: $witnessPath, witnessSignatureHex: $witnessSignatureHex)';
+  final _this = this as SignedCIP36VoteData;
+  return 'SignedCIP36VoteData(dataHashHex: ${_this.dataHashHex}, witnessPath: ${_this.witnessPath}, witnessSignatureHex: ${_this.witnessSignatureHex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$SignedCIP36VoteDataCopyWithImpl<$Res>
 /// Create a copy of SignedCIP36VoteData
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? dataHashHex = null,Object? witnessPath = null,Object? witnessSignatureHex = null,}) {
-  return _then(_self.copyWith(
+  return _then(SignedCIP36VoteData(
 dataHashHex: null == dataHashHex ? _self.dataHashHex : dataHashHex // ignore: cast_nullable_to_non_nullable
 as String,witnessPath: null == witnessPath ? _self.witnessPath : witnessPath // ignore: cast_nullable_to_non_nullable
 as LedgerSigningPath,witnessSignatureHex: null == witnessSignatureHex ? _self.witnessSignatureHex : witnessSignatureHex // ignore: cast_nullable_to_non_nullable
@@ -105,16 +111,18 @@ _$SignedCIP36VoteDataCopyWith<_SignedCIP36VoteData> get copyWith => __$SignedCIP
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedCIP36VoteData&&(identical(other.dataHashHex, dataHashHex) || other.dataHashHex == dataHashHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _SignedCIP36VoteData&&(identical(other.dataHashHex, dataHashHex) || other.dataHashHex == dataHashHex)&&(identical(other.witnessPath, witnessPath) || other.witnessPath == witnessPath)&&(identical(other.witnessSignatureHex, witnessSignatureHex) || other.witnessSignatureHex == witnessSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,dataHashHex,witnessPath,witnessSignatureHex);
+int get hashCode {
+    return Object.hash(runtimeType,dataHashHex,witnessPath,witnessSignatureHex);
+}
 
 @override
 String toString() {
-  return 'SignedCIP36VoteData(dataHashHex: $dataHashHex, witnessPath: $witnessPath, witnessSignatureHex: $witnessSignatureHex)';
+    return 'SignedCIP36VoteData(dataHashHex: $dataHashHex, witnessPath: $witnessPath, witnessSignatureHex: $witnessSignatureHex)';
 }
 
 

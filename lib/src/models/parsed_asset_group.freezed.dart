@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_asset_group.dart';
@@ -9,6 +9,7 @@ part of 'parsed_asset_group.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedAssetGroupCopyWith<ParsedAssetGroup> get copyWith => _$ParsedAssetGroupCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedAssetGroup&&(identical(other.policyIdHex, policyIdHex) || other.policyIdHex == policyIdHex)&&const DeepCollectionEquality().equals(other.tokens, tokens));
+  final _this = this as ParsedAssetGroup;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedAssetGroup&&(identical(other.policyIdHex, _this.policyIdHex) || other.policyIdHex == _this.policyIdHex)&&const DeepCollectionEquality().equals(other.tokens, _this.tokens));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,policyIdHex,const DeepCollectionEquality().hash(tokens));
+int get hashCode {
+  final _this = this as ParsedAssetGroup;
+  return Object.hash(runtimeType,_this.policyIdHex,const DeepCollectionEquality().hash(_this.tokens));
+}
 
 @override
 String toString() {
-  return 'ParsedAssetGroup(policyIdHex: $policyIdHex, tokens: $tokens)';
+  final _this = this as ParsedAssetGroup;
+  return 'ParsedAssetGroup(policyIdHex: ${_this.policyIdHex}, tokens: ${_this.tokens})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedAssetGroupCopyWithImpl<$Res>
 /// Create a copy of ParsedAssetGroup
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? policyIdHex = null,Object? tokens = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedAssetGroup(
 policyIdHex: null == policyIdHex ? _self.policyIdHex : policyIdHex // ignore: cast_nullable_to_non_nullable
 as String,tokens: null == tokens ? _self.tokens : tokens // ignore: cast_nullable_to_non_nullable
 as List<ParsedToken>,
@@ -78,7 +84,7 @@ as List<ParsedToken>,
 
 
 class _ParsedAssetGroup extends ParsedAssetGroup {
-   _ParsedAssetGroup({required this.policyIdHex, required final  List<ParsedToken> tokens}): _tokens = tokens,super._();
+   _ParsedAssetGroup({required this.policyIdHex, required  List<ParsedToken> tokens}): _tokens = tokens,super._();
   
 
 @override final  String policyIdHex;
@@ -100,16 +106,18 @@ _$ParsedAssetGroupCopyWith<_ParsedAssetGroup> get copyWith => __$ParsedAssetGrou
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedAssetGroup&&(identical(other.policyIdHex, policyIdHex) || other.policyIdHex == policyIdHex)&&const DeepCollectionEquality().equals(other._tokens, _tokens));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedAssetGroup&&(identical(other.policyIdHex, policyIdHex) || other.policyIdHex == policyIdHex)&&const DeepCollectionEquality().equals(other.tokens, _tokens));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,policyIdHex,const DeepCollectionEquality().hash(_tokens));
+int get hashCode {
+    return Object.hash(runtimeType,policyIdHex,const DeepCollectionEquality().hash(_tokens));
+}
 
 @override
 String toString() {
-  return 'ParsedAssetGroup(policyIdHex: $policyIdHex, tokens: $tokens)';
+    return 'ParsedAssetGroup(policyIdHex: $policyIdHex, tokens: $tokens)';
 }
 
 

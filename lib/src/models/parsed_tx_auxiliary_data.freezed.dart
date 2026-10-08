@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_tx_auxiliary_data.dart';
@@ -9,27 +9,33 @@ part of 'parsed_tx_auxiliary_data.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedTxAuxiliaryData {
 
- int get txAuxiliaryDataValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTxAuxiliaryData&&(identical(other.txAuxiliaryDataValue, txAuxiliaryDataValue) || other.txAuxiliaryDataValue == txAuxiliaryDataValue));
+  final _this = this as ParsedTxAuxiliaryData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedTxAuxiliaryData&&(identical(other.txAuxiliaryDataValue, _this.txAuxiliaryDataValue) || other.txAuxiliaryDataValue == _this.txAuxiliaryDataValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,txAuxiliaryDataValue);
+int get hashCode {
+  final _this = this as ParsedTxAuxiliaryData;
+  return Object.hash(runtimeType,_this.txAuxiliaryDataValue);
+}
 
 @override
 String toString() {
-  return 'ParsedTxAuxiliaryData(txAuxiliaryDataValue: $txAuxiliaryDataValue)';
+  final _this = this as ParsedTxAuxiliaryData;
+  return 'ParsedTxAuxiliaryData(txAuxiliaryDataValue: ${_this.txAuxiliaryDataValue})';
 }
 
 
@@ -61,16 +67,18 @@ $ArbitraryHashCopyWith<ArbitraryHash> get copyWith => _$ArbitraryHashCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ArbitraryHash&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ArbitraryHash&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hashHex);
+int get hashCode {
+    return Object.hash(runtimeType,hashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedTxAuxiliaryData.arbitraryHash(hashHex: $hashHex)';
+    return 'ParsedTxAuxiliaryData.arbitraryHash(hashHex: $hashHex)';
 }
 
 
@@ -127,16 +135,18 @@ $CIP36RegistrationCopyWith<CIP36Registration> get copyWith => _$CIP36Registratio
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is CIP36Registration&&(identical(other.params, params) || other.params == params));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is CIP36Registration&&(identical(other.params, params) || other.params == params));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,params);
+int get hashCode {
+    return Object.hash(runtimeType,params);
+}
 
 @override
 String toString() {
-  return 'ParsedTxAuxiliaryData.cip36Registration(params: $params)';
+    return 'ParsedTxAuxiliaryData.cip36Registration(params: $params)';
 }
 
 

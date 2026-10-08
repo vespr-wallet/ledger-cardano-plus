@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_pool_relay.dart';
@@ -9,27 +9,33 @@ part of 'parsed_pool_relay.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedPoolRelay {
 
- RelayType get relayType;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolRelay&&(identical(other.relayType, relayType) || other.relayType == relayType));
+  final _this = this as ParsedPoolRelay;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedPoolRelay&&(identical(other.relayType, _this.relayType) || other.relayType == _this.relayType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,relayType);
+int get hashCode {
+  final _this = this as ParsedPoolRelay;
+  return Object.hash(runtimeType,_this.relayType);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRelay(relayType: $relayType)';
+  final _this = this as ParsedPoolRelay;
+  return 'ParsedPoolRelay(relayType: ${_this.relayType})';
 }
 
 
@@ -63,16 +69,18 @@ $SingleHostIpAddrCopyWith<SingleHostIpAddr> get copyWith => _$SingleHostIpAddrCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostIpAddr&&(identical(other.port, port) || other.port == port)&&(identical(other.ipv4, ipv4) || other.ipv4 == ipv4)&&(identical(other.ipv6, ipv6) || other.ipv6 == ipv6));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostIpAddr&&(identical(other.port, port) || other.port == port)&&(identical(other.ipv4, ipv4) || other.ipv4 == ipv4)&&(identical(other.ipv6, ipv6) || other.ipv6 == ipv6));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,port,ipv4,ipv6);
+int get hashCode {
+    return Object.hash(runtimeType,port,ipv4,ipv6);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRelay.singleHostIpAddr(port: $port, ipv4: $ipv4, ipv6: $ipv6)';
+    return 'ParsedPoolRelay.singleHostIpAddr(port: $port, ipv4: $ipv4, ipv6: $ipv6)';
 }
 
 
@@ -132,16 +140,18 @@ $SingleHostNameCopyWith<SingleHostName> get copyWith => _$SingleHostNameCopyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostName&&(identical(other.port, port) || other.port == port)&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is SingleHostName&&(identical(other.port, port) || other.port == port)&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,port,dnsName);
+int get hashCode {
+    return Object.hash(runtimeType,port,dnsName);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRelay.singletHostname(port: $port, dnsName: $dnsName)';
+    return 'ParsedPoolRelay.singletHostname(port: $port, dnsName: $dnsName)';
 }
 
 
@@ -199,16 +209,18 @@ $MultiHostCopyWith<MultiHost> get copyWith => _$MultiHostCopyWithImpl<MultiHost>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is MultiHost&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is MultiHost&&(identical(other.dnsName, dnsName) || other.dnsName == dnsName));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,dnsName);
+int get hashCode {
+    return Object.hash(runtimeType,dnsName);
+}
 
 @override
 String toString() {
-  return 'ParsedPoolRelay.multiHost(dnsName: $dnsName)';
+    return 'ParsedPoolRelay.multiHost(dnsName: $dnsName)';
 }
 
 

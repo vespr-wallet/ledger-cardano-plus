@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'extended_public_key.dart';
@@ -9,15 +9,13 @@ part of 'extended_public_key.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ExtendedPublicKey {
 
-// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
- String get xPub;// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
- String get acctXvk;// bech32 public key ; ED25519-BIP32 public key (32 bytes)
- String get acctVk; String get publicKeyHex; String get chainCodeHex;
+ String get xPub; String get acctXvk; String get acctVk; String get publicKeyHex; String get chainCodeHex;
 /// Create a copy of ExtendedPublicKey
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +26,21 @@ $ExtendedPublicKeyCopyWith<ExtendedPublicKey> get copyWith => _$ExtendedPublicKe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKey&&(identical(other.xPub, xPub) || other.xPub == xPub)&&(identical(other.acctXvk, acctXvk) || other.acctXvk == acctXvk)&&(identical(other.acctVk, acctVk) || other.acctVk == acctVk)&&(identical(other.publicKeyHex, publicKeyHex) || other.publicKeyHex == publicKeyHex)&&(identical(other.chainCodeHex, chainCodeHex) || other.chainCodeHex == chainCodeHex));
+  final _this = this as ExtendedPublicKey;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKey&&(identical(other.xPub, _this.xPub) || other.xPub == _this.xPub)&&(identical(other.acctXvk, _this.acctXvk) || other.acctXvk == _this.acctXvk)&&(identical(other.acctVk, _this.acctVk) || other.acctVk == _this.acctVk)&&(identical(other.publicKeyHex, _this.publicKeyHex) || other.publicKeyHex == _this.publicKeyHex)&&(identical(other.chainCodeHex, _this.chainCodeHex) || other.chainCodeHex == _this.chainCodeHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,xPub,acctXvk,acctVk,publicKeyHex,chainCodeHex);
+int get hashCode {
+  final _this = this as ExtendedPublicKey;
+  return Object.hash(runtimeType,_this.xPub,_this.acctXvk,_this.acctVk,_this.publicKeyHex,_this.chainCodeHex);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKey(xPub: $xPub, acctXvk: $acctXvk, acctVk: $acctVk, publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
+  final _this = this as ExtendedPublicKey;
+  return 'ExtendedPublicKey(xPub: ${_this.xPub}, acctXvk: ${_this.acctXvk}, acctVk: ${_this.acctVk}, publicKeyHex: ${_this.publicKeyHex}, chainCodeHex: ${_this.chainCodeHex})';
 }
 
 
@@ -66,7 +69,7 @@ class _$ExtendedPublicKeyCopyWithImpl<$Res>
 /// Create a copy of ExtendedPublicKey
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? xPub = null,Object? acctXvk = null,Object? acctVk = null,Object? publicKeyHex = null,Object? chainCodeHex = null,}) {
-  return _then(_self.copyWith(
+  return _then(ExtendedPublicKey(
 xPub: null == xPub ? _self.xPub : xPub // ignore: cast_nullable_to_non_nullable
 as String,acctXvk: null == acctXvk ? _self.acctXvk : acctXvk // ignore: cast_nullable_to_non_nullable
 as String,acctVk: null == acctVk ? _self.acctVk : acctVk // ignore: cast_nullable_to_non_nullable
@@ -87,11 +90,8 @@ class _ExtendedPublicKey extends ExtendedPublicKey {
   const _ExtendedPublicKey({required this.xPub, required this.acctXvk, required this.acctVk, required this.publicKeyHex, required this.chainCodeHex}): super._();
   
 
-// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
 @override final  String xPub;
-// bech32 extended public key ; ED25519-BIP32 public key (32 bytes) + chain code (32 bytes)
 @override final  String acctXvk;
-// bech32 public key ; ED25519-BIP32 public key (32 bytes)
 @override final  String acctVk;
 @override final  String publicKeyHex;
 @override final  String chainCodeHex;
@@ -106,16 +106,18 @@ _$ExtendedPublicKeyCopyWith<_ExtendedPublicKey> get copyWith => __$ExtendedPubli
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExtendedPublicKey&&(identical(other.xPub, xPub) || other.xPub == xPub)&&(identical(other.acctXvk, acctXvk) || other.acctXvk == acctXvk)&&(identical(other.acctVk, acctVk) || other.acctVk == acctVk)&&(identical(other.publicKeyHex, publicKeyHex) || other.publicKeyHex == publicKeyHex)&&(identical(other.chainCodeHex, chainCodeHex) || other.chainCodeHex == chainCodeHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ExtendedPublicKey&&(identical(other.xPub, xPub) || other.xPub == xPub)&&(identical(other.acctXvk, acctXvk) || other.acctXvk == acctXvk)&&(identical(other.acctVk, acctVk) || other.acctVk == acctVk)&&(identical(other.publicKeyHex, publicKeyHex) || other.publicKeyHex == publicKeyHex)&&(identical(other.chainCodeHex, chainCodeHex) || other.chainCodeHex == chainCodeHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,xPub,acctXvk,acctVk,publicKeyHex,chainCodeHex);
+int get hashCode {
+    return Object.hash(runtimeType,xPub,acctXvk,acctVk,publicKeyHex,chainCodeHex);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKey(xPub: $xPub, acctXvk: $acctXvk, acctVk: $acctVk, publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
+    return 'ExtendedPublicKey(xPub: $xPub, acctXvk: $acctXvk, acctVk: $acctVk, publicKeyHex: $publicKeyHex, chainCodeHex: $chainCodeHex)';
 }
 
 
@@ -160,22 +162,27 @@ as String,
 /// @nodoc
 mixin _$ExtendedPublicKeyRequest {
 
- List<int> get derivationPath; int get minSupportedVersionCode;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest&&const DeepCollectionEquality().equals(other.derivationPath, derivationPath)&&(identical(other.minSupportedVersionCode, minSupportedVersionCode) || other.minSupportedVersionCode == minSupportedVersionCode));
+  final _this = this as ExtendedPublicKeyRequest;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest&&const DeepCollectionEquality().equals(other.derivationPath, _this.derivationPath)&&(identical(other.minSupportedVersionCode, _this.minSupportedVersionCode) || other.minSupportedVersionCode == _this.minSupportedVersionCode));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(derivationPath),minSupportedVersionCode);
+int get hashCode {
+  final _this = this as ExtendedPublicKeyRequest;
+  return Object.hash(runtimeType,const DeepCollectionEquality().hash(_this.derivationPath),_this.minSupportedVersionCode);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest(derivationPath: $derivationPath, minSupportedVersionCode: $minSupportedVersionCode)';
+  final _this = this as ExtendedPublicKeyRequest;
+  return 'ExtendedPublicKeyRequest(derivationPath: ${_this.derivationPath}, minSupportedVersionCode: ${_this.minSupportedVersionCode})';
 }
 
 
@@ -207,16 +214,18 @@ $ExtendedPublicKeyRequest_ShelleyCopyWith<ExtendedPublicKeyRequest_Shelley> get 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Shelley&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Shelley&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,accountIndex);
+int get hashCode {
+    return Object.hash(runtimeType,accountIndex);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest.shelley(accountIndex: $accountIndex)';
+    return 'ExtendedPublicKeyRequest.shelley(accountIndex: $accountIndex)';
 }
 
 
@@ -268,7 +277,7 @@ class ExtendedPublicKeyRequest_Byron extends ExtendedPublicKeyRequest {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Byron);
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Byron);
 }
 
 
@@ -277,7 +286,7 @@ int get hashCode => runtimeType.hashCode;
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest.byron()';
+    return 'ExtendedPublicKeyRequest.byron()';
 }
 
 
@@ -305,16 +314,18 @@ $ExtendedPublicKeyRequest_StakeCopyWith<ExtendedPublicKeyRequest_Stake> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Stake&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Stake&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,accountIndex);
+int get hashCode {
+    return Object.hash(runtimeType,accountIndex);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest.stake(accountIndex: $accountIndex)';
+    return 'ExtendedPublicKeyRequest.stake(accountIndex: $accountIndex)';
 }
 
 
@@ -371,16 +382,18 @@ $ExtendedPublicKeyRequest_CIP36CopyWith<ExtendedPublicKeyRequest_CIP36> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_CIP36&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_CIP36&&(identical(other.accountIndex, accountIndex) || other.accountIndex == accountIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,accountIndex);
+int get hashCode {
+    return Object.hash(runtimeType,accountIndex);
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest.cip36(accountIndex: $accountIndex)';
+    return 'ExtendedPublicKeyRequest.cip36(accountIndex: $accountIndex)';
 }
 
 
@@ -422,7 +435,7 @@ as int,
 
 
 class ExtendedPublicKeyRequest_Custom extends ExtendedPublicKeyRequest {
-   ExtendedPublicKeyRequest_Custom({required final  List<int> customPath}): _customPath = customPath,super._();
+   ExtendedPublicKeyRequest_Custom({required  List<int> customPath}): _customPath = customPath,super._();
   
 
  final  List<int> _customPath;
@@ -443,16 +456,18 @@ $ExtendedPublicKeyRequest_CustomCopyWith<ExtendedPublicKeyRequest_Custom> get co
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Custom&&const DeepCollectionEquality().equals(other._customPath, _customPath));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is ExtendedPublicKeyRequest_Custom&&const DeepCollectionEquality().equals(other.customPath, _customPath));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_customPath));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(_customPath));
+}
 
 @override
 String toString() {
-  return 'ExtendedPublicKeyRequest.custom(customPath: $customPath)';
+    return 'ExtendedPublicKeyRequest.custom(customPath: $customPath)';
 }
 
 

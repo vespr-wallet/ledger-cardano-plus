@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'shelley_address_params.dart';
@@ -9,27 +9,33 @@ part of 'shelley_address_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ShelleyAddressParamsData {
 
- AddressType get addressType;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ShelleyAddressParamsData&&(identical(other.addressType, addressType) || other.addressType == addressType));
+  final _this = this as ShelleyAddressParamsData;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ShelleyAddressParamsData&&(identical(other.addressType, _this.addressType) || other.addressType == _this.addressType));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,addressType);
+int get hashCode {
+  final _this = this as ShelleyAddressParamsData;
+  return Object.hash(runtimeType,_this.addressType);
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData(addressType: $addressType)';
+  final _this = this as ShelleyAddressParamsData;
+  return 'ShelleyAddressParamsData(addressType: ${_this.addressType})';
 }
 
 
@@ -62,16 +68,18 @@ $BasePaymentKeyStakeKeyCopyWith<BasePaymentKeyStakeKey> get copyWith => _$BasePa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentKeyStakeKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentKeyStakeKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -130,16 +138,18 @@ $BasePaymentScriptStakeKeyCopyWith<BasePaymentScriptStakeKey> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentScriptStakeKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentScriptStakeKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -198,16 +208,18 @@ $BasePaymentKeyStakeScriptCopyWith<BasePaymentKeyStakeScript> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentKeyStakeScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentKeyStakeScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentKeyStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -266,16 +278,18 @@ $BasePaymentScriptStakeScriptCopyWith<BasePaymentScriptStakeScript> get copyWith
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentScriptStakeScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is BasePaymentScriptStakeScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource)&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource),const DeepCollectionEquality().hash(stakingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.basePaymentScriptStakeScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -333,16 +347,18 @@ $EnterpriseKeyCopyWith<EnterpriseKey> get copyWith => _$EnterpriseKeyCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EnterpriseKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is EnterpriseKey&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.enterpriseKey(spendingDataSource: $spendingDataSource)';
+    return 'ShelleyAddressParamsData.enterpriseKey(spendingDataSource: $spendingDataSource)';
 }
 
 
@@ -399,16 +415,18 @@ $EnterpriseScriptCopyWith<EnterpriseScript> get copyWith => _$EnterpriseScriptCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is EnterpriseScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is EnterpriseScript&&const DeepCollectionEquality().equals(other.spendingDataSource, spendingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(spendingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.enterpriseScript(spendingDataSource: $spendingDataSource)';
+    return 'ShelleyAddressParamsData.enterpriseScript(spendingDataSource: $spendingDataSource)';
 }
 
 
@@ -466,16 +484,18 @@ $PointerKeyCopyWith<PointerKey> get copyWith => _$PointerKeyCopyWithImpl<Pointer
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PointerKey&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is PointerKey&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingDataSource,stakingDataSource);
+int get hashCode {
+    return Object.hash(runtimeType,spendingDataSource,stakingDataSource);
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.pointerKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.pointerKey(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -552,16 +572,18 @@ $PointerScriptCopyWith<PointerScript> get copyWith => _$PointerScriptCopyWithImp
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is PointerScript&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is PointerScript&&(identical(other.spendingDataSource, spendingDataSource) || other.spendingDataSource == spendingDataSource)&&(identical(other.stakingDataSource, stakingDataSource) || other.stakingDataSource == stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,spendingDataSource,stakingDataSource);
+int get hashCode {
+    return Object.hash(runtimeType,spendingDataSource,stakingDataSource);
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.pointerScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.pointerScript(spendingDataSource: $spendingDataSource, stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -637,16 +659,18 @@ $RewardKeyCopyWith<RewardKey> get copyWith => _$RewardKeyCopyWithImpl<RewardKey>
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RewardKey&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is RewardKey&&const DeepCollectionEquality().equals(other.stakingDataSource, stakingDataSource));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(stakingDataSource));
+int get hashCode {
+    return Object.hash(runtimeType,const DeepCollectionEquality().hash(stakingDataSource));
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.rewardKey(stakingDataSource: $stakingDataSource)';
+    return 'ShelleyAddressParamsData.rewardKey(stakingDataSource: $stakingDataSource)';
 }
 
 
@@ -703,16 +727,18 @@ $RewardScriptCopyWith<RewardScript> get copyWith => _$RewardScriptCopyWithImpl<R
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RewardScript&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is RewardScript&&(identical(other.stakingScriptHashHex, stakingScriptHashHex) || other.stakingScriptHashHex == stakingScriptHashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,stakingScriptHashHex);
+int get hashCode {
+    return Object.hash(runtimeType,stakingScriptHashHex);
+}
 
 @override
 String toString() {
-  return 'ShelleyAddressParamsData.rewardScript(stakingScriptHashHex: $stakingScriptHashHex)';
+    return 'ShelleyAddressParamsData.rewardScript(stakingScriptHashHex: $stakingScriptHashHex)';
 }
 
 

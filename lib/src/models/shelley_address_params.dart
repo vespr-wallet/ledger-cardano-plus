@@ -65,7 +65,6 @@ sealed class ShelleyAddressParamsData with _$ShelleyAddressParamsData {
     required String stakingScriptHashHex,
   }) = RewardScript;
 
-  @override
   late final AddressType addressType = switch (this) {
     BasePaymentKeyStakeKey() => AddressType.basePaymentKeyStakeKey,
     BasePaymentScriptStakeKey() => AddressType.basePaymentScriptStakeKey,

@@ -28,13 +28,11 @@ sealed class ParsedMessageData with _$ParsedMessageData {
     @Default(false) bool preferHexDisplay,
   }) = ParsedMessageDataKeyHash;
 
-  @override
   late final int serializedDataFieldType = switch (this) {
     ParsedMessageDataAddress() => 0x01,
     ParsedMessageDataKeyHash() => 0x02,
   };
 
-  @override
   late final bool isAscii = _computeIsAscii();
 
   bool _computeIsAscii() {

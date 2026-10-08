@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_required_signer.dart';
@@ -9,27 +9,33 @@ part of 'parsed_required_signer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$ParsedRequiredSigner {
 
- int get requiredSignerValue;
+
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedRequiredSigner&&(identical(other.requiredSignerValue, requiredSignerValue) || other.requiredSignerValue == requiredSignerValue));
+  final _this = this as ParsedRequiredSigner;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedRequiredSigner&&(identical(other.requiredSignerValue, _this.requiredSignerValue) || other.requiredSignerValue == _this.requiredSignerValue));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,requiredSignerValue);
+int get hashCode {
+  final _this = this as ParsedRequiredSigner;
+  return Object.hash(runtimeType,_this.requiredSignerValue);
+}
 
 @override
 String toString() {
-  return 'ParsedRequiredSigner(requiredSignerValue: $requiredSignerValue)';
+  final _this = this as ParsedRequiredSigner;
+  return 'ParsedRequiredSigner(requiredSignerValue: ${_this.requiredSignerValue})';
 }
 
 
@@ -61,16 +67,18 @@ $RequiredSignerHashCopyWith<RequiredSignerHash> get copyWith => _$RequiredSigner
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerHash&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerHash&&(identical(other.hashHex, hashHex) || other.hashHex == hashHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,hashHex);
+int get hashCode {
+    return Object.hash(runtimeType,hashHex);
+}
 
 @override
 String toString() {
-  return 'ParsedRequiredSigner.hash(hashHex: $hashHex)';
+    return 'ParsedRequiredSigner.hash(hashHex: $hashHex)';
 }
 
 
@@ -127,16 +135,18 @@ $RequiredSignerPathCopyWith<RequiredSignerPath> get copyWith => _$RequiredSigner
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerPath&&(identical(other.path, path) || other.path == path));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is RequiredSignerPath&&(identical(other.path, path) || other.path == path));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,path);
+int get hashCode {
+    return Object.hash(runtimeType,path);
+}
 
 @override
 String toString() {
-  return 'ParsedRequiredSigner.path(path: $path)';
+    return 'ParsedRequiredSigner.path(path: $path)';
 }
 
 

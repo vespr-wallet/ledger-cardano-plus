@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'tx_auxiliary_data_supplement.dart';
@@ -9,12 +9,13 @@ part of 'tx_auxiliary_data_supplement.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$TxAuxiliaryDataSupplement {
 
- TxAuxiliaryDataSupplementType get type; String get auxiliaryDataHashHex; String get cip36VoteRegistrationSignatureHex;
+ String get auxiliaryDataHashHex; String get cip36VoteRegistrationSignatureHex;
 /// Create a copy of TxAuxiliaryDataSupplement
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -25,16 +26,21 @@ $TxAuxiliaryDataSupplementCopyWith<TxAuxiliaryDataSupplement> get copyWith => _$
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is TxAuxiliaryDataSupplement&&(identical(other.type, type) || other.type == type)&&(identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) || other.auxiliaryDataHashHex == auxiliaryDataHashHex)&&(identical(other.cip36VoteRegistrationSignatureHex, cip36VoteRegistrationSignatureHex) || other.cip36VoteRegistrationSignatureHex == cip36VoteRegistrationSignatureHex));
+  final _this = this as TxAuxiliaryDataSupplement;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is TxAuxiliaryDataSupplement&&(identical(other.type, _this.type) || other.type == _this.type)&&(identical(other.auxiliaryDataHashHex, _this.auxiliaryDataHashHex) || other.auxiliaryDataHashHex == _this.auxiliaryDataHashHex)&&(identical(other.cip36VoteRegistrationSignatureHex, _this.cip36VoteRegistrationSignatureHex) || other.cip36VoteRegistrationSignatureHex == _this.cip36VoteRegistrationSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,type,auxiliaryDataHashHex,cip36VoteRegistrationSignatureHex);
+int get hashCode {
+  final _this = this as TxAuxiliaryDataSupplement;
+  return Object.hash(runtimeType,_this.type,_this.auxiliaryDataHashHex,_this.cip36VoteRegistrationSignatureHex);
+}
 
 @override
 String toString() {
-  return 'TxAuxiliaryDataSupplement(type: $type, auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+  final _this = this as TxAuxiliaryDataSupplement;
+  return 'TxAuxiliaryDataSupplement(type: ${_this.type}, auxiliaryDataHashHex: ${_this.auxiliaryDataHashHex}, cip36VoteRegistrationSignatureHex: ${_this.cip36VoteRegistrationSignatureHex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$TxAuxiliaryDataSupplementCopyWithImpl<$Res>
 /// Create a copy of TxAuxiliaryDataSupplement
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? auxiliaryDataHashHex = null,Object? cip36VoteRegistrationSignatureHex = null,}) {
-  return _then(_self.copyWith(
+  return _then(TxAuxiliaryDataSupplement(
 auxiliaryDataHashHex: null == auxiliaryDataHashHex ? _self.auxiliaryDataHashHex : auxiliaryDataHashHex // ignore: cast_nullable_to_non_nullable
 as String,cip36VoteRegistrationSignatureHex: null == cip36VoteRegistrationSignatureHex ? _self.cip36VoteRegistrationSignatureHex : cip36VoteRegistrationSignatureHex // ignore: cast_nullable_to_non_nullable
 as String,
@@ -94,16 +100,18 @@ _$TxAuxiliaryDataSupplementDataCopyWith<_TxAuxiliaryDataSupplementData> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _TxAuxiliaryDataSupplementData&&(identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) || other.auxiliaryDataHashHex == auxiliaryDataHashHex)&&(identical(other.cip36VoteRegistrationSignatureHex, cip36VoteRegistrationSignatureHex) || other.cip36VoteRegistrationSignatureHex == cip36VoteRegistrationSignatureHex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _TxAuxiliaryDataSupplementData&&(identical(other.auxiliaryDataHashHex, auxiliaryDataHashHex) || other.auxiliaryDataHashHex == auxiliaryDataHashHex)&&(identical(other.cip36VoteRegistrationSignatureHex, cip36VoteRegistrationSignatureHex) || other.cip36VoteRegistrationSignatureHex == cip36VoteRegistrationSignatureHex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,auxiliaryDataHashHex,cip36VoteRegistrationSignatureHex);
+int get hashCode {
+    return Object.hash(runtimeType,auxiliaryDataHashHex,cip36VoteRegistrationSignatureHex);
+}
 
 @override
 String toString() {
-  return 'TxAuxiliaryDataSupplement(auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
+    return 'TxAuxiliaryDataSupplement(auxiliaryDataHashHex: $auxiliaryDataHashHex, cip36VoteRegistrationSignatureHex: $cip36VoteRegistrationSignatureHex)';
 }
 
 

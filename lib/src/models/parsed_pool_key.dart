@@ -24,7 +24,6 @@ sealed class ParsedPoolKey with _$ParsedPoolKey {
     required String hashHex,
   }) = ThirdPartyPoolKey;
 
-  @override
   late final int poolKeyValue = switch (this) {
     DeviceOwnedPoolKey() => 1,
     ThirdPartyPoolKey() => 2,

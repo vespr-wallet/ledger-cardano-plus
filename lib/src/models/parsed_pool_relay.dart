@@ -22,7 +22,6 @@ sealed class ParsedPoolRelay with _$ParsedPoolRelay {
     required String dnsName,
   }) = MultiHost;
 
-  @override
   late final RelayType relayType = switch (this) {
     SingleHostIpAddr() => RelayType.singleHostIpAddr,
     SingleHostName() => RelayType.singleHostname,

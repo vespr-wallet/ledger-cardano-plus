@@ -25,6 +25,7 @@ class CardanoVersionOperation extends LedgerComplexOperation<CardanoVersion> {
     final versionMajor = reader.readUint8();
     final versionMinor = reader.readUint8();
     final versionPatch = reader.readUint8();
+    final flags = reader.remainingLength > 0 ? reader.readUint8() : 0;
 
     return CardanoVersion(
       testMode: false,
@@ -32,7 +33,7 @@ class CardanoVersionOperation extends LedgerComplexOperation<CardanoVersion> {
       versionMinor: versionMinor,
       versionPatch: versionPatch,
       locked: false,
-      flags: const Flags(isDebug: false, isAppXS: false),
+      flags: Flags(isDebug: (flags & 0x01) != 0, isAppXS: (flags & 0x04) != 0),
     );
   }
 }

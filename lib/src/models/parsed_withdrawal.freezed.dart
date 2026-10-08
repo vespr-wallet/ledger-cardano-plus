@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_withdrawal.dart';
@@ -9,6 +9,7 @@ part of 'parsed_withdrawal.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedWithdrawalCopyWith<ParsedWithdrawal> get copyWith => _$ParsedWithdrawalCo
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedWithdrawal&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.stakeCredential, stakeCredential) || other.stakeCredential == stakeCredential));
+  final _this = this as ParsedWithdrawal;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedWithdrawal&&(identical(other.amount, _this.amount) || other.amount == _this.amount)&&(identical(other.stakeCredential, _this.stakeCredential) || other.stakeCredential == _this.stakeCredential));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,amount,stakeCredential);
+int get hashCode {
+  final _this = this as ParsedWithdrawal;
+  return Object.hash(runtimeType,_this.amount,_this.stakeCredential);
+}
 
 @override
 String toString() {
-  return 'ParsedWithdrawal(amount: $amount, stakeCredential: $stakeCredential)';
+  final _this = this as ParsedWithdrawal;
+  return 'ParsedWithdrawal(amount: ${_this.amount}, stakeCredential: ${_this.stakeCredential})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedWithdrawalCopyWithImpl<$Res>
 /// Create a copy of ParsedWithdrawal
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? amount = null,Object? stakeCredential = null,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedWithdrawal(
 amount: null == amount ? _self.amount : amount // ignore: cast_nullable_to_non_nullable
 as BigInt,stakeCredential: null == stakeCredential ? _self.stakeCredential : stakeCredential // ignore: cast_nullable_to_non_nullable
 as ParsedCredential,
@@ -103,16 +109,18 @@ _$ParsedWithdrawalCopyWith<_ParsedWithdrawal> get copyWith => __$ParsedWithdrawa
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedWithdrawal&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.stakeCredential, stakeCredential) || other.stakeCredential == stakeCredential));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedWithdrawal&&(identical(other.amount, amount) || other.amount == amount)&&(identical(other.stakeCredential, stakeCredential) || other.stakeCredential == stakeCredential));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,amount,stakeCredential);
+int get hashCode {
+    return Object.hash(runtimeType,amount,stakeCredential);
+}
 
 @override
 String toString() {
-  return 'ParsedWithdrawal(amount: $amount, stakeCredential: $stakeCredential)';
+    return 'ParsedWithdrawal(amount: $amount, stakeCredential: $stakeCredential)';
 }
 
 

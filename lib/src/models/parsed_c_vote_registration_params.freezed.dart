@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'parsed_c_vote_registration_params.dart';
@@ -9,6 +9,7 @@ part of 'parsed_c_vote_registration_params.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $ParsedCVoteRegistrationParamsCopyWith<ParsedCVoteRegistrationParams> get copyWi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVoteRegistrationParams&&(identical(other.format, format) || other.format == format)&&(identical(other.votePublicKey, votePublicKey) || other.votePublicKey == votePublicKey)&&(identical(other.votePublicKeyPath, votePublicKeyPath) || other.votePublicKeyPath == votePublicKeyPath)&&const DeepCollectionEquality().equals(other.delegations, delegations)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath)&&(identical(other.paymentDestination, paymentDestination) || other.paymentDestination == paymentDestination)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.votingPurpose, votingPurpose) || other.votingPurpose == votingPurpose));
+  final _this = this as ParsedCVoteRegistrationParams;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is ParsedCVoteRegistrationParams&&(identical(other.format, _this.format) || other.format == _this.format)&&(identical(other.votePublicKey, _this.votePublicKey) || other.votePublicKey == _this.votePublicKey)&&(identical(other.votePublicKeyPath, _this.votePublicKeyPath) || other.votePublicKeyPath == _this.votePublicKeyPath)&&const DeepCollectionEquality().equals(other.delegations, _this.delegations)&&(identical(other.stakingPath, _this.stakingPath) || other.stakingPath == _this.stakingPath)&&(identical(other.paymentDestination, _this.paymentDestination) || other.paymentDestination == _this.paymentDestination)&&(identical(other.nonce, _this.nonce) || other.nonce == _this.nonce)&&(identical(other.votingPurpose, _this.votingPurpose) || other.votingPurpose == _this.votingPurpose));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,format,votePublicKey,votePublicKeyPath,const DeepCollectionEquality().hash(delegations),stakingPath,paymentDestination,nonce,votingPurpose);
+int get hashCode {
+  final _this = this as ParsedCVoteRegistrationParams;
+  return Object.hash(runtimeType,_this.format,_this.votePublicKey,_this.votePublicKeyPath,const DeepCollectionEquality().hash(_this.delegations),_this.stakingPath,_this.paymentDestination,_this.nonce,_this.votingPurpose);
+}
 
 @override
 String toString() {
-  return 'ParsedCVoteRegistrationParams(format: $format, votePublicKey: $votePublicKey, votePublicKeyPath: $votePublicKeyPath, delegations: $delegations, stakingPath: $stakingPath, paymentDestination: $paymentDestination, nonce: $nonce, votingPurpose: $votingPurpose)';
+  final _this = this as ParsedCVoteRegistrationParams;
+  return 'ParsedCVoteRegistrationParams(format: ${_this.format}, votePublicKey: ${_this.votePublicKey}, votePublicKeyPath: ${_this.votePublicKeyPath}, delegations: ${_this.delegations}, stakingPath: ${_this.stakingPath}, paymentDestination: ${_this.paymentDestination}, nonce: ${_this.nonce}, votingPurpose: ${_this.votingPurpose})';
 }
 
 
@@ -63,7 +69,7 @@ class _$ParsedCVoteRegistrationParamsCopyWithImpl<$Res>
 /// Create a copy of ParsedCVoteRegistrationParams
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? format = null,Object? votePublicKey = freezed,Object? votePublicKeyPath = freezed,Object? delegations = freezed,Object? stakingPath = null,Object? paymentDestination = null,Object? nonce = null,Object? votingPurpose = freezed,}) {
-  return _then(_self.copyWith(
+  return _then(ParsedCVoteRegistrationParams(
 format: null == format ? _self.format : format // ignore: cast_nullable_to_non_nullable
 as CIP36VoteRegistrationFormat,votePublicKey: freezed == votePublicKey ? _self.votePublicKey : votePublicKey // ignore: cast_nullable_to_non_nullable
 as CVotePublicKey?,votePublicKeyPath: freezed == votePublicKeyPath ? _self.votePublicKeyPath : votePublicKeyPath // ignore: cast_nullable_to_non_nullable
@@ -126,7 +132,7 @@ $ParsedOutputDestinationCopyWith<$Res> get paymentDestination {
 
 
 class _ParsedCVoteRegistrationParams extends ParsedCVoteRegistrationParams {
-   _ParsedCVoteRegistrationParams({required this.format, required this.votePublicKey, required this.votePublicKeyPath, required final  List<ParsedCVoteDelegation>? delegations, required this.stakingPath, required this.paymentDestination, required this.nonce, required this.votingPurpose}): _delegations = delegations,super._();
+   _ParsedCVoteRegistrationParams({required this.format, required this.votePublicKey, required this.votePublicKeyPath, required  List<ParsedCVoteDelegation>? delegations, required this.stakingPath, required this.paymentDestination, required this.nonce, required this.votingPurpose}): _delegations = delegations,super._();
   
 
 @override final  CIP36VoteRegistrationFormat format;
@@ -156,16 +162,18 @@ _$ParsedCVoteRegistrationParamsCopyWith<_ParsedCVoteRegistrationParams> get copy
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedCVoteRegistrationParams&&(identical(other.format, format) || other.format == format)&&(identical(other.votePublicKey, votePublicKey) || other.votePublicKey == votePublicKey)&&(identical(other.votePublicKeyPath, votePublicKeyPath) || other.votePublicKeyPath == votePublicKeyPath)&&const DeepCollectionEquality().equals(other._delegations, _delegations)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath)&&(identical(other.paymentDestination, paymentDestination) || other.paymentDestination == paymentDestination)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.votingPurpose, votingPurpose) || other.votingPurpose == votingPurpose));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _ParsedCVoteRegistrationParams&&(identical(other.format, format) || other.format == format)&&(identical(other.votePublicKey, votePublicKey) || other.votePublicKey == votePublicKey)&&(identical(other.votePublicKeyPath, votePublicKeyPath) || other.votePublicKeyPath == votePublicKeyPath)&&const DeepCollectionEquality().equals(other.delegations, _delegations)&&(identical(other.stakingPath, stakingPath) || other.stakingPath == stakingPath)&&(identical(other.paymentDestination, paymentDestination) || other.paymentDestination == paymentDestination)&&(identical(other.nonce, nonce) || other.nonce == nonce)&&(identical(other.votingPurpose, votingPurpose) || other.votingPurpose == votingPurpose));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,format,votePublicKey,votePublicKeyPath,const DeepCollectionEquality().hash(_delegations),stakingPath,paymentDestination,nonce,votingPurpose);
+int get hashCode {
+    return Object.hash(runtimeType,format,votePublicKey,votePublicKeyPath,const DeepCollectionEquality().hash(_delegations),stakingPath,paymentDestination,nonce,votingPurpose);
+}
 
 @override
 String toString() {
-  return 'ParsedCVoteRegistrationParams(format: $format, votePublicKey: $votePublicKey, votePublicKeyPath: $votePublicKeyPath, delegations: $delegations, stakingPath: $stakingPath, paymentDestination: $paymentDestination, nonce: $nonce, votingPurpose: $votingPurpose)';
+    return 'ParsedCVoteRegistrationParams(format: $format, votePublicKey: $votePublicKey, votePublicKeyPath: $votePublicKeyPath, delegations: $delegations, stakingPath: $stakingPath, paymentDestination: $paymentDestination, nonce: $nonce, votingPurpose: $votingPurpose)';
 }
 
 

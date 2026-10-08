@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // coverage:ignore-file
-// ignore_for_file: type=lint
+// ignore_for_file: type=lint, type=warning, deprecated_member_use, deprecated_member_use_from_same_package
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'blockchain_pointer.dart';
@@ -9,6 +9,7 @@ part of 'blockchain_pointer.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format off
 T _$identity<T>(T value) => value;
 /// @nodoc
@@ -25,16 +26,21 @@ $BlockchainPointerCopyWith<BlockchainPointer> get copyWith => _$BlockchainPointe
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
+  final _this = this as BlockchainPointer;
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BlockchainPointer&&(identical(other.blockIndex, _this.blockIndex) || other.blockIndex == _this.blockIndex)&&(identical(other.txIndex, _this.txIndex) || other.txIndex == _this.txIndex)&&(identical(other.certificateIndex, _this.certificateIndex) || other.certificateIndex == _this.certificateIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+int get hashCode {
+  final _this = this as BlockchainPointer;
+  return Object.hash(runtimeType,_this.blockIndex,_this.txIndex,_this.certificateIndex);
+}
 
 @override
 String toString() {
-  return 'BlockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
+  final _this = this as BlockchainPointer;
+  return 'BlockchainPointer(blockIndex: ${_this.blockIndex}, txIndex: ${_this.txIndex}, certificateIndex: ${_this.certificateIndex})';
 }
 
 
@@ -63,7 +69,7 @@ class _$BlockchainPointerCopyWithImpl<$Res>
 /// Create a copy of BlockchainPointer
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? blockIndex = null,Object? txIndex = null,Object? certificateIndex = null,}) {
-  return _then(_self.copyWith(
+  return _then(BlockchainPointer(
 blockIndex: null == blockIndex ? _self.blockIndex : blockIndex // ignore: cast_nullable_to_non_nullable
 as int,txIndex: null == txIndex ? _self.txIndex : txIndex // ignore: cast_nullable_to_non_nullable
 as int,certificateIndex: null == certificateIndex ? _self.certificateIndex : certificateIndex // ignore: cast_nullable_to_non_nullable
@@ -96,16 +102,18 @@ _$BlockchainPointerCopyWith<_BlockchainPointer> get copyWith => __$BlockchainPoi
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
+    return identical(this, other) || (other.runtimeType == runtimeType&&other is _BlockchainPointer&&(identical(other.blockIndex, blockIndex) || other.blockIndex == blockIndex)&&(identical(other.txIndex, txIndex) || other.txIndex == txIndex)&&(identical(other.certificateIndex, certificateIndex) || other.certificateIndex == certificateIndex));
 }
 
 
 @override
-int get hashCode => Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+int get hashCode {
+    return Object.hash(runtimeType,blockIndex,txIndex,certificateIndex);
+}
 
 @override
 String toString() {
-  return 'BlockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
+    return 'BlockchainPointer(blockIndex: $blockIndex, txIndex: $txIndex, certificateIndex: $certificateIndex)';
 }
 
 

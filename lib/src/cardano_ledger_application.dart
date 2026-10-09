@@ -32,11 +32,17 @@ class CardanoLedger {
   final sdk.LedgerInterface ledger;
   final sdk.LedgerTransformer? transformer;
 
+  /// Number of [ble]/[usb] callers currently holding this shared instance. It is only torn down when the last one
+  /// calls [dispose], so one caller disposing does not break the others.
+  int _refCount = 0;
+
+  /// Returns the shared bluetooth instance. Every call must be balanced by exactly one [dispose] call.
   static CardanoLedger ble({
     required Future<bool> Function({required bool unsupported}) onPermissionRequest,
-  }) => _cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest);
+  }) => (_cardanoLedgerBle ??= CardanoLedger._ble(onPermissionRequest)).._refCount += 1;
 
-  static CardanoLedger usb() => _cardanoLedgerUsb ??= CardanoLedger._usb();
+  /// Returns the shared USB instance. Every call must be balanced by exactly one [dispose] call.
+  static CardanoLedger usb() => (_cardanoLedgerUsb ??= CardanoLedger._usb()).._refCount += 1;
 
   CardanoLedger._ble(
     Future<bool> Function({required bool unsupported}) onPermissionRequest,
@@ -61,12 +67,26 @@ class CardanoLedger {
     );
   }
 
+  /// Releases this caller's reference. The underlying ledger is only disposed once every [ble]/[usb] caller has
+  /// disposed; extra calls after that are no-ops.
   Future<void> dispose() async {
+    if (_refCount == 0) {
+      return;
+    }
+    _refCount--;
+    if (_refCount > 0) {
+      return;
+    }
+
     switch (connectionType) {
       case LedgerConnectionType.bluetooth:
-        _cardanoLedgerBle = null;
+        if (identical(_cardanoLedgerBle, this)) {
+          _cardanoLedgerBle = null;
+        }
       case LedgerConnectionType.usb:
-        _cardanoLedgerUsb = null;
+        if (identical(_cardanoLedgerUsb, this)) {
+          _cardanoLedgerUsb = null;
+        }
     }
     await ledger.dispose().catchError((err) {
       if (debugPrintEnabled) {

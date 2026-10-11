@@ -16,7 +16,7 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^3.1.0
-  ledger_flutter_plus: ^1.5.5
+  ledger_flutter_plus: ^1.6.0
 
 # dependency_overrides:
 # ledger_flutter_plus:

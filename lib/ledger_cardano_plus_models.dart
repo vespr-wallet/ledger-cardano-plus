@@ -1,6 +1,21 @@
 // ignore: unnecessary_library_name
 
 // from ledger_flutter_plus
+export "package:ledger_flutter_plus/ledger_flutter_plus.dart"
+    show
+        ConnectionLostException,
+        DeviceNotConnectedException,
+        DisposeException,
+        EstablishConnectionException,
+        LedgerDeviceException,
+        LedgerException,
+        LedgerManagerDisposedException,
+        PairingException,
+        PermissionException,
+        ServiceNotSupportedException,
+        UnexpectedDataPacketException,
+        UnexpectedDataPacketReason,
+        UniversalBleException;
 export "package:ledger_flutter_plus/src/ledger/ledger_device_type.dart";
 export "package:ledger_flutter_plus/src/utils/hex_utils.dart";
 

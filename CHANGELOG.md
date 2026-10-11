@@ -1,3 +1,10 @@
+## 0.6.2
+
+- Fixed one holder's `dispose()` tearing down the shared `CardanoLedger.ble()` / `CardanoLedger.usb()` instance while other holders were still using it (`LedgerManagerDisposedException`). The shared instance is now reference counted and only disposed when the last holder disposes it. Every `ble()` / `usb()` call must be balanced by exactly one `dispose()`.
+- Extra `dispose()` calls on an already released instance are now no-ops and never clear a newer shared instance
+- Added re-exports of the `ledger_flutter_plus` exception types (`LedgerException` and its subtypes, `UnexpectedDataPacketReason`) plus `UniversalBleException` and `PairingException`, so consumers can type-check connection errors without depending on `ledger_flutter_plus` directly
+- Updated ledger_flutter_plus to ^1.6.1 (fixes uncaught async errors in BLE send, scan and scan cancel)
+
 ## 0.6.1
 
 - **Breaking:** `VersionCompatibility` has new required fields `supportsMultipleVoters` and `supportsMultipleVotesPerVoter`

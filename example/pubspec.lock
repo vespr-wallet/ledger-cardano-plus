@@ -213,15 +213,15 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.6.1"
+    version: "0.6.2"
   ledger_flutter_plus:
     dependency: "direct main"
     description:
       name: ledger_flutter_plus
-      sha256: e7de0cd3d450b38955c4f04a9a729235d6ed7ca0dc463907e9e1dcc080ccf51d
+      sha256: "93ff49d39bbbd7a6b6da7e7aacdf896d13f8f29884337c21543e66ebe5fae914"
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.0+1"
+    version: "1.6.1"
   ledger_usb_plus:
     dependency: transitive
     description:

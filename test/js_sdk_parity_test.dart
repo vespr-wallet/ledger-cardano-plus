@@ -2,8 +2,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:ledger_cardano_plus/src/models/flags.dart';
 import 'package:ledger_cardano_plus/src/operations/ledger_operations.dart';
-import 'package:ledger_cardano_plus/src/utils/serialization_utils.dart' show uniquify;
 import 'package:ledger_cardano_plus/src/utils/utilities.dart';
+import 'package:ledger_cardano_plus/src/utils/witness_paths.dart' show uniquify;
 import 'package:ledger_flutter_plus/ledger_flutter_plus_dart.dart';
 
 final _stakeKey = LedgerSigningPath.shelley(account: 0, address: 0, role: ShelleyAddressRole.stake);

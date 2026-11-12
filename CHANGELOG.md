@@ -1,3 +1,7 @@
+## 0.6.4
+
+- Exported `gatherWitnessPaths` from `package:ledger_cardano_plus/ledger_cardano_plus.dart`. It returns the signing paths the device witnesses for a `ParsedSigningRequest`, so apps no longer need to import `src/utils/serialization_utils.dart` for it. The function moved to `src/utils/witness_paths.dart`; its behaviour is unchanged
+
 ## 0.6.3
 
 - Updated ledger_flutter_plus to ^2.0.0, which moves to universal_ble 3 (Android and Apple GATT race fixes, Apple ATT error codes, web connection setup fixes). The ledger_cardano_plus API is unchanged: the re-exported exception types, including `UniversalBleException`, are the same. Apps that also use universal_ble directly get universal_ble 3; see its [3.0.0 changelog](https://pub.dev/packages/universal_ble/changelog#300) for its breaking changes

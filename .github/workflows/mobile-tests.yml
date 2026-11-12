@@ -3,10 +3,10 @@ name: Unit Tests
 on:
   pull_request:
     branches:
-      - main
+      - master
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read
@@ -20,7 +20,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
 
       - name: Install asdf & tools
         uses: asdf-vm/actions/install@v4
@@ -37,7 +37,7 @@ jobs:
           flutter test --coverage --file-reporter="json:coverage/app-results.json" --test-randomize-ordering-seed random
 
       - name: Test Report
-        uses: dorny/test-reporter@v2
+        uses: dorny/test-reporter@v3
         if: always()
         with:
           name: Flutter Tests

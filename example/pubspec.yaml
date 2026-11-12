@@ -32,7 +32,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  ledger_flutter_plus:
   ledger_cardano_plus:
     path: ../
 
@@ -40,6 +39,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^2.0.0
   permission_handler: ^13.0.2
+  material_ui: ^1.11.0
 
 # dependency_overrides:
   # ledger_flutter_plus:

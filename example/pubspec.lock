@@ -37,10 +37,10 @@ packages:
     dependency: transitive
     description:
       name: bluez
-      sha256: "61a7204381925896a374301498f2f5399e59827c6498ae1e924aaa598751b545"
+      sha256: "4747e4f25abf91a9a341a1c3f83a9081be9bdd189d913e391b6707db4214b4d2"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.3"
+    version: "0.9.0"
   boolean_selector:
     dependency: transitive
     description:
@@ -89,14 +89,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.0"
+  cupertino_ui:
+    dependency: transitive
+    description:
+      name: cupertino_ui
+      sha256: "369e39a1c5c030a6212589c3da1809920b1c2cfade7b02aade7695bfa4b88c3a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.6"
   dbus:
     dependency: transitive
     description:
       name: dbus
-      sha256: a48d5da28e89bd02196e80d81ed8d7954923d00a0f4a68cc20b575038f023383
+      sha256: f7db8504e715b835f5ebe5fe74604ccd961d504c73389a5d8e81bafc2e2f3612
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.15"
+    version: "0.8.0"
   fake_async:
     dependency: transitive
     description:
@@ -139,6 +147,11 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.0.0"
+  flutter_localizations:
+    dependency: transitive
+    description: flutter
+    source: sdk
+    version: "0.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -148,10 +161,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_web_bluetooth
-      sha256: ad26a1b3fef95b86ea5f63793b9a0cdc1a33490f35d754e4e711046cae3ebbf8
+      sha256: "71fa37f699032b4416d56aeb5214363ba057f6aed4eba544cc26293e2582b85d"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.2.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter
@@ -175,6 +188,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: transitive
+    description:
+      name: intl
+      sha256: "1ca20c894b1717686a2319b8548763d812bc0aabdac580420a44c5178c57a867"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.20.3"
   json_annotation:
     dependency: transitive
     description:
@@ -213,23 +234,23 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "0.6.2"
+    version: "0.6.3"
   ledger_flutter_plus:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: ledger_flutter_plus
-      sha256: "93ff49d39bbbd7a6b6da7e7aacdf896d13f8f29884337c21543e66ebe5fae914"
+      sha256: d0ff0a0a3d7960878184f9e3eac15fb4b14496defcae05925e9ae4efc9da230d
       url: "https://pub.dev"
     source: hosted
-    version: "1.6.1"
+    version: "2.0.0"
   ledger_usb_plus:
     dependency: transitive
     description:
       name: ledger_usb_plus
-      sha256: "911df2d1d55cdae612ff2c9db140cf71a9b28a67ba16adfdc4983cd9f02c531e"
+      sha256: aa82818fa706899667f77f2ca5ecc5012f3f38b0061d267622a17e079bd70542
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.8"
+    version: "1.1.1"
   lints:
     dependency: transitive
     description:
@@ -238,6 +259,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "6.1.0"
+  listen:
+    dependency: transitive
+    description:
+      name: listen
+      sha256: "47501a08016a43fcad79252439d723f50f14f88fa7bfd8a177e0a417e5c9e1f2"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   logging:
     dependency: transitive
     description:
@@ -262,6 +291,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.13.0"
+  material_ui:
+    dependency: "direct main"
+    description:
+      name: material_ui
+      sha256: "474c135fd46b56ff1d35ca982155e8863d28fbc6464d1192acf4ee53a738680e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.11.0"
   meta:
     dependency: transitive
     description:
@@ -290,18 +327,18 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_android
-      sha256: b1ce660f4d0dcaffdf2605a19544c129fb5adda4e6fd039992ae356c4e437039
+      sha256: baf93fbf80008c240b2cf5e6d62e9495ea7727fe327444d135c44bfff9af6b6e
       url: "https://pub.dev"
     source: hosted
-    version: "14.1.0"
+    version: "14.1.1"
   permission_handler_apple:
     dependency: transitive
     description:
       name: permission_handler_apple
-      sha256: "066bbbc60031b63b916a3871e7bb4b6a8c5e7cec8146dafec53d1da304eff0a5"
+      sha256: "82d31c9b321c45785ccd73bce9c63af17037116193b4000b998a4363059adb6e"
       url: "https://pub.dev"
     source: hosted
-    version: "9.6.2"
+    version: "9.6.5"
   permission_handler_html:
     dependency: transitive
     description:
@@ -322,10 +359,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_windows
-      sha256: caeae01858a0a7d2df67a445ac98e1ad95e55a0e77c73044f4e9b1c8c2289cbd
+      sha256: "210031f00c32d61038fb4175d82dd874a426bfbae2c2af774bd4e5abb5cac755"
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.2"
+    version: "0.2.4"
   petitparser:
     dependency: transitive
     description:
@@ -423,10 +460,10 @@ packages:
     dependency: transitive
     description:
       name: test_api
-      sha256: "2a122cbe059f8b610d3a5415f42e255b6c17b1f21eee1d960f31080237fb4f11"
+      sha256: "0a10344e901e5b2e63819567951cb6a06673ed6b84f40462188ff5a0c41f371f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.12"
+    version: "0.7.14"
   typed_data:
     dependency: transitive
     description:
@@ -439,10 +476,10 @@ packages:
     dependency: transitive
     description:
       name: universal_ble
-      sha256: bdebe7d4ff3a24f28b5e56c999104ea1584a9de55da4ee0b4c2346bcf8f8c528
+      sha256: bfbc5dea17fa04e365d3870309d8a8a49067ff5195a84d4f6f73c92aa96bf7ed
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.0"
+    version: "3.3.0"
   universal_platform:
     dependency: transitive
     description:
@@ -455,26 +492,26 @@ packages:
     dependency: transitive
     description:
       name: vector_math
-      sha256: "92b9910f66ed1057fd4da7b040ae7c74cafacf885bdc81be496928d5049b032d"
+      sha256: fa49e1674cb84acb900141714e6c6e1f9ae099827c24d141430ff6819db4e1bc
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.3"
+    version: "2.4.4"
   vm_service:
     dependency: transitive
     description:
       name: vm_service
-      sha256: "5f37239c4851efcef929cea7824e76df7f2f0970aef85d66bbc430afa40e72f0"
+      sha256: "89b11d62e1040ee681af3b4f1c97a803ecbf010c6e8b9c5896ee5b08c3bf7b78"
       url: "https://pub.dev"
     source: hosted
-    version: "15.3.0"
+    version: "15.4.0"
   web:
     dependency: transitive
     description:
       name: web
-      sha256: "868d88a33d8a87b18ffc05f9f030ba328ffefba92d6c127917a2ba740f9cfe4a"
+      sha256: e119e82ac4795c7925103b7cf3768191f33941b99e7ccffbd6c645201d9f606b
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.1"
+    version: "1.1.2"
   webdriver:
     dependency: transitive
     description:
@@ -501,4 +538,4 @@ packages:
     version: "3.1.4"
 sdks:
   dart: ">=3.13.0 <4.0.0"
-  flutter: ">=3.32.0"
+  flutter: ">=3.47.0"

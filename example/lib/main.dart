@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:example/sample_utils/operations.dart';
 import 'package:example/widgets/available_devices.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 

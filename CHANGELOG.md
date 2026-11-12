@@ -1,3 +1,10 @@
+## 0.6.3
+
+- Updated ledger_flutter_plus to ^2.0.0, which moves to universal_ble 3 (Android and Apple GATT race fixes, Apple ATT error codes, web connection setup fixes). The ledger_cardano_plus API is unchanged: the re-exported exception types, including `UniversalBleException`, are the same. Apps that also use universal_ble directly get universal_ble 3; see its [3.0.0 changelog](https://pub.dev/packages/universal_ble/changelog#300) for its breaking changes
+- Toolchain: Flutter 3.50.0 (Dart 3.14.0) for development; the minimum SDK constraints are unchanged
+- Example app: Gradle 9.5.0, Android Gradle plugin 9.3.1 and Kotlin 2.4.20 (Flutter 3.50 cannot build it with Gradle 9.1), Flutter's iOS UIScene / implicit engine migration, `material_ui` instead of the deprecated `package:flutter/material.dart`, dependency refresh, and imports of `ledger_flutter_plus` replaced by the `ledger_cardano_plus` re-exports
+- CI: the unit test workflow now runs for pull requests and pushes to `master` (it was set to `main`, which does not exist, so it never ran); actions/checkout v7 and dorny/test-reporter v3
+
 ## 0.6.2
 
 - Fixed one holder's `dispose()` tearing down the shared `CardanoLedger.ble()` / `CardanoLedger.usb()` instance while other holders were still using it (`LedgerManagerDisposedException`). The shared instance is now reference counted and only disposed when the last holder disposes it. Every `ble()` / `usb()` call must be balanced by exactly one `dispose()`.

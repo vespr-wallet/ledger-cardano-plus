@@ -13,3 +13,4 @@ export "src/operations/cardano_sign_msgpack_operation.dart";
 export "src/operations/cardano_version_operation.dart";
 // utils
 export "src/utils/ledger_connection_type_x.dart";
+export "src/utils/witness_paths.dart" show gatherWitnessPaths;

@@ -1,3 +1,8 @@
+## Unreleased
+
+- Example app: Kotlin 2.4.21 (was 2.4.20), the version the VESPR app uses. Library dependencies are unchanged, so consumers see no change
+- Example app: fixed `flutter build apk --release`, which failed in R8 with "Supplied proguard configuration does not exist". The build directory is now redirected in the root `build.gradle`, as in Flutter's app template, instead of at the end of `app/build.gradle`, where AGP had already resolved its default ProGuard files against the old directory
+
 ## 0.6.4
 
 - Exported `gatherWitnessPaths` from `package:ledger_cardano_plus/ledger_cardano_plus.dart`. It returns the signing paths the device witnesses for a `ParsedSigningRequest`, so apps no longer need to import `src/utils/serialization_utils.dart` for it. The function moved to `src/utils/witness_paths.dart`; its behaviour is unchanged

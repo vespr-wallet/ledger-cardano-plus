@@ -70,7 +70,4 @@ flutter {
     source '../..'
 }
 
-// Redirect build directory to where Flutter Dart tooling expects the APK
-project.layout.buildDirectory.set(file("../../build/app"))
-
 dependencies {}

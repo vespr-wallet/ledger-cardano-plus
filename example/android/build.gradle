@@ -5,6 +5,13 @@ allprojects {
     }
 }
 
+// Build into ../../build, where the Flutter tool expects the APK. Set here, before the app
+// project is configured, so AGP resolves its default ProGuard files in the same directory.
+def newBuildDir = rootProject.layout.buildDirectory.dir("../../build").get()
+rootProject.layout.buildDirectory.value(newBuildDir)
+subprojects {
+    project.layout.buildDirectory.value(newBuildDir.dir(project.name))
+}
 subprojects {
     project.evaluationDependsOn(':app')
 }

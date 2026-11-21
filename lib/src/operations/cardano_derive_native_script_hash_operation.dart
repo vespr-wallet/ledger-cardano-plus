@@ -32,15 +32,17 @@ class CardanoDeriveNativeScriptHashOperation extends LedgerComplexOperation<Stri
   }
 
   Future<String> _invokeV8(LedgerSendFct send) async {
-    await send(LedgerSimpleOperation(
-      cla: claCardano,
-      ins: InstructionType.deriveNativeScriptHash.insValue,
-      p1: p1Unused,
-      p2: p2Unused,
-      data: Uint8List(0),
-      prependDataLength: true,
-      debugName: "Derive Native Script Hash — Init",
-    ));
+    await send(
+      LedgerSimpleOperation(
+        cla: claCardano,
+        ins: InstructionType.deriveNativeScriptHash.insValue,
+        p1: p1Unused,
+        p2: p2Unused,
+        data: Uint8List(0),
+        prependDataLength: true,
+        debugName: "Derive Native Script Hash — Init",
+      ),
+    );
     await _deriveNativeScriptHashAddScript(send, script);
     return _deriveNativeScriptHashFinishWholeNativeScript(send, displayFormat);
   }

@@ -208,31 +208,31 @@ class SwapException extends LedgerCardanoResponseCodeException {
 class InvalidTxException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
   InvalidTxException({required this.ledgerStatusCode, required String detail})
-      : super(message: "Invalid transaction: $detail");
+    : super(message: "Invalid transaction: $detail");
 }
 
 class InvalidNativeScriptException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
   InvalidNativeScriptException({required this.ledgerStatusCode, required String detail})
-      : super(message: "Invalid native script: $detail");
+    : super(message: "Invalid native script: $detail");
 }
 
 class InvalidCVoteException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
   InvalidCVoteException({required this.ledgerStatusCode, required String detail})
-      : super(message: "Invalid CVote data: $detail");
+    : super(message: "Invalid CVote data: $detail");
 }
 
 class InvalidMessageSigningException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
   InvalidMessageSigningException({required this.ledgerStatusCode, required String detail})
-      : super(message: "Invalid message signing data: $detail");
+    : super(message: "Invalid message signing data: $detail");
 }
 
 class InvalidOpCertException extends LedgerCardanoResponseCodeException {
   final int ledgerStatusCode;
   InvalidOpCertException({required this.ledgerStatusCode, required String detail})
-      : super(message: "Invalid operational certificate: $detail");
+    : super(message: "Invalid operational certificate: $detail");
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

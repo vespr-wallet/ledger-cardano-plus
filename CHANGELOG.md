@@ -2,6 +2,7 @@
 
 - Example app: Kotlin 2.4.21 (was 2.4.20), the version the VESPR app uses. Library dependencies are unchanged, so consumers see no change
 - Example app: fixed `flutter build apk --release`, which failed in R8 with "Supplied proguard configuration does not exist". The build directory is now redirected in the root `build.gradle`, as in Flutter's app template, instead of at the end of `app/build.gradle`, where AGP had already resolved its default ProGuard files against the old directory
+- Toolchain: Flutter 3.50.1 (Dart 3.14.0) for development and the example app (`.tool-versions`); the minimum SDK constraints are unchanged
 
 ## 0.6.4
 

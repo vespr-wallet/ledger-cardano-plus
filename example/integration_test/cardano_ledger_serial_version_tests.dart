@@ -4,8 +4,6 @@ import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 
 import 'test_utils.dart';
 
-
-
 Future<String> _fetchSerial(CardanoLedgerConnection cardanoApp) async {
   try {
     final serial = await cardanoApp.getSerialNumber();

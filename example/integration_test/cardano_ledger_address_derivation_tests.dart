@@ -8,8 +8,6 @@ import 'byron_address_test_cases.dart';
 import 'shelley_address_test_cases.dart';
 import 'test_utils.dart';
 
-
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 

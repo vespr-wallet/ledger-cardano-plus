@@ -140,8 +140,7 @@ class SerializationV7 {
     });
   }
 
-  static Uint8List serializeV7DelegationType(CIP36VoteDelegationType type) =>
-      Uint8List.fromList([type.encodingValue]);
+  static Uint8List serializeV7DelegationType(CIP36VoteDelegationType type) => Uint8List.fromList([type.encodingValue]);
 
   static Uint8List serializeV7CVoteRegistrationVoteKey(
     CVotePublicKey? votePublicKey,
@@ -247,7 +246,11 @@ class SerializationV7 {
       return SerializationUtils.serializeTxOutputDestination(paymentDestination, version, network);
     } else {
       final Uint8List Function() invoker = switch (paymentDestination) {
-        DeviceOwned() => () => SerializationUtils.serializeAddressParams(paymentDestination.addressParams, version, network),
+        DeviceOwned() => () => SerializationUtils.serializeAddressParams(
+          paymentDestination.addressParams,
+          version,
+          network,
+        ),
         _ => () => throw LedgerCardanoValidationException("serializeCVoteRegPayDest: Invalid payment destination"),
       };
       return invoker();
@@ -724,26 +727,26 @@ class SerializationV7 {
     required CardanoNetwork network,
   }) {
     return useBinaryWriter((ByteDataWriter writer) {
-        // Message length
-        final msgBytes = hex.decode(msgData.messageHex);
-        final msgLengthBuffer = SerializationUtils.serializeUint32(msgBytes.length);
-        final hashPayloadUint8 = msgData.hashPayload ? 1 : 0;
-        final isAsciiUint8 = msgData.isAscii ? 1 : 0;
-        final serializedDataFieldTypeUint8 = msgData.serializedDataFieldType;
+      // Message length
+      final msgBytes = hex.decode(msgData.messageHex);
+      final msgLengthBuffer = SerializationUtils.serializeUint32(msgBytes.length);
+      final hashPayloadUint8 = msgData.hashPayload ? 1 : 0;
+      final isAsciiUint8 = msgData.isAscii ? 1 : 0;
+      final serializedDataFieldTypeUint8 = msgData.serializedDataFieldType;
 
-        final addressBuffer = switch (msgData) {
-          ParsedMessageDataAddress() => SerializationUtils.serializeAddressParams(msgData.address, version, network),
-          ParsedMessageDataKeyHash() => Uint8List(0),
-        };
+      final addressBuffer = switch (msgData) {
+        ParsedMessageDataAddress() => SerializationUtils.serializeAddressParams(msgData.address, version, network),
+        ParsedMessageDataKeyHash() => Uint8List(0),
+      };
 
-        writer.write(msgLengthBuffer);
-        writer.write(SerializationUtils.serializePath(msgData.signingPath));
-        writer.writeUint8(hashPayloadUint8);
-        writer.writeUint8(isAsciiUint8);
-        writer.writeUint8(serializedDataFieldTypeUint8);
-        writer.write(addressBuffer);
+      writer.write(msgLengthBuffer);
+      writer.write(SerializationUtils.serializePath(msgData.signingPath));
+      writer.writeUint8(hashPayloadUint8);
+      writer.writeUint8(isAsciiUint8);
+      writer.writeUint8(serializedDataFieldTypeUint8);
+      writer.write(addressBuffer);
 
-        return writer.toBytes();
-      });
+      return writer.toBytes();
+    });
   }
 }

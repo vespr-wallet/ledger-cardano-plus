@@ -5,8 +5,6 @@ import 'package:ledger_cardano_plus/ledger_cardano_plus.dart';
 import 'get_extended_public_key_test_cases.dart';
 import 'test_utils.dart';
 
-
-
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 

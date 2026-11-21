@@ -93,30 +93,38 @@ class CardanoSignCVoteOperation extends LedgerComplexOperation<SignedCIP36VoteDa
     var end = votecastBytes.length < maxV8VotecastChunkSize ? votecastBytes.length : maxV8VotecastChunkSize;
 
     // INIT — P1=0x50: total_length(4 BE) ‖ first chunk of votecast data
-    await send(_createSendOperation(
-      p1: p1V8CVoteInit,
-      data: Uint8List.fromList([
-        ...SerializationUtils.serializeUint32(votecastBytes.length),
-        ...votecastBytes.sublist(start, end),
-      ]),
-    ));
+    await send(
+      _createSendOperation(
+        p1: p1V8CVoteInit,
+        data: Uint8List.fromList([
+          ...SerializationUtils.serializeUint32(votecastBytes.length),
+          ...votecastBytes.sublist(start, end),
+        ]),
+      ),
+    );
     start = end;
 
     // CHUNK — P1=0x51: remaining votecast data, 250 bytes at a time
     while (start < votecastBytes.length) {
-      end = votecastBytes.length < start + maxV8VotecastChunkSize ? votecastBytes.length : start + maxV8VotecastChunkSize;
-      await send(_createSendOperation(
-        p1: p1V8CVoteChunk,
-        data: Uint8List.fromList(votecastBytes.sublist(start, end)),
-      ));
+      end = votecastBytes.length < start + maxV8VotecastChunkSize
+          ? votecastBytes.length
+          : start + maxV8VotecastChunkSize;
+      await send(
+        _createSendOperation(
+          p1: p1V8CVoteChunk,
+          data: Uint8List.fromList(votecastBytes.sublist(start, end)),
+        ),
+      );
       start = end;
     }
 
     // CONFIRM — P1=0x52: witness path in payload; response is hash(32) ‖ sig(64)
-    final confirmResponse = await send(_createSendOperation(
-      p1: p1V8CVoteConfirm,
-      data: SerializationUtils.pathToBuf(cVote.witnessPath.signingPath),
-    ));
+    final confirmResponse = await send(
+      _createSendOperation(
+        p1: p1V8CVoteConfirm,
+        data: SerializationUtils.pathToBuf(cVote.witnessPath.signingPath),
+      ),
+    );
 
     return SignedCIP36VoteData(
       dataHashHex: hex.encode(confirmResponse.read(votecastHashLength)),

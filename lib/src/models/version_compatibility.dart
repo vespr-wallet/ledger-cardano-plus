@@ -166,13 +166,17 @@ sealed class VersionCompatibility with _$VersionCompatibility {
       );
     }
 
-    final hasCombinedCerts = request.tx.certificates?.any((c) => switch (c) {
-      StakePoolAndDRepDelegation() ||
-      AccountRegistrationDelegationToStakePool() ||
-      AccountRegistrationDelegationToDRep() ||
-      AccountRegistrationDelegationToStakePoolAndDRep() => true,
-      _ => false,
-    }) ?? false;
+    final hasCombinedCerts =
+        request.tx.certificates?.any(
+          (c) => switch (c) {
+            StakePoolAndDRepDelegation() ||
+            AccountRegistrationDelegationToStakePool() ||
+            AccountRegistrationDelegationToDRep() ||
+            AccountRegistrationDelegationToStakePoolAndDRep() => true,
+            _ => false,
+          },
+        ) ??
+        false;
     if (hasCombinedCerts && !compatibility.supportsCombinedCerts) {
       throw LedgerCardanoVersionNotSupported(
         message: "Combined delegation certificates",

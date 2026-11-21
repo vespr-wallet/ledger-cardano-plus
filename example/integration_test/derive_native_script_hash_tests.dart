@@ -37,7 +37,6 @@ void main() {
             );
           }
         }, timeout: testTimeout);
-
       }
     });
 
@@ -56,7 +55,6 @@ void main() {
             );
           }
         }, timeout: testTimeout);
-
       }
     });
 

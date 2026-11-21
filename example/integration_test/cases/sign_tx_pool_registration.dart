@@ -82,7 +82,8 @@ ParsedPoolParams _poolParams({
   required List<ParsedPoolRelay> relays,
   required ParsedPoolMetadata? metadata,
 }) => ParsedPoolParams(
-  poolKey: poolKey ??
+  poolKey:
+      poolKey ??
       ParsedPoolKey.thirdParty(
         hashHex: '13381d918ec0283ceeff60f7f4fc21e1540e053ccf8a77307a7a32ad',
       ),
@@ -93,7 +94,8 @@ ParsedPoolParams _poolParams({
     numerator: BigInt.from(3),
     denominator: BigInt.from(100),
   ),
-  rewardAccount: rewardAccount ??
+  rewardAccount:
+      rewardAccount ??
       ParsedPoolRewardAccount.thirdParty(
         rewardAccountHex: 'e1794d9b3408c9fb67b950a48a0690f070f117e9978f7fc1d120fc58ad',
       ),

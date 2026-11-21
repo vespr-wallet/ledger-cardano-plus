@@ -8,17 +8,17 @@ const int maxVotecastChunkSize = 240;
 const int maxV8VotecastChunkSize = 250;
 const int votecastHashLength = 32;
 
-const int p1V8CVoteInit    = 0x50;
-const int p1V8CVoteChunk   = 0x51;
+const int p1V8CVoteInit = 0x50;
+const int p1V8CVoteChunk = 0x51;
 const int p1V8CVoteConfirm = 0x52;
 
-const int p1V8SignTxInit        = 0x10;
-const int p1V8SignTxChunk       = 0x11;
-const int p1V8SignTxConfirm     = 0x12;
-const int p1V8SignTxAuxData     = 0x13;
-const int p2V8AuxDataInit       = 0x36;
+const int p1V8SignTxInit = 0x10;
+const int p1V8SignTxChunk = 0x11;
+const int p1V8SignTxConfirm = 0x12;
+const int p1V8SignTxAuxData = 0x13;
+const int p2V8AuxDataInit = 0x36;
 const int p2V8AuxDataDelegation = 0x37;
-const int maxV8TxChunkSize      = 250;
+const int maxV8TxChunkSize = 250;
 
 const int signTxIncludedNo = 1;
 const int signTxIncludedYes = 2;

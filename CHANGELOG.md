@@ -4,6 +4,7 @@
 - Example app: fixed `flutter build apk --release`, which failed in R8 with "Supplied proguard configuration does not exist". The build directory is now redirected in the root `build.gradle`, as in Flutter's app template, instead of at the end of `app/build.gradle`, where AGP had already resolved its default ProGuard files against the old directory
 - Toolchain: Flutter 3.50.1 (Dart 3.14.0) for development and the example app (`.tool-versions`); the minimum SDK constraints are unchanged
 - CI: the PR workflow fails on unformatted Dart code (`dart format --set-exit-if-changed`); formatted the 16 files that failed. No behaviour changes
+- Example app: `material_ui` 1.11.1 / `cupertino_ui` 1.1.7 (were 1.11.0 / 1.1.6) in the example lockfile. Library dependencies are unchanged
 
 ## 0.6.4
 

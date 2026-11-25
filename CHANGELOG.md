@@ -5,6 +5,7 @@
 - Toolchain: Flutter 3.50.1 (Dart 3.14.0) for development and the example app (`.tool-versions`); the minimum SDK constraints are unchanged
 - CI: the PR workflow fails on unformatted Dart code (`dart format --set-exit-if-changed`); formatted the 16 files that failed. No behaviour changes
 - Example app: `material_ui` 1.11.1 / `cupertino_ui` 1.1.7 (were 1.11.0 / 1.1.6) in the example lockfile. Library dependencies are unchanged
+- Example app: `universal_ble` 3.4.0 (was 3.3.0) and `dbus` 0.8.1 (was 0.8.0) in the example lockfile, both transitive through `ledger_flutter_plus`. universal_ble 3.4.0 fixes Android writes that lagged and timed out after the stack refused one, Apple writes completing a replaced peripheral's request, and stale callbacks from a replaced Android GATT client. Library dependencies are unchanged
 
 ## 0.6.4
 
